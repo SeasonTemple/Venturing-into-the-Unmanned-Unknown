@@ -3,7 +3,11 @@ name: Validate Skills
 on:
   push:
     branches: [main, master]
+    tags: ['v*']
   pull_request:
+
+permissions:
+  contents: read
 
 jobs:
   validate:
@@ -15,13 +19,20 @@ jobs:
       - name: Check required root files
         run: |
           set -euo pipefail
-          test -f README.md
-          test -f LICENSE
-          test -f SKILL.md
-          test -f CONTRIBUTING.md
-          test -d skills
-          test -d templates
-          test -d checklists
+          missing=0
+          for f in README.md LICENSE SKILL.md CONTRIBUTING.md book.config.json CITATION.cff THIRD_PARTY_NOTICES.md template/SKILL.md; do
+            if [ ! -f "$f" ]; then
+              echo "::error::Missing required file: $f"
+              missing=1
+            fi
+          done
+          for d in skills templates checklists; do
+            if [ ! -d "$d" ]; then
+              echo "::error::Missing required directory: $d"
+              missing=1
+            fi
+          done
+          exit $missing
 
       - name: Check every skill has SKILL.md
         run: |
@@ -64,13 +75,135 @@ jobs:
           for dir in skills/*; do
             [ -d "$dir" ] || continue
             base=$(basename "$dir")
-            name_line=$(grep -m1 '^name:' "$dir/SKILL.md" | sed 's/^name:[[:space:]]*//')
+            name_line=$(grep -m1 '^name:' "$dir/SKILL.md" | sed 's/^name:[[:space:]]*//' | tr -d '\r')
             if [ "$name_line" != "$base" ]; then
               echo "Name mismatch in $dir: name='$name_line' expected='$base'"
               fail=1
             fi
           done
           exit $fail
+
+      - name: Check description is not empty
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import glob, re, sys
+
+          def description_of(path):
+              text = open(path, encoding="utf-8").read().replace("\r\n", "\n")
+              lines = text.split("\n")
+              if not lines or lines[0].strip() != "---":
+                  return None
+              end = next((i for i in range(1, len(lines)) if lines[i].strip() == "---"), None)
+              if end is None:
+                  return None
+              fm = lines[1:end]
+              for i, line in enumerate(fm):
+                  m = re.match(r"description:[ \t]*(.*)$", line)
+                  if not m:
+                      continue
+                  inline = m.group(1).strip()
+                  if re.fullmatch(r"[>|][+-]?[0-9]*", inline) or inline == "":
+                      block = []
+                      for nxt in fm[i + 1:]:
+                          if nxt.strip() == "" or nxt[0] in " \t":
+                              block.append(nxt.strip())
+                          else:
+                              break
+                      return " ".join(b for b in block if b)
+                  return inline.strip("\"'").strip()
+              return None
+
+          fail = False
+          for path in sorted(glob.glob("skills/*/SKILL.md")) + ["SKILL.md"]:
+              desc = description_of(path)
+              if desc is None or not desc.strip():
+                  print(f"::error file={path}::description is missing, empty or whitespace-only")
+                  fail = True
+              else:
+                  print(f"ok  {path}: {len(desc)} chars")
+          sys.exit(1 if fail else 0)
+          PY
+
+      - name: Check book.config.json matches skills/
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os, sys
+
+          with open("book.config.json", encoding="utf-8") as fh:
+              cfg = json.load(fh)
+
+          chapters = cfg.get("chapters")
+          if not isinstance(chapters, list) or not chapters:
+              print("::error file=book.config.json::chapters must be a non-empty list")
+              sys.exit(1)
+
+          fail = False
+          config_skills = []
+          for idx, ch in enumerate(chapters):
+              skill = ch.get("skill") if isinstance(ch, dict) else None
+              if not skill:
+                  print(f"::error file=book.config.json::chapters[{idx}] has no skill")
+                  fail = True
+                  continue
+              config_skills.append(skill)
+
+          dupes = sorted({s for s in config_skills if config_skills.count(s) > 1})
+          for s in dupes:
+              print(f"::error file=book.config.json::skill listed more than once: {s}")
+              fail = True
+
+          disk_skills = sorted(
+              d for d in os.listdir("skills") if os.path.isdir(os.path.join("skills", d))
+          )
+
+          for s in sorted(set(config_skills) - set(disk_skills)):
+              print(f"::error file=book.config.json::skill in config but not in skills/: {s}")
+              fail = True
+          for s in sorted(set(disk_skills) - set(config_skills)):
+              print(f"::error file=book.config.json::skills/{s} exists but is not listed in book.config.json")
+              fail = True
+
+          print(f"config skills: {len(set(config_skills))}, skills/ dirs: {len(disk_skills)}")
+          sys.exit(1 if fail else 0)
+          PY
+
+      - name: Check version consistency (book.config.json vs README.md)
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, re, sys
+
+          with open("book.config.json", encoding="utf-8") as fh:
+              cfg_version = str(json.load(fh).get("version", "")).strip()
+          if not cfg_version:
+              print("::error file=book.config.json::version is missing or empty")
+              sys.exit(1)
+
+          readme = open("README.md", encoding="utf-8").read()
+          found = re.findall(r"版本[：:]\s*\*\*(v?[0-9][^*\s]*)\*\*", readme)
+          if not found:
+              print("::error file=README.md::no version marker like '版本：**v0.0.1**' found")
+              sys.exit(1)
+
+          bad = sorted({v for v in found if v != cfg_version})
+          print(f"book.config.json version: {cfg_version}")
+          print(f"README.md versions: {found}")
+          if bad:
+              print(f"::error file=README.md::README version {bad} != book.config.json version {cfg_version}")
+              sys.exit(1)
+          PY
+
+      - name: Check tag matches book.config.json version (warning only)
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          cfg_version=$(python3 -c "import json; print(json.load(open('book.config.json', encoding='utf-8'))['version'])")
+          if [ "${GITHUB_REF_NAME}" != "$cfg_version" ]; then
+            echo "::warning::Tag ${GITHUB_REF_NAME} != book.config.json version $cfg_version (non-blocking: main may be ahead of the tag)"
+          else
+            echo "Tag ${GITHUB_REF_NAME} matches book.config.json version"
+          fi
 
       - name: List skills
         run: |

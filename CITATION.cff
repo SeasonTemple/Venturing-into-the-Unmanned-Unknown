@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this book or its skills, please cite it using the metadata from this file."
+title: "Venturing into the Unmanned Unknown: An AI-Native Software Engineering Guidebook"
+abstract: "A Chinese-language guidebook on AI-native software engineering, organized as 10 installable Agent Skills (SKILL.md) across the software development lifecycle."
+authors:
+  - name: "SeasonTemple"
+version: 0.0.1
+date-released: 2026-10-19
+license: BUSL-1.1
+repository-code: "https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown"
+keywords:
+  - AI-native software engineering
+  - SDLC
+  - Agent Skills
+  - AI agents

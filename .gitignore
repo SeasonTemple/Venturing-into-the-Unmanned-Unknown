@@ -1,0 +1,8 @@
+# 构建产物
+dist/
+book/
+.build/
+.scratch/
+
+# 依赖
+node_modules/

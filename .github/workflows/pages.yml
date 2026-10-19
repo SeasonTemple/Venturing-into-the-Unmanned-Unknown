@@ -1,0 +1,96 @@
+# 把 10 章 SKILL.md 构建成 mdbook 站点并部署到 GitHub Pages。
+#
+# 站点地址: https://seasontemple.github.io/Venturing-into-the-Unmanned-Unknown/
+#
+# 【人工前置动作 · 仓库 owner 必须完成】
+#   GitHub Pages 目前未启用。需要 owner 在仓库 Settings → Pages 里，
+#   把 Build and deployment 的 Source 选为 "GitHub Actions"。
+#   未做此步时 deploy job 会失败（configure-pages 报 Pages 未启用）。这不是 workflow 能代劳的。
+#   启用后，首次部署请手动触发一次（Actions → Pages → Run workflow），
+#   因为只有改动 skills/**、book.config.json、scripts/build_book.mjs 或本文件的 push 才会自动触发。
+#
+# 章节顺序唯一真源是 book.config.json；本 workflow 不含章节列表。
+name: Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "skills/**"
+      - "book.config.json"
+      - "scripts/build_book.mjs"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+# 仓库默认权限为 read，下面三项必须显式声明，漏写会导致部署失败。
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同一时间只保留一次部署；不取消进行中的部署，避免半途中断。
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  # 固定版本，升级时需同时核对 book.toml 配置项是否兼容。
+  MDBOOK_VERSION: "0.5.4"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install mdBook
+        run: |
+          mkdir -p "$RUNNER_TEMP/mdbook"
+          curl -sSfL "https://github.com/rust-lang/mdBook/releases/download/v${MDBOOK_VERSION}/mdbook-v${MDBOOK_VERSION}-x86_64-unknown-linux-gnu.tar.gz" \
+            | tar -xz --directory="$RUNNER_TEMP/mdbook"
+          echo "$RUNNER_TEMP/mdbook" >> "$GITHUB_PATH"
+
+      - name: Generate mdBook src from SKILL.md
+        run: node scripts/build_book.mjs --mode=site --out=.build/mdbook/src
+
+      - name: Write book.toml
+        run: |
+          node - <<'EOF'
+          const fs = require('node:fs');
+          const cfg = JSON.parse(fs.readFileSync('book.config.json', 'utf8'));
+          const repo = process.env.GITHUB_REPOSITORY.split('/')[1];
+          fs.writeFileSync('.build/mdbook/book.toml', [
+            '[book]',
+            'title = ' + JSON.stringify(cfg.title_zh),
+            'language = "zh-CN"',
+            'src = "src"',
+            '',
+            '[output.html]',
+            'site-url = ' + JSON.stringify('/' + repo + '/'),
+            'no-section-label = true',
+            '',
+          ].join('\n'));
+          EOF
+
+      - name: Build site
+        run: mdbook build .build/mdbook
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .build/mdbook/book
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

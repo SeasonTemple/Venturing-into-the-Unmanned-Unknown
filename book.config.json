@@ -1,0 +1,68 @@
+{
+  "title": "Venturing into the Unmanned Unknown: An AI-Native Software Engineering Guidebook",
+  "title_zh": "迈向无人区：AI 原生软件工程指南",
+  "slug": "Venturing-into-the-Unmanned-Unknown",
+  "version": "v0.0.1",
+  "chapters": [
+    {
+      "order": "0",
+      "label": "第 0 章",
+      "title": "导论",
+      "skill": "ai-native-sdlc-introduction"
+    },
+    {
+      "order": "1",
+      "label": "第 1 章",
+      "title": "意图与需求",
+      "skill": "ai-native-sdlc-intent-requirements"
+    },
+    {
+      "order": "2",
+      "label": "第 2 章",
+      "title": "设计与架构",
+      "skill": "ai-native-sdlc-design-architecture"
+    },
+    {
+      "order": "3",
+      "label": "第 3 章",
+      "title": "验证",
+      "skill": "ai-native-sdlc-verification"
+    },
+    {
+      "order": "4",
+      "label": "第 4 章",
+      "title": "实现",
+      "skill": "ai-native-sdlc-implementation"
+    },
+    {
+      "order": "5",
+      "label": "第 5 章",
+      "title": "测试与质量保障",
+      "skill": "ai-native-sdlc-testing-quality"
+    },
+    {
+      "order": "6",
+      "label": "第 6 章",
+      "title": "集成与交付",
+      "skill": "ai-native-sdlc-integration-delivery"
+    },
+    {
+      "order": "7",
+      "label": "第 7 章",
+      "title": "持续演进",
+      "skill": "ai-native-sdlc-continuous-evolution"
+    },
+    {
+      "order": "8",
+      "label": "第 8 章",
+      "title": "工具与技能生态",
+      "skill": "ai-native-sdlc-tools-skills-ecosystem"
+    },
+    {
+      "order": "A",
+      "label": "附录",
+      "title": "清单 / 术语 / 反模式",
+      "skill": "ai-native-sdlc-appendix"
+    }
+  ]
+}

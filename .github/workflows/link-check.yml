@@ -1,0 +1,58 @@
+name: Link Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  # 仓库内相对链接：--offline 只检查本地文件，失效即失败（真 bug，不容错）。
+  internal-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check internal links (strict)
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --offline
+            --no-progress
+            --exclude-path '(^|/)(\.scratch|dist|book)/'
+            --root-dir ${{ github.workspace }}
+            '**/*.md'
+          fail: true
+
+  # seasontemple.github.io 站点：GitHub Pages 尚未启用，README 已先放了链接（见 docs/release-process.md 第 6 步）。
+  # 启用 Pages 后必须删掉对应的 --exclude 行。
+  # 外部链接：重试 + 排除已知易变域名 + 接受限流 429；仍然失败的才算失败。
+  external-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check external links (tolerant)
+        uses: lycheeverse/lychee-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: >-
+            --scheme http
+            --scheme https
+            --no-progress
+            --max-retries 3
+            --retry-wait-time 5
+            --timeout 20
+            --exclude-path '(^|/)(\.scratch|dist|book)/'
+            --accept '200..=299,429'
+            --exclude '^https?://(www\.)?(x|twitter|linkedin|facebook)\.com'
+            --exclude '^https?://(localhost|127\.0\.0\.1)'
+            --exclude '^https?://([a-z0-9-]+\.)?example\.(com|org|net)'
+            --exclude '^https://seasontemple\.github\.io/Venturing-into-the-Unmanned-Unknown/'
+            '**/*.md'
+          fail: true

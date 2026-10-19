@@ -1,0 +1,156 @@
+name: Release
+
+# 推 v* tag 即自动产出带制品的 GitHub Release；也可手动 workflow_dispatch（dry_run / draft）。
+# 章节清单只读 book.config.json，由 scripts/build_release_artifacts.sh 消费，本文件不出现任何章节名。
+#
+# ⚠ on push tags 触发时 inputs 是空对象：inputs.tag / inputs.dry_run / inputs.draft 全为 null。
+#   各表达式在 push 下的求值：
+#   RELEASE_TAG = event_name == 'workflow_dispatch' && inputs.tag || github.ref_name
+#                 -> false || ref_name -> "v1.2.3"（tag 名，不是分支名）
+#   DRY_RUN     = event_name == 'workflow_dispatch' && inputs.dry_run == true  -> false -> "false" -> 照常发布
+#   MAKE_DRAFT  = event_name == 'workflow_dispatch' && inputs.draft == true    -> false -> "false" -> 不是草稿
+#   release job 的 if: event_name != 'workflow_dispatch' || inputs.dry_run != true -> true -> 发布
+#   只有 dispatch 且明确勾选 true 才是 dry run / draft；null、空串、false 一律不是。
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: '要发布的 tag（发布时必须是已存在于远端的 v* tag；dry_run 时可填 main 等不含 / 的任意 ref）'
+        required: true
+        type: string
+      dry_run:
+        description: 'verify 与 build 全部照跑，只跳过发布'
+        required: false
+        default: false
+        type: boolean
+      draft:
+        description: '建为草稿 release（资产照传，不公开）'
+        required: false
+        default: false
+        type: boolean
+
+# 本仓库 Actions 默认权限是 read，这里显式声明；写权限只给 release job。
+permissions:
+  contents: read
+
+# concurrency.group 不能引用 env 上下文，所以表达式直接展开。
+concurrency:
+  group: release-${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+  cancel-in-progress: false
+
+env:
+  RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+  DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run == true }}
+  MAKE_DRAFT: ${{ github.event_name == 'workflow_dispatch' && inputs.draft == true }}
+
+jobs:
+  verify:
+    name: Verify
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.RELEASE_TAG }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Verify skills structure, frontmatter and release notes
+        run: bash scripts/build_release_artifacts.sh verify "$RELEASE_TAG"
+
+  build:
+    name: Build artifacts
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.RELEASE_TAG }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build dist/ (source tarball, skills zip, BOOK.md)
+        run: bash scripts/build_release_artifacts.sh build "$RELEASE_TAG"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-artifacts
+          path: dist/
+          if-no-files-found: error
+          retention-days: 7
+      - name: Dry run report
+        if: ${{ env.DRY_RUN == 'true' }}
+        run: |
+          echo "=================================================="
+          echo "DRY RUN 没有创建 release、没有上传资产"
+          echo "（dist/ 以 workflow artifact 形式保留 7 天仅供检查，不是 release 资产）"
+          echo "tag = $RELEASE_TAG"
+          echo "制品清单："
+          for f in dist/*; do
+            printf '  %-60s %12d bytes\n' "$(basename "$f")" "$(wc -c < "$f")"
+          done
+          echo "=================================================="
+
+  release:
+    name: Publish release
+    needs: [verify, build]
+    # push 触发时 inputs 为空 -> 第一项为 true -> 发布；dispatch 只有 dry_run 明确为 true 才跳过。
+    if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry_run != true }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.RELEASE_TAG }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-artifacts
+          path: dist
+      - name: gh release create
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          TAG="$RELEASE_TAG"
+          [[ "$TAG" == v* ]] || { echo "发布只接受 v* tag，收到 '$TAG'" >&2; exit 1; }
+          echo "tag=$TAG event=$GITHUB_EVENT_NAME draft=[$MAKE_DRAFT]"
+
+          # 幂等：同一 tag 的 release 已存在则跳过。只有明确的 "release not found" 才继续，
+          # 鉴权/网络等其它错误一律失败，避免把故障当成「不存在」。
+          if out="$(gh release view "$TAG" 2>&1)"; then
+            echo "::notice title=Release 已存在::$TAG 的 release 已存在，跳过创建（幂等）。"
+            exit 0
+          elif ! grep -qi 'release not found' <<<"$out"; then
+            echo "gh release view 失败（不是 not found）：$out" >&2
+            exit 1
+          fi
+
+          shopt -s nullglob
+          assets=(dist/*)
+          [ "${#assets[@]}" -eq 3 ] || { echo "dist/ 应恰好有 3 个制品，实际 ${#assets[@]} 个：${assets[*]}" >&2; exit 1; }
+
+          args=(release create "$TAG" --title "$TAG" --verify-tag)
+          if [ "$MAKE_DRAFT" = "true" ]; then
+            args+=(--draft)
+            echo "本次建为草稿 release。"
+          fi
+
+          # 有策展说明就覆盖；没有则完全不传 --notes/--notes-file（传空串会得到空白正文），
+          # 改用 --generate-notes 让 GitHub 自动生成（gh 非交互模式下不带它正文是空的）。
+          notes="docs/release-notes/$TAG.md"
+          if [ -f "$notes" ]; then
+            args+=(--notes-file "$notes")
+          else
+            echo "没有 $notes，使用 GitHub 自动生成的 release notes。"
+            args+=(--generate-notes)
+          fi
+
+          gh "${args[@]}" "${assets[@]}"
+          echo "已创建 release $TAG，资产 ${#assets[@]} 个。"
