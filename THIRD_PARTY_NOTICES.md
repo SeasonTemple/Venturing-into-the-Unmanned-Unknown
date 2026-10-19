@@ -16,6 +16,17 @@
 | tla-check（位于 younes-io/agent-skills） | https://github.com/younes-io/agent-skills | `npx skills add younes-io/agent-skills --skill tla-check` | TLA+ 规约检查技能，用于第 3 章“验证”中可选的形式化手段 | 未核实，使用前请自行确认 |
 
 > 「用途」一栏为本项目依据技能名称及其在本书中的引用位置所作的说明，未逐一核对上游仓库的当前内容；来源仓库 URL 由 `npx skills add` 的参数推得，**未验证**其当前是否存在或可访问。
+## 自托管字体（站点分发）
+
+在线站点自托管下列字体的 **Latin 子集**（woff2），因此这些字体文件**随站点产物一同分发**，不属于上面「不打包、不再分发」的范围。三者均以 SIL Open Font License 1.1 授权，许可全文随字体文件存放于 `site/src/assets/fonts/`。
+
+| 名称 | 用途 | 上游 | 许可 |
+|------|------|------|------|
+| Inter | 正文与 UI（含 cv02/cv03/cv04/cv11 等 OpenType 特性） | https://github.com/rsms/inter | SIL OFL 1.1（`LICENSE-Inter.txt`） |
+| JetBrains Mono | 代码块 | https://github.com/JetBrains/JetBrainsMono | SIL OFL 1.1（`LICENSE-JetBrainsMono.txt`） |
+| Instrument Serif | 标题与首屏显示字体 | https://github.com/Instrument/instrument-serif | SIL OFL 1.1（`LICENSE-InstrumentSerif.txt`） |
+
+中文字形**不自托管**，回退到系统字体（PingFang SC / Microsoft YaHei / Noto Sans CJK SC），不随本项目分发。
 
 ## 变更
 
