@@ -6,3 +6,11 @@ book/
 
 # 依赖
 node_modules/
+
+# Starlight 站点（site/）
+site/node_modules/
+site/dist/
+.astro/
+# 由 site/scripts/sync.mjs 从 skills/*/SKILL.md 生成，不入库
+site/src/content/docs/
+site/src/generated/

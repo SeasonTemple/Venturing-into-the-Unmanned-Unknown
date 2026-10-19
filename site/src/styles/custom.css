@@ -1,0 +1,285 @@
+/* ---------- 字体 ----------
+   三字体栈；中文一律走系统字体（不自托管中文字体）。自托管的三款只含 Latin 子集，
+   unicode-range 刻意不含 U+2000-206F（中文弯引号、破折号、省略号），避免中文标点被换成西文窄字形。
+   来源与许可证见 src/assets/fonts/README.md。 */
+@font-face {
+  font-family: 'MT Inter';
+  src: url('../assets/fonts/inter-latin-wght.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0020-007E, U+00A0-00FF, U+0131, U+0152-0153, U+2022, U+2190-2194, U+20AC, U+2122, U+2212;
+}
+@font-face {
+  font-family: 'MT JetBrains Mono';
+  src: url('../assets/fonts/jetbrains-mono-latin-wght.woff2') format('woff2');
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0020-007E, U+00A0-00FF, U+0131, U+0152-0153, U+2022, U+2190-2194, U+20AC, U+2122, U+2212;
+}
+@font-face {
+  font-family: 'MT Display';
+  src: url('../assets/fonts/instrument-serif-latin-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  size-adjust: 112%; /* Instrument Serif 字面偏小偏窄，放大后与同行的中文系统字体视觉等高 */
+  unicode-range: U+0020-007E, U+00A0-00FF, U+0131, U+0152-0153, U+2022, U+20AC, U+2122;
+}
+
+:root {
+  --mt-cjk-sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC";
+  --sl-font: "MT Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", var(--mt-cjk-sans), "Helvetica Neue", Arial, sans-serif;
+  --sl-font-mono: "MT JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono",
+    "Source Code Pro", "PingFang SC", "Microsoft YaHei", "Noto Sans Mono CJK SC", monospace;
+  /* 显示字体：只有拉丁字母与数字落在 MT Display 上，中文回退到正文系统 UI 栈 */
+  --mt-font-display: "MT Display", var(--sl-font);
+  --sl-content-width: 50rem;
+}
+
+/* Inter 的 cv02 开口 4、cv03 开口 6、cv04 开口 9、cv11 单层 a。font-feature-settings 会被子元素继承，代码块单独还原。 */
+body {
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+code,
+kbd,
+samp,
+pre {
+  font-feature-settings: normal;
+}
+/* 表格、章节序号、侧栏、页码类：等宽数字 */
+.sl-markdown-content table,
+.mt-card-label,
+.sidebar-content a,
+starlight-toc a,
+.pagination-links,
+time {
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11', 'tnum';
+  font-variant-numeric: tabular-nums;
+}
+
+/* 标题用显示字体。MT Display 只有 400 一档：禁止合成粗体，中文回退字体仍用系统自带的真实粗体。 */
+h1,
+h2,
+.hero h1 {
+  font-family: var(--mt-font-display);
+  font-synthesis-weight: none;
+}
+/* 中文回退字体取 500：Latin 衬线只有一档细体，中文再用 600/700 会一粗一细；系统只有常规/粗两档时 500 落到常规 */
+h1,
+h2,
+.hero h1 {
+  font-weight: 500;
+}
+.sl-markdown-content h1,
+.sl-markdown-content h2 {
+  font-weight: 500;
+}
+
+/* ---------- 暗色（原 .coal） ---------- */
+:root,
+:root[data-theme='dark'] {
+  --sl-color-bg: #0f1318;
+  --sl-color-bg-nav: #151a21;
+  --sl-color-bg-sidebar: #151a21;
+  --sl-color-bg-inline-code: #232b36;
+  --sl-color-white: #e6edf3;
+  --sl-color-gray-1: #d8dde4;
+  --sl-color-gray-2: #c9d0d9;
+  --sl-color-gray-3: #8b95a3;
+  --sl-color-gray-4: #5d6877;
+  --sl-color-gray-5: #323b47;
+  --sl-color-gray-6: #1a2029;
+  --sl-color-black: #0f1318;
+  --sl-color-hairline: #232a33;
+  --sl-color-hairline-light: #323b47;
+  --sl-color-hairline-shade: #0b0e12;
+  --sl-color-accent-low: #1f2547;
+  --sl-color-accent: #6366f1;
+  --sl-color-accent-high: #a5b4fc;
+  --mt-code-color: #ffb4a8;
+  --mt-card-bg: #151a21;
+  --mt-card-border: #262d37;
+}
+
+/* ---------- 亮色（原 .light） ---------- */
+:root[data-theme='light'] {
+  --sl-color-bg: #ffffff;
+  --sl-color-bg-nav: #ffffff;
+  --sl-color-bg-sidebar: #f6f7f9;
+  --sl-color-bg-inline-code: #f6f8fa;
+  --sl-color-white: #1f2328;
+  --sl-color-gray-1: #2b3139;
+  --sl-color-gray-2: #3b434d;
+  --sl-color-gray-3: #6b7280;
+  --sl-color-gray-4: #8b95a3;
+  --sl-color-gray-5: #d0d5dd;
+  --sl-color-gray-6: #eef0f4;
+  --sl-color-gray-7: #f6f7f9;
+  --sl-color-black: #ffffff;
+  --sl-color-hairline: #e5e7eb;
+  --sl-color-hairline-light: #e1e4e8;
+  --sl-color-hairline-shade: #e5e7eb;
+  --sl-color-accent-low: #ebebff;
+  --sl-color-accent: #4338ca;
+  --sl-color-accent-high: #312e81;
+  --mt-code-color: #b42318;
+  --mt-card-bg: #ffffff;
+  --mt-card-border: #e1e4e8;
+}
+
+.sl-markdown-content :not(pre) > code {
+  color: var(--mt-code-color);
+}
+
+/* ---------- 首页 ---------- */
+.mt-pill {
+  display: inline-block;
+  margin-bottom: 0.9rem;
+  padding: 0.15rem 0.8rem;
+  border: 1px solid var(--sl-color-accent);
+  border-radius: 999px;
+  background: var(--sl-color-accent-low);
+  color: var(--sl-color-accent-high);
+  font-size: var(--sl-text-sm);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.mt-hero-en,
+.mt-hero-tag {
+  display: block;
+}
+.mt-hero-en {
+  margin-bottom: 0.4rem;
+  color: var(--sl-color-gray-3);
+  font-size: var(--sl-text-base);
+  font-style: italic;
+}
+.mt-hero-tag {
+  color: var(--sl-color-gray-2);
+  font-size: var(--sl-text-lg);
+}
+
+.mt-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.mt-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--mt-card-border);
+  border-radius: 0.6rem;
+  background: var(--mt-card-bg);
+  color: var(--sl-color-text);
+  text-decoration: none;
+  transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.mt-card:hover {
+  border-color: var(--sl-color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--sl-color-accent) 18%, transparent);
+}
+.mt-card-label {
+  color: var(--sl-color-text-accent);
+  font-size: var(--sl-text-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.mt-card-title {
+  color: var(--sl-color-white);
+  font-size: var(--sl-text-base);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* 首页 hero 无配图：取消右侧空栏，单栏铺满，标题不再被折成两行半字 */
+.hero {
+  grid-template-columns: 100% !important;
+  padding-block: clamp(1.5rem, 6vmin, 4rem) 0.5rem !important;
+}
+.hero .copy > * {
+  max-width: 46rem;
+}
+.hero h1 {
+  font-size: clamp(var(--sl-text-3xl), calc(0.5rem + 3vw), 2.75rem);
+  max-width: none;
+  text-wrap: balance;
+}
+.hero .tagline {
+  text-wrap: balance;
+}
+
+/* ---------- 表格 ----------
+   首列与表头不折行；其余列给最小宽度。列数多或内容长时整张表横向滚动，而不是把列挤成一字一行。 */
+.sl-markdown-content table {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.sl-markdown-content :is(th, td) {
+  min-width: 8em;
+}
+.sl-markdown-content :is(th, td):first-child {
+  min-width: 4.5em;
+  white-space: nowrap;
+}
+.sl-markdown-content th {
+  white-space: nowrap;
+}
+
+/* ---------- 语义块：公理 / 不变量 / 约束 / 反模式 ----------
+   用法见 site/SEMANTIC-BLOCKS.md。blockquote 以加粗关键词开头会被 remark 插件自动加 class；
+   也可以在 Markdown 里直接写 <div class="mt-block mt-axiom">。 */
+.mt-block {
+  --mt-block-color: var(--sl-color-accent);
+  margin: 1.25rem 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--mt-block-color) 35%, transparent);
+  border-inline-start: 4px solid var(--mt-block-color);
+  border-radius: 0.4rem;
+  background: color-mix(in srgb, var(--mt-block-color) 10%, transparent);
+  color: var(--sl-color-text);
+  quotes: none;
+}
+.sl-markdown-content .mt-block > :first-child {
+  margin-top: 0;
+}
+.sl-markdown-content .mt-block > :last-child {
+  margin-bottom: 0;
+}
+.mt-block > :first-child > strong:first-child {
+  color: var(--mt-block-color);
+}
+.mt-axiom {
+  --mt-block-color: #6c8cff;
+}
+.mt-invariant {
+  --mt-block-color: #2fb886;
+}
+.mt-constraint {
+  --mt-block-color: #e0a030;
+}
+.mt-antipattern {
+  --mt-block-color: #ee5d5d;
+  border-style: dashed;
+  border-inline-start-style: solid;
+}
+:root[data-theme='light'] .mt-axiom {
+  --mt-block-color: #3d5bd6;
+}
+:root[data-theme='light'] .mt-invariant {
+  --mt-block-color: #12805a;
+}
+:root[data-theme='light'] .mt-constraint {
+  --mt-block-color: #a56a00;
+}
+:root[data-theme='light'] .mt-antipattern {
+  --mt-block-color: #c0302f;
+}

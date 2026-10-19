@@ -1,0 +1,151 @@
+---
+// 覆盖 Starlight 的 PageTitle：标题行右侧放三个页面动作。
+//  - 复制本页 Markdown：构建期把本页 Markdown 以 JSON 字符串放进 <script is:inline type="text/markdown">，
+//    按钮只读这段文本写剪贴板，不暴露任何 .md 路由，也不发网络请求。
+//    内容 = SKILL.md 去 frontmatter 后的原文（首个 H1 由 description 还原，正文逐字节同源），无 frontmatter；CRLF 统一为 LF。
+//  - 编辑此页：frontmatter.editUrl（sync.mjs 按章写入 skills/<skill>/SKILL.md）。
+//  - 回到顶部。
+const { entry, editUrl } = Astro.locals.starlightRoute;
+const isChapter = entry.data.template !== 'splash' && !!entry.body;
+const raw = isChapter
+  ? ('# ' + entry.data.description + '\n\n' + entry.body.replace(/\r\n/g, '\n').replace(/^\s*\n/, ''))
+  : '';
+// JSON 转义 < ，避免正文里出现 </script> 或 <!-- 时截断 script 元素。
+const embedded = JSON.stringify(raw).replace(/</g, '\\u003c');
+---
+
+<div class="mt-title-row">
+  <h1 id="_top">{entry.data.title}</h1>
+  {
+    isChapter && (
+      <div class="mt-actions print:hidden" role="group" aria-label="页面操作">
+        <button type="button" class="mt-action" data-mt-copy>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+          <span class="mt-action-label" data-label-default="复制 Markdown" data-label-done="已复制" data-label-fail="复制失败">复制 Markdown</span>
+        </button>
+        {editUrl && (
+          <a class="mt-action" href={editUrl.href} target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9" /><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" /></svg>
+            <span class="mt-action-label">编辑此页</span>
+          </a>
+        )}
+        <button type="button" class="mt-action" data-mt-top>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6" /></svg>
+          <span class="mt-action-label">回到顶部</span>
+        </button>
+        <span class="sr-only" role="status" aria-live="polite" data-mt-status></span>
+      </div>
+    )
+  }
+</div>
+{isChapter && <script type="text/markdown" id="mt-raw-md" data-encoding="json" set:html={embedded} />}
+
+<script>
+  const label = (btn: Element) => btn.querySelector<HTMLElement>('.mt-action-label')!;
+  async function writeClipboard(text: string) {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.cssText = 'position:fixed;top:-1000px;opacity:0';
+    document.body.append(ta);
+    ta.select();
+    const ok = document.execCommand('copy');
+    ta.remove();
+    if (!ok) throw new Error('execCommand copy failed');
+  }
+  document.addEventListener('click', async (ev) => {
+    const target = ev.target as Element;
+    const copy = target.closest('[data-mt-copy]');
+    if (copy) {
+      const el = label(copy);
+      const status = document.querySelector<HTMLElement>('[data-mt-status]');
+      let state = 'done';
+      try {
+        const node = document.getElementById('mt-raw-md');
+        await writeClipboard(JSON.parse(node!.textContent!));
+      } catch {
+        state = 'fail';
+      }
+      el.textContent = el.dataset['label' + (state === 'done' ? 'Done' : 'Fail')]!;
+      copy.setAttribute('data-state', state);
+      if (status) status.textContent = el.textContent;
+      clearTimeout((copy as any)._t);
+      (copy as any)._t = setTimeout(() => {
+        el.textContent = el.dataset.labelDefault!;
+        copy.removeAttribute('data-state');
+      }, 2000);
+      return;
+    }
+    if (target.closest('[data-mt-top]')) {
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    }
+  });
+</script>
+
+<style>
+  /* 动作条在标题上方、靠右：任何标题长度与视口宽度下都在页面内容区右上角，不会与标题抢宽度、也不会遮挡 */
+  .mt-title-row {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.75rem;
+  }
+  h1 {
+    margin-top: 0.5rem;
+    font-size: var(--sl-text-h1);
+    line-height: var(--sl-line-height-headings);
+    font-weight: 500;
+    color: var(--sl-color-white);
+  }
+  .mt-actions {
+    order: -1;
+    align-self: flex-end;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.4rem;
+  }
+  .mt-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.65rem;
+    border: 1px solid var(--sl-color-hairline-light);
+    border-radius: 0.4rem;
+    background: transparent;
+    color: var(--sl-color-gray-2);
+    font: inherit;
+    font-size: var(--sl-text-xs);
+    line-height: 1.4;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s, background-color 0.15s;
+  }
+  .mt-action:hover,
+  .mt-action:focus-visible {
+    border-color: var(--sl-color-accent);
+    color: var(--sl-color-white);
+    background: var(--sl-color-accent-low);
+  }
+  .mt-action[data-state='done'] {
+    border-color: var(--sl-color-green);
+    color: var(--sl-color-green-high);
+  }
+  .mt-action[data-state='fail'] {
+    border-color: var(--sl-color-red);
+    color: var(--sl-color-red-high);
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+</style>
