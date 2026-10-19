@@ -1,6 +1,6 @@
 # 第三方声明
 
-本项目（https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown）的 README 与根目录 `SKILL.md` 将下列两项列为「按需外部依赖」。它们是**第三方**项目，不属于本项目的 Licensed Work，也不受本项目 Business Source License 1.1 约束。
+本项目（<https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown>）的 README 与根目录 `SKILL.md` 将下列两项列为「按需外部依赖」。它们是**第三方**项目，不属于本项目的 Licensed Work，也不受本项目 Business Source License 1.1 约束。
 
 ## 声明
 

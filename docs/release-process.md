@@ -74,7 +74,7 @@ pwsh -File scripts/set-about.ps1
 1. 打开仓库 Settings → Pages → Build and deployment → Source，选 **GitHub Actions**。
 2. 到 Actions → Pages → Run workflow，手动触发第一次部署。之后只有改动 `skills/**` 或 `book.config.json` 的 push 才会自动触发。
 3. 在 Actions 页面确认部署成功，再打开 `https://seasontemple.github.io/Venturing-into-the-Unmanned-Unknown/`。
-4. 删掉 `.github/workflows/link-check.yml` 里排除该站点的 `--exclude` 行，让外链检查开始覆盖站点链接。
+4. 外链检查已覆盖站点链接：`link-check.yml` 里曾为站点临时加的 `--exclude` 已在站点上线后删除，无需再操作。
 5. 把站点地址填进仓库 About 的 Website，并在下一版发布说明里写明。
 
 没做第 1 步时，`pages.yml` 的 deploy job 会失败。

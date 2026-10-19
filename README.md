@@ -95,7 +95,7 @@ Venturing-into-the-Unmanned-Unknown/
 | 8 | 工具与技能生态 | `ai-native-sdlc-tools-skills-ecosystem` | [阅读](https://seasontemple.github.io/Venturing-into-the-Unmanned-Unknown/) |
 | 附录 | 清单 / 术语 / 反模式 | `ai-native-sdlc-appendix` | [阅读](https://seasontemple.github.io/Venturing-into-the-Unmanned-Unknown/) |
 
-在线站点由 mdbook 自动构建并发布到 GitHub Pages（https://seasontemple.github.io/Venturing-into-the-Unmanned-Unknown/）；站点启用前链接暂不可访问。
+在线站点由 mdbook 自动构建并发布到 GitHub Pages（<https://seasontemple.github.io/Venturing-into-the-Unmanned-Unknown/>）；站点启用前链接暂不可访问。
 
 ---
 
@@ -109,7 +109,7 @@ Venturing-into-the-Unmanned-Unknown/
 | 技能包 `zip` | 可直接复制到 `.claude/skills/` 等目录的各章技能 |
 | 全书 `BOOK.md` | 按章节顺序合并的单文件全书 |
 
-全部版本见 Releases 页：https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/releases 。首个 Release 发布前该页可能为空，此时请使用下方「快速安装」从源码获取。
+全部版本见 Releases 页：<https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/releases>。首个 Release 发布前该页可能为空，此时请使用下方「快速安装」从源码获取。
 
 ---
 

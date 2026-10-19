@@ -27,8 +27,6 @@ jobs:
             '**/*.md'
           fail: true
 
-  # seasontemple.github.io 站点：GitHub Pages 尚未启用，README 已先放了链接（见 docs/release-process.md 第 6 步）。
-  # 启用 Pages 后必须删掉对应的 --exclude 行。
   # 外部链接：重试 + 排除已知易变域名 + 接受限流 429；仍然失败的才算失败。
   external-links:
     runs-on: ubuntu-latest
@@ -53,6 +51,5 @@ jobs:
             --exclude '^https?://(www\.)?(x|twitter|linkedin|facebook)\.com'
             --exclude '^https?://(localhost|127\.0\.0\.1)'
             --exclude '^https?://([a-z0-9-]+\.)?example\.(com|org|net)'
-            --exclude '^https://seasontemple\.github\.io/Venturing-into-the-Unmanned-Unknown/'
             '**/*.md'
           fail: true
