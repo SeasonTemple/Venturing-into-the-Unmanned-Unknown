@@ -1,0 +1,78 @@
+name: Validate Skills
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check required root files
+        run: |
+          set -euo pipefail
+          test -f README.md
+          test -f LICENSE
+          test -f SKILL.md
+          test -f CONTRIBUTING.md
+          test -d skills
+          test -d templates
+          test -d checklists
+
+      - name: Check every skill has SKILL.md
+        run: |
+          set -euo pipefail
+          missing=0
+          for dir in skills/*; do
+            if [ -d "$dir" ]; then
+              if [ ! -f "$dir/SKILL.md" ]; then
+                echo "Missing SKILL.md in $dir"
+                missing=1
+              fi
+            fi
+          done
+          exit $missing
+
+      - name: Validate SKILL.md frontmatter
+        run: |
+          set -euo pipefail
+          fail=0
+          while IFS= read -r file; do
+            if ! grep -q '^name:' "$file"; then
+              echo "Missing name: in $file"
+              fail=1
+            fi
+            if ! grep -q '^description:' "$file"; then
+              echo "Missing description: in $file"
+              fail=1
+            fi
+            if ! awk 'NR==1{if($0!="---") exit 1}' "$file"; then
+              echo "Missing opening --- frontmatter in $file"
+              fail=1
+            fi
+          done < <(find skills -name SKILL.md; echo SKILL.md)
+          exit $fail
+
+      - name: Check name matches directory
+        run: |
+          set -euo pipefail
+          fail=0
+          for dir in skills/*; do
+            [ -d "$dir" ] || continue
+            base=$(basename "$dir")
+            name_line=$(grep -m1 '^name:' "$dir/SKILL.md" | sed 's/^name:[[:space:]]*//')
+            if [ "$name_line" != "$base" ]; then
+              echo "Name mismatch in $dir: name='$name_line' expected='$base'"
+              fail=1
+            fi
+          done
+          exit $fail
+
+      - name: List skills
+        run: |
+          echo "Skills found:"
+          find skills -name SKILL.md | sort
