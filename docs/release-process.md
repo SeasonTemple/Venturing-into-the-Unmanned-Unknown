@@ -65,7 +65,7 @@ assets 必须恰好是上面三个文件。
 pwsh -File scripts/set-about.ps1
 ```
 
-脚本设置 Description 和 Topics，末尾回读并核对，不一致会以非零退出。该脚本可重复执行，Topics 只增不减。
+脚本设置 Description、Homepage（在线阅读站地址）和 Topics，末尾回读并核对，不一致会以非零退出。该脚本可重复执行，Topics 只增不减。
 
 ## 6. 首次启用 GitHub Pages（人工动作）
 
@@ -75,7 +75,7 @@ pwsh -File scripts/set-about.ps1
 2. 到 Actions → Pages → Run workflow，手动触发第一次部署。之后只有改动 `skills/**` 或 `book.config.json` 的 push 才会自动触发。
 3. 在 Actions 页面确认部署成功，再打开 `https://seasontemple.github.io/Venturing-into-the-Unmanned-Unknown/`。
 4. 外链检查已覆盖站点链接：`link-check.yml` 里曾为站点临时加的 `--exclude` 已在站点上线后删除，无需再操作。
-5. 把站点地址填进仓库 About 的 Website，并在下一版发布说明里写明。
+5. 仓库 About 的 Homepage 由 `scripts/set-about.ps1` 一并设置（见第 5 步），不需要人工填写。
 
 没做第 1 步时，`pages.yml` 的 deploy job 会失败。
 

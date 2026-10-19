@@ -1,7 +1,7 @@
 ﻿#Requires -Version 7.3
 <#
 .SYNOPSIS
-  设置 GitHub 仓库 About（Description 与 Topics），并回读核对。
+  设置 GitHub 仓库 About（Description、Homepage 与 Topics），并回读核对。
 .PARAMETER Repo
   可选，OWNER/REPO。省略时使用当前仓库目录对应的远端。
 .PARAMETER GhPath
@@ -22,6 +22,7 @@ $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 
 $Description = 'Venturing into the Unmanned Unknown: An AI-Native Software Engineering Guidebook — 迈向无人区：AI 原生软件工程指南'
+$Homepage = 'https://seasontemple.github.io/Venturing-into-the-Unmanned-Unknown/'
 $Topics = @(
     'book', 'chinese', 'ai-native', 'sdlc', 'software-engineering',
     'agent-skills', 'guidebook', 'verification', 'architecture', 'methodology'
@@ -81,16 +82,16 @@ try {
     }
     $OutputEncoding = $utf8
 
-    $editArgs = @('repo', 'edit') + $repoArgs + @('--description', $Description)
+    $editArgs = @('repo', 'edit') + $repoArgs + @('--description', $Description, '--homepage', $Homepage)
     foreach ($topic in $Topics) {
         $editArgs += @('--add-topic', $topic)
     }
 
-    Write-Host "设置 Description 与 $($Topics.Count) 个 Topics ..."
+    Write-Host "设置 Description、Homepage 与 $($Topics.Count) 个 Topics ..."
     & $GhExe @editArgs
 
     Write-Host '回读：'
-    $viewArgs = @('repo', 'view') + $repoArgs + @('--json', 'description,repositoryTopics')
+    $viewArgs = @('repo', 'view') + $repoArgs + @('--json', 'description,homepageUrl,repositoryTopics')
     $json = Invoke-GhUtf8 -GhArgs $viewArgs
     Write-Host $json
 
@@ -110,13 +111,20 @@ try {
         while ($idx -lt $limit -and $expectedDesc[$idx] -eq $actualDesc[$idx]) { $idx++ }
         $problems += "  首个差异位置：index $idx"
     }
+    $expectedHome = $Homepage.Trim()
+    $actualHome = ([string]$actual.homepageUrl).Trim()
+    if ($actualHome -ne $expectedHome) {
+        $problems += "Homepage 不一致：期望 '$expectedHome'，实际 '$actualHome'"
+        $problems += "  期望 ($($expectedHome.Length) chars)：$(Format-CodePoints $expectedHome)"
+        $problems += "  实际 ($($actualHome.Length) chars)：$(Format-CodePoints $actualHome)"
+    }
     $missing = @($Topics | Where-Object { $_ -notin $actualTopics })
     if ($missing.Count -gt 0) {
         $problems += "缺少 Topics：$($missing -join ', ')"
     }
 
     if ($problems.Count -eq 0) {
-        Write-Host '核对通过：Description 与全部 Topics 已生效。'
+        Write-Host '核对通过：Description、Homepage 与全部 Topics 已生效。'
     } else {
         $problems | ForEach-Object { Write-Host $_ }
     }
