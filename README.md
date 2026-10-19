@@ -135,5 +135,5 @@ npx skills add younes-io/agent-skills --skill tla-check
 
 ## 版本
 
-- 版本：0.1.0
-- 状态：可发布初版（章节与技能齐套）
+- 版本：**v0.0.1**
+- 状态：首个公开快照（章节与技能齐套）
