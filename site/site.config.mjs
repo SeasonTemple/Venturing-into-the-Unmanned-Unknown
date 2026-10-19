@@ -18,7 +18,3 @@ export const BASE = '/' + strip((process.env.SITE_BASE || cfg.slug).replace(/^\/
 
 export const chapterSlug = (c) => 'ch' + c.order;
 
-// 「编辑此页」：指向真源 skills/<skill>/SKILL.md（生成的 chN.md 不在仓库里，指过去是 404）。
-// 经 frontmatter.editUrl 逐页注入；Starlight 的 editLink.baseUrl 只能拼生成文件路径，故不用。
-export const EDIT_BRANCH = 'main';
-export const editUrlFor = (c) => GITHUB_URL + '/edit/' + EDIT_BRANCH + '/skills/' + c.skill + '/SKILL.md';

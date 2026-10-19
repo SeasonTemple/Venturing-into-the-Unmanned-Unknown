@@ -58,4 +58,5 @@ cp -R skills/* .claude/skills/   # 或 .agents/skills/ / .cursor/skills/
 
 ## 版本
 
-**v0.0.1** —— 首个公开快照（章节与技能齐套）。
+- 版本：**v0.0.2**
+- 状态：在线阅读站上线（Astro Starlight），含页面动作、llms.txt 与中文全文搜索

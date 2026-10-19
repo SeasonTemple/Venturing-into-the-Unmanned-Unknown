@@ -3,9 +3,8 @@
 //  - 复制本页 Markdown：构建期把本页 Markdown 以 JSON 字符串放进 <script is:inline type="text/markdown">，
 //    按钮只读这段文本写剪贴板，不暴露任何 .md 路由，也不发网络请求。
 //    内容 = SKILL.md 去 frontmatter 后的原文（首个 H1 由 description 还原，正文逐字节同源），无 frontmatter；CRLF 统一为 LF。
-//  - 编辑此页：frontmatter.editUrl（sync.mjs 按章写入 skills/<skill>/SKILL.md）。
 //  - 回到顶部。
-const { entry, editUrl } = Astro.locals.starlightRoute;
+const { entry } = Astro.locals.starlightRoute;
 const isChapter = entry.data.template !== 'splash' && !!entry.body;
 const raw = isChapter
   ? ('# ' + entry.data.description + '\n\n' + entry.body.replace(/\r\n/g, '\n').replace(/^\s*\n/, ''))
@@ -23,12 +22,6 @@ const embedded = JSON.stringify(raw).replace(/</g, '\\u003c');
           <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
           <span class="mt-action-label" data-label-default="复制 Markdown" data-label-done="已复制" data-label-fail="复制失败">复制 Markdown</span>
         </button>
-        {editUrl && (
-          <a class="mt-action" href={editUrl.href} target="_blank" rel="noopener noreferrer">
-            <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9" /><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" /></svg>
-            <span class="mt-action-label">编辑此页</span>
-          </a>
-        )}
         <button type="button" class="mt-action" data-mt-top>
           <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6" /></svg>
           <span class="mt-action-label">回到顶部</span>

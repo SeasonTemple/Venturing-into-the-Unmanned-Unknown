@@ -77,6 +77,9 @@ jobs:
           test -f dist/pagefind/pagefind.js
           grep -q "href=\"${BASE_PATH}/_astro/" dist/index.html
           grep -q "href=\"${BASE_PATH}/ch0/" dist/ch3/index.html
+          test -f dist/llms.txt
+          test -f dist/llms-full.txt
+          test -f dist/chA/index.html
 
       - uses: actions/upload-pages-artifact@v3
         with:

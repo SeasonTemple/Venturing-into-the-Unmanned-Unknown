@@ -4,7 +4,7 @@ title: "Venturing into the Unmanned Unknown: An AI-Native Software Engineering G
 abstract: "A Chinese-language guidebook on AI-native software engineering, organized as 10 installable Agent Skills (SKILL.md) across the software development lifecycle."
 authors:
   - name: "SeasonTemple"
-version: 0.0.1
+version: 0.0.2
 date-released: 2026-10-19
 license: BUSL-1.1
 repository-code: "https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown"

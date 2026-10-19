@@ -5,7 +5,7 @@
 //   1) 剥离 SKILL.md 自带的 YAML frontmatter，生成 Starlight frontmatter；
 //   2) 剥离正文首个 H1（Starlight 会用 frontmatter.title 渲染页面 H1），
 //      H1 里的副标（如「（Verification）」）并入 title，H1 全文保留为 description；
-//   3) frontmatter 追加 editUrl（指向 skills/<skill>/SKILL.md）与 lastUpdated（只读 git 取该文件最后一次提交时间）。
+//   3) frontmatter 追加 lastUpdated（只读 git 取该文件最后一次提交时间）。
 // 行尾（LF/CRLF）不做归一化。
 //
 // lastUpdated 降级规则：非 git 环境、浅克隆（git rev-parse --is-shallow-repository 为 true）、
@@ -14,7 +14,7 @@ import { writeFileSync, mkdirSync, rmSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { cfg, repoRoot, BASE, TAGLINE, chapterSlug, editUrlFor } from '../site.config.mjs';
+import { cfg, repoRoot, BASE, TAGLINE, chapterSlug } from '../site.config.mjs';
 import { readChapters, splitKeepEnds } from './skill-source.mjs';
 import { buildLlmsTxt, buildLlmsFull } from './llms.mjs';
 
@@ -69,7 +69,6 @@ for (const { c, where, h1, body } of readChapters()) {
     'title: ' + JSON.stringify(title),
     'description: ' + JSON.stringify(h1),
     'slug: ' + chapterSlug(c),
-    'editUrl: ' + JSON.stringify(editUrlFor(c)),
     // 不加引号：YAML 会解析为时间戳，Starlight 才把它当 Date。
     'lastUpdated: ' + (when ?? 'false'),
     'sidebar:',

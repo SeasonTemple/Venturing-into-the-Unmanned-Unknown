@@ -51,5 +51,8 @@ jobs:
             --exclude '^https?://(www\.)?(x|twitter|linkedin|facebook)\.com'
             --exclude '^https?://(localhost|127\.0\.0\.1)'
             --exclude '^https?://([a-z0-9-]+\.)?example\.(com|org|net)'
+            # 站点自身的 live URL 由 pages.yml 的构建校验覆盖（ch0..chA、llms*.txt 的产物存在性）。
+            # link-check 与 Pages 并行运行，在此检查会与部署产生竞态，上一轮就因此误报 404。
+            --exclude '^https://seasontemple\.github\.io/Venturing-into-the-Unmanned-Unknown/'
             '**/*.md'
           fail: true
