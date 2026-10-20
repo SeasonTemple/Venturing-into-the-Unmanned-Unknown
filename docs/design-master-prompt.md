@@ -173,3 +173,4 @@
 3. 一次交付最多 6 张截图，不要反复重拍同一角度。
 4. user-data-dir 固定放在仓库内临时目录（如 .lab/<task>/.pw-profile），跑完删除，不要散落到系统 Temp。
 5. 交付报告里必须写清收尾方式与运行结束时的残留进程数。
+6. **浏览器统一用 Chrome，不用 Edge**：本机日常使用 Edge，用 Edge 做无头截图会与用户自己的浏览器进程混在一起，排查与清理都容易误伤。固定路径 C:/Program Files/Google/Chrome/Application/chrome.exe。
