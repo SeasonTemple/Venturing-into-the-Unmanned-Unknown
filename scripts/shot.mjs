@@ -2,9 +2,9 @@
 // 唯一的截图入口。一次运行 = 一个 Chrome 进程，必然退出，不留残余。
 // 用法：node scripts/shot.mjs --url <url> --out <a.png> [--width 1440] [--height 900] [--wait 8000] [--theme light|dark]
 import { spawn } from 'node:child_process';
-import { mkdtempSync, rmSync, existsSync, statSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, rmSync, existsSync, statSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join, resolve } from 'node:path';
+import { join, resolve, dirname } from 'node:path';
 
 const CHROME = 'C:/Program Files/Google/Chrome/Application/chrome.exe';
 
@@ -73,6 +73,8 @@ const args = [
   ...(process.env.SHOT_CHROME_FLAGS || '').split(/\s+/).filter(Boolean),   // 可选：额外的 Chrome 开关（如 --force-prefers-reduced-motion）
   url,
 ];
+
+try { mkdirSync(dirname(out), { recursive: true }); } catch {}
 
 // 先删旧图：否则 Chrome 失败时轮询会看到上一次的文件，误报成功
 try { rmSync(out, { force: true }); } catch {}
