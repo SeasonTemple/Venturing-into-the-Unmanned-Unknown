@@ -358,9 +358,38 @@ h4 {
 .mt-nav-item[aria-current='page'] .mt-nav-no {
   color: inherit;
 }
-.mt-nav-item[aria-current='page']::before,
-.mt-nav-item:focus-visible,
-
+/* 当前项竖条：2px，transform: scaleY 0→1（180ms）生长，不改 height，不触发布局 */
+.mt-nav-item[aria-current='page']::before {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: 2px;
+  border-radius: 1px;
+  background: var(--mt-accent);
+  transform-origin: top;
+  animation: mt-bar-grow 180ms ease-out backwards;
+}
+@keyframes mt-bar-grow {
+  from {
+    transform: scaleY(0);
+  }
+}
+/* 悬停底色淡入 120ms */
+.mt-nav-item {
+  position: relative;
+  text-decoration: none;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+.mt-nav-item:hover {
+  background: var(--mt-nav-bg-hover);
+}
+.mt-nav-item[aria-current='page']:hover {
+  background: var(--mt-nav-bg-current);
+}
+.mt-nav-item:focus-visible {
+  z-index: 1;
+}
 
 /* 右侧「本页内容」（仅桌面右栏；移动端的折叠目录保持出厂形态） */
 .right-sidebar starlight-toc h2 {
@@ -402,4 +431,177 @@ h4 {
 .right-sidebar starlight-toc a[aria-current='true'] {
   color: var(--mt-accent-text);
   font-weight: 600;
+}
+
+
+/* ---------- 动效与科技感层 ---------- */
+
+/* meta 文字统一：等宽 + tabular-nums（眉标、章号、eyebrow、ON THIS PAGE、日期、路径条章号） */
+.mt-eyebrow,
+.mt-kicker,
+.mt-num,
+.mt-nav-eyebrow,
+.mt-nav-no,
+.mt-nav-count,
+.mt-chip-ch,
+.mt-path-note,
+.mt-mono,
+.right-sidebar starlight-toc h2,
+time {
+  font-family: var(--sl-font-mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+.right-sidebar starlight-toc h2::before {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+
+/* 焦点态：全站 2px 强调色 outline + 2px offset。容器内留有 ≥4px 余量，不被 overflow 裁切 */
+:focus-visible {
+  outline: 2px solid var(--sl-color-accent);
+  outline-offset: 2px;
+}
+
+/* 顶栏：滚动超过 8px（html[data-scrolled]）后出现 1px 发丝线 + 毛玻璃，200ms 过渡 */
+.page > .header {
+  border-bottom-color: transparent;
+  background-color: color-mix(in srgb, var(--sl-color-bg-nav) 100%, transparent);
+  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
+  transition: border-color 200ms ease, background-color 200ms ease, backdrop-filter 200ms ease, -webkit-backdrop-filter 200ms ease;
+}
+:root[data-scrolled] .page > .header {
+  border-bottom-color: var(--mt-line-strong);
+  background-color: color-mix(in srgb, var(--sl-color-bg-nav) 78%, transparent);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  backdrop-filter: blur(12px) saturate(1.2);
+}
+
+/* 阅读进度：1px，transform: scaleX(0→1)，固定在最顶部，z-index 高于顶栏（10），只占顶栏最上方 1px */
+.mt-progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 11;
+  height: 1px;
+  pointer-events: none;
+}
+.mt-progress > i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--mt-accent);
+  transform: scaleX(var(--mt-progress, 0));
+  transform-origin: left;
+}
+
+/* 右栏 ON THIS PAGE：共享指示条（src/scripts/motion.ts 摆位），transform 平滑移动 */
+.right-sidebar starlight-toc nav {
+  position: relative;
+}
+.right-sidebar starlight-toc a::before {
+  content: none;
+}
+.mt-toc-bar {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  width: 2px;
+  height: 1px;
+  background: var(--mt-accent);
+  transform-origin: top;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1), opacity 120ms ease;
+}
+.mt-toc-bar[data-ready] {
+  opacity: 1;
+}
+.mt-toc-bar[data-instant] {
+  transition: none;
+}
+
+/* 代码块复制（Expressive Code）：成功 → 图标变勾 + 强调色闪一次 300ms；失败 → 抖动一次 */
+.expressive-code .copy button[data-mt-state] {
+  opacity: 1;
+}
+.expressive-code .copy button[data-mt-state='done']::after {
+  background-color: var(--mt-accent);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4.5 12.5 5 5L19.5 7'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4.5 12.5 5 5L19.5 7'/%3E%3C/svg%3E");
+}
+.expressive-code .copy button[data-mt-state='done'] div {
+  background: var(--mt-accent);
+  animation: mt-copy-flash 300ms ease-out forwards;
+}
+.expressive-code .copy button[data-mt-state='fail']::after {
+  background-color: var(--sl-color-red);
+}
+.expressive-code .copy button[data-mt-state='fail'] {
+  animation: mt-shake 300ms ease-in-out;
+}
+@keyframes mt-copy-flash {
+  from {
+    opacity: 0.65;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes mt-shake {
+  20% { transform: translateX(-3px); }
+  40% { transform: translateX(3px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+}
+/* 首页安装命令 / 页面动作的复制按钮：同一套反馈（勾选图标 + 闪一次 / 抖动一次） */
+.mt-action .mt-check,
+.mt-cmd-btn .mt-check {
+  display: none;
+}
+:is(.mt-action, .mt-cmd-btn)[data-state='done'] svg > :not(.mt-check) {
+  display: none;
+}
+:is(.mt-action, .mt-cmd-btn)[data-state='done'] .mt-check {
+  display: inline;
+}
+:is(.mt-action, .mt-cmd-btn)[data-state='done'] {
+  animation: mt-btn-flash 300ms ease-out;
+}
+:is(.mt-action, .mt-cmd-btn)[data-state='fail'] {
+  animation: mt-shake 300ms ease-in-out;
+}
+@keyframes mt-btn-flash {
+  from {
+    background-color: color-mix(in srgb, var(--mt-accent) 45%, transparent);
+  }
+}
+
+/* 页面切换（Astro ClientRouter）：跨页 200ms 淡入淡出 */
+::view-transition-group(root) {
+  animation-duration: 200ms;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 200ms;
+  animation-timing-function: ease;
+}
+
+/* ---------- 减少动效：一律无动画、无位移 ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+  .mt-toc-bar {
+    transition: none;
+  }
 }

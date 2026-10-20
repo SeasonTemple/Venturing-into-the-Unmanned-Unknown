@@ -5,6 +5,7 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import home from '../generated/home.json';
 import CycleDiagram from '../components/CycleDiagram.astro';
 import CopyCommand from '../components/CopyCommand.astro';
+import { stages } from '../lib/stages';
 import '../styles/home.css';
 
 const BASE = import.meta.env.BASE_URL.replace(/\/+$/, '');
@@ -15,9 +16,6 @@ const releases = home.github + '/releases';
 const [zhMain, zhSub] = home.title_zh.split('：');
 const num = (order: string) => (/^\d$/.test(order) ? '0' + order : order);
 const byOrder = (o: string) => chapters.find((c) => c.order === o)!;
-
-// 阅读顺序（README「使用顺序与原则」）：只写章号，标题仍取自配置。
-const readingOrder = [['0'], ['1'], ['2'], ['4'], ['3', '5'], ['6'], ['7'], ['8']];
 
 const artifacts = [
   { tag: '.tar.gz', name: '源码', desc: '仓库源码快照，含全部 skills/ 与站点工程。' },
@@ -37,6 +35,14 @@ const artifacts = [
 >
   <div class="mt-home not-content">
     <section class="mt-hero" aria-labelledby="mt-title">
+      <svg class="mt-hero-cross" aria-hidden="true" focusable="false">
+        <defs>
+          <pattern id="mt-cross" width="56" height="56" patternUnits="userSpaceOnUse">
+            <path d="M0 .5h5M.5 0v5M56 .5h-5M55.5 0v5M0 55.5h5M.5 56v-5M56 55.5h-5M55.5 56v-5" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#mt-cross)" />
+      </svg>
       <div class="mt-hero-copy">
         <p class="mt-eyebrow">
           <span>{home.version}</span><i aria-hidden="true">·</i><span>{home.license}</span><i aria-hidden="true">·</i><span>{chapters.length} 章</span>
@@ -62,12 +68,12 @@ const artifacts = [
     </section>
 
     <section class="mt-section" id="chapters" aria-labelledby="mt-h-chapters">
-      <header class="mt-section-head">
+      <header class="mt-section-head" data-mt-reveal>
         <p class="mt-kicker"><span>01</span> / Chapters</p>
         <h2 id="mt-h-chapters">全书章节</h2>
         <p class="mt-section-lede">{chapters.length} 个章节，每章对应一份可直接加载的 Agent Skill。</p>
       </header>
-      <ol class="mt-grid mt-grid-chapters">
+      <ol class="mt-grid mt-grid-chapters" data-mt-reveal>
         {chapters.map((c) => (
           <li>
             <a class="mt-cell" href={BASE + '/' + c.slug + '/'}>
@@ -84,34 +90,33 @@ const artifacts = [
     </section>
 
     <section class="mt-section" aria-labelledby="mt-h-order">
-      <header class="mt-section-head">
+      <header class="mt-section-head" data-mt-reveal>
         <p class="mt-kicker"><span>02</span> / Reading order</p>
         <h2 id="mt-h-order">推荐阅读顺序</h2>
-        <p class="mt-section-lede">先对齐原则，再沿「意图 → 设计 → 实现 → 验证 → 交付 → 演进」走一遍，最后回到工具与技能。</p>
       </header>
-      <ol class="mt-grid mt-grid-order">
-        {readingOrder.map((orders, i) => (
-          <li>
-            <a class="mt-cell mt-cell-sm" href={BASE + '/' + byOrder(orders[0]).slug + '/'}>
-              <span class="mt-cell-top">
-                <span class="mt-num">{String(i + 1).padStart(2, '0')}</span>
-                <span class="mt-arrow" aria-hidden="true">→</span>
-              </span>
-              <span class="mt-cell-title">{orders.map((o) => byOrder(o).title).join(' · ')}</span>
-              <span class="mt-cell-desc mt-mono">{orders.map((o) => 'CH ' + o).join(' · ')}</span>
-            </a>
-          </li>
-        ))}
-      </ol>
+      <nav class="mt-path" aria-label="推荐阅读顺序">
+        <ol class="mt-path-list">
+          {stages.map((s, i) => (
+            <li style={`--i:${i}`} data-mt-reveal>
+              <a class="mt-chip" href={BASE + '/' + byOrder(s.orders[0]).slug + '/'}>
+                <span class="mt-chip-zh">{s.zh}</span>
+                <span class="mt-chip-ch">{'CH ' + s.orders.join('·')}</span>
+              </a>
+              {i < stages.length - 1 && <span class="mt-path-arrow" aria-hidden="true" />}
+            </li>
+          ))}
+        </ol>
+        <p class="mt-path-note" data-mt-reveal style="--i:6">测试与质量保障（第 5 章）与验证同属一环</p>
+      </nav>
     </section>
 
     <section class="mt-section" aria-labelledby="mt-h-art">
-      <header class="mt-section-head">
+      <header class="mt-section-head" data-mt-reveal>
         <p class="mt-kicker"><span>03</span> / Artifacts</p>
         <h2 id="mt-h-art">下载制品</h2>
         <p class="mt-section-lede">每个 Release 提供三种形态。首个 Release 发布前，Releases 页可能为空。</p>
       </header>
-      <ul class="mt-grid mt-grid-artifacts">
+      <ul class="mt-grid mt-grid-artifacts" data-mt-reveal>
         {artifacts.map((a) => (
           <li>
             <a class="mt-cell" href={releases} rel="noopener">
@@ -128,12 +133,12 @@ const artifacts = [
     </section>
 
     <section class="mt-section" aria-labelledby="mt-h-agent">
-      <header class="mt-section-head">
+      <header class="mt-section-head" data-mt-reveal>
         <p class="mt-kicker"><span>04</span> / For agents</p>
         <h2 id="mt-h-agent">给 Agent 的入口</h2>
         <p class="mt-section-lede">站点同时发布纯文本版本：章节索引用于导航，全文用于一次性载入上下文。</p>
       </header>
-      <ul class="mt-grid mt-grid-agent">
+      <ul class="mt-grid mt-grid-agent" data-mt-reveal>
         <li>
           <a class="mt-cell mt-cell-sm" href={BASE + '/llms.txt'}>
             <span class="mt-cell-top"><span class="mt-num mt-num-tag">llms.txt</span><span class="mt-arrow" aria-hidden="true">→</span></span>

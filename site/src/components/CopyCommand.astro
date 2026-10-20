@@ -12,7 +12,7 @@ const text = lines.join('\n') + (comment ? '   # ' + comment : '');
   <div class="mt-cmd-head">
     <span class="mt-cmd-label">{label}</span>
     <button type="button" class="mt-cmd-btn" data-mt-cmd-copy data-text={text} aria-label="复制安装命令">
-      <svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="mt-check" d="m4.5 12.5 5 5L19.5 7" /><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
       <span data-label-default="复制" data-label-done="已复制" data-label-fail="复制失败">复制</span>
     </button>
   </div>

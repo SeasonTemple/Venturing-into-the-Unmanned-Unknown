@@ -1,17 +1,9 @@
 ---
 // AI-Native SDLC 闭环图：纯内联 SVG，不含位图；颜色只用 currentColor 与 CSS 变量，亮暗随主题自动切换。
-// 六个阶段是本书方法论的固定骨架；每个阶段链接到对应章节，章节号 / 路径取自 home.json（来自 book.config.json）。
+// 六个阶段是本书方法论的固定骨架（src/lib/stages.ts，与首页路径条共用）；每个阶段链接到对应章节，章节号 / 路径取自 home.json（来自 book.config.json）。
 import home from '../generated/home.json';
+import { stages } from '../lib/stages';
 const BASE = import.meta.env.BASE_URL.replace(/\/+$/, '');
-
-const stages = [
-  { zh: '意图', en: 'Intent', orders: ['1'], handoff: '验收标准' },
-  { zh: '设计', en: 'Design', orders: ['2'], handoff: '接口契约' },
-  { zh: '实现', en: 'Implement', orders: ['4'], handoff: '验证资产' },
-  { zh: '验证', en: 'Verify', orders: ['3', '5'], handoff: '质量门禁' },
-  { zh: '交付', en: 'Deliver', orders: ['6'], handoff: '运行反馈' },
-  { zh: '演进', en: 'Evolve', orders: ['7'], handoff: '新意图' },
-];
 
 const CX = 300, CY = 300, R = 205, NW = 130, NH = 72, MARGIN = 7;
 const rad = (d: number) => (d * Math.PI) / 180;
@@ -45,7 +37,7 @@ const arcs = nodes.map((n) => {
   const bx = x1 - L * Math.cos(t), by = y1 - L * Math.sin(t);
   const head = `M${f(x1)} ${f(y1)}L${f(bx + W * Math.cos(nrm))} ${f(by + W * Math.sin(nrm))}L${f(bx - W * Math.cos(nrm))} ${f(by - W * Math.sin(nrm))}Z`;
   const [lx, ly] = at(n.deg + 30);
-  return { d: `M${f(x0)} ${f(y0)}A${R} ${R} 0 0 1 ${f(x1 - 6 * Math.cos(t))} ${f(y1 - 6 * Math.sin(t))}`, head, lx, ly, label: n.handoff };
+  return { i: n.i, d: `M${f(x0)} ${f(y0)}A${R} ${R} 0 0 1 ${f(x1 - 6 * Math.cos(t))} ${f(y1 - 6 * Math.sin(t))}`, head, lx, ly, label: n.handoff };
 });
 
 // 外圈刻度：每 6° 一格，每 60°（节点方向）一条长刻度
@@ -61,6 +53,13 @@ const ticks = Array.from({ length: 60 }, (_, k) => {
   <title id="mt-cycle-t">AI-Native SDLC 闭环图</title>
   <desc id="mt-cycle-d">意图、设计、实现、验证、交付、演进六个阶段首尾相接成环；每个阶段链接到对应章节，演进阶段的运行信号回流为新的意图。</desc>
 
+  <defs>
+    <linearGradient id="mt-cycle-grad" gradientUnits="userSpaceOnUse" x1="60" y1="70" x2="540" y2="530">
+      <stop class="mt-grad-a" offset="0" />
+      <stop class="mt-grad-b" offset="1" />
+    </linearGradient>
+  </defs>
+
   <path class="mt-cycle-ticks" d={ticks} />
   <circle class="mt-cycle-ring" cx={CX} cy={CY} r={R} />
   <circle class="mt-cycle-hub" cx={CX} cy={CY} r="104" />
@@ -73,19 +72,20 @@ const ticks = Array.from({ length: 60 }, (_, k) => {
   </g>
 
   {arcs.map((a) => (
-    <>
+    <g class="mt-cycle-seg" style={`--i:${a.i}`}>
       <path class="mt-cycle-arc" d={a.d} />
       <path class="mt-cycle-head" d={a.head} />
       <g class="mt-cycle-handoff" text-anchor="middle">
         <rect x={a.lx - 37} y={a.ly - 12} width="74" height="24" rx="12" />
         <text x={a.lx} y={a.ly + 5}>{a.label}</text>
       </g>
-    </>
+    </g>
   ))}
 
   {nodes.map((n) => (
-    <a class="mt-cycle-node" href={n.href} aria-label={`${n.zh}（${n.en}）：第 ${n.orders.join('、')} 章`}>
-      <rect x={n.x - NW / 2} y={n.y - NH / 2} width={NW} height={NH} rx="10" />
+    <a class="mt-cycle-node" style={`--i:${n.i}`} href={n.href} aria-label={`${n.zh}（${n.en}）：第 ${n.orders.join('、')} 章`}>
+      <rect class="mt-cycle-ring-hl" x={n.x - NW / 2 - 3} y={n.y - NH / 2 - 3} width={NW + 6} height={NH + 6} rx="13" />
+      <rect class="mt-cycle-box" x={n.x - NW / 2} y={n.y - NH / 2} width={NW} height={NH} rx="10" />
       <text class="mt-cycle-ch" x={n.x - NW / 2 + 10} y={n.y - NH / 2 + 18}>{'CH ' + n.orders.join('、')}</text>
       <text class="mt-cycle-zh" x={n.x} y={n.y + 12} text-anchor="middle">{n.zh}</text>
       <text class="mt-cycle-en" x={n.x} y={n.y + 28} text-anchor="middle">{n.en}</text>
@@ -95,11 +95,27 @@ const ticks = Array.from({ length: 60 }, (_, k) => {
 
 <style>
   .mt-cycle {
+    /* 线条渐变：强调色 → 同色系浅一档；光晕半径 ≤6px、不透明度 ≤35%（亮色再收一档） */
+    --mt-grad-a: #ff7a3d;
+    --mt-grad-b: #ffb98a;
+    --mt-glow: drop-shadow(0 0 5px rgb(255 122 61 / 0.35));
+    --mt-cycle-delay: 480ms; /* 等 .mt-hero-art 自身的入场阶梯走完前半，再开始节点依次点亮 */
     display: block;
     width: 100%;
     height: auto;
     color: var(--sl-color-gray-2);
     overflow: visible;
+  }
+  :global(:root[data-theme='light']) .mt-cycle {
+    --mt-grad-a: #b93a0a;
+    --mt-grad-b: #e07a35;
+    --mt-glow: drop-shadow(0 0 3px rgb(185 58 10 / 0.22));
+  }
+  .mt-grad-a {
+    stop-color: var(--mt-grad-a);
+  }
+  .mt-grad-b {
+    stop-color: var(--mt-grad-b);
   }
   .mt-cycle-ticks {
     fill: none;
@@ -129,27 +145,44 @@ const ticks = Array.from({ length: 60 }, (_, k) => {
     color: var(--sl-color-gray-3);
     font-size: 14px;
   }
+
+  /* 虚线沿环流动：周期 14px（7+7），位移取 12 个周期 = 168px，8s 线性无限，首尾无缝 */
   .mt-cycle-arc {
     fill: none;
-    stroke: var(--mt-accent);
+    stroke: url(#mt-cycle-grad);
     stroke-width: 3;
     stroke-linecap: round;
     stroke-dasharray: 7 7;
-    animation: mt-flow 1.6s linear infinite;
+    filter: var(--mt-glow);
+    animation: mt-flow 8s linear infinite;
   }
   .mt-cycle-head {
-    fill: var(--mt-accent);
+    fill: url(#mt-cycle-grad);
+    filter: var(--mt-glow);
   }
   @keyframes mt-flow {
     to {
-      stroke-dashoffset: -13;
+      stroke-dashoffset: -168;
     }
   }
-  @media (prefers-reduced-motion: reduce) {
-    .mt-cycle-arc {
-      animation: none;
+
+  /* 六个节点（及其后的连线段）按顺时针（自顶部起）每个延迟 80ms 淡入；只动 opacity */
+  .mt-cycle-node,
+  .mt-cycle-seg {
+    animation: mt-fade-in 400ms ease-out backwards;
+  }
+  .mt-cycle-node {
+    animation-delay: calc(var(--mt-cycle-delay) + var(--i) * 80ms);
+  }
+  .mt-cycle-seg {
+    animation-delay: calc(var(--mt-cycle-delay) + var(--i) * 80ms + 120ms);
+  }
+  @keyframes mt-fade-in {
+    from {
+      opacity: 0;
     }
   }
+
   .mt-cycle-handoff rect {
     fill: var(--sl-color-bg);
     stroke: var(--mt-line-strong);
@@ -161,32 +194,51 @@ const ticks = Array.from({ length: 60 }, (_, k) => {
     font-size: 13.5px;
     letter-spacing: 0.02em;
   }
+
   .mt-cycle-node {
     cursor: pointer;
     color: var(--sl-color-white);
     text-decoration: none;
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .mt-cycle-node rect {
+  .mt-cycle-node:is(:hover, :focus-visible) {
+    transform: scale(1.03);
+  }
+  .mt-cycle-box {
     fill: var(--mt-surface);
     stroke: var(--mt-line-strong);
     stroke-width: 1;
-    transition: stroke 0.15s, fill 0.15s;
+    transition: stroke 180ms, fill 180ms;
   }
-  .mt-cycle-node:is(:hover, :focus-visible) rect {
+  .mt-cycle-node:is(:hover, :focus-visible) .mt-cycle-box {
     stroke: var(--mt-accent);
     fill: var(--mt-surface-hover);
+  }
+  /* 外环：2px 强调色，距节点 2px（等价 outline 2px + offset 2px）；悬停与键盘焦点共用，所以 :focus-visible 不再另画 outline */
+  .mt-cycle-ring-hl {
+    fill: none;
+    stroke: var(--mt-accent);
+    stroke-width: 2;
+    opacity: 0;
+    transition: opacity 180ms;
+  }
+  .mt-cycle-node:is(:hover, :focus-visible) .mt-cycle-ring-hl {
+    opacity: 1;
   }
   .mt-cycle-node:focus-visible {
     outline: none;
   }
-  .mt-cycle-node:focus-visible rect {
-    stroke-width: 2;
-  }
   .mt-cycle-zh {
-    fill: currentColor;
+    fill: var(--sl-color-gray-1);
     font-size: 25px;
     font-weight: 700;
     letter-spacing: 0.04em;
+    transition: fill 180ms;
+  }
+  .mt-cycle-node:is(:hover, :focus-visible) .mt-cycle-zh {
+    fill: var(--sl-color-white);
   }
   .mt-cycle-en {
     fill: var(--sl-color-gray-3);
@@ -205,6 +257,23 @@ const ticks = Array.from({ length: 60 }, (_, k) => {
   @media (max-width: 560px) {
     .mt-cycle-handoff {
       display: none;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mt-cycle-arc,
+    .mt-cycle-node,
+    .mt-cycle-seg {
+      animation: none;
+    }
+    .mt-cycle-node,
+    .mt-cycle-node:is(:hover, :focus-visible) {
+      transform: none;
+      transition: none;
+    }
+    .mt-cycle-box,
+    .mt-cycle-ring-hl,
+    .mt-cycle-zh {
+      transition: none;
     }
   }
 </style>

@@ -35,6 +35,66 @@ main:has(.mt-home) > .content-panel:first-child {
   -webkit-mask-image: radial-gradient(ellipse 60% 75% at 78% 45%, #000 0%, transparent 78%);
   mask-image: radial-gradient(ellipse 60% 75% at 78% 45%, #000 0%, transparent 78%);
 }
+/* 网格交叉点的「+」准星（内联 SVG pattern，与 56px 网格同原点、同遮罩）与极淡的强调色径向光晕（4%） */
+.mt-hero-cross {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  color: var(--mt-cross);
+  -webkit-mask-image: radial-gradient(ellipse 60% 75% at 78% 45%, #000 0%, transparent 78%);
+  mask-image: radial-gradient(ellipse 60% 75% at 78% 45%, #000 0%, transparent 78%);
+}
+.mt-hero-cross path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+}
+.mt-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse 55% 70% at 78% 45%, color-mix(in srgb, var(--mt-accent) 4%, transparent), transparent 72%);
+}
+:root {
+  --mt-cross: rgb(255 160 112 / 0.32);
+}
+:root[data-theme='light'] {
+  --mt-cross: rgb(185 58 10 / 0.26);
+}
+
+/* ---------- 入场 ----------
+   首屏阶梯：眉标 → 主标题 → 副标 → 定位语 → CTA → 安装命令 → 闭环图，相邻 60ms；
+   translateY(10px)+opacity，500ms，cubic-bezier(0.16,1,0.3,1)。fill-mode 用 backwards：动画一结束就从 getAnimations() 里消失，不留 fill 常驻。
+   首屏以下的区块由 src/scripts/motion.ts 进入视口时补 .mt-in，节奏相同。 */
+@keyframes mt-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+.mt-hero-copy > *,
+.mt-hero-art,
+[data-mt-reveal].mt-in {
+  animation: mt-rise 500ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation-delay: calc(var(--i, 0) * 60ms);
+}
+.mt-hero-copy > :nth-child(1) { --i: 0; }
+.mt-hero-copy > :nth-child(2) { --i: 1; }
+.mt-hero-copy > :nth-child(3) { --i: 2; }
+.mt-hero-copy > :nth-child(4) { --i: 3; }
+.mt-hero-copy > :nth-child(5) { --i: 4; }
+.mt-hero-copy > :nth-child(6) { --i: 5; }
+.mt-hero-art { --i: 6; }
+[data-mt-reveal].mt-pre {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
 .mt-hero-copy {
   min-width: 0;
 }
@@ -148,7 +208,7 @@ main:has(.mt-home) > .content-panel:first-child {
 }
 .mt-arrow {
   display: inline-block;
-  transition: transform 0.18s ease;
+  transition: transform 180ms ease, color 180ms ease;
 }
 .mt-btn:hover .mt-arrow {
   transform: translateX(4px);
@@ -238,7 +298,7 @@ main:has(.mt-home) > .content-panel:first-child {
   padding: var(--mt-space-5);
   color: var(--sl-color-text);
   text-decoration: none;
-  transition: background-color 0.15s;
+  transition: transform 180ms ease, background-color 180ms ease;
 }
 .mt-cell-sm {
   min-height: 8.5rem;
@@ -250,12 +310,13 @@ main:has(.mt-home) > .content-panel:first-child {
   inset: -1px;
   border: 1px solid transparent;
   pointer-events: none;
-  transition: border-color 0.15s;
+  transition: border-color 180ms ease;
 }
 .mt-cell:hover,
 .mt-cell:focus-visible {
   z-index: 1;
   background: var(--mt-surface-hover);
+  transform: translateY(-2px);
 }
 .mt-cell:hover::after,
 .mt-cell:focus-visible::after {
@@ -276,7 +337,7 @@ main:has(.mt-home) > .content-panel:first-child {
   letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
   font-feature-settings: 'tnum';
-  transition: color 0.15s;
+  transition: color 180ms ease;
 }
 .mt-num-tag {
   font-size: 1.125rem;
@@ -294,9 +355,10 @@ main:has(.mt-home) > .content-panel:first-child {
 .mt-cell:hover .mt-arrow,
 .mt-cell:focus-visible .mt-arrow {
   color: var(--mt-accent-text);
-  transform: translateX(5px);
+  transform: translateX(4px);
 }
-.mt-grid-artifacts .mt-cell:hover .mt-arrow {
+.mt-grid-artifacts .mt-cell:hover .mt-arrow,
+.mt-grid-artifacts .mt-cell:focus-visible .mt-arrow {
   transform: translate(3px, -3px);
 }
 .mt-cell-title {
@@ -323,6 +385,111 @@ main:has(.mt-home) > .content-panel:first-child {
 }
 .mt-grid-agent .mt-cell-desc {
   margin-top: auto;
+}
+
+/* ---------- 路径条（推荐阅读顺序）----------
+   与闭环图同一套阶段词汇；一条线而不是一张网：chip 之间用 1px 线 + 箭头头相连。整条（chip 行 + 说明行）≤90px。 */
+.mt-path-list {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.mt-path-list > li {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+.mt-path-list > li:last-child {
+  flex: 0 0 auto;
+}
+.mt-chip {
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 1px;
+  padding: 7px 14px;
+  border: 1px solid var(--mt-line-strong);
+  border-radius: 0.4rem;
+  background: var(--mt-surface);
+  text-decoration: none;
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+.mt-chip-zh {
+  color: var(--sl-color-white);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+}
+.mt-chip-ch {
+  color: var(--sl-color-gray-3);
+  font-family: var(--sl-font-mono);
+  font-size: 0.6875rem;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  transition: color 180ms ease;
+}
+.mt-chip:hover,
+.mt-chip:focus-visible {
+  border-color: var(--mt-accent);
+  background: var(--mt-surface-hover);
+  transform: translateY(-2px);
+}
+.mt-chip:hover .mt-chip-ch,
+.mt-chip:focus-visible .mt-chip-ch {
+  color: var(--mt-accent-text);
+}
+.mt-path-arrow {
+  position: relative;
+  flex: 1 1 1rem;
+  min-width: 1rem;
+  height: 1px;
+  margin-inline: 0.5rem;
+  background: var(--mt-line-strong);
+}
+.mt-path-arrow::after {
+  content: '';
+  position: absolute;
+  inset-inline-end: 0;
+  top: -3px;
+  width: 6px;
+  height: 6px;
+  border-top: 1px solid var(--sl-color-gray-3);
+  border-right: 1px solid var(--sl-color-gray-3);
+  transform: rotate(45deg);
+  transform-origin: center;
+}
+.mt-path-note {
+  margin: 8px 0 0;
+  color: var(--sl-color-gray-3);
+  font-family: var(--sl-font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+@media (max-width: 759px) {
+  .mt-path-list {
+    overflow-x: auto;
+    padding: 4px;
+    margin: -4px;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+  .mt-path-list > li,
+  .mt-path-list > li:last-child {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+  .mt-path-arrow {
+    flex: 0 0 1.25rem;
+  }
 }
 
 @media (max-width: 1099px) {
@@ -366,9 +533,29 @@ main:has(.mt-home) > .content-panel:first-child {
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .mt-hero-copy > *,
+  .mt-hero-art,
+  [data-mt-reveal].mt-in {
+    animation: none;
+  }
   .mt-arrow,
   .mt-cell,
-  .mt-cell::after {
+  .mt-cell::after,
+  .mt-num,
+  .mt-chip,
+  .mt-chip-ch {
     transition: none;
+  }
+  /* 降级为无位移：悬停只换颜色 */
+  .mt-cell:hover,
+  .mt-cell:focus-visible,
+  .mt-chip:hover,
+  .mt-chip:focus-visible,
+  .mt-btn:hover .mt-arrow,
+  .mt-cell:hover .mt-arrow,
+  .mt-cell:focus-visible .mt-arrow,
+  .mt-grid-artifacts .mt-cell:hover .mt-arrow,
+  .mt-grid-artifacts .mt-cell:focus-visible .mt-arrow {
+    transform: none;
   }
 }
