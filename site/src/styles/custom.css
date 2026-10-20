@@ -831,3 +831,15 @@ time {
     transition: none;
   }
 }
+
+/* 任务清单（GFM checkbox）：状态已由复选框表达，不再叠加短横标记。 */
+.sl-markdown-content ul:not(:where(.not-content *)) > li.task-list-item::before {
+  content: none;
+}
+.sl-markdown-content li.task-list-item {
+  padding-inline-start: 0;
+}
+.sl-markdown-content li.task-list-item input[type='checkbox'] {
+  margin-inline-end: 0.5em;
+  vertical-align: baseline;
+}
