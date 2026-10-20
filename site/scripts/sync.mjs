@@ -14,7 +14,7 @@ import { writeFileSync, mkdirSync, rmSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { cfg, repoRoot, BASE, TAGLINE, chapterSlug } from '../site.config.mjs';
+import { cfg, repoRoot, BASE, TAGLINE, GITHUB_URL, chapterSlug } from '../site.config.mjs';
 import { readChapters, splitKeepEnds } from './skill-source.mjs';
 import { buildLlmsTxt, buildLlmsFull } from './llms.mjs';
 
@@ -24,7 +24,6 @@ if (!outDir.endsWith(sep + 'site' + sep + 'src' + sep + 'content' + sep + 'docs'
   throw new Error('拒绝清理非预期输出目录: ' + outDir);
 }
 
-const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 // 只读 git：rev-parse / log。不执行任何写操作。
 const git = (args) => execFileSync('git', args, { cwd: repoRoot, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
@@ -97,41 +96,40 @@ mkdirSync(genDir, { recursive: true });
 writeFileSync(resolve(genDir, 'llms.txt'), buildLlmsTxt());
 writeFileSync(resolve(genDir, 'llms-full.txt'), buildLlmsFull());
 
-const first = cfg.chapters[0];
-const cards = cfg.chapters
-  .map((c) => '<a class="mt-card" href="' + BASE + '/' + chapterSlug(c) + '/"><span class="mt-card-label">' + esc(c.label) +
-    '</span><span class="mt-card-title">' + esc(c.title) + '</span></a>')
-  .join('\n');
-const tagline =
-  '<span class="mt-pill">' + esc(cfg.version) + '</span>' +
-  '<span class="mt-hero-en">' + esc(cfg.title) + '</span>' +
-  '<span class="mt-hero-tag">' + esc(TAGLINE) + '</span>';
-const hero = {
-  tagline,
-  actions: [
-    { text: '开始阅读', link: BASE + '/' + chapterSlug(first) + '/', icon: 'right-arrow', variant: 'primary' },
-    { text: '浏览章节', link: '#全部章节', variant: 'secondary' },
-  ],
+// 首页数据：src/pages/index.astro 读取。章号、标题、顺序、版本都来自 book.config.json，
+// 每章一句话取自 SKILL.md 的 description（readChapters 已解析），首页不手写任何章节信息。
+const BLURB_MAX = 40;
+function blurb(desc) {
+  const sents = desc.split('。').map((x) => x.trim()).filter(Boolean);
+  // 首句是「AI-Native SDLC xxx指南」式的题名，取第二句（「指导 Agent …」）；第二句是「当用户…」时退回首句冒号后的部分。
+  const s = sents.slice(1).find((x) => !x.startsWith('当用户')) ?? sents[0].replace(/^[^：]*：/, '');
+  const body = s.replace(/^(?:用于)?指导\s*Agent(?:\s*与团队)?\s*/, '');
+  const fit = (parts, sep) => {
+    let out = '';
+    for (const p of parts) {
+      const next = out ? out + sep + p : p;
+      if ([...next].length > BLURB_MAX) break;
+      out = next;
+    }
+    return out;
+  };
+  return fit(body.split('，'), '，') || fit(body.split('、'), '、');
+}
+const home = {
+  title: cfg.title,
+  title_zh: cfg.title_zh,
+  version: cfg.version,
+  license: 'BSL 1.1',
+  tagline: TAGLINE,
+  github: GITHUB_URL,
+  chapters: readChapters().map(({ c, skillDescription }) => ({
+    order: c.order,
+    label: c.label,
+    title: c.title,
+    slug: chapterSlug(c),
+    blurb: blurb(skillDescription),
+  })),
 };
-writeFileSync(
-  resolve(outDir, 'index.md'),
-  [
-    '---',
-    'title: ' + JSON.stringify(cfg.title_zh),
-    'description: ' + JSON.stringify(cfg.title),
-    'template: splash',
-    'editUrl: false',
-    'lastUpdated: false',
-    'hero: ' + JSON.stringify(hero),
-    '---',
-    '',
-    '## 全部章节',
-    '',
-    '<div class="mt-cards">',
-    cards,
-    '</div>',
-    '',
-  ].join('\n'),
-);
+writeFileSync(resolve(genDir, 'home.json'), JSON.stringify(home, null, 2) + '\n');
 
-console.log('synced ' + cfg.chapters.length + ' chapters + index -> ' + outDir + ' (base ' + BASE + ', lastUpdated ' + dated + '/' + cfg.chapters.length + ')');
+console.log('synced ' + cfg.chapters.length + ' chapters + home.json -> ' + outDir + ' (base ' + BASE + ', lastUpdated ' + dated + '/' + cfg.chapters.length + ')');

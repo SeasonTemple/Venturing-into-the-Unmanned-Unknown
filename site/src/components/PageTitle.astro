@@ -5,7 +5,9 @@
 //    内容 = SKILL.md 去 frontmatter 后的原文（首个 H1 由 description 还原，正文逐字节同源），无 frontmatter；CRLF 统一为 LF。
 //  - 回到顶部。
 const { entry } = Astro.locals.starlightRoute;
-const isChapter = entry.data.template !== 'splash' && !!entry.body;
+// 首页（splash）自带 <h1>，这里不再输出标题行。
+const isSplash = entry.data.template === 'splash';
+const isChapter = !isSplash && !!entry.body;
 const raw = isChapter
   ? ('# ' + entry.data.description + '\n\n' + entry.body.replace(/\r\n/g, '\n').replace(/^\s*\n/, ''))
   : '';
@@ -13,6 +15,7 @@ const raw = isChapter
 const embedded = JSON.stringify(raw).replace(/</g, '\\u003c');
 ---
 
+{!isSplash && (
 <div class="mt-title-row">
   <h1 id="_top">{entry.data.title}</h1>
   {
@@ -31,6 +34,7 @@ const embedded = JSON.stringify(raw).replace(/</g, '\\u003c');
     )
   }
 </div>
+)}
 {isChapter && <script type="text/markdown" id="mt-raw-md" data-encoding="json" set:html={embedded} />}
 
 <script>
@@ -91,7 +95,8 @@ const embedded = JSON.stringify(raw).replace(/</g, '\\u003c');
     margin-top: 0.5rem;
     font-size: var(--sl-text-h1);
     line-height: var(--sl-line-height-headings);
-    font-weight: 500;
+    font-weight: var(--mt-fw-heading);
+    letter-spacing: var(--mt-ls-display);
     color: var(--sl-color-white);
   }
   .mt-actions {

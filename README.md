@@ -3,7 +3,7 @@
 **迈向无人区：AI 原生软件工程指南**（短名：AI-Native SDLC Guidebook）
 
 [![License](https://img.shields.io/badge/license-BSL%201.1-555?style=flat-square&labelColor=2b2f36)](./LICENSE)
-[![Version](https://img.shields.io/badge/version-v0.0.1-555?style=flat-square&labelColor=2b2f36)](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/releases)
+[![Version](https://img.shields.io/badge/version-v0.0.2-555?style=flat-square&labelColor=2b2f36)](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/releases)
 [![Validate Skills](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/actions/workflows/validate-skills.yml/badge.svg?style=flat-square)](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/actions/workflows/validate-skills.yml)
 [![Pages](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/actions/workflows/pages.yml/badge.svg?style=flat-square)](https://seasontemple.github.io/Venturing-into-the-Unmanned-Unknown/)
 [![Release](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/actions/workflows/release.yml/badge.svg?style=flat-square)](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/releases)

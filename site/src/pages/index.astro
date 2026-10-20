@@ -1,0 +1,152 @@
+---
+// 首页：自定义 Astro 页面（Starlight splash 模板）。
+// 所有章节信息来自 src/generated/home.json —— sync.mjs 由 book.config.json + SKILL.md 生成，这里不手写章节标题。
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import home from '../generated/home.json';
+import CycleDiagram from '../components/CycleDiagram.astro';
+import CopyCommand from '../components/CopyCommand.astro';
+import '../styles/home.css';
+
+const BASE = import.meta.env.BASE_URL.replace(/\/+$/, '');
+const chapters = home.chapters;
+const first = chapters[0];
+const repoName = home.github.split('/').pop()!;
+const releases = home.github + '/releases';
+const [zhMain, zhSub] = home.title_zh.split('：');
+const num = (order: string) => (/^\d$/.test(order) ? '0' + order : order);
+const byOrder = (o: string) => chapters.find((c) => c.order === o)!;
+
+// 阅读顺序（README「使用顺序与原则」）：只写章号，标题仍取自配置。
+const readingOrder = [['0'], ['1'], ['2'], ['4'], ['3', '5'], ['6'], ['7'], ['8']];
+
+const artifacts = [
+  { tag: '.tar.gz', name: '源码', desc: '仓库源码快照，含全部 skills/ 与站点工程。' },
+  { tag: '.zip', name: '技能包', desc: '打包好的 Agent Skills（SKILL.md），解压即可加载。' },
+  { tag: 'BOOK.md', name: '全书', desc: '合并为单个 Markdown 文件，适合整体喂给 Agent。' },
+];
+---
+
+<StarlightPage
+  frontmatter={{
+    title: home.title_zh,
+    description: home.title,
+    template: 'splash',
+    editUrl: false,
+    lastUpdated: false,
+  }}
+>
+  <div class="mt-home not-content">
+    <section class="mt-hero" aria-labelledby="mt-title">
+      <div class="mt-hero-copy">
+        <p class="mt-eyebrow">
+          <span>{home.version}</span><i aria-hidden="true">·</i><span>{home.license}</span><i aria-hidden="true">·</i><span>{chapters.length} 章</span>
+        </p>
+        <h1 id="mt-title" class="mt-display">
+          <span class="mt-display-main">{zhMain}</span>
+          <span class="mt-display-sub">{zhSub}</span>
+        </h1>
+        <p class="mt-en" lang="en">{home.title}</p>
+        <p class="mt-lede">{home.tagline}</p>
+        <div class="mt-cta">
+          <a class="mt-btn mt-btn-primary" href={BASE + '/' + first.slug + '/'}>开始阅读<span class="mt-arrow" aria-hidden="true">→</span></a>
+          <a class="mt-btn mt-btn-secondary" href="#chapters">浏览章节</a>
+        </div>
+        <CopyCommand
+          lines={['git clone ' + home.github + '.git', 'cd ' + repoName, 'cp -R skills/* .claude/skills/']}
+          comment="或 .agents/skills/ / .cursor/skills/"
+        />
+      </div>
+      <div class="mt-hero-art">
+        <CycleDiagram />
+      </div>
+    </section>
+
+    <section class="mt-section" id="chapters" aria-labelledby="mt-h-chapters">
+      <header class="mt-section-head">
+        <p class="mt-kicker"><span>01</span> / Chapters</p>
+        <h2 id="mt-h-chapters">全书章节</h2>
+        <p class="mt-section-lede">{chapters.length} 个章节，每章对应一份可直接加载的 Agent Skill。</p>
+      </header>
+      <ol class="mt-grid mt-grid-chapters">
+        {chapters.map((c) => (
+          <li>
+            <a class="mt-cell" href={BASE + '/' + c.slug + '/'}>
+              <span class="mt-cell-top">
+                <span class="mt-num">{num(c.order)}</span>
+                <span class="mt-arrow" aria-hidden="true">→</span>
+              </span>
+              <span class="mt-cell-title">{c.title}</span>
+              <span class="mt-cell-desc">{c.blurb}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="mt-section" aria-labelledby="mt-h-order">
+      <header class="mt-section-head">
+        <p class="mt-kicker"><span>02</span> / Reading order</p>
+        <h2 id="mt-h-order">推荐阅读顺序</h2>
+        <p class="mt-section-lede">先对齐原则，再沿「意图 → 设计 → 实现 → 验证 → 交付 → 演进」走一遍，最后回到工具与技能。</p>
+      </header>
+      <ol class="mt-grid mt-grid-order">
+        {readingOrder.map((orders, i) => (
+          <li>
+            <a class="mt-cell mt-cell-sm" href={BASE + '/' + byOrder(orders[0]).slug + '/'}>
+              <span class="mt-cell-top">
+                <span class="mt-num">{String(i + 1).padStart(2, '0')}</span>
+                <span class="mt-arrow" aria-hidden="true">→</span>
+              </span>
+              <span class="mt-cell-title">{orders.map((o) => byOrder(o).title).join(' · ')}</span>
+              <span class="mt-cell-desc mt-mono">{orders.map((o) => 'CH ' + o).join(' · ')}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="mt-section" aria-labelledby="mt-h-art">
+      <header class="mt-section-head">
+        <p class="mt-kicker"><span>03</span> / Artifacts</p>
+        <h2 id="mt-h-art">下载制品</h2>
+        <p class="mt-section-lede">每个 Release 提供三种形态。首个 Release 发布前，Releases 页可能为空。</p>
+      </header>
+      <ul class="mt-grid mt-grid-artifacts">
+        {artifacts.map((a) => (
+          <li>
+            <a class="mt-cell" href={releases} rel="noopener">
+              <span class="mt-cell-top">
+                <span class="mt-num mt-num-tag">{a.tag}</span>
+                <span class="mt-arrow" aria-hidden="true">↗</span>
+              </span>
+              <span class="mt-cell-title">{a.name}</span>
+              <span class="mt-cell-desc">{a.desc}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="mt-section" aria-labelledby="mt-h-agent">
+      <header class="mt-section-head">
+        <p class="mt-kicker"><span>04</span> / For agents</p>
+        <h2 id="mt-h-agent">给 Agent 的入口</h2>
+        <p class="mt-section-lede">站点同时发布纯文本版本：章节索引用于导航，全文用于一次性载入上下文。</p>
+      </header>
+      <ul class="mt-grid mt-grid-agent">
+        <li>
+          <a class="mt-cell mt-cell-sm" href={BASE + '/llms.txt'}>
+            <span class="mt-cell-top"><span class="mt-num mt-num-tag">llms.txt</span><span class="mt-arrow" aria-hidden="true">→</span></span>
+            <span class="mt-cell-desc">章节索引：标题、链接与每章摘要。</span>
+          </a>
+        </li>
+        <li>
+          <a class="mt-cell mt-cell-sm" href={BASE + '/llms-full.txt'}>
+            <span class="mt-cell-top"><span class="mt-num mt-num-tag">llms-full.txt</span><span class="mt-arrow" aria-hidden="true">→</span></span>
+            <span class="mt-cell-desc">全文：{chapters.length} 章正文合并为单个纯文本。</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</StarlightPage>

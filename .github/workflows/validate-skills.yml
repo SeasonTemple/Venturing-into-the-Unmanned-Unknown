@@ -183,6 +183,7 @@ jobs:
 
           readme = open("README.md", encoding="utf-8").read()
           found = re.findall(r"版本[：:]\s*\*\*(v?[0-9][^*\s]*)\*\*", readme)
+          badge = re.findall(r"badge/version-(v?[0-9][0-9.]*)-", readme)
           if not found:
               print("::error file=README.md::no version marker like '版本：**v0.0.1**' found")
               sys.exit(1)
@@ -190,6 +191,9 @@ jobs:
           bad = sorted({v for v in found if v != cfg_version})
           print(f"book.config.json version: {cfg_version}")
           print(f"README.md versions: {found}")
+          if badge and any(b != cfg_version for b in badge):
+              print(f"::error file=README.md::README version badge {badge} != book.config.json version {cfg_version}")
+              sys.exit(1)
           if bad:
               print(f"::error file=README.md::README version {bad} != book.config.json version {cfg_version}")
               sys.exit(1)

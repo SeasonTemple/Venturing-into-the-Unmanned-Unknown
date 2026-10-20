@@ -1,0 +1,210 @@
+---
+// AI-Native SDLC 闭环图：纯内联 SVG，不含位图；颜色只用 currentColor 与 CSS 变量，亮暗随主题自动切换。
+// 六个阶段是本书方法论的固定骨架；每个阶段链接到对应章节，章节号 / 路径取自 home.json（来自 book.config.json）。
+import home from '../generated/home.json';
+const BASE = import.meta.env.BASE_URL.replace(/\/+$/, '');
+
+const stages = [
+  { zh: '意图', en: 'Intent', orders: ['1'], handoff: '验收标准' },
+  { zh: '设计', en: 'Design', orders: ['2'], handoff: '接口契约' },
+  { zh: '实现', en: 'Implement', orders: ['4'], handoff: '验证资产' },
+  { zh: '验证', en: 'Verify', orders: ['3', '5'], handoff: '质量门禁' },
+  { zh: '交付', en: 'Deliver', orders: ['6'], handoff: '运行反馈' },
+  { zh: '演进', en: 'Evolve', orders: ['7'], handoff: '新意图' },
+];
+
+const CX = 300, CY = 300, R = 205, NW = 130, NH = 72, MARGIN = 7;
+const rad = (d: number) => (d * Math.PI) / 180;
+const at = (deg: number) => [CX + R * Math.cos(rad(deg)), CY + R * Math.sin(rad(deg))] as const;
+const f = (n: number) => n.toFixed(1);
+
+const nodes = stages.map((s, i) => {
+  const deg = -90 + 60 * i;
+  const [x, y] = at(deg);
+  const first = home.chapters.find((c) => c.order === s.orders[0]);
+  return { ...s, i, deg, x, y, href: first ? BASE + '/' + first.slug + '/' : BASE + '/' };
+});
+
+// 沿圆环从节点 a 走到节点 b：离开节点矩形（外扩 MARGIN）为止，两端各裁一段。
+const insideRect = (px: number, py: number, n: { x: number; y: number }) =>
+  Math.abs(px - n.x) < NW / 2 + MARGIN && Math.abs(py - n.y) < NH / 2 + MARGIN;
+function trimmed(a: (typeof nodes)[number], b: (typeof nodes)[number]) {
+  let d0 = a.deg, d1 = a.deg + 60;
+  while (insideRect(...at(d0), a)) d0 += 0.5;
+  while (insideRect(...at(d1), b)) d1 -= 0.5;
+  return [d0, d1] as const;
+}
+const arcs = nodes.map((n) => {
+  const m = nodes[(n.i + 1) % nodes.length];
+  const [d0, d1] = trimmed(n, m);
+  const [x0, y0] = at(d0);
+  const [x1, y1] = at(d1);
+  // 箭头：沿切线方向的实心三角
+  const t = rad(d1 + 90), nrm = rad(d1);
+  const L = 13, W = 6.5;
+  const bx = x1 - L * Math.cos(t), by = y1 - L * Math.sin(t);
+  const head = `M${f(x1)} ${f(y1)}L${f(bx + W * Math.cos(nrm))} ${f(by + W * Math.sin(nrm))}L${f(bx - W * Math.cos(nrm))} ${f(by - W * Math.sin(nrm))}Z`;
+  const [lx, ly] = at(n.deg + 30);
+  return { d: `M${f(x0)} ${f(y0)}A${R} ${R} 0 0 1 ${f(x1 - 6 * Math.cos(t))} ${f(y1 - 6 * Math.sin(t))}`, head, lx, ly, label: n.handoff };
+});
+
+// 外圈刻度：每 6° 一格，每 60°（节点方向）一条长刻度
+const ticks = Array.from({ length: 60 }, (_, k) => {
+  const major = k % 10 === 0;
+  const a = rad(-90 + k * 6);
+  const r0 = 262, r1 = major ? 276 : 268;
+  return `M${f(CX + r0 * Math.cos(a))} ${f(CY + r0 * Math.sin(a))}L${f(CX + r1 * Math.cos(a))} ${f(CY + r1 * Math.sin(a))}`;
+}).join('');
+---
+
+<svg class="mt-cycle" viewBox="18 18 564 564" role="group" aria-labelledby="mt-cycle-t mt-cycle-d" xmlns="http://www.w3.org/2000/svg">
+  <title id="mt-cycle-t">AI-Native SDLC 闭环图</title>
+  <desc id="mt-cycle-d">意图、设计、实现、验证、交付、演进六个阶段首尾相接成环；每个阶段链接到对应章节，演进阶段的运行信号回流为新的意图。</desc>
+
+  <path class="mt-cycle-ticks" d={ticks} />
+  <circle class="mt-cycle-ring" cx={CX} cy={CY} r={R} />
+  <circle class="mt-cycle-hub" cx={CX} cy={CY} r="104" />
+
+  <g class="mt-cycle-center" text-anchor="middle">
+    <text class="mt-cycle-brand" x={CX} y={CY - 8}>AI-Native</text>
+    <text class="mt-cycle-brand" x={CX} y={CY + 24}>SDLC</text>
+    <text class="mt-cycle-note" x={CX} y={CY + 56}>人定意图与裁决</text>
+    <text class="mt-cycle-note" x={CX} y={CY + 75}>Agent 执行与自检</text>
+  </g>
+
+  {arcs.map((a) => (
+    <>
+      <path class="mt-cycle-arc" d={a.d} />
+      <path class="mt-cycle-head" d={a.head} />
+      <g class="mt-cycle-handoff" text-anchor="middle">
+        <rect x={a.lx - 37} y={a.ly - 12} width="74" height="24" rx="12" />
+        <text x={a.lx} y={a.ly + 5}>{a.label}</text>
+      </g>
+    </>
+  ))}
+
+  {nodes.map((n) => (
+    <a class="mt-cycle-node" href={n.href} aria-label={`${n.zh}（${n.en}）：第 ${n.orders.join('、')} 章`}>
+      <rect x={n.x - NW / 2} y={n.y - NH / 2} width={NW} height={NH} rx="10" />
+      <text class="mt-cycle-ch" x={n.x - NW / 2 + 10} y={n.y - NH / 2 + 18}>{'CH ' + n.orders.join('、')}</text>
+      <text class="mt-cycle-zh" x={n.x} y={n.y + 12} text-anchor="middle">{n.zh}</text>
+      <text class="mt-cycle-en" x={n.x} y={n.y + 28} text-anchor="middle">{n.en}</text>
+    </a>
+  ))}
+</svg>
+
+<style>
+  .mt-cycle {
+    display: block;
+    width: 100%;
+    height: auto;
+    color: var(--sl-color-gray-2);
+    overflow: visible;
+  }
+  .mt-cycle-ticks {
+    fill: none;
+    stroke: var(--mt-line-strong);
+    stroke-width: 1;
+  }
+  .mt-cycle-ring {
+    fill: none;
+    stroke: var(--mt-line-strong);
+    stroke-width: 1;
+  }
+  .mt-cycle-hub {
+    fill: color-mix(in srgb, var(--sl-color-accent-low) 55%, transparent);
+    stroke: var(--mt-line-strong);
+    stroke-width: 1;
+    stroke-dasharray: 2 5;
+  }
+  .mt-cycle-brand {
+    fill: currentColor;
+    color: var(--sl-color-white);
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .mt-cycle-note {
+    fill: currentColor;
+    color: var(--sl-color-gray-3);
+    font-size: 14px;
+  }
+  .mt-cycle-arc {
+    fill: none;
+    stroke: var(--mt-accent);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 7 7;
+    animation: mt-flow 1.6s linear infinite;
+  }
+  .mt-cycle-head {
+    fill: var(--mt-accent);
+  }
+  @keyframes mt-flow {
+    to {
+      stroke-dashoffset: -13;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mt-cycle-arc {
+      animation: none;
+    }
+  }
+  .mt-cycle-handoff rect {
+    fill: var(--sl-color-bg);
+    stroke: var(--mt-line-strong);
+    stroke-width: 1;
+  }
+  .mt-cycle-handoff text {
+    fill: currentColor;
+    color: var(--sl-color-gray-3);
+    font-size: 13.5px;
+    letter-spacing: 0.02em;
+  }
+  .mt-cycle-node {
+    cursor: pointer;
+    color: var(--sl-color-white);
+    text-decoration: none;
+  }
+  .mt-cycle-node rect {
+    fill: var(--mt-surface);
+    stroke: var(--mt-line-strong);
+    stroke-width: 1;
+    transition: stroke 0.15s, fill 0.15s;
+  }
+  .mt-cycle-node:is(:hover, :focus-visible) rect {
+    stroke: var(--mt-accent);
+    fill: var(--mt-surface-hover);
+  }
+  .mt-cycle-node:focus-visible {
+    outline: none;
+  }
+  .mt-cycle-node:focus-visible rect {
+    stroke-width: 2;
+  }
+  .mt-cycle-zh {
+    fill: currentColor;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .mt-cycle-en {
+    fill: var(--sl-color-gray-3);
+    font-family: var(--sl-font-mono);
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .mt-cycle-ch {
+    fill: var(--mt-accent-text);
+    font-family: var(--sl-font-mono);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+  }
+  @media (max-width: 560px) {
+    .mt-cycle-handoff {
+      display: none;
+    }
+  }
+</style>

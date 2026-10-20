@@ -1,0 +1,139 @@
+---
+interface Props {
+  lines: string[];
+  comment?: string;
+  label?: string;
+}
+const { lines, comment, label = '安装' } = Astro.props;
+const text = lines.join('\n') + (comment ? '   # ' + comment : '');
+---
+
+<div class="mt-cmd" data-mt-cmd>
+  <div class="mt-cmd-head">
+    <span class="mt-cmd-label">{label}</span>
+    <button type="button" class="mt-cmd-btn" data-mt-cmd-copy data-text={text} aria-label="复制安装命令">
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+      <span data-label-default="复制" data-label-done="已复制" data-label-fail="复制失败">复制</span>
+    </button>
+  </div>
+  <pre class="mt-cmd-body"><code>{lines.map((l, i) => (<><span class="mt-cmd-prompt" aria-hidden="true">$ </span>{l}{i === lines.length - 1 && comment ? <span class="mt-cmd-comment">   # {comment}</span> : null}{'\n'}</>))}</code></pre>
+  <span class="sr-only" role="status" aria-live="polite" data-mt-cmd-status></span>
+</div>
+
+<script>
+  document.addEventListener('click', async (ev) => {
+    const btn = (ev.target as Element).closest<HTMLButtonElement>('[data-mt-cmd-copy]');
+    if (!btn) return;
+    const label = btn.querySelector<HTMLElement>('[data-label-default]')!;
+    let state: 'done' | 'fail' = 'done';
+    try {
+      const text = btn.dataset.text!;
+      if (navigator.clipboard?.writeText) await navigator.clipboard.writeText(text);
+      else {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.cssText = 'position:fixed;top:-1000px;opacity:0';
+        document.body.append(ta);
+        ta.select();
+        const ok = document.execCommand('copy');
+        ta.remove();
+        if (!ok) throw new Error('copy failed');
+      }
+    } catch {
+      state = 'fail';
+    }
+    label.textContent = state === 'done' ? label.dataset.labelDone! : label.dataset.labelFail!;
+    btn.dataset.state = state;
+    const status = btn.closest('[data-mt-cmd]')!.querySelector<HTMLElement>('[data-mt-cmd-status]');
+    if (status) status.textContent = label.textContent;
+    clearTimeout((btn as any)._t);
+    (btn as any)._t = setTimeout(() => {
+      label.textContent = label.dataset.labelDefault!;
+      delete btn.dataset.state;
+    }, 2000);
+  });
+</script>
+
+<style>
+  .mt-cmd {
+    max-width: 44rem;
+    border: 1px solid var(--mt-line-strong);
+    border-radius: 0.5rem;
+    background: var(--mt-surface);
+    overflow: hidden;
+  }
+  .mt-cmd-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.35rem 0.5rem 0.35rem 0.9rem;
+    border-bottom: 1px solid var(--mt-line);
+  }
+  .mt-cmd-label {
+    color: var(--sl-color-gray-3);
+    font-family: var(--sl-font-mono);
+    font-size: var(--mt-fs-micro);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .mt-cmd-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid transparent;
+    border-radius: 0.35rem;
+    background: transparent;
+    color: var(--sl-color-gray-2);
+    font: inherit;
+    font-size: var(--mt-fs-micro);
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s, background-color 0.15s;
+  }
+  .mt-cmd-btn:hover,
+  .mt-cmd-btn:focus-visible {
+    border-color: var(--mt-accent);
+    color: var(--sl-color-white);
+    background: var(--sl-color-accent-low);
+  }
+  .mt-cmd-btn[data-state='done'] {
+    border-color: var(--sl-color-green);
+    color: var(--sl-color-green-high);
+  }
+  .mt-cmd-btn[data-state='fail'] {
+    border-color: var(--sl-color-red);
+    color: var(--sl-color-red-high);
+  }
+  .mt-cmd-body {
+    margin: 0;
+    padding: 0.75rem 0.9rem;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    background: transparent;
+    color: var(--sl-color-gray-1);
+    font-family: var(--sl-font-mono);
+    font-size: 0.74rem;
+    line-height: 1.7;
+  }
+  .mt-cmd-body code {
+    font: inherit;
+    background: none;
+    padding: 0;
+  }
+  .mt-cmd-prompt {
+    color: var(--mt-accent-text);
+    user-select: none;
+  }
+  .mt-cmd-comment {
+    color: var(--sl-color-gray-3);
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+</style>

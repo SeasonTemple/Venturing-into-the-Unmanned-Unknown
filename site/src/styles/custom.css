@@ -33,9 +33,6 @@
   --sl-font: "MT Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", var(--mt-cjk-sans), "Helvetica Neue", Arial, sans-serif;
   --sl-font-mono: "MT JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono",
     "Source Code Pro", "PingFang SC", "Microsoft YaHei", "Noto Sans Mono CJK SC", monospace;
-  /* 显示字体：只有拉丁字母与数字落在 MT Display 上，中文回退到正文系统 UI 栈 */
-  --mt-font-display: "MT Display", var(--sl-font);
-  --sl-content-width: 50rem;
 }
 
 /* Inter 的 cv02 开口 4、cv03 开口 6、cv04 开口 9、cv11 单层 a。font-feature-settings 会被子元素继承，代码块单独还原。 */
@@ -50,7 +47,9 @@ pre {
 }
 /* 表格、章节序号、侧栏、页码类：等宽数字 */
 .sl-markdown-content table,
-.mt-card-label,
+.mt-num,
+.mt-eyebrow,
+.mt-kicker,
 .sidebar-content a,
 starlight-toc a,
 .pagination-links,
@@ -59,22 +58,72 @@ time {
   font-variant-numeric: tabular-nums;
 }
 
-/* 标题用显示字体。MT Display 只有 400 一档：禁止合成粗体，中文回退字体仍用系统自带的真实粗体。 */
+/* ---------- 字阶与间距令牌 ----------
+   中文主标题没有衬线可用（MT Display 只含 Latin），气场只能靠 字号 + 字重 + 字距 建立：
+   显示级 clamp(2.6rem, 7vw, 5.5rem) / 700 / -0.02em / 1.1。
+   MT Display 仅用于首页英文副标；标题一律走 --sl-font（Inter 变量字重 + 系统中文粗体），拉丁与中文同样粗。 */
+:root {
+  --mt-fs-display: clamp(2.6rem, 7vw, 5.5rem);
+  --mt-fs-h1: clamp(1.9rem, 1.45rem + 1.8vw, 2.5rem);
+  --mt-fs-h2: clamp(1.45rem, 1.25rem + 0.8vw, 1.8rem);
+  --mt-fs-h3: 1.3125rem;
+  --mt-fs-h4: 1.125rem;
+  --mt-fs-body: 1.0625rem;
+  --mt-fs-small: 0.875rem;
+  --mt-fs-micro: 0.75rem;
+
+  --mt-lh-display: 1.1;
+  --mt-lh-heading: 1.25;
+  --mt-lh-body: 1.8;
+
+  --mt-ls-display: -0.02em;
+  --mt-ls-heading: -0.012em;
+  --mt-ls-mono: 0.04em;
+
+  --mt-fw-display: 700;
+  --mt-fw-heading: 700;
+  --mt-fw-sub: 600;
+
+  /* 正文行宽：65~75ch。--sl-content-width 由它换算（17px Inter 的 ch ≈ 10.5px，72ch ≈ 46rem） */
+  --mt-measure: 72ch;
+
+  /* 间距节奏：4px 基准，近似 1.5 倍递增 */
+  --mt-space-1: 0.25rem;
+  --mt-space-2: 0.5rem;
+  --mt-space-3: 0.75rem;
+  --mt-space-4: 1rem;
+  --mt-space-5: 1.5rem;
+  --mt-space-6: 2rem;
+  --mt-space-7: 3rem;
+  --mt-space-8: 4.5rem;
+
+  --mt-font-display: "MT Display", var(--sl-font);
+
+  --sl-content-width: 46rem;
+  --sl-text-body: var(--mt-fs-body);
+  --sl-text-h1: var(--mt-fs-h1);
+  --sl-text-h2: var(--mt-fs-h2);
+  --sl-text-h3: var(--mt-fs-h3);
+  --sl-text-h4: var(--mt-fs-h4);
+  --sl-text-h5: var(--mt-fs-body);
+  --sl-line-height: var(--mt-lh-body);
+  --sl-line-height-headings: var(--mt-lh-heading);
+}
+
 h1,
 h2,
-.hero h1 {
-  font-family: var(--mt-font-display);
-  font-synthesis-weight: none;
+h3,
+h4 {
+  font-family: var(--sl-font);
+  font-weight: var(--mt-fw-heading);
+  letter-spacing: var(--mt-ls-heading);
 }
-/* 中文回退字体取 500：Latin 衬线只有一档细体，中文再用 600/700 会一粗一细；系统只有常规/粗两档时 500 落到常规 */
-h1,
-h2,
-.hero h1 {
-  font-weight: 500;
+h1 {
+  letter-spacing: var(--mt-ls-display);
 }
-.sl-markdown-content h1,
-.sl-markdown-content h2 {
-  font-weight: 500;
+h3,
+h4 {
+  font-weight: 600;
 }
 
 /* ---------- 暗色（原 .coal） ---------- */
@@ -95,12 +144,19 @@ h2,
   --sl-color-hairline: #232a33;
   --sl-color-hairline-light: #323b47;
   --sl-color-hairline-shade: #0b0e12;
-  --sl-color-accent-low: #1f2547;
-  --sl-color-accent: #6366f1;
-  --sl-color-accent-high: #a5b4fc;
-  --mt-code-color: #ffb4a8;
-  --mt-card-bg: #151a21;
-  --mt-card-border: #262d37;
+  /* 品牌色「信号橙」：深色底上的亮橙。与 #0f1318 对比 7.19:1（正文级 ≥4.5:1），文字用 accent-high 9.33:1 */
+  --sl-color-accent-low: #3a1d10;
+  --sl-color-accent: #ff7a3d;
+  --sl-color-accent-high: #ffa070;
+  --mt-accent: var(--sl-color-accent);
+  --mt-accent-hover: #ff915c;
+  --mt-accent-text: var(--sl-color-accent-high);
+  --mt-on-accent: #1a0d05; /* 橙底上的深色文字 7.34:1 */
+  --mt-code-color: #e6edf3;
+  --mt-line: #222a33;
+  --mt-line-strong: #323b47;
+  --mt-surface: #12171d;
+  --mt-surface-hover: #1a2029;
 }
 
 /* ---------- 亮色（原 .light） ---------- */
@@ -121,97 +177,27 @@ h2,
   --sl-color-hairline: #e5e7eb;
   --sl-color-hairline-light: #e1e4e8;
   --sl-color-hairline-shade: #e5e7eb;
-  --sl-color-accent-low: #ebebff;
-  --sl-color-accent: #4338ca;
-  --sl-color-accent-high: #312e81;
-  --mt-code-color: #b42318;
-  --mt-card-bg: #ffffff;
-  --mt-card-border: #e1e4e8;
+  /* 亮色：accent #b93a0a 对白底 5.72:1，白字压在其上 5.72:1；文字链接用 accent-high #8f2f08 对白底 8.15:1 */
+  --sl-color-accent-low: #fdebe1;
+  --sl-color-accent: #b93a0a;
+  --sl-color-accent-high: #8f2f08;
+  --mt-accent: var(--sl-color-accent);
+  --mt-accent-hover: #a23209;
+  --mt-accent-text: var(--sl-color-accent-high);
+  --mt-on-accent: #ffffff;
+  --mt-code-color: #24292f;
+  --mt-line: #e1e4e8;
+  --mt-line-strong: #cdd2d9;
+  --mt-surface: #ffffff;
+  --mt-surface-hover: #fff7f2;
 }
 
+/* 正文字号：Starlight 的 --sl-text-body 并不驱动正文，这里显式落到内容容器 */
+.sl-markdown-content {
+  font-size: var(--mt-fs-body);
+}
 .sl-markdown-content :not(pre) > code {
   color: var(--mt-code-color);
-}
-
-/* ---------- 首页 ---------- */
-.mt-pill {
-  display: inline-block;
-  margin-bottom: 0.9rem;
-  padding: 0.15rem 0.8rem;
-  border: 1px solid var(--sl-color-accent);
-  border-radius: 999px;
-  background: var(--sl-color-accent-low);
-  color: var(--sl-color-accent-high);
-  font-size: var(--sl-text-sm);
-  font-weight: 600;
-  letter-spacing: 0.02em;
-}
-.mt-hero-en,
-.mt-hero-tag {
-  display: block;
-}
-.mt-hero-en {
-  margin-bottom: 0.4rem;
-  color: var(--sl-color-gray-3);
-  font-size: var(--sl-text-base);
-  font-style: italic;
-}
-.mt-hero-tag {
-  color: var(--sl-color-gray-2);
-  font-size: var(--sl-text-lg);
-}
-
-.mt-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
-.mt-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  padding: 1rem 1.1rem;
-  border: 1px solid var(--mt-card-border);
-  border-radius: 0.6rem;
-  background: var(--mt-card-bg);
-  color: var(--sl-color-text);
-  text-decoration: none;
-  transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
-}
-.mt-card:hover {
-  border-color: var(--sl-color-accent);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px color-mix(in srgb, var(--sl-color-accent) 18%, transparent);
-}
-.mt-card-label {
-  color: var(--sl-color-text-accent);
-  font-size: var(--sl-text-xs);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-}
-.mt-card-title {
-  color: var(--sl-color-white);
-  font-size: var(--sl-text-base);
-  font-weight: 600;
-  line-height: 1.4;
-}
-
-/* 首页 hero 无配图：取消右侧空栏，单栏铺满，标题不再被折成两行半字 */
-.hero {
-  grid-template-columns: 100% !important;
-  padding-block: clamp(1.5rem, 6vmin, 4rem) 0.5rem !important;
-}
-.hero .copy > * {
-  max-width: 46rem;
-}
-.hero h1 {
-  font-size: clamp(var(--sl-text-3xl), calc(0.5rem + 3vw), 2.75rem);
-  max-width: none;
-  text-wrap: balance;
-}
-.hero .tagline {
-  text-wrap: balance;
 }
 
 /* ---------- 表格 ----------
