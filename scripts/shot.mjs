@@ -73,6 +73,9 @@ const args = [
   url,
 ];
 
+// 先删旧图：否则 Chrome 失败时轮询会看到上一次的文件，误报成功
+try { rmSync(out, { force: true }); } catch {}
+
 child = spawn(CHROME, args, { stdio: 'ignore' });
 
 const deadline = Date.now() + Number(wait) + 20000;
