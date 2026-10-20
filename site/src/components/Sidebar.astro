@@ -1,12 +1,13 @@
 ---
-// 阅读页左栏：章号 / 标题两列网格 + 当前章小节列表。
+// 阅读页左栏：章号 / 标题两列网格。
+// 小节不在此出现——右栏 ON THIS PAGE 已经是同一批 h2，左栏再列一遍等于把目录印两次。
 // 为什么必须覆盖组件：Starlight 的 <SidebarSublist> 只输出 <a><span>label</span></a>，
 // 「第 3 章 验证」是一整段文本，CSS 无法把章号拆到独立一列（也无法生成 00–08、A）；
 // 小节列表（页内 h2）在出厂侧栏 DOM 里根本不存在；分组计数同理。故在此重排 DOM，样式仍全在 custom.css。
 import MobileMenuFooter from '@astrojs/starlight/components/MobileMenuFooter.astro';
 import SidebarPersister from '@astrojs/starlight/components/SidebarPersister.astro';
 
-const { sidebar, toc } = Astro.locals.starlightRoute;
+const { sidebar } = Astro.locals.starlightRoute;
 
 const parse = (label: string) => {
   let m = label.match(/^第\s*(\d+)\s*章\s*(.*)$/);
@@ -19,7 +20,6 @@ const parse = (label: string) => {
 const countLinks = (entries: any[]): number =>
   entries.reduce((n, e) => n + (e.type === 'link' ? 1 : countLinks(e.entries)), 0);
 
-const sections = (toc?.items ?? []).filter((i) => i.slug !== '_top');
 ---
 
 <SidebarPersister>
@@ -42,17 +42,6 @@ const sections = (toc?.items ?? []).filter((i) => i.slug !== '_top');
                       <span class="mt-nav-no">{no}</span>
                       <span class="mt-nav-title">{title}</span>
                     </a>
-                    {e.isCurrent && sections.length > 0 && (
-                      <ul class="mt-nav-sub" aria-label="本章小节">
-                        {sections.map((s) => (
-                          <li>
-                            <a href={'#' + s.slug} data-mt-sub>
-                              {s.text}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
                   </li>
                 );
               })}
@@ -73,30 +62,3 @@ const sections = (toc?.items ?? []).filter((i) => i.slug !== '_top');
   <MobileMenuFooter />
 </div>
 
-<script>
-  // 当前小节：取最后一个顶部越过阅读线的 h2（h3 内滚动时仍归属其父 h2）。
-  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('.mt-nav-sub a[data-mt-sub]'));
-  const heads = links.map((a) => document.getElementById(decodeURIComponent(a.hash.slice(1))));
-  if (links.length) {
-    const LINE = 110;
-    let raf = 0;
-    const update = () => {
-      raf = 0;
-      let cur = -1;
-      heads.forEach((h, i) => {
-        if (h && h.getBoundingClientRect().top <= LINE) cur = i;
-      });
-      links.forEach((a, i) => {
-        if (i === cur) a.setAttribute('aria-current', 'location');
-        else a.removeAttribute('aria-current');
-      });
-    };
-    const onScroll = () => {
-      if (!raf) raf = requestAnimationFrame(update);
-    };
-    addEventListener('scroll', onScroll, { passive: true });
-    addEventListener('resize', onScroll, { passive: true });
-    addEventListener('hashchange', onScroll);
-    update();
-  }
-</script>
