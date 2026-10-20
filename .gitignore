@@ -21,3 +21,7 @@ site/src/generated/
 .zcode/
 skills-lock.json
 .lab/
+
+# 首屏候选图与临时素材（不入库）
+.rev/
+hero-candidates/
