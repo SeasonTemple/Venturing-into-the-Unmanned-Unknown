@@ -1,6 +1,9 @@
-// 全站动效运行时（无依赖）：顶栏滚动态、阅读进度、右栏共享指示条、首屏以下区块入场、代码块复制反馈。
+// 全站动效运行时（无依赖）：顶栏滚动态、阅读进度、回到顶部浮层按钮、右栏共享指示条、首屏以下区块入场、代码块复制反馈。
 // 与 Astro ClientRouter 配合：每次 astro:page-load（含首次加载）重新绑定；所有监听挂在同一个 AbortController 上，换页时整体撤销。
 const reduceMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// 回到顶部按钮的显示阈值（px）：scrollY 严格大于该值才显示
+const TOTOP_THRESHOLD = 600;
 
 let ac: AbortController | undefined;
 let io: IntersectionObserver | undefined;
@@ -18,11 +21,21 @@ function init() {
   const progress = document.querySelector<HTMLElement>('.mt-progress');
   // 进度条挂到 body 直接子级：它在 <main> 内的层叠上下文里时，z-index 压不过顶栏（z-index:10）
   if (progress && progress.parentElement !== document.body) document.body.append(progress);
+  // 回到顶部：右下角固定的浮层按钮。同样挂到 body 直接子级，避开任何祖先的 transform / contain 对 position: fixed 的影响。
+  // 显隐只切 data-show（opacity + translateY 的过渡在 CSS 里，减少动效时无过渡直接显隐）。
+  const totop = document.querySelector<HTMLButtonElement>('[data-mt-top]');
+  if (totop && totop.parentElement !== document.body) document.body.append(totop);
+  totop?.addEventListener(
+    'click',
+    () => window.scrollTo({ top: 0, behavior: reduceMotion() ? 'auto' : 'smooth' }),
+    { signal },
+  );
   let raf = 0;
   const update = () => {
     raf = 0;
     const y = window.scrollY;
     root.toggleAttribute('data-scrolled', y > 8);
+    totop?.toggleAttribute('data-show', y > TOTOP_THRESHOLD);
     if (progress) {
       const max = root.scrollHeight - window.innerHeight;
       const p = max > 0 ? Math.min(1, Math.max(0, y / max)) : 0;

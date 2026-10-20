@@ -40,4 +40,5 @@
 | `.mt-constraint` | 约束（琥珀） | #e0a030 | #a56a00 |
 | `.mt-antipattern` | 反模式（红，虚线边框） | #ee5d5d | #c0302f |
 
-样式在 `src/styles/custom.css` 末尾，统一用 `--mt-block-color` 变量，改色只改这一个变量。
+样式在 `src/styles/custom.css` 的「阅读页正文 · 引用块 / 语义块」一节，统一用 `--mt-block-color` 变量，改色只改这一个变量。
+几何与普通引用块完全一致：2px 色条 + 6% 淡底 + 右侧 6px 圆角、无外框（普通引用块的色条用品牌橙）；反模式额外加上下两条 1px 虚线。

@@ -132,7 +132,7 @@ h4 {
   --sl-color-bg: #0f1318;
   --sl-color-bg-nav: #151a21;
   --sl-color-bg-sidebar: #151a21;
-  --sl-color-bg-inline-code: #232b36;
+  --sl-color-bg-inline-code: #1a2029;
   --sl-color-white: #e6edf3;
   --sl-color-gray-1: #d8dde4;
   --sl-color-gray-2: #c9d0d9;
@@ -153,6 +153,7 @@ h4 {
   --mt-accent-text: var(--sl-color-accent-high);
   --mt-on-accent: #1a0d05; /* 橙底上的深色文字 7.34:1 */
   --mt-code-color: #e6edf3;
+  --mt-code-bg: #0b0e12; /* 代码块深底：比页面底 #0f1318 更深一档 */
   --mt-line: #222a33;
   --mt-line-strong: #323b47;
   --mt-surface: #12171d;
@@ -186,62 +187,230 @@ h4 {
   --mt-accent-text: var(--sl-color-accent-high);
   --mt-on-accent: #ffffff;
   --mt-code-color: #24292f;
+  --mt-code-bg: #f6f8fa;
   --mt-line: #e1e4e8;
   --mt-line-strong: #cdd2d9;
   --mt-surface: #ffffff;
   --mt-surface-hover: #fff7f2;
 }
 
-/* 正文字号：Starlight 的 --sl-text-body 并不驱动正文，这里显式落到内容容器 */
+/* ================= 阅读页正文 =================
+   与首页 / 左右栏同一套语言：1px 发丝线（--mt-line / --mt-line-strong）、等宽 meta（11px / 0.08em / 与 CONTENTS、ON THIS PAGE 同款）、
+   品牌橙只用作点缀与链接；全部无 box-shadow、无 blur。Starlight 的正文样式在 @layer starlight.content 里，这里的非分层规则天然压过它，
+   并统一带 :not(:where(.not-content *)) 以免波及 Starlight 组件内部。 */
 .sl-markdown-content {
   font-size: var(--mt-fs-body);
 }
-.sl-markdown-content :not(pre) > code {
-  color: var(--mt-code-color);
+
+/* --- f. 标题节奏：h2 / h3 / h4 的 上:下 = 3:1（2.4em/0.8em、1.9em/0.6em、1.6em/0.5em）。
+   Starlight 把标题包在 .sl-heading-wrapper.level-hN 里，间距落在 wrapper 上（wrapper 的 font-size = 标题字号，所以 em 跟着标题走）。
+   不加任何装饰编号：正文自带「1. 本章定位」。h2 上方 1px 发丝线；正文里本来就有「---」分节线时，紧邻 h2 的那条隐藏，避免双线。 */
+.sl-markdown-content .sl-heading-wrapper.level-h2 {
+  margin-top: 2.4em;
+  margin-bottom: 0.8em;
+  padding-top: 0.55em;
+  border-top: 1px solid var(--mt-line);
+}
+.sl-markdown-content .sl-heading-wrapper.level-h3 {
+  margin-top: 1.9em;
+  margin-bottom: 0.6em;
+}
+.sl-markdown-content .sl-heading-wrapper.level-h4 {
+  margin-top: 1.6em;
+  margin-bottom: 0.5em;
+}
+.sl-markdown-content > .sl-heading-wrapper.level-h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+/* 标题下方的间距由标题自己的 margin-bottom 决定，不再叠加 Starlight 的块间距 */
+.sl-markdown-content .sl-heading-wrapper + :not(.sl-heading-wrapper):not(:where(.not-content *)) {
+  margin-top: 0;
+}
+.sl-markdown-content hr:has(+ .sl-heading-wrapper.level-h2) {
+  display: none;
+}
+.sl-markdown-content :is(h2, h3, h4) code {
+  font-size: 0.85em;
 }
 
-/* ---------- 表格 ----------
-   首列与表头不折行；其余列给最小宽度。列数多或内容长时整张表横向滚动，而不是把列挤成一字一行。 */
-.sl-markdown-content table {
+/* --- h. hr：1px 发丝线，上下统一 2.4em（与 h2 上间距同值） */
+.sl-markdown-content hr:not(:where(.not-content *)) {
+  height: 0;
+  margin: 2.4em 0;
+  border: 0;
+  border-top: 1px solid var(--mt-line);
+}
+
+/* --- g. 链接：强调色文字 + 1px 下划线（offset 2px）；hover 下划线加粗到 2px 并换成实色；visited 与默认同色相 */
+.sl-markdown-content a:not(.sl-anchor-link):not(:where(.not-content *)) {
+  color: var(--mt-accent-text);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in srgb, var(--mt-accent) 55%, transparent);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 120ms ease;
+}
+.sl-markdown-content a:not(.sl-anchor-link):not(:where(.not-content *)):visited {
+  color: var(--mt-accent-text);
+}
+.sl-markdown-content a:not(.sl-anchor-link):not(:where(.not-content *)):is(:hover, :focus-visible) {
+  color: var(--mt-accent-text);
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--mt-accent);
+}
+
+/* --- c. 行内代码：1px 边框 + 淡底 + 4px 圆角 + 等宽；字色中性（不用强调橙，链接内的代码也保持中性）；
+   font-size 0.875em 的等宽字与正文同基线；换行时每一段都带完整边框 */
+.sl-markdown-content :not(pre) > code:not(:where(.not-content *)) {
+  margin-block: 0;
+  padding: 0.1em 0.4em;
+  border: 1px solid var(--mt-line-strong);
+  border-radius: 4px;
+  background-color: var(--sl-color-bg-inline-code);
+  color: var(--mt-code-color);
+  font-size: 0.875em;
+  line-height: 1;
+  vertical-align: baseline;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* --- e. 列表：ul 的标记是强调色短横（L1）/ 空心方点（L2）/ 灰色小方点（L3）；ol 沿用数字，标记改等宽强调色。
+   条目间距 0.4em；嵌套层级用 1px 竖线缩进。 */
+.sl-markdown-content :is(ul, ol):not(:where(.not-content *)) {
+  padding-inline-start: 1.5rem;
+}
+.sl-markdown-content ul:not(:where(.not-content *)) {
+  list-style: none;
+}
+.sl-markdown-content ul:not(:where(.not-content *)) > li {
+  position: relative;
+}
+.sl-markdown-content ul:not(:where(.not-content *)) > li::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: -1.1rem;
+  top: calc(0.9em - 1px);
+  width: 7px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--mt-accent);
+}
+.sl-markdown-content ul:not(:where(.not-content *)) ul > li::before {
+  top: calc(0.9em - 3px);
+  width: 5px;
+  height: 5px;
+  border: 1px solid var(--mt-accent);
+  border-radius: 0;
+  background: transparent;
+}
+.sl-markdown-content ul:not(:where(.not-content *)) ul ul > li::before {
+  top: calc(0.9em - 2px);
+  width: 3px;
+  height: 3px;
+  border: 0;
+  background: var(--sl-color-gray-3);
+}
+.sl-markdown-content ol:not(:where(.not-content *)) > li::marker {
+  color: var(--mt-accent-text);
+  font-family: var(--sl-font-mono);
+  font-size: 0.85em;
+  font-variant-numeric: tabular-nums;
+}
+.sl-markdown-content :is(ul, ol):not(:where(.not-content *)) > li + li {
+  margin-top: 0.4em;
+}
+.sl-markdown-content li:not(:where(.not-content *)) > :is(ul, ol) {
+  margin-top: 0.4em;
+  padding-inline-start: 1.35rem;
+  border-inline-start: 1px solid var(--mt-line-strong);
+}
+
+/* --- a. 表格：表头 = 等宽 11px / 0.08em / 大写（与 CONTENTS、ON THIS PAGE 同一套），1px 发丝线分隔，行悬停淡底，数字 tabular-nums。
+   表格本身是横向滚动容器：宽表在窄屏里整张表滚动，列不被挤压（首列与表头不折行，文字列最小 10em、数值列最小 5.5em）。 */
+.sl-markdown-content table:not(:where(.not-content *)) {
   display: block;
   width: max-content;
   max-width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  border-spacing: 0;
+  font-size: 0.9em;
+  font-variant-numeric: tabular-nums;
+  scrollbar-width: thin;
+  scrollbar-color: var(--mt-line-strong) transparent;
 }
-.sl-markdown-content :is(th, td) {
-  min-width: 8em;
+.sl-markdown-content :is(th, td):not(:where(.not-content *)) {
+  min-width: 10em;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--mt-line);
+  vertical-align: baseline;
 }
-.sl-markdown-content :is(th, td):first-child {
+.sl-markdown-content :is(th, td):not(:where(.not-content *)):first-child {
   min-width: 4.5em;
+  padding-inline-start: 0.625rem;
   white-space: nowrap;
 }
-.sl-markdown-content th {
+.sl-markdown-content :is(th, td):not(:where(.not-content *)):last-child {
+  padding-inline-end: 0.625rem;
+}
+.sl-markdown-content th:not(:where(.not-content *)) {
+  padding-block: 0.5rem;
+  border-top: 1px solid var(--mt-line-strong);
+  border-bottom: 1px solid var(--mt-line-strong);
+  font-family: var(--sl-font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
   white-space: nowrap;
+  color: var(--sl-color-gray-3);
+}
+.sl-markdown-content tbody tr:last-child > td:not(:where(.not-content *)) {
+  border-bottom-color: var(--mt-line-strong);
+}
+.sl-markdown-content tbody td:not(:where(.not-content *)) {
+  transition: background-color 120ms ease;
+}
+.sl-markdown-content tbody tr:hover > td:not(:where(.not-content *)) {
+  background-color: var(--mt-nav-bg-hover);
+}
+/* 数值列（Markdown 里写 ---: 右对齐）：窄列 + tabular-nums，把宽度让给文字列 */
+.sl-markdown-content :is(th, td)[align='right']:not(:where(.not-content *)),
+.sl-markdown-content :is(th, td)[style*='text-align: right']:not(:where(.not-content *)) {
+  min-width: 5.5em;
+  font-variant-numeric: tabular-nums;
 }
 
-/* ---------- 语义块：公理 / 不变量 / 约束 / 反模式 ----------
-   用法见 site/SEMANTIC-BLOCKS.md。blockquote 以加粗关键词开头会被 remark 插件自动加 class；
-   也可以在 Markdown 里直接写 <div class="mt-block mt-axiom">。 */
+/* --- b. 引用块 / 语义块：同一套几何——2px 强调色条 + 6% 淡底，右侧 6px 圆角，无外框。
+   普通引用块 = 品牌橙；语义块（src/plugins/semantic-blocks.mjs 给 blockquote 加 .mt-block.mt-xxx，也可手写 <div class="mt-block mt-axiom">）只换 --mt-block-color。
+   用法见 site/SEMANTIC-BLOCKS.md。 */
+.sl-markdown-content blockquote:not(:where(.not-content *)),
 .mt-block {
-  --mt-block-color: var(--sl-color-accent);
   margin: 1.25rem 0;
-  padding: 0.75rem 1rem;
-  border: 1px solid color-mix(in srgb, var(--mt-block-color) 35%, transparent);
-  border-inline-start: 4px solid var(--mt-block-color);
-  border-radius: 0.4rem;
-  background: color-mix(in srgb, var(--mt-block-color) 10%, transparent);
-  color: var(--sl-color-text);
+  padding: 0.7rem 1rem;
+  border: 0;
+  border-inline-start: 2px solid var(--mt-block-color, var(--mt-accent));
+  border-radius: 0 6px 6px 0;
+  background: color-mix(in srgb, var(--mt-block-color, var(--mt-accent)) 6%, transparent);
+  color: var(--sl-color-gray-1);
   quotes: none;
 }
-.sl-markdown-content .mt-block > :first-child {
+.sl-markdown-content .mt-block {
+  margin-block: 1.25rem;
+}
+.sl-markdown-content :is(blockquote, .mt-block) > :first-child {
   margin-top: 0;
 }
-.sl-markdown-content .mt-block > :last-child {
+.sl-markdown-content :is(blockquote, .mt-block) > :last-child {
   margin-bottom: 0;
 }
 .mt-block > :first-child > strong:first-child {
-  color: var(--mt-block-color);
+  color: var(--mt-block-color, var(--mt-accent-text));
 }
 .mt-axiom {
   --mt-block-color: #6c8cff;
@@ -254,8 +423,7 @@ h4 {
 }
 .mt-antipattern {
   --mt-block-color: #ee5d5d;
-  border-style: dashed;
-  border-inline-start-style: solid;
+  border-block: 1px dashed color-mix(in srgb, var(--mt-block-color) 45%, transparent);
 }
 :root[data-theme='light'] .mt-axiom {
   --mt-block-color: #3d5bd6;
@@ -268,6 +436,16 @@ h4 {
 }
 :root[data-theme='light'] .mt-antipattern {
   --mt-block-color: #c0302f;
+}
+
+/* --- d. 代码块：Expressive Code 的样式覆盖在 astro.config.mjs 的 expressiveCode.styleOverrides（圆角 6px、1px 发丝边框、深底、无阴影、标记行强调色）。
+   这里只补页面侧的间距与滚动条；复制按钮的反馈动效见下方「代码块复制」。 */
+.sl-markdown-content .expressive-code {
+  margin-block: 1.25rem;
+}
+.expressive-code pre {
+  scrollbar-width: thin;
+  scrollbar-color: var(--mt-line-strong) transparent;
 }
 
 /* ---------- 阅读页导航：左栏 + 右侧「本页内容」----------
@@ -574,6 +752,54 @@ time {
 @keyframes mt-btn-flash {
   from {
     background-color: color-mix(in srgb, var(--mt-accent) 45%, transparent);
+  }
+}
+
+/* 回到顶部浮层按钮（src/components/PageTitle.astro 渲染，src/scripts/motion.ts 在 scrollY > 600 时置 data-show）。
+   右下角 fixed，40×40，1px 发丝边框 + 实色底（无模糊、无阴影）；隐藏态 = opacity 0 + translateY(8px) + visibility hidden（不可聚焦、不可点击），
+   显示态 200ms 淡入并上移归位；z-index 3 低于 Starlight 移动端侧栏抽屉（5）与顶栏（10），抽屉打开时被盖住，不冲突。 */
+.mt-totop {
+  position: fixed;
+  inset-inline-end: max(1.25rem, env(safe-area-inset-right));
+  inset-block-end: max(1.25rem, env(safe-area-inset-bottom));
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid var(--mt-line-strong);
+  border-radius: 6px;
+  background: var(--sl-color-bg);
+  color: var(--sl-color-gray-2);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 200ms ease, transform 200ms ease, visibility 0s linear 200ms, border-color 150ms, color 150ms, background-color 150ms;
+}
+.mt-totop[data-show] {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: none;
+  transition: opacity 200ms ease, transform 200ms ease, visibility 0s, border-color 150ms, color 150ms, background-color 150ms;
+}
+.mt-totop:is(:hover, :focus-visible) {
+  border-color: var(--mt-accent);
+  background: var(--sl-color-accent-low);
+  color: var(--sl-color-white);
+}
+@media (max-width: 49.99rem) {
+  .mt-totop {
+    inset-inline-end: max(0.75rem, env(safe-area-inset-right));
+    inset-block-end: max(0.75rem, env(safe-area-inset-bottom));
+  }
+}
+@media print {
+  .mt-totop {
+    display: none;
   }
 }
 

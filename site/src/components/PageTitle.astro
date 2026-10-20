@@ -1,9 +1,9 @@
 ---
-// 覆盖 Starlight 的 PageTitle：标题行右侧放三个页面动作。
+// 覆盖 Starlight 的 PageTitle：标题行上方放页面动作（复制 Markdown）。
 //  - 复制本页 Markdown：构建期把本页 Markdown 以 JSON 字符串放进 <script is:inline type="text/markdown">，
 //    按钮只读这段文本写剪贴板，不暴露任何 .md 路由，也不发网络请求。
 //    内容 = SKILL.md 去 frontmatter 后的原文（首个 H1 由 description 还原，正文逐字节同源），无 frontmatter；CRLF 统一为 LF。
-//  - 回到顶部。
+//  - 回到顶部：不在标题行里（滚到下方就看不见了）；渲染为右下角固定的浮层按钮，显隐由 src/scripts/motion.ts 按 scrollY > 600 控制。
 const { entry } = Astro.locals.starlightRoute;
 // 首页（splash）自带 <h1>，这里不再输出标题行。
 const isSplash = entry.data.template === 'splash';
@@ -26,16 +26,19 @@ const embedded = JSON.stringify(raw).replace(/</g, '\\u003c');
           <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="mt-check" d="m4.5 12.5 5 5L19.5 7" /><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
           <span class="mt-action-label" data-label-default="复制 Markdown" data-label-done="已复制" data-label-fail="复制失败">复制 Markdown</span>
         </button>
-        <button type="button" class="mt-action" data-mt-top>
-          <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6" /></svg>
-          <span class="mt-action-label">回到顶部</span>
-        </button>
         <span class="sr-only" role="status" aria-live="polite" data-mt-status></span>
       </div>
     )
   }
 </div>
 )}
+{
+  isChapter && (
+    <button type="button" class="mt-totop print:hidden" data-mt-top aria-label="回到顶部" title="回到顶部">
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5" /><path d="m5 12 7-7 7 7" /></svg>
+    </button>
+  )
+}
 {isChapter && <script type="text/markdown" id="mt-raw-md" data-encoding="json" set:html={embedded} />}
 
 <script>
@@ -77,10 +80,6 @@ const embedded = JSON.stringify(raw).replace(/</g, '\\u003c');
         copy.removeAttribute('data-state');
       }, 2000);
       return;
-    }
-    if (target.closest('[data-mt-top]')) {
-      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
     }
   });
 </script>

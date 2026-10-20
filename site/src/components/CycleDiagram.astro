@@ -1,11 +1,13 @@
 ---
 // AI-Native SDLC 闭环图：纯内联 SVG，不含位图；颜色只用 currentColor 与 CSS 变量，亮暗随主题自动切换。
 // 六个阶段是本书方法论的固定骨架（src/lib/stages.ts，与首页路径条共用）；每个阶段链接到对应章节，章节号 / 路径取自 home.json（来自 book.config.json）。
+// 视觉语言：工业图纸——1px 发丝线（vector-effect: non-scaling-stroke，缩放后仍是 1px）、同心细环 + 径向刻度、卡片顶部标题栏分隔线；无模糊光晕、无投影。
 import home from '../generated/home.json';
 import { stages } from '../lib/stages';
 const BASE = import.meta.env.BASE_URL.replace(/\/+$/, '');
 
-const CX = 300, CY = 300, R = 205, NW = 130, NH = 72, MARGIN = 7;
+const CX = 300, CY = 300, R = 205, NW = 136, NH = 84, MARGIN = 7;
+const HEAD = 24; // 卡片顶部标题栏高度（CH 行）
 const rad = (d: number) => (d * Math.PI) / 180;
 const at = (deg: number) => [CX + R * Math.cos(rad(deg)), CY + R * Math.sin(rad(deg))] as const;
 const f = (n: number) => n.toFixed(1);
@@ -40,13 +42,21 @@ const arcs = nodes.map((n) => {
   return { i: n.i, d: `M${f(x0)} ${f(y0)}A${R} ${R} 0 0 1 ${f(x1 - 6 * Math.cos(t))} ${f(y1 - 6 * Math.sin(t))}`, head, lx, ly, label: n.handoff };
 });
 
+// 径向刻度：count 格，每 majorEvery 格一条长刻度（长度 majorLen），其余 minorLen；从内半径 r0 起算外伸（r0 为刻度内端）
+function radial(r0: number, count: number, minorLen: number, majorEvery: number, majorLen: number, from = -90) {
+  return Array.from({ length: count }, (_, k) => {
+    const major = k % majorEvery === 0;
+    const a = rad(from + (k * 360) / count);
+    const r1 = r0 + (major ? majorLen : minorLen);
+    return `M${f(CX + r0 * Math.cos(a))} ${f(CY + r0 * Math.sin(a))}L${f(CX + r1 * Math.cos(a))} ${f(CY + r1 * Math.sin(a))}`;
+  }).join('');
+}
 // 外圈刻度：每 6° 一格，每 60°（节点方向）一条长刻度
-const ticks = Array.from({ length: 60 }, (_, k) => {
-  const major = k % 10 === 0;
-  const a = rad(-90 + k * 6);
-  const r0 = 262, r1 = major ? 276 : 268;
-  return `M${f(CX + r0 * Math.cos(a))} ${f(CY + r0 * Math.sin(a))}L${f(CX + r1 * Math.cos(a))} ${f(CY + r1 * Math.sin(a))}`;
-}).join('');
+const ticks = radial(262, 60, 6, 10, 14);
+// 中心刻度环：r 104→122，每 5° 一格（72 格），每 30° 一条长刻度；四个正方向另画强调色长刻度
+const hubTicks = radial(104, 72, 5, 6, 12);
+const hubCardinal = radial(104, 4, 0, 1, 18);
+const CIRC = 2 * Math.PI * R;
 ---
 
 <svg class="mt-cycle" viewBox="18 18 564 564" role="group" aria-labelledby="mt-cycle-t mt-cycle-d" xmlns="http://www.w3.org/2000/svg">
@@ -62,7 +72,14 @@ const ticks = Array.from({ length: 60 }, (_, k) => {
 
   <path class="mt-cycle-ticks" d={ticks} />
   <circle class="mt-cycle-ring" cx={CX} cy={CY} r={R} />
-  <circle class="mt-cycle-hub" cx={CX} cy={CY} r="104" />
+
+  <g class="mt-cycle-hub">
+    <circle class="mt-hub-disc" cx={CX} cy={CY} r="104" />
+    <circle class="mt-hub-outer" cx={CX} cy={CY} r="122" />
+    <circle class="mt-hub-inner" cx={CX} cy={CY} r="104" />
+    <path class="mt-hub-ticks" d={hubTicks} />
+    <path class="mt-hub-cardinal" d={hubCardinal} />
+  </g>
 
   <g class="mt-cycle-center" text-anchor="middle">
     <text class="mt-cycle-brand" x={CX} y={CY - 8}>AI-Native</text>
@@ -82,23 +99,32 @@ const ticks = Array.from({ length: 60 }, (_, k) => {
     </g>
   ))}
 
+  {/* 沿环流动的高光段：一段拖尾 + 一段亮头，顺时针绕环一周（6s）；画在节点之下，经过节点时被卡片遮住再从另一侧出现。 */}
+  <g class="mt-cycle-pulse" aria-hidden="true" transform={`rotate(-90 ${CX} ${CY})`}>
+    <circle class="mt-pulse-trail" cx={CX} cy={CY} r={R} style={`--len:${f(CIRC)}px`} />
+    <circle class="mt-pulse-head" cx={CX} cy={CY} r={R} style={`--len:${f(CIRC)}px`} />
+  </g>
+
   {nodes.map((n) => (
     <a class="mt-cycle-node" style={`--i:${n.i}`} href={n.href} aria-label={`${n.zh}（${n.en}）：第 ${n.orders.join('、')} 章`}>
-      <rect class="mt-cycle-ring-hl" x={n.x - NW / 2 - 3} y={n.y - NH / 2 - 3} width={NW + 6} height={NH + 6} rx="13" />
-      <rect class="mt-cycle-box" x={n.x - NW / 2} y={n.y - NH / 2} width={NW} height={NH} rx="10" />
-      <text class="mt-cycle-ch" x={n.x - NW / 2 + 10} y={n.y - NH / 2 + 18}>{'CH ' + n.orders.join('、')}</text>
+      <rect class="mt-cycle-ring-hl" x={n.x - NW / 2 - 4} y={n.y - NH / 2 - 4} width={NW + 8} height={NH + 8} rx="10" />
+      <rect class="mt-cycle-box" x={n.x - NW / 2} y={n.y - NH / 2} width={NW} height={NH} rx="6" />
+      <line class="mt-cycle-rule" x1={n.x - NW / 2} x2={n.x + NW / 2} y1={n.y - NH / 2 + HEAD} y2={n.y - NH / 2 + HEAD} />
+      <text class="mt-cycle-ch" x={n.x - NW / 2 + 11} y={n.y - NH / 2 + 16.5}>{'CH ' + n.orders.join('、')}</text>
       <text class="mt-cycle-zh" x={n.x} y={n.y + 12} text-anchor="middle">{n.zh}</text>
-      <text class="mt-cycle-en" x={n.x} y={n.y + 28} text-anchor="middle">{n.en}</text>
+      <text class="mt-cycle-en" x={n.x} y={n.y + 31} text-anchor="middle">{n.en}</text>
     </a>
   ))}
 </svg>
 
 <style>
   .mt-cycle {
-    /* 线条渐变：强调色 → 同色系浅一档；光晕半径 ≤6px、不透明度 ≤35%（亮色再收一档） */
+    /* 线条渐变：强调色 → 同色系浅一档（暗色在深底上取亮橙，亮色在白底上取深橙，各自 ≥3:1）。无光晕、无投影。 */
     --mt-grad-a: #ff7a3d;
-    --mt-grad-b: #ffb98a;
-    --mt-glow: drop-shadow(0 0 5px rgb(255 122 61 / 0.35));
+    --mt-grad-b: #ffa070;
+    --mt-pulse: #ffc29e;
+    --mt-pulse-trail: #ff7a3d;
+    --mt-edge: var(--sl-color-gray-4); /* 卡片 / 环线的默认发丝色：比 --mt-line-strong 再深一档，保证 1px 线在暗底上读得出 */
     --mt-cycle-delay: 480ms; /* 等 .mt-hero-art 自身的入场阶梯走完前半，再开始节点依次点亮 */
     display: block;
     width: 100%;
@@ -107,15 +133,30 @@ const ticks = Array.from({ length: 60 }, (_, k) => {
     overflow: visible;
   }
   :global(:root[data-theme='light']) .mt-cycle {
-    --mt-grad-a: #b93a0a;
-    --mt-grad-b: #e07a35;
-    --mt-glow: drop-shadow(0 0 3px rgb(185 58 10 / 0.22));
+    --mt-grad-a: #a8330a;
+    --mt-grad-b: #d4622a;
+    --mt-pulse: #8f2f08;
+    --mt-pulse-trail: #b93a0a;
   }
   .mt-grad-a {
     stop-color: var(--mt-grad-a);
   }
   .mt-grad-b {
     stop-color: var(--mt-grad-b);
+  }
+  /* 所有线条用 non-scaling-stroke：无论 SVG 被缩放到多大，发丝线都是 1px、连接线都是 1.5px */
+  .mt-cycle-ticks,
+  .mt-cycle-ring,
+  .mt-hub-outer,
+  .mt-hub-inner,
+  .mt-hub-ticks,
+  .mt-hub-cardinal,
+  .mt-cycle-arc,
+  .mt-cycle-box,
+  .mt-cycle-rule,
+  .mt-cycle-ring-hl,
+  .mt-cycle-handoff rect {
+    vector-effect: non-scaling-stroke;
   }
   .mt-cycle-ticks {
     fill: none;
@@ -124,14 +165,34 @@ const ticks = Array.from({ length: 60 }, (_, k) => {
   }
   .mt-cycle-ring {
     fill: none;
+    stroke: var(--mt-edge);
+    stroke-width: 1;
+  }
+
+  /* 中心：同心细环 + 径向刻度。外环 1px 强线、内环 1px 弱线、之间 72 格刻度（每 30° 一条长刻度），四个正方向强调色长刻度。 */
+  .mt-hub-disc {
+    fill: var(--mt-surface);
+    stroke: none;
+  }
+  .mt-hub-outer {
+    fill: none;
+    stroke: var(--mt-edge);
+    stroke-width: 1;
+  }
+  .mt-hub-inner {
+    fill: none;
+    stroke: var(--mt-line);
+    stroke-width: 1;
+  }
+  .mt-hub-ticks {
+    fill: none;
     stroke: var(--mt-line-strong);
     stroke-width: 1;
   }
-  .mt-cycle-hub {
-    fill: color-mix(in srgb, var(--sl-color-accent-low) 55%, transparent);
-    stroke: var(--mt-line-strong);
+  .mt-hub-cardinal {
+    fill: none;
+    stroke: var(--mt-accent);
     stroke-width: 1;
-    stroke-dasharray: 2 5;
   }
   .mt-cycle-brand {
     fill: currentColor;
@@ -146,19 +207,17 @@ const ticks = Array.from({ length: 60 }, (_, k) => {
     font-size: 14px;
   }
 
-  /* 虚线沿环流动：周期 14px（7+7），位移取 12 个周期 = 168px，8s 线性无限，首尾无缝 */
+  /* 连接线：2px 渐变虚线（旧版 3 个用户单位 ≈ 2.7px 外加光晕；改成 1.5px 反而变轻，所以取 2px 并去掉光晕），沿环流动。周期 14（9+5，屏幕像素），位移取 12 个周期 = 168，8s 线性无限，首尾无缝 */
   .mt-cycle-arc {
     fill: none;
     stroke: url(#mt-cycle-grad);
-    stroke-width: 3;
-    stroke-linecap: round;
-    stroke-dasharray: 7 7;
-    filter: var(--mt-glow);
+    stroke-width: 2;
+    stroke-linecap: butt;
+    stroke-dasharray: 9 5;
     animation: mt-flow 8s linear infinite;
   }
   .mt-cycle-head {
     fill: url(#mt-cycle-grad);
-    filter: var(--mt-glow);
   }
   @keyframes mt-flow {
     to {
@@ -166,9 +225,44 @@ const ticks = Array.from({ length: 60 }, (_, k) => {
     }
   }
 
+  /* 沿环高光段：拖尾 96px + 亮头 28px，绕环一周 6s 线性。只动 stroke-dashoffset；整圈不发光，只有这一小段在走。 */
+  .mt-pulse-trail,
+  .mt-pulse-head {
+    fill: none;
+    stroke-linecap: round;
+  }
+  .mt-pulse-trail {
+    stroke: var(--mt-pulse-trail);
+    stroke-width: 2;
+    opacity: 0.4;
+    --o0: 0px;
+    stroke-dasharray: 110px calc(var(--len) - 110px);
+    stroke-dashoffset: var(--o0);
+    animation: mt-orbit 6s linear infinite;
+    animation-delay: calc(var(--mt-cycle-delay) + 700ms);
+  }
+  .mt-pulse-head {
+    stroke: var(--mt-pulse);
+    stroke-width: 3;
+    --o0: -82px;
+    stroke-dasharray: 28px calc(var(--len) - 28px);
+    stroke-dashoffset: var(--o0);
+    animation: mt-orbit 6s linear infinite;
+    animation-delay: calc(var(--mt-cycle-delay) + 700ms);
+  }
+  @keyframes mt-orbit {
+    from {
+      stroke-dashoffset: var(--o0);
+    }
+    to {
+      stroke-dashoffset: calc(var(--o0) - var(--len));
+    }
+  }
+
   /* 六个节点（及其后的连线段）按顺时针（自顶部起）每个延迟 80ms 淡入；只动 opacity */
   .mt-cycle-node,
-  .mt-cycle-seg {
+  .mt-cycle-seg,
+  .mt-cycle-pulse {
     animation: mt-fade-in 400ms ease-out backwards;
   }
   .mt-cycle-node {
@@ -176,6 +270,9 @@ const ticks = Array.from({ length: 60 }, (_, k) => {
   }
   .mt-cycle-seg {
     animation-delay: calc(var(--mt-cycle-delay) + var(--i) * 80ms + 120ms);
+  }
+  .mt-cycle-pulse {
+    animation-delay: calc(var(--mt-cycle-delay) + 700ms);
   }
   @keyframes mt-fade-in {
     from {
@@ -195,36 +292,39 @@ const ticks = Array.from({ length: 60 }, (_, k) => {
     letter-spacing: 0.02em;
   }
 
+  /* 节点卡片：默认 1px 发丝边框 + 顶部标题栏分隔线（图纸标题栏）；hover / 键盘焦点边框变 2px 强调色。 */
   .mt-cycle-node {
     cursor: pointer;
     color: var(--sl-color-white);
     text-decoration: none;
-    transform-box: fill-box;
-    transform-origin: center;
-    transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .mt-cycle-node:is(:hover, :focus-visible) {
-    transform: scale(1.03);
   }
   .mt-cycle-box {
     fill: var(--mt-surface);
-    stroke: var(--mt-line-strong);
+    stroke: var(--mt-edge);
     stroke-width: 1;
-    transition: stroke 180ms, fill 180ms;
+    transition: stroke 160ms, stroke-width 160ms, fill 160ms;
+  }
+  .mt-cycle-rule {
+    stroke: var(--mt-line);
+    stroke-width: 1;
+    transition: stroke 160ms;
   }
   .mt-cycle-node:is(:hover, :focus-visible) .mt-cycle-box {
     stroke: var(--mt-accent);
+    stroke-width: 2;
     fill: var(--mt-surface-hover);
   }
-  /* 外环：2px 强调色，距节点 2px（等价 outline 2px + offset 2px）；悬停与键盘焦点共用，所以 :focus-visible 不再另画 outline */
+  .mt-cycle-node:is(:hover, :focus-visible) .mt-cycle-rule {
+    stroke: color-mix(in srgb, var(--mt-accent) 40%, transparent);
+  }
+  /* 键盘焦点另加一圈外环（2px，距卡片 4px），与悬停区分；悬停不出外环 */
   .mt-cycle-ring-hl {
     fill: none;
     stroke: var(--mt-accent);
     stroke-width: 2;
     opacity: 0;
-    transition: opacity 180ms;
   }
-  .mt-cycle-node:is(:hover, :focus-visible) .mt-cycle-ring-hl {
+  .mt-cycle-node:focus-visible .mt-cycle-ring-hl {
     opacity: 1;
   }
   .mt-cycle-node:focus-visible {
@@ -235,7 +335,7 @@ const ticks = Array.from({ length: 60 }, (_, k) => {
     font-size: 25px;
     font-weight: 700;
     letter-spacing: 0.04em;
-    transition: fill 180ms;
+    transition: fill 160ms;
   }
   .mt-cycle-node:is(:hover, :focus-visible) .mt-cycle-zh {
     fill: var(--sl-color-white);
@@ -252,7 +352,7 @@ const ticks = Array.from({ length: 60 }, (_, k) => {
     font-family: var(--sl-font-mono);
     font-size: 12px;
     font-variant-numeric: tabular-nums;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.08em;
   }
   @media (max-width: 560px) {
     .mt-cycle-handoff {
@@ -265,13 +365,11 @@ const ticks = Array.from({ length: 60 }, (_, k) => {
     .mt-cycle-seg {
       animation: none;
     }
-    .mt-cycle-node,
-    .mt-cycle-node:is(:hover, :focus-visible) {
-      transform: none;
-      transition: none;
+    .mt-cycle-pulse {
+      display: none;
     }
     .mt-cycle-box,
-    .mt-cycle-ring-hl,
+    .mt-cycle-rule,
     .mt-cycle-zh {
       transition: none;
     }
