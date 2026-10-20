@@ -1,0 +1,27 @@
+---
+// 首屏背景：静态海报（兜底，始终存在）+ 场景容器（canvas 由场景模块在满足条件后创建，aria-hidden）。
+// 场景默认不加载；加载策略见 src/lib/hero-gate.ts。
+const BASE = import.meta.env.BASE_URL.replace(/\/+$/, '');
+---
+
+<div class="mt-scene" data-hero-scene aria-hidden="true">
+  <picture>
+    <source media="(max-width: 820px)" srcset={BASE + '/hero/poster-1280.webp'} type="image/webp" />
+    <img src={BASE + '/hero/poster.webp'} alt="" width="2048" height="1152" fetchpriority="high" decoding="async" />
+  </picture>
+  <div class="mt-scene-stage" data-hero-stage></div>
+</div>
+
+<script>
+  import { initHero } from '../../lib/hero-gate';
+  let off: (() => void) | undefined;
+  // ClientRouter：每次进入页面（含首次）重新判定；换页前在 before-swap 里销毁场景并撤销全部监听
+  document.addEventListener('astro:page-load', () => {
+    off?.();
+    off = initHero();
+  });
+  document.addEventListener('astro:before-swap', () => {
+    off?.();
+    off = undefined;
+  });
+</script>

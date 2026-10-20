@@ -70,6 +70,7 @@ const args = [
   '--virtual-time-budget=' + wait,
   '--blink-settings=preferredColorScheme=' + (theme === 'dark' ? '0' : '1'),
   '--screenshot=' + out,
+  ...(process.env.SHOT_CHROME_FLAGS || '').split(/\s+/).filter(Boolean),   // 可选：额外的 Chrome 开关（如 --force-prefers-reduced-motion）
   url,
 ];
 
