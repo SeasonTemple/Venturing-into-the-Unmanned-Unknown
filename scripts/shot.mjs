@@ -2,7 +2,7 @@
 // 唯一的截图入口。一次运行 = 一个 Chrome 进程，必然退出，不留残余。
 // 用法：node scripts/shot.mjs --url <url> --out <a.png> [--width 1440] [--height 900] [--wait 8000] [--theme light|dark]
 import { spawn } from 'node:child_process';
-import { mkdtempSync, mkdirSync, rmSync, existsSync, statSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, readdirSync, rmSync, existsSync, statSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve, dirname } from 'node:path';
 
@@ -26,7 +26,18 @@ if (!url || !out) {
   process.exit(2);
 }
 
+// 每次用唯一 profile —— 固定 profile 会让新进程接力给旧实例后立刻退出，截图不会执行。
+// 但启动前先清扫历史残留，避免运行次数越多、Temp 里垃圾越多（曾累积到 121 个）。
 const profile = mkdtempSync(join(tmpdir(), 'dsh-shot-'));
+try {
+  const tmp = tmpdir();
+  for (const name of readdirSync(tmp)) {
+    if (name.startsWith('dsh-shot-') && join(tmp, name) !== profile) {
+      try { rmSync(join(tmp, name), { recursive: true, force: true }); } catch {}
+    }
+  }
+} catch {}
+
 let child = null;
 let cleaned = false;
 
