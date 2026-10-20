@@ -269,3 +269,195 @@ h4 {
 :root[data-theme='light'] .mt-antipattern {
   --mt-block-color: #c0302f;
 }
+
+/* ---------- 阅读页导航：左栏 + 右侧「本页内容」----------
+   同一套语言：等宽 eyebrow + 1px 发丝线；条目 6px 圆角、2px 间距；当前项 = 8~10% 强调色底 + 2px 强调色竖条 + 强调色文字。
+   左栏 DOM 由 src/components/Sidebar.astro 重排（章号独立一列、当前章小节）；这里只管样式。
+   本节无任何 box-shadow / blur；细线一律 1px（焦点环 2px 属可达性，不算装饰线）。 */
+:root {
+  --sl-sidebar-width: 17rem; /* 272px，右侧目录同宽 */
+  --sl-sidebar-pad-x: 0.75rem;
+  --mt-nav-no-w: 1.625rem; /* 章号列：00–08 / A，tabular 等宽 */
+  --mt-nav-gap: 10px;
+  --mt-nav-bg-hover: color-mix(in srgb, var(--sl-color-white) 4%, transparent);
+  --mt-nav-bg-current: color-mix(in srgb, var(--mt-accent) 9%, transparent);
+}
+
+.sidebar-content {
+  padding-top: 0;
+  padding-bottom: var(--mt-space-6);
+}
+.mt-nav {
+  max-width: 28rem;
+}
+
+.mt-nav-eyebrow {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: var(--mt-space-4) 10px 8px;
+  background: var(--sl-color-black);
+  border-bottom: 1px solid var(--mt-line);
+  font-family: var(--sl-font-mono);
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  color: var(--sl-color-gray-3);
+}
+@media (min-width: 50rem) {
+  .mt-nav-eyebrow {
+    background: var(--sl-color-bg-sidebar);
+  }
+}
+.mt-nav-count {
+  letter-spacing: 0.04em;
+}
+
+.mt-nav-list,
+.mt-nav-sub {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mt-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 8px;
+}
+
+.mt-nav-item,
+.mt-nav-sub a,
+.right-sidebar starlight-toc a {
+  position: relative;
+  text-decoration: none;
+  transition:
+    background-color 120ms ease,
+    color 120ms ease;
+}
+.mt-nav-item {
+  display: grid;
+  grid-template-columns: var(--mt-nav-no-w) minmax(0, 1fr);
+  column-gap: var(--mt-nav-gap);
+  align-items: baseline;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--sl-color-gray-2);
+}
+.mt-nav-no {
+  font-family: var(--sl-font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0;
+  color: var(--sl-color-gray-3);
+  transition: color 120ms ease;
+}
+.mt-nav-title {
+  overflow-wrap: anywhere;
+}
+.mt-nav-item:hover,
+.mt-nav-sub a:hover,
+.right-sidebar starlight-toc a:hover {
+  background: var(--mt-nav-bg-hover);
+  color: var(--mt-accent-text);
+}
+.mt-nav-item:hover .mt-nav-no {
+  color: inherit;
+}
+.mt-nav-item[aria-current='page'],
+.mt-nav-item[aria-current='page']:hover {
+  background: var(--mt-nav-bg-current);
+  color: var(--mt-accent-text);
+  font-weight: 600;
+}
+.mt-nav-item[aria-current='page'] .mt-nav-no {
+  color: inherit;
+}
+.mt-nav-item[aria-current='page']::before,
+.mt-nav-sub a[aria-current]::before,
+.right-sidebar starlight-toc a[aria-current='true']::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  border-radius: 1px;
+  background: var(--mt-accent);
+}
+.mt-nav-item:focus-visible,
+.mt-nav-sub a:focus-visible,
+.right-sidebar starlight-toc a:focus-visible {
+  outline: 2px solid var(--mt-accent);
+  outline-offset: -2px;
+  color: var(--mt-accent-text);
+}
+
+/* 当前章小节：降级为 12px 弱化色，左侧 1px 竖轨缩进到标题列 */
+.mt-nav-sub {
+  margin: 2px 0 6px calc(10px + var(--mt-nav-no-w) + var(--mt-nav-gap) - 10px);
+  border-inline-start: 1px solid var(--mt-line);
+}
+.mt-nav-sub a {
+  display: block;
+  padding: 4px 10px;
+  border-radius: 0 6px 6px 0;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--sl-color-gray-3);
+  overflow-wrap: anywhere;
+}
+.mt-nav-sub a[aria-current] {
+  color: var(--mt-accent-text);
+}
+.mt-nav-sub a[aria-current]::before {
+  inset-inline-start: -1px;
+  top: 4px;
+  bottom: 4px;
+}
+
+/* 右侧「本页内容」（仅桌面右栏；移动端的折叠目录保持出厂形态） */
+.right-sidebar starlight-toc h2 {
+  margin: 0;
+  padding: 0 10px 8px;
+  border-bottom: 1px solid var(--mt-line);
+  font-size: 0; /* 原文「本页内容」保留给 aria-labelledby；视觉标题由 ::before 给出，与左栏 CONTENTS 同一套等宽 eyebrow */
+  line-height: 1.4;
+}
+.right-sidebar starlight-toc h2::before {
+  content: 'ON THIS PAGE';
+  font-family: var(--sl-font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--sl-color-gray-3);
+}
+.right-sidebar starlight-toc nav > ul {
+  padding-top: 8px;
+}
+.right-sidebar starlight-toc a {
+  padding: 4px 10px;
+  padding-inline-start: 10px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--sl-color-gray-3);
+}
+.right-sidebar starlight-toc li > ul {
+  margin-inline-start: 10px;
+  border-inline-start: 1px solid var(--mt-line);
+}
+.right-sidebar starlight-toc li > ul a {
+  border-radius: 0 6px 6px 0;
+}
+.right-sidebar starlight-toc li > ul a[aria-current='true']::before {
+  inset-inline-start: -1px;
+}
+.right-sidebar starlight-toc a[aria-current='true'] {
+  color: var(--mt-accent-text);
+  font-weight: 600;
+}

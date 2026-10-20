@@ -22,6 +22,7 @@ export default defineConfig({
         Head: './src/components/Head.astro',
         PageTitle: './src/components/PageTitle.astro',
         Footer: './src/components/Footer.astro',
+        Sidebar: './src/components/Sidebar.astro',
       },
       sidebar: [
         {

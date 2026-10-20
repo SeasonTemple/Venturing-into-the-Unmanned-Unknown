@@ -1,0 +1,102 @@
+---
+// 阅读页左栏：章号 / 标题两列网格 + 当前章小节列表。
+// 为什么必须覆盖组件：Starlight 的 <SidebarSublist> 只输出 <a><span>label</span></a>，
+// 「第 3 章 验证」是一整段文本，CSS 无法把章号拆到独立一列（也无法生成 00–08、A）；
+// 小节列表（页内 h2）在出厂侧栏 DOM 里根本不存在；分组计数同理。故在此重排 DOM，样式仍全在 custom.css。
+import MobileMenuFooter from '@astrojs/starlight/components/MobileMenuFooter.astro';
+import SidebarPersister from '@astrojs/starlight/components/SidebarPersister.astro';
+
+const { sidebar, toc } = Astro.locals.starlightRoute;
+
+const parse = (label: string) => {
+  let m = label.match(/^第\s*(\d+)\s*章\s*(.*)$/);
+  if (m) return { no: m[1].padStart(2, '0'), title: m[2] };
+  m = label.match(/^附录\s*(?:([A-Z])(?=\s))?\s*(.*)$/);
+  if (m) return { no: m[1] || 'A', title: m[2] };
+  return { no: '', title: label };
+};
+
+const countLinks = (entries: any[]): number =>
+  entries.reduce((n, e) => n + (e.type === 'link' ? 1 : countLinks(e.entries)), 0);
+
+const sections = (toc?.items ?? []).filter((i) => i.slug !== '_top');
+---
+
+<SidebarPersister>
+  <div class="mt-nav">
+    {
+      sidebar.map((group) =>
+        group.type === 'group' ? (
+          <nav class="mt-nav-group" aria-label={group.label}>
+            <div class="mt-nav-eyebrow" title={group.label}>
+              <span>CONTENTS</span>
+              <span class="mt-nav-count">{countLinks(group.entries)} 章</span>
+            </div>
+            <ul class="mt-nav-list">
+              {group.entries.map((e) => {
+                if (e.type !== 'link') return null;
+                const { no, title } = parse(e.label);
+                return (
+                  <li>
+                    <a class="mt-nav-item" href={e.href} aria-current={e.isCurrent ? 'page' : undefined}>
+                      <span class="mt-nav-no">{no}</span>
+                      <span class="mt-nav-title">{title}</span>
+                    </a>
+                    {e.isCurrent && sections.length > 0 && (
+                      <ul class="mt-nav-sub" aria-label="本章小节">
+                        {sections.map((s) => (
+                          <li>
+                            <a href={'#' + s.slug} data-mt-sub>
+                              {s.text}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        ) : (
+          <a class="mt-nav-item" href={group.href} aria-current={group.isCurrent ? 'page' : undefined}>
+            <span class="mt-nav-no" />
+            <span class="mt-nav-title">{group.label}</span>
+          </a>
+        )
+      )
+    }
+  </div>
+</SidebarPersister>
+
+<div class="md:sl-hidden">
+  <MobileMenuFooter />
+</div>
+
+<script>
+  // 当前小节：取最后一个顶部越过阅读线的 h2（h3 内滚动时仍归属其父 h2）。
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('.mt-nav-sub a[data-mt-sub]'));
+  const heads = links.map((a) => document.getElementById(decodeURIComponent(a.hash.slice(1))));
+  if (links.length) {
+    const LINE = 110;
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      let cur = -1;
+      heads.forEach((h, i) => {
+        if (h && h.getBoundingClientRect().top <= LINE) cur = i;
+      });
+      links.forEach((a, i) => {
+        if (i === cur) a.setAttribute('aria-current', 'location');
+        else a.removeAttribute('aria-current');
+      });
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    addEventListener('scroll', onScroll, { passive: true });
+    addEventListener('resize', onScroll, { passive: true });
+    addEventListener('hashchange', onScroll);
+    update();
+  }
+</script>
