@@ -7,6 +7,8 @@ import { cfg, ORIGIN, BASE, GITHUB_URL, chapterSlug } from './site.config.mjs';
 export default defineConfig({
   site: ORIGIN,
   base: BASE,
+  // three 单独成块：只在首屏场景被允许加载时才会按需下载，不进任何首屏入口
+  vite: { build: { rollupOptions: { output: { manualChunks: (id) => (id.includes('node_modules/three/') ? 'three' : undefined) } } } },
   markdown: { processor: satteri({ hastPlugins: [semanticBlocks] }) },
   integrations: [
     starlight({

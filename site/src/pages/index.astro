@@ -4,6 +4,7 @@
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import home from '../generated/home.json';
 import CopyCommand from '../components/CopyCommand.astro';
+import HeroScene from '../components/hero/HeroScene.astro';
 import { stages } from '../lib/stages';
 import { getLatestRelease, formatSize } from '../lib/release';
 import llmsTxt from '../generated/llms.txt?raw';
@@ -44,11 +45,7 @@ const agentFiles = [
 >
   <div class="mt-home not-content">
     <section class="mt-hero mt-scene-hero" aria-labelledby="mt-title">
-      <picture class="mt-scene" aria-hidden="true">
-        <source media="(max-width: 820px)" srcset={BASE + '/img/hero-door-1280.webp'} type="image/webp" />
-        <img src={BASE + '/img/hero-door.webp'} alt="" width="2048" height="1152" fetchpriority="high" decoding="async" />
-      </picture>
-      <div class="mt-scene-glow" aria-hidden="true"></div>
+      <HeroScene />
       <div class="mt-scene-scrim" aria-hidden="true"></div>
       <div class="mt-hero-copy">
         <p class="mt-eyebrow">
