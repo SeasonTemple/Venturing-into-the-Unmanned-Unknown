@@ -14,3 +14,10 @@ site/dist/
 # 由 site/scripts/sync.mjs 从 skills/*/SKILL.md 生成，不入库
 site/src/content/docs/
 site/src/generated/
+
+# 工具产物（技能安装、生成器缓存、本地预览）
+.agents/
+.minimax/
+.zcode/
+skills-lock.json
+.lab/
