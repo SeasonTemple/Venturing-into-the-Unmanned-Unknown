@@ -25,3 +25,4 @@ skills-lock.json
 # 首屏候选图与临时素材（不入库）
 .rev/
 hero-candidates/
+.shots/

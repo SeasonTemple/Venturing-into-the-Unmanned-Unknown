@@ -174,3 +174,4 @@
 4. user-data-dir 固定放在仓库内临时目录（如 .lab/<task>/.pw-profile），跑完删除，不要散落到系统 Temp。
 5. 交付报告里必须写清收尾方式与运行结束时的残留进程数。
 6. **浏览器统一用 Chrome，不用 Edge**：本机日常使用 Edge，用 Edge 做无头截图会与用户自己的浏览器进程混在一起，排查与清理都容易误伤。固定路径 C:/Program Files/Google/Chrome/Application/chrome.exe。
+7. **截图只允许走 scripts/shot.mjs**：一次运行一个 Chrome、退出前杀进程树并删除 profile。不要自己写 spawn + --remote-debugging-port 的脚本——那类会话会常驻不退出，曾累积到 78 个进程 / 7.16GB。若确实需要 CDP 交互，必须在 finally 里 taskkill /PID /T /F，并在报告里给出运行结束时的残留进程数。
