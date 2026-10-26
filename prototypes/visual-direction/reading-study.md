@@ -82,3 +82,19 @@ node prototypes/visual-direction/browser-check.mjs --reading
 阅读页 HTML / CSS / JS 为 4,941 / 15,883 / 10,243 bytes，合计 31,067 bytes，未压缩，不含实际章节；无外部字体或图片依赖。图解为本站 SVG。
 
 本轮截图统一使用 `scripts/shot.mjs`，TEMP/TMP 在 `.lab/reading-study/temp`。桌面对照见 `.lab/reading-study/desktop-final.png`；后续修正了手机表格最小宽度和滑动提示。截图属于布局证据，不代表新的三维区域或最终美术已经完成。
+
+## 2K 宽屏补充
+
+用户认可两种样张，但指出两侧在 2K 显示屏上显空。新增 [宽屏模拟预览](http://127.0.0.1:4395/reading-wide.html)，可切换版式、章首 / 正文，以及 2560×1440、2048×1152、1707×960 三种内容视口。后两者模拟 2K 下 125% / 150% 的有效 CSS 尺寸，不含浏览器工具栏。
+
+- 可用宽度 ≥1600px 时展开页边：左侧为全书路径，右侧为本章路线。两处与原文列分开，滚动时保持在视口内。
+- 2560px 下，整页构图由 1160px 上限扩大到 **1840px**，正文由 17px 提高到 **19px**；主文实测宽约 **717px**，没有随屏幕无限拉长。章首和导图同步扩大。
+- 2048px 下，页面展开 1660px、正文 18px / 约679px；1707px 下展开1536px、正文18px / 约679px。桌面滚动条占用15px，已计入可用宽度测量。
+- 手记的局部旁注在宽屏移入右侧，随当前小节更新；原位置收起，避免同时显示两份。图解技术书保留较纯粹的主文，右侧只显示本章路线。
+- 1440px 与390px继续收起两侧；手记边注回到原来相关小节。专注阅读在所有尺寸下收起章首、页边和辅助说明。
+
+运行 `node prototypes/visual-direction/browser-check.mjs --wide`：**41 / 41 项通过**。涵盖两版在五种宽度下的页面边界、主文宽度、导航与正文互不重叠、当前小节跟随、旁注不重复、专注阅读和2K模拟窗口完整呈现。原有阅读流程 `--reading` 回归 **24 / 24 项通过**，包含完整原文一致性与手机目录。
+
+报告分别在 `.lab/reading-wide/browser-report.json`、`.lab/reading-study/browser-report.json`。两次检查各记录10个所属Chrome进程，均在 `finally` 中按精确PID树结束，残留0。截图通过仓库入口生成，临时目录为 `.lab/reading-wide/temp`；章首与正文在 `journal-opening.png`、`journal-body-final.png`。未进行实体2K显示器的硬件测量。
+
+宽屏增补后的阅读 HTML / CSS / JS 为5,571 / 20,570 / 11,024 bytes，合计37,165 bytes，未压缩，不含章节。这取代上文第二轮基线的源码大小；色板保持不变。
