@@ -92,10 +92,9 @@ export function createJournalTerrain(figure) {
     const el=document.createElement('span');el.className='terrain-label';el.textContent=['意图','模型','证据'][i];viewport.append(el);return {el,p,marker,beacon};
   });
   const unknownLabel=document.createElement('span');unknownLabel.className='terrain-unknown-label';unknownLabel.textContent='尚未测绘';viewport.append(unknownLabel);
-  const register=document.createElement('span');register.className='terrain-register';register.textContent='FIG. 03 / A PARTIAL SURVEY';viewport.append(register);
   const motion=matchMedia('(prefers-reduced-motion: reduce)');
   const stats={frames:0,time:0,calls:0,triangles:0,points:dots.length/3,geometries:0,textures:0,pixelRatio:1,visible:true,disposed:false,mode:'reading'};
-  let visible=true,frame=0,disposed=false,currentX=0,currentY=0,targetX=0,targetY=0,last=0;
+  let visible=true,frame=0,disposed=false,currentX=0,currentY=0,targetX=0,targetY=0,last=0,lookX=0;
   const active=()=>!motion.matches&&!document.body.classList.contains('motion-paused');
   function projectLabels() {
     for(const {el,p} of [...labels,{el:unknownLabel,p:point(7,-3.7,1.1)}]) {
@@ -107,7 +106,7 @@ export function createJournalTerrain(figure) {
     if(active()&&last&&now-last<32){invalidate();return;}
     if(active()&&last)time.value+=Math.min(.08,(now-last)/1000);last=now;stats.time=time.value;
     currentX+=(targetX-currentX)*.16;currentY+=(targetY-currentY)*.16;
-    camera.position.set(1.3+currentX,11.5+currentY,17.2);camera.lookAt(0,.8,0);camera.updateMatrixWorld();
+    camera.position.set(1.3+currentX+lookX,11.5+currentY,17.2);camera.lookAt(lookX,.8,0);camera.updateMatrixWorld();
     for(const {p,marker,beacon} of labels){marker.position.y=beacon.position.y=p.y+wave(p.x,p.z,time.value);}
     renderer.render(scene,camera);projectLabels();stats.frames++;stats.calls=renderer.info.render.calls;stats.triangles=renderer.info.render.triangles;stats.geometries=renderer.info.memory.geometries;stats.textures=renderer.info.memory.textures;
     if(active())invalidate();
@@ -115,7 +114,10 @@ export function createJournalTerrain(figure) {
   function invalidate() { if(!frame&&!disposed&&visible&&!document.hidden)frame=requestAnimationFrame(render); }
   function resize() {
     const box=viewport.getBoundingClientRect();if(box.width<1||box.height<1)return;
-    const aspect=box.width/box.height,span=13.5;camera.left=-span*aspect/2;camera.right=span*aspect/2;camera.top=span/2;camera.bottom=-span/2;camera.updateProjectionMatrix();
+    const aspect=box.width/box.height,span=Math.max(10.6,22/aspect);
+    // Wide headers reserve the left for the title; compact headers show the whole survey below it.
+    lookX=innerWidth>980?-Math.min(4.8,aspect*1.1):0;
+    camera.left=-span*aspect/2;camera.right=span*aspect/2;camera.top=span/2;camera.bottom=-span/2;camera.updateProjectionMatrix();
     stats.pixelRatio=Math.min(devicePixelRatio||1,innerWidth<760?1.5:2);pointDPR.value=stats.pixelRatio;renderer.setPixelRatio(stats.pixelRatio);renderer.setSize(box.width,box.height,false);invalidate();
   }
   function move(event) {if(!active()||event.pointerType!=='mouse')return;const b=viewport.getBoundingClientRect();targetX=((event.clientX-b.left)/b.width-.5)*.7;targetY=((event.clientY-b.top)/b.height-.5)*.35;invalidate();}
@@ -123,7 +125,7 @@ export function createJournalTerrain(figure) {
   function mediaChange(){last=0;targetX=targetY=currentX=currentY=0;cancelAnimationFrame(frame);frame=0;invalidate();}
   function visibility(){last=0;if(document.hidden){cancelAnimationFrame(frame);frame=0;}else invalidate();}
   const resizer=new ResizeObserver(resize);resizer.observe(viewport);
-  const observer=new IntersectionObserver(([entry])=>{last=0;visible=entry.isIntersecting;stats.visible=visible;if(visible)invalidate();else{cancelAnimationFrame(frame);frame=0;}});observer.observe(viewport);
+  const observer=new IntersectionObserver(([entry])=>{last=0;visible=entry.isIntersecting&&entry.intersectionRatio>=.02;stats.visible=visible;if(visible)invalidate();else{cancelAnimationFrame(frame);frame=0;}},{rootMargin:'-80px 0px 0px 0px',threshold:.02});observer.observe(viewport);
   viewport.addEventListener('pointermove',move,{passive:true});viewport.addEventListener('pointerleave',leave);
   document.addEventListener('visibilitychange',visibility);motion.addEventListener('change',mediaChange);
   document.addEventListener('readingmotionchange',mediaChange);

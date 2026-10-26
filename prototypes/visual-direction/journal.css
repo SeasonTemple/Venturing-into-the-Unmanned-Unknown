@@ -1,6 +1,8 @@
 /* The selected journal is a folio with a route and anchored marginalia.
    The original atlas stylesheet remains available as a historical reference. */
 .field-journal {
+  --rd-muted: #36474a;
+  --rd-copper: #713116;
   --jn-spread: 1920px;
   --jn-rail: 238px;
   --jn-gap: clamp(40px, 4vw, 96px);
@@ -14,6 +16,7 @@
   --jn-caption: 12px;
   --jn-note-size: 14px;
 }
+
 body.field-journal .preview-bar { background: var(--rd-panel); color: var(--rd-muted); padding-inline: var(--jn-page-pad); }
 body.field-journal .reader-chrome { background: var(--rd-paper); color: var(--rd-ink); border-color: var(--rd-line); padding-inline: var(--jn-page-pad); }
 body.field-journal .reader-chrome .brand span { color: var(--rd-muted); }
@@ -61,11 +64,6 @@ body.field-journal .field-note { display: block; grid-column: 2; grid-row: 1 / s
 body.field-journal .field-note .note-label { margin: 0; border-top: 1px solid var(--rd-copper); padding-top: 12px; font-size: 10px; }
 body.field-journal .field-note strong { display: block; font-size: 19px; font-weight: 500; line-height: 1.8; margin: 0 0 12px; }
 .field-note p { margin: 0; }
-.margin-sketch { display: block; width: 100%; height: auto; margin-block: 12px; color: var(--rd-muted); }
-.margin-sketch path, .margin-sketch circle { fill: none; stroke: var(--rd-line); stroke-width: 1; }
-.margin-sketch .accent { stroke: var(--rd-copper); }
-.margin-sketch .unfinished { stroke: var(--rd-muted); stroke-dasharray: 3 6; }
-.margin-sketch text { fill: var(--rd-muted); font: 11px var(--rd-font); }
 .field-route { display: block; position: sticky; top: 104px; min-width: 0; padding-top: 28px; align-self: start; }
 .field-route.route-flow { position: static; }
 .field-route h2 { font-size: 26px; font-weight: 500; margin: 10px 0; }
@@ -184,7 +182,6 @@ body.field-journal.focused .article-section { display: block; }
   body.field-journal .field-note .note-label { border: 0; padding: 0; }
   body.field-journal .field-note strong { font-size: 18px; max-width: 28ch; margin-top: 16px; }
   .field-note p { max-width: 48ch; }
-  .margin-sketch { float: right; width: 130px; margin: 2px 0 0 12px; }
   .field-plate { padding: 18px; margin-bottom: 24px; }
   .field-plate figcaption, .case-plate figcaption { flex-direction: column; gap: 3px; }
   .layer-caption h3 { font-size: 18px; }
@@ -204,4 +201,64 @@ body.field-journal.focused .article-section { display: block; }
   .case-plate small { font-size: 9px; }
   .case-plate li { padding-right: 3px; }
   .open-question h2 { font-size: 25px; }
+}
+
+/* The survey is the chapter opening, rather than an illustration card beside it. */
+body.field-journal .chapter-opening.survey-opening {
+  --survey-dark: #10212b;
+  --survey-text: #e5e8dc;
+  --survey-muted: #c0cbc1;
+  position: relative; isolation: isolate; overflow: hidden;
+  min-height: 590px; padding: 64px var(--jn-page-pad) 60px;
+  background: var(--survey-dark); color: var(--survey-text);
+}
+body.field-journal .survey-opening .opening-inner { display: block; }
+.survey-opening .terrain-view::before {
+  content: ''; position: absolute; z-index: 1; inset: 0; pointer-events: none;
+  background: linear-gradient(90deg, #10212b 0%, #10212bf2 25%, #10212b00 62%);
+}
+.survey-opening .opening-copy { position: relative; z-index: 2; width: min(44%, 660px); pointer-events: none; }
+.survey-opening .opening-copy a { pointer-events: auto; }
+body.field-journal .survey-opening h1 { font-size: clamp(88px, 7.5vw, 142px); margin: 18px 0 24px; }
+body.field-journal .survey-opening .kicker,
+body.field-journal .survey-opening .chapter-description { color: var(--survey-muted); }
+body.field-journal .survey-opening .chapter-thesis { font-size: clamp(24px, 2vw, 32px); }
+body.field-journal .survey-opening .begin { color: #f0bc7b; margin-top: 26px; }
+body.field-journal .survey-opening .chapter-art { position: absolute; inset: 0; max-width: none; width: 100%; height: 100%; margin: 0; }
+body.field-journal .survey-opening .terrain-view { height: 100%; aspect-ratio: auto; border: 0; }
+.survey-opening .terrain-view.terrain-ready::after { display: none; }
+body.field-journal .survey-opening .chapter-art > svg { width: 100%; height: 100%; }
+body.field-journal .survey-opening .chapter-art figcaption { position: absolute; bottom: 18px; right: var(--jn-page-pad); z-index: 2; padding: 0; border: 0; color: var(--survey-muted); font-size: 12px; }
+body.field-journal .survey-opening .terrain-label,
+body.field-journal .survey-opening .terrain-unknown-label { font-size: 13px; z-index: 2; }
+
+/* Keep only annotations that can be read as text. No tiny metaphor diagrams. */
+body.field-journal .field-note { font-size: 15px; background: transparent; }
+body.field-journal .field-note::before { display: none; }
+body.field-journal .field-note .note-label { font-size: 12px; margin-bottom: 18px; }
+body.field-journal .field-note strong { font-size: 19px; }
+@media (max-width: 1399px) {
+  body.field-journal .article-section { display: flex; flex-direction: column; }
+  body.field-journal .field-note { order: 3; width: min(100%, 72ch); margin-top: 26px; padding: 0 0 0 18px; border-left: 1px solid var(--rd-copper); }
+  body.field-journal .field-note .note-label { border: 0; padding: 0; margin-bottom: 10px; }
+  body.field-journal .field-note strong { font-size: 18px; margin-bottom: 8px; }
+  body.field-journal .field-note p { max-width: 60ch; }
+}
+@media (max-width: 980px) {
+  body.field-journal .chapter-opening.survey-opening { min-height: 610px; padding-top: 32px; }
+  .survey-opening .opening-copy { width: 100%; }
+  body.field-journal .survey-opening h1 { font-size: 80px; margin: 14px 0 18px; }
+  body.field-journal .survey-opening .chapter-thesis { font-size: 24px; }
+  body.field-journal .survey-opening .chapter-description { font-size: 14px; }
+  body.field-journal .survey-opening .chapter-art { top: auto; height: 290px; }
+  .survey-opening .terrain-view::before { display: none; }
+  body.field-journal .survey-opening .begin { margin-top: 16px; }
+  body.field-journal .survey-opening .chapter-art figcaption { font-size: 11px; bottom: 12px; }
+}
+@media (max-width: 480px) {
+  body.field-journal .chapter-opening.survey-opening { min-height: 660px; }
+  body.field-journal .survey-opening .chapter-art { height: 310px; }
+  body.field-journal .survey-opening .chapter-art figcaption { font-size: 10px; }
+  body.field-journal .survey-opening .terrain-label,
+  body.field-journal .survey-opening .terrain-unknown-label { font-size: 12px; }
 }
