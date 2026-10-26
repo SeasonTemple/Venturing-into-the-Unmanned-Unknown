@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>迈向无人区 · 双时代探索体验研究板</title>
+  <style>
+    :root{color-scheme:dark;--bg:#11171b;--panel:#192126;--fg:#e6edf3;--muted:#b8c3ca;--line:#45525a;--accent:#ff9b6b;--pad:clamp(22px,4vw,70px);--font:system-ui,"Microsoft YaHei",sans-serif;--mono:ui-monospace,Consolas,monospace}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.8 var(--font)}a{color:var(--accent);text-underline-offset:5px}a:focus-visible{outline:2px solid var(--accent);outline-offset:5px}header,main,footer{max-width:1680px;margin:auto;padding-inline:var(--pad)}header{padding-block:30px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;align-items:center}.meta{font:12px/1.8 var(--mono);color:var(--muted);letter-spacing:.06em}.status{border:1px solid var(--line);padding:5px 12px;color:var(--muted);font-size:12px}h1{font-size:clamp(30px,3vw,48px);line-height:1.3;letter-spacing:-.04em;margin:20px 0 14px}h2{font-size:22px;margin:0 0 12px}h3{font-size:17px;margin:0 0 8px}p{margin:0 0 16px}.intro{padding-block:30px 28px;display:grid;grid-template-columns:1.5fr 1fr;gap:40px}.lede{max-width:64ch;color:var(--muted)}.constraints{border-left:1px solid var(--line);padding-left:28px;align-self:center}.constraints p{margin:4px 0}.accent{color:var(--accent)}.section{padding-block:26px;border-top:1px solid var(--line)}.note{color:var(--muted);font-size:13px}.journey{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.beat{background:var(--panel);border:1px solid var(--line);padding:17px}.beat .meta{color:var(--accent)}.beat h3{margin-top:10px}.beat p{color:var(--muted);font-size:14px;margin:0}.grid{display:grid;grid-template-columns:1.2fr 1fr;gap:28px}.diagram{border:1px solid var(--line);background:var(--panel);padding:20px}.diagram svg{display:block;width:100%;height:auto}.diagram figcaption{font-size:12px;color:var(--muted);margin-top:9px}.diagram figure{margin:0}.reader{display:grid;grid-template-columns:125px 1fr;min-height:250px;border:1px solid var(--line);margin-top:16px}.reader nav{border-right:1px solid var(--line);padding:18px 14px;color:var(--muted);font-size:13px}.reader article{padding:22px;background:#202b32}.reader article h3{font-size:23px}.reader article p{font-size:14px;color:var(--muted)}.label{font:12px var(--mono);color:var(--accent);margin-bottom:14px}.comparison{width:100%;border-collapse:collapse;font-size:14px}.comparison th{text-align:left;color:var(--muted);font:12px/1.8 var(--mono);padding:10px;border-block:1px solid var(--line)}.comparison td{padding:13px 10px;border-bottom:1px solid var(--line);vertical-align:top}.comparison td:first-child{width:25%}.comparison td:last-child{color:var(--muted);width:35%}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.step{border-left:2px solid var(--accent);padding-left:18px}.step p{font-size:14px;color:var(--muted)}.end{border:1px solid var(--line);padding:23px 26px;margin-block:24px;background:var(--panel);display:flex;justify-content:space-between;gap:30px;align-items:center}.end strong{font-size:23px}.end p{color:var(--muted);font-size:14px;margin:0}.small{font-size:12px;color:var(--muted)}footer{padding-block:25px 40px;border-top:1px solid var(--line)}.tag{display:inline-block;border:1px solid var(--line);padding:3px 8px;font-size:12px;color:var(--muted);margin:3px}
+    .era-views{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.era-lane{border:1px solid var(--line);padding:22px;background:var(--panel);min-width:0}.era-lane figure{margin:12px 0}.era-lane svg{display:block;width:100%;max-width:460px;margin:auto;height:auto}.era-lane figcaption{font-size:13px;color:var(--muted);margin-top:12px}.era-lane .verbs{color:var(--accent);font-size:15px}.era-lane p{font-size:14px;color:var(--muted);margin-bottom:10px}.era-table td:first-child{width:16%}.era-table td:last-child{width:42%;color:var(--fg)}.era-table td:nth-child(2){width:42%}.era-task{padding-block:12px;border-block:1px solid var(--line);margin-bottom:20px}.era-task p{margin:0}.era-task small{color:var(--muted)}.era-reference{display:flex;flex-wrap:wrap;gap:8px 22px;margin-block:14px}.scope-note{border-left:2px solid var(--accent);padding-left:16px;margin-top:18px}
+    @media(max-width:850px){.intro,.grid,.era-views{grid-template-columns:1fr}.constraints{padding-left:16px}.journey{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr}.end{display:block}.end strong{display:block;margin-bottom:8px}.reader{grid-template-columns:90px 1fr}.comparison{font-size:12px}header{align-items:start}.status{max-width:140px}.era-lane{padding:16px}.era-table{table-layout:fixed}.era-table th,.era-table td{padding-inline:5px;overflow-wrap:anywhere}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+    @media print{body{background:#fff;color:#1f2328}a{color:#8c300a}.section{break-inside:avoid}.beat,.diagram,.end{background:#f1f4f6}.reader article{background:#f1f4f6}.lede,.note,.beat p,.step p,.end p,.small,.meta{color:#424c54}}
+  </style>
+</head>
+<body>
+  <header><div><div class="meta">EXPERIENCE RESEARCH · 2026-10-26</div><strong>迈向无人区</strong></div><span class="status">研究草案 · 非产品原型</span></header>
+  <main>
+    <section class="intro" aria-labelledby="thesis">
+      <div><div class="meta">双时代微型探索 · 当前设计方向</div><h1 id="thesis">同一片未知，<br>两种工程组织方式。</h1><p class="lede">在人类与 Agent 不同的探索方式中，逐步恢复前哨的局部秩序。每个环节揭示一种方法；全部环节被发现后，世界仍未被穷尽。</p></div>
+      <div class="constraints"><p><span class="accent">01</span> 首页本身是完整的正常预览页。</p><p><span class="accent">02</span> 主动进入 Three.js 实时三维空间。</p><p><span class="accent">03</span> 在空间内互动、选章并阅读。</p><p><span class="accent">04</span> 探索全部环节，未知仍然存在。</p><p class="note">以上依据用户已明确的目标；具体场所、镜头与阅读面仍为建议。</p></div>
+    </section>
+
+    <section class="section" id="era-comparison" aria-labelledby="era-title">
+      <div class="meta">核心差异：玩家职责 · 空间活动 · 产物流转</div>
+      <h2 id="era-title">先用同一个任务，让两种模式能够被认出</h2>
+      <div class="era-task"><p><strong>任务：恢复前哨的测绘中继网络。</strong></p><small>共用地图、故障、工具与验收：接口兼容、备用线路可接替、异常可隔离并定位。以下为玩法关系分镜，尚非游戏画面。</small></div>
+      <div class="era-views">
+        <article class="era-lane" aria-labelledby="human-title">
+          <div class="meta">人类主导 SDLC</div><h3 id="human-title">走进现场，判断并完成工作</h3><p class="verbs">观察 → 判断 → 操作 → 检查 → 修正</p>
+          <figure><svg viewBox="0 0 360 222" role="img" aria-labelledby="human-map-title human-map-desc">
+            <title id="human-map-title">人的注意力跟随现场任务移动</title><desc id="human-map-desc">相同的源端、中继、检查装置和接收端。人查看并修复主线路，再使用检查工具发现接口不兼容，备用线路仍然需要处理。人物用圆形表示，待检查连接用虚线表示。</desc>
+            <g fill="none" stroke="#71848d" stroke-width="1"><path d="M34 104 L150 64 L325 104" stroke-dasharray="5 5"/><path d="M34 104 L150 169 L325 104"/><path d="M150 64 L150 169" stroke-dasharray="3 5"/></g>
+            <path d="M34 104 L150 64 L150 143" fill="none" stroke="#ff9b6b" stroke-width="2"/>
+            <g fill="#28383f" stroke="#8fa3ad" stroke-width="1"><rect x="18" y="88" width="32" height="32"/><rect x="134" y="48" width="32" height="32"/><rect x="134" y="153" width="32" height="32"/><rect x="309" y="88" width="32" height="32"/></g>
+            <circle cx="150" cy="131" r="15" fill="#192126" stroke="#ff9b6b" stroke-width="2"/>
+            <text x="150" y="137" text-anchor="middle" fill="#e6edf3" font-size="18">人</text>
+            <g fill="#e6edf3" font-size="17" text-anchor="middle"><text x="34" y="148">源端</text><text x="150" y="31">中继</text><text x="150" y="211">检查装置</text><text x="325" y="148">接收端</text></g>
+            <text x="251" y="55" text-anchor="middle" fill="#b8c3ca" font-size="16">接头待检查</text>
+          </svg><figcaption>人选择修复步骤，工具提供测量与检查，现场工作随注意力推进。传统模式包含合理自动化。</figcaption></figure>
+          <p><strong>主要负担：</strong>理解现场、实施变更、检查成果、核对交接。</p>
+        </article>
+        <article class="era-lane" aria-labelledby="agent-title">
+          <div class="meta">AI 原生 SDLC</div><h3 id="agent-title">组织探索，审阅证据与裁决</h3><p class="verbs">定义 → 委派 → 约束 → 审阅 → 放行</p>
+          <figure><svg viewBox="0 0 360 222" role="img" aria-labelledby="agent-map-title agent-map-desc">
+            <title id="agent-map-title">人分派任务，Agent 在多个位置工作</title><desc id="agent-map-desc">同一地图上，人位于任务台，A、B、C 三个方形角色分别处理接口、备用线路与提交。候选经过检查点，接口不兼容的连接被隔离；其他路径仍在等待证据。箭头和虚线表示任务、候选及其状态，不代表生产效率统计。</desc>
+            <g fill="none" stroke="#71848d" stroke-width="1"><path d="M34 104 L150 64 L325 104" stroke-dasharray="5 5"/><path d="M34 104 L150 169 L325 104" stroke-dasharray="5 5"/><path d="M150 64 L150 169" stroke-dasharray="3 5"/></g>
+            <g fill="none" stroke="#ff9b6b" stroke-width="1"><path d="M34 39 L150 64 M34 39 L150 169 M34 39 L294 104" stroke-dasharray="2 5"/></g>
+            <g fill="#28383f" stroke="#8fa3ad" stroke-width="1"><rect x="18" y="88" width="32" height="32"/><rect x="134" y="48" width="32" height="32"/><rect x="134" y="153" width="32" height="32"/><rect x="309" y="88" width="32" height="32"/></g>
+            <circle cx="34" cy="33" r="15" fill="#192126" stroke="#ff9b6b" stroke-width="2"/><text x="34" y="39" text-anchor="middle" fill="#e6edf3" font-size="18">人</text>
+            <g fill="#192126" stroke="#ff9b6b" stroke-width="1"><rect x="171" y="46" width="24" height="26"/><rect x="171" y="156" width="24" height="26"/><rect x="274" y="91" width="24" height="26"/></g>
+            <g fill="#e6edf3" font-size="17" text-anchor="middle"><text x="183" y="65">A</text><text x="183" y="175">B</text><text x="286" y="110">C</text><text x="34" y="148">源端</text><text x="150" y="31">中继</text><text x="150" y="211">检查装置</text><text x="325" y="148">接收端</text></g>
+            <path d="M226 70 L240 84 M240 70 L226 84" stroke="#ff9b6b" stroke-width="2"/><text x="265" y="55" text-anchor="middle" fill="#b8c3ca" font-size="16">隔离／待证据</text>
+          </svg><figcaption>Agent 并行形成候选与证据；已配置检查隔离部分问题，人处理遗漏条件与关键裁决。</figcaption></figure>
+          <p><strong>主要负担：</strong>保持任务和约束完整，维护上下文，判断证据与异常。</p>
+        </article>
+      </div>
+      <table class="comparison era-table" style="margin-top:22px"><thead><tr><th>对照分镜</th><th>人类主导：玩家操作与场景反馈</th><th>AI 原生：玩家操作与场景反馈</th></tr></thead><tbody>
+        <tr><td>目标</td><td>查看现场，明确要恢复的链路与验收条件。</td><td>确认相同目标、边界、备用要求与证据，再发布任务。</td></tr>
+        <tr><td>生产</td><td>人选择并实施修复，工具协助检查。</td><td>Agent 在多个位置调查、形成候选、提交结果。</td></tr>
+        <tr><td>检查</td><td>使用规格工具，识别不兼容接头并修正。</td><td>已配置门禁隔离不兼容提交，回传原因并重新处理。</td></tr>
+        <tr><td>新变化</td><td>人定位新的环境信号，修改理解与相关工作。</td><td>Agent 汇集告警与影响；人修订任务和约束，再调度与验证。</td></tr>
+      </tbody></table>
+      <p class="note" style="margin-top:14px">知识帮助人理解现场，也帮助人设计任务与 harness。光照、并行数量与候选变化是叙事符号；本研究不提供现实模型成功率或效率倍数。</p>
+      <details class="scope-note"><summary>章节如何改变玩法与最小验证范围</summary><p class="note" style="margin-top:12px">发现“验证”后，人类模式获得并使用检查方法；AI 原生模式可把同一方法配置为持续门禁。阅读始终开放，访问记录与任务检查分别表达。</p><p class="note">先做一个中继工作区、同一错误案例、两种职责、一章真实内容，以及返回路径。隐藏模式标题后，观察者仍应能通过操作和产物流转认出区别。</p></details>
+      <p style="margin-top:18px"><a href="./mini-exploration-design.md">双时代玩法规则、完整分镜、章节映射与验收 →</a></p>
+      <div class="era-reference small"><span>补充玩法参考：</span><a href="https://tomorrowcorporation.com/humanresourcemachine" target="_blank" rel="noopener">Human Resource Machine</a><a href="https://tomorrowcorporation.com/7billionhumans" target="_blank" rel="noopener">7 Billion Humans</a><a href="https://explorabl.es/" target="_blank" rel="noopener">Explorable Explanations</a></div>
+      <p class="small">已核对官方页面介绍，未实际游玩。借用可见执行与组织方式的表达，不把其程序规则直接等同于 LLM。</p>
+    </section>
+
+    <section class="section" aria-labelledby="journey">
+      <h2 id="journey">一段连续的旅程</h2>
+      <div class="journey">
+        <article class="beat"><div class="meta">01 / 首屏</div><h3>站在已知的边界</h3><p>看懂书的用途。可直接阅读，也能看见通向空间的方向。</p></article>
+        <article class="beat"><div class="meta">02 / 进入</div><h3>跨过测绘基线</h3><p>资源就绪后，一段短镜头进入同一个前哨，停在清晰的总览机位。</p></article>
+        <article class="beat"><div class="meta">03 / 发现</div><h3>用方法恢复局部秩序</h3><p>以不同职责完成同一任务，发现目标、边界、依赖、证据与反馈。</p></article>
+        <article class="beat"><div class="meta">04 / 阅读</div><h3>在工作站展开方法</h3><p>线索 → 环节概要 → 具体章节。内容可读、可搜索、可复制。</p></article>
+        <article class="beat"><div class="meta">05 / 继续</div><h3>走完一圈，走向新意图</h3><p>环节相连，边界之外仍有未知。拥有继续探索的方法。</p></article>
+      </div>
+      <p class="note" style="margin-top:12px">加载等待与进入动画分开；减少动态效果时直接到达总览。探索记录表达“发现／查看”，不冒充掌握或验证通过。</p>
+    </section>
+
+    <section class="section grid" aria-label="空间与内容的关系草图">
+      <div>
+        <h2>有限前哨，开放边界</h2><p class="note">建议研究半开放测绘前哨。六环解释工程关系，十章保持完整可达。</p>
+        <div class="diagram"><figure>
+          <svg viewBox="0 0 680 395" role="img" aria-labelledby="map-title map-desc">
+            <title id="map-title">六个环节位于有限工作区内，边界之外始终保留未知</title>
+            <desc id="map-desc">意图、设计、实现、验证、交付、演进构成可循环的局部路径。导论位于入口，工具生态与附录作为辅助。远处包括模型局限、概率性、需求与环境变化等不确定性。</desc>
+            <g fill="none" stroke="#667983" stroke-width="1" stroke-dasharray="4 8"><path d="M45 102 Q340 16 635 102"/><path d="M26 78 Q340 -5 655 78"/><path d="M18 54 Q340 -20 663 54"/></g>
+            <text x="340" y="27" text-anchor="middle" fill="#b8c3ca" font-size="14">仍然存在的未知：模型局限与概率性 · 需求变化 · 环境与遗漏的假设</text>
+            <path d="M70 134 Q340 72 610 134 L610 319 Q340 380 70 319 Z" fill="#202c33" stroke="#71848d" stroke-width="1"/>
+            <text x="340" y="105" text-anchor="middle" fill="#ff9b6b" font-size="12">可认识、可约束、可检查的有限工作区</text>
+            <g fill="none" stroke="#ff9b6b" stroke-width="1"><path d="M170 177 L340 148 L510 177 L510 273 L340 306 L170 273 Z"/><path d="M170 177 L510 273 M340 148 L340 306 M510 177 L170 273" stroke="#657781" stroke-dasharray="3 6"/></g>
+            <g fill="#192126" stroke="#ff9b6b" stroke-width="1">
+              <rect x="111" y="150" width="118" height="54"/><rect x="281" y="122" width="118" height="54"/><rect x="451" y="150" width="118" height="54"/><rect x="451" y="247" width="118" height="54"/><rect x="281" y="278" width="118" height="54"/><rect x="111" y="247" width="118" height="54"/>
+            </g>
+            <g text-anchor="middle" fill="#e6edf3" font-size="16"><text x="170" y="173">意图</text><text x="340" y="145">设计</text><text x="510" y="173">实现</text><text x="510" y="270">验证</text><text x="340" y="301">交付</text><text x="170" y="270">演进</text></g>
+            <g text-anchor="middle" fill="#b8c3ca" font-size="11"><text x="170" y="192">CH 1 · 目标与验收</text><text x="340" y="164">CH 2 · 边界与契约</text><text x="510" y="192">CH 4 · 构成与行为</text><text x="510" y="289">CH 3 / 5 · 检查与证据</text><text x="340" y="320">CH 6 · 与真实环境相接</text><text x="170" y="289">CH 7 · 反馈到新意图</text></g>
+            <circle cx="340" cy="224" r="39" fill="#28383f" stroke="#8fa3ad" stroke-width="1"/>
+            <text x="340" y="220" text-anchor="middle" fill="#e6edf3" font-size="14">未完成的</text><text x="340" y="240" text-anchor="middle" fill="#e6edf3" font-size="14">测绘总图</text>
+            <path d="M340 355 L340 379" stroke="#ff9b6b"/><text x="340" y="393" text-anchor="middle" fill="#b8c3ca" font-size="12">入口与导论 CH 0 · 工具 CH 8 ／ 附录 A 随时可达</text>
+          </svg>
+          <figcaption>关系示意，不是最终平面图或模型造型。路径可以循环、可以自由选章；发现进度不阻断内容。</figcaption>
+        </figure></div>
+      </div>
+      <div>
+        <h2>内容从空间中展开</h2><p class="note">镜头靠近真实工作站，实体阅读面正向展开，再进入舒适阅读。三维空间持续存在。</p>
+        <div class="reader" aria-label="章节内容层的静态排版示意">
+          <nav aria-label="示意小节目录">CH 01<br><br><span class="accent">目标</span><br>约束<br>验收<br>实践<br><br>← 回到环节</nav>
+          <article><div class="label">工作站近景 → 阅读面</div><h3>意图与需求</h3><p>从“不知道要做成什么”，到能够说明目标、约束与验收。</p><hr style="border:0;border-top:1px solid var(--line)"><p>这里承载由同一章节源生成的正文、代码、图表与清单。示意不是实际章节正文。</p><span class="tag">可复制</span><span class="tag">可查找</span><span class="tag">可返回空间</span></article>
+        </div>
+        <p class="note" style="margin-top:16px">空间、相机、遮挡和物件反馈：Three.js。<br>长文排版与语义：与稳定阅读面相配合的 HTML/CSS。<br>不将整章缩成模型上的小字，不用平面界面替代空间。</p>
+        <p class="small">本文与图示均为研究材料。真正的场景、进入镜头及阅读交互尚未实现或验证。</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="references">
+      <h2 id="references">参考要转化成具体方法</h2>
+      <table class="comparison"><thead><tr><th>参考</th><th>借用的实践</th><th>边界与证据</th></tr></thead><tbody>
+        <tr><td><a href="https://vite.dev/" target="_blank" rel="noopener">Vite</a> ／ <a href="https://www.hello-algo.com/" target="_blank" rel="noopener">Hello 算法</a></td><td>首页先解释用途与开始方式；不进入空间也有完整阅读路径。</td><td>已读取当前首页结构；不照搬配色与画风。</td></tr>
+        <tr><td><a href="https://bruno-simon.com/" target="_blank" rel="noopener">Bruno Simon</a> ／ <a href="https://room.bokoko33.me/" target="_blank" rel="noopener">Bokoko 房间</a></td><td>场所即导航，物件有输入反馈，有限空间拥有识别度。</td><td>已读页面及作者／源码说明；房间截图停在加载条，未完成交互核验。</td></tr>
+        <tr><td><a href="https://tympanus.net/codrops/2026/04/28/more-than-a-portfolio-building-a-scroll-driven-3d-world-with-something-to-say/" target="_blank" rel="noopener">Scroll-Driven 3D World</a></td><td>镜头先有叙事任务，再决定 Blender 构图、烘焙与资产优化。</td><td>已读案例正文；不照搬强制滚动或作者性能成绩。</td></tr>
+        <tr><td><a href="https://tympanus.net/codrops/2025/11/21/one-canvas-to-rule-them-all-how-ink-games-new-site-handles-complex-3d/" target="_blank" rel="noopener">One Canvas to Rule Them All</a></td><td>共用 canvas、控制帧循环；三维物件与可读文字层协调。</td><td>借架构原则；本站可延续原生 Three.js。</td></tr>
+        <tr><td><a href="https://threejs-journey.com/lessons/baking-and-exporting-the-scene" target="_blank" rel="noopener">Baking and Exporting</a></td><td>清理隐藏面、检查法线与比例、UV 和烘焙，再交付浏览器。</td><td>已读公开教程文字；静态光与动态部件必须分开。</td></tr>
+      </tbody></table>
+      <p class="note" style="margin-top:12px">研究不是视觉验收。Codrops 浏览器截图遇到站点验证，未拿失败画面宣称对照通过；完整来源与限制见研究说明。</p>
+    </section>
+
+    <section class="section" aria-labelledby="method">
+      <h2 id="method">先证明路径，再投入细节</h2>
+      <div class="steps">
+        <article class="step"><div class="meta">A / 完整灰盒旅程</div><h3>同一任务 → 两种职责 → 一章 → 返回</h3><p>一个中继工作区、明确故障和验收。先验证两种 SDLC 能被认出，再确认空间阅读与返回。</p></article>
+        <article class="step"><div class="meta">B / 一处视觉样板</div><h3>同一工作站，四种状态成立</h3><p>首屏、进入落点、近景交互、章节阅读共用比例和光照。再做精模、材质与局部烘焙。</p></article>
+        <article class="step"><div class="meta">C / 扩展与量测</div><h3>完整六环、十章与设备验证</h3><p>章节源保持统一，分批加载资产。实测帧间隔、资源、返回路径、键盘与移动机位。</p></article>
+      </div>
+      <div class="end"><div><strong>“你已发现全部环节。<br>未知仍在边界之外。”</strong></div><p>留下一个能够继续运转的前哨，<br>而不是一张被彻底点亮、宣布通关的地图。</p></div>
+    </section>
+  </main>
+  <footer><p><a href="./mini-exploration-design.md">双时代微型探索体验 →</a>　<a href="./experience-plan-2026-10-26.md">背景研究与技术路径 →</a>　<a href="./threejs-technical-review.md">三份技术建议的采纳与调整 →</a></p><p class="small">本页为静态研究材料，实际原型另行验证。已认可双时代对照方向，具体任务、造型和操作仍待原型验证。</p></footer>
+</body>
+</html>
