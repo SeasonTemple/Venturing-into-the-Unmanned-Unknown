@@ -1,10 +1,18 @@
 #!/usr/bin/env node
 // 唯一的截图入口。一次运行 = 一个 Chrome 进程，必然退出，不留残余。
 // 用法：node scripts/shot.mjs --url <url> --out <a.png> [--width 1440] [--height 900] [--wait 8000] [--theme light|dark]
+// 多图共用一个浏览器：node scripts/shot.mjs --batch <manifest.json>
+// manifest: [{url, out, width, height, mobile?, ready?, prepare?, wait?}]，最多6张。
 import { spawn } from 'node:child_process';
 import { mkdtempSync, mkdirSync, readdirSync, rmSync, existsSync, statSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve, dirname } from 'node:path';
+
+// Batch mode keeps one owned browser for all captures (maximum six).
+if (process.argv.includes('--batch')) {
+  await (await import('./shot-batch.mjs')).captureBatch(process.argv[process.argv.indexOf('--batch') + 1]);
+  process.exit(0);
+}
 
 const CHROME = 'C:/Program Files/Google/Chrome/Application/chrome.exe';
 

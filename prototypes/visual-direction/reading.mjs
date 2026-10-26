@@ -1,8 +1,9 @@
 const $ = id => document.getElementById(id);
 const params = new URLSearchParams(location.search);
-const layout = params.get('layout') === 'journal' ? 'journal' : 'atlas';
+const layout = params.get('layout') === 'atlas' ? 'atlas' : 'journal';
 const slug = /^ch[0-8A]$/.test(params.get('chapter')) ? params.get('chapter') : 'ch3';
 document.body.dataset.layout = layout;
+document.body.classList.toggle('field-journal', layout === 'journal');
 $('preview-name').textContent = `${layout === 'journal' ? '探索手记' : '图解技术书'} · 阅读样张`;
 const state = { ready: false, errors: [], chapter: slug, layout, sections: 0, focused: false };
 window.__readingStudy = state;
@@ -19,9 +20,9 @@ function showTab(name, focus = false) {
   for (const key of ['book', 'outline']) { const active = key === name; $(`${key}-tab`).setAttribute('aria-selected', String(active)); $(`${key}-tab`).tabIndex = active ? 0 : -1; $(`${key}-panel`).hidden = !active; }
   if (focus) $(`${name}-tab`).focus();
 }
-function openNavigation(tab = 'book') { showTab(tab); $('navigation').showModal(); }
-$('open-navigation').addEventListener('click', () => openNavigation());
-$('open-outline').addEventListener('click', () => openNavigation('outline'));
+function openNavigation(tab = 'book', trigger = document.activeElement) { trigger?.focus({preventScroll:true}); showTab(tab); $('navigation').showModal(); }
+$('open-navigation').addEventListener('click', event => openNavigation('book', event.currentTarget));
+$('open-outline').addEventListener('click', event => openNavigation('outline', event.currentTarget));
 $('close-navigation').addEventListener('click', () => $('navigation').close());
 for (const key of ['book', 'outline']) {
   $(`${key}-tab`).addEventListener('click', () => showTab(key));
@@ -37,6 +38,7 @@ $('focus').addEventListener('click', () => {
 });
 $('top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduced() ? 'instant' : 'smooth' }));
 let queued = false, sections = [], activeSection = null;
+let journal;
 function updatePosition() {
   queued = false; const height = document.documentElement.scrollHeight - innerHeight;
   $('progress').style.transform = `scaleX(${height > 0 ? Math.max(0, Math.min(1, scrollY / height)) : 0})`;
@@ -45,6 +47,7 @@ function updatePosition() {
     activeSection = current; sections.forEach(section => section.dataset.current = String(section === current)); const heading = current.querySelector('h2'); $('current-section').textContent = heading.textContent; $('current-section').href = '#' + heading.id;
     for (const link of $('wide-outline-links').children) { if (link.hash.slice(1) === encodeURIComponent(heading.id) || decodeURIComponent(link.hash.slice(1)) === heading.id) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current'); }
     const note = current.querySelector('.section-note'); $('wide-note').hidden = !note; $('wide-note').replaceChildren(...(note ? Array.from(note.childNodes, child => child.cloneNode(true)) : []));
+    journal?.update(sections.indexOf(current));
   }
 }
 const schedule = () => { if (!queued) { queued = true; requestAnimationFrame(updatePosition); } };
@@ -90,7 +93,9 @@ try {
   for (const link of $('body').querySelectorAll('a[href]')) if (!link.getAttribute('href').startsWith('#')) { link.href = new URL(link.getAttribute('href'), canonical).href; link.target = '_blank'; link.rel = 'noopener'; }
   for (const chapter of book.chapters) { const link = document.createElement('a'); link.href = `?layout=${layout}&chapter=${chapter.slug}`; const number = document.createElement('span'); number.textContent = chapter.order.padStart(2, '0'); link.append(number, document.createTextNode(chapter.title)); if (chapter.slug === slug) link.setAttribute('aria-current', 'page'); $('book-panel').append(link); $('wide-book-links').append(link.cloneNode(true)); }
   const next = book.chapters[(book.chapters.indexOf(chapter) + 1) % book.chapters.length]; $('next-chapter').href = `?layout=${layout}&chapter=${next.slug}`; $('next-chapter').replaceChildren(document.createTextNode(next.title)); const arrow = document.createElement('span'); arrow.textContent = '↗'; $('next-chapter').append(arrow);
-  sections = Array.from($('body').querySelectorAll('.article-section')); state.sections = sections.length; updatePosition();
+  sections = Array.from($('body').querySelectorAll('.article-section')); state.sections = sections.length;
+  if (layout === 'journal') journal = (await import('./journal.mjs')).mountJournal({ sections, slug, chapter, reduced, openNavigation });
+  updatePosition();
   const initialHeading = location.hash ? document.getElementById(decodeURIComponent(location.hash.slice(1))) : params.has('section') ? sections[Number(params.get('section')) - 1]?.querySelector('h2') : null;
   // Scroll this document only; scrollIntoView would also move an embedding review page.
   if (initialHeading) window.scrollTo({ top: initialHeading.getBoundingClientRect().top + scrollY - 140, behavior: 'instant' });

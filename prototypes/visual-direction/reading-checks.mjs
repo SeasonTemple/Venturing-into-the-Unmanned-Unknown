@@ -6,7 +6,7 @@ export async function run({send,evaluate,until,pause,check,report}) {
     const data=await evaluate(`(async()=>{
       const doc=new DOMParser().parseFromString(await(await fetch('/chapters/ch3')).text(),'text/html');
       const expected=doc.querySelector('.sl-markdown-content');expected.querySelectorAll('script').forEach(e=>e.remove());
-      const sections=Array.from(document.querySelectorAll('.section-content'),e=>{const c=e.cloneNode(true);c.querySelectorAll('.copy-source,.table-hint').forEach(e=>e.remove());return c.textContent}).join('');
+      const sections=Array.from(document.querySelectorAll('.section-content'),e=>{const c=e.cloneNode(true);c.querySelectorAll('.copy-source,.table-hint,.journal-extra').forEach(e=>e.remove());return c.textContent}).join('');
       return {equal:sections.replace(/\s/g,'')===expected.textContent.replace(/\s/g,''),headings:document.querySelectorAll('#body h2').length,tables:document.querySelectorAll('#body table').length,outline:document.querySelectorAll('#outline-panel a').length,width:innerWidth,page:document.documentElement.scrollWidth,canvas:document.querySelectorAll('canvas').length,notes:document.querySelectorAll('.section-note').length,errors:window.__readingStudy.errors};
     })()`);
     report.metrics[layout]=data;
