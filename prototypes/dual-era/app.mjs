@@ -3,20 +3,12 @@ const $ = id => document.getElementById(id);
 const query = new URLSearchParams(location.search);
 const snapshots = { human: createTask('human'), agent: createTask('agent') };
 const errors = [], mounts = [], disposals = [];
-let mode = 'human', world = null, generation = 0, active = false, busy = false, selectedNode = 'relay', chapterLoaded = false, readerTrigger = null, pendingAction = Promise.resolve();
-let content;
+let mode = 'agent', world = null, generation = 0, active = false, busy = false, selectedNode = 'relay', chapterLoaded = false, readerTrigger = null, pendingAction = Promise.resolve();
 const phaseNames = { survey: '确认共同任务', ready: '准备生产', candidate: '候选尚待证据', evidence: '检查与修正', operating: '局部秩序恢复', disturbance: '新条件进入边界' };
 const initialMessage = '目标：通过兼容接口传输测绘数据，主线路故障后备用接替，异常可隔离并定位。';
 window.addEventListener('error', e => errors.push(e.message));
 window.addEventListener('unhandledrejection', e => errors.push(String(e.reason)));
 const contentReady = fetch('/content.json').then(r => { if (!r.ok) throw Error('无法读取章节配置'); return r.json(); }).then(data => {
-  content = data;
-  $('book-meta').textContent = `${data.version} / BSL 1.1 / ${data.chapters.length} 章`;
-  for (const chapter of data.chapters) {
-    const link = document.createElement('a'); link.href = canonical(chapter.slug); link.target = '_blank'; link.rel = 'noopener';
-    const number = document.createElement('span'); number.textContent = chapter.order === 'A' ? '附录' : `CH ${chapter.order}`;
-    link.append(number, document.createTextNode(chapter.title)); $('chapter-links').append(link);
-  }
   const chapter = data.chapters.find(c => c.order === '3'); $('method-title').textContent = chapter.title; $('reader-title').textContent = `第 ${chapter.order} 章 · ${chapter.title}`; $('canonical-chapter').href = canonical(chapter.slug);
 }).catch(error => { $('load-status').textContent = error.message; errors.push(error.message); });
 function canonical(slug) { return `https://seasontemple.github.io/Venturing-into-the-Unmanned-Unknown/${slug}/`; }
@@ -51,7 +43,8 @@ function render() {
   }
   $('history').replaceChildren();
   for (const item of s.history.slice(-12)) { const li = document.createElement('li'); li.textContent = `${String(item.index).padStart(2, '0')} / ${item.message}`; $('history').append(li); }
-  for (const id of ['read-chapter', 'overview', 'follow', 'other-mode', 'reset']) $(id).disabled = busy;
+  for (const id of ['read-chapter', 'overview', 'follow', 'reset']) $(id).disabled = busy;
+  document.querySelectorAll('#mode-switch input').forEach(input => { input.disabled = busy; input.checked = input.value === mode; });
   document.querySelectorAll('.scene-tag').forEach(button => { button.disabled = busy; button.setAttribute('aria-pressed', String(button.dataset.node === selectedNode)); });
   if (world) world.setTask(s);
 }
@@ -62,12 +55,12 @@ function projectLabels({ project }) {
   }
 }
 async function start(nextMode = mode) {
-  const fromLanding = !active;
+  const entering = !active;
   generation++; const stamp = generation;
   disposeWorld(); mode = nextMode; active = true; busy = true; $('experience').hidden = false;
-  if (fromLanding) { $('landing').hidden = false; $('experience').classList.add('preparing'); $('experience').setAttribute('aria-hidden', 'true'); }
-  $('enter').disabled = true; $('load-status').textContent = '正在准备 Three.js 空间，章节阅读仍可使用…';
-  const reveal = () => { $('landing').hidden = true; $('experience').classList.remove('preparing'); $('experience').removeAttribute('aria-hidden'); $('world').scrollIntoView({ block: 'nearest' }); };
+  if (entering) { $('entry-status').hidden = false; $('experience').classList.add('preparing'); $('experience').setAttribute('aria-hidden', 'true'); }
+  $('retry-entry').hidden = true; $('load-status').textContent = '正在准备空间…';
+  const reveal = () => { $('entry-status').hidden = true; $('experience').classList.remove('preparing'); $('experience').removeAttribute('aria-hidden'); $('world').scrollIntoView({ block: 'nearest' }); };
   $('world').classList.remove('fallback'); $('world-status').textContent = '正在准备空间…'; render();
   try {
     if (query.has('nowebgl')) throw Error('当前使用无 WebGL 的阅读与任务降级');
@@ -81,7 +74,7 @@ async function start(nextMode = mode) {
     if (!active || stamp !== generation) return;
     mounts.push(world.stats()); $('world-status').textContent = '选择空间中的装置查看；任务操作在侧栏。';
   } catch (error) { if (active && stamp === generation) { fallback(error.message); reveal(); } }
-  if (stamp === generation && active) { busy = false; $('enter').disabled = false; $('load-status').textContent = ''; render(); $('task-heading').setAttribute('tabindex', '-1'); $('task-heading').focus({ preventScroll: true }); }
+  if (stamp === generation && active) { busy = false; $('load-status').textContent = ''; render(); $('task-heading').setAttribute('tabindex', '-1'); $('task-heading').focus({ preventScroll: true }); }
 }
 function fallback(message) {
   disposeWorld(); $('world').classList.add('fallback'); $('world-status').textContent = message;
@@ -90,8 +83,8 @@ function fallback(message) {
 function disposeWorld() { if (world) { const previous = world; world = null; disposals.push(previous.destroy()); } }
 function exit() {
   generation++; active = false; busy = false; if ($('reader').open) $('reader').close(); disposeWorld();
-  $('experience').classList.remove('preparing'); $('experience').removeAttribute('aria-hidden'); $('enter').disabled = false; $('load-status').textContent = '';
-  $('experience').hidden = true; $('landing').hidden = false; $('enter').focus({ preventScroll: true }); window.scrollTo({ top: 0, behavior: 'instant' });
+  $('experience').classList.remove('preparing'); $('experience').removeAttribute('aria-hidden');
+  $('experience').hidden = true; $('entry-status').hidden = false; $('load-status').textContent = '已离开交互空间。'; $('retry-entry').hidden = false; $('retry-entry').focus({ preventScroll: true }); window.scrollTo({ top: 0, behavior: 'instant' });
 }
 async function selectNode(node) {
   if (busy || !active) return; selectedNode = node;
@@ -134,9 +127,9 @@ async function openReader() {
   } catch (error) { $('chapter-content').textContent = error.message; errors.push(error.message); }
   finally { $('chapter-content').setAttribute('aria-busy', 'false'); }
 }
-$('enter').addEventListener('click', () => { pendingAction = start(document.querySelector('input[name="mode"]:checked').value); });
+$('retry-entry').addEventListener('click', () => { pendingAction = start(); });
 $('exit').addEventListener('click', exit);
-$('other-mode').addEventListener('click', () => { pendingAction = start(mode === 'human' ? 'agent' : 'human'); });
+document.querySelectorAll('#mode-switch input').forEach(input => input.addEventListener('change', () => { if (input.checked && !busy) pendingAction = start(input.value); }));
 $('reset').addEventListener('click', () => { snapshots[mode] = createTask(mode); render(); });
 $('read-chapter').addEventListener('click', () => { pendingAction = openReader(); });
 $('close-reader').addEventListener('click', () => $('reader').close());
@@ -154,4 +147,4 @@ if (query.has('verify')) {
     info: () => ({ errors: [...errors], mounts: [...mounts], disposals: [...disposals], world: world?.stats() || null, readerOpen: $('reader').open, chapterLoaded, busy, active, mode }),
   };
   if (query.has('run')) import('./verify.mjs');
-}
+} else pendingAction = start();
