@@ -36,12 +36,16 @@ $('focus').addEventListener('click', () => {
   updatePosition();
 });
 $('top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduced() ? 'instant' : 'smooth' }));
-let queued = false, sections = [];
+let queued = false, sections = [], activeSection = null;
 function updatePosition() {
   queued = false; const height = document.documentElement.scrollHeight - innerHeight;
   $('progress').style.transform = `scaleX(${height > 0 ? Math.max(0, Math.min(1, scrollY / height)) : 0})`;
   const current = sections.findLast(section => section.getBoundingClientRect().top < 175) || sections[0];
-  if (current) { sections.forEach(section => section.dataset.current = String(section === current)); const heading = current.querySelector('h2'); $('current-section').textContent = heading.textContent; $('current-section').href = '#' + heading.id; }
+  if (current && current !== activeSection) {
+    activeSection = current; sections.forEach(section => section.dataset.current = String(section === current)); const heading = current.querySelector('h2'); $('current-section').textContent = heading.textContent; $('current-section').href = '#' + heading.id;
+    for (const link of $('wide-outline-links').children) { if (link.hash.slice(1) === encodeURIComponent(heading.id) || decodeURIComponent(link.hash.slice(1)) === heading.id) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current'); }
+    const note = current.querySelector('.section-note'); $('wide-note').hidden = !note; $('wide-note').replaceChildren(...(note ? Array.from(note.childNodes, child => child.cloneNode(true)) : []));
+  }
 }
 const schedule = () => { if (!queued) { queued = true; requestAnimationFrame(updatePosition); } };
 addEventListener('scroll', schedule, { passive: true }); addEventListener('resize', schedule);
@@ -74,19 +78,22 @@ try {
   for (const section of $('body').querySelectorAll('.article-section')) {
     const heading = section.querySelector('h2'); if (!heading) continue;
     const label = heading.cloneNode(true); label.querySelectorAll('.sl-anchor-link').forEach(anchor => anchor.remove());
-    const link = document.createElement('a'); link.href = '#' + heading.id; link.textContent = label.textContent;
-    link.addEventListener('click', event => { event.preventDefault(); $('navigation').close(); heading.scrollIntoView({ behavior: reduced() ? 'instant' : 'smooth', block: 'start' }); heading.tabIndex = -1; heading.focus({ preventScroll: true }); history.replaceState(null, '', '#' + heading.id); }); $('outline-panel').append(link);
+    for (const target of ['outline-panel', 'wide-outline-links']) {
+      const link = document.createElement('a'); link.href = '#' + heading.id; link.textContent = label.textContent;
+      link.addEventListener('click', event => { event.preventDefault(); if ($('navigation').open) $('navigation').close(); window.scrollTo({ top: heading.getBoundingClientRect().top + scrollY - 140, behavior: reduced() ? 'instant' : 'smooth' }); if (reduced()) updatePosition(); heading.tabIndex = -1; heading.focus({ preventScroll: true }); history.replaceState(null, '', '#' + heading.id); }); $(target).append(link);
+    }
   }
   for (const table of $('body').querySelectorAll('table')) { const wrapper = document.createElement('div'); wrapper.className = 'table-scroll'; wrapper.tabIndex = 0; wrapper.setAttribute('role', 'region'); wrapper.setAttribute('aria-label', '可横向滚动的章节表格'); const hint = document.createElement('span'); hint.className = 'table-hint'; hint.textContent = '横向滑动查看完整表格 →'; table.before(hint, wrapper); wrapper.append(table); }
   for (const pre of $('body').querySelectorAll('pre')) {
     const copy = button('复制代码 ↗', async () => { try { await navigator.clipboard.writeText(pre.textContent); copy.textContent = '已复制'; $('status').textContent = '代码已复制'; } catch { copy.textContent = '可选择代码后复制'; } }, 'copy-source'); pre.before(copy);
   }
   for (const link of $('body').querySelectorAll('a[href]')) if (!link.getAttribute('href').startsWith('#')) { link.href = new URL(link.getAttribute('href'), canonical).href; link.target = '_blank'; link.rel = 'noopener'; }
-  for (const chapter of book.chapters) { const link = document.createElement('a'); link.href = `?layout=${layout}&chapter=${chapter.slug}`; const number = document.createElement('span'); number.textContent = chapter.order.padStart(2, '0'); link.append(number, document.createTextNode(chapter.title)); if (chapter.slug === slug) link.setAttribute('aria-current', 'page'); $('book-panel').append(link); }
+  for (const chapter of book.chapters) { const link = document.createElement('a'); link.href = `?layout=${layout}&chapter=${chapter.slug}`; const number = document.createElement('span'); number.textContent = chapter.order.padStart(2, '0'); link.append(number, document.createTextNode(chapter.title)); if (chapter.slug === slug) link.setAttribute('aria-current', 'page'); $('book-panel').append(link); $('wide-book-links').append(link.cloneNode(true)); }
   const next = book.chapters[(book.chapters.indexOf(chapter) + 1) % book.chapters.length]; $('next-chapter').href = `?layout=${layout}&chapter=${next.slug}`; $('next-chapter').replaceChildren(document.createTextNode(next.title)); const arrow = document.createElement('span'); arrow.textContent = '↗'; $('next-chapter').append(arrow);
   sections = Array.from($('body').querySelectorAll('.article-section')); state.sections = sections.length; updatePosition();
   const initialHeading = location.hash ? document.getElementById(decodeURIComponent(location.hash.slice(1))) : params.has('section') ? sections[Number(params.get('section')) - 1]?.querySelector('h2') : null;
   // Scroll this document only; scrollIntoView would also move an embedding review page.
   if (initialHeading) window.scrollTo({ top: initialHeading.getBoundingClientRect().top + scrollY - 140, behavior: 'instant' });
+  updatePosition();
 } catch (error) { state.errors.push(error.message); $('body').textContent = error.message; }
 finally { state.ready = true; $('body').setAttribute('aria-busy', 'false'); }

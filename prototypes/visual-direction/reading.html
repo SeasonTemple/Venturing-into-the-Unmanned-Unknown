@@ -13,9 +13,15 @@
       </div>
     </header>
     <section class="reading-guide" id="guide" aria-label="本章导读"><p class="kicker">带着三个问题阅读</p><ol><li><span>01</span>究竟需要保证什么？</li><li><span>02</span>怎样选择验证强度？</li><li><span>03</span>证据没有覆盖什么？</li></ol><p class="guide-boundary">下面保留章节原文。导图和旁注是新增的阅读辅助。</p></section>
+    <div class="reading-spread">
+    <aside class="wide-book" aria-labelledby="wide-book-title"><p class="kicker" id="wide-book-title">全书路径</p><nav id="wide-book-links" aria-label="宽屏章节导航"></nav><a class="wide-explore" href="./?view=space">迈入未知 <span aria-hidden="true">↗</span></a></aside>
+    <div class="reading-column">
     <div class="reading-position"><span>正文</span><a href="#body" id="current-section">本章定位</a><button id="open-outline">本章小节 <span aria-hidden="true">↗</span></button></div>
     <article id="body" class="article" tabindex="-1" aria-busy="true"><p class="loading">正在打开真实章节…</p></article>
     <footer class="chapter-end"><p class="kicker">继续阅读</p><div><a id="next-chapter" href="#">下一章 <span>↗</span></a><button id="top">回到章首 ↑</button></div><p>未知不会清零，方法可以延续。</p></footer>
+    </div>
+    <aside class="wide-outline" aria-labelledby="wide-outline-title"><p class="kicker" id="wide-outline-title">本章路线</p><nav id="wide-outline-links" aria-label="宽屏小节导航"></nav><div id="wide-note" class="wide-note" hidden></div></aside>
+    </div>
   </main>
   <dialog id="navigation" aria-labelledby="navigation-title"><div class="dialog-heading"><h2 id="navigation-title">阅读目录</h2><button id="close-navigation" aria-label="关闭阅读目录">关闭 ×</button></div><div class="dialog-tabs" role="tablist" aria-label="目录范围"><button role="tab" aria-selected="true" aria-controls="book-panel" id="book-tab">全书章节</button><button role="tab" aria-selected="false" aria-controls="outline-panel" id="outline-tab" tabindex="-1">本章小节</button></div><nav id="book-panel" role="tabpanel" aria-labelledby="book-tab"></nav><nav id="outline-panel" role="tabpanel" aria-labelledby="outline-tab" hidden></nav></dialog>
   <p id="status" class="sr-only" role="status"></p><script type="module" src="./reading.mjs"></script>
