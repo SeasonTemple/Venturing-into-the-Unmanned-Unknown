@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>阅读版式与空间组织 · 第二轮方向</title><link rel="stylesheet" href="./reading-review.css"></head>
+<body>
+<header class="review-heading"><p class="eyebrow">READING & SPATIAL STUDY / 02</p><h1>让阅读有节奏，让探索有纵深。</h1><p>当前圆台是流程原型。下面先比较两种真实章节版式，再看“同一个世界、不同区域”的空间组织。两种样张都使用《验证》完整原文，新增导图与旁注单独呈现。</p><nav><a href="./reading.html?layout=atlas">打开「图解技术书」 ↗</a><a href="./reading.html?layout=journal">打开「探索手记」 ↗</a><a href="?mobile=1">390px 比较 ↗</a><a href="#spatial">空间如何变化 ↓</a></nav></header>
+<main>
+<section class="comparison" aria-label="两种阅读方向比较">
+  <div class="variant-heading"><p class="eyebrow">A / ILLUSTRATED GUIDE</p><h2>图解技术书</h2><p>章首建立问题与概念，正文展开清晰论证。目录按需出现，把主要宽度还给内容。</p></div>
+  <div class="variant-heading"><p class="eyebrow">B / FIELD JOURNAL</p><h2>探索手记</h2><p>深色章首接续空间氛围，纸面正文配合随章节出现的边注，把方法与剩余未知联系起来。</p></div>
+  <figure><div class="viewport"><iframe title="图解技术书章首" data-layout="atlas"></iframe></div><figcaption>章首：大标题、阅读问题、分层导图；正文独立成篇。</figcaption></figure>
+  <figure><div class="viewport"><iframe title="探索手记章首" data-layout="journal"></iframe></div><figcaption>章首：像从暗处带回的一份记录，过渡到可持续阅读的纸面。</figcaption></figure>
+  <figure class="body-sample"><div class="viewport"><iframe title="图解技术书正文与表格" data-layout="atlas" data-section="2"></iframe></div><figcaption>正文：编号在页边建立节奏，表格按内容展开，原文保持连续。</figcaption></figure>
+  <figure class="body-sample"><div class="viewport"><iframe title="探索手记正文与旁注" data-layout="journal" data-section="2"></iframe></div><figcaption>正文：主文 + 局部边注；旁注随相关小节出现，窄屏移入正文之后。</figcaption></figure>
+</section>
+<p class="review-limit">样张里的「目录」「本章小节」「专注阅读」、代码复制与下一章都可以在完整页面中操作。专注阅读会收起章首与辅助说明。当前未替换生产阅读页；样张的导图与边注仅针对验证章设计。</p>
+<section class="spatial" id="spatial" aria-labelledby="spatial-title">
+  <header><p class="eyebrow">SPATIAL PROPOSAL / 仍是空间组织示意</p><h2 id="spatial-title">保留一个世界，走过不同的未知。</h2><p>从首屏看到的前哨出发，穿过有遮挡和高差的区域。每个地方对应一种工程行为；恢复的是局部秩序，环线尽头仍通向没有被表达的条件。</p></header>
+  <div class="spatial-plan"><div class="map-scroll" tabindex="0" role="region" aria-label="可横向浏览的空间路线草图"><svg viewBox="0 0 900 370" role="img" aria-labelledby="map-title"><title id="map-title">多区域连续世界的空间草图。前哨连接意图、架构、实现、验证、交付与演进区域，远处保留未测绘地带。</title><defs><pattern id="contours" width="110" height="100" patternUnits="userSpaceOnUse"><path d="M-15 90Q50 0 125 45M-15 70Q50 -20 125 25M-15 110Q50 20 125 65" fill="none" stroke="currentColor" stroke-opacity=".11"/></pattern></defs><rect width="900" height="370" fill="url(#contours)"/>
+    <path class="frontier" d="M737 20Q645 68 760 123T744 240T810 350"/>
+    <path class="route" d="M84 248L186 252L290 140L417 110L530 185L646 132L744 215L616 306L380 305L186 252"/>
+    <path class="unknown-path" d="M744 215L850 275"/>
+    <g class="area" data-area="0"><path d="M139 219L187 187L235 218L222 272L161 280Z"/><path d="M165 240L184 217L207 242M172 256L202 256"/><text x="163" y="312">意图 / 线索谷</text></g>
+    <g class="area" data-area="1"><path d="M252 109H327V170H252Z"/><path d="M266 154V124H310V154M281 124V154M297 124V154"/><text x="256" y="93">架构 / 连桥</text></g>
+    <g class="area" data-area="2"><path d="M381 80L419 59L455 80V132H381Z"/><path d="M389 120H447M400 89V120M416 86V120M432 89V120"/><text x="381" y="44">实现 / 工坊</text></g>
+    <g class="area" data-area="3"><path d="M485 149H568V212H485Z"/><path d="M499 201V162H551V201M514 162V200M538 162V200"/><text x="477" y="244">验证 / 检查峡口</text></g>
+    <g class="area" data-area="4"><path d="M615 101H677V158H615Z"/><path d="M627 144H664M645 144V110M633 121L645 110L658 121"/><text x="614" y="84">交付 / 信号塔</text></g>
+    <g class="area" data-area="5"><path d="M711 185L758 177L784 221L743 254L706 229Z"/><path d="M728 231L731 196L751 192L765 218"/><text x="699" y="282">演进 / 边缘观测</text></g>
+    <g class="outpost"><path d="M57 219H107V264H57Z"/><path d="M67 247H97M82 247V230"/><text x="36" y="295">前哨 / 首屏</text></g><text class="unknown-label" x="777" y="60">未测绘地带</text><text class="unknown-label" x="784" y="85">条件之外，仍有未知</text>
+  </svg></div><div class="area-choices" aria-label="查看区域设计"><button aria-pressed="true" data-area="0">意图</button><button aria-pressed="false" data-area="1">架构</button><button aria-pressed="false" data-area="2">实现</button><button aria-pressed="false" data-area="3">验证</button><button aria-pressed="false" data-area="4">交付</button><button aria-pressed="false" data-area="5">演进</button></div></div>
+  <div class="area-description" aria-live="polite"><div><p class="eyebrow" id="area-number">REGION 01</p><h3 id="area-title"></h3><p id="area-form"></p></div><div><span>人类主导</span><p id="area-human"></p></div><div><span>AI 原生</span><p id="area-agent"></p></div></div>
+  <p class="review-limit">图为路线与行为草案，不是新增的可游玩场景。普通阅读继续完整开放；全书十章不会被这六个空间区域取代。验证与测试、工具生态等内容可在区域内关联。传统模式保留工具和自动化；AI 模式始终保留人的意图、约束与裁决责任。</p>
+</section>
+<section class="references"><p class="eyebrow">参考与本轮取舍</p><p><a href="https://craftinginterpreters.com/statements-and-state.html" target="_blank" rel="noopener">Crafting Interpreters ↗</a>：取其“技术书可以有图文节奏和局部边注”的组织方法。<a href="https://www.redblobgames.com/pathfinding/a-star/introduction.html" target="_blank" rel="noopener">Red Blob Games ↗</a>：取其“图解围绕具体问题，和相关论述放在一起”的方法。此次读取了页面源码与内容结构，没有逐个操作其中演示。</p></section>
+</main><script type="module" src="./reading-review.mjs"></script></body></html>
