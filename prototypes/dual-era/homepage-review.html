@@ -1,0 +1,20 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>首页基准对照</title>
+<style>body{margin:0;padding:18px;background:#151a21;color:#e6edf3;font:14px system-ui}main{display:flex;gap:20px;align-items:start}figure{margin:0}figcaption{min-height:54px}iframe{display:block;border:1px solid #52616b;height:1080px}p{margin:0 0 12px}</style>
+<p>左：仓库现有首页　右：复用现有首页，次要操作改为“迈入未知”。职责切换在交互空间内。</p>
+<main><figure><figcaption id="reference-status">仓库基准</figcaption><iframe id="reference" title="仓库现有首页" width="1024" src="/reference/?static=1"></iframe></figure><figure><figcaption id="current-status">本次预览</figcaption><iframe id="current" title="复用现有首页的预览" width="1024" src="/?static=1"></iframe></figure></main>
+<script type="module">
+const query=new URLSearchParams(location.search);
+for(const key of ['reference','current']){
+ const frame=document.getElementById(key);
+ if(query.has('mobile')) frame.width='390';
+ const show=()=>{
+  const doc=frame.contentDocument,style=doc.createElement('style');
+  // Both sides use the same static framing for a repeatable visual comparison.
+  style.textContent='*{animation:none!important;transition:none!important}[data-mt-reveal]{opacity:1!important;transform:none!important}';doc.head.append(style);
+  doc.documentElement.dataset.theme=query.get('theme')==='light'?'light':'dark';
+  if(query.get('section')==='chapters')doc.getElementById('chapters').scrollIntoView();
+  requestAnimationFrame(()=>{document.getElementById(key+'-status').textContent=(key==='reference'?'仓库基准':'本次预览')+' / 视口 '+frame.contentWindow.innerWidth+'px / 页面 '+doc.documentElement.scrollWidth+'px';});
+ };
+ frame.addEventListener('load',show,{once:true});
+}
+</script></html>

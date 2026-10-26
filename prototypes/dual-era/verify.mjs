@@ -14,13 +14,15 @@ async function click(type) {
 }
 try {
   await api.ready;
-  check('normal preview has all ten chapter links', document.querySelectorAll('#chapter-links a').length === 10);
-  check('preview does not create a WebGL canvas', !document.querySelector('canvas'));
+  check('exploration document has no replacement book homepage', !document.getElementById('landing') && !document.getElementById('chapter-links'));
+  check('mode controls stay within the interaction section', document.getElementById('experience').contains(document.getElementById('mode-switch')));
+  check('before entry no scene is mounted', !document.querySelector('canvas'));
   for (const mode of ['human', 'agent']) {
     const entering = api.start(mode);
-    check(`${mode}: normal homepage remains available during loading`, !document.getElementById('landing').hidden && document.getElementById('enter').disabled && document.getElementById('experience').classList.contains('preparing'));
+    check(`${mode}: loading has a return path without asking for a role`, !document.getElementById('entry-status').hidden && document.getElementById('experience').classList.contains('preparing') && !!document.querySelector('#entry-status a[href="/"]'));
     await entering; api.reset();
     check(`${mode}: real WebGL context`, api.info().world?.calls > 0);
+    check(`${mode}: both exploration modes are switchable inside`, !document.getElementById('experience').hidden && document.querySelectorAll('#mode-switch input:not(:disabled)').length === 2 && document.querySelector('#mode-switch input:checked').value === mode);
     await click('SURVEY'); await click('BUILD');
     check(`${mode}: no deployment before checks`, !document.querySelector('[data-action="DEPLOY"]'));
     if (mode === 'agent') {
@@ -54,15 +56,15 @@ try {
     await wait(80); const before = api.info().world.frames; await wait(100);
     check(`${mode}: idle scene does not keep rendering`, before === api.info().world.frames && !api.info().world.running);
     report.metrics[mode] = api.info().world;
-    document.getElementById('exit').click();
-    check(`${mode}: exit removes canvas and returns focus`, !document.querySelector('canvas') && document.activeElement.id === 'enter' && !document.getElementById('landing').hidden);
+    api.exit();
+    check(`${mode}: disposal removes canvas and returns focus`, !document.querySelector('canvas') && document.activeElement.id === 'retry-entry' && !document.getElementById('entry-status').hidden);
   }
   for (let i = 0; i < 3; i++) { await api.start(i % 2 ? 'agent' : 'human'); api.exit(); }
   // Three.js may retain its module-level empty shadow sampler in renderer.info.
   // Verify the stable baseline AND actual context loss, rather than claiming zero VRAM.
   check('five enter/exit cycles dispose geometry, lose context and detach canvas', api.info().disposals.length === 5 && api.info().disposals.every(d => d && d.geometries === 0 && d.textures <= 1 && d.contextLost && d.canvasDetached), api.info().disposals);
   // A real narrow iframe avoids Chrome headless minimum-window-width ambiguity.
-  const frame = document.createElement('iframe'); frame.width = '390'; frame.height = '900'; frame.style.border = '0'; frame.title = '无 WebGL 窄屏验证'; frame.src = '/?verify=1&nowebgl=1'; document.body.append(frame);
+  const frame = document.createElement('iframe'); frame.width = '390'; frame.height = '900'; frame.style.border = '0'; frame.title = '无 WebGL 窄屏验证'; frame.src = '/explore/?verify=1&nowebgl=1'; document.body.append(frame);
   await new Promise(resolve => frame.addEventListener('load', resolve, { once: true }));
   const child = frame.contentWindow.__dualEra; await child.ready; await child.start('agent');
   const doc = frame.contentDocument;
@@ -72,11 +74,15 @@ try {
   check('no-WebGL route still loads real chapter and runs task', child.state().candidate && child.info().chapterLoaded && child.info().readerOpen);
   child.exit(); frame.remove();
   const cancelledEntry = api.start('human'); api.exit(); await cancelledEntry;
-  check('leaving during entry does not mount a stale scene', !api.info().active && !document.querySelector('canvas') && !document.getElementById('landing').hidden);
+  check('leaving during entry does not mount a stale scene', !api.info().active && !document.querySelector('canvas') && !document.getElementById('entry-status').hidden);
   check('no unexpected controller errors', api.info().errors.length === 0, api.info().errors);
   report.metrics.lifecycle = api.info().disposals;
   // Leave an inspectable final scene after the test suite.
   await api.start('agent'); document.getElementById('overview').click(); await wait(100); window.scrollTo(0, 0);
+  document.querySelector('#mode-switch input[value="human"]').click(); await api.whenIdle();
+  check('inside mode switch restores human task progress', api.info().mode === 'human' && api.state().accepted && api.state().disturbed);
+  document.querySelector('#mode-switch input[value="agent"]').click(); await api.whenIdle();
+  check('inside mode switch restores agent task progress', api.info().mode === 'agent' && api.state().accepted && api.state().disturbed);
 } catch (error) { report.errors.push(error.stack || String(error)); }
 report.pass = report.errors.length === 0 && report.checks.every(c => c.pass);
 window.__dualEraReport = report;
