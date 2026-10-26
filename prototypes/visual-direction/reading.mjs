@@ -3,6 +3,7 @@ const params = new URLSearchParams(location.search);
 const layout = params.get('layout') === 'atlas' ? 'atlas' : 'journal';
 const slug = /^ch[0-8A]$/.test(params.get('chapter')) ? params.get('chapter') : 'ch3';
 document.body.dataset.layout = layout;
+document.documentElement.dataset.reader = layout;
 document.body.classList.toggle('field-journal', layout === 'journal');
 $('preview-name').textContent = `${layout === 'journal' ? '探索手记' : '图解技术书'} · 阅读样张`;
 const state = { ready: false, errors: [], chapter: slug, layout, sections: 0, focused: false };
@@ -22,7 +23,7 @@ function showTab(name, focus = false) {
 }
 function openNavigation(tab = 'book', trigger = document.activeElement) { trigger?.focus({preventScroll:true}); showTab(tab); $('navigation').showModal(); }
 $('open-navigation').addEventListener('click', event => openNavigation('book', event.currentTarget));
-$('open-outline').addEventListener('click', event => openNavigation('outline', event.currentTarget));
+$('open-outline').addEventListener('click', event => { if (layout === 'journal' && journal) journal.toggleOutline(); else openNavigation('outline', event.currentTarget); });
 $('close-navigation').addEventListener('click', () => $('navigation').close());
 for (const key of ['book', 'outline']) {
   $(`${key}-tab`).addEventListener('click', () => showTab(key));

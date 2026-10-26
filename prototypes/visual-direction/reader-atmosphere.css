@@ -1,0 +1,61 @@
+html[data-reader=journal] {
+  --scroll-thumb: #718579;
+  --scroll-track: #e6e5dc;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+}
+html[data-reader=journal] * { scrollbar-width: thin; scrollbar-color: var(--scroll-thumb) var(--scroll-track); }
+html[data-reader=journal] pre, html[data-reader=journal] .field-plate { --scroll-thumb: #6d8e94; --scroll-track: #14252b; }
+@supports selector(::-webkit-scrollbar) {
+  html[data-reader=journal], html[data-reader=journal] * { scrollbar-width: auto; scrollbar-color: auto; }
+  html[data-reader=journal]::-webkit-scrollbar, html[data-reader=journal] *::-webkit-scrollbar { width: 8px; height: 7px; }
+  html[data-reader=journal]::-webkit-scrollbar-track, html[data-reader=journal] *::-webkit-scrollbar-track { background: var(--scroll-track); }
+  html[data-reader=journal]::-webkit-scrollbar-thumb, html[data-reader=journal] *::-webkit-scrollbar-thumb { background: var(--scroll-thumb); border: 2px solid var(--scroll-track); border-radius: 7px; }
+  html[data-reader=journal]::-webkit-scrollbar-thumb:hover, html[data-reader=journal] *::-webkit-scrollbar-thumb:hover { background: #914526; }
+  html[data-reader=journal]::-webkit-scrollbar-button, html[data-reader=journal] *::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+}
+body.field-journal { isolation: isolate; }
+.ink-atmosphere { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
+body.field-journal .chapter-opening { background: transparent; }
+body.field-journal.focused .ink-atmosphere { visibility: hidden; }
+body.field-journal #motion-toggle { min-width: 33px; }
+body.field-journal #motion-toggle[aria-pressed=false] { color: var(--rd-muted); }
+body.field-journal .reader-chrome nav { gap: 20px; }
+body.field-journal .terrain-view { background: #10212b; border: 1px solid #38545e; }
+body.field-journal .terrain-label { background: #10212b; color: #e5e8dc; }
+body.field-journal .terrain-unknown-label { color: #c0cbc1; border-color: #526e75; }
+body.field-journal .terrain-register { top: 18px; left: 18px; color: #c0cbc1; font-size: 10px; }
+.terrain-view.terrain-ready::after { content: ''; position: absolute; inset: 16px; border-top: 1px solid #38545e; border-bottom: 1px solid #38545e; pointer-events: none; }
+.terrain-view > svg { color: #c0cbc1; }
+.terrain-view > svg .cover-contours { stroke: #60bfc4; }
+.terrain-view > svg .cover-boundary { stroke: #c0cbc1; }
+.terrain-view > svg .cover-route, .terrain-view > svg .cover-unknown { stroke: #f0bc7b; }
+.terrain-view > svg .cover-labels, .terrain-view > svg .cover-register { fill: #c0cbc1; }
+.edge-contents { --edge-width: 320px; --edge-tab: 30px; position: fixed; z-index: 30; right: 0; top: 50%; transform: translateY(-50%); display: flex; align-items: center; max-width: calc(100vw - 12px); color: var(--rd-ink); }
+.edge-contents #open-outline { order: 2; width: var(--edge-tab); min-width: var(--edge-tab); height: 168px; padding: 14px 4px; background: var(--rd-panel); border: 1px solid var(--rd-line); border-right: 0; font-size: 11px; line-height: 1.5; display: flex; align-items: center; flex-direction: column; justify-content: space-between; }
+.edge-caption { writing-mode: vertical-rl; letter-spacing: .16em; }
+.edge-count { font: 9px/1.6 var(--rd-mono); color: var(--rd-copper); white-space: nowrap; }
+.edge-panel { width: min(var(--edge-width), calc(100vw - var(--edge-tab) - 16px)); max-height: min(650px, max(140px, calc(100dvh - 240px))); background: var(--rd-paper); border: 1px solid var(--rd-line); padding: 20px 22px; overflow: auto; }
+.edge-panel header { display: flex; justify-content: space-between; align-items: center; gap: 15px; border-bottom: 1px solid var(--rd-line); padding-bottom: 12px; margin-bottom: 10px; }
+.edge-panel header > span { font: 11px var(--rd-mono); color: var(--rd-muted); }
+.edge-panel header button { font-size: 18px; min-width: 32px; min-height: 32px; }
+.edge-panel nav a { display: grid; grid-template-columns: 23px minmax(0,1fr); gap: 12px; min-height: 44px; padding: 10px 0; border-bottom: 1px solid var(--rd-line); font-size: 12px; line-height: 1.85; text-decoration: none; }
+.edge-panel nav a > span { font: 10px/2.1 var(--rd-mono); color: var(--rd-muted); }
+.edge-panel nav a[aria-current] { color: var(--rd-copper); }
+.edge-panel nav a[aria-current] > span { color: var(--rd-copper); }
+.edge-panel > p { font-size: 10px; line-height: 1.8; color: var(--rd-muted); margin-top: 17px; }
+.edge-contents:has(#open-outline[aria-expanded=true]) #open-outline { color: var(--rd-copper); border-left: 0; }
+body:has(dialog[open]) .edge-contents { visibility: hidden; }
+@media (min-width: 700px) { .field-journal { --jn-page-pad: clamp(46px, 4vw, 100px); } }
+@media (max-width: 700px) {
+  body.field-journal .reader-chrome nav { gap: 13px; }
+  .edge-contents { --edge-tab: 24px; --edge-width: 295px; }
+  .edge-contents #open-outline { height: 146px; font-size: 10px; padding-inline: 2px; }
+  .edge-count { font-size: 8px; }
+  .edge-panel { padding: 16px 18px; }
+  body.field-journal .terrain-register { font-size: 8px; top: 13px; left: 12px; }
+}
+@media (forced-colors: active) {
+  .ink-atmosphere { display: none; }
+  .edge-panel, .edge-contents #open-outline { background: Canvas; color: CanvasText; border-color: CanvasText; }
+}
