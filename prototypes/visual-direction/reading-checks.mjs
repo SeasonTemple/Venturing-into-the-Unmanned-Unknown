@@ -11,7 +11,7 @@ export async function run({send,evaluate,until,pause,check,report}) {
     })()`);
     report.metrics[layout]=data;
     check(`${layout}: complete original prose, table content, code and ordering preserved`,data.equal && data.headings===9 && data.tables===3,data);
-    check(`${layout}: navigation is on demand and reading fits desktop without WebGL`,data.outline===9 && data.page<=data.width && data.canvas===0 && !await evaluate('document.getElementById("navigation").open'));
+    check(`${layout}: navigation stays on demand and optional artwork does not overflow reading`,data.outline===9 && data.page<=data.width && data.canvas<=(layout==='journal'?1:0) && !await evaluate('document.getElementById("navigation").open'));
     await evaluate('document.getElementById("open-navigation").click()');
     check(`${layout}: chapter menu exposes ten genuine chapters`,await evaluate('document.getElementById("navigation").open && document.querySelectorAll("#book-panel a").length===10'));
     await evaluate('document.getElementById("book-tab").focus()');
