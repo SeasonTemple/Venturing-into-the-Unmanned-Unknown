@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>迈向无人区 · 双时代探索原型</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="importmap">{"imports":{"three":"/deps/three/build/three.module.js","three/addons/":"/deps/three/examples/jsm/"}}</script>
+</head>
+<body>
+  <header class="site-header"><a href="/" class="brand">迈向无人区</a><span class="eyebrow">体验灰盒 · 造型与材质待验证</span><a href="https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown" target="_blank" rel="noopener">GitHub ↗</a></header>
+  <main>
+    <section id="landing" aria-labelledby="book-title">
+      <div class="landing-grid">
+        <div class="landing-copy"><p class="eyebrow" id="book-meta">AI-NATIVE SOFTWARE ENGINEERING</p><h1 id="book-title">迈向无人区</h1><p class="subtitle">AI 原生软件工程指南</p><p class="lead">以 AI Agent 为一级生产力，<br>人负责意图、约束与裁决。</p><p class="pitch">走进一座失联的测绘前哨。<br>用两种工程组织方式，恢复一小片可继续探索的秩序。</p>
+          <fieldset class="mode-choices"><legend>选择这次探索的职责</legend><label><input type="radio" name="mode" value="human" checked> 人类主导 <small>到现场判断与实施</small></label><label><input type="radio" name="mode" value="agent"> AI 原生 <small>组织 Agent、检查与裁决</small></label></fieldset>
+          <div class="buttons"><button id="enter" class="primary">进入未知 →</button><a class="button" href="#chapters">直接选章阅读</a></div><p id="load-status" class="note" role="status"></p>
+        </div>
+        <figure class="landing-art"><svg viewBox="0 0 600 490" role="img" aria-labelledby="preview-title preview-desc"><title id="preview-title">有限的测绘前哨与尚未测绘的外界</title><desc id="preview-desc">局部平台的线路围绕中继连接，开放边界外仍有模糊的未知。进入后将加载可互动的三维场景。</desc><g fill="none" stroke="currentColor" stroke-width="1"><path d="M40 165 L330 40 L570 170 M20 130 L330 0 L600 140" stroke-dasharray="3 10"/><path d="M50 300 L300 165 L555 300 L300 440 Z"/><path d="M50 300 L50 325 L300 467 L555 325 L555 300 M300 440 L300 467"/><path d="M140 300 L295 230 L460 305 M140 300 L290 380 L460 305" stroke-dasharray="5 6"/><path d="M272 216 L300 202 L328 216 L328 257 L300 273 L272 257 Z M300 232 L328 216 M272 216 L300 232 L300 273"/></g><path d="M140 300 L295 230" fill="none" stroke="var(--mt-accent)" stroke-width="2"/><circle cx="140" cy="300" r="7" fill="var(--mt-accent)"/><circle cx="460" cy="305" r="7" fill="var(--mt-fg)"/></svg><figcaption>已知边界 / 未完成的测绘</figcaption></figure>
+      </div>
+      <section id="chapters" class="chapter-section" aria-labelledby="chapter-title"><p class="eyebrow">READ WITHOUT ENTERING</p><h2 id="chapter-title">全书章节</h2><div id="chapter-links" class="chapter-links"></div><p class="note">章节阅读始终开放。空间中的发现与任务检查，不代表现实工程已经通过验证。</p></section>
+    </section>
+    <section id="experience" hidden aria-label="测绘前哨探索">
+      <div class="experience-header"><div><p class="eyebrow" id="mode-label"></p><h1>恢复测绘中继网络</h1></div><div class="buttons"><button id="other-mode">体验另一种职责</button><button id="exit">返回首页</button></div></div>
+      <div class="scene-layout">
+        <div class="world-column">
+          <div id="world" class="world-viewport" aria-label="三维测绘前哨"><div id="canvas-host"></div><div id="scene-labels" class="scene-labels"><button class="scene-tag" data-node="source">源端</button><button class="scene-tag" data-node="relay">中继</button><button class="scene-tag" data-node="verify">检查装置</button><button class="scene-tag" data-node="receiver">接收端</button><button class="scene-tag" data-node="console">意图台</button></div><p id="world-status" class="world-status" role="status">正在准备空间…</p><span class="unknown-label">边界之外，仍有未知</span><div class="view-controls"><button id="overview">空间总览</button><button id="follow">跟随工作现场</button></div></div>
+          <div class="world-legend"><span>实线：已接入</span><span>断线：候选／待证据</span><span>×：检查发现问题</span></div>
+          <div class="method-strip"><div><span class="eyebrow">发现的方法 / CH 03</span><strong id="method-title">验证</strong><span class="note">怎样把“看起来可用”变成有范围的证据？</span></div><button id="read-chapter">展开章节与检查方法 →</button></div>
+        </div>
+        <aside class="task-panel" aria-labelledby="task-heading">
+          <p class="eyebrow" id="phase-label">任务</p><h2 id="task-heading">当前职责</h2><p id="responsibility"></p><p class="task-message" id="task-message" role="status" aria-live="polite"></p>
+          <fieldset id="harness-controls" hidden><legend>委派时使用的检查门禁</legend><div id="check-options"></div><small>未配置的条件不会自动获得证据。</small></fieldset>
+          <div id="actions" class="task-actions"></div>
+          <section aria-labelledby="evidence-title"><div class="evidence-head"><h3 id="evidence-title">当前验收证据</h3><span id="revision" class="eyebrow"></span></div><ul id="evidence" class="evidence-list"></ul></section>
+          <details><summary>查看可追踪记录</summary><ol id="history" class="history"></ol></details><button id="reset" class="quiet">重置当前职责的任务</button>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <dialog id="reader" aria-labelledby="reader-title"><div class="reader-header"><div><p class="eyebrow">工作站阅读面</p><h2 id="reader-title">第 3 章 · 验证</h2></div><button id="close-reader">关闭阅读，返回原处</button></div><div class="reader-tools"><button id="apply-method" class="primary">将方法加入当前检查清单</button><a id="canonical-chapter" target="_blank" rel="noopener">普通阅读页 ↗</a></div><p class="note">应用方法不会直接判定任务通过，仍须运行检查取得证据。</p><article id="chapter-content" class="chapter-content" aria-busy="false"></article></dialog>
+  <script type="module" src="./app.mjs"></script>
+</body></html>

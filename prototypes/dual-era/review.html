@@ -1,0 +1,30 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>双时代灰盒 · 浏览器对照</title>
+<style>body{margin:0;padding:18px;background:#12191e;color:#e6edf3;font:14px system-ui}main{display:flex;gap:20px;align-items:start}figure{margin:0}figcaption{min-height:58px}iframe{display:block;border:1px solid #52616b;height:1180px;background:#12191e}p{margin:0 0 8px}</style>
+<p>真实 Three.js 灰盒对照 · 相同任务、故障和验收条件 · 画面仅验证职责与操作，不代表最终美术</p>
+<main><figure><figcaption id="wide-status">人类主导：加载中</figcaption><iframe id="wide" title="人类主导模式" width="1024" src="/?verify=1&still=1"></iframe></figure><figure><figcaption id="other-status">AI 原生：加载中</figcaption><iframe id="other" title="AI 原生模式" width="1024" src="/?verify=1&still=1"></iframe></figure></main>
+<script type="module">
+const query = new URLSearchParams(location.search);
+if(query.has('mobile')) document.getElementById('other').width='390';
+const targets = [['wide','human'],['other','agent']];
+if(query.has('triptych')) {
+ const figure=document.createElement('figure'); figure.innerHTML='<figcaption id="reading-status">章节阅读：加载中</figcaption><iframe id="reading" title="真实验证章节" width="800" src="/?verify=1&still=1"></iframe>'; document.querySelector('main').append(figure); targets.push(['reading','human']);
+}
+for (const [key, mode] of targets) {
+ const frame=document.getElementById(key);
+ const run=async()=>{
+  const win=frame.contentWindow;
+  while(!win.__dualEra) await new Promise(r=>setTimeout(r,20));
+  const doc=frame.contentDocument,api=win.__dualEra; await api.ready; await api.start(mode);
+  if(query.has('landing') && key==='wide') { api.exit(); document.getElementById(key+'-status').textContent='正常预览页 / 视口 '+win.innerWidth+'px / 页面 '+doc.documentElement.scrollWidth+'px'; return; }
+  for(const type of ['SURVEY','BUILD',...(mode==='agent'?['CONFIGURE']:[]),'CHECK']){
+   doc.querySelector(`[data-action="${type}"]`).click(); await api.whenIdle();
+  }
+  doc.getElementById('overview').click();
+  if((query.has('reader') && key==='wide') || key==='reading') await api.openReader();
+  win.scrollTo(0,0);
+  document.getElementById(key+'-status').textContent=(mode==='human'?'人类主导：现场实施与工具检查':'AI 原生：委派生产与门禁证据')+' / 视口 '+win.innerWidth+'px / 页面 '+doc.documentElement.scrollWidth+'px / '+(api.info().world?'WebGL 正常':'降级');
+ };
+ frame.addEventListener('load',run,{once:true});
+ if(frame.contentWindow.__dualEra) { frame.removeEventListener('load',run); run(); }
+}
+</script></html>
