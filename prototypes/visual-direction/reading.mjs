@@ -37,7 +37,10 @@ $('focus').addEventListener('click', () => {
   if (inBody) anchor.scrollIntoView({ behavior: 'instant', block: 'start' }); else window.scrollTo({ top: 0, behavior: 'instant' });
   updatePosition();
 });
-$('top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduced() ? 'instant' : 'smooth' }));
+$('top').addEventListener('click', () => {
+  if (layout === 'journal') $('edge-top')?.click();
+  else window.scrollTo({ top: 0, behavior: reduced() ? 'instant' : 'smooth' });
+});
 let queued = false, sections = [], activeSection = null;
 let journal;
 function updatePosition() {

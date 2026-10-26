@@ -203,27 +203,33 @@ body.field-journal.focused .article-section { display: block; }
   .open-question h2 { font-size: 25px; }
 }
 
-/* The survey is the chapter opening, rather than an illustration card beside it. */
+/* One continuous landscape, with a small masthead above the visible survey. */
 body.field-journal .chapter-opening.survey-opening {
   --survey-dark: #10212b;
   --survey-text: #e5e8dc;
   --survey-muted: #c0cbc1;
   position: relative; isolation: isolate; overflow: hidden;
-  min-height: 590px; padding: 64px var(--jn-page-pad) 60px;
+  height: clamp(590px, calc(100svh - 102px), 840px);
+  min-height: 590px; padding: 32px var(--jn-page-pad) 60px;
   background: var(--survey-dark); color: var(--survey-text);
 }
 body.field-journal .survey-opening .opening-inner { display: block; }
 .survey-opening .terrain-view::before {
   content: ''; position: absolute; z-index: 1; inset: 0; pointer-events: none;
-  background: linear-gradient(90deg, #10212b 0%, #10212bf2 25%, #10212b00 62%);
+  background: linear-gradient(180deg, #10212bba 0%, #10212b30 25%, transparent 43%, transparent 82%, #10212b99 100%);
 }
-.survey-opening .opening-copy { position: relative; z-index: 2; width: min(44%, 660px); pointer-events: none; }
+.survey-opening .opening-copy {
+  position: relative; z-index: 2; width: 100%; pointer-events: none;
+  display: grid; grid-template-columns: 1fr 1fr; column-gap: 32px;
+}
+.survey-opening .opening-copy .kicker { grid-column: 1 / -1; }
 .survey-opening .opening-copy a { pointer-events: auto; }
-body.field-journal .survey-opening h1 { font-size: clamp(88px, 7.5vw, 142px); margin: 18px 0 24px; }
+body.field-journal .survey-opening h1 { grid-column: 1; grid-row: 2 / 4; font-size: clamp(64px, 5vw, 94px); margin: 12px 0 0; }
 body.field-journal .survey-opening .kicker,
 body.field-journal .survey-opening .chapter-description { color: var(--survey-muted); }
-body.field-journal .survey-opening .chapter-thesis { font-size: clamp(24px, 2vw, 32px); }
-body.field-journal .survey-opening .begin { color: #f0bc7b; margin-top: 26px; }
+body.field-journal .survey-opening .chapter-thesis { grid-column: 2; grid-row: 2; font-size: clamp(20px, 1.6vw, 26px); margin-top: 12px; }
+body.field-journal .survey-opening .chapter-description { grid-column: 2; grid-row: 3; margin-top: 8px; }
+body.field-journal .survey-opening .begin { position: absolute; top: calc(clamp(590px, calc(100svh - 102px), 840px) - 112px); left: 0; color: #f0bc7b; margin: 0; }
 body.field-journal .survey-opening .chapter-art { position: absolute; inset: 0; max-width: none; width: 100%; height: 100%; margin: 0; }
 body.field-journal .survey-opening .terrain-view { height: 100%; aspect-ratio: auto; border: 0; }
 .survey-opening .terrain-view.terrain-ready::after { display: none; }
@@ -245,20 +251,54 @@ body.field-journal .field-note strong { font-size: 19px; }
   body.field-journal .field-note p { max-width: 60ch; }
 }
 @media (max-width: 980px) {
-  body.field-journal .chapter-opening.survey-opening { min-height: 610px; padding-top: 32px; }
-  .survey-opening .opening-copy { width: 100%; }
-  body.field-journal .survey-opening h1 { font-size: 80px; margin: 14px 0 18px; }
-  body.field-journal .survey-opening .chapter-thesis { font-size: 24px; }
-  body.field-journal .survey-opening .chapter-description { font-size: 14px; }
-  body.field-journal .survey-opening .chapter-art { top: auto; height: 290px; }
-  .survey-opening .terrain-view::before { display: none; }
-  body.field-journal .survey-opening .begin { margin-top: 16px; }
-  body.field-journal .survey-opening .chapter-art figcaption { font-size: 11px; bottom: 12px; }
+  body.field-journal .chapter-opening.survey-opening { padding-top: 26px; }
+  body.field-journal .survey-opening h1 { font-size: 64px; }
+  body.field-journal .survey-opening .chapter-thesis { font-size: 21px; }
+  body.field-journal .survey-opening .chapter-description { font-size: 12px; }
+  body.field-journal .survey-opening .chapter-art figcaption { font-size: 11px; bottom: 24px; }
 }
 @media (max-width: 480px) {
-  body.field-journal .chapter-opening.survey-opening { min-height: 660px; }
-  body.field-journal .survey-opening .chapter-art { height: 310px; }
-  body.field-journal .survey-opening .chapter-art figcaption { font-size: 10px; }
+  .survey-opening .opening-copy { grid-template-columns: 128px minmax(0, 1fr); column-gap: 16px; }
+  body.field-journal .survey-opening h1 { font-size: 52px; margin-top: 16px; }
+  body.field-journal .survey-opening .chapter-thesis { font-size: 17px; margin-top: 16px; }
+  body.field-journal .survey-opening .chapter-description { grid-column: 1 / -1; grid-row: 4; margin-top: 16px; font-size: 12px; }
+  body.field-journal .survey-opening .chapter-art figcaption { font-size: 10px; bottom: 22px; }
   body.field-journal .survey-opening .terrain-label,
   body.field-journal .survey-opening .terrain-unknown-label { font-size: 12px; }
+}
+
+/* Shared landscape mastheads accommodate the real lengths of all chapter titles. */
+body.field-journal .survey-opening.long-title h1 { font-size: clamp(36px, 3.4vw, 64px); max-width: none; line-height: 1.32; }
+.survey-opening .chapter-description { max-width: 52ch; }
+.layer-detail { grid-template-columns: 1.25fr 1fr; gap: 30px; min-height: 380px; }
+.layer-drawing svg { max-width: 650px; }
+.layer-drawing .slice-plane { fill: #14252b; stroke: #577278; stroke-width: 1; }
+.layer-drawing .slice-grid { fill: none; stroke: #577278; stroke-width: .65; opacity: .55; }
+.layer-drawing .evidence-slice text { fill: #c0cbc1; font-size: 20px; }
+.layer-drawing .active-plane { fill: #243a3d; stroke: #eeb480; stroke-width: 1.6; }
+.layer-drawing .active-grid { fill: none; stroke: #8f9c8c; stroke-width: .7; }
+.layer-drawing .coverage-patch { fill: url(#slice-light); stroke: none; }
+.layer-drawing #layer-beam { fill: url(#slice-beam); stroke: none; }
+.layer-drawing .coverage-edge { fill: none; stroke: #f5cc86; stroke-dasharray: 5 4; stroke-width: 1.5; }
+.layer-drawing .layer-lamp { fill: #f5cc86; }
+.layer-drawing .layer-lamp-halo { fill: #f5cc86; opacity: .17; }
+.layer-drawing .slice-register { fill: #c0cbc1; font-size: 12px; }
+.layer-drawing #layer-code { font-size: 22px; }
+.layer-drawing > svg > text { font-size: 18px; }
+body.field-journal .section-content .layer-diagram-key { font-size: 13px; color: #c0cbc1; padding-left: 18px; margin-top: -20px; }
+.layer-artifact { border-top: 1px solid #577278; padding-top: 18px; margin: 24px 0 14px; }
+.layer-artifact dt { color: #c0cbc1; font: 11px/1.8 var(--rd-mono); }
+.layer-artifact dd { margin: 8px 0 0; color: #e5e8dc; font-size: 15px; line-height: 1.9; }
+body.field-journal .section-content .layer-reading-key { font-size: 12px; color: #c0cbc1; }
+@media (max-width: 760px) {
+  .layer-detail { grid-template-columns: 1fr; gap: 12px; }
+  .layer-drawing { width: 100%; max-width: 560px; }
+  body.field-journal .survey-opening.long-title h1 { font-size: 36px; max-width: 7ch; }
+}
+@media (max-width: 480px) {
+  .survey-opening.long-title .opening-copy { grid-template-columns: minmax(0, 1fr); }
+  body.field-journal .survey-opening.long-title h1 { grid-column: 1; grid-row: 2; font-size: 32px; max-width: none; margin: 12px 0 0; }
+  body.field-journal .survey-opening.long-title .chapter-thesis { grid-column: 1; grid-row: 3; font-size: 16px; margin-top: 10px; }
+  body.field-journal .survey-opening.long-title .chapter-description { display: none; }
+  .survey-opening.long-title .opening-copy .kicker { font-size: 9px; letter-spacing: .06em; }
 }

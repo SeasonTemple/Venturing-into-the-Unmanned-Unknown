@@ -27,7 +27,7 @@ export async function run({send,evaluate,until,pause,check,report}) {
   const inkTime=await evaluate('window.__readingStudy.effects.time');await pause(180);
   check('reduced motion also leaves ink diffusion still',await evaluate(`window.__readingStudy.effects.time===${inkTime}`));
   await send('Emulation.setEmulatedMedia',{features:[]});await pause(100);
-  await evaluate('document.getElementById("body").scrollIntoView({behavior:"instant"})');await pause(120);
+  await evaluate('document.querySelectorAll("#body h2")[1].scrollIntoView({behavior:"instant"})');await pause(120);
   const off=await evaluate('window.__readingStudy.artwork.controller.stats.frames');await pause(180);
   check('offscreen artwork stops rendering',await evaluate(`!window.__readingStudy.artwork.controller.stats.visible && window.__readingStudy.artwork.controller.stats.frames===${off}`));
   await evaluate('window.scrollTo({top:0,behavior:"instant"})');await pause(120);
@@ -40,6 +40,7 @@ export async function run({send,evaluate,until,pause,check,report}) {
   await navigate('ch3');await until('window.__readingStudy.artwork?.status === "fallback"');
   check('unavailable WebGL preserves the SVG and all original sections',await evaluate('document.querySelectorAll("#chapter-art canvas").length===0 && document.querySelector("#chapter-art > svg")!==null && document.querySelectorAll("#body h2").length===9 && window.__readingStudy.errors.length===0'));
   await send('Page.removeScriptToEvaluateOnNewDocument',{identifier:fallbackScript.identifier});
+  await (await import('./survey-chapters-checks.mjs')).run({send,evaluate,until,pause,check,report});
   await (await import('./installation-checks.mjs')).run({send,evaluate,until,pause,check,report});
   check('no application runtime errors',report.consoleErrors.length===0,report.consoleErrors);
 }

@@ -1,4 +1,6 @@
 import { createReaderAtmosphere } from './reader-atmosphere.mjs';
+import { chapterSurveys } from './chapter-surveys.mjs';
+import { createLayerPlate as plate } from './layer-plate.mjs';
 // Reading aids are separate from the unmodified book content. No visits imply mastery.
 const editorial = [
   ['出发前', '先写下，你想保证什么。', '“正确”太宽泛。带着一个具体风险阅读：并发互斥、内存安全，还是需求被误解？'],
@@ -11,20 +13,6 @@ const editorial = [
   ['交给 Agent 前', '先给出性质，再交出工具。', '人的判断被写进属性、工具边界和门禁；Agent 的输出仍需要可核对的证据。'],
   ['未封口的页边', '带回方法，留下问题。', '即使所有已定义检查都通过，还有哪些真实条件没有进入规格与模型？'],
 ];
-const layers = [
-  ['L0', '意图与表达', '需求是否被清晰表达？', '受控写作 / 正反例 / 不变量', '表达清楚，不代表设计已经正确。'],
-  ['L1', '设计正确性', '协议与状态转换是否满足性质？', '模型检查 / 状态空间探索', '模型中的保证，仍依赖建模假设。'],
-  ['L2', '实现安全与局部正确性', '实现的关键路径是否安全？', '契约 / 有界检查 / 语言级工具', '局部性质，不能代替完整行为验证。'],
-  ['L3', '行为符合性', '选定场景中的行为是否符合预期？', '测试 / 场景与属性用例', '已测场景之外，仍可能有遗漏。'],
-  ['L4', '持续保证', '这次变更是否破坏已有保证？', 'CI / 自动化回归', '持续执行，不能补上未定义的检查。'],
-  ['L5', '可理解性与审计', '结果能否被解释与追溯？', '反例解释 / 文档 / 差异对比', '可追溯的证据，也有适用条件。'],
-];
-function plate() {
-  const figure = document.createElement('figure'); figure.className = 'field-plate journal-extra';
-  figure.innerHTML = `<figcaption><span>图版 01 / 保证的切面</span><span>阅读辅助 · 据本章分层模型</span></figcaption><div class="layer-select" role="group" aria-label="选择验证层级">${layers.map((l, i) => `<button aria-pressed="${i === 0}" data-layer="${i}">${l[0]}<span>${l[1]}</span></button>`).join('')}</div><div class="layer-detail"><div class="layer-drawing" aria-hidden="true"><svg viewBox="0 0 360 210"><path class="contour" d="M10 122L85 27L245 13L347 97L277 196L103 185ZM44 118L106 54L230 40L313 102L257 166L119 155ZM83 116L125 82L213 70L275 107L235 138L137 133Z"/><path class="unfinished" d="M245 13L322 6M347 97L360 96M277 196L318 207"/><path class="layer-slice" d="M54 113L108 67L232 56L301 106L252 155L122 148Z"/><text x="123" y="113" id="layer-code">L0 / 表达</text></svg></div><div class="layer-caption"><p class="kicker" id="layer-name"></p><h3 id="layer-question"></h3><p id="layer-method"></p></div></div><p class="layer-limit"><span>光照之外</span><span id="layer-limit"></span></p><p class="sr-only" id="layer-announcement" role="status"></p>`;
-  function select(i, announce = false) { const layer = layers[i]; figure.querySelectorAll('[data-layer]').forEach(b => b.setAttribute('aria-pressed', String(Number(b.dataset.layer) === i))); for (const [id, value] of [['layer-code', layer[0]], ['layer-name', layer[0] + ' / ' + layer[1]], ['layer-question', layer[2]], ['layer-method', layer[3]], ['layer-limit', layer[4]]]) figure.querySelector('#' + id).textContent = value; figure.style.setProperty('--slice-offset', `${i * 8 - 20}px`); if (announce) figure.querySelector('#layer-announcement').textContent = layer[2] + layer[4]; }
-  figure.querySelectorAll('[data-layer]').forEach(b => b.addEventListener('click', () => select(Number(b.dataset.layer), true))); select(0); return figure;
-}
 function casePlate() {
   const figure = document.createElement('figure'); figure.className = 'case-plate journal-extra';
   figure.innerHTML = `<figcaption><span>图版 02 / 一把写锁的证据线</span><span>阅读辅助 · 原文实例索引</span></figcaption><ol>${[['L0', '互斥与超时', '表达性质'], ['L1', '协议模型', '检查设计'], ['L2', '关键路径', '约束实现'], ['L3', '并发与差异', '观察行为'], ['CI', '回归', '持续检查']].map(l => `<li><span>${l[0]}</span><strong>${l[1]}</strong><small>${l[2]}</small></li>`).join('')}</ol><p>每条证据都应能回到最初要保证的性质。</p>`;
@@ -33,6 +21,7 @@ function casePlate() {
 export function mountJournal({sections, slug, chapter, reduced, openNavigation}) {
   const $ = id => document.getElementById(id);
   document.body.classList.add('field-journal');
+  $('top').textContent = '回到正文开头 ↑';
   document.querySelector('.wide-outline').hidden = true;
   $('guide').hidden = true;
   const left = document.querySelector('.wide-book'); left.className = 'field-route';
@@ -65,15 +54,24 @@ export function mountJournal({sections, slug, chapter, reduced, openNavigation})
     if (i === 6) section.querySelector('.section-content').after(casePlate());
     if (i === 4) section.classList.add('procedure-entry');
   }
-  if (isVerification) {
+  {
+    const survey = chapterSurveys[slug];
     $('opening').classList.add('survey-opening');
-    $('thesis').innerHTML = '每一份“通过”的证据，<br>都有它照不到的地方。';
-    $('chapter-label').textContent = 'FIELD NOTES / 03';
-    document.querySelector('.journal-label').textContent = ' / 验证隘口';
-    $('description').textContent = '沿着规格、模型与反例，辨认正确性的边界。';
+    $('opening').classList.toggle('long-title', chapter.title.length > 4);
+    $('thesis').replaceChildren(document.createTextNode(survey.thesis[0]),document.createElement('br'),document.createTextNode(survey.thesis[1]));
+    $('chapter-label').textContent = 'FIELD NOTES / ' + String(chapter.order).padStart(2,'0');
+    document.querySelector('.journal-label').textContent = ' / ' + (isVerification?'验证隘口':chapter.title);
+    $('description').hidden = false;
+    $('description').textContent = isVerification?'沿着规格、模型与反例，辨认正确性的边界。':chapter.blurb;
+    $('chapter-art').hidden = false;
+    $('chapter-art').surveyConfig = survey;
     $('chapter-art').innerHTML = `<svg viewBox="0 0 730 370" role="img" aria-labelledby="field-art-title"><title id="field-art-title">阅读场景示意：一条证据路径穿过有轮廓的已知区域，延伸向没有闭合的未知。</title><g class="cover-contours"><path d="M5 180C80 40 170 45 217 95S329 158 374 103S504 32 563 110S665 170 726 90M4 210C90 67 161 77 210 123S332 190 395 132S504 69 551 136S668 204 729 120M0 242C80 108 160 101 202 154S338 225 410 159S503 104 548 170S666 238 730 151M0 277C89 147 160 137 199 187S347 260 425 192S506 143 545 207S662 273 730 183M0 309C83 183 162 171 201 222S357 295 435 230S500 175 542 243S668 310 730 217"/></g><path class="cover-boundary" d="M480 17L471 85L491 143L478 201L502 272L481 348"/><path class="cover-route" d="M71 268L153 196L233 224L333 158L424 193L480 151"/><path class="cover-unknown" d="M480 151L561 190L625 126L699 148"/><g class="cover-stations"><circle cx="71" cy="268" r="6"/><circle cx="233" cy="224" r="6"/><circle cx="424" cy="193" r="6"/></g><g class="cover-labels"><text x="55" y="305">意图</text><text x="214" y="261">模型</text><text x="405" y="230">证据</text><text x="532" y="58">尚未表达的条件</text><text x="536" y="292">?</text><text x="612" y="248">?</text></g><text class="cover-register" x="22" y="24">FIG. 03 / A PARTIAL SURVEY</text><path class="cover-cross" d="M16 348H42M29 335V361M685 18H711M698 5V31"/></svg><figcaption>测绘示意 · 不是实际验证结果</figcaption>`;
   }
-  if (isVerification) {
+  {
+    const labels = $('chapter-art').querySelectorAll('.cover-labels text');
+    labels.forEach((label,i)=>{if(i<3)label.textContent=chapterSurveys[slug].nodes[i];else if(i===3)label.textContent=chapterSurveys[slug].unknown;});
+    $('chapter-art').querySelector('.cover-register').textContent='FIG. '+String(chapter.order).padStart(2,'0')+' / A PARTIAL SURVEY';
+    $('chapter-art').querySelector('figcaption').textContent = isVerification?'局部测绘 / 沿证据路径辨认边界':'局部测绘 / '+chapter.title;
     const artwork = { status: 'loading', errors: [] }; window.__readingStudy.artwork = artwork;
     // The book opens independently; failed WebGL keeps the original SVG illustration.
     import('./journal-terrain.mjs').then(module => {
