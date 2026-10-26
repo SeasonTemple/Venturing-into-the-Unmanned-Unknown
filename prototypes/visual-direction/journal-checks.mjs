@@ -32,7 +32,8 @@ export async function run({ send, evaluate, until, pause, check, report }) {
   await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',code:'Escape',windowsVirtualKeyCode:27});
   check('Escape closes the modal and restores its trigger', await evaluate('!document.getElementById("navigation").open && document.activeElement.id==="open-navigation"'));
   await evaluate('document.getElementById("next-chapter").click()'); await until('window.__readingStudy?.ready && window.__readingStudy.chapter==="ch4"');
-  check('another chapter remains complete and does not inherit verification-specific aids',await equal('ch4') && await evaluate('document.getElementById("chapter-art").hidden && document.querySelectorAll(".field-note,.field-plate,.case-plate").length===0 && window.__readingStudy.errors.length===0'));
+  await until('window.__readingStudy.artwork?.status!=="loading"');
+  check('another chapter has its own survey header without verification-specific body aids',await equal('ch4') && await evaluate('!document.getElementById("chapter-art").hidden && window.__readingStudy.artwork.status==="ready" && [...document.querySelectorAll(".terrain-label")].map(e=>e.textContent).join("/")==="契约/模块/代码" && document.querySelectorAll(".field-note,.field-plate,.case-plate").length===0 && window.__readingStudy.errors.length===0'));
   await send('Emulation.setDeviceMetricsOverride',{width:1600,height:1200,deviceScaleFactor:1,mobile:false});
   await send('Page.navigate',{url:'http://127.0.0.1:4395/reading-wide.html'}); await until('document.getElementById("preview")?.contentWindow.__readingStudy?.ready');
   check('2K board embeds a full journal viewport without scrolling the parent',await evaluate('scrollY===0 && document.getElementById("preview").contentWindow.innerWidth===2560 && document.getElementById("preview").contentWindow.scrollY>300'));

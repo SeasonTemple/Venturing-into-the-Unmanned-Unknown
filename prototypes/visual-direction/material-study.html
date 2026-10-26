@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>光与纸面 · 探索手记材质样片</title>
+  <link rel="stylesheet" href="material-study.css">
+  <script type="importmap">{"imports":{"three":"/deps/three/build/three.module.js","three/addons/":"/deps/three/examples/jsm/"}}</script>
+  <script type="module" src="material-study.mjs"></script>
+</head>
+<body>
+  <header class="study-nav"><a href="reading.html">迈向无人区 <span>／ 探索手记</span></a><nav aria-label="样片导航"><a href="#relief">01 地形受光</a><a href="#membrane">02 纸面之下</a><button id="motion" aria-pressed="true">暂停动态</button></nav></header>
+  <main>
+    <section id="relief" class="relief-section" aria-labelledby="relief-title">
+      <div class="section-heading"><p class="eyebrow">MATERIAL STUDY / 01</p><h1 id="relief-title"><span>光能抵达，</span><span>认知仍有边界。</span></h1><p class="intro">已测绘的山体逐渐散为断线与线索；更远处，仍未形成地形。</p></div>
+      <div class="relief-stage"><canvas id="relief-canvas" aria-label="斜侧光与缓慢移动的测绘光照亮局部山脊，测绘边界外只保留断线、稀疏样本和留白"></canvas><p class="stage-register">FIELD RELIEF <span>局部测绘 / 示意</span></p><div class="landmark" id="landmark"><span>01</span> 观察点<i></i></div><div class="unknown-marker" id="unknown-marker">未测绘<span>线索尚未连接成面</span></div><div class="scale"><span></span>0 —— 1 km <small>概念比例</small></div><p class="stage-caption"><span>实体 / 已测绘</span><span>断线 / 待确认</span><span>留白 / 未知</span></p><p class="fallback" hidden>当前设备无法显示三维材质样片。<a href="reading.html">返回阅读页</a></p></div>
+      <div class="sample-tools dark-tools"><label class="light-control" for="light-angle">侧光方向<input id="light-angle" type="range" min="-150" max="140" value="-48"><output id="light-value">−48°</output></label><button id="grid" aria-pressed="true">测绘网格：开</button><button id="local-light" aria-pressed="true">测绘光：开</button></div>
+      <div class="sample-note"><span>观察 / 01</span><p>测绘光缓慢掠过山脊；背坡的阴影属于已知地形，边界外的留白才是未知。</p><a href="#membrane">向下，进入纸面 ↓</a></div>
+    </section>
+    <section id="membrane" class="membrane-section" aria-labelledby="membrane-title">
+      <canvas id="membrane-canvas" aria-label="半透明描图膜下缓慢移动的等高线与测绘网格"></canvas>
+      <div class="paper-register"><span>MATERIAL STUDY / 02</span><span>同一片地形，另一种观看距离。</span></div>
+      <div class="reading-sample">
+        <aside class="margin-note"><span class="eyebrow">FIELD NOTES</span><h2>纸面之下</h2><p>表面停留。<br>底图缓缓经过。</p><div class="material-key"><span>01 / 描图膜</span><span>02 / 测绘底图</span></div></aside>
+        <article><p class="eyebrow">探索手记 / 阅读材质样片</p><h2 id="membrane-title">我们看见的，<br>只是被照亮的部分。</h2><p class="lead">一次观察，建立一处坐标。<br>坐标之外，仍有尚未抵达的地形。</p><div class="reading-rule"></div><h3>把线索留在纸面上</h3><p>记录并不意味着已经理解全部。沿着问题、模型与证据，我们辨认局部的边界，再把新的观察接到已有的路径上。</p><p>底图在半透明的表面下缓慢移动：贴近纸面的线索更清楚，离开的轮廓逐渐散开。文字停在眼前，让阅读有一个稳定的位置。</p><blockquote>每一份“通过”的证据，<br>都有它照不到的地方。</blockquote></article>
+        <aside class="right-note"><span>观察 / 02</span><p>揭开表层，比较线条透过材料前后的变化。</p><p>拉开间距，观察下层轮廓如何散开。</p><span class="depth-label">SURFACE<br>↕<br>UNDERLAY</span></aside>
+      </div>
+      <div class="sample-tools paper-tools"><button id="surface" aria-pressed="true">描图膜：覆盖</button><label for="layer-gap">层间距离<input id="layer-gap" type="range" min="0" max="1" step="0.01" value="0.58"><output id="gap-value">中</output></label><span class="surface-status" id="surface-status" aria-live="polite">表面稳定 · 底图流动</span></div>
+      <footer class="paper-footer"><p>材质样片 · 供视觉比较，尚未替换阅读页</p><a href="reading.html?section=1">返回完整正文 ↗</a></footer>
+    </section>
+  </main>
+</body>
+</html>
