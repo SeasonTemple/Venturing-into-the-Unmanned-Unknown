@@ -83,7 +83,9 @@ node prototypes/visual-direction/browser-check.mjs --reading
 
 本轮截图统一使用 `scripts/shot.mjs`，TEMP/TMP 在 `.lab/reading-study/temp`。桌面对照见 `.lab/reading-study/desktop-final.png`；后续修正了手机表格最小宽度和滑动提示。截图属于布局证据，不代表新的三维区域或最终美术已经完成。
 
-## 2K 宽屏补充
+## 2K 宽屏补充（历史记录）
+
+后续用户已选定探索手记，且否定两种样张骨架雷同的做法。当前重设计与验证以 [journal-study.md](./journal-study.md) 为准，以下数字和左右导航属于上一轮版本。
 
 用户认可两种样张，但指出两侧在 2K 显示屏上显空。新增 [宽屏模拟预览](http://127.0.0.1:4395/reading-wide.html)，可切换版式、章首 / 正文，以及 2560×1440、2048×1152、1707×960 三种内容视口。后两者模拟 2K 下 125% / 150% 的有效 CSS 尺寸，不含浏览器工具栏。
 

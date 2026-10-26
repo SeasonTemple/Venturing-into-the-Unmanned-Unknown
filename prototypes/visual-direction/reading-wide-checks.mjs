@@ -1,7 +1,9 @@
 export async function run({send,evaluate,until,pause,check,report}) {
+  // The selected journal no longer has the old two-rail structure.
+  await (await import('./journal-checks.mjs')).run({send,evaluate,until,pause,check,report});
   await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
   report.metrics.layouts=[];
-  for (const layout of ['journal','atlas']) {
+  for (const layout of ['atlas']) {
     for (const [width,height] of [[2560,1440],[2048,1152],[1707,960],[1440,970],[390,844]]) {
       await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:width===390});
       await send('Page.navigate',{url:`http://127.0.0.1:4395/reading.html?layout=${layout}&section=2`});
