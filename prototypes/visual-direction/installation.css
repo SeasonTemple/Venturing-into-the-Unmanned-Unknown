@@ -1,0 +1,74 @@
+.installation {
+  --install-space: 36px;
+  --install-gap: 60px;
+  --install-title: 36px;
+  --install-panel: #18262c;
+  --install-signal: #edb17a;
+  color-scheme: light;
+  max-width: 1260px;
+  margin: 70px auto 45px;
+  padding-top: 40px;
+  border-top: 1px solid var(--mt-line);
+}
+.installation-heading { display: flex; justify-content: space-between; align-items: start; gap: var(--install-space); margin-bottom: var(--install-space); }
+.installation h2 { font-size: var(--install-title); line-height: 1.5; font-weight: 500; margin: 13px 0; }
+.installation-heading p:not(.folio) { color: var(--mt-ink-soft); font-size: 14px; }
+.installation-edition { font: 12px/1.8 var(--mt-mono); color: var(--mt-copper); padding-top: 42px; }
+.installation-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--install-gap); }
+.installation-method, .installation-files { min-width: 0; }
+.install-label { font: 12px/1.8 var(--mt-mono); color: var(--mt-copper); margin-bottom: 13px; }
+.install-description { font-size: 13px; color: var(--mt-ink-soft); line-height: 1.9; min-height: 50px; }
+.installation code { font-family: var(--mt-mono); font-size: .92em; }
+.install-terminal { --mt-signal: var(--install-signal); color-scheme: dark; background: var(--install-panel); color: var(--mt-light); margin-top: 20px; }
+.install-terminal-head { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 12px 20px 0; border-bottom: 1px solid var(--mt-light-line); }
+.install-terminal-head > div { display: flex; gap: 24px; }
+.install-terminal-head button { min-height: var(--mt-control); font: 11px/1.8 var(--mt-font); padding: 6px 0 13px; color: var(--mt-light-soft); border-bottom: 1px solid transparent; }
+.install-terminal-head button[aria-pressed=true] { color: var(--mt-signal); border-color: var(--mt-signal); }
+.install-terminal-head button:focus-visible { outline-color: var(--mt-signal); }
+.install-terminal pre { padding: 23px 24px 14px; margin: 0; white-space: pre; overflow-x: auto; font: 12px/2 var(--mt-mono); tab-size: 2; }
+.install-terminal pre code { font-size: inherit; }
+.install-terminal pre:focus-visible { outline: 2px solid var(--mt-signal); outline-offset: 3px; }
+.install-shell { font: 10px/1.8 var(--mt-mono); color: var(--mt-light-soft); padding: 10px 24px 22px; }
+.install-footnote { font-size: 11px; color: var(--mt-ink-soft); margin-top: 19px; line-height: 2; }
+.install-footnote a { color: var(--mt-copper); display: inline-block; margin-top: 4px; }
+.artifact-list { margin-top: 20px; border-top: 1px solid var(--mt-line); }
+.artifact { display: grid; grid-template-columns: 62px minmax(0,1fr) 20px; gap: 20px; align-items: start; padding: 19px 0; border-bottom: 1px solid var(--mt-line); text-decoration: none; }
+.artifact-format { font: 10px/2 var(--mt-mono); color: var(--mt-copper); padding-top: 2px; }
+.artifact strong { font-size: 17px; font-weight: 500; }
+.artifact small { display: block; font-size: 12px; color: var(--mt-ink-soft); line-height: 1.9; margin-top: 4px; }
+.artifact-file { display: block; margin-top: 8px; color: var(--mt-ink-soft); font: 10px/1.8 var(--mt-mono); overflow-wrap: anywhere; }
+.artifact-arrow { color: var(--mt-copper); padding-top: 1px; }
+.artifact:hover strong { color: var(--mt-copper); text-decoration: underline; text-underline-offset: 5px; }
+.agent-access { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--install-space); border-top: 1px solid var(--mt-line); padding-top: 28px; margin-top: 42px; }
+.agent-access h3 { font-size: 19px; font-weight: 500; line-height: 1.8; margin-top: 10px; }
+.agent-access a { display: grid; grid-template-columns: 1fr 20px; align-content: center; gap: 5px; text-decoration: none; min-height: var(--mt-control); border-left: 1px solid var(--mt-line); padding: 12px 0 12px 25px; }
+.agent-access a > span:first-child { font: 14px/1.8 var(--mt-mono); color: var(--mt-copper); }
+.agent-access small { font-size: 11px; color: var(--mt-ink-soft); grid-column: 1; }
+.agent-access a > span:last-child { grid-column: 2; grid-row: 1 / 3; align-self: center; color: var(--mt-copper); }
+.install-feedback { font-size: 11px; min-height: 24px; padding-top: 10px; color: var(--mt-copper); }
+@media (min-width: 1900px) {
+  .installation { --install-space: 42px; --install-gap: 100px; --install-title: 42px; }
+  .install-terminal pre { font-size: 14px; }
+  .artifact strong { font-size: 19px; }
+}
+@media (max-width: 900px) {
+  .installation { --install-gap: 35px; --install-title: 32px; }
+  .installation-layout { grid-template-columns: 1fr; }
+  .install-description { min-height: 0; }
+  .agent-access { grid-template-columns: 1fr 1fr; }
+  .agent-access > div { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .installation { --install-space: 25px; --install-title: 30px; margin-top: 35px; padding-top: 28px; }
+  .installation-heading { display: block; }
+  .installation-edition { display: block; padding-top: 16px; font-size: 11px; }
+  .installation-heading p:not(.folio) { font-size: 13px; }
+  .install-terminal-head { padding-inline: 16px; gap: 14px; }
+  .install-terminal-head > div { gap: 18px; }
+  .install-terminal-head button { font-size: 10px; }
+  .install-terminal pre { padding-inline: 16px; }
+  .install-shell { padding-inline: 16px; font-size: 9px; }
+  .artifact { grid-template-columns: 48px minmax(0,1fr) 15px; gap: 14px; }
+  .agent-access { grid-template-columns: 1fr; gap: 18px; }
+  .agent-access a { border-left: 0; border-top: 1px solid var(--mt-line); padding: 17px 0 0; }
+}

@@ -1,4 +1,5 @@
 import { createWorld, stations } from './world.mjs';
+import { setupInstallation } from './installation.mjs';
 const $ = id => document.getElementById(id), query = new URLSearchParams(location.search);
 const errors = []; let world, book, view = 'home', returnView = 'home', mode = 'agent', currentChapter = 'ch3', currentStation = 2, generation = 0, busy = false, readerTrigger = null;
 window.addEventListener('error', e => errors.push(e.message)); window.addEventListener('unhandledrejection', e => errors.push(String(e.reason)));
@@ -8,7 +9,7 @@ function projected(points) {
 }
 const contentReady = fetch('/content.json').then(async response => { if (!response.ok) throw Error('无法读取书籍内容'); return response.json(); }).then(data => {
   book = data; $('book-tagline').textContent = data.tagline; $('book-version').textContent = data.version;
-  $('install-command').textContent = `git clone ${data.github}.git\ncd ${data.github.split('/').pop()}\ncp -R skills/* .claude/skills/`;
+  setupInstallation(data);
   for (const chapter of data.chapters) {
     const row = button('', () => readChapter(chapter.slug), 'chapter-row'); row.id = 'read-' + chapter.slug;
     const number = document.createElement('span'); number.className = 'number'; number.textContent = chapter.order.padStart(2, '0');

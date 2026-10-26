@@ -1,6 +1,6 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>迈向无人区 · 视觉方向预览</title><link rel="stylesheet" href="./style.css"><script type="importmap">{"imports":{"three":"/deps/three/build/three.module.js","three/addons/":"/deps/three/examples/jsm/"}}</script></head>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>迈向无人区 · 视觉方向预览</title><link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./installation.css"><script type="importmap">{"imports":{"three":"/deps/three/build/three.module.js","three/addons/":"/deps/three/examples/jsm/"}}</script></head>
 <body data-view="home">
-<div class="study-note">视觉方向 01 · 未完成的测绘环 <a href="./direction.html">查看设计说明 ↗</a></div>
+<div class="study-note">空间流程原型 · 场景美术待重设计 <a href="./reading.html">当前探索手记样张 ↗</a></div>
 <main id="display-view">
   <section class="stage" aria-label="未完成的测绘环">
     <div id="scene" aria-hidden="true"></div>
@@ -18,7 +18,22 @@
   <section id="contents" class="book-body" aria-labelledby="contents-title">
     <div class="book-intro"><div><p class="folio">THE FIELD GUIDE / AI-NATIVE ENGINEERING</p><h2 id="contents-title">把探索，变成可继续的工作。</h2><p id="book-tagline"></p></div><div class="book-meta"><span id="book-version"></span><span>BSL 1.1</span><span>10 个章节 · Agent Skills</span><button class="text-link" id="start-reading">从导论开始阅读 ↗</button></div></div>
     <div class="chapter-index" id="chapter-index"></div>
-    <div class="book-bottom"><div><p class="folio">FOR YOUR AGENT</p><p>同一份内容，也可以成为 Agent 的工作方法。</p><a href="/Venturing-into-the-Unmanned-Unknown/llms.txt">章节索引 ↗</a><a href="/Venturing-into-the-Unmanned-Unknown/llms-full.txt">全文文本 ↗</a></div><details><summary>安装与下载</summary><pre><code id="install-command"></code></pre><a href="https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/releases" target="_blank" rel="noopener">查看发布制品 ↗</a></details></div>
+    <section class="installation" id="installation" aria-labelledby="installation-title">
+      <header class="installation-heading"><div><p class="folio">TAKE THE FIELD GUIDE WITH YOU</p><h2 id="installation-title">安装与下载</h2><p>读完之后，把方法带回工作现场。</p></div><span class="installation-edition" id="installation-edition"></span></header>
+      <div class="installation-layout">
+        <div class="installation-method"><p class="install-label">01 / 安装为 Agent Skills</p><p class="install-description">克隆仓库，把技能复制到项目的 <code>.agents/skills/</code>。</p>
+          <div class="install-terminal"><div class="install-terminal-head"><div role="group" aria-label="安装命令适用系统"><button data-install-os="powershell" aria-pressed="true">Windows</button><button data-install-os="bash" aria-pressed="false">macOS / Linux</button></div><button id="copy-install" aria-label="复制安装命令">复制命令 ↗</button></div><pre tabindex="0" aria-label="安装命令，可横向滚动"><code id="install-command">正在读取仓库地址…</code></pre><p class="install-shell" id="install-shell">PowerShell · 在目标项目目录运行</p></div>
+          <p class="install-footnote">也可按工具约定放入 <code>.claude/skills/</code> 或 <code>.cursor/skills/</code>。<a href="https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown#快速安装" target="_blank" rel="noopener">完整使用说明 ↗</a></p>
+        </div>
+        <div class="installation-files"><p class="install-label">02 / 下载文件</p><p class="install-description" id="release-status">文件与版本以 Releases 发布页为准。</p><div class="artifact-list">
+          <a class="artifact" data-artifact="skills" href="https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/releases" target="_blank" rel="noopener"><span class="artifact-format">ZIP</span><span><strong>技能包</strong><small>独立 SKILL.md，解压后按需加载</small><span class="artifact-file">前往 Releases 选择文件</span></span><span class="artifact-arrow" aria-hidden="true">↗</span></a>
+          <a class="artifact" data-artifact="source" href="https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/releases" target="_blank" rel="noopener"><span class="artifact-format">TAR.GZ</span><span><strong>完整源码</strong><small>书籍源文、技能与站点工程</small><span class="artifact-file">前往 Releases 选择文件</span></span><span class="artifact-arrow" aria-hidden="true">↗</span></a>
+          <a class="artifact" data-artifact="book" href="https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/releases" target="_blank" rel="noopener"><span class="artifact-format">MD</span><span><strong>全书单文件</strong><small>BOOK.md，适合离线阅读与提供给 Agent</small><span class="artifact-file">前往 Releases 选择文件</span></span><span class="artifact-arrow" aria-hidden="true">↗</span></a>
+        </div></div>
+      </div>
+      <div class="agent-access"><div><p class="folio">FOR YOUR AGENT</p><h3>直接读取，也是一种开始。</h3></div><a href="/Venturing-into-the-Unmanned-Unknown/llms.txt"><span>llms.txt</span><small>先定位章节 · 索引与摘要</small><span aria-hidden="true">↗</span></a><a href="/Venturing-into-the-Unmanned-Unknown/llms-full.txt"><span>llms-full.txt</span><small>一次载入 · 完整正文</small><span aria-hidden="true">↗</span></a></div>
+      <p id="install-status" class="install-feedback" role="status"></p>
+    </section>
     <footer>迈向无人区 <span>未知不会清零，方法可以延续。</span></footer>
   </section>
 </main>
