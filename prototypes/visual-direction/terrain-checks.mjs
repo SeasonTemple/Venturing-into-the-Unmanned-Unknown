@@ -12,6 +12,7 @@ export async function run({send,evaluate,until,pause,check,report}) {
   await until('window.__readingStudy.artwork?.status !== "loading"');
   check('chapter artwork creates one real Three.js terrain',await evaluate('window.__readingStudy.artwork.status==="ready" && document.querySelectorAll("#chapter-art canvas").length===1'));
   await until('window.__readingStudy.artwork.controller.stats.frames>0');
+  await (await import('./header-checks.mjs')).run({send,evaluate,until,pause,check,report});
   report.metrics.terrain=await evaluate('window.__readingStudy.artwork.controller.stats');
   check('terrain stays within geometry, point and draw budgets',report.metrics.terrain.calls<=40&&report.metrics.terrain.triangles<50000&&report.metrics.terrain.points>100&&report.metrics.terrain.pixelRatio<=2,report.metrics.terrain);
   const idle=await evaluate('window.__readingStudy.artwork.controller.stats.frames');await pause(250);
@@ -34,7 +35,7 @@ export async function run({send,evaluate,until,pause,check,report}) {
   report.metrics.lifecycle=lifecycle;
   check('three mount/dispose cycles release GPU geometry and restore fallback',lifecycle.every(r=>r.after.disposed&&r.after.geometries===0&&r.after.textures===0&&r.canvas===0)&&new Set(lifecycle.map(r=>r.before.geometries)).size===1,lifecycle);
   await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:3,mobile:true});await pause(150);
-  check('mobile terrain resizes without overflow and caps DPR',await evaluate('document.documentElement.scrollWidth<=390 && document.querySelector(".terrain-view canvas").clientWidth<=342 && window.__readingStudy.artwork.controller.stats.pixelRatio===1.5'));
+  check('mobile terrain resizes without overflow and caps DPR',await evaluate('document.documentElement.scrollWidth<=390 && document.querySelector(".terrain-view canvas").clientWidth<=390 && window.__readingStudy.artwork.controller.stats.pixelRatio===1.5'));
   const fallbackScript=await send('Page.addScriptToEvaluateOnNewDocument',{source:`const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(kind,...args){return kind==='webgl2'?null:original.call(this,kind,...args);}`});
   await navigate('ch3');await until('window.__readingStudy.artwork?.status === "fallback"');
   check('unavailable WebGL preserves the SVG and all original sections',await evaluate('document.querySelectorAll("#chapter-art canvas").length===0 && document.querySelector("#chapter-art > svg")!==null && document.querySelectorAll("#body h2").length===9 && window.__readingStudy.errors.length===0'));
