@@ -2,6 +2,8 @@
 
 状态：独立视觉与浏览流程预览；未替换生产首页，未确认最终美术。
 
+**阅读动效与页边目录**：[阅读样张](http://127.0.0.1:4395/reading.html) 加入页边淡墨扩散；深色三维章首以青色网格、暖金路径和蓝紫粒子缓慢起伏。右侧目录签支持悬停、点击固定、键盘与触屏，主滚动条、代码和目录统一样式。“动效开 / 动效停”控制两种动画，系统减少动态效果时保持静止。验证和边界见 [手记记录](./journal-study.md#页边墨迹深色波动与目录签)。
+
 **最新修正**：[《验证》三维章首](http://127.0.0.1:4395/reading.html) 改用原生 Three.js 网格峰谷、稀疏粒子和证据路径；无 WebGL 时保留原 SVG。路线栏取消独立滚动，链接按栏宽换行，较矮窗口随整页滚动。[安装与下载](http://127.0.0.1:4395/#installation) 默认展开，提供 Windows / macOS / Linux 命令、复制、真实 Release 文件与 Agent 文本入口。首页圆台仍为流程原型，尚未重做最终场景，已在页面明确标识。验证执行 `node prototypes/visual-direction/browser-check.mjs --terrain`，最新记录见 [reading study](./journal-study.md#三维章首路线溢出与安装区修正)。
 
 **最新选择：探索手记。** 用户指出前两种样张的正文骨架雷同；已重做《验证》全章，以探索路线代替常驻章节列表，加入对应原文的局部图解批注、可切换的分层验证图版、写锁证据线与开放问题结尾。[直接阅读](http://127.0.0.1:4395/reading.html) / [2K 样张](http://127.0.0.1:4395/reading-wide.html)。图解技术书仅保留为历史参照。最新说明与实测见 [journal-study.md](./journal-study.md)，使用 `node prototypes/visual-direction/browser-check.mjs --journal` 检查。下文第二轮及宽屏补充是历史记录，不代表当前仍有两个待选方向。

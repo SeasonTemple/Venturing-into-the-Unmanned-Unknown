@@ -1,3 +1,4 @@
+import { createReaderAtmosphere } from './reader-atmosphere.mjs';
 // Reading aids are separate from the unmodified book content. No visits imply mastery.
 const sketch = (kind) => {
   const paths = {
@@ -45,6 +46,7 @@ export function mountJournal({sections, slug, chapter, reduced, openNavigation})
   document.querySelector('.wide-outline').hidden = true;
   $('guide').hidden = true;
   const left = document.querySelector('.wide-book'); left.className = 'field-route';
+  const atmosphere = createReaderAtmosphere(sections);
   const isVerification = slug === 'ch3';
   const starts = isVerification ? [0, 3, 5, 7] : [...new Set([0, Math.floor(sections.length / 3), Math.floor(sections.length * 2 / 3)])];
   const labels = isVerification ? [['辨明边界', '定位 / 分层 / 规格歧义'], ['采集证据', '工具选择 / 执行流程'], ['追踪反例', '模型检查 / 写锁实例'], ['带回方法', 'Agent 要点 / 本章要点']] : starts.map((i) => [sections[i]?.querySelector('h2')?.textContent || '正文', '阅读路线']);
@@ -90,5 +92,5 @@ export function mountJournal({sections, slug, chapter, reduced, openNavigation})
   }
   const end = document.createElement('aside'); end.className = 'open-question journal-extra'; end.innerHTML = `<p class="kicker">CONTINUED / 下一次探索</p><h2>这一页结束，未知还没有。</h2><p>把本章的方法带回项目：你现在能拿出哪些证据？还有哪些条件，尚未被写入规格？</p><span aria-hidden="true">··· →</span>`;
   if (isVerification) $('body').after(end);
-  return { update(index) { const phase = Math.max(0, starts.findLastIndex(start => index >= start)); left.querySelectorAll('[data-route]').forEach(a => { if (Number(a.dataset.route) === phase) a.setAttribute('aria-current','location'); else a.removeAttribute('aria-current'); }); left.querySelectorAll('[data-station]').forEach(e => e.classList.toggle('current', Number(e.dataset.station) === phase)); } };
+  return { toggleOutline: atmosphere.toggleOutline, update(index) { atmosphere.update(index); const phase = Math.max(0, starts.findLastIndex(start => index >= start)); left.querySelectorAll('[data-route]').forEach(a => { if (Number(a.dataset.route) === phase) a.setAttribute('aria-current','location'); else a.removeAttribute('aria-current'); }); left.querySelectorAll('[data-station]').forEach(e => e.classList.toggle('current', Number(e.dataset.station) === phase)); } };
 }

@@ -11,7 +11,7 @@ export async function run({send,evaluate,until,pause,check,report}) {
     })()`);
     report.metrics[layout]=data;
     check(`${layout}: complete original prose, table content, code and ordering preserved`,data.equal && data.headings===9 && data.tables===3,data);
-    check(`${layout}: navigation stays on demand and optional artwork does not overflow reading`,data.outline===9 && data.page<=data.width && data.canvas<=(layout==='journal'?1:0) && !await evaluate('document.getElementById("navigation").open'));
+    check(`${layout}: navigation stays on demand and optional artwork does not overflow reading`,data.outline===9 && data.page<=data.width && data.canvas<=(layout==='journal'?2:0) && !await evaluate('document.getElementById("navigation").open'));
     await evaluate('document.getElementById("open-navigation").click()');
     check(`${layout}: chapter menu exposes ten genuine chapters`,await evaluate('document.getElementById("navigation").open && document.querySelectorAll("#book-panel a").length===10'));
     await evaluate('document.getElementById("book-tab").focus()');
@@ -26,9 +26,9 @@ export async function run({send,evaluate,until,pause,check,report}) {
     await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:2,mobile:true}); await pause(150);
     check(`${layout}: 390px article has no page overflow and table scrolls locally`,await evaluate('innerWidth===390 && document.documentElement.scrollWidth<=390 && Array.from(document.querySelectorAll(".table-scroll")).every(e=>e.clientWidth<=346 && e.scrollWidth>=e.clientWidth)'));
     await evaluate('document.getElementById("open-outline").click()');
-    check(`${layout}: mobile dialog fits and contains the current outline`,await evaluate('document.getElementById("navigation").open && document.getElementById("navigation").getBoundingClientRect().width<=390 && !document.getElementById("outline-panel").hidden'));
+    check(`${layout}: mobile outline fits and contains all sections`,await evaluate(layout==='journal'?'!document.getElementById("edge-panel").hidden && document.getElementById("edge-panel").getBoundingClientRect().width<=366 && document.querySelectorAll("#edge-panel nav a").length===9':'document.getElementById("navigation").open && document.getElementById("navigation").getBoundingClientRect().width<=390 && !document.getElementById("outline-panel").hidden'));
     await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',code:'Escape',windowsVirtualKeyCode:27});
-    check(`${layout}: Escape closes mobile navigation`,await evaluate('!document.getElementById("navigation").open'));
+    check(`${layout}: Escape closes mobile navigation`,await evaluate('!document.getElementById("navigation").open && (!document.getElementById("edge-panel") || document.getElementById("edge-panel").hidden)'));
     await send('Emulation.setDeviceMetricsOverride',{width:1440,height:970,deviceScaleFactor:1,mobile:false});
   }
   await evaluate('document.getElementById("next-chapter").click()');
