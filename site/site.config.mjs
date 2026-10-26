@@ -7,7 +7,7 @@ export const repoRoot = fileURLToPath(new URL('../', import.meta.url));
 export const cfg = JSON.parse(readFileSync(new URL('../book.config.json', import.meta.url), 'utf8').replace(/^\uFEFF/, ''));
 
 export const GITHUB_URL = 'https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown';
-export const TAGLINE = '以 AI Agent 为一级生产力，人负责意图、约束与裁决的软件工程方法。';
+export const TAGLINE = '以 AI Agent 为一级生产力，人负责意图、约束与裁决；可执行规格与门禁放大理解与杠杆。';
 
 const strip = (s) => s.replace(/\/+$/, '');
 
@@ -17,4 +17,3 @@ export const ORIGIN = strip(process.env.SITE_ORIGIN || 'https://seasontemple.git
 export const BASE = '/' + strip((process.env.SITE_BASE || cfg.slug).replace(/^\/+/, ''));
 
 export const chapterSlug = (c) => 'ch' + c.order;
-

@@ -21,13 +21,13 @@ description: >
 | 用户意图 | 使用技能 |
 |----------|----------|
 | 这是什么 / 原则是什么 | `ai-native-sdlc-introduction` |
-| 写需求 / 澄清验收 | `ai-native-sdlc-intent-requirements` |
-| 做架构 / 定接口 / 识风险 | `ai-native-sdlc-design-architecture` |
-| 做验证 / 选形式化手段 | `ai-native-sdlc-verification` |
+| 写需求 / 澄清验收 / 可执行规格 | `ai-native-sdlc-intent-requirements` |
+| 做架构 / 定接口 / 不变量 / 可仿真边界 | `ai-native-sdlc-design-architecture` |
+| 做验证 / 选形式化或有界检查手段 | `ai-native-sdlc-verification` |
 | 开始编码 / 按契约实现 | `ai-native-sdlc-implementation` |
-| 补测试 / 质量策略 | `ai-native-sdlc-testing-quality` |
+| 补测试 / 属性·Expect·DST·质量策略 | `ai-native-sdlc-testing-quality` |
 | 合并发布 / 回滚门禁 | `ai-native-sdlc-integration-delivery` |
-| 线上问题 / 回归演进 | `ai-native-sdlc-continuous-evolution` |
+| 线上问题 / 回归演进 / 审阅纪律 | `ai-native-sdlc-continuous-evolution` |
 | 装工具 / 管 Skill | `ai-native-sdlc-tools-skills-ecosystem` |
 | 查总清单 / 术语 / 反模式 | `ai-native-sdlc-appendix` |
 
@@ -37,11 +37,5 @@ description: >
 2. 缺契约不实现
 3. 缺门禁不发布
 4. 修缺陷必补回归
-5. 表达保持低歧义
-
-## 推荐最小外部依赖
-
-```bash
-npx skills add danyuchn/asd-ste100-skill
-npx skills add younes-io/agent-skills --skill tla-check
-```
+5. 表达保持低歧义；冲突时优先补可执行例子
+6. 重型验证与全系统仿真按风险启用，不默认全开

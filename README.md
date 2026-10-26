@@ -3,12 +3,12 @@
 **迈向无人区：AI 原生软件工程指南**（短名：AI-Native SDLC Guidebook）
 
 [![License](https://img.shields.io/badge/license-BSL%201.1-555?style=flat-square&labelColor=2b2f36)](./LICENSE)
-[![Version](https://img.shields.io/badge/version-v0.0.2-555?style=flat-square&labelColor=2b2f36)](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/releases)
+[![Version](https://img.shields.io/badge/version-v0.0.3-555?style=flat-square&labelColor=2b2f36)](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/releases)
 [![Validate Skills](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/actions/workflows/validate-skills.yml/badge.svg?style=flat-square)](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/actions/workflows/validate-skills.yml)
 [![Pages](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/actions/workflows/pages.yml/badge.svg?style=flat-square)](https://seasontemple.github.io/Venturing-into-the-Unmanned-Unknown/)
 [![Release](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/actions/workflows/release.yml/badge.svg?style=flat-square)](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/releases)
 
-以 AI Agent 为一级生产力，人负责意图、约束与裁决的软件工程方法；全书按生命周期组织，并提供可直接加载的 Agent Skills（`SKILL.md`）。
+以 AI Agent 为一级生产力，人负责意图、约束与裁决的软件工程方法；全书按生命周期组织，并提供可直接加载的 Agent Skills（`SKILL.md`）。目标是放大人的杠杆与对系统的理解，而不是「人不写、不读代码」。
 
 ## 章节直达
 
@@ -37,20 +37,20 @@ cd Venturing-into-the-Unmanned-Unknown
 cp -R skills/* .claude/skills/   # 或 .agents/skills/ / .cursor/skills/
 ```
 
-也可从 [Releases](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/releases) 下载源码 `tar.gz`、技能包 `zip`、合并单文件 `BOOK.md`（首个 Release 发布前可能为空）。
+也可从 [Releases](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/releases) 下载源码 `tar.gz`、技能包 `zip`、合并单文件 `BOOK.md`。
 按需外部依赖（第三方内容，不随本项目打包；来源与许可见 [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md)）：`npx skills add danyuchn/asd-ste100-skill`、`npx skills add younes-io/agent-skills --skill tla-check`。
 
 ## 使用顺序与原则
 
-第 0 章对齐原则 → 1 意图与验收 → 2 边界、契约与风险路径 → 4 实现 → 3 / 5 验证与测试 → 6 过门禁交付 → 7 信号驱动演进 → 8 维护最小工具集。
+第 0 章对齐原则 → 1 意图与可执行验收 → 2 边界、契约、不变量与可仿真边界 → 4 实现 → 3 / 5 验证与测试（含属性、Expect、确定性仿真等按风险选用）→ 6 过门禁交付 → 7 信号驱动演进与审阅纪律 → 8 维护最小工具集。
 
 **缺意图不设计、缺契约不实现、缺门禁不发布。**
 
-设计原则：意图先行 · 风险驱动 · 可检查、可回归 · 表达低歧义 · 资产化 · 人机分工（Agent 生产，人裁决）。
+设计原则：意图先行 · 风险驱动 · 可检查、可回归 · **可执行规格优先** · 快速可读反馈 · 表达低歧义 · 资产化 · 人机分工（Agent 生产，人裁决与理解）。手段跨语言；验证/仿真工具按语言成熟度与风险选型，不绑定单一生态或厂商。
 
 ## 贡献与引用
 
-见 [CONTRIBUTING.md](./CONTRIBUTING.md)（授权条款、勘误流程、内容公约、改动同步清单）；新增章节请复制 [template/SKILL.md](./template/SKILL.md)。引用本书见 [CITATION.cff](./CITATION.cff)。
+见 [CONTRIBUTING.md](./CONTRIBUTING.md)（授权条款、勘误流程、内容公约、改动同步清单）；新增章节请复制 [template/SKILL.md](./template/SKILL.md)。引用本书见 [CITATION.cff](./CITATION.cff)。发版见 [docs/release-process.md](./docs/release-process.md) 与 [docs/release-notes/](./docs/release-notes/)。
 
 ## 许可
 
@@ -58,5 +58,5 @@ cp -R skills/* .claude/skills/   # 或 .agents/skills/ / .cursor/skills/
 
 ## 版本
 
-- 版本：**v0.0.2**
-- 状态：在线阅读站上线（Astro Starlight），含页面动作、llms.txt 与中文全文搜索
+- 版本：**v0.0.3**
+- 状态：全书技能正文方法论刷新（可执行规格、多语言验证现实、确定性仿真测试、Expect、Agent 审阅纪律等）；清单与附录术语对齐；在线站随 `main` 构建
