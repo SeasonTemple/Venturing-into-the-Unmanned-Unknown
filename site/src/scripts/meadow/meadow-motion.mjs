@@ -54,7 +54,19 @@ void main(){
   gl_FragColor=vec4(color,alpha);
 }`;
 
-export async function createMeadowMotion({canvas,art,maskUrl,skyUrl,onState}){
+export async function createMeadowMotion({canvas,art,maskUrl,skyUrl,onState,signal}){
+  signal?.throwIfAborted();
+  const mask=new Image(),sky=new Image();let onAbort;
+  try{
+    mask.src=maskUrl;sky.src=skyUrl;
+    const decoded=Promise.all([art.decode(),mask.decode(),sky.decode()]);
+    if(signal){
+      const aborted=new Promise((_,reject)=>{onAbort=()=>{mask.removeAttribute('src');sky.removeAttribute('src');reject(signal.reason);};signal.addEventListener('abort',onAbort,{once:true});});
+      await Promise.race([decoded,aborted]);
+    }else await decoded;
+    signal?.throwIfAborted();
+  }finally{if(onAbort)signal.removeEventListener('abort',onAbort);}
+  // No WebGL context or GPU allocations until all images are decoded and still wanted.
   const gl=canvas.getContext('webgl',{alpha:true,premultipliedAlpha:false,antialias:false,depth:false,stencil:false,powerPreference:'low-power',preserveDrawingBuffer:false});
   if(!gl)throw Error('WebGL unavailable');
   const textures=[],shaders=[];
@@ -64,10 +76,8 @@ export async function createMeadowMotion({canvas,art,maskUrl,skyUrl,onState}){
   const reduce=matchMedia('(prefers-reduced-motion: reduce)');
   const compile=(type,source)=>{const shader=gl.createShader(type);shaders.push(shader);gl.shaderSource(shader,source);gl.compileShader(shader);if(!gl.getShaderParameter(shader,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(shader));return shader;};
   const notify=()=>onState?.({running,userPaused,reduced:reduce.matches,lost,frames,elapsed,buffer:[canvas.width,canvas.height]});
-  const stats=()=>({running,userPaused,reduced:reduce.matches,inView,visible,lost,frames,elapsed,targetFps:1000/frameInterval,quality,observedFps:frameIntervals.length?1000/(frameIntervals.reduce((a,b)=>a+b,0)/frameIntervals.length):0,p95FrameMs:frameIntervals.length?[...frameIntervals].sort((a,b)=>a-b)[Math.floor(frameIntervals.length*.95)]:0,cloudDirection:'east',cloudPhasePx:elapsed*6%3840,drawsPerFrame:1,textureCount:textures.length,transparent:true,buffer:[canvas.width,canvas.height],averageSubmitMs:frames?totalDrawMs/frames:0,maxSubmitMs:maxDrawMs});
+  const stats=()=>({running,destroyed,userPaused,reduced:reduce.matches,inView,visible,lost,frames,elapsed,targetFps:1000/frameInterval,quality,observedFps:frameIntervals.length?1000/(frameIntervals.reduce((a,b)=>a+b,0)/frameIntervals.length):0,p95FrameMs:frameIntervals.length?[...frameIntervals].sort((a,b)=>a-b)[Math.floor(frameIntervals.length*.95)]:0,cloudDirection:'east',cloudPhasePx:elapsed*6%3840,drawsPerFrame:1,textureCount:textures.length,transparent:true,buffer:[canvas.width,canvas.height],averageSubmitMs:frames?totalDrawMs/frames:0,maxSubmitMs:maxDrawMs});
   try{
-    const mask=new Image(),sky=new Image();mask.src=maskUrl;sky.src=skyUrl;
-    await Promise.all([art.decode(),mask.decode(),sky.decode()]);
     const maxTexture=gl.getParameter(gl.MAX_TEXTURE_SIZE);
     if([art,mask,sky].some(img=>img.naturalWidth>maxTexture||img.naturalHeight>maxTexture))throw Error('Scene textures exceed this device limit');
     program=gl.createProgram();gl.attachShader(program,compile(gl.VERTEX_SHADER,vertex));gl.attachShader(program,compile(gl.FRAGMENT_SHADER,fragment));gl.linkProgram(program);
@@ -129,6 +139,6 @@ export async function createMeadowMotion({canvas,art,maskUrl,skyUrl,onState}){
       gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,textures[0]);
       gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,image);draw();
     },
-    destroy(){destroyed=true;sync();resizeObserver.disconnect();observer.disconnect();searchObserver.disconnect();document.removeEventListener('visibilitychange',onVisibility);reduce.removeEventListener('change',onReduced);canvas.removeEventListener('webglcontextlost',onLost);canvas.removeEventListener('webglcontextrestored',onRestored);textures.forEach(t=>gl.deleteTexture(t));shaders.forEach(s=>gl.deleteShader(s));gl.deleteBuffer(buffer);gl.deleteProgram(program);canvas.classList.remove('ready');}
+    destroy(){if(destroyed)return;destroyed=true;sync();resizeObserver.disconnect();observer.disconnect();searchObserver.disconnect();document.removeEventListener('visibilitychange',onVisibility);reduce.removeEventListener('change',onReduced);canvas.removeEventListener('webglcontextlost',onLost);canvas.removeEventListener('webglcontextrestored',onRestored);textures.forEach(t=>gl.deleteTexture(t));shaders.forEach(s=>gl.deleteShader(s));textures.length=0;gl.deleteBuffer(buffer);gl.deleteProgram(program);canvas.classList.remove('ready');canvas.width=canvas.height=1;}
   };
 }

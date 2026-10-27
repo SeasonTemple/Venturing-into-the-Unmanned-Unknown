@@ -115,8 +115,9 @@ export async function run({send,evaluate,until,pause,check,report}){
  check('without JavaScript the full painting, reading and chapters remain',await evaluate('document.querySelector(".landscape-art").naturalWidth===1920&&document.querySelectorAll("#chapters .mt-cell").length===10&&document.querySelector("#enter-field").hidden&&!!document.querySelector(".read-link[href*=ch0]")'));
  await send('Emulation.setScriptExecutionDisabled',{value:false});await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'}]});
  const injected=await send('Page.addScriptToEvaluateOnNewDocument',{source:'const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(t,...args){return t==="webgl"?null:original.call(this,t,...args)};'});
- await send('Page.navigate',{url});await until('!!window.__meadowStation');await evaluate('window.__meadowStation.open();window.__meadowStation.action()');
+ await send('Page.navigate',{url});await until('!!window.__meadowStation&&document.querySelector(".landscape").dataset.motion==="fallback"');await evaluate('window.__meadowStation.open();window.__meadowStation.action()');
  check('without WebGL station records and the original painting remain usable',await evaluate('document.querySelector(".landscape").dataset.motion==="fallback"&&window.__meadowStation.stats().observed&&document.querySelector(".landscape-art").src.includes("hero-v04")'));
  await send('Page.removeScriptToEvaluateOnNewDocument',{identifier:injected.identifier});
  check('no production homepage runtime errors',report.consoleErrors.length===0,report.consoleErrors);
+ if(process.argv.includes('--with-lifecycle'))await (await import('./home-lifecycle-checks.mjs')).run({send,evaluate,until,pause,check,report});
 }

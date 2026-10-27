@@ -21,5 +21,5 @@ export function createMeadowCamera({stage}){
  const observer=new ResizeObserver(()=>frame());observer.observe(viewport);
  const finish=()=>{animation?.finish();transitioning=false;};
  reduce.addEventListener('change',finish);frame();
- return{setView(next){if(shots[next]&&next!==view){view=next;frame(true);}},pause(value){paused=value;if(value)finish();},stats:()=>({view,transitioning,disposed}),destroy(){disposed=true;animation?.cancel();observer.disconnect();reduce.removeEventListener('change',finish);}};
+ return{setView(next){if(shots[next]&&next!==view){view=next;frame(true);}},pause(value){paused=value;if(value)finish();},stats:()=>({view,transitioning,disposed}),destroy(){if(disposed)return;disposed=true;animation?.cancel();transitioning=false;observer.disconnect();reduce.removeEventListener('change',finish);world.style.removeProperty('width');world.style.removeProperty('height');world.style.removeProperty('transform');delete stage.dataset.camera;}};
 }
