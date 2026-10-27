@@ -1,5 +1,6 @@
 export async function run({send,evaluate,until,pause,check,report}){
  if(process.argv.includes('--home-surface'))return (await import('./home-surface-checks.mjs')).run({send,evaluate,until,pause,check,report});
+ if(process.argv.includes('--home-notebook'))return (await import('./home-notebook-checks.mjs')).run({send,evaluate,until,pause,check,report});
  const base='http://127.0.0.1:4395/Venturing-into-the-Unmanned-Unknown',url=base+'/';
  await send('Emulation.setDeviceMetricsOverride',{width:1440,height:960,deviceScaleFactor:1,mobile:false});
  await send('Page.navigate',{url});await until('!!window.__meadowStation&&!!window.__meadowMotion');
@@ -70,7 +71,7 @@ export async function run({send,evaluate,until,pause,check,report}){
  await evaluate('document.getElementById("field-pin").click()');
  check('two inspections reveal comparison before a clue can be recorded',await evaluate('window.__meadowStation.stats().view==="comparison"&&window.__meadowStation.stats().findings.length===2&&!window.__meadowStation.stats().clue&&document.getElementById("field-action").textContent==="留下待查线索"'));
  await evaluate('document.getElementById("field-action").click()');
- check('recorded clue states uncertainty and links to the verification chapter',await evaluate('window.__meadowStation.stats().clue&&document.getElementById("note-body").textContent.includes("原因尚未确认")&&document.getElementById("field-reading").href.endsWith("/ch3/")'));
+ check('recorded clue states uncertainty and discovers verification inside the notebook',await evaluate('window.__meadowStation.stats().clue&&document.getElementById("note-body").textContent.includes("原因尚未确认")&&document.getElementById("field-reading").tagName==="BUTTON"&&window.__meadowStation.stats().notebook.unlocked'));
  await evaluate('window.__meadowStation.close();window.__meadowStation.open()');
  check('leaving and returning retains the observations and clue',await evaluate('window.__meadowStation.stats().clue&&window.__meadowStation.stats().findings.length===2'));
  for(const width of [768,1024,1280,1440,2560]){
@@ -123,4 +124,5 @@ export async function run({send,evaluate,until,pause,check,report}){
  check('no production homepage runtime errors',report.consoleErrors.length===0,report.consoleErrors);
  if(process.argv.includes('--with-lifecycle'))await (await import('./home-lifecycle-checks.mjs')).run({send,evaluate,until,pause,check,report});
  if(process.argv.includes('--with-surface'))await (await import('./home-surface-checks.mjs')).run({send,evaluate,until,pause,check,report});
+ if(process.argv.includes('--with-notebook'))await (await import('./home-notebook-checks.mjs')).run({send,evaluate,until,pause,check,report});
 }

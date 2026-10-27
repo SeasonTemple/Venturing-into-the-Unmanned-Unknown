@@ -12,7 +12,7 @@ export function createMeadowCamera({stage}){
   const tx=clamp(r.width*ax-x*scale,r.width-1920*scale,0),ty=clamp(r.height*ay-y*scale,r.height-1080*scale,0);
   const from=getComputedStyle(world).transform,to=`translate(${tx}px,${ty}px) scale(${scale})`;
   animation?.cancel();transitioning=false;world.style.transform=to;
-  if(animate&&!reduce.matches&&!paused&&from!=='none'){
+  if(animate&&!reduce.matches&&!paused&&!stage.hasAttribute('data-notebook-open')&&from!=='none'){
    animation=world.animate([{transform:from},{transform:to}],{duration:1050,easing:'cubic-bezier(.22,.7,.22,1)'});transitioning=true;
    animation.onfinish=()=>{transitioning=false;animation=null;};
   }
@@ -20,6 +20,7 @@ export function createMeadowCamera({stage}){
  }
  const observer=new ResizeObserver(()=>frame());observer.observe(viewport);
  const finish=()=>{animation?.finish();transitioning=false;};
+ const notebookObserver=new MutationObserver(()=>{if(stage.hasAttribute('data-notebook-open'))finish();});notebookObserver.observe(stage,{attributes:true,attributeFilter:['data-notebook-open']});
  reduce.addEventListener('change',finish);frame();
- return{setView(next){if(shots[next]&&next!==view){view=next;frame(true);}},pause(value){paused=value;if(value)finish();},stats:()=>({view,transitioning,disposed}),destroy(){if(disposed)return;disposed=true;animation?.cancel();transitioning=false;observer.disconnect();reduce.removeEventListener('change',finish);world.style.removeProperty('width');world.style.removeProperty('height');world.style.removeProperty('transform');delete stage.dataset.camera;}};
+ return{setView(next){if(shots[next]&&next!==view){view=next;frame(true);}},pause(value){paused=value;if(value)finish();},stats:()=>({view,transitioning,disposed}),destroy(){if(disposed)return;disposed=true;animation?.cancel();transitioning=false;observer.disconnect();notebookObserver.disconnect();reduce.removeEventListener('change',finish);world.style.removeProperty('width');world.style.removeProperty('height');world.style.removeProperty('transform');delete stage.dataset.camera;}};
 }

@@ -30,6 +30,41 @@
 .meadow-home .entry-links #enter-field:focus-visible{outline-color:var(--scene-action-paper);outline-offset:-4px}
 @media(forced-colors:active){.meadow-home .landscape :is(a,button):focus-visible{outline-color:Highlight!important}}
 .field-world{position:relative;width:100%;height:100%;transform-origin:0 0}
+/* A carried notebook and a device ledger share observations, not presentation. */
+body:has(.meadow-home #field-notebook[open]){overflow:revert}
+.meadow-home .field-notebook{--book-paper:#efeee0;--book-ink:#23372e;--book-muted:#526353;--book-line:#23372e40;width:min(1120px,calc(100vw - 64px));max-height:calc(100svh - 64px);margin:auto;padding:28px 32px 18px;border:1px solid #627564;border-radius:4px;background:var(--book-paper);color:var(--book-ink);font:14px/1.85 'Microsoft YaHei','PingFang SC',system-ui,sans-serif;scrollbar-color:#6e8772 var(--book-paper);scrollbar-width:thin;overscroll-behavior:contain}
+.meadow-home .field-notebook::backdrop{background:#15291d99;overflow:hidden;overscroll-behavior:contain}
+.meadow-home .notebook-heading{position:sticky;top:-28px;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:12px 0 18px;background:var(--book-paper)}
+.meadow-home .field-notebook .eyebrow{font:10px/1.6 ui-monospace,monospace;letter-spacing:.12em;margin:0 0 6px;color:var(--book-muted)}
+.meadow-home .field-notebook h2,.meadow-home .field-notebook h3,.meadow-home .field-notebook h4{border:0;padding:0;color:var(--book-ink);font-family:'Noto Serif SC','Songti SC','SimSun',serif;font-weight:500}
+.meadow-home .field-notebook h2{font-size:30px;margin:0;line-height:1.4}.meadow-home .field-notebook h3{font-size:23px;margin:0 0 18px;line-height:1.5}.meadow-home .field-notebook h4{font-size:17px;margin:0 0 10px;line-height:1.7}
+.meadow-home .field-notebook p{margin:0 0 14px}.meadow-home .field-notebook form{margin:0}
+.meadow-home .field-notebook button{min-height:44px;padding:8px 12px;border:1px solid var(--book-line);border-radius:3px;background:transparent;color:var(--book-ink);font:inherit;font-size:12px;line-height:1.6;text-align:left}
+.meadow-home .field-notebook button:hover{background:color-mix(in srgb,var(--book-ink) 7%,transparent)}
+.meadow-home .field-notebook button:disabled{color:var(--book-muted);border-style:dashed;cursor:default}
+.meadow-home .field-notebook :is(button,textarea):focus-visible{outline:2px solid var(--book-ink);outline-offset:2px}
+.meadow-home .notebook-carriers{display:flex;gap:24px;border-bottom:1px solid var(--book-line);padding-bottom:10px;margin-bottom:28px}
+.meadow-home .notebook-carriers button{border-color:transparent;padding-inline:0;border-radius:0}
+.meadow-home .notebook-carriers button[aria-pressed=true]{border-bottom:2px solid var(--book-ink)}
+.meadow-home .notebook-spread{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:36px}
+.meadow-home .notebook-leaf{min-width:0}.meadow-home .notebook-method{padding-left:32px;border-left:1px solid var(--book-line)}
+.meadow-home .notebook-entries{list-style:none;margin:0;padding:0}.meadow-home .notebook-entries li{margin:0 0 22px;padding-bottom:20px;border-bottom:1px solid var(--book-line)}
+.meadow-home .field-notebook .notebook-entry-meta{font:11px/1.8 ui-monospace,monospace;color:var(--book-muted);margin-bottom:8px}
+.meadow-home .notebook-margin{font-size:12px;color:var(--book-muted);line-height:1.85}
+.meadow-home #notebook-chapter{margin-bottom:16px}.meadow-home #notebook-append{margin-top:28px}
+.meadow-home #notebook-append label{display:block;font-size:12px;margin-bottom:10px}
+.meadow-home #notebook-addition{display:block;width:100%;max-width:100%;min-height:100px;resize:vertical;padding:10px 12px;margin-bottom:12px;border:1px solid var(--book-line);border-radius:3px;background:transparent;color:var(--book-ink);font:inherit;font-size:13px}
+.meadow-home #notebook-addition::placeholder{color:var(--book-muted);opacity:1}
+.meadow-home #notebook-save-status{min-height:2em;font-size:11px;color:var(--book-muted);margin:12px 0}
+.meadow-home .notebook-footer{display:flex;justify-content:space-between;gap:16px;padding-top:18px;margin-top:22px;border-top:1px solid var(--book-line);color:var(--book-muted);font-size:10px}
+.meadow-home .notebook-chapter-page{max-width:74ch;margin:0 auto}.meadow-home #notebook-return{margin-bottom:24px}
+.meadow-home .notebook-chapter-body{overflow-wrap:anywhere}.meadow-home .notebook-chapter-body h2{font-size:25px;margin:32px 0 16px}.meadow-home .notebook-chapter-body h3{font-size:20px;margin-top:28px}.meadow-home .notebook-chapter-body ul,.meadow-home .notebook-chapter-body ol{padding-left:1.6em;margin-bottom:20px}
+.meadow-home .notebook-chapter-body pre{overflow:auto;padding:16px;background:color-mix(in srgb,var(--book-ink) 6%,var(--book-paper));border:1px solid var(--book-line);border-radius:3px;font-size:12px;line-height:1.8}
+.meadow-home .notebook-chapter-body table{display:block;overflow:auto;max-width:100%;border-collapse:collapse;margin-block:20px;font-size:12px}.meadow-home .notebook-chapter-body :is(th,td){padding:10px;border:1px solid var(--book-line);min-width:5em;text-align:left}
+.meadow-home .field-notebook[data-carrier=agent]{--book-paper:#1e332c;--book-ink:#edf0df;--book-muted:#c0ceb7;--book-line:#edf0df40}
+.meadow-home .field-notebook[data-carrier=agent] :is(h3,h4){font-family:inherit}
+@media(max-width:850px){.meadow-home .field-notebook{width:calc(100vw - 32px);max-height:calc(100svh - 32px);padding:16px 20px}.meadow-home .notebook-heading{top:-16px}.meadow-home .field-notebook h2{font-size:25px}.meadow-home .notebook-spread{grid-template-columns:minmax(0,1fr);gap:24px}.meadow-home .notebook-method{padding:24px 0 0;border-left:0;border-top:1px solid var(--book-line)}.meadow-home .notebook-footer{flex-wrap:wrap}}
+@media(forced-colors:active){.meadow-home .field-notebook :is(button,textarea):focus-visible{outline-color:Highlight}}
 .meadow-home .field-sites{position:absolute;inset:0;pointer-events:none}
 .meadow-home .field-site{position:absolute;z-index:2;width:48px;height:48px;transform:translate(-50%,-65%);padding:0;border:0;background:transparent;color:#23372e;pointer-events:auto}
 .meadow-home .site-ring{position:absolute;left:7px;right:7px;bottom:8px;height:12px;border:1px solid #fff1bc;border-radius:50%;box-shadow:0 0 0 2px #23372e70;transition:background .2s,border-color .2s}

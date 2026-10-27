@@ -15,7 +15,7 @@ function pause(value){
 }
 function stop({keepActive=false}={}){
  const old=session;if(!old)return;
- const focusedInside=document.activeElement?.closest('#field-sites,#field-controls');
+ const focusedInside=document.activeElement?.closest('#field-sites,#field-controls,#field-notebook');
  savedStation=old.station?.stats()??savedStation;
  if(savedStation&&!keepActive)savedStation={...savedStation,active:false};
  session=undefined;old.abort.abort();
