@@ -9,14 +9,15 @@ toggle.addEventListener('click', () => {
 });
 
 const motionToggle=document.querySelector('#motion-toggle');
-let motion,walk,pausedPreference=false;
+let motion,walk,camera,pausedPreference=false;
 function pause(value){pausedPreference=!!value;motion?.pause(pausedPreference);walk?.pause(pausedPreference);}
 async function start(){
   if(matchMedia('(max-width:700px)').matches){stage.dataset.motion='static-mobile';motionToggle.hidden=true;return;}
   try{
     const {createMeadowMotion}=await import('./meadow-motion.mjs');
-    motion=await createMeadowMotion({canvas:document.querySelector('.environment-motion'),art:document.querySelector('.landscape-art'),maskUrl:new URL('motion-mask-v02.png',mediaBase).href,skyUrl:new URL('sky-loop-v01.webp',mediaBase).href,onState(state){
+    motion=await createMeadowMotion({canvas:document.querySelector('.environment-motion'),art:document.querySelector('.landscape-art'),maskUrl:new URL('motion-mask-v03.png',mediaBase).href,skyUrl:new URL('sky-loop-v01.webp',mediaBase).href,onState(state){
       stage.dataset.motion=state.lost?'fallback':state.running?'running':'paused';
+      camera?.pause(!state.running);
       motionToggle.hidden=state.lost;
       motionToggle.disabled=state.reduced;
       motionToggle.setAttribute('aria-pressed',String(state.userPaused||state.reduced));
@@ -34,10 +35,11 @@ async function start(){
 motionToggle.addEventListener('click',()=>{if(motion)pause(!motion.stats().userPaused);});
 addEventListener('pagehide',event=>{if(!event.persisted){walk?.destroy();motion?.destroy();}});
 async function setup(){
+ if(!matchMedia('(max-width:700px)').matches){const {createMeadowCamera}=await import('./meadow-camera.mjs');camera=createMeadowCamera({stage});}
  await start();
  if(matchMedia('(max-width:700px)').matches)return;
  const{createMeadowStation}=await import('./meadow-station.mjs');
- walk=createMeadowStation({stage});window.__meadowStation=walk;
+ walk=createMeadowStation({stage,camera});window.__meadowStation=walk;
 }
 await setup();
 const narrow=matchMedia('(max-width:700px)');

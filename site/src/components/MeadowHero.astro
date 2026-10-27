@@ -6,6 +6,7 @@ const media=base+'/meadow/';
 ---
 <section class="landscape" aria-labelledby="book-title" data-media-base={media}>
   <div class="art-surface">
+   <div class="field-world">
     <img class="landscape-art" src={media+'hero-v04.webp'} width="1920" height="1080" alt="雨后开阔原野上的观测站，工程人员携带记录器与工具，维护路通向临水旧桩和远处未测绘的草原。" fetchpriority="high" />
     <canvas class="environment-motion" aria-hidden="true"></canvas>
     <div id="field-sites" class="field-sites" role="group" aria-label="观测站现场" hidden>
@@ -13,6 +14,7 @@ const media=base+'/meadow/';
       <button id="field-pin" class="field-site" type="button" aria-label="查看维护路左侧的临水旧桩" aria-pressed="false" aria-controls="field-note" hidden><span class="site-ring" aria-hidden="true"></span><span class="site-label">01 · 临水旧桩</span></button>
       <button id="field-reference" class="field-site" type="button" aria-label="核对上游水弯旁的风标" aria-pressed="false" aria-controls="field-note" hidden><span class="site-ring" aria-hidden="true"></span><span class="site-label">02 · 上游风标</span></button>
     </div>
+   </div>
   </div>
   <header class="masthead">
     <a class="wordmark" href={base+'/'}>无人区 <span>FIELD NOTES</span></a>
