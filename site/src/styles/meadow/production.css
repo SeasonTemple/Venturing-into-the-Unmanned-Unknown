@@ -1,5 +1,12 @@
 /* The homepage keeps Starlight metadata, search, chapter data and downloads;
    its own masthead shares the painting's palette and has no second navbar. */
+:root:has(.meadow-home){--home-scroll-track:#d6e3d5;--home-scroll-thumb:#6e8772;scrollbar-width:thin;scrollbar-color:var(--home-scroll-thumb) var(--home-scroll-track)}
+:root:has(.meadow-home)::-webkit-scrollbar{width:8px;height:8px}
+:root:has(.meadow-home)::-webkit-scrollbar-track{background:var(--home-scroll-track)}
+:root:has(.meadow-home)::-webkit-scrollbar-thumb{background:var(--home-scroll-thumb);border:2px solid var(--home-scroll-track);border-radius:8px}
+:root:has(.meadow-home)::-webkit-scrollbar-thumb:hover{background:#4b6a57}
+:root:has(.meadow-home)::-webkit-scrollbar-button{display:none;width:0;height:0}
+@supports selector(::-webkit-scrollbar){:root:has(.meadow-home){scrollbar-width:auto;scrollbar-color:auto}}
 :root:has(.meadow-home){--sl-color-white:#23372e;--sl-color-gray-1:#23372e;--sl-color-gray-2:#435749;--sl-color-gray-3:#526052;--sl-color-gray-4:#7e8a79;--sl-color-gray-5:#bdc6b5;--sl-color-gray-6:#e3e7dc;--sl-color-black:#eaece2;--sl-color-text:#23372e;--sl-color-bg:#eaece2;--mt-surface:#eaece2;--mt-surface-hover:#e0e5d6;--mt-line:#23372e38;--mt-line-strong:#23372e66;--mt-code-bg:#dce2d4;--mt-code-color:#23372e;--mt-accent:#78502d;--mt-accent-text:#78502d;--sl-color-accent-low:#dce2d4;--sl-color-accent-high:#78502d;--sl-color-text-accent:#78502d;--sl-color-bg-nav:#eaece2;color-scheme:light;background:#eaece2}
 #meadow-home-layout main{padding:0!important}#meadow-home-layout .content-panel{padding:0;border:0}#meadow-home-layout .sl-container{max-width:none;margin:0}#meadow-home-layout .sl-container>*+*{margin-top:0}#meadow-home-layout main>.content-panel:first-child{display:none}#meadow-home-layout .main-pane{width:100%}#meadow-home-layout .sl-markdown-content{margin:0}
 .meadow-home{max-width:none;padding-bottom:0;font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;font-size:16px;line-height:1.7}
@@ -12,7 +19,30 @@
 @media(max-width:1000px){.home-introduction{gap:28px}.meadow-home .mt-grid-chapters{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.home-introduction{grid-template-columns:minmax(0,1fr);padding-block:32px 0;gap:24px}.meadow-home .masthead nav{gap:12px}.meadow-home #art-only{display:none!important}.meadow-home .masthead site-search button{height:32px;padding:4px}.meadow-home .masthead site-search button>span{display:none}.meadow-home .title-block h1{font-size:clamp(42px,12.7vw,65px)}.meadow-home .mt-section{margin-top:40px}.meadow-home .mt-cell{min-height:0}.meadow-home .mt-grid-chapters{grid-template-columns:1fr}.meadow-home .mt-split{padding-block:12px 36px}.meadow-home .mt-band{padding-block:24px}.meadow-home .field-note .eyebrow{font-size:11px}}
 .mobile-reading-label,.mobile-chapters{display:none}
-.meadow-home .field-pin{width:30px;height:10px;padding:0;background:transparent;border:1px solid #e6c389aa;border-radius:50%;box-shadow:0 0 0 3px #283d2c44;transform:translate(-50%,3px);font-size:0}
+.meadow-home .field-sites{position:absolute;inset:0;pointer-events:none}
+.meadow-home .field-site{position:absolute;z-index:2;width:48px;height:48px;transform:translate(-50%,-65%);padding:0;border:0;background:transparent;color:#23372e;pointer-events:auto}
+.meadow-home .site-ring{position:absolute;left:7px;right:7px;bottom:8px;height:12px;border:1px solid #fff1bc;border-radius:50%;box-shadow:0 0 0 2px #23372e70;transition:background .2s,border-color .2s}
+.meadow-home .site-ring::after{content:'';position:absolute;width:3px;height:3px;left:calc(50% - 1px);top:3px;background:#fff1bc}
+.meadow-home .site-label{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);padding:4px 7px;font-size:11px;white-space:nowrap;letter-spacing:.04em;color:#f3f1dc;background:#23372ee6;opacity:0;transition:opacity .18s}
+.meadow-home .field-site:hover .site-label,.meadow-home .field-site:focus-visible .site-label{opacity:1}
+.meadow-home .field-site:hover .site-ring,.meadow-home .field-site:focus-visible .site-ring{background:#fff1bc55}
+.meadow-home .field-site.is-checked .site-ring{border-color:#d7efd9;background:#23372e65}
+.meadow-home .field-site.is-checked .site-ring::after{background:#d7efd9}
+.meadow-home .field-note{top:15%;width:clamp(290px,28vw,440px);max-width:34%}
+.meadow-home .field-note .eyebrow{margin-bottom:12px}
+.meadow-home .field-note h2{font-size:clamp(25px,2.3vw,42px);line-height:1.35;margin-bottom:15px}
+.meadow-home .field-note>p:not(.eyebrow){max-width:none;font-size:clamp(13px,.94vw,17px);line-height:1.9}
+.meadow-home .field-note blockquote{margin:0 0 14px;padding:0 0 0 12px;border:0;border-left:1px solid #23372e66;font-size:clamp(12px,.87vw,16px);line-height:1.85;color:#304b3c}
+.meadow-home .note-margin{margin-top:16px;padding-top:12px;font-size:clamp(11px,.78vw,14px)}
+.meadow-home .field-findings{font-size:clamp(11px,.78vw,14px);line-height:1.7;margin:14px 0 0}
+.meadow-home .field-findings div{display:grid;grid-template-columns:6em minmax(0,1fr);gap:8px;padding-block:4px}
+.meadow-home .field-findings dt,.meadow-home .field-findings dd{margin:0}
+.meadow-home .field-findings dt{color:#435749}
+.meadow-home #field-progress{width:auto;height:auto;margin:0;font:11px ui-monospace,monospace;letter-spacing:.08em;background:transparent;color:#526052}
+.meadow-home .field-status-wrap p{margin-bottom:4px}
+.meadow-home .field-buttons{flex-wrap:wrap;gap:8px 22px;justify-content:flex-end}
+@media(min-width:701px) and (max-width:1200px){.meadow-home .field-note{position:relative;top:auto;left:auto;width:auto;max-width:none;padding:24px 5%;display:grid;grid-template-columns:1fr 1fr;gap:0 28px}.meadow-home .field-note .eyebrow,.meadow-home .field-note h2{grid-column:1/-1}.meadow-home .field-note blockquote{grid-column:1}.meadow-home .field-note>p:not(.eyebrow){grid-column:1}.meadow-home .field-note .note-margin{grid-column:2;grid-row:3/6;margin-top:0}.meadow-home .field-findings{grid-column:1/-1}.meadow-home .field-controls{align-items:flex-start}.meadow-home .field-buttons{gap:6px 16px}}
+@media(prefers-reduced-motion:reduce){.meadow-home .site-ring,.meadow-home .site-label{transition:none}}
 @media(max-width:700px){
  .meadow-home .landscape{display:block;height:100svh;min-height:620px;padding:0;overflow:hidden;background:#74c7bf;isolation:isolate}
  .meadow-home .art-surface{position:absolute;inset:0;aspect-ratio:auto;height:100%;z-index:-2}

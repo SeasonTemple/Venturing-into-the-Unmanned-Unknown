@@ -15,7 +15,7 @@ async function start(){
   if(matchMedia('(max-width:700px)').matches){stage.dataset.motion='static-mobile';motionToggle.hidden=true;return;}
   try{
     const {createMeadowMotion}=await import('./meadow-motion.mjs');
-    motion=await createMeadowMotion({canvas:document.querySelector('.environment-motion'),art:document.querySelector('.landscape-art'),maskUrl:new URL('motion-mask-v01.png',mediaBase).href,onState(state){
+    motion=await createMeadowMotion({canvas:document.querySelector('.environment-motion'),art:document.querySelector('.landscape-art'),maskUrl:new URL('motion-mask-v02.png',mediaBase).href,skyUrl:new URL('sky-loop-v01.webp',mediaBase).href,onState(state){
       stage.dataset.motion=state.lost?'fallback':state.running?'running':'paused';
       motionToggle.hidden=state.lost;
       motionToggle.disabled=state.reduced;
