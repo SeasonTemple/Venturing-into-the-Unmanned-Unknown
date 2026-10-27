@@ -9,7 +9,7 @@
   "scripts": {
     "sync": "node scripts/sync.mjs",
     "dev": "npm run sync && astro dev",
-    "build": "npm run sync && astro build",
+    "build": "npm run sync && astro build --force && node scripts/verify-assets.mjs",
     "preview": "astro preview"
   },
   "dependencies": {

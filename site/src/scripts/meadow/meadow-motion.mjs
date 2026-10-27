@@ -6,17 +6,17 @@ void main(){
   vec2 pixel=vec2(1920.,1080.);vec2 p=floor(vUv*pixel)+.5;
   vec3 zones=texture2D(uMask,vUv).rgb;
   float gust=.6+.4*sin(uTime*.41-p.x*.002);
-  // Bounded cloud travel preserves the painted horizon and never resets a loop.
-  float cloud=32.*(1.-exp(-uTime/80.));
+  // Continuous bounded drift preserves the painted horizon without converging to a stop.
+  float cloud=24.*sin(uTime*.12)+8.*sin(uTime*.29);
   vec2 shift=vec2(-cloud*zones.r,0.);
   float grass=(sin(uTime*2.1-p.x*.018)+.35*sin(uTime*3.7-p.x*.031))*gust;
-  shift+=vec2(-grass*2.8,abs(grass)*.25)*zones.b;
+  shift+=vec2(-grass*4.2,abs(grass)*.25)*zones.b;
   float ripple=sin(p.y*.21-uTime*2.3+p.x*.007);
-  shift+=vec2(sin(uTime*1.5+p.y*.11)*3.5,ripple*.7)*zones.g;
+  shift+=vec2(sin(uTime*1.5+p.y*.11)*3.5,ripple*1.1)*zones.g;
   vec2 uv=(floor(p+shift)+.5)/pixel;
   vec3 color=texture2D(uArt,clamp(uv,vec2(0.),vec2(1.))).rgb;
   float glint=smoothstep(.94,1.,sin(p.y*.37-uTime*1.7+p.x*.008));
-  color+=zones.g*glint*vec3(.025,.022,.012);
+  color+=zones.g*glint*vec3(.045,.039,.025);
   gl_FragColor=vec4(color,1.);
 }`;
 

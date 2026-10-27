@@ -1,0 +1,17 @@
+/* Search is a centered reading surface, independent of the chapter drawer. */
+html site-search dialog {
+ --search-paper:#edf2eb;--search-ink:#243a37;--search-muted:#4c625d;--search-line:#9aaea4;--search-accent:#7c411f;
+ --sl-color-white:var(--search-ink);--sl-color-black:var(--search-paper);--sl-color-gray-1:var(--search-ink);--sl-color-gray-2:var(--search-ink);--sl-color-gray-3:var(--search-muted);--sl-color-gray-5:var(--search-line);--sl-color-gray-6:var(--search-paper);
+ --pagefind-ui-primary:var(--search-accent);--pagefind-ui-text:var(--search-ink);--pagefind-ui-background:var(--search-paper);--pagefind-ui-border:var(--search-line);--pagefind-ui-tag:var(--search-line);--pagefind-ui-font:var(--rd-font,system-ui);
+ position:fixed;inset:0;width:min(760px,calc(100vw - 32px));height:fit-content;max-width:760px;max-height:calc(100dvh - 48px);margin:auto;border:1px solid var(--search-line);border-radius:10px;color:var(--search-ink);background:var(--search-paper);box-shadow:0 24px 90px #071a2040;z-index:100;line-height:1.7;color-scheme:light;
+}
+html[data-theme=dark] site-search dialog{--search-paper:#172a30;--search-ink:#e5e8dc;--search-muted:#b7c9c2;--search-line:#5d787b;--search-accent:#f0bc7b;color-scheme:dark}
+html site-search dialog::backdrop{background:#071a2066;backdrop-filter:blur(4px)}
+html site-search dialog .dialog-frame{max-height:calc(100dvh - 50px);padding:24px;overflow:auto;background:var(--search-paper);color:var(--search-ink)}
+html site-search dialog .pagefind-ui__search-input{background:var(--search-paper);color:var(--search-ink);border:1px solid var(--search-line);box-shadow:none;font-size:17px;font-weight:400;border-radius:5px}
+html site-search dialog .pagefind-ui__search-input::placeholder{color:var(--search-muted);opacity:1}
+html site-search dialog :is(.pagefind-ui__message,.pagefind-ui__result-excerpt){color:var(--search-muted)}
+html site-search dialog :is(.pagefind-ui__result-title,.pagefind-ui__result-link,.pagefind-ui__result-nested-title){color:var(--search-ink)}
+html site-search dialog mark{background:color-mix(in srgb,var(--search-accent) 18%,var(--search-paper));color:var(--search-ink)}
+html site-search dialog .pagefind-ui__search-clear{color:var(--search-muted);background:var(--search-paper)}
+@media(max-width:600px){html site-search dialog .dialog-frame{padding:16px}html site-search dialog{max-height:calc(100dvh - 24px)}}

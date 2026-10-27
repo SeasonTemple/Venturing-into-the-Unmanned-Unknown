@@ -13,6 +13,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: cfg.title_zh,
+      favicon: '/favicon.svg',
       description: cfg.title,
       defaultLocale: 'root',
       locales: { root: { label: '简体中文', lang: 'zh-CN' } },
@@ -25,7 +26,7 @@ export default defineConfig({
           borderRadius: '6px',
           borderColor: 'var(--mt-line-strong)',
           codeBackground: 'var(--mt-code-bg)',
-          codeFontSize: '0.8125rem',
+          codeFontSize: '0.9rem',
           codeLineHeight: '1.7',
         },
         // Starlight 会在主题上写入自己的 frames / textMarkers 覆盖（优先级高于上面的全局 styleOverrides），所以框与高亮行的颜色在这里最后改一遍。
