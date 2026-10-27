@@ -1,0 +1,64 @@
+{
+  "created": "2026-10-27",
+  "service": "MiniMax via mmx-cli 1.0.28",
+  "model": "MiniMax-Hailuo-2.3",
+  "credentialMethod": "existing OAuth",
+  "taskId": "456891456205414",
+  "fileId": "456891809317080",
+  "apiStatus": "Success",
+  "creationRequests": 1,
+  "additionalPaidRequests": 0,
+  "prompt": {
+    "file": "prototypes/visual-direction/meadow-prompts/directional-video-v02.txt",
+    "bytes": 1635,
+    "sha256": "1b00530e2b85b35687791c7bb8e831ce2a36943b9e127a3f106b30c6d2819fd6"
+  },
+  "input": {
+    "file": "prototypes/visual-direction/meadow-media/directional-input-v02.png",
+    "bytes": 43211,
+    "sha256": "1e0de52cffb512f6015bb5d39d636b4020026e7c77ff262ea3954b305d929cd2",
+    "origin": "Previously prepared green-background cutout of the actual hero-v04 character; no cast-v02 identity substitution."
+  },
+  "output": {
+    "file": "prototypes/visual-direction/meadow-media/directional-v02.mp4",
+    "bytes": 490191,
+    "sha256": "6d0287232d6ecdb9c05484d6dbdf977d4f2b239102abf0be9b78f3de3632421f",
+    "width": 768,
+    "height": 768,
+    "fps": 24,
+    "durationSeconds": 5.875,
+    "codec": "H.264"
+  },
+  "selection": {
+    "walkingApproved": false,
+    "productionUse": false,
+    "observations": [
+      "Side and back shapes exist, with whole-body turning.",
+      "The clip repeatedly rotates instead of holding the requested walking directions.",
+      "No usable support-foot and alternating-step loop."
+    ],
+    "nextStudy": "Use one fixed facing and one complete weighted walking cycle; do not automatically submit."
+  },
+  "derived": [
+    {
+      "file": "directional-left-v02.png",
+      "seconds": 1.9,
+      "status": "Unapproved shape reference, not a walking frame"
+    },
+    {
+      "file": "directional-back-left-v02.png",
+      "seconds": 3.5,
+      "status": "Unapproved shape reference, not a walking frame"
+    },
+    {
+      "file": "directional-back-v02.png",
+      "seconds": 5,
+      "status": "Unapproved shape reference, not a walking frame"
+    }
+  ],
+  "contactSheet": {
+    "file": "directional-contact-v02.png",
+    "intervalSeconds": 0.5
+  },
+  "processing": "Original MP4 retained. Still frames extracted with FFmpeg at original resolution; contact sheet sampled at 2fps. Nothing loaded by the production site."
+}
