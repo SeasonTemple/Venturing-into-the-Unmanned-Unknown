@@ -28,7 +28,7 @@
 
 本轮共6张浏览器截图，全部通过 `scripts/shot.mjs --batch`，未另开常驻浏览器。浏览器行为测试和截图都精确结束各自的Chrome PID树并删除profile，残留进程0。机器记录在 `.lab/meadow-production/browser-report.json`，截图与离线遮罩合成核对在 `.lab/survey-pins/`。
 
-![左：此前认可首页；右：本轮首页](../.lab/survey-pins/reference-comparison.png)
+![左：此前认可首页；右：本轮首页](./images/homepage-reference-comparison.webp)
 
 参照来自此前认可首页的浏览器截图，右侧是本轮初始状态，未替换画风。建筑与人物比例、天空留白、冷暖和字体关系保留；环境动态用时序像素验证。差距仍是人物没有方向与作业动作，互动限于当前固定镜头，下一处上游场景尚未制作，不据此宣称完成可行走空间。
 
