@@ -1,7 +1,6 @@
 ---
 import Default from '@astrojs/starlight/components/Head.astro';
 import interUrl from '../assets/fonts/inter-latin-wght.woff2?url';
-import { ClientRouter } from 'astro:transitions';
 import displayUrl from '../assets/fonts/instrument-serif-latin-400.woff2?url';
 // 组件会被打包进 dist/.prerender，不能 import site.config.mjs（它按 import.meta.url 相对路径读 book.config.json）。
 const BASE = import.meta.env.BASE_URL.replace(/\/+$/, '');
@@ -12,8 +11,11 @@ const BASE = import.meta.env.BASE_URL.replace(/\/+$/, '');
 <link rel="preload" href={interUrl} as="font" type="font/woff2" crossorigin />
 <link rel="preload" href={displayUrl} as="font" type="font/woff2" crossorigin />
 <link rel="alternate" type="text/plain" href={BASE + '/llms.txt'} title="llms.txt" />
-{/* 页面切换：Astro 内置 ClientRouter（View Transitions），跨页淡入淡出时长见 custom.css。 */}
-<ClientRouter />
+{/*
+  不启用 Astro ClientRouter（View Transitions）。
+  Starlight 的 Pagefind 搜索在 DOMContentLoaded 时初始化一次；客户端换页后对话框二次打开易出现空白面板。
+  全页导航可避免该问题；若日后升级 Starlight 搜索与 VT 兼容再考虑恢复。
+*/}
 <script>
   import '../scripts/motion';
 </script>
