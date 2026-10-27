@@ -7,7 +7,9 @@ const wideOnly = process.argv.includes('--wide');
 const journalOnly = process.argv.includes('--journal');
 const terrainOnly = process.argv.includes('--terrain');
 const materialsOnly = process.argv.includes('--materials');
-const folder = resolve(materialsOnly ? '.lab/material-study' : terrainOnly ? '.lab/journal-terrain' : journalOnly ? '.lab/field-journal' : wideOnly ? '.lab/reading-wide' : readingOnly ? '.lab/reading-study' : '.lab/visual-direction'); await mkdir(folder, { recursive: true });
+const outpostOnly = process.argv.includes('--outpost');
+const territoryOnly = process.argv.includes('--territory');
+const folder = resolve(territoryOnly ? '.lab/territory-design' : outpostOnly ? '.lab/outpost-design' : materialsOnly ? '.lab/material-study' : terrainOnly ? '.lab/journal-terrain' : journalOnly ? '.lab/field-journal' : wideOnly ? '.lab/reading-wide' : readingOnly ? '.lab/reading-study' : '.lab/visual-direction'); await mkdir(folder, { recursive: true });
 const profile = await mkdtemp(resolve(folder, 'browser-check-'));
 const pause = ms => new Promise(resolve => setTimeout(resolve, ms));
 const chrome = spawn('C:/Program Files/Google/Chrome/Application/chrome.exe', ['--headless=new', '--no-first-run', '--no-default-browser-check', '--disable-extensions', '--remote-debugging-port=0', '--user-data-dir=' + profile, '--window-size=1440,960', 'about:blank'], { windowsHide: true, stdio: 'ignore' });
@@ -16,9 +18,9 @@ const report = { pass: false, checks: [], metrics: {}, consoleErrors: [] };
 const check = (name, pass, detail) => report.checks.push({ name, pass: !!pass, ...(detail === undefined ? {} : { detail }) });
 const luminance = hex => { const rgb = hex.match(/[a-f0-9]{2}/gi).map(c=>parseInt(c,16)/255).map(c=>c<=.04045?c/12.92:((c+.055)/1.055)**2.4); return rgb[0]*.2126+rgb[1]*.7152+rgb[2]*.0722; };
 const pairs = [['lightBody','#252d30','#eeece5'],['lightSecondary','#535c5e','#eeece5'],['lightLink','#9b4928','#eeece5'],['homeSecondary','#535c5e','#e7e4dc'],['homeLink','#9b4928','#e7e4dc'],['darkBody','#e2e7df','#18262c'],['darkSecondary','#bac5bf','#18262c'],['darkLink','#edb17a','#18262c'],['heroBody','#e9e9df','#111c22'],['heroSecondary','#bdc9c9','#111c22']];
-if (!readingOnly && !wideOnly && !journalOnly && !terrainOnly && !materialsOnly) {
+if (!readingOnly && !wideOnly && !journalOnly && !terrainOnly && !materialsOnly && !outpostOnly && !territoryOnly) {
   report.metrics.paletteContrast = Object.fromEntries(pairs.map(([label,foreground,background])=>{ const a=luminance(foreground),b=luminance(background);return [label,Number(((Math.max(a,b)+.05)/(Math.min(a,b)+.05)).toFixed(2))]; }));
-  report.metrics.sourceBytes = Object.fromEntries(await Promise.all(['index.html','style.css','app.mjs','world.mjs'].map(async file=>[file,(await readFile(new URL(file,import.meta.url))).length])));
+  report.metrics.sourceBytes = Object.fromEntries(await Promise.all(['index.html','style.css','frontier.css','app.mjs','frontier-world.mjs'].map(async file=>[file,(await readFile(new URL(file,import.meta.url))).length])));
   check('candidate flat-palette text pairs meet 4.5:1', Object.values(report.metrics.paletteContrast).every(ratio=>ratio>=4.5),report.metrics.paletteContrast);
 }
 try {
@@ -39,7 +41,11 @@ try {
   const evaluate = async expression => { const result = await send('Runtime.evaluate', { expression, awaitPromise: true, returnByValue: true }); if (result.exceptionDetails) throw Error(JSON.stringify(result.exceptionDetails)); return result.result.value; };
   const until = async expression => { for (let i = 0; i < 150; i++) { if (await evaluate(expression)) return; await pause(70); } throw Error('Timed out: ' + expression); };
   await send('Page.enable'); await send('Runtime.enable');
-  if (materialsOnly) {
+  if (territoryOnly) {
+    await (await import('./territory-checks.mjs')).run({send,evaluate,until,pause,check,report});
+  } else if (outpostOnly) {
+    await (await import('./outpost-checks.mjs')).run({send,evaluate,until,pause,check,report});
+  } else if (materialsOnly) {
     await (await import('./material-checks.mjs')).run({send,evaluate,until,pause,check,report});
   } else if (terrainOnly) {
     await (await import('./terrain-checks.mjs')).run({send,evaluate,until,pause,check,report});
@@ -53,12 +59,16 @@ try {
   await send('Page.navigate', { url: 'http://127.0.0.1:4395/' });
   await until('!!window.__visualStudy'); await evaluate('window.__visualStudy.ready');
   check('home artwork renders with one WebGL canvas', await evaluate('document.querySelectorAll("canvas").length===1 && window.__visualStudy.state().world.calls>0'));
+  report.metrics.home=await evaluate('window.__visualStudy.state().world');
+  check('home opens a measured landscape with unresolved samples',report.metrics.home.art==='survey-frontier'&&report.metrics.home.surfaceTriangles>20000&&report.metrics.home.unknownSamples>100);
+  check('complete work sites and actors are reserved for entry',report.metrics.home.visibleStations===0&&!report.metrics.home.actorsVisible);
   check('exploration choices and chapter markers only appear after entry', await evaluate('document.getElementById("space-ui").hidden && !document.getElementById("enter").hidden'));
   check('ten actual chapter summaries and installation remain available below artwork', await evaluate('document.querySelectorAll(".chapter-row small").length===10 && document.getElementById("install-command").textContent.includes("git clone")'));
   await evaluate('window.__originalCanvas=document.querySelector("canvas"); window.__visualStudy.enter()');
   report.metrics.entered = await evaluate('window.__visualStudy.state()');
   check('normal camera travel completes in the original world', await evaluate('window.__visualStudy.state().view==="space" && !window.__visualStudy.state().busy && !window.__visualStudy.state().world.moving && window.__visualStudy.state().world.frames>10 && document.querySelector("canvas")===window.__originalCanvas'));
   check('entry reveals six station choices and mode controls', await evaluate('!document.getElementById("space-ui").hidden && document.querySelectorAll(".station-label:not([hidden])").length===6'));
+  check('same landscape reveals six physical work sites',report.metrics.entered.world.visibleStations===6&&report.metrics.entered.world.actorsVisible&&report.metrics.entered.world.art===report.metrics.home.art);
   await evaluate('document.querySelector("input[value=human]").click()');
   check('inside mode control updates the world', await evaluate('window.__visualStudy.state().mode==="human" && window.__visualStudy.state().world.mode==="human"'));
   await evaluate('document.getElementById("station-2").click(); document.getElementById("station-read").focus(); document.getElementById("station-read").click()');
@@ -75,11 +85,18 @@ try {
   await until('window.__visualStudy.state().view==="space" && !window.__visualStudy.state().busy');
   check('Escape returns to original space and restores reading trigger focus', await evaluate('document.activeElement.id==="station-read" && document.querySelector("canvas")===window.__originalCanvas'));
   await evaluate('window.__visualStudy.home()');
-  const idle = await evaluate('window.__visualStudy.state().world.frames'); await pause(250);
-  check('idle artwork renders on demand', await evaluate(`window.__visualStudy.state().world.frames===${idle}`));
+  const idle = await evaluate('window.__visualStudy.state().world.frames'); await pause(350);
+  check('home sample motion uses a bounded render rate', await evaluate(`window.__visualStudy.state().world.frames>${idle} && window.__visualStudy.state().world.frames<=${idle}+6`));
+  await evaluate('document.getElementById("contents").scrollIntoView({behavior:"instant"})');await pause(250);
+  const hiddenFrames=await evaluate('window.__visualStudy.state().world.frames');await pause(200);
+  check('scrolling past artwork stops rendering',await evaluate(`window.__visualStudy.state().world.frames===${hiddenFrames} && !window.__visualStudy.state().world.loopScheduled`));
+  await evaluate('window.scrollTo({top:0,behavior:"instant"})');
   await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 2, mobile: true });
   await send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] }); await pause(200);
   check('390px homepage has no horizontal overflow and caps pixel ratio', await evaluate('innerWidth===390 && document.documentElement.scrollWidth<=390 && window.__visualStudy.state().world.pixelRatio===1.5'));
+  check('mobile title stays on one line within the available width',await evaluate('(()=>{const h=document.querySelector(".hero-caption h1"),r=h.getBoundingClientRect(),s=getComputedStyle(h);return h.scrollWidth<=h.clientWidth && r.height<parseFloat(s.lineHeight)*1.1})()'));
+  const reducedFrames=await evaluate('window.__visualStudy.state().world.frames');await pause(200);
+  check('reduced motion leaves home static',await evaluate(`window.__visualStudy.state().world.frames===${reducedFrames} && !window.__visualStudy.state().world.loopScheduled`));
   await evaluate('window.__visualStudy.enter()');
   check('reduced-motion entry settles immediately', await evaluate('!window.__visualStudy.state().world.moving && !document.getElementById("space-ui").hidden'));
   report.metrics.mobileStations = await evaluate('Array.from(document.querySelectorAll(".station-label"),e=>{const r=e.getBoundingClientRect();return {title:e.textContent,x:r.x,y:r.y,w:r.width,h:r.height,hidden:e.hidden}})');
