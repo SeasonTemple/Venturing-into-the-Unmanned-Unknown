@@ -58,8 +58,8 @@ export async function run({send,evaluate,until,pause,check,report}){
   check('shared motion control stops the background',await evaluate(`window.__readingStudy.effects.frames===${stopped}`));
   await evaluate('window.dispatchEvent(new PageTransitionEvent("pagehide",{persisted:false}))');
   check('page exit disposes the two visual surfaces',await evaluate('window.__readingStudy.disposed&&window.__readingStudy.effects.disposed&&window.__readingStudy.artwork.disposed&&!document.querySelector(".ink-atmosphere")&&!document.querySelector(".relief-canvas")'));
-  const home=await evaluate(`(async()=>{const text=await(await fetch(${JSON.stringify(base+'/')})).text();return !text.includes('id="production-journal"')&&!text.includes('/journal/production.css')&&text.includes('HeroScene')})()`);
-  check('production homepage retains its existing presentation',home);
+  const home=await evaluate(`(async()=>{const text=await(await fetch(${JSON.stringify(base+'/')})).text();return !text.includes('id="production-journal"')&&!text.includes('/journal/production.css')&&text.includes('id="meadow-home-layout"')&&text.includes('hero-v04.webp')})()`);
+  check('production homepage uses the accepted meadow independently of reading layout',home);
   await send('Emulation.setScriptExecutionDisabled',{value:true});await send('Page.navigate',{url:`${base}/ch3/`});await pause(400);
   check('without JavaScript the full chapter and book navigation remain',await evaluate('document.querySelectorAll("#body h2").length===10&&document.getElementById("body").textContent.length>4000&&!!document.querySelector("#journal-book a")'));
   await send('Emulation.setScriptExecutionDisabled',{value:false});

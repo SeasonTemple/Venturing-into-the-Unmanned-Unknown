@@ -1,0 +1,367 @@
+{
+  "atlas": "engineer-actions-v03.png",
+  "frame": [
+    160,
+    210
+  ],
+  "anchor": [
+    80,
+    193
+  ],
+  "height": 174,
+  "walkFrames": 12,
+  "idle": 12,
+  "check": 13,
+  "stride": 76,
+  "source": "hero-v04.webp",
+  "gait": "Contralateral arm/leg swing, loaded-tool arm restraint, pelvic weight shift, shoulder counter-rotation and stabilized head.",
+  "joints": [
+    {
+      "leftFoot": [
+        19,
+        179
+      ],
+      "rightFoot": [
+        77,
+        179
+      ],
+      "leftFootOffset": -19,
+      "rightFootOffset": 19,
+      "leftHandOffset": 9.5,
+      "rightHandOffset": -12.16,
+      "neck": [
+        44.98601745947676,
+        32.86782605319455
+      ],
+      "torsoAngle": -0.045,
+      "headAngle": -0.0005999999999999998,
+      "hipL": [
+        38,
+        101.8
+      ],
+      "hipR": [
+        58,
+        102.8
+      ]
+    },
+    {
+      "leftFoot": [
+        25.88333333333333,
+        179
+      ],
+      "rightFoot": [
+        75.00448267190433,
+        174
+      ],
+      "leftFootOffset": -12.666666666666668,
+      "rightFootOffset": 16.454482671904334,
+      "leftHandOffset": 6.333333333333334,
+      "rightHandOffset": -10.530868910018773,
+      "neck": [
+        46.70773222298972,
+        33.625332778446825
+      ],
+      "torsoAngle": -0.0275,
+      "headAngle": 0.002692304845413264,
+      "hipL": [
+        38.55,
+        103
+      ],
+      "hipR": [
+        58.55,
+        103.19999999999999
+      ]
+    },
+    {
+      "leftFoot": [
+        32.61929461082955,
+        179
+      ],
+      "rightFoot": [
+        68.45262794416288,
+        170.3397459621556
+      ],
+      "leftFootOffset": -6.333333333333334,
+      "rightFootOffset": 9.500000000000007,
+      "leftHandOffset": 3.166666666666667,
+      "rightHandOffset": -6.0800000000000045,
+      "neck": [
+        47.968492908060846,
+        35.20722816429585
+      ],
+      "torsoAngle": -0.014689110867544646,
+      "headAngle": 0.001887048957087501,
+      "hipL": [
+        38.952627944162884,
+        104.89282032302755
+      ],
+      "hipR": [
+        58.952627944162884,
+        104.50717967697246
+      ]
+    },
+    {
+      "leftFoot": [
+        39.1,
+        179
+      ],
+      "rightFoot": [
+        59.1,
+        169
+      ],
+      "leftFootOffset": 0,
+      "rightFootOffset": 1.1634144591899855e-15,
+      "leftHandOffset": 0,
+      "rightHandOffset": -7.445852538815907e-16,
+      "neck": [
+        48.43001116661083,
+        36.00334997208343
+      ],
+      "torsoAngle": -0.009999999999999995,
+      "headAngle": -0.002799999999999998,
+      "hipL": [
+        39.1,
+        105.8
+      ],
+      "hipR": [
+        59.1,
+        105.2
+      ]
+    },
+    {
+      "leftFoot": [
+        45.28596127749621,
+        179
+      ],
+      "rightFoot": [
+        49.4526279441629,
+        170.3397459621556
+      ],
+      "leftFootOffset": 6.333333333333332,
+      "rightFootOffset": -9.49999999999999,
+      "leftHandOffset": -3.166666666666666,
+      "rightHandOffset": 6.079999999999993,
+      "neck": [
+        47.968492908060846,
+        35.20722816429585
+      ],
+      "torsoAngle": -0.014689110867544642,
+      "headAngle": -0.010112951042912498,
+      "hipL": [
+        38.952627944162884,
+        104.89282032302755
+      ],
+      "hipR": [
+        58.952627944162884,
+        104.50717967697246
+      ]
+    },
+    {
+      "leftFoot": [
+        51.21666666666667,
+        179
+      ],
+      "rightFoot": [
+        42.09551732809565,
+        174
+      ],
+      "leftFootOffset": 12.666666666666668,
+      "rightFootOffset": -16.45448267190434,
+      "leftHandOffset": -6.333333333333334,
+      "rightHandOffset": 10.530868910018778,
+      "neck": [
+        46.70773222298972,
+        33.625332778446825
+      ],
+      "torsoAngle": -0.0275,
+      "headAngle": -0.018092304845413267,
+      "hipL": [
+        38.55,
+        103
+      ],
+      "hipR": [
+        58.55,
+        103.19999999999999
+      ]
+    },
+    {
+      "leftFoot": [
+        57,
+        179
+      ],
+      "rightFoot": [
+        39,
+        179
+      ],
+      "leftFootOffset": 19,
+      "rightFootOffset": -19,
+      "leftHandOffset": -9.5,
+      "rightHandOffset": 12.16,
+      "neck": [
+        44.98601745947676,
+        32.86782605319455
+      ],
+      "torsoAngle": -0.04499999999999999,
+      "headAngle": -0.024599999999999997,
+      "hipL": [
+        38,
+        101.8
+      ],
+      "hipR": [
+        58,
+        102.8
+      ]
+    },
+    {
+      "leftFoot": [
+        53.90448267190433,
+        174
+      ],
+      "rightFoot": [
+        44.783333333333346,
+        179
+      ],
+      "leftFootOffset": 16.454482671904334,
+      "rightFootOffset": -12.666666666666655,
+      "leftHandOffset": -8.227241335952167,
+      "rightHandOffset": 8.10666666666666,
+      "neck": [
+        43.265225704560535,
+        33.73081678309335
+      ],
+      "torsoAngle": -0.0625,
+      "headAngle": -0.027892304845413267,
+      "hipL": [
+        37.45,
+        102.19999999999999
+      ],
+      "hipR": [
+        57.45,
+        104
+      ]
+    },
+    {
+      "leftFoot": [
+        46.54737205583712,
+        170.3397459621556
+      ],
+      "rightFoot": [
+        50.71403872250377,
+        179
+      ],
+      "leftFootOffset": 9.500000000000007,
+      "rightFootOffset": -6.333333333333345,
+      "leftHandOffset": -4.7500000000000036,
+      "rightHandOffset": 4.053333333333341,
+      "neck": [
+        42.00631089534933,
+        35.38991316892171
+      ],
+      "torsoAngle": -0.07531088913245534,
+      "headAngle": -0.027087048957087502,
+      "hipL": [
+        37.047372055837116,
+        103.50717967697246
+      ],
+      "hipR": [
+        57.047372055837116,
+        105.89282032302755
+      ]
+    },
+    {
+      "leftFoot": [
+        36.9,
+        169
+      ],
+      "rightFoot": [
+        56.9,
+        179
+      ],
+      "leftFootOffset": 1.1634144591899855e-15,
+      "rightFootOffset": 0,
+      "leftHandOffset": -5.817072295949927e-16,
+      "rightHandOffset": 0,
+      "neck": [
+        41.54571550406543,
+        36.2142856777245
+      ],
+      "torsoAngle": -0.08,
+      "headAngle": -0.022400000000000007,
+      "hipL": [
+        36.9,
+        104.2
+      ],
+      "hipR": [
+        56.9,
+        106.8
+      ]
+    },
+    {
+      "leftFoot": [
+        27.547372055837112,
+        170.3397459621556
+      ],
+      "rightFoot": [
+        63.38070538917046,
+        179
+      ],
+      "leftFootOffset": -9.500000000000004,
+      "rightFootOffset": 6.333333333333343,
+      "leftHandOffset": 4.750000000000002,
+      "rightHandOffset": -4.05333333333334,
+      "neck": [
+        42.00631089534933,
+        35.38991316892171
+      ],
+      "torsoAngle": -0.07531088913245534,
+      "headAngle": -0.015087048957087495,
+      "hipL": [
+        37.047372055837116,
+        103.50717967697246
+      ],
+      "hipR": [
+        57.047372055837116,
+        105.89282032302755
+      ]
+    },
+    {
+      "leftFoot": [
+        20.995517328095673,
+        174
+      ],
+      "rightFoot": [
+        70.11666666666666,
+        179
+      ],
+      "leftFootOffset": -16.45448267190433,
+      "rightFootOffset": 12.666666666666657,
+      "leftHandOffset": 8.227241335952165,
+      "rightHandOffset": -8.10666666666666,
+      "neck": [
+        43.26522570456053,
+        33.73081678309335
+      ],
+      "torsoAngle": -0.06250000000000001,
+      "headAngle": -0.007107695154586745,
+      "hipL": [
+        37.45,
+        102.19999999999999
+      ],
+      "hipR": [
+        57.45,
+        104
+      ]
+    }
+  ],
+  "method": "Offline articulated cutout: separate textured upper/lower limbs, head, jacket, boots, toolbox and recorder; 12 complete body frames plus standing and recorder check. Source art pixels retained, joint overlaps repaired. Fixed three-quarter view; no back-facing frames.",
+  "rejected": [
+    {
+      "file": "walk-sheet-v01.jpg",
+      "reason": "Child proportions, missing toolbox, incorrect layout"
+    },
+    {
+      "file": "walk-sheet-v02.jpg",
+      "reason": "Photographic style, mixed headings, inconsistent toolbox, not a walk cycle"
+    }
+  ]
+}

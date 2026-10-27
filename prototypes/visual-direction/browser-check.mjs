@@ -10,8 +10,14 @@ const materialsOnly = process.argv.includes('--materials');
 const outpostOnly = process.argv.includes('--outpost');
 const territoryOnly = process.argv.includes('--territory');
 const productionOnly = process.argv.includes('--production');
-const folder = resolve(productionOnly ? '.lab/production-journal' : territoryOnly ? '.lab/territory-design' : outpostOnly ? '.lab/outpost-design' : materialsOnly ? '.lab/material-study' : terrainOnly ? '.lab/journal-terrain' : journalOnly ? '.lab/field-journal' : wideOnly ? '.lab/reading-wide' : readingOnly ? '.lab/reading-study' : '.lab/visual-direction'); await mkdir(folder, { recursive: true });
-const profile = await mkdtemp(resolve(folder, 'browser-check-'));
+const riftOnly = process.argv.includes('--rift');
+const fieldOnly = process.argv.includes('--field');
+const benchOnly = process.argv.includes('--bench');
+const meadowOnly = process.argv.includes('--meadow');
+const homeOnly = process.argv.includes('--home');
+const folder = resolve(fieldOnly ? '.lab/field-study' : riftOnly ? '.lab/rift-design' : productionOnly ? '.lab/production-journal' : territoryOnly ? '.lab/territory-design' : outpostOnly ? '.lab/outpost-design' : materialsOnly ? '.lab/material-study' : terrainOnly ? '.lab/journal-terrain' : journalOnly ? '.lab/field-journal' : wideOnly ? '.lab/reading-wide' : readingOnly ? '.lab/reading-study' : '.lab/visual-direction'); await mkdir(folder, { recursive: true });
+const reportFolder=homeOnly?resolve('.lab/meadow-production'):meadowOnly?resolve('.lab/meadow-motion'):benchOnly?resolve('.lab/bench-study'):folder;await mkdir(reportFolder,{recursive:true});
+const profile = await mkdtemp(resolve(reportFolder, 'browser-check-'));
 const pause = ms => new Promise(resolve => setTimeout(resolve, ms));
 const chrome = spawn('C:/Program Files/Google/Chrome/Application/chrome.exe', ['--headless=new', '--no-first-run', '--no-default-browser-check', '--disable-extensions', '--remote-debugging-port=0', '--user-data-dir=' + profile, '--window-size=1440,960', 'about:blank'], { windowsHide: true, stdio: 'ignore' });
 let socket, ownedPids = [chrome.pid];
@@ -19,7 +25,7 @@ const report = { pass: false, checks: [], metrics: {}, consoleErrors: [] };
 const check = (name, pass, detail) => report.checks.push({ name, pass: !!pass, ...(detail === undefined ? {} : { detail }) });
 const luminance = hex => { const rgb = hex.match(/[a-f0-9]{2}/gi).map(c=>parseInt(c,16)/255).map(c=>c<=.04045?c/12.92:((c+.055)/1.055)**2.4); return rgb[0]*.2126+rgb[1]*.7152+rgb[2]*.0722; };
 const pairs = [['lightBody','#252d30','#eeece5'],['lightSecondary','#535c5e','#eeece5'],['lightLink','#9b4928','#eeece5'],['homeSecondary','#535c5e','#e7e4dc'],['homeLink','#9b4928','#e7e4dc'],['darkBody','#e2e7df','#18262c'],['darkSecondary','#bac5bf','#18262c'],['darkLink','#edb17a','#18262c'],['heroBody','#e9e9df','#111c22'],['heroSecondary','#bdc9c9','#111c22']];
-if (!productionOnly && !readingOnly && !wideOnly && !journalOnly && !terrainOnly && !materialsOnly && !outpostOnly && !territoryOnly) {
+if (!homeOnly && !meadowOnly && !benchOnly && !fieldOnly && !riftOnly && !productionOnly && !readingOnly && !wideOnly && !journalOnly && !terrainOnly && !materialsOnly && !outpostOnly && !territoryOnly) {
   report.metrics.paletteContrast = Object.fromEntries(pairs.map(([label,foreground,background])=>{ const a=luminance(foreground),b=luminance(background);return [label,Number(((Math.max(a,b)+.05)/(Math.min(a,b)+.05)).toFixed(2))]; }));
   report.metrics.sourceBytes = Object.fromEntries(await Promise.all(['index.html','style.css','frontier.css','app.mjs','frontier-world.mjs'].map(async file=>[file,(await readFile(new URL(file,import.meta.url))).length])));
   check('candidate flat-palette text pairs meet 4.5:1', Object.values(report.metrics.paletteContrast).every(ratio=>ratio>=4.5),report.metrics.paletteContrast);
@@ -42,7 +48,17 @@ try {
   const evaluate = async expression => { const result = await send('Runtime.evaluate', { expression, awaitPromise: true, returnByValue: true }); if (result.exceptionDetails) throw Error(JSON.stringify(result.exceptionDetails)); return result.result.value; };
   const until = async expression => { for (let i = 0; i < 150; i++) { if (await evaluate(expression)) return; await pause(70); } throw Error('Timed out: ' + expression); };
   await send('Page.enable'); await send('Runtime.enable');
-  if (productionOnly) {
+  if (homeOnly) {
+    await (await import('../../site/scripts/home-checks.mjs')).run({send,evaluate,until,pause,check,report});
+  } else if (meadowOnly) {
+    await (await import('./meadow-checks.mjs')).run({send,evaluate,until,pause,check,report});
+  } else if (benchOnly) {
+    await (await import('./bench-checks.mjs')).run({send,evaluate,until,pause,check,report});
+  } else if (fieldOnly) {
+    await (await import('./field-checks.mjs')).run({send,evaluate,until,pause,check,report});
+  } else if (riftOnly) {
+    await (await import('./rift-checks.mjs')).run({send,evaluate,until,pause,check,report});
+  } else if (productionOnly) {
     await (await import('../../site/scripts/journal-checks.mjs')).run({send,evaluate,until,pause,check,report});
   } else if (territoryOnly) {
     await (await import('./territory-checks.mjs')).run({send,evaluate,until,pause,check,report});
@@ -130,10 +146,10 @@ finally {
   for (const pid of ownedPids) { try { process.kill(pid, 0); remaining.push(pid); } catch {} }
   report.metrics.ownedBrowser = { pid: chrome.pid, recordedProcesses: ownedPids.length, remaining };
   check('owned browser process tree has zero remaining processes', remaining.length===0, remaining);
-  if (!profile.startsWith(folder + sep) || !basename(profile).startsWith('browser-check-')) throw Error('Unsafe profile cleanup path');
+  if (!profile.startsWith(reportFolder + sep) || !basename(profile).startsWith('browser-check-')) throw Error('Unsafe profile cleanup path');
   for (let i=0;i<15;i++) { try { await rm(profile, { recursive:true, force:true }); break; } catch { await pause(150); } }
   report.pass = !report.fatal && report.checks.every(check=>check.pass);
-  await writeFile(resolve(folder,'browser-report.json'),JSON.stringify(report,null,2));
+  await writeFile(resolve(reportFolder,'browser-report.json'),JSON.stringify(report,null,2));
   process.stdout.write(JSON.stringify(report,null,2)+'\n');
   if (!report.pass) process.exitCode=1;
 }

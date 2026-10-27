@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>裂隙前哨 · 场景与分镜</title><link rel="stylesheet" href="./rift.css"><script type="importmap">{"imports":{"three":"/deps/three/build/three.module.js","three/addons/":"/deps/three/examples/jsm/"}}</script></head>
+<body>
+<main>
+<noscript><p style="padding:24px">场景需要 JavaScript。<a href="/Venturing-into-the-Unmanned-Unknown/ch0/">直接阅读本书</a>，或查看下方设计说明。</p></noscript>
+ <section class="scene-stage" aria-label="裂隙前哨的场景与镜头设计">
+  <div id="rift-canvas" aria-hidden="true"></div><div class="scene-shade" aria-hidden="true"></div>
+  <header class="masthead"><a class="brand" href="./rift.html">无人区 <span>UNMAPPED</span></a><span class="study-label">场景推演 / 裂隙前哨</span><a href="/Venturing-into-the-Unmanned-Unknown/ch0/">直接阅读 ↗</a></header>
+  <div class="register"><span id="frame-number">01 / THRESHOLD</span><span id="frame-note">可进入的工程现场 / 方向候选</span></div>
+  <div class="hero-copy" id="hero-copy"><p>AI-NATIVE SOFTWARE ENGINEERING</p><h1>迈向无人区</h1><span>有据可循，仍向未知。</span></div>
+  <button id="enter" class="enter">走进前哨 <span aria-hidden="true">↗</span></button>
+  <div class="shot-copy" id="shot-copy" hidden><p id="shot-kicker"></p><h2 id="shot-title"></h2><p id="shot-description"></p></div>
+  <fieldset id="mode-controls" hidden><legend>工作现场 / 职责对照</legend><label><input type="radio" name="rift-mode" value="human">人类主导</label><label><input type="radio" name="rift-mode" value="agent" checked>AI 原生</label><p id="mode-description">人给定约束与裁决，任务单元分布在不同工作面。这里只演示空间职责。</p></fieldset>
+  <p class="fallback" id="rift-status" role="status">正在准备场景…</p>
+  <div class="frame-actions" id="frame-actions" hidden><button id="walk-next">沿壁继续 →</button><button id="hold" disabled>停步观察</button><a id="read-chapter" href="/Venturing-into-the-Unmanned-Unknown/ch0/">阅读关联章节 ↗</a></div>
+  <div class="playback"><span id="playback-status" role="status">静止构图</span><div class="playback-line" aria-hidden="true"><i id="playback-progress"></i></div><button id="sequence">顺序试看</button></div>
+ </section>
+ <section class="shot-selector" aria-label="场景分镜"><span>镜头设计</span><nav id="shots" aria-label="切换分镜"></nav></section>
+ <section class="design-notes" aria-labelledby="direction-title"><div class="direction-heading"><p>SPATIAL DIRECTION / 04</p><h2 id="direction-title">一处前哨，<br>嵌入远大于人的世界。</h2><p>工程恢复一小段可工作的秩序。<br>从已使用的地方，走到尚未被安排好的边缘。</p></div>
+  <div class="reasoning"><article><span>01 / 场景主体</span><h3>切壁决定构图。</h3><p>不再把六块楼板摆开。岩层形成遮挡、凹入与转角，建筑依附壁缘；近处的实体、中段的通路和对岸构成三种尺度。</p></article><article><span>02 / 周边环境</span><h3>雾后仍然有世界。</h3><p>脚下有排水、检修轨与斜撑，边缘有中断的测量标记。对岸有可辨认的地层，远雾逐渐削弱细节，不负责把空场涂黑。</p></article><article><span>03 / 最后一镜</span><h3>停在人肩后，看向前方。</h3><p>到达边缘后不再出现下一处建筑。回望能认出已走过的路；面对前方时，完成的路径只占画面很小一部分。</p></article></div>
+  <div class="design-boundary"><p>这是同一三维场景的构图与分镜样片。沿壁段演示人物随路径移动，可中途停步；不是完整自由行走或 SDLC 任务。两种模式仍需通过实际操作与门禁反馈深化。</p><a href="./territory.html">对照上一版场景 ↗</a><a href="./rift-design.md">设计依据 ↗</a></div>
+ </section>
+</main><script type="module" src="./rift.mjs"></script></body></html>
