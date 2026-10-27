@@ -15,8 +15,9 @@ const fieldOnly = process.argv.includes('--field');
 const benchOnly = process.argv.includes('--bench');
 const meadowOnly = process.argv.includes('--meadow');
 const homeOnly = process.argv.includes('--home');
+const readerAudit = process.argv.includes('--reader-audit');
 const folder = resolve(fieldOnly ? '.lab/field-study' : riftOnly ? '.lab/rift-design' : productionOnly ? '.lab/production-journal' : territoryOnly ? '.lab/territory-design' : outpostOnly ? '.lab/outpost-design' : materialsOnly ? '.lab/material-study' : terrainOnly ? '.lab/journal-terrain' : journalOnly ? '.lab/field-journal' : wideOnly ? '.lab/reading-wide' : readingOnly ? '.lab/reading-study' : '.lab/visual-direction'); await mkdir(folder, { recursive: true });
-const reportFolder=homeOnly?resolve('.lab/meadow-production'):meadowOnly?resolve('.lab/meadow-motion'):benchOnly?resolve('.lab/bench-study'):folder;await mkdir(reportFolder,{recursive:true});
+const reportFolder=readerAudit?resolve('.lab/reader-revision'):homeOnly?resolve('.lab/meadow-production'):meadowOnly?resolve('.lab/meadow-motion'):benchOnly?resolve('.lab/bench-study'):folder;await mkdir(reportFolder,{recursive:true});
 const profile = await mkdtemp(resolve(reportFolder, 'browser-check-'));
 const pause = ms => new Promise(resolve => setTimeout(resolve, ms));
 const chrome = spawn('C:/Program Files/Google/Chrome/Application/chrome.exe', ['--headless=new', '--no-first-run', '--no-default-browser-check', '--disable-extensions', '--remote-debugging-port=0', '--user-data-dir=' + profile, '--window-size=1440,960', 'about:blank'], { windowsHide: true, stdio: 'ignore' });
@@ -48,7 +49,9 @@ try {
   const evaluate = async expression => { const result = await send('Runtime.evaluate', { expression, awaitPromise: true, returnByValue: true }); if (result.exceptionDetails) throw Error(JSON.stringify(result.exceptionDetails)); return result.result.value; };
   const until = async expression => { for (let i = 0; i < 150; i++) { if (await evaluate(expression)) return; await pause(70); } throw Error('Timed out: ' + expression); };
   await send('Page.enable'); await send('Runtime.enable');
-  if (homeOnly) {
+  if (readerAudit) {
+    await (await import('../../site/scripts/reader-audit.mjs')).run({send,evaluate,until,pause,check,report});
+  } else if (homeOnly) {
     await (await import('../../site/scripts/home-checks.mjs')).run({send,evaluate,until,pause,check,report});
   } else if (meadowOnly) {
     await (await import('./meadow-checks.mjs')).run({send,evaluate,until,pause,check,report});

@@ -12,6 +12,7 @@ const motionToggle=document.querySelector('#motion-toggle');
 let motion,walk,pausedPreference=false;
 function pause(value){pausedPreference=!!value;motion?.pause(pausedPreference);walk?.pause(pausedPreference);}
 async function start(){
+  if(matchMedia('(max-width:700px)').matches){stage.dataset.motion='static-mobile';motionToggle.hidden=true;return;}
   try{
     const {createMeadowMotion}=await import('./meadow-motion.mjs');
     motion=await createMeadowMotion({canvas:document.querySelector('.environment-motion'),art:document.querySelector('.landscape-art'),maskUrl:new URL('motion-mask-v01.png',mediaBase).href,onState(state){
@@ -30,11 +31,14 @@ async function start(){
     console.warn('Environment motion unavailable; showing original artwork.',error.message);
   }
 }
-motionToggle.addEventListener('click',()=>pause(!motion.stats().userPaused));
+motionToggle.addEventListener('click',()=>{if(motion)pause(!motion.stats().userPaused);});
 addEventListener('pagehide',event=>{if(!event.persisted){walk?.destroy();motion?.destroy();}});
-const ready=start();
-const{createMeadowWalk}=await import('./meadow-walk.mjs');
-await ready;
-walk=await createMeadowWalk({stage,mediaBase,art:document.querySelector('.landscape-art'),surface:document.querySelector('.art-surface'),setArtwork:image=>motion?.setArtwork(image)});
-walk.pause(pausedPreference);
-window.__meadowWalk=walk;
+async function setup(){
+ await start();
+ if(matchMedia('(max-width:700px)').matches)return;
+ const{createMeadowStation}=await import('./meadow-station.mjs');
+ walk=createMeadowStation({stage});window.__meadowStation=walk;
+}
+await setup();
+const narrow=matchMedia('(max-width:700px)');
+narrow.addEventListener('change',()=>{if(narrow.matches){walk?.close();motion?.pause(true);}else if(!motion&&!walk)setup();else motion?.pause(pausedPreference);});

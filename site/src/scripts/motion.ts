@@ -17,6 +17,10 @@ function init() {
   const { signal } = ac;
   const root = document.documentElement;
 
+  // Field journals own their chrome/progress/outline lifecycle. Running the old
+  // chrome updater here forces a second full-article layout before enhancement.
+  if (!document.getElementById('production-journal')) {
+
   // 1) 顶栏 data-scrolled（>8px）+ 阅读进度（scaleX，仅 transform，不触发布局）
   const progress = document.querySelector<HTMLElement>('.mt-progress');
   // 进度条挂到 body 直接子级：它在 <main> 内的层叠上下文里时，z-index 压不过顶栏（z-index:10）
@@ -99,6 +103,8 @@ function init() {
     );
     io = observer;
     pending.forEach((el) => observer.observe(el));
+  }
+
   }
 
   // 4) 代码块复制反馈。Expressive Code 成功时会在 [aria-live] 里插入 .feedback；没出现即判失败。

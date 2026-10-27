@@ -1,5 +1,4 @@
 import { createReaderAtmosphere } from './reader-atmosphere.mjs';
-import { chapterSurveys } from './chapter-surveys.mjs';
 import { createLayerPlate } from './layer-plate.mjs';
 
 const host=document.getElementById('production-journal');
@@ -7,10 +6,10 @@ if(host) init();
 function init(){
   const $=id=>document.getElementById(id),chapter=JSON.parse(host.dataset.chapter),article=$('body');
   const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const state={ready:false,errors:[],sections:0,artwork:{status:'loading'},disposed:false};
+  const state={ready:false,errors:[],sections:0,artwork:{status:'ready',mode:'shared-poster',frames:0,disposed:false},disposed:false};
   window.__readingStudy=state;
   const abort=new AbortController(),{signal}=abort;
-  let atmosphere,hero,frame=0,sections=[],current=-1;
+  let atmosphere,frame=0,sections=[],current=-1;
   // Move the existing nodes; Expressive Code and the canonical heading IDs survive.
   const originals=Array.from(article.childNodes);let content,section;
   for(const node of originals){
@@ -55,12 +54,11 @@ function init(){
   $('open-navigation').addEventListener('click',()=>openNavigation(),{signal});
   $('route-book').addEventListener('click',event=>{event.preventDefault();openNavigation();},{signal});
   $('journal-book').hidden=true;
-  for(const id of ['open-navigation','focus','top'])$(id).hidden=false;
+  for(const id of ['open-navigation','focus'])$(id).hidden=false;
   host.querySelector('[data-mt-copy]').hidden=false;
-  function goHeading(event){const anchor=event.target.closest('a[href^="#"]');if(!anchor)return;const target=document.getElementById(decodeURIComponent(anchor.hash.slice(1)));if(!target)return;event.preventDefault();if($('navigation').open)$('navigation').close();target.scrollIntoView({behavior:reduced()?'instant':'smooth',block:'start'});target.tabIndex=-1;target.focus({preventScroll:true});history.replaceState(null,'',anchor.hash);}
+  function goHeading(event){const anchor=event.target.closest('a[href^="#"]');if(!anchor)return;const hash=anchor.getAttribute('href'),target=document.getElementById(decodeURIComponent(hash.slice(1)));if(!target)return;event.preventDefault();if($('navigation').open)$('navigation').close();target.scrollIntoView({behavior:reduced()?'instant':'smooth',block:'start'});target.tabIndex=-1;target.focus({preventScroll:true});history.replaceState(null,'',hash);}
   $('outline-panel').addEventListener('click',goHeading,{signal});$('route-links').addEventListener('click',goHeading,{signal});
   $('focus').addEventListener('click',()=>{const anchor=sections[current]||article;const onBody=scrollY>=$('opening').offsetHeight;const focused=document.body.classList.toggle('focused');$('focus').setAttribute('aria-pressed',String(focused));$('focus').textContent=focused?'完整阅读':'专注阅读';if(onBody||focused)anchor.scrollIntoView({behavior:'instant',block:'start'});schedule();},{signal});
-  $('top').addEventListener('click',()=>$('edge-top').click(),{signal});
   $('production-journal').querySelector('[data-mt-copy]').addEventListener('click',async event=>{
     const button=event.currentTarget,label=button.querySelector('.mt-action-label');
     try{const text=JSON.parse($('mt-raw-md').textContent);if(navigator.clipboard?.writeText)await navigator.clipboard.writeText(text);else{const input=document.createElement('textarea');input.value=text;input.style.cssText='position:fixed;top:-1000px';document.body.append(input);input.select();const ok=document.execCommand('copy');input.remove();if(!ok)throw Error('copy failed');}label.textContent='已复制';$('status').textContent='Markdown 已复制';}
@@ -72,9 +70,9 @@ function init(){
   try{atmosphere=createReaderAtmosphere(sections);}catch(error){state.errors.push(String(error));}
   function routeSize(){document.querySelector('.field-route').classList.toggle('route-flow',document.querySelector('.field-route').scrollHeight>innerHeight-140);}
   addEventListener('resize',routeSize,{signal});routeSize();update();
-  // Three.js and the expensive surfaces load after the complete SSR chapter is usable.
-  import('./surfaces.mjs').then(({mountRelief})=>{if(state.disposed)return;hero=mountRelief($('chapter-art'),chapterSurveys[chapter.slug]);state.artwork=hero.state;}).catch(error=>{state.artwork.status='fallback';state.errors.push(String(error));});
-  function dispose(event){if(event.persisted)return;state.disposed=true;cancelAnimationFrame(frame);abort.abort();atmosphere?.dispose();hero?.dispose();}
+  // Shared baked relief and CSS underlay: reading does not allocate WebGL contexts.
+  $('chapter-art').addEventListener('click',goHeading,{signal});
+  function dispose(event){if(event.persisted)return;state.disposed=true;state.artwork.disposed=true;cancelAnimationFrame(frame);abort.abort();atmosphere?.dispose();}
   addEventListener('pagehide',dispose,{signal});state.ready=true;
   // Existing deep links retain their heading IDs and land after enhancement.
   if(location.hash){try{document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView({behavior:'instant'});}catch{}}

@@ -2,14 +2,16 @@
 import Default from '@astrojs/starlight/components/Footer.astro';
 // 组件会被打包进 dist/.prerender，不能 import site.config.mjs（它按 import.meta.url 相对路径读 book.config.json）。
 const BASE = import.meta.env.BASE_URL.replace(/\/+$/, '');
+const isJournal = /^ch[0-8A]$/.test(Astro.locals.starlightRoute.entry.id);
 ---
 
-<Default><slot /></Default>
+{!isJournal && <><Default><slot /></Default>
 <p class="mt-llms">
   面向 AI / 爬虫：
   <a href={BASE + '/llms.txt'}>llms.txt</a>（章节索引）·
   <a href={BASE + '/llms-full.txt'}>llms-full.txt</a>（全文）
 </p>
+</>}
 
 <style>
   .mt-llms {
