@@ -21,6 +21,7 @@ description: >
 - 技能说明必须含触发条件与边界
 - 权限最小化；变更可追溯
 - 技术中立：原则固定，具体产品可替换
+- **写作检查、形式化、全系统仿真等均非默认依赖**，按明确需要启用
 
 ---
 
@@ -40,7 +41,7 @@ description: >
 
 | 环节 | 最小需要 |
 |------|----------|
-| 意图 | 低歧义表达规范（如 STE 检查）+ 目标/约束/验收模板 |
+| 意图 | 目标/约束/验收模板；表达以「可判定、少歧义」为准（**不强制** STE） |
 | 设计 | 边界/契约模板 + ADR；高风险可加模型检查入口 |
 | 实现 | 语言工具链 + lint/format/类型检查 |
 | 验证 | 按风险与语言：模型检查和/或契约/有界检查（成熟度见验证章） |
@@ -53,14 +54,15 @@ description: >
 - **设计层、语言无关：** TLA+ / PlusCal 等模型检查  
 - **实现层：** 随语言成熟度选择（如 Rust 侧证明/有界检查、C 侧分析与 BMC、Ada SPARK、Go 侧研究型验证器仅限关键模块等）  
 - **测试层：** 各语言 PBT/fuzz 生态；DST 可为自研可插拔仿真或专用仿真平台，不绑定单一厂商  
+- **表达辅助：** 英语 STE 检查类 Skill **可选**；未列入最小集  
 
 ### 安装示例
 
 ```bash
-npx skills add danyuchn/asd-ste100-skill
 npx skills add younes-io/agent-skills --skill tla-check
 npx skills add younes-io/agent-skills --skill tla-proof
 # 语言证明器、fuzz、DST 运行时按项目另行引入
+# STE 检查仅在有明确英语受控写作需求时可选：npx skills add danyuchn/asd-ste100-skill
 ```
 
 ---
@@ -82,6 +84,7 @@ npx skills add younes-io/agent-skills --skill tla-proof
 - [ ] 权限最小化已落实
 - [ ] 无大量长期不用的冗余技能
 - [ ] 重型验证/全系统仿真有明确启用条件，而非默认全开
+- [ ] 可选写作检查器未误设为合入硬门禁（除非团队显式决定）
 
 ---
 
@@ -91,7 +94,7 @@ npx skills add younes-io/agent-skills --skill tla-proof
 2. 同一目的只保留一个主技能或主路径
 3. 工具失败时输出可解释原因
 4. 禁止无限扩装；新增工具要写清替代关系
-5. 不把某一语言或某一仿真产品写死进流程正文
+5. 不把某一语言、某一仿真产品或某一写作标准写死进流程正文
 
 ---
 
@@ -101,3 +104,4 @@ npx skills add younes-io/agent-skills --skill tla-proof
 - Skill 负责规范与触发，CLI/MCP 负责能力，CI 负责强制
 - 最小、稳定、可审计，优于大而全
 - 验证与 DST 等重型能力**按风险启用**，并承认语言生态差异
+- 表达辅助工具是建议项，不是意图或验证的前置依赖
