@@ -59,6 +59,9 @@ export default defineConfig({
         PageTitle: './src/components/PageTitle.astro',
         Footer: './src/components/Footer.astro',
         Sidebar: './src/components/Sidebar.astro',
+        PageFrame: './src/components/JournalFrame.astro',
+        TwoColumnContent: './src/components/JournalColumns.astro',
+        MarkdownContent: './src/components/JournalContent.astro',
       },
       sidebar: [
         {

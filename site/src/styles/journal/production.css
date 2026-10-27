@@ -1,0 +1,102 @@
+/* Integration rules; the accepted preview typography remains in the adjacent sheets. */
+html[data-reader=journal]{scroll-padding-top:100px}
+body.field-journal{--sl-color-white:var(--rd-ink);--sl-color-text:var(--rd-ink);--sl-color-gray-2:var(--rd-ink);--sl-color-gray-3:var(--rd-muted);--sl-color-accent-high:var(--rd-copper);--sl-color-bg:var(--rd-paper);--mt-line:var(--rd-line);--mt-line-strong:var(--rd-line);--mt-code-bg:#14252b;--mt-surface:var(--rd-panel);background:var(--rd-paper);color:var(--rd-ink)}
+#production-journal main{padding:0!important;min-width:0}
+#production-journal .content-panel{padding:0;border:0}
+#production-journal .sl-container{max-width:none;margin:0}
+#production-journal .sl-container>*+*{margin-top:0}
+#production-journal .reader-chrome{top:0;isolation:isolate}
+#production-journal .reader-chrome nav{align-items:center;gap:16px}
+#production-journal .reader-chrome nav>button{white-space:nowrap;flex-shrink:0}
+#production-journal .reader-chrome site-search{width:auto;flex:none}
+#production-journal .reader-chrome site-search kbd{display:none!important}
+#production-journal .reader-chrome site-search button{white-space:nowrap}
+#production-journal .reader-chrome .brand{flex-shrink:0}
+#production-journal .reader-chrome site-search button{border:0;background:transparent;min-width:44px;color:inherit;padding:8px;box-shadow:none}
+#production-journal site-search dialog{max-width:min(90vw,760px);color:var(--rd-ink);background:var(--rd-paper);z-index:100}
+#production-journal site-search .dialog-frame{padding:16px}
+#production-journal .reader-chrome starlight-theme-select{font-size:12px;color:inherit}
+#production-journal .reader-chrome starlight-theme-select{flex-shrink:0}
+#production-journal .reader-chrome starlight-theme-select select{color:inherit;min-height:44px}
+#production-journal .reader-chrome starlight-theme-select option{background:var(--rd-paper);color:var(--rd-ink)}
+#production-journal .running-title{min-width:0}
+#production-journal .chapter-opening.survey-opening{background:#101d21}
+#production-journal .survey-opening .chapter-art{z-index:-1}
+#production-journal .chapter-art .relief-canvas{width:100%;height:100%;display:block}
+#production-journal .chapter-art svg{position:absolute;inset:0}
+#production-journal .chapter-art.relief-ready>svg{visibility:hidden}
+#production-journal .survey-opening .opening-copy::before{content:'';position:absolute;inset:-40px -30px -30px;z-index:-1;background:linear-gradient(#101d21df,#101d2170,transparent);pointer-events:none}
+#production-journal .survey-opening .opening-copy{pointer-events:none}
+#production-journal .survey-opening .begin{pointer-events:auto}
+#production-journal .section-content :is(h2,h3,h4,p,li){color:var(--rd-ink)}
+#production-journal .section-content h2{scroll-margin-top:110px}
+#production-journal .section-content .field-plate :is(h3,p,li){color:#e5e8dc}
+#production-journal .section-content .expressive-code{max-width:100%;margin-block:24px}
+#production-journal .section-content .expressive-code pre{padding:var(--ec-codePadBlock) 0;border-left:0;line-height:var(--ec-codeLineHt);font-size:var(--ec-codeFontSize)}
+#production-journal .section-content .expressive-code .copy{display:block}
+#production-journal .sl-markdown-content :is(h2,h3,h4){max-width:none}
+#production-journal .field-route{font-size:13px}
+#route-links{display:grid;gap:16px;margin-top:30px}
+#route-links a{display:grid;grid-template-columns:24px 1fr;gap:10px;text-decoration:none;line-height:1.8;min-height:44px}
+#route-links a span{color:var(--rd-copper);font:11px/2 var(--rd-mono)}
+#route-links a strong{font-weight:500;font-size:14px}
+#route-links a[aria-current]{color:var(--rd-copper)}
+#production-journal .field-route.route-flow{position:static}
+#production-journal .sl-container>footer{padding-top:40px;color:var(--rd-muted)}
+.journal-book{max-width:var(--jn-spread);width:calc(100% - 2 * var(--jn-page-pad));margin:30px auto 80px;border-top:1px solid var(--rd-line);padding-top:25px}
+.journal-book nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 30px;margin-top:20px}
+.journal-book nav a{min-height:44px;display:flex;align-items:center;gap:18px;font-size:14px;border-bottom:1px solid var(--rd-line);text-decoration:none}
+.journal-book nav a span{font:11px var(--rd-mono);color:var(--rd-copper)}
+.journal-book[hidden]{display:none}
+.journal-copy{border-bottom:1px solid var(--rd-line);color:var(--rd-copper)}
+body.field-journal.over-survey .reader-chrome{background:#101d21;color:#e5e8dc;--sl-color-gray-2:#c0cbc1;--sl-color-white:#e5e8dc;--sl-color-gray-1:#e5e8dc}
+body.field-journal .reading-veil{background:#f7f9f685}
+body.field-journal.focused #production-journal .field-route{display:none}
+html[data-theme=dark] body.field-journal{--rd-paper:#17262c;--rd-panel:#21363c;--rd-ink:#e5e8dc;--rd-muted:#bdc9c4;--rd-line:#516a70;--rd-copper:#f0bc7b;--scroll-track:#17262c}
+html[data-theme=dark] body.field-journal .reading-veil{background:#17262ce6}
+html[data-theme=dark] body.field-journal .ink-atmosphere{opacity:.18}
+html[data-theme=dark] body.field-journal :is(.edge-tools,.edge-panel){background:#17262cf5}
+html[data-theme=dark] body.field-journal #navigation{background:var(--rd-paper);color:var(--rd-ink)}
+@media(max-width:1100px){#production-journal .running-title{display:none}}
+@media(max-width:760px){
+ #production-journal .reader-chrome{height:auto;min-height:104px;flex-wrap:wrap;gap:0 12px;padding-block:8px}
+ #production-journal .reader-chrome .brand{font-size:14px}
+ #production-journal .reader-chrome .brand span{display:none}
+ #production-journal .reader-chrome nav{justify-content:flex-end;gap:12px;flex:1;flex-wrap:wrap;font-size:11px}
+ #production-journal .reader-chrome{display:grid;grid-template-columns:1fr auto;min-height:104px}
+ #production-journal .reader-chrome nav{display:grid;grid-template-columns:44px auto auto;gap:0 12px}
+ #production-journal .reader-chrome nav starlight-theme-select{grid-column:2 / 4;grid-row:1;max-width:none}
+ #production-journal .reader-chrome nav #motion-toggle{grid-row:2;grid-column:1}
+ #production-journal .reader-chrome nav #focus{grid-row:2;grid-column:2}
+ #production-journal .reader-chrome nav #open-navigation{grid-row:2;grid-column:3}
+ #production-journal .reader-chrome nav site-search span,#production-journal .reader-chrome nav site-search kbd{display:none!important}
+ #production-journal .reader-chrome nav starlight-theme-select{max-width:85px}
+ #production-journal .reader-chrome nav button{min-height:44px}
+ #production-journal .reading-spread{display:block}
+ #production-journal .field-route{display:block;padding-block:18px}
+ #route-links{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:10px}
+ #route-links a{display:flex;gap:8px;max-width:100%;min-height:44px;align-items:center}
+ #route-links a strong{font-size:12px;white-space:normal}
+ #production-journal .chapter-art figcaption{max-width:80%}
+ #production-journal .chapter-art .relief-canvas{position:absolute;inset:20% 0 0;height:80%}
+ .journal-book nav{grid-template-columns:1fr}
+ #production-journal .section-content .expressive-code{width:100%;min-width:0}
+}
+@media print{
+ .reader-chrome,.field-route,.edge-contents,.ink-atmosphere,.reading-veil,#navigation,.journal-book,.chapter-art,.journal-copy{display:none!important}
+ body.field-journal{--rd-paper:white;--rd-ink:black;background:white;color:black}
+ #production-journal .chapter-opening.survey-opening{height:auto;min-height:0;background:white;color:black;padding:20px 0}
+ #production-journal .survey-opening .opening-copy{display:block}
+ #production-journal .survey-opening .begin{display:none}
+ #production-journal .reading-spread{display:block;width:100%;max-width:none}
+ #production-journal .article-section{display:block;break-inside:auto}
+}
+@media(scripting:none){
+ body:has(#production-journal){background:#f7f9f6;color:#202e33;--sl-color-white:#202e33;--sl-color-gray-2:#202e33;--sl-color-gray-3:#515f61;--sl-color-text:#202e33}
+ #production-journal .reading-spread{display:block;max-width:78ch;width:calc(100% - 48px);margin:auto}
+ #production-journal .chapter-opening{background:#101d21;color:#e5e8dc;padding:30px 24px}
+ #production-journal .chapter-art{position:relative!important;min-height:240px}
+ #production-journal #body{font-size:17px;line-height:1.95}
+ #production-journal .field-route{position:static}
+ #production-journal .reader-chrome{background:#101d21;color:#e5e8dc}
+}

@@ -1,0 +1,5 @@
+---
+import Default from '@astrojs/starlight/components/MarkdownContent.astro';
+const chapter=/^ch[0-8A]$/.test(Astro.locals.starlightRoute.entry.id);
+---
+{chapter ? <article id="body" class="article sl-markdown-content" tabindex="-1"><slot /></article> : <Default><slot /></Default>}

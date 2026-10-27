@@ -1,0 +1,5 @@
+---
+import Default from '@astrojs/starlight/components/TwoColumnContent.astro';
+const chapter=/^ch[0-8A]$/.test(Astro.locals.starlightRoute.entry.id);
+---
+{chapter ? <slot /> : <Default><slot /><slot name="right-sidebar" slot="right-sidebar" /></Default>}
