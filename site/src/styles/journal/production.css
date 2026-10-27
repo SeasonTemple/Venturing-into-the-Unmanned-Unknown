@@ -248,3 +248,11 @@ body.field-journal.over-survey #production-journal :is(.reader-chrome,.chapter-t
  @view-transition{navigation:none}
  ::view-transition-old(root),::view-transition-new(root){animation:none}
 }
+
+/* Theme selection keeps a fine keyboard cue within the toolbar rhythm. */
+#production-journal .reader-chrome starlight-theme-select select:focus{outline:none;box-shadow:none}
+#production-journal .reader-chrome starlight-theme-select label::after{content:'';position:absolute;inset:auto 0 3px;height:1px;background:var(--chrome-accent);opacity:0;transform:scaleX(.7);transition:opacity .16s ease,transform .16s ease;pointer-events:none}
+#production-journal .reader-chrome starlight-theme-select label:has(select:focus-visible)::after{opacity:1;transform:scaleX(1)}
+body.field-journal.over-survey #production-journal starlight-theme-select{color-scheme:dark}
+@media(prefers-reduced-motion:reduce){#production-journal .reader-chrome starlight-theme-select label::after{transition:none}}
+@media(forced-colors:active){#production-journal .reader-chrome starlight-theme-select select:focus-visible{outline:1px solid Highlight;outline-offset:2px}}
