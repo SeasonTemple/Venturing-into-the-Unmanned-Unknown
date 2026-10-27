@@ -1,0 +1,77 @@
+{
+  "source": "hero-v04.webp",
+  "sourceSha256": "7f799e726a758af65aed2fe3c886f539e2670cb92c97ad7aca97109601ed91c2",
+  "route": [
+    [
+      1254,
+      858
+    ],
+    [
+      1120,
+      887
+    ],
+    [
+      990,
+      917
+    ],
+    [
+      908,
+      932
+    ],
+    [
+      771,
+      903
+    ],
+    [
+      675,
+      884
+    ],
+    [
+      621,
+      840
+    ],
+    [
+      571,
+      818
+    ],
+    [
+      506,
+      816
+    ],
+    [
+      457,
+      808
+    ],
+    [
+      414,
+      800
+    ],
+    [
+      370,
+      795
+    ]
+  ],
+  "station": {
+    "x": 1254,
+    "y": 858
+  },
+  "target": {
+    "x": 370,
+    "y": 795
+  },
+  "idle": {
+    "file": "engineer-idle-v01.png",
+    "width": 100,
+    "height": 195,
+    "anchor": [
+      44,
+      182
+    ],
+    "bodyHeight": 174
+  },
+  "plate": "walk-plate-v01.webp",
+  "poster": "hero-route-v01.webp",
+  "foreground": "walk-foreground-v01.png",
+  "method": "Source-pixel cutout with a manual silhouette; local grass clone with exterior feather and porch reconstruction; restrained worn route; original cart foreground cutout. No scene regeneration.",
+  "scope": "Bounded 2D layered exploration in the original painting; no free 3D camera."
+}

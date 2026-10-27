@@ -1,0 +1,4 @@
+interface:
+  display_name: "叙事像素美术"
+  short_description: "按不同题材制作具有清晰像素色块、绘画式光色与空间层次的原创场景和角色"
+  default_prompt: "使用 $unmapped-pixel-art，按我给出的题材和用途制作具有清晰像素色块、绘画式光色与空间层次的原创美术。"

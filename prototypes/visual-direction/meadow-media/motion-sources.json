@@ -1,0 +1,26 @@
+{
+  "source": "hero-v03.jpg",
+  "sourceSha256": "58a16e95a6c4c59a67dbc73f49c63c1632c1b002cad6385e4187d5afe5d47de3",
+  "refined": "hero-v04.webp",
+  "refinedSha256": "7f799e726a758af65aed2fe3c886f539e2670cb92c97ad7aca97109601ed91c2",
+  "width": 1920,
+  "height": 1080,
+  "refinedBytes": 295372,
+  "method": "Original approved artwork with local pixel retouches and independent motion data masks; no new AI generation.",
+  "edits": [
+    "A restrained field recorder at the existing right hand; original anatomy, feet and pose retained.",
+    "A recessed rover service port with a cable that terminates at a bench connector."
+  ],
+  "mask": {
+    "file": "motion-mask-v01.png",
+    "width": 960,
+    "height": 540,
+    "channels": {
+      "r": "sky, roof and mast excluded",
+      "g": "water colour within water regions",
+      "b": "selected grass clumps with fixed roots"
+    },
+    "character": "Static; local torso displacement removed after visual feedback."
+  },
+  "runtime": "One WebGL draw, two textures, <=24fps; raster fallback; not a navigable scene."
+}

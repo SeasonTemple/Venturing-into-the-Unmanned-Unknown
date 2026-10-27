@@ -4,12 +4,16 @@
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import home from '../generated/home.json';
 import CopyCommand from '../components/CopyCommand.astro';
-import HeroScene from '../components/hero/HeroScene.astro';
+import MeadowHero from '../components/MeadowHero.astro';
 import { stages } from '../lib/stages';
 import { getLatestRelease, formatSize } from '../lib/release';
 import llmsTxt from '../generated/llms.txt?raw';
 import llmsFull from '../generated/llms-full.txt?raw';
 import '../styles/home.css';
+import '../styles/meadow/meadow-study.css';
+import '../styles/meadow/meadow-motion.css';
+import '../styles/meadow/meadow-walk.css';
+import '../styles/meadow/production.css';
 
 const BASE = import.meta.env.BASE_URL.replace(/\/+$/, '');
 const chapters = home.chapters;
@@ -43,30 +47,16 @@ const agentFiles = [
     lastUpdated: false,
   }}
 >
-  <div class="mt-home not-content">
-    <section class="mt-hero mt-scene-hero" aria-labelledby="mt-title">
-      <HeroScene />
-      <div class="mt-scene-scrim" aria-hidden="true"></div>
-      <div class="mt-hero-copy">
-        <p class="mt-eyebrow">
-          <span>{home.version}</span><i aria-hidden="true">·</i><span>{home.license}</span><i aria-hidden="true">·</i><span>{chapters.length} 章</span>
-        </p>
-        <h1 id="mt-title" class="mt-display">
-          <span class="mt-display-main">{zhMain}</span>
-          <span class="mt-display-sub">{zhSub}</span>
-        </h1>
-        <p class="mt-en" lang="en">{home.title}</p>
-        <p class="mt-lede">{home.tagline}</p>
-        <div class="mt-cta">
-          <a class="mt-btn mt-btn-primary" href={BASE + '/' + first.slug + '/'}>开始阅读<span class="mt-arrow" aria-hidden="true">→</span></a>
-          <a class="mt-btn mt-btn-secondary" href="#chapters">浏览章节</a>
-        </div>
+  <div class="mt-home meadow-home not-content">
+    <MeadowHero firstHref={BASE+'/'+first.slug+'/'} />
+    <section class="home-introduction" aria-label="关于本书">
+      <div><p class="mt-eyebrow"><span>{home.version}</span><i aria-hidden="true">·</i><span>{home.license}</span><i aria-hidden="true">·</i><span>{chapters.length} 章</span></p><p class="mt-lede">{home.tagline}</p><a href={home.github} class="home-repository">GitHub 仓库 ↗</a></div>
+      <div id="install">
         <CopyCommand
           lines={['git clone ' + home.github + '.git && cd ' + repoName + ' && cp -R skills/* .claude/skills/']}
           comment="完整步骤见 README"
         />
       </div>
-      <a class="mt-scroll" href="#chapters" aria-label="向下滚动到章节">SCROLL</a>
     </section>
 
     <section class="mt-section" id="chapters" aria-labelledby="mt-h-chapters">

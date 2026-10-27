@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#e5e8df">
+  <title>原野观测站 · 首页视觉稿</title>
+  <link rel="stylesheet" href="./meadow-study.css">
+  <link rel="stylesheet" href="./meadow-motion.css">
+  <link rel="stylesheet" href="./meadow-walk.css">
+  <script type="module" src="./meadow-study.mjs"></script>
+</head>
+<body>
+  <a class="skip" href="#cast">跳到角色参考</a>
+  <main>
+    <section class="landscape" aria-labelledby="book-title">
+      <div class="art-surface">
+        <img class="landscape-art" src="./meadow-media/hero-v04.webp" width="1920" height="1080" alt="雨后开阔草原上的观测站，工程人员手持记录器，巡检载体在檐下接入维护工位，草地与水道通向远处测点。" fetchpriority="high">
+        <canvas class="environment-motion" aria-hidden="true"></canvas>
+        <span id="field-pin" class="field-pin" hidden>01<span>临水测点</span></span>
+      </div>
+      <header class="masthead">
+        <a class="wordmark" href="#book-title">无人区 <span>FIELD NOTES</span></a>
+        <nav aria-label="预览导航">
+          <button id="motion-toggle" type="button" aria-pressed="false" hidden>暂停动态</button>
+          <button id="art-only" type="button" aria-pressed="false">只看画面</button>
+          <a href="#cast">人物与载体 <span aria-hidden="true">↓</span></a>
+        </nav>
+      </header>
+      <div class="title-block">
+        <p class="eyebrow">AI 原生软件工程指南</p>
+        <h1 id="book-title">迈向<br>无人区<span>。</span></h1>
+        <p class="theme">在局部建立秩序，<br>向尚未测绘的地方继续。</p>
+        <div class="entry-links"><button id="enter-field" type="button">进入观测站 <span aria-hidden="true">→</span></button><a class="read-link" href="/Venturing-into-the-Unmanned-Unknown/ch0/">直接阅读 <span aria-hidden="true">↗</span></a></div>
+        <p id="field-load-error" hidden>场景素材暂时未能载入，请重试或直接阅读。</p>
+      </div>
+      <aside id="field-note" class="field-note" aria-labelledby="note-title" hidden>
+        <p class="eyebrow">场景手记 · 01</p>
+        <h2 id="note-title">位置对不上。</h2>
+        <p>旧记录把测点标在水道东侧，眼前的旧桩却在西岸。先记下这个偏差，地图还不能据此延伸。</p>
+        <span class="note-margin">下一步：沿水道寻找第二处参照。</span>
+      </aside>
+      <div id="field-controls" class="field-controls" hidden>
+        <div class="field-status-wrap"><p id="field-status" role="status" aria-live="polite"></p><progress id="field-progress" max="1" value="0" aria-label="到临水测点的行进进度"></progress></div>
+        <div class="field-buttons"><button id="field-action" type="button">前往测点</button><a href="/Venturing-into-the-Unmanned-Unknown/ch0/">翻开手记 ↗</a><button id="field-exit" type="button">回到首屏</button></div>
+      </div>
+      <p class="scene-caption"><span>原野观测站 · 雨后风起</span><span>首页体验稿 / 03</span></p>
+    </section>
+    <section class="cast-section" id="cast" aria-labelledby="cast-title">
+      <div class="section-intro">
+        <p class="eyebrow">人物与作业载体</p>
+        <h2 id="cast-title">在同一个场所，各有具体的工作。</h2>
+        <p>沿用首屏人物的脸、服装与工具，拆分肢体制作行走和查阅动作。先完成檐下到临水测点的一段，再扩展载体的作业。</p>
+      </div>
+      <figure>
+        <div class="action-study" role="img" aria-label="取自首屏原画的行走、站立与查阅记录器三个完整人物姿态。"><span class="action-preview pose-walk"></span><span class="action-preview pose-idle"></span><span class="action-preview pose-check"></span><span>负重行走</span><span>停步</span><span>核对记录</span></div>
+        <figcaption>原画拆件动作 · 固定侧前方视角，人物与随身装备保持同一套像素来源。</figcaption>
+      </figure>
+      <div class="next-step"><p>这一段可从檐下走到临水测点，经过器材遮挡，再停步查阅。当前是固定取景的二维分层试作；更远的道路、载体作业和天气变化仍待制作。</p><a href="./meadow-art-brief.md">查看制作规格 ↗</a></div>
+    </section>
+  </main>
+</body>
+</html>

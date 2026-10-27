@@ -1,0 +1,150 @@
+{
+  "retrieved": "2026-10-27",
+  "scope": "Official developer/publisher supplied Steam store screenshots. Visual reference only; not project assets. No gameplay sessions or video viewing.",
+  "processing": "Original JPEG bytes retained; no recoloring, cropping or pixel-art conversion.",
+  "images": [
+    {
+      "id": "eastward-1",
+      "game": "Eastward",
+      "developer": "Pixpil",
+      "sourcePage": "https://store.steampowered.com/app/977880/",
+      "official": "https://eastwardgame.com/",
+      "original": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_5d50545b49db3a8502666b4195d2fabd0e31a29d.1920x1080.jpg?t=1782290198",
+      "local": "eastward-1.jpg",
+      "bytes": 680772,
+      "sha256": "821fcc0482614f701d01f4bc67a0fe94a0ed0c3eac487827731ec09953864237"
+    },
+    {
+      "id": "eastward-2",
+      "game": "Eastward",
+      "developer": "Pixpil",
+      "sourcePage": "https://store.steampowered.com/app/977880/",
+      "official": "https://eastwardgame.com/",
+      "original": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_b3512f7576dbdd1e35dd3fb27a04f29174efb00d.1920x1080.jpg?t=1782290198",
+      "local": "eastward-2.jpg",
+      "bytes": 483653,
+      "sha256": "78c57bd9f12e3d0264c30d2bd234ef17c4e0c9b7a8f032f5c5aac1fc1129c768"
+    },
+    {
+      "id": "hyper-light-drifter-1",
+      "game": "Hyper Light Drifter",
+      "developer": "Heart Machine",
+      "sourcePage": "https://store.steampowered.com/app/257850/",
+      "official": "http://heartmachine.com",
+      "original": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257850/ss_e786b1d9c66eb9c61e4da2945fe1d9faeb2af736.1920x1080.jpg?t=1762899660",
+      "local": "hyper-light-drifter-1.jpg",
+      "bytes": 240077,
+      "sha256": "8da75724701faae1ebdc4ef3c1c9f537439125a1854f13fd928b23c7a80a6207"
+    },
+    {
+      "id": "hyper-light-drifter-2",
+      "game": "Hyper Light Drifter",
+      "developer": "Heart Machine",
+      "sourcePage": "https://store.steampowered.com/app/257850/",
+      "official": "http://heartmachine.com",
+      "original": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257850/ss_19c973259b736f14c4541ba044f3761b39a18737.1920x1080.jpg?t=1762899660",
+      "local": "hyper-light-drifter-2.jpg",
+      "bytes": 245606,
+      "sha256": "5ab97512ceb9a4e5b443ff419b63ae46cc3e40c637b0450b76b8f5e79f0aae24"
+    },
+    {
+      "id": "lunark-1",
+      "game": "LUNARK",
+      "developer": "Canari Games",
+      "sourcePage": "https://store.steampowered.com/app/1050370/",
+      "official": "http://www.canarigames.com/homepage/games/",
+      "original": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1050370/ss_6e1b4e13d746e5f3f406e026bf56a8d978e82aa5.1920x1080.jpg?t=1727814234",
+      "local": "lunark-1.jpg",
+      "bytes": 254948,
+      "sha256": "8cac8a7092bb7981bb8e4df8e3b3bf272e1f2784629f5da2b36712f92599a8f0"
+    },
+    {
+      "id": "lunark-2",
+      "game": "LUNARK",
+      "developer": "Canari Games",
+      "sourcePage": "https://store.steampowered.com/app/1050370/",
+      "official": "http://www.canarigames.com/homepage/games/",
+      "original": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1050370/ss_5538b2f1f98f3e1bbd9a4c063d18aabae4335d45.1920x1080.jpg?t=1727814234",
+      "local": "lunark-2.jpg",
+      "bytes": 312097,
+      "sha256": "f903349f7428b68e77807e0596a39aaae385340828cd0ab43585e06f1b654c8a"
+    },
+    {
+      "id": "replaced-1",
+      "game": "REPLACED",
+      "developer": "Sad Cat Studios",
+      "sourcePage": "https://store.steampowered.com/app/1663850/",
+      "official": "https://playreplaced.com/",
+      "original": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1663850/b6cd61c464ea2dfbd5ae1f306b986944911b21c6/ss_b6cd61c464ea2dfbd5ae1f306b986944911b21c6.1920x1080.jpg?t=1790232942",
+      "local": "replaced-1.jpg",
+      "bytes": 241799,
+      "sha256": "23530dda3ac1c2257f814e5e72eee83a08fe27338bb91b68904a5e8ce7591ccf"
+    },
+    {
+      "id": "replaced-2",
+      "game": "REPLACED",
+      "developer": "Sad Cat Studios",
+      "sourcePage": "https://store.steampowered.com/app/1663850/",
+      "official": "https://playreplaced.com/",
+      "original": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1663850/a70da3ddecce98827ea3a5c05aa2817ff441d504/ss_a70da3ddecce98827ea3a5c05aa2817ff441d504.1920x1080.jpg?t=1790232942",
+      "local": "replaced-2.jpg",
+      "bytes": 318453,
+      "sha256": "6cd38abdb955b785288cec220449c6e99541618308a1c5f7661c4a91a34e4d2b"
+    },
+    {
+      "id": "signalis-1",
+      "game": "SIGNALIS",
+      "developer": "rose-engine",
+      "sourcePage": "https://store.steampowered.com/app/1262350/",
+      "official": "http://rose-engine.org/signalis/",
+      "original": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1262350/ss_a2603694154878b8260c1dd498a06168cad012a4.1920x1080.jpg?t=1773697315",
+      "local": "signalis-1.jpg",
+      "bytes": 390704,
+      "sha256": "3afad8bd0857f7d4e282535a7c46bc145feaedd87e1f8dd641ac9ae022fb0027"
+    },
+    {
+      "id": "signalis-2",
+      "game": "SIGNALIS",
+      "developer": "rose-engine",
+      "sourcePage": "https://store.steampowered.com/app/1262350/",
+      "official": "http://rose-engine.org/signalis/",
+      "original": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1262350/ss_9d602346170b19121e4baec94f5fab54cc43637c.1920x1080.jpg?t=1773697315",
+      "local": "signalis-2.jpg",
+      "bytes": 276513,
+      "sha256": "2b0460d03978cc80e53935d2bd8427e4be69bb442f00afd162f02e99e06a9731"
+    },
+    {
+      "id": "eastward-5",
+      "game": "Eastward",
+      "developer": "Pixpil",
+      "sourcePage": "https://store.steampowered.com/app/977880/",
+      "official": "https://eastwardgame.com/",
+      "original": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_fc97f011126b32f77cbb66a9dc59e22cc353c2b8.1920x1080.jpg?t=1782290198",
+      "local": "eastward-5.jpg",
+      "bytes": 282833,
+      "sha256": "7d5b55becf1400899e0e155e244dc6a2f6e4bb915b056d37491a17c5e8438530"
+    },
+    {
+      "id": "eastward-8",
+      "game": "Eastward",
+      "developer": "Pixpil",
+      "sourcePage": "https://store.steampowered.com/app/977880/",
+      "official": "https://eastwardgame.com/",
+      "original": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_bf8d65929d363f1b62f632d934eda94ef5188049.1920x1080.jpg?t=1782290198",
+      "local": "eastward-8.jpg",
+      "bytes": 669614,
+      "sha256": "914bd28679dc7f6c5909497b4612d771b77fc0cc183f8c43405ad3ad188f8849"
+    },
+    {
+      "id": "hyper-light-drifter-8",
+      "game": "Hyper Light Drifter",
+      "developer": "Heart Machine",
+      "sourcePage": "https://store.steampowered.com/app/257850/",
+      "official": "http://heartmachine.com",
+      "original": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257850/ss_6b876e2b77aaf45cf65e6dd3f8e62df4f5128351.1920x1080.jpg?t=1762899660",
+      "local": "hyper-light-drifter-8.jpg",
+      "bytes": 261791,
+      "sha256": "26979722072c75e988f8f1d0084fef8e85b694a80c6254257a2cac9b04cad81d"
+    }
+  ]
+}

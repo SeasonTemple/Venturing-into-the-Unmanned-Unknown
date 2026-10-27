@@ -1,0 +1,71 @@
+{
+  "retrieved": "2026-10-27",
+  "purpose": "Original work reference for the independent design study; not assets for the production homepage.",
+  "processing": "Proportional resize to maximum width 1200; WebP quality 84. No cropping, recoloring, watermark removal, or compositing.",
+  "images": [
+    {
+      "id": "jusant-1",
+      "original": "https://dont-nod.com/wp-content/uploads/2023/06/ASC_Screenshot_Gameplay1-1024x576.png",
+      "sourcePage": "https://dont-nod.com/en/games/jusant/",
+      "local": "jusant-1.webp",
+      "bytes": 110726,
+      "sha256": "a6cd8c628c433dc6cda34ba59c45f59e98a2e41c9dc318e6ae260ba7ff316f25"
+    },
+    {
+      "id": "jusant-7",
+      "original": "https://dont-nod.com/wp-content/uploads/2023/06/ASC_Screenshot_Gameplay7-1024x576.png",
+      "sourcePage": "https://dont-nod.com/en/games/jusant/",
+      "local": "jusant-7.webp",
+      "bytes": 29360,
+      "sha256": "eeb58d46b550d84fff4d196987c1b67a21c367a31e9e305e44eb3cebde411785"
+    },
+    {
+      "id": "jusant-10",
+      "original": "https://dont-nod.com/wp-content/uploads/2023/06/ASC_Screenshot_Gameplay10-1024x576.png",
+      "sourcePage": "https://dont-nod.com/en/games/jusant/",
+      "local": "jusant-10.webp",
+      "bytes": 79610,
+      "sha256": "f4951bb7bac06f0d9e66b4795ae01db00b74bcd70af6446f32b58eac1af7018e"
+    },
+    {
+      "id": "inside-1",
+      "original": "https://playdead.com/css/img/inside/screenshots/INSIDE_01.jpg",
+      "sourcePage": "https://playdead.com/games/inside/",
+      "local": "inside-1.webp",
+      "bytes": 17306,
+      "sha256": "374d32d30802008359aca1fb8a657cd04e345e6a5e870585617e57893b8c0aa4"
+    },
+    {
+      "id": "inside-6",
+      "original": "https://playdead.com/css/img/inside/screenshots/INSIDE_06.jpg",
+      "sourcePage": "https://playdead.com/games/inside/",
+      "local": "inside-6.webp",
+      "bytes": 23108,
+      "sha256": "a4d4bbbafc2601ace95c92de8f7b336ab673948bfc78f9a4aad5b333bbea59f6"
+    },
+    {
+      "id": "ds-world",
+      "original": "https://gmedia.playstation.com/is/image/SIEPDC/death-stranding-overview-section-background-desktop-tablet-01-ps4-en-22may19?$1200px$",
+      "sourcePage": "https://www.playstation.com/en-us/games/death-stranding/",
+      "local": "ds-world.webp",
+      "bytes": 68186,
+      "sha256": "856e34b79b3aaec4882af8efd897de62d9fcf918ed8ab4f979693c22aa3f772c"
+    },
+    {
+      "id": "ds-equipment",
+      "original": "https://gmedia.playstation.com/is/image/SIEPDC/death-stranding-directors-cut-screenshot-02-announce-en-04may21?$1200px$",
+      "sourcePage": "https://www.playstation.com/en-us/games/death-stranding/",
+      "local": "ds-equipment.webp",
+      "bytes": 106526,
+      "sha256": "f2db848899b6144173b8cddf47da5b56ea51b6e077dd538f30b92ef97dbc27f7"
+    },
+    {
+      "id": "ds-bridge",
+      "original": "https://gmedia.playstation.com/is/image/SIEPDC/death-stranding-directors-cut-chiral-bridges-screen-01-ps5-en-22sep21?$1200px$",
+      "sourcePage": "https://www.playstation.com/en-us/games/death-stranding/",
+      "local": "ds-bridge.webp",
+      "bytes": 182098,
+      "sha256": "b1ead2a3feea1698c907ffe39765ec6173ad3cc9e69aced0b27e52aab0d9b8b9"
+    }
+  ]
+}

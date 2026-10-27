@@ -1,0 +1,15 @@
+{
+  "created": "2026-10-27",
+  "provider": "MiniMax via mmx-cli (OAuth)",
+  "model": "image-01",
+  "identityReference": "engineer-reference-v01.png",
+  "referenceSource": "hero-v03.jpg: crop (1210,676,100,195), nearest resize to 400x780",
+  "candidates": [
+    {"file": "walk-sheet-v01.jpg", "prompt": "../meadow-prompts/walk-sheet-v01.txt", "seed": 271032, "requestedSize": [1536,1024], "selected": false, "reason": "Requested eight frames; output seven figures with child proportions and inconsistent toolbox."},
+    {"file": "walk-sheet-v02.jpg", "prompt": "../meadow-prompts/walk-sheet-v02.txt", "seed": 271033, "requestedSize": [1536,768], "selected": false, "reason": "Requested six walking phases; output five photographic figures, mixed directions and disappearing toolbox."}
+  ],
+  "selectedMethod": "Original-art articulated cutout; no pixels from either generated candidate are used at runtime.",
+  "build": "../meadow-rig-assets.mjs",
+  "atlas": "engineer-actions-v03.png",
+  "runtimeScope": "Fixed-camera layered 2D route. One twelve-frame walk cycle, standing and recorder-check poses; not a multi-directional character set."
+}
