@@ -5,10 +5,12 @@ export async function run({send,evaluate,until,pause,check,report}){
  check('production home has one approved painting, title and navigation',await evaluate('document.querySelectorAll(".landscape").length===1&&document.querySelectorAll("h1").length===1&&!document.querySelector(".page>.header")&&document.querySelector(".landscape-art").naturalWidth===1920&&document.querySelectorAll("site-search").length===1'));
  check('reading, ten chapters, install, releases and text indexes remain available',await evaluate('document.querySelectorAll("#chapters .mt-cell").length===10&&!!document.querySelector("[data-mt-cmd-copy]")&&[...document.querySelectorAll(".mt-rows a")].some(a=>a.href.endsWith("llms.txt"))&&!!document.querySelector(".read-link[href*=ch0]")'));
  check('unreviewed directional animation and old three.js hero are not loaded',await evaluate('!window.__meadowWalk&&!document.querySelector(".field-actor")&&!performance.getEntriesByType("resource").some(e=>/three\.|HeroScene|hero-gate|engineer-actions|meadow-walk/.test(e.name))'));
- const before=await evaluate('window.__meadowMotion.stats()');await pause(1000);const after=await evaluate('window.__meadowMotion.stats()');
- check('desktop environment retains bounded draws and texture sizes',after.frames>before.frames&&after.frames-before.frames<=25&&after.textureCount===2&&after.buffer[0]<=1440,{frames:after.frames-before.frames,buffer:after.buffer});
+ await pause(500);const before=await evaluate('window.__meadowMotion.stats()');await pause(2000);const after=await evaluate('window.__meadowMotion.stats()');
+ report.metrics.framePacing={framesInTwoSeconds:after.frames-before.frames,...after};
+ check('desktop environment retains one draw and bounded texture sizes at a 60fps target',after.frames>before.frames&&after.frames-before.frames<=124&&after.textureCount===3&&after.drawsPerFrame===1&&after.buffer[0]<=1440,report.metrics.framePacing);
+ check('homepage scrollbar uses the painting palette without a nested scrolling scene',await evaluate('(()=>{const root=document.documentElement,s=getComputedStyle(root),thumb=getComputedStyle(root,"::-webkit-scrollbar-thumb");return s.getPropertyValue("--home-scroll-track").trim()==="#d6e3d5"&&thumb.backgroundColor==="rgb(110, 135, 114)"&&getComputedStyle(document.querySelector(".art-surface")).overflowY!=="scroll"})()'));
  const motionPixels=await evaluate(`(async()=>{
-  const canvas=document.querySelector('.environment-motion'),gl=canvas.getContext('webgl'),w=canvas.width,h=canvas.height,mask=new Image();mask.src=new URL('motion-mask-v01.png',new URL(document.querySelector('.landscape').dataset.mediaBase,location.href)).href;await mask.decode();
+  const canvas=document.querySelector('.environment-motion'),gl=canvas.getContext('webgl'),w=canvas.width,h=canvas.height,mask=new Image();mask.src=new URL('motion-mask-v02.png',new URL(document.querySelector('.landscape').dataset.mediaBase,location.href)).href;await mask.decode();
   const buffer=document.createElement('canvas');buffer.width=w;buffer.height=h;const ctx=buffer.getContext('2d');ctx.imageSmoothingEnabled=false;ctx.drawImage(mask,0,0,w,h);const zones=ctx.getImageData(0,0,w,h).data;
   const capture=t=>{window.__meadowMotion.sample(t);const a=new Uint8Array(w*h*4);gl.readPixels(0,0,w,h,gl.RGBA,gl.UNSIGNED_BYTE,a);return a;};
   window.__meadowMotion.pause(true);const frames=[capture(0),capture(2),capture(80),capture(82)],result={};
@@ -16,11 +18,24 @@ export async function run({send,evaluate,until,pause,check,report}){
    const counts={cloud:[0,0],water:[0,0],grass:[0,0],fixed:[0,0]};
    for(let y=0;y<h;y+=3)for(let x=0;x<w;x+=3){const m=(y*w+x)*4,i=((h-1-y)*w+x)*4;let zone=zones[m]>200?'cloud':zones[m+1]>140?'water':zones[m+2]>80?'grass':zones[m]===0&&zones[m+1]===0&&zones[m+2]===0?'fixed':null;if(!zone)continue;counts[zone][0]++;if(Math.max(...[0,1,2].map(k=>Math.abs(a[i+k]-b[i+k])))>3)counts[zone][1]++;}
    result[name]=Object.fromEntries(Object.entries(counts).map(([k,[n,d]])=>[k,{sampled:n,changed:d,share:n?d/n:0}]));
-  }window.__meadowMotion.pause(false);return result;
+  }
+  // Check real pixels, not only the direction label reported by the renderer.
+  result.wind=[];
+  const dx=12,dt=dx*1920/w/6;
+  for(const t of [0,80,190,400,639]){
+   const a=capture(t),b=capture(t+dt);let east=0,west=0,still=0,n=0;
+   for(let y=30;y<h*.42;y+=7)for(let x=dx+4;x<w-dx-4;x+=7){
+    if(zones[(y*w+x)*4]<250||zones[(y*w+x+dx)*4]<250||zones[(y*w+x-dx)*4]<250)continue;
+    const i=((h-1-y)*w+x)*4;
+    for(let c=0;c<3;c++){east+=Math.abs(a[i+c]-b[i+dx*4+c]);west+=Math.abs(a[i+c]-b[i-dx*4+c]);still+=Math.abs(a[i+c]-b[i+c]);n++;}
+   }result.wind.push({t,east:east/n,west:west/n,still:still/n});
+  }
+  window.__meadowMotion.pause(false);return result;
  })()`);
  report.metrics.motionPixels=motionPixels;
  check('clouds keep moving after the initial minute and grass and water remain visible',motionPixels.early.cloud.share>.01&&motionPixels.late.cloud.share>.01&&motionPixels.early.grass.share>.01&&motionPixels.early.water.share>.01,motionPixels);
  check('environment motion leaves the painted character and architecture fixed',motionPixels.early.fixed.changed===0&&motionPixels.late.fixed.changed===0,motionPixels);
+ check('cloud pixels travel east before and after the loop boundary',motionPixels.wind.every(m=>m.east<m.west*.25&&m.east<m.still*.3),motionPixels.wind);
  report.metrics.layouts=[];
  for(const width of [320,390,768,1440,2560]){
   await send('Emulation.setDeviceMetricsOverride',{width,height:844,deviceScaleFactor:1,mobile:width<700});await pause(120);
@@ -32,7 +47,23 @@ export async function run({send,evaluate,until,pause,check,report}){
  await send('Emulation.setDeviceMetricsOverride',{width:1440,height:960,deviceScaleFactor:1,mobile:false});await pause(120);
  await evaluate('window.__meadowStation.open();window.__meadowStation.action()');
  check('station record opens without translating or animating the painted character',await evaluate('window.__meadowStation.stats().observed&&!document.getElementById("field-note").hidden&&document.querySelector(".landscape-art").src.includes("hero-v04")&&!document.querySelector(".field-actor")'));
- check('measurement point uses a ground ring rather than a white text badge',await evaluate('(()=>{const p=document.getElementById("field-pin");return !p.hidden&&!p.textContent.trim()&&getComputedStyle(p).backgroundColor==="rgba(0, 0, 0, 0)"})()'));
+ check('measurement points are accessible ground rings without white text badges',await evaluate('["field-pin","field-reference"].every(id=>{const p=document.getElementById(id);return !p.hidden&&p.tagName==="BUTTON"&&p.getAttribute("aria-label")&&getComputedStyle(p).backgroundColor==="rgba(0, 0, 0, 0)"})'));
+ await evaluate('document.getElementById("field-reference").click()');
+ check('a reference can be inspected first without inventing the other finding',await evaluate('window.__meadowStation.stats().findings.join() === "reference"&&!window.__meadowStation.stats().clue&&document.getElementById("finding-stake").textContent.includes("尚未")&&document.getElementById("note-title").textContent.includes("风标")'));
+ await evaluate('document.getElementById("field-reread").click()');
+ check('rereading the archive preserves evidence and does not complete the comparison',await evaluate('window.__meadowStation.stats().view==="archive"&&window.__meadowStation.stats().findings.length===1&&!document.getElementById("note-source").hidden'));
+ await evaluate('document.getElementById("field-pin").click()');
+ check('two inspections reveal comparison before a clue can be recorded',await evaluate('window.__meadowStation.stats().view==="comparison"&&window.__meadowStation.stats().findings.length===2&&!window.__meadowStation.stats().clue&&document.getElementById("field-action").textContent==="留下待查线索"'));
+ await evaluate('document.getElementById("field-action").click()');
+ check('recorded clue states uncertainty and links to the verification chapter',await evaluate('window.__meadowStation.stats().clue&&document.getElementById("note-body").textContent.includes("原因尚未确认")&&document.getElementById("field-reading").href.endsWith("/ch3/")'));
+ await evaluate('window.__meadowStation.close();window.__meadowStation.open()');
+ check('leaving and returning retains the observations and clue',await evaluate('window.__meadowStation.stats().clue&&window.__meadowStation.stats().findings.length===2'));
+ for(const width of [768,1024,1280,1440,2560]){
+  await send('Emulation.setDeviceMetricsOverride',{width,height:960,deviceScaleFactor:1,mobile:false});await pause(100);
+  const layout=await evaluate('(()=>{const note=document.getElementById("field-note").getBoundingClientRect(),pin=document.getElementById("field-pin").getBoundingClientRect(),controls=document.getElementById("field-controls");return {width:innerWidth,scroll:document.documentElement.scrollWidth,note:note.toJSON(),pin:pin.toJSON(),controlsOverflow:controls.scrollWidth>controls.clientWidth}})()');
+  check(`${width}px observation notes do not cover the measurement point or overflow`,layout.scroll<=width&&!layout.controlsOverflow&&(layout.note.bottom<=layout.pin.top||layout.note.top>=layout.pin.bottom||layout.note.right<=layout.pin.left||layout.note.left>=layout.pin.right),layout);
+ }
+ await send('Emulation.setDeviceMetricsOverride',{width:1440,height:960,deviceScaleFactor:1,mobile:false});
  await until('!document.querySelector("site-search button[data-open-modal]").disabled');await evaluate('document.querySelector("site-search button[data-open-modal]").click()');await until('!!document.querySelector(".pagefind-ui__search-input")');await pause(80);
  check('search pauses the environment while keeping the record state',await evaluate('!window.__meadowMotion.stats().running&&window.__meadowStation.stats().observed'));
  await evaluate('const input=document.querySelector(".pagefind-ui__search-input");input.value="形式化验证";input.dispatchEvent(new Event("input",{bubbles:true}));');await until('document.querySelectorAll(".pagefind-ui__result").length>0');
@@ -41,11 +72,22 @@ export async function run({send,evaluate,until,pause,check,report}){
  check('Escape closes search before leaving station view',await evaluate('!document.querySelector("site-search dialog").open&&window.__meadowStation.stats().active'));
  await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',code:'Escape',windowsVirtualKeyCode:27});await pause(60);
  check('station exit restores title and entry focus',await evaluate('!window.__meadowStation.stats().active&&document.activeElement.id==="enter-field"'));
+ await evaluate('window.__meadowStation.open();document.getElementById("field-action").click()');
+ check('a fresh comparison clears evidence only when requested',await evaluate('!window.__meadowStation.stats().clue&&window.__meadowStation.stats().findings.length===0&&window.__meadowStation.stats().view==="archive"'));
+ await evaluate('document.getElementById("field-action").focus()');
+ await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter',code:'Enter',text:'\r',unmodifiedText:'\r',windowsVirtualKeyCode:13});
+ await send('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});
+ check('native keyboard activation inspects a point and retains action focus',await evaluate('window.__meadowStation.stats().findings.join()==="stake"&&document.activeElement.id==="field-action"'),await evaluate('({state:window.__meadowStation.stats(),focus:document.activeElement.id})'));
+ await evaluate('document.getElementById("field-action").click();document.getElementById("field-action").click()');
+ check('control-strip alternative completes comparison without pointer hotspots',await evaluate('window.__meadowStation.stats().clue&&window.__meadowStation.stats().findings.length===2'));
+ await evaluate('window.__meadowStation.close();document.getElementById("chapters").scrollIntoView({behavior:"instant"})');await pause(180);const offscreen=await evaluate('window.__meadowMotion.stats().frames');await pause(180);
+ check('scrolling past the scene suspends environment draws',await evaluate(`window.__meadowMotion.stats().frames===${offscreen}&&!window.__meadowMotion.stats().running`));
+ await evaluate('window.scrollTo({top:0,behavior:"instant"})');await pause(100);
  await evaluate('document.getElementById("motion-toggle").click()');await pause(100);const stopped=await evaluate('window.__meadowMotion.stats().frames');await pause(200);
  check('explicit pause stops desktop environment draws',await evaluate(`window.__meadowMotion.stats().frames===${stopped}`));
  for(const width of [320,390]){
   await send('Emulation.setDeviceMetricsOverride',{width,height:844,deviceScaleFactor:2,mobile:true});await send('Page.navigate',{url});await until('document.querySelector(".landscape")?.dataset.motion==="static-mobile"');
-  check(`${width}px fresh mobile page loads only the static scene and reading`,await evaluate('!window.__meadowMotion&&!window.__meadowStation&&!document.querySelector(".field-actor")&&!performance.getEntriesByType("resource").some(e=>/meadow-motion.*\.js|meadow-station|engineer-actions|motion-mask/.test(e.name))&&getComputedStyle(document.querySelector("#enter-field")).display==="none"'));
+  check(`${width}px fresh mobile page loads only the static scene and reading`,await evaluate('!window.__meadowMotion&&!window.__meadowStation&&!document.querySelector(".field-actor")&&!performance.getEntriesByType("resource").some(e=>/meadow-motion.*\.js|meadow-station|engineer-actions|motion-mask|sky-loop/.test(e.name))&&getComputedStyle(document.querySelector("#enter-field")).display==="none"'));
  }
  await send('Emulation.setDeviceMetricsOverride',{width:1440,height:960,deviceScaleFactor:1,mobile:false});
  await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});await send('Page.navigate',{url});await until('!!window.__meadowMotion');
