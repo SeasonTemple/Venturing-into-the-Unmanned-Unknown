@@ -6,9 +6,8 @@ void main(){
   vec2 pixel=vec2(1920.,1080.);vec2 p=floor(vUv*pixel)+.5;
   vec3 zones=texture2D(uMask,vUv).rgb;
   bool vane=p.x>=1400.&&p.x<=1580.&&p.y>=218.&&p.y<=318.;
-  bool lampArea=p.x>1210.&&p.x<1365.&&p.y>550.&&p.y<721.;
   bool machine=p.x>=1709.&&p.x<=1748.&&p.y>=790.&&p.y<=837.;
-  if(max(zones.r,max(zones.g,zones.b))<.001&&!vane&&!lampArea&&!machine){gl_FragColor=vec4(0.);return;}
+  if(max(zones.r,max(zones.g,zones.b))<.001&&!vane&&!machine){gl_FragColor=vec4(0.);return;}
   float gust=.6+.4*sin(uTime*.41-p.x*.002);
   vec2 shift=vec2(0.);
   float grass=(sin(uTime*2.1-p.x*.018)+.35*sin(uTime*3.7-p.x*.031))*gust;
@@ -19,9 +18,17 @@ void main(){
   float skyX=mod(vUv.x*1920.-uTime*6.,3840.);
   vec2 skyUv=vec2(min(skyX,3840.-skyX)/1920.,vUv.y*1080./576.);
   color=mix(color,texture2D(uSky,skyUv).rgb,zones.r);
-  float glint=smoothstep(.94,1.,sin(p.y*.37-uTime*1.7+p.x*.008));
   float alpha=max(zones.r,max(zones.g,zones.b));
-  if(zones.g>.001){color=mix(vec3(.56,.86,.78),vec3(1.,.98,.77),glint);alpha=zones.g*(.035+.18*glint);}
+  // Moving broken reflections stay inside the painted water mask. Never shift
+  // the shoreline or overwrite it with a lower-resolution displaced copy.
+  if(zones.g>.001){
+    vec2 ripplePixel=floor(p/vec2(3.,2.))*vec2(3.,2.);
+    float wave=sin(ripplePixel.y*.28+ripplePixel.x*.016-uTime*1.8);
+    float broken=.5+.5*sin(ripplePixel.x*.085+ripplePixel.y*.04+uTime*.8);
+    float crest=smoothstep(.35,.93,wave)*broken;
+    color=vec3(.98,1.,.86);
+    alpha=zones.g*crest*.65;
+  }
   // The wind vane is a rigid fin, not cloth. Yaw changes its projected width;
   // the smaller anemometer above it revolves independently around its mast.
   if(vane){
@@ -35,15 +42,8 @@ void main(){
     color=mix(color,texture2D(uArt,source).rgb,silhouette);
     alpha=1.;
   }
-  if(lampArea){
-  vec2 lamp=(p-vec2(1266.,618.))/vec2(19.,25.);
-  float halo=exp(-dot(lamp,lamp)*.65);
-  float pulse=.5+.5*sin(uTime*1.65)+.12*sin(uTime*4.2);
-  if(halo>.015){color=color*(1.-halo*.20*(1.-pulse))+vec3(.12,.065,.008)*halo*pulse;alpha=max(alpha,1.);}
-  vec2 bounce=(p-vec2(1310.,646.))/vec2(38.,50.);
-  float reflected=exp(-dot(bounce,bounce)*2.);
-  if(reflected>.04){color+=vec3(.040,.024,.004)*reflected*pulse;alpha=1.;}
-  }
+  // Daylight keeps the original painted lamp steady. Task lighting needs a
+  // separately authored evening scene, not a pulse applied to the day painting.
   if(p.x>=1736.&&p.x<=1748.&&p.y>=790.&&p.y<=799.){
     float scan=step(.72,fract(uTime/2.4));
     color=mix(color,vec3(.36,.82,.64),.28+.55*scan);alpha=1.;
