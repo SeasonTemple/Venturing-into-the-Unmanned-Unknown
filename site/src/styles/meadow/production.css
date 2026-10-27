@@ -19,6 +19,16 @@
 @media(max-width:1000px){.home-introduction{gap:28px}.meadow-home .mt-grid-chapters{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.home-introduction{grid-template-columns:minmax(0,1fr);padding-block:32px 0;gap:24px}.meadow-home .masthead nav{gap:12px}.meadow-home #art-only{display:none!important}.meadow-home .masthead site-search button{height:32px;padding:4px}.meadow-home .masthead site-search button>span{display:none}.meadow-home .title-block h1{font-size:clamp(42px,12.7vw,65px)}.meadow-home .mt-section{margin-top:40px}.meadow-home .mt-cell{min-height:0}.meadow-home .mt-grid-chapters{grid-template-columns:1fr}.meadow-home .mt-split{padding-block:12px 36px}.meadow-home .mt-band{padding-block:24px}.meadow-home .field-note .eyebrow{font-size:11px}}
 .mobile-reading-label,.mobile-chapters{display:none}
+/* Shared action geometry; only the surface and action priority change the colors. */
+.meadow-home .landscape{--scene-action-ink:#23372e;--scene-action-paper:#edf0df;--scene-action-line:#23372e66;--scene-action-hover:#23372e0f;--scene-focus:#23372e;--scene-action-size:clamp(12px,.95vw,16px)}
+.meadow-home .entry-links>button,.meadow-home .entry-links>.read-link,.meadow-home .field-buttons>:is(button,a),.meadow-home .entry-links #enter-field,.meadow-home .field-controls #field-action{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:44px;margin:0;padding:10px 14px;border:1px solid var(--scene-action-line);border-radius:3px;font:inherit;font-size:var(--scene-action-size);line-height:1.4;letter-spacing:.02em;text-decoration:none}
+.meadow-home .entry-links .read-link{background:transparent;color:var(--scene-action-ink)}
+.meadow-home .entry-links #enter-field{background:var(--scene-action-ink);border-color:var(--scene-action-ink);color:var(--scene-action-paper)}
+.meadow-home .entry-links #enter-field:hover{background:#3c5143}
+.meadow-home .entry-links .read-link:hover{background:var(--scene-action-hover)}
+.meadow-home .landscape :is(a,button):focus-visible{outline:2px solid var(--scene-focus);outline-offset:2px;box-shadow:none}
+.meadow-home .entry-links #enter-field:focus-visible{outline-color:var(--scene-action-paper);outline-offset:-4px}
+@media(forced-colors:active){.meadow-home .landscape :is(a,button):focus-visible{outline-color:Highlight!important}}
 .field-world{position:relative;width:100%;height:100%;transform-origin:0 0}
 .meadow-home .field-sites{position:absolute;inset:0;pointer-events:none}
 .meadow-home .field-site{position:absolute;z-index:2;width:48px;height:48px;transform:translate(-50%,-65%);padding:0;border:0;background:transparent;color:#23372e;pointer-events:auto}
@@ -56,10 +66,13 @@
  .meadow-home .field-controls{position:absolute;z-index:4;inset:auto 4.8% 24px;display:flex;align-items:center;gap:18px;padding:14px 18px;background:#20382ce8;color:#f0efda;border:1px solid #e3e4c94d;font-size:12px}
  .meadow-home .field-status-wrap{flex:1;min-width:170px}.meadow-home .field-status-wrap p{line-height:1.65;font-size:12px}
  .meadow-home #field-progress{color:#c0ceb7;font-size:10px}
- .meadow-home .field-buttons{gap:10px 20px;flex-shrink:0}
- .meadow-home .field-buttons button,.meadow-home .field-buttons a{font-size:12px;min-height:36px}
- .meadow-home #field-action{background:#e3e7d5;color:#23372e;border:1px solid #e3e7d5;padding:8px 14px}
- .meadow-home #field-action:hover{background:#f2f1de}
+ .meadow-home .field-controls{--scene-action-line:#edf0df60;--scene-action-hover:#edf0df12;--scene-focus:#edf0df;--scene-action-size:12px}
+ .meadow-home .field-buttons{gap:8px;flex-shrink:0}
+ .meadow-home .field-buttons>:is(button,a){background:transparent;color:var(--scene-action-paper)}
+ .meadow-home .field-buttons>:is(button,a):hover{background:var(--scene-action-hover);border-color:var(--scene-action-paper)}
+ .meadow-home .field-controls #field-action{background:var(--scene-action-paper);color:var(--scene-action-ink);border-color:var(--scene-action-paper)}
+ .meadow-home .field-controls #field-action:hover{background:#f6f5e8}
+ .meadow-home .field-controls #field-action:focus-visible{outline-color:var(--scene-action-ink);outline-offset:-4px}
  .meadow-home .field-site{z-index:3}
 }
 @media(min-width:701px) and (max-width:1100px){
@@ -85,4 +98,5 @@
  .meadow-home .mobile-reading-label{display:inline}.meadow-home .mobile-chapters{display:inline-flex;font-size:12px;align-items:center;min-height:44px}
  .meadow-home .entry-links{gap:28px;margin-top:24px;align-items:center}
  .meadow-home .entry-links .read-link{padding:12px 16px;margin:0;background:#23372e;color:#f1f1df;border:0;gap:30px;font-size:13px}
+ .meadow-home .entry-links .read-link:focus-visible{outline-color:var(--scene-action-paper);outline-offset:-4px}
 }

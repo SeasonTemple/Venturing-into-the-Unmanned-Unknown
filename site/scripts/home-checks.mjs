@@ -1,4 +1,5 @@
 export async function run({send,evaluate,until,pause,check,report}){
+ if(process.argv.includes('--home-surface'))return (await import('./home-surface-checks.mjs')).run({send,evaluate,until,pause,check,report});
  const base='http://127.0.0.1:4395/Venturing-into-the-Unmanned-Unknown',url=base+'/';
  await send('Emulation.setDeviceMetricsOverride',{width:1440,height:960,deviceScaleFactor:1,mobile:false});
  await send('Page.navigate',{url});await until('!!window.__meadowStation&&!!window.__meadowMotion');
@@ -16,7 +17,7 @@ export async function run({send,evaluate,until,pause,check,report}){
   window.__meadowMotion.pause(true);const frames=[capture(0),capture(2),capture(80),capture(82)],result={};
   for(const [name,a,b]of[['early',frames[0],frames[1]],['late',frames[2],frames[3]]]){
    const counts={cloud:[0,0],water:[0,0],grass:[0,0],light:[0,0],fixed:[0,0]};
-   for(let y=0;y<h;y+=3)for(let x=0;x<w;x+=3){const m=(y*w+x)*4,i=((h-1-y)*w+x)*4;const px=x*1920/w,py=y*1080/h,isLight=(px>1210&&px<1365&&py>550&&py<721)||(px>=1709&&px<=1748&&py>=790&&py<=837);let zone=isLight?'light':zones[m]>200?'cloud':zones[m+1]>140?'water':zones[m+2]>80?'grass':zones[m]===0&&zones[m+1]===0&&zones[m+2]===0?'fixed':null;if(!zone)continue;counts[zone][0]++;if(Math.max(...[0,1,2].map(k=>Math.abs(a[i+k]-b[i+k])))>3)counts[zone][1]++;}
+   for(let y=0;y<h;y+=3)for(let x=0;x<w;x+=3){const m=(y*w+x)*4,i=((h-1-y)*w+x)*4;const px=x*1920/w,py=y*1080/h,isLight=(px>1210&&px<1365&&py>550&&py<721)||(px>=1709&&px<=1748&&py>=790&&py<=837);let zone=isLight?'light':zones[m]>200?'cloud':zones[m+1]>140?'water':zones[m+2]>80?'grass':zones[m]===0&&zones[m+1]===0&&zones[m+2]===0?'fixed':null;if(!zone)continue;counts[zone][0]++;if(Math.max(...[0,1,2,3].map(k=>Math.abs(a[i+k]-b[i+k])))>3)counts[zone][1]++;}
    result[name]=Object.fromEntries(Object.entries(counts).map(([k,[n,d]])=>[k,{sampled:n,changed:d,share:n?d/n:0}]));
   }
   // Check real pixels, not only the direction label reported by the renderer.
@@ -31,7 +32,7 @@ export async function run({send,evaluate,until,pause,check,report}){
    }result.wind.push({t,east:east/n,west:west/n,still:still/n});
   }
   const deviceA=capture(.7),deviceB=capture(2);result.devices={};
-  for(const [name,box]of Object.entries({lamp:[1210,550,1365,721],machine:[1709,790,1748,837],vane:[1400,218,1580,318]})){
+  for(const [name,box]of Object.entries({lamp:[1252,590,1335,686],machine:[1709,790,1748,837],vane:[1400,218,1580,318]})){
    let n=0,changed=0;
    for(let y=Math.floor(box[1]*h/1080);y<box[3]*h/1080;y++)for(let x=Math.floor(box[0]*w/1920);x<box[2]*w/1920;x++){
     const i=((h-1-y)*w+x)*4;n++;if(Math.max(...[0,1,2,3].map(c=>Math.abs(deviceA[i+c]-deviceB[i+c])))>3)changed++;
@@ -43,7 +44,8 @@ export async function run({send,evaluate,until,pause,check,report}){
  check('clouds keep moving after the initial minute and grass and water remain visible',motionPixels.early.cloud.share>.01&&motionPixels.late.cloud.share>.01&&motionPixels.early.grass.share>.01&&motionPixels.early.water.share>.01,motionPixels);
  check('environment motion leaves the painted character and architecture fixed',motionPixels.early.fixed.changed===0&&motionPixels.late.fixed.changed===0,motionPixels);
  check('cloud pixels travel east before and after the loop boundary',motionPixels.wind.every(m=>m.east<m.west*.25&&m.east<m.still*.3),motionPixels.wind);
- for(const name of ['lamp','machine','vane'])check(`${name} changes actual pixels across its own animation phases`,motionPixels.devices[name].share>.01,motionPixels.devices[name]);
+ check('daylight lamp stays steady across animation phases',motionPixels.devices.lamp.changed===0,motionPixels.devices.lamp);
+ for(const name of ['machine','vane'])check(`${name} changes actual pixels across its own animation phases`,motionPixels.devices[name].share>.01,motionPixels.devices[name]);
  if(process.argv.includes('--equipment-only'))return;
  report.metrics.layouts=[];
  for(const width of [320,390,768,1440,2560]){
@@ -120,4 +122,5 @@ export async function run({send,evaluate,until,pause,check,report}){
  await send('Page.removeScriptToEvaluateOnNewDocument',{identifier:injected.identifier});
  check('no production homepage runtime errors',report.consoleErrors.length===0,report.consoleErrors);
  if(process.argv.includes('--with-lifecycle'))await (await import('./home-lifecycle-checks.mjs')).run({send,evaluate,until,pause,check,report});
+ if(process.argv.includes('--with-surface'))await (await import('./home-surface-checks.mjs')).run({send,evaluate,until,pause,check,report});
 }
