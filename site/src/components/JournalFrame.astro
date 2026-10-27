@@ -4,17 +4,19 @@ import Search from '@astrojs/starlight/components/Search.astro';
 import ThemeSelect from '@astrojs/starlight/components/ThemeSelect.astro';
 import book from '../generated/home.json';
 import { chapterSurveys } from '../scripts/journal/chapter-surveys.mjs';
+import ChapterSurvey from './ChapterSurvey.astro';
 const {entry,toc}=Astro.locals.starlightRoute;
 const chapter=book.chapters.find(c=>c.slug===entry.id);
 const base=import.meta.env.BASE_URL.replace(/\/+$/,'');
 const isHome=entry.data.template==='splash';
 const survey=chapter && chapterSurveys[chapter.slug];
 const next=chapter && book.chapters[book.chapters.indexOf(chapter)+1];
+const previous=chapter && book.chapters[book.chapters.indexOf(chapter)-1];
 const headings=toc?.items.filter(h=>h.slug!=='_top') || [];
 ---
 {!chapter ? isHome ? <div id="meadow-home-layout"><slot /></div> : <Default><slot name="header" slot="header" /><slot name="sidebar" slot="sidebar" /><slot /></Default> : <>
   <script is:inline>document.body.classList.add('field-journal');document.body.dataset.layout='journal';document.documentElement.dataset.reader='journal';</script>
-  <div id="production-journal" data-chapter={JSON.stringify(chapter)}>
+  <div id="production-journal" data-chapter={JSON.stringify(chapter)} data-paper-src={base+'/journal/paper-base-v01.webp'}>
     <header class="reader-chrome">
       <a href={base+'/'} class="brand">迈向无人区<span>AI-NATIVE ENGINEERING</span></a>
       <div class="running-title"><span>{chapter.order.padStart(2,'0')}</span><span>{chapter.title}</span></div>
@@ -27,14 +29,15 @@ const headings=toc?.items.filter(h=>h.slug!=='_top') || [];
         <h1 id="_top">{chapter.title}</h1><p id="thesis" class="chapter-thesis">{survey.thesis[0]}<br />{survey.thesis[1]}</p><p id="description" class="chapter-description">{chapter.blurb}</p>
         <a class="begin" href="#body">开始本章 ↓</a>
       </div>
-      <figure id="chapter-art" class="chapter-art"><svg viewBox="0 0 730 370" role="img" aria-label={`${chapter.title}测绘示意，完整正文在下方`}><g class="cover-contours"><path d="M0 180Q100 40 220 95T420 103T730 90M0 210Q100 67 220 123T420 132T730 120M0 242Q100 108 220 154T420 159T730 151M0 277Q100 147 220 187T420 192T730 183M0 309Q100 183 220 222T420 230T730 217" /></g><path class="cover-route" d="M71 268L153 196L233 224L333 158L424 193L480 151" /><path class="cover-unknown" d="M480 151L561 190L625 126L699 148" /></svg><figcaption>局部测绘 / {chapter.title}</figcaption></figure></div>
+      <ChapterSurvey {chapter} {survey} {headings} /></div>
     </header>
     <div class="reading-spread">
       <aside class="field-route" aria-label="本章阅读路线"><p class="kicker">ROUTE / {chapter.order.padStart(2,'0')}</p><h2>{chapter.title}</h2><nav id="route-links">{headings.map((h,i)=><a href={'#'+h.slug}><span>{String(i+1).padStart(2,'0')}</span><strong>{h.text}</strong></a>)}</nav><a class="route-book" href="#journal-book" id="route-book">全书章节 ↗</a></aside>
       <div class="reading-column">
         <div class="reading-position"><button id="open-outline" hidden>本章小节</button></div>
+        <div class="journal-reading-tools"><span class="kicker">原文 / {chapter.order.padStart(2,'0')}</span><button type="button" data-mt-copy class="journal-copy" hidden><span class="mt-action-label" data-label-default="复制 Markdown" data-label-done="已复制" data-label-fail="复制失败">复制 Markdown ↗</span></button></div>
         <slot />
-        <footer class="chapter-end"><p class="kicker">继续阅读</p><div>{next ? <a id="next-chapter" href={base+'/'+next.slug+'/'}>{next.title} ↗</a> : <a id="next-chapter" href={base+'/'}>返回首页 ↗</a>}<button id="top" hidden>回到正文开头 ↑</button></div><button type="button" data-mt-copy class="journal-copy" hidden><span class="mt-action-label" data-label-default="复制 Markdown" data-label-done="已复制" data-label-fail="复制失败">复制 Markdown</span></button><span class="sr-only" role="status" data-mt-status></span></footer>
+        <footer class="chapter-end"><p class="kicker">本章收记 / 继续行程</p><nav class="journal-pagination" aria-label="相邻章节"><a rel="prev" href={previous?base+'/'+previous.slug+'/':base+'/'}><span class="pagination-direction">← {previous?'上一章':'出发处'}</span><strong>{previous?.title||'原野观测站'}</strong></a><a id="next-chapter" rel="next" href={next?base+'/'+next.slug+'/':base+'/'}><span class="pagination-direction">{next?'下一章':'返回'} →</span><strong>{next?.title||'原野观测站'}</strong></a></nav><div class="journal-source-index"><span>文本索引</span><a href={base+'/llms.txt'}>章节索引 ↗</a><a href={base+'/llms-full.txt'}>全书纯文本 ↗</a></div></footer>
       </div>
     </div>
     <section class="journal-book" id="journal-book" aria-label="全书目录"><p class="kicker">全书章节</p><nav>{book.chapters.map(c=><a href={base+'/'+c.slug+'/'} aria-current={c.slug===chapter.slug?'page':undefined}><span>{c.order.padStart(2,'0')}</span>{c.title}</a>)}</nav></section>

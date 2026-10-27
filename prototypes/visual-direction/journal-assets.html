@@ -1,0 +1,12 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>阅读材质预渲染</title>
+<style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#101d21}canvas{display:block;width:100vw;height:100vh}</style>
+<script type="importmap">{"imports":{"three":"/deps/three/build/three.module.js","three/addons/":"/deps/three/examples/jsm/"}}</script>
+<canvas id="asset"></canvas><script type="module">
+const canvas=document.getElementById('asset');
+const mode=new URLSearchParams(location.search).get('mode');
+if(mode==='paper'){
+ const {createMembrane}=await import('./membrane-material.mjs');const material=createMembrane(canvas);material.render(0);window.__assetReady=true;
+}else{
+ const {createRelief}=await import('./relief-material.mjs');const relief=createRelief(canvas,{editorialBase:true});window.__asset=relief;relief.render(0);await new Promise(r=>setTimeout(r,400));relief.render(0);window.__assetProbe=relief.probe();window.__assetReady=window.__assetProbe.mean>35;
+}
+</script></html>

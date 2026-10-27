@@ -1,0 +1,4 @@
+[
+ {"url":"http://127.0.0.1:4395/journal-assets.html","out":".lab/reader-revision/relief-base-ready.png","width":1920,"height":1080,"ready":"window.__assetReady===true"},
+ {"url":"http://127.0.0.1:4395/journal-assets.html?mode=paper","out":".lab/reader-revision/paper-base.png","width":1440,"height":1080,"ready":"window.__assetReady===true"}
+]

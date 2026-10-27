@@ -6,10 +6,19 @@ export async function run({send,evaluate,until,pause,check,report}){
   for(const slug of chapters){
     await send('Page.navigate',{url:`${base}/${slug}/`});await until('window.__readingStudy?.ready');
     const result=await evaluate(`(async()=>{const original=new DOMParser().parseFromString(await(await fetch(location.href)).text(),'text/html').querySelector('#body');const actual=document.querySelector('#body').cloneNode(true);actual.querySelectorAll('.journal-extra,.section-note,.section-marker').forEach(n=>n.remove());const normalize=s=>s.replace(/\s+/g,'');return{slug:${JSON.stringify(slug)},same:normalize(original.textContent)===normalize(actual.textContent),h1:document.querySelectorAll('h1').length,sections:window.__readingStudy.sections,errors:window.__readingStudy.errors,title:document.querySelector('#_top').textContent,headings:document.querySelectorAll('#body h2').length,copy:!!document.querySelector('#mt-raw-md'),links:Array.from(document.querySelectorAll('#book-panel a')).every(a=>a.href.includes('/Venturing-into-the-Unmanned-Unknown/ch'))};})()`);
-    check(`${slug} retains SSR original, single title, canonical chapters and copy source`,result.same&&result.h1===1&&result.sections===result.headings&&result.errors.length===0&&result.copy&&result.links,result);report.metrics.chapters.push(result);
+    check(`${slug} retains SSR original, single title, canonical chapters and copy source`,result.same&&result.h1===1&&result.sections===result.headings&&result.errors.length===0&&result.copy&&result.links,result);
+    result.survey=await evaluate('({route:document.querySelector(".chapter-trace").getAttribute("d"),image:document.querySelector(".survey-map image").getAttribute("href"),nodes:[...document.querySelectorAll(".survey-node")].map(a=>({label:a.getAttribute("aria-label"),exists:!!document.getElementById(a.getAttribute("href").slice(1))}))})');
+    check(`${slug} restores three named nodes linked to existing sections`,result.survey.nodes.length===3&&result.survey.nodes.every(n=>n.exists));
+    report.metrics.chapters.push(result);
   }
+  check('ten chapters share one terrain asset while retaining ten distinct routes',new Set(report.metrics.chapters.map(c=>c.survey.image)).size===1&&new Set(report.metrics.chapters.map(c=>c.survey.route)).size===10);
   await send('Page.navigate',{url:`${base}/ch3/`});await until('window.__readingStudy?.ready');await until('window.__readingStudy.artwork.status!=="loading"');
-  check('accepted relief renders with complete readable fallback',await evaluate('window.__readingStudy.artwork.status==="ready"&&!!document.querySelector("#chapter-art svg")'),await evaluate('window.__readingStudy.artwork'));
+  check('shared relief is server-rendered without WebGL or Three.js',await evaluate('window.__readingStudy.artwork.mode==="shared-poster"&&!!document.querySelector("#chapter-art svg image")&&!document.querySelector("canvas")&&!performance.getEntriesByType("resource").some(e=>/three\.|relief-material|membrane-material/.test(e.name))'),await evaluate('window.__readingStudy.artwork'));
+  check('chapter nodes lead to three actual section headings',await evaluate('[...document.querySelectorAll(".survey-node")].length===3&&[...document.querySelectorAll(".survey-node")].every(a=>document.getElementById(a.getAttribute("href").slice(1))?.tagName==="H2")'));
+  await evaluate('document.querySelectorAll(".survey-node")[1].dispatchEvent(new MouseEvent("click",{bubbles:true,cancelable:true}))');await pause(80);
+  check('terrain node navigation lands on the named section',await evaluate('document.activeElement.id===document.querySelectorAll(".survey-node")[1].getAttribute("href").slice(1)'));
+  check('section links reveal skipped content at the intended reading position',await evaluate('(()=>{const box=document.activeElement.getBoundingClientRect();return box.top>=0&&box.top<250})()'));
+  check('only the journal footer remains and Markdown copy is above the article',await evaluate('document.querySelectorAll(".chapter-end").length===1&&!document.querySelector(".mt-llms")&&!document.getElementById("top")&&document.querySelectorAll(".journal-pagination a").length===2&&!!(document.querySelector(".journal-reading-tools [data-mt-copy]").compareDocumentPosition(document.getElementById("body"))&Node.DOCUMENT_POSITION_FOLLOWING)'));
   check('verification plate follows its subject after the chapter expansion',await evaluate('document.querySelector(".field-plate").closest(".article-section").querySelector("h2").textContent.includes("分层验证模型")'));
   const texts=await evaluate('Array.from(document.querySelectorAll(".field-plate button"),b=>b.textContent)');
   await evaluate('document.querySelectorAll(".field-plate button")[4].click()');
@@ -19,7 +28,7 @@ export async function run({send,evaluate,until,pause,check,report}){
   await evaluate('document.getElementById("outline-tab").click()');
   check('outline tab exposes current real headings',await evaluate('!document.getElementById("outline-panel").hidden&&document.querySelectorAll("#outline-panel a").length===document.querySelectorAll("#body h2").length'));
   await evaluate('document.getElementById("close-navigation").click();document.getElementById("body").scrollIntoView({behavior:"instant"})');await until('window.__readingStudy.effects.surface');
-  check('reading background uses the covered lower map',await evaluate('window.__readingStudy.effects.surface==="layered-transmission"'),await evaluate('window.__readingStudy.effects'));
+  check('reading background shares the baked transmission beneath a stationary veil',await evaluate('window.__readingStudy.effects.surface==="shared-transmission"&&getComputedStyle(document.querySelector(".survey-underlay"),"::before").backgroundImage.includes("paper-base-v01.webp")'),await evaluate('window.__readingStudy.effects'));
   const count=await evaluate('window.__readingStudy.effects.frames');await pause(350);
   check('reduced motion leaves background still',await evaluate(`window.__readingStudy.effects.frames===${count}`));
   await evaluate('window.scrollTo({top:document.documentElement.scrollHeight,behavior:"instant"});document.getElementById("edge-top").click()');await pause(100);
@@ -41,6 +50,8 @@ export async function run({send,evaluate,until,pause,check,report}){
   await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',code:'Escape',windowsVirtualKeyCode:27});
   await evaluate('document.documentElement.dataset.theme="dark";document.getElementById("body").scrollIntoView({behavior:"instant"})');
   check('dark reading keeps legible surfaces and visible original code controls',await evaluate('getComputedStyle(document.body).getPropertyValue("--rd-ink").trim()==="#e5e8dc"&&getComputedStyle(document.body).getPropertyValue("--rd-paper").trim()==="#17262c"&&Array.from(document.querySelectorAll(".expressive-code .copy")).every(n=>getComputedStyle(n).display!=="none")'));
+  await pause(300);
+  check('dark navigation stays dark after scrolling below the masthead',await evaluate('getComputedStyle(document.querySelector(".reader-chrome")).backgroundColor==="rgb(23, 38, 44)"&&getComputedStyle(document.querySelector(".reader-chrome")).color==="rgb(229, 232, 220)"'));
   await evaluate('document.documentElement.dataset.theme="light"');
   report.metrics.layouts=[];
   for(const width of [320,390,768,1440,2560]){
@@ -52,12 +63,12 @@ export async function run({send,evaluate,until,pause,check,report}){
   }
   await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'}]});
   await evaluate('document.getElementById("body").scrollIntoView({behavior:"instant"})');await pause(120);
-  const active=await evaluate('window.__readingStudy.effects.frames');await pause(350);
-  check('background visibly advances only when motion is enabled',await evaluate(`window.__readingStudy.effects.frames>${active}`));
+  const active=await evaluate('getComputedStyle(document.querySelector(".survey-underlay"),"::before").transform');await pause(350);
+  check('background advances by composited transform when motion is enabled',await evaluate(`window.__readingStudy.effects.running&&getComputedStyle(document.querySelector(".survey-underlay"),"::before").transform!==${JSON.stringify(active)}`));
   await evaluate('document.getElementById("motion-toggle").click()');await pause(100);const stopped=await evaluate('window.__readingStudy.effects.frames');await pause(200);
   check('shared motion control stops the background',await evaluate(`window.__readingStudy.effects.frames===${stopped}`));
   await evaluate('window.dispatchEvent(new PageTransitionEvent("pagehide",{persisted:false}))');
-  check('page exit disposes the two visual surfaces',await evaluate('window.__readingStudy.disposed&&window.__readingStudy.effects.disposed&&window.__readingStudy.artwork.disposed&&!document.querySelector(".ink-atmosphere")&&!document.querySelector(".relief-canvas")'));
+  check('page exit disposes the visual lifecycle without a renderer',await evaluate('window.__readingStudy.disposed&&window.__readingStudy.effects.disposed&&window.__readingStudy.artwork.disposed&&!document.querySelector(".ink-atmosphere")&&!document.querySelector("canvas")'));
   const home=await evaluate(`(async()=>{const text=await(await fetch(${JSON.stringify(base+'/')})).text();return !text.includes('id="production-journal"')&&!text.includes('/journal/production.css')&&text.includes('id="meadow-home-layout"')&&text.includes('hero-v04.webp')})()`);
   check('production homepage uses the accepted meadow independently of reading layout',home);
   await send('Emulation.setScriptExecutionDisabled',{value:true});await send('Page.navigate',{url:`${base}/ch3/`});await pause(400);
@@ -65,6 +76,6 @@ export async function run({send,evaluate,until,pause,check,report}){
   await send('Emulation.setScriptExecutionDisabled',{value:false});
   await send('Page.addScriptToEvaluateOnNewDocument',{source:'const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(t,...args){return /webgl/i.test(t)?null:original.call(this,t,...args)};'});
   await send('Page.navigate',{url:`${base}/ch1/`});await until('window.__readingStudy?.ready');await until('window.__readingStudy.artwork.status!=="loading"');
-  check('WebGL failure keeps original prose, navigation and SVG',await evaluate('window.__readingStudy.artwork.status==="fallback"&&document.getElementById("body").textContent.length>1000&&getComputedStyle(document.querySelector("#chapter-art svg")).visibility!=="hidden"'));
+  check('reader is fully independent of WebGL support',await evaluate('window.__readingStudy.artwork.mode==="shared-poster"&&document.getElementById("body").textContent.length>1000&&getComputedStyle(document.querySelector("#chapter-art svg")).visibility!=="hidden"&&!document.querySelector("canvas")'));
   check('no runtime or shader errors',report.consoleErrors.filter(e=>!e.includes('Error creating WebGL context')).length===0,report.consoleErrors);
 }

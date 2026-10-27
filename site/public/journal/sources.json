@@ -1,0 +1,22 @@
+{
+  "source": "Original approved procedural relief and tracing membrane",
+  "export": "prototypes/visual-direction/journal-assets.html",
+  "capture": "scripts/shot.mjs --batch prototypes/visual-direction/journal-assets-shots.json",
+  "relief": {
+    "size": [
+      1920,
+      1080
+    ],
+    "time": 0,
+    "camera": "Orthographic (12,15.5,19)",
+    "route": "Chapter routes are semantic SVG overlays, not baked into the shared terrain"
+  },
+  "paper": {
+    "size": [
+      1200,
+      900
+    ],
+    "time": 0
+  },
+  "purpose": "Shared static materials: no per-chapter modeling, shadow maps or full-screen transmission passes at runtime"
+}

@@ -11,3 +11,21 @@
 #meadow-home-layout main>.content-panel:last-child>footer{max-width:1440px;margin:0 auto;padding:0 4.8% 40px}
 @media(max-width:1000px){.home-introduction{gap:28px}.meadow-home .mt-grid-chapters{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.home-introduction{grid-template-columns:minmax(0,1fr);padding-block:32px 0;gap:24px}.meadow-home .masthead nav{gap:12px}.meadow-home #art-only{display:none!important}.meadow-home .masthead site-search button{height:32px;padding:4px}.meadow-home .masthead site-search button>span{display:none}.meadow-home .title-block h1{font-size:clamp(42px,12.7vw,65px)}.meadow-home .mt-section{margin-top:40px}.meadow-home .mt-cell{min-height:0}.meadow-home .mt-grid-chapters{grid-template-columns:1fr}.meadow-home .mt-split{padding-block:12px 36px}.meadow-home .mt-band{padding-block:24px}.meadow-home .field-note .eyebrow{font-size:11px}}
+.mobile-reading-label,.mobile-chapters{display:none}
+.meadow-home .field-pin{width:30px;height:10px;padding:0;background:transparent;border:1px solid #e6c389aa;border-radius:50%;box-shadow:0 0 0 3px #283d2c44;transform:translate(-50%,3px);font-size:0}
+@media(max-width:700px){
+ .meadow-home .landscape{display:block;height:100svh;min-height:620px;padding:0;overflow:hidden;background:#74c7bf;isolation:isolate}
+ .meadow-home .art-surface{position:absolute;inset:0;aspect-ratio:auto;height:100%;z-index:-2}
+ .meadow-home .landscape-art{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:64% 50%}
+ .meadow-home .landscape::after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,#e3eddfc9 0%,#e3eddf85 34%,#e3eddf00 60%)}
+ .meadow-home .masthead{position:absolute;padding:24px;inset:0 0 auto;z-index:3}
+ .meadow-home .title-block{position:absolute;top:max(112px,13svh);left:28px;right:24px;max-width:none;padding:0}
+ .meadow-home .title-block h1{font-size:clamp(43px,12.7vw,65px);letter-spacing:.015em;white-space:nowrap}
+ .meadow-home .title-block .theme{font-size:14px;line-height:1.9}
+ .meadow-home .scene-caption{position:absolute;inset:auto 24px 24px;display:block;padding:0;color:#f3f1d8;text-shadow:0 1px 3px #20382c;line-height:2;font-size:10px}
+ .meadow-home .scene-caption span{display:block}
+ .meadow-home #enter-field,.meadow-home #motion-toggle,.meadow-home .environment-motion,.meadow-home .field-actor,.meadow-home .desktop-reading-label{display:none!important}
+ .meadow-home .mobile-reading-label{display:inline}.meadow-home .mobile-chapters{display:inline-flex;font-size:12px;align-items:center;min-height:44px}
+ .meadow-home .entry-links{gap:28px;margin-top:24px;align-items:center}
+ .meadow-home .entry-links .read-link{padding:12px 16px;margin:0;background:#23372e;color:#f1f1df;border:0;gap:30px;font-size:13px}
+}

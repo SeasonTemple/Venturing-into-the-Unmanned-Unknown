@@ -100,3 +100,59 @@ html[data-theme=dark] body.field-journal #navigation{background:var(--rd-paper);
  #production-journal .field-route{position:static}
  #production-journal .reader-chrome{background:#101d21;color:#e5e8dc}
 }
+
+/* One cached terrain, chapter-specific ink routes. Light belongs to the relief;
+   labeled nodes lead to real sections and do not claim verification coverage. */
+#production-journal .survey-opening .chapter-art{z-index:0}
+#production-journal .chapter-art .survey-map{position:absolute;inset:auto 0 6%;width:100%;height:86%;overflow:visible}
+.survey-map .chapter-trace{fill:none;stroke:#edc08b;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.survey-map .chapter-unresolved{fill:none;stroke:#a7c7c3;stroke-width:1.5;stroke-dasharray:5 11;opacity:.75}
+.survey-map .node-halo{fill:#eab67a;opacity:.08;transition:opacity .2s}
+.survey-map .node-ring{fill:#14252b99;stroke:#f0c38b;stroke-width:2}
+.survey-map .node-core{fill:#ffdcaa}
+.survey-map .node-leader{fill:none;stroke:#c8cdb9;stroke-width:1;opacity:.7}
+.survey-map .survey-node{cursor:pointer;text-decoration:none;outline-offset:6px}
+.survey-map .survey-node:hover .node-halo,.survey-map .survey-node:focus .node-halo{opacity:.35}
+.survey-map .survey-node:hover .node-ring,.survey-map .survey-node:focus .node-ring{stroke:#fff1c2;stroke-width:4}
+.survey-map text{fill:#eee5ce;font:25px var(--rd-font);paint-order:stroke;stroke:#101d21;stroke-width:5px;stroke-linejoin:round}
+.survey-map .node-number{fill:#e8b87c;font:18px var(--rd-mono)}
+.survey-map text.survey-unknown{fill:#b5c8c6;font-size:22px;letter-spacing:.12em}
+.survey-legend{display:none}
+#production-journal .survey-poster figcaption{left:var(--jn-page-pad);right:var(--jn-page-pad);max-width:none;font-size:11px;letter-spacing:.06em;justify-content:space-between;line-height:1.7}
+.journal-reading-tools{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:22px 0;border-bottom:1px solid var(--rd-line)}
+.journal-reading-tools .kicker{margin:0;color:var(--rd-muted)}
+.journal-reading-tools .journal-copy{min-height:44px;font-size:12px;border:0;padding:0 0 0 16px}
+#production-journal .chapter-end{width:100%;max-width:72ch;margin:64px 0 50px;padding-top:25px}
+.chapter-end .journal-pagination{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;margin-top:24px}
+.chapter-end .journal-pagination a{display:flex;align-items:flex-start;flex-direction:column;justify-content:space-between;gap:15px;min-height:116px;padding:0 0 24px;border-bottom:1px solid var(--rd-line);background:transparent;border-radius:0;box-shadow:none}
+.journal-pagination .pagination-direction{font:11px var(--rd-mono);letter-spacing:.1em;color:var(--rd-muted)}
+.journal-pagination strong{font-size:clamp(20px,2vw,30px);font-weight:500;line-height:1.6}
+.journal-pagination a:hover strong{color:var(--rd-copper)}
+#production-journal .journal-source-index{display:flex;justify-content:flex-start;flex-wrap:wrap;gap:12px 24px;align-items:center;margin:24px 0 0;font-size:11px;color:var(--rd-muted)}
+.journal-source-index>span{font:10px var(--rd-mono);letter-spacing:.12em;margin-right:auto}
+.chapter-end .journal-source-index a{display:inline;min-height:44px;line-height:44px;font-size:11px;text-decoration:underline;text-underline-offset:5px}
+body.field-journal .survey-underlay{inset:0;width:100%;height:100%;overflow:hidden;contain:strict}
+.survey-underlay::before{content:'';position:absolute;inset:-32px;background-image:var(--survey-paper);background-size:cover;background-position:center;animation:survey-drift 28s ease-in-out infinite alternate;animation-play-state:var(--survey-play,paused);will-change:transform}
+@keyframes survey-drift{from{transform:translate(-12px,-8px)}to{transform:translate(12px,8px)}}
+body.field-journal .reading-veil{background:linear-gradient(90deg,#f7f9f642,#f7f9f6bb 38%,#f7f9f6c9 70%,#f7f9f63b);backdrop-filter:none;-webkit-backdrop-filter:none}
+html[data-theme=dark] body.field-journal .reading-veil{background:#17262ce8}
+html[data-theme=dark] body.field-journal .reader-chrome{background:#17262c;color:#e5e8dc}
+html[data-theme=dark] body.field-journal.over-survey .reader-chrome{background:#101d21}
+@media(max-width:760px){
+ #production-journal .chapter-opening.survey-opening{height:640px;min-height:640px}
+ #production-journal .chapter-art .survey-map{inset:auto 0 95px;height:310px}
+ .survey-map .node-title{display:none}.survey-map .node-number{font-size:42px}.survey-map text.survey-unknown{font-size:28px}
+ #production-journal .survey-opening .survey-legend{position:absolute;bottom:80px;left:24px;right:24px;display:flex;justify-content:space-between;gap:12px;font-size:12px}
+ .survey-legend a{display:flex;align-items:center;gap:8px;min-height:44px;white-space:nowrap;color:#e5e8dc}
+ .survey-legend span{font:9px var(--rd-mono);color:#f0bc7b}
+ #production-journal .survey-poster figcaption{bottom:20px;display:block;font-size:10px}
+ .survey-poster figcaption span{display:block}
+ #production-journal .survey-opening .begin{top:540px;z-index:3}
+ .chapter-end .journal-pagination{gap:20px}.journal-pagination strong{font-size:19px}
+}
+@media(prefers-reduced-motion:reduce){.survey-underlay::before{animation:none}.survey-map .node-halo{transition:none}}
+/* Keep the complete source in the DOM; defer layout/paint of distant sections.
+   Native find-in-page, focus and hash links reveal a skipped section as needed. */
+@supports(content-visibility:auto){
+ @media screen{#production-journal .article-section{content-visibility:auto;contain-intrinsic-size:auto 700px}}
+}

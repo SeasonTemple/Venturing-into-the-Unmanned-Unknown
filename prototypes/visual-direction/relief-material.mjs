@@ -44,7 +44,7 @@ export function mineralTexture() {
   return tex;
 }
 
-export function createRelief(canvas) {
+export function createRelief(canvas,{editorialBase=false}={}) {
   const compact=canvas.clientWidth<760;
   const renderer=new T.WebGLRenderer({canvas,antialias:true,powerPreference:'low-power'});
   renderer.setPixelRatio(Math.min(devicePixelRatio,compact?1.25:1.5,1920/canvas.clientWidth));renderer.outputColorSpace=T.SRGBColorSpace;
@@ -106,11 +106,12 @@ export function createRelief(canvas) {
   const edgeMesh=new T.Mesh(edgeGeo,edgeMaterial);edgeMesh.customDepthMaterial=depthMat;edgeMesh.castShadow=edgeMesh.receiveShadow=true;scene.add(edgeMesh);
   const route=[];
   for(let i=0;i<=170;i++){const x=-8+i/170*10.4,z=2.5-Math.sin((x+3)*.29)*1.25;route.push(new T.Vector3(x,reliefHeight(x,z)+.045,z));}
-  const routeGeo=new T.BufferGeometry().setFromPoints(route),routeMat=new T.LineBasicMaterial({color:'#d9b181',transparent:true,opacity:.8});scene.add(new T.Line(routeGeo,routeMat));
+  const routeGeo=new T.BufferGeometry().setFromPoints(route),routeMat=new T.LineBasicMaterial({color:'#d9b181',transparent:true,opacity:.8});const routeLine=new T.Line(routeGeo,routeMat);routeLine.visible=!editorialBase;scene.add(routeLine);
   const anchor=route[100].clone();
   const markerMat=new T.MeshStandardMaterial({color:'#d5ab73',roughness:.4,metalness:.55});
   const pin=new T.Mesh(new T.CylinderGeometry(.026,.04,.23,12),markerMat);pin.position.copy(anchor).add(new T.Vector3(0,.1,0));pin.castShadow=true;scene.add(pin);
   const ring=new T.Mesh(new T.TorusGeometry(.13,.016,8,40),markerMat);ring.rotation.x=-Math.PI/2;ring.position.copy(anchor).add(new T.Vector3(0,.025,0));scene.add(ring);
+  pin.visible=ring.visible=!editorialBase;
   // A projected strip of real light crosses the relief; mountains can occlude it.
   const apertureData=new Uint8Array(128*128*4);
   for(let y=0;y<128;y++)for(let x=0;x<128;x++){

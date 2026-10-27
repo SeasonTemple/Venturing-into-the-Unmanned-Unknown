@@ -8,7 +8,7 @@ const media=base+'/meadow/';
   <div class="art-surface">
     <img class="landscape-art" src={media+'hero-v04.webp'} width="1920" height="1080" alt="雨后开阔原野上的观测站，工程人员携带记录器与工具，维护路通向临水旧桩和远处未测绘的草原。" fetchpriority="high" />
     <canvas class="environment-motion" aria-hidden="true"></canvas>
-    <span id="field-pin" class="field-pin" hidden>01<span>临水测点</span></span>
+    <span id="field-pin" class="field-pin" aria-hidden="true" hidden></span>
   </div>
   <header class="masthead">
     <a class="wordmark" href={base+'/'}>无人区 <span>FIELD NOTES</span></a>
@@ -23,7 +23,7 @@ const media=base+'/meadow/';
     <p class="eyebrow">AI 原生软件工程指南</p>
     <h1 id="book-title">迈向<br />无人区<span>。</span></h1>
     <p class="theme">在局部建立秩序，<br />向尚未测绘的地方继续。</p>
-    <div class="entry-links"><button id="enter-field" type="button" hidden>进入观测站 <span aria-hidden="true">→</span></button><a class="read-link" href={firstHref}>直接阅读 <span aria-hidden="true">↗</span></a></div>
+    <div class="entry-links"><button id="enter-field" type="button" hidden>进入观测站 <span aria-hidden="true">→</span></button><a class="read-link" href={firstHref}><span class="desktop-reading-label">直接阅读</span><span class="mobile-reading-label">开始阅读</span> <span aria-hidden="true">↗</span></a><a class="mobile-chapters" href="#chapters">浏览章节 ↓</a></div>
     <p id="field-load-error" hidden>场景素材暂时未能载入，请重试或直接阅读。</p>
   </div>
   <aside id="field-note" class="field-note" aria-labelledby="note-title" hidden>

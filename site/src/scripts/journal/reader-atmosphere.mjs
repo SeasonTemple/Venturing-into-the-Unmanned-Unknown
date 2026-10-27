@@ -1,59 +1,28 @@
-import { paintInkWash } from './ink-wash.mjs';
-
 export function createReaderAtmosphere(sections) {
   const $ = id => document.getElementById(id);
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const fine = matchMedia('(hover: hover) and (pointer: fine)');
   let preference = false;
   try { preference = sessionStorage.getItem('field-reader-paused') === 'true'; } catch {}
-  const stats = { frames: 0, time: 0, enabled: false, outlineOpen: false, disposed: false };
-  const canvas = document.createElement('canvas');
-  canvas.className = 'ink-atmosphere'; canvas.setAttribute('aria-hidden', 'true');
+  const stats = { frames: 0, enabled: false, running:false, surface:'shared-transmission', outlineOpen: false, disposed: false, webglContexts:0 };
+  const canvas = document.createElement('div');
+  canvas.className = 'ink-atmosphere survey-underlay'; canvas.setAttribute('aria-hidden', 'true');
+  canvas.style.setProperty('--survey-paper',`url("${$('production-journal').dataset.paperSrc}")`);
   const veil = document.createElement('div');
   veil.className = 'reading-veil'; veil.setAttribute('aria-hidden', 'true');
   document.body.prepend(canvas, veil);
-  const ctx = canvas.getContext('2d', { alpha: true });
-  let membrane, membraneCanvas, membraneAttempted=false, bodyVisible=false;
-  async function ensureMembrane(){
-    if(membraneAttempted||disposed)return;membraneAttempted=true;
-    try{const {createMembrane}=await import('./membrane-material.mjs');if(disposed)return;
-      membraneCanvas=document.createElement('canvas');membraneCanvas.className='ink-atmosphere';membraneCanvas.setAttribute('aria-hidden','true');canvas.after(membraneCanvas);
-      if(!membraneCanvas.getContext('webgl2',{antialias:false,powerPreference:'low-power'}))throw Error('WebGL unavailable');
-      membrane=createMembrane(membraneCanvas);membrane.setGap(.58);canvas.hidden=true;membrane.render(stats.time);stats.surface='layered-transmission';
-    }catch{membraneCanvas?.remove();stats.surface='survey-fallback';}
-  }
-  let width = 0, height = 0, frame = 0, last = 0, previous = 0, dirty = true, disposed = false, chromeFrame = 0;
-  const enabled = () => bodyVisible && !preference && !motion.matches && !document.body.classList.contains('focused') && !document.hidden;
-  function paint() {
-    if (!ctx) return;
-    if(membrane)membrane.render(stats.time);else paintInkWash(ctx, width, height, stats.time); dirty = false; stats.frames++;
-  }
-  function animate(now) {
-    frame = 0;
-    if (disposed) return;
-    const active = enabled();
-    if (now - last >= 83 || dirty) {
-      if (active && previous) stats.time += Math.min(.12, (now - previous) / 1000);
-      previous = now; last = now; paint();
-    }
-    if (active) frame = requestAnimationFrame(animate);
-  }
-  function schedule() { if (!frame && !disposed) frame = requestAnimationFrame(animate); }
-  function resize() {
-    membrane?.resize();
-    const ratio = Math.min(1, 1280 / document.documentElement.clientWidth);
-    width = Math.round(document.documentElement.clientWidth * ratio); height = Math.round(innerHeight * ratio);
-    canvas.width = width; canvas.height = height; dirty = true; schedule(); syncChrome();
-  }
+  let bodyVisible=false,disposed=false,chromeFrame=0;
+  const enabled = () => bodyVisible && !preference && !motion.matches && !document.body.classList.contains('focused') && !document.hidden && !document.body.hasAttribute('data-search-modal-open');
+  function resize() { syncChrome(); }
   function sync() {
     stats.enabled = !preference && !motion.matches;
-    document.body.classList.toggle('motion-paused', !stats.enabled);
+    if(document.body.classList.contains('motion-paused')===stats.enabled)document.body.classList.toggle('motion-paused', !stats.enabled);
     const toggle = $('motion-toggle');
     toggle.hidden = false; toggle.disabled = motion.matches;
     toggle.title = motion.matches ? '系统已启用减少动态效果' : '';
     toggle.setAttribute('aria-pressed', String(stats.enabled)); toggle.textContent = stats.enabled ? '动效开' : '动效停';
     toggle.setAttribute('aria-label', motion.matches ? '动态效果已按系统偏好关闭' : stats.enabled ? '暂停页面动态效果' : '开启页面动态效果');
-    cancelAnimationFrame(frame); frame = 0; previous = 0; dirty = true; schedule();
+    stats.running=enabled();canvas.style.setProperty('--survey-play',stats.running?'running':'paused');
     document.dispatchEvent(new Event('readingmotionchange'));
   }
   function toggleMotion() {
@@ -127,13 +96,17 @@ export function createReaderAtmosphere(sections) {
     const opening = $('opening'), chrome = document.querySelector('.reader-chrome');
     const dark = opening.classList.contains('survey-opening') && !document.body.classList.contains('focused')
       && opening.getBoundingClientRect().bottom > chrome.getBoundingClientRect().bottom + 16;
-    document.body.classList.toggle('over-survey', dark);
-    toTop.disabled = Math.abs(scrollY - bodyStart()) < 4;
-    toBottom.disabled = scrollY + innerHeight >= document.documentElement.scrollHeight - 4;
+    // Read layout before changing the chrome class; don't invalidate and then
+    // immediately reflow the entire article to find its top and bottom.
+    const atStart=Math.abs(scrollY-bodyStart())<4;
+    const atEnd=scrollY+innerHeight>=document.documentElement.scrollHeight-4;
+    if(document.body.classList.contains('over-survey')!==dark)document.body.classList.toggle('over-survey', dark);
+    toTop.disabled = atStart;
+    toBottom.disabled = atEnd;
   }
   function scroll() { if (!chromeFrame) chromeFrame = requestAnimationFrame(syncChrome); }
-  const bodyObserver = new MutationObserver(() => { dirty = true; schedule(); syncChrome(); });
-  bodyObserver.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+  const bodyObserver = new MutationObserver(() => { sync();syncChrome(); });
+  bodyObserver.observe(document.body, { attributes: true, attributeFilter: ['class','data-search-modal-open'] });
   const openingObserver = new MutationObserver(syncChrome);
   openingObserver.observe($('opening'), { attributes: true, attributeFilter: ['class'] });
   $('motion-toggle').addEventListener('click', toggleMotion); motion.addEventListener('change', sync);
@@ -150,19 +123,19 @@ export function createReaderAtmosphere(sections) {
   function dispose() {
     if (disposed) return;
     disposed = true; stats.disposed = true; clearTimeout(timer);
-    cancelAnimationFrame(frame); cancelAnimationFrame(chromeFrame); bodyObserver.disconnect(); openingObserver.disconnect();
+    cancelAnimationFrame(chromeFrame); bodyObserver.disconnect(); openingObserver.disconnect();
     $('motion-toggle').removeEventListener('click', toggleMotion); motion.removeEventListener('change', sync);
     document.removeEventListener('visibilitychange', sync); removeEventListener('resize', resize); removeEventListener('scroll', scroll);
     document.removeEventListener('keydown', escape); document.removeEventListener('pointerdown', outside);
     removeEventListener('pagehide', pagehide); removeEventListener('pageshow', pageshow);
-    bodyVisibility.disconnect();membrane?.dispose();membraneCanvas?.remove();canvas.remove(); veil.remove(); edge.remove(); document.body.classList.remove('over-survey');
+    bodyVisibility.disconnect();canvas.remove(); veil.remove(); edge.remove(); document.body.classList.remove('over-survey');
   }
   function pagehide(event) {
-    if (!event.persisted) dispose(); else { cancelAnimationFrame(frame); frame = 0; previous = 0; }
+    if (!event.persisted) dispose(); else {stats.running=false;canvas.style.setProperty('--survey-play','paused');}
   }
-  function pageshow() { previous = 0; resize(); sync(); }
+  function pageshow() { resize(); sync(); }
   addEventListener('pagehide', pagehide); addEventListener('pageshow', pageshow);
-  const bodyVisibility=new IntersectionObserver(([entry])=>{bodyVisible=entry.isIntersecting;if(bodyVisible)ensureMembrane();sync();});bodyVisibility.observe($('body'));
+  const bodyVisibility=new IntersectionObserver(([entry])=>{bodyVisible=entry.isIntersecting;sync();});bodyVisibility.observe($('body'));
   resize(); sync(); window.__readingStudy.effects = stats;
   return { update, toggleOutline, dispose };
 }
