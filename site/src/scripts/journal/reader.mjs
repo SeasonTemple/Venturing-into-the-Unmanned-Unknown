@@ -76,11 +76,13 @@ function init(){
   function schedule(){if(!frame)frame=requestAnimationFrame(update);}
   addEventListener('scroll',schedule,{passive:true,signal});addEventListener('resize',schedule,{signal});
   try{atmosphere=createReaderAtmosphere(sections);}catch(error){state.errors.push(String(error));}
-  function routeSize(){document.querySelector('.field-route').classList.toggle('route-flow',document.querySelector('.field-route').scrollHeight>innerHeight-140);}
+  const rails=[...host.querySelectorAll('.field-route,.chapter-margin')];
+  function routeSize(){const available=innerHeight-document.querySelector('.reader-chrome').offsetHeight-document.querySelector('.chapter-travel').offsetHeight-48;for(const rail of rails)rail.classList.toggle('route-flow',rail.scrollHeight>available);}
+  const railSize=new ResizeObserver(routeSize);rails.forEach(rail=>railSize.observe(rail));
   addEventListener('resize',routeSize,{signal});routeSize();update();
   // Shared baked relief and CSS underlay: reading does not allocate WebGL contexts.
   $('chapter-art').addEventListener('click',goHeading,{signal});
-  function dispose(event){if(event.persisted)return;state.disposed=true;state.artwork.disposed=true;cancelAnimationFrame(frame);abort.abort();atmosphere?.dispose();}
+  function dispose(event){if(event.persisted)return;state.disposed=true;state.artwork.disposed=true;cancelAnimationFrame(frame);railSize.disconnect();abort.abort();atmosphere?.dispose();}
   addEventListener('pagehide',dispose,{signal});state.ready=true;
   // Existing deep links retain their heading IDs and land after enhancement.
   if(location.hash){try{document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView({behavior:'instant'});}catch{}}

@@ -189,7 +189,7 @@ html[data-reader=journal]{scroll-padding-top:calc(var(--reader-chrome-height,76p
 #production-journal .section-marker{padding:0 0 16px;border:0;margin:0}
 #production-journal .section-content{min-width:0;width:100%}
 #production-journal .section-content> :is(p,ul,ol,blockquote){max-width:none}
-#production-journal .field-route,#production-journal .chapter-margin{position:sticky;top:148px;align-self:start;max-height:calc(100dvh - 170px);overflow:auto;padding:28px 4px 16px 0;min-width:0}
+#production-journal .field-route,#production-journal .chapter-margin{position:sticky;top:calc(var(--reader-chrome-height,76px) + 72px);align-self:start;max-height:none;overflow:visible;padding:28px 4px 16px 0;min-width:0}
 #production-journal .field-route.route-flow{position:sticky}
 .book-rail{margin-top:22px;display:grid;gap:2px}.book-rail a{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:baseline;padding:10px 0 10px 12px;border-left:1px solid var(--rd-line);min-height:44px;text-decoration:none;font-size:13px;line-height:1.7;color:var(--rd-muted)}.book-rail strong{font-weight:400}.book-rail span{font:10px var(--rd-mono)}.book-rail [aria-current=page]{border-left:2px solid var(--rd-copper);color:var(--rd-copper);background:var(--rd-panel)}
 #production-journal #route-links{display:grid;gap:3px;margin-top:22px;border-left:1px solid var(--rd-line)}
@@ -227,3 +227,24 @@ body.field-journal.focused #production-journal :is(.field-route,.chapter-margin,
 
 .survey-flat .flat-boundary{animation:frontier-dashes 5s linear infinite;animation-play-state:var(--survey-header-play,paused)}
 @media(prefers-reduced-motion:reduce){.survey-flat .flat-boundary{animation:none}}
+
+/* The masthead tools and chapter travel are one continuous surface. Keep the
+   state selectors at the same specificity as their production base rules. */
+#production-journal :is(.reader-chrome,.chapter-travel){--chrome-muted:var(--rd-muted);--chrome-accent:var(--rd-copper);background:var(--rd-paper);color:var(--rd-ink);border-color:var(--rd-line);transition:background-color .32s ease,color .32s ease,border-color .32s ease}
+body.field-journal.over-survey #production-journal :is(.reader-chrome,.chapter-travel){--chrome-muted:#c0cbc1;--chrome-accent:#f0bc7b;background:#101d21;color:#e5e8dc;border-color:#33474b}
+#production-journal .chapter-travel a>span,#production-journal .reader-chrome :is(button[aria-pressed=true],.running-title>span:first-child){color:var(--chrome-accent);transition:color .32s ease}
+#production-journal .travel-position,#production-journal .reader-chrome .brand span{color:var(--chrome-muted);transition:color .32s ease}
+#production-journal .chapter-travel a:last-child{justify-content:flex-start}
+/* Long rails belong to the document, rather than a second scrolling pane. */
+#production-journal :is(.field-route,.chapter-margin).route-flow{position:static}
+/* Native document transitions retain full navigations and search initialization. */
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:reader-leave .16s ease-out both}
+::view-transition-new(root){animation:reader-arrive .22s ease-out both}
+@keyframes reader-leave{to{opacity:0}}
+@keyframes reader-arrive{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){
+ #production-journal :is(.reader-chrome,.chapter-travel),#production-journal .chapter-travel a>span,#production-journal .reader-chrome :is(button[aria-pressed=true],.running-title>span:first-child),#production-journal .travel-position,#production-journal .reader-chrome .brand span{transition:none}
+ @view-transition{navigation:none}
+ ::view-transition-old(root),::view-transition-new(root){animation:none}
+}

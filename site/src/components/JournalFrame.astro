@@ -15,7 +15,7 @@ const previous=chapter && book.chapters[book.chapters.indexOf(chapter)-1];
 const headings=toc?.items.filter(h=>h.slug!=='_top') || [];
 ---
 {!chapter ? isHome ? <div id="meadow-home-layout"><slot /></div> : <Default><slot name="header" slot="header" /><slot name="sidebar" slot="sidebar" /><slot /></Default> : <>
-  <script is:inline>document.body.classList.add('field-journal');document.body.dataset.layout='journal';document.documentElement.dataset.reader='journal';</script>
+  <script is:inline>document.body.classList.add('field-journal','over-survey');document.body.dataset.layout='journal';document.documentElement.dataset.reader='journal';</script>
   <div id="production-journal" data-chapter={JSON.stringify(chapter)} data-paper-src={base+'/journal/paper-base-v01.webp'}>
     <header class="reader-chrome">
       <a href={base+'/'} class="brand">迈向无人区<span>AI-NATIVE ENGINEERING</span></a>
