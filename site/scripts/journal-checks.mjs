@@ -54,12 +54,16 @@ export async function run({send,evaluate,until,pause,check,report}){
   check('dark navigation stays dark after scrolling below the masthead',await evaluate('getComputedStyle(document.querySelector(".reader-chrome")).backgroundColor==="rgb(23, 38, 44)"&&getComputedStyle(document.querySelector(".reader-chrome")).color==="rgb(229, 232, 220)"'));
   await evaluate('document.documentElement.dataset.theme="light"');
   report.metrics.layouts=[];
-  for(const width of [320,390,768,1440,2560]){
-    await send('Emulation.setDeviceMetricsOverride',{width,height:width<760?844:960,deviceScaleFactor:1,mobile:width<760});await pause(120);
+  for(const [width,height] of [[320,844],[390,844],[768,960],[1440,960],[1706,960],[2048,1152],[2560,1440],[2560,960]]){
+    await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:width<760});await pause(120);
     await evaluate('scrollTo({top:0,behavior:"instant"})');await pause(80);
     const layout=await evaluate('({width:innerWidth,scroll:document.documentElement.scrollWidth,hero:document.getElementById("opening").getBoundingClientRect().height,title:document.getElementById("_top").getBoundingClientRect().toJSON(),header:document.querySelector(".reader-chrome").getBoundingClientRect().height})');
     check(`${width}px reading viewport fits without clipping title`,layout.scroll<=width&&layout.title.x>=0&&layout.title.right<=width,layout);report.metrics.layouts.push(layout);
     check(`${width}px reading tools keep horizontal labels and usable targets`,await evaluate('Array.from(document.querySelectorAll(".reader-chrome nav>button")).every(b=>{const r=b.getBoundingClientRect();return r.height>=44&&r.width>=30&&getComputedStyle(b).whiteSpace==="nowrap"})'));
+    const framing=await evaluate('(()=>{const hero=document.getElementById("opening").getBoundingClientRect(),map=document.querySelector(".survey-map"),scale=map.getScreenCTM().a,begin=document.querySelector(".begin").getBoundingClientRect(),caption=document.querySelector(".survey-poster figcaption").getBoundingClientRect();return {height:innerHeight,scale,terrainWidth:1240*scale,terrainShare:1240*scale/innerWidth,beginBeforeCaption:begin.bottom+8<=caption.top,nodesInside:[...document.querySelectorAll(".node-ring")].every(n=>{const r=n.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth&&r.top>=hero.top&&r.bottom<=hero.bottom})}})()');
+    check(`${width}×${height} survey keeps nodes visible and entry separate from caption`,framing.nodesInside&&framing.beginBeforeCaption,framing);
+    if(width===2560&&height===1440)check('2K terrain occupies at least half the viewport width',framing.terrainShare>=.5,framing);
+    report.metrics.layouts.at(-1).framing=framing;
   }
   await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'}]});
   await evaluate('document.getElementById("body").scrollIntoView({behavior:"instant"})');await pause(120);

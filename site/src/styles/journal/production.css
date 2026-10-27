@@ -104,7 +104,13 @@ html[data-theme=dark] body.field-journal #navigation{background:var(--rd-paper);
 /* One cached terrain, chapter-specific ink routes. Light belongs to the relief;
    labeled nodes lead to real sections and do not claim verification coverage. */
 #production-journal .survey-opening .chapter-art{z-index:0}
-#production-journal .chapter-art .survey-map{position:absolute;inset:auto 0 6%;width:100%;height:86%;overflow:visible}
+#production-journal .chapter-art .survey-map{position:absolute;inset:auto 0 8%;width:100%;height:68%;overflow:visible}
+/* Frame the relief itself rather than the empty margins of its cached image.
+   The height follows wide displays so the terrain keeps its scale and shape. */
+@media(min-width:761px){
+ #production-journal .chapter-opening.survey-opening{--survey-height:clamp(650px,calc(100svh - 76px),1180px);height:var(--survey-height)}
+ #production-journal .survey-opening .begin{top:calc(var(--survey-height) - 142px)}
+}
 .survey-map .chapter-trace{fill:none;stroke:#edc08b;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .survey-map .chapter-unresolved{fill:none;stroke:#a7c7c3;stroke-width:1.5;stroke-dasharray:5 11;opacity:.75}
 .survey-map .node-halo{fill:#eab67a;opacity:.08;transition:opacity .2s}
@@ -140,14 +146,14 @@ html[data-theme=dark] body.field-journal .reader-chrome{background:#17262c;color
 html[data-theme=dark] body.field-journal.over-survey .reader-chrome{background:#101d21}
 @media(max-width:760px){
  #production-journal .chapter-opening.survey-opening{height:640px;min-height:640px}
- #production-journal .chapter-art .survey-map{inset:auto 0 95px;height:310px}
+ #production-journal .chapter-art .survey-map{inset:auto 0 155px;height:310px}
  .survey-map .node-title{display:none}.survey-map .node-number{font-size:42px}.survey-map text.survey-unknown{font-size:28px}
  #production-journal .survey-opening .survey-legend{position:absolute;bottom:80px;left:24px;right:24px;display:flex;justify-content:space-between;gap:12px;font-size:12px}
  .survey-legend a{display:flex;align-items:center;gap:8px;min-height:44px;white-space:nowrap;color:#e5e8dc}
  .survey-legend span{font:9px var(--rd-mono);color:#f0bc7b}
  #production-journal .survey-poster figcaption{bottom:20px;display:block;font-size:10px}
  .survey-poster figcaption span{display:block}
- #production-journal .survey-opening .begin{top:540px;z-index:3}
+ #production-journal .survey-opening .begin{top:410px;z-index:3}
  .chapter-end .journal-pagination{gap:20px}.journal-pagination strong{font-size:19px}
 }
 @media(prefers-reduced-motion:reduce){.survey-underlay::before{animation:none}.survey-map .node-halo{transition:none}}

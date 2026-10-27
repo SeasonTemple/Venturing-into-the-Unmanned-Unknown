@@ -7,7 +7,7 @@ const nodes=survey.nodes.map((name,i)=>({name,point:points[i],heading:headings.f
 const last=points.at(-1),unknown=[1290,490];
 ---
 <figure id="chapter-art" class="chapter-art survey-poster" data-survey={chapter.slug}>
- <svg class="survey-map" viewBox="0 0 1920 1080" role="group" aria-labelledby="survey-caption">
+ <svg class="survey-map" viewBox="180 150 1460 660" role="group" aria-labelledby="survey-caption">
   <image href={base+'/journal/relief-base-v01.webp'} width="1920" height="1080" />
   <path class="chapter-trace" d={points.map(([x,y],i)=>`${i?'L':'M'}${x} ${y}`).join(' ')} />
   <path class="chapter-unresolved" d={`M${last[0]} ${last[1]}L${unknown[0]} ${unknown[1]}`} />
