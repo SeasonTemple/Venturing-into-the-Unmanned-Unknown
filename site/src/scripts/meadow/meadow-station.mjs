@@ -1,9 +1,9 @@
 // Fixed-view observation, using landmarks actually present in the approved art.
 // Findings survive closing the station; no walking is implied by a marker click.
-export function createMeadowStation({stage,camera}){
+export function createMeadowStation({stage,camera,initialState}){
  const $=id=>document.getElementById(id),enter=$('enter-field'),panel=$('field-controls'),button=$('field-action'),note=$('field-note');
- const abort=new AbortController(),{signal}=abort,found=new Set();
- let active=false,observed=false,clue=false,view='archive',disposed=false;
+ const abort=new AbortController(),{signal}=abort,found=new Set(initialState?.findings);
+ let active=initialState?.active??false,observed=initialState?.observed??false,clue=initialState?.clue??false,view=initialState?.view??'archive',disposed=false;
  const archive='“沿维护路出站，临水旧桩在路的右侧。上游风标立在下一处水弯旁。”';
  const entries={
   archive:{eyebrow:'观测站 · 旧记录',title:'记录，先当作线索。',body:'记录没有日期。画面中可以找到旧桩和上游风标；先用这两处参照，看看它还对应多少现场。',next:'点击画面中的两处标记，或使用下方按钮逐一查看。'},
@@ -50,5 +50,5 @@ export function createMeadowStation({stage,camera}){
  for(const [id,shot]of [['field-pin','stake'],['field-reference','reference'],['field-record','station']])$(id).addEventListener('focus',()=>camera?.setView(shot),{signal});
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&active&&!document.querySelector('dialog[open]')){e.preventDefault();close();}},{signal});
  enter.hidden=false;update();
- return{open,close,action,pause(value){camera?.pause(value);},stats:()=>({mode:'station-review',active,observed,findings:[...found],clue,view,disposed,directionalAnimation:false,camera:camera?.stats()}),destroy(){disposed=true;abort.abort();camera?.destroy();}};
+ return{open,close,action,pause(value){camera?.pause(value);},stats:()=>({mode:'station-review',active,observed,findings:[...found],clue,view,disposed,directionalAnimation:false,camera:camera?.stats()}),destroy(){if(disposed)return;active=false;update();disposed=true;abort.abort();enter.hidden=true;camera?.destroy();}};
 }

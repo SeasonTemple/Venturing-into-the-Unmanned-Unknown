@@ -15,10 +15,11 @@ const fieldOnly = process.argv.includes('--field');
 const benchOnly = process.argv.includes('--bench');
 const meadowOnly = process.argv.includes('--meadow');
 const homeOnly = process.argv.includes('--home');
+const homeLifecycle = process.argv.includes('--home-lifecycle');
 const homeSoak = process.argv.includes('--home-soak');
 const readerAudit = process.argv.includes('--reader-audit');
 const folder = resolve(fieldOnly ? '.lab/field-study' : riftOnly ? '.lab/rift-design' : productionOnly ? '.lab/production-journal' : territoryOnly ? '.lab/territory-design' : outpostOnly ? '.lab/outpost-design' : materialsOnly ? '.lab/material-study' : terrainOnly ? '.lab/journal-terrain' : journalOnly ? '.lab/field-journal' : wideOnly ? '.lab/reading-wide' : readingOnly ? '.lab/reading-study' : '.lab/visual-direction'); await mkdir(folder, { recursive: true });
-const reportFolder=homeSoak?resolve(process.argv.includes('--baseline')?'.lab/home-soak-before':'.lab/home-soak-after'):readerAudit?resolve('.lab/reader-revision'):homeOnly?resolve('.lab/meadow-production'):meadowOnly?resolve('.lab/meadow-motion'):benchOnly?resolve('.lab/bench-study'):folder;await mkdir(reportFolder,{recursive:true});
+const reportFolder=homeLifecycle?resolve('.lab/home-lifecycle'):homeSoak?resolve(process.argv.includes('--baseline')?'.lab/home-soak-before':'.lab/home-soak-after'):readerAudit?resolve('.lab/reader-revision'):homeOnly?resolve('.lab/meadow-production'):meadowOnly?resolve('.lab/meadow-motion'):benchOnly?resolve('.lab/bench-study'):folder;await mkdir(reportFolder,{recursive:true});
 const profile = await mkdtemp(resolve(reportFolder, 'browser-check-'));
 const pause = ms => new Promise(resolve => setTimeout(resolve, ms));
 const chrome = spawn('C:/Program Files/Google/Chrome/Application/chrome.exe', ['--headless=new', '--no-first-run', '--no-default-browser-check', '--disable-extensions', '--remote-debugging-port=0', '--user-data-dir=' + profile, '--window-size=1440,960', 'about:blank'], { windowsHide: true, stdio: 'ignore' });
@@ -27,7 +28,7 @@ const report = { pass: false, checks: [], metrics: {}, consoleErrors: [] };
 const check = (name, pass, detail) => report.checks.push({ name, pass: !!pass, ...(detail === undefined ? {} : { detail }) });
 const luminance = hex => { const rgb = hex.match(/[a-f0-9]{2}/gi).map(c=>parseInt(c,16)/255).map(c=>c<=.04045?c/12.92:((c+.055)/1.055)**2.4); return rgb[0]*.2126+rgb[1]*.7152+rgb[2]*.0722; };
 const pairs = [['lightBody','#252d30','#eeece5'],['lightSecondary','#535c5e','#eeece5'],['lightLink','#9b4928','#eeece5'],['homeSecondary','#535c5e','#e7e4dc'],['homeLink','#9b4928','#e7e4dc'],['darkBody','#e2e7df','#18262c'],['darkSecondary','#bac5bf','#18262c'],['darkLink','#edb17a','#18262c'],['heroBody','#e9e9df','#111c22'],['heroSecondary','#bdc9c9','#111c22']];
-if (!homeOnly && !meadowOnly && !benchOnly && !fieldOnly && !riftOnly && !productionOnly && !readingOnly && !wideOnly && !journalOnly && !terrainOnly && !materialsOnly && !outpostOnly && !territoryOnly) {
+if (!homeLifecycle && !homeOnly && !meadowOnly && !benchOnly && !fieldOnly && !riftOnly && !productionOnly && !readingOnly && !wideOnly && !journalOnly && !terrainOnly && !materialsOnly && !outpostOnly && !territoryOnly) {
   report.metrics.paletteContrast = Object.fromEntries(pairs.map(([label,foreground,background])=>{ const a=luminance(foreground),b=luminance(background);return [label,Number(((Math.max(a,b)+.05)/(Math.min(a,b)+.05)).toFixed(2))]; }));
   report.metrics.sourceBytes = Object.fromEntries(await Promise.all(['index.html','style.css','frontier.css','app.mjs','frontier-world.mjs'].map(async file=>[file,(await readFile(new URL(file,import.meta.url))).length])));
   check('candidate flat-palette text pairs meet 4.5:1', Object.values(report.metrics.paletteContrast).every(ratio=>ratio>=4.5),report.metrics.paletteContrast);
@@ -50,7 +51,9 @@ try {
   const evaluate = async expression => { const result = await send('Runtime.evaluate', { expression, awaitPromise: true, returnByValue: true }); if (result.exceptionDetails) throw Error(JSON.stringify(result.exceptionDetails)); return result.result.value; };
   const until = async expression => { for (let i = 0; i < 150; i++) { if (await evaluate(expression)) return; await pause(70); } throw Error('Timed out: ' + expression); };
   await send('Page.enable'); await send('Runtime.enable');
-  if (homeSoak) {
+  if (homeLifecycle) {
+    await (await import('../../site/scripts/home-lifecycle-checks.mjs')).run({send,evaluate,until,pause,check,report});
+  } else if (homeSoak) {
     await (await import('../../site/scripts/home-soak-checks.mjs')).run({send,evaluate,until,pause,check,report});
   } else if (readerAudit) {
     await (await import('../../site/scripts/reader-audit.mjs')).run({send,evaluate,until,pause,check,report});
