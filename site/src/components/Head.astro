@@ -2,11 +2,17 @@
 import Default from '@astrojs/starlight/components/Head.astro';
 import interUrl from '../assets/fonts/inter-latin-wght.woff2?url';
 import displayUrl from '../assets/fonts/instrument-serif-latin-400.woff2?url';
+import readingCss from '../styles/journal/reading.css?url';
+import journalCss from '../styles/journal/journal.css?url';
+import atmosphereCss from '../styles/journal/atmosphere.css?url';
+import productionCss from '../styles/journal/production.css?url';
+const isJournal = /^ch[0-8A]$/.test(Astro.locals.starlightRoute.entry.id);
 // 组件会被打包进 dist/.prerender，不能 import site.config.mjs（它按 import.meta.url 相对路径读 book.config.json）。
 const BASE = import.meta.env.BASE_URL.replace(/\/+$/, '');
 ---
 
 <Default><slot /></Default>
+{isJournal && <><link rel="stylesheet" href={readingCss} /><link rel="stylesheet" href={journalCss} /><link rel="stylesheet" href={atmosphereCss} /><link rel="stylesheet" href={productionCss} /></>}
 {/* 首屏用到的两款（正文 + 标题）预加载；等宽字体只在代码块出现，按需加载。 */}
 <link rel="preload" href={interUrl} as="font" type="font/woff2" crossorigin />
 <link rel="preload" href={displayUrl} as="font" type="font/woff2" crossorigin />
