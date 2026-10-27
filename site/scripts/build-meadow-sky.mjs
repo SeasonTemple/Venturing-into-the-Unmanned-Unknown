@@ -65,4 +65,16 @@ for(let y=0;y<mi.height;y++)for(let x=0;x<mi.width;x++){
  mask[(y*mi.width+x)*mi.channels]=Math.round(alpha*255);
 }
 await writeFile(new URL('motion-mask-v02.png',root),await sharp(mask,{raw:{width:mi.width,height:mi.height,channels:mi.channels}}).png().toBuffer());
+// Alpha carries the original rigid vane/rotor silhouette. RGB keeps the
+// environment channels; no additional runtime texture or image generation.
+const equipmentMask=Buffer.alloc(mi.width*mi.height*4);
+for(let y=0;y<mi.height;y++)for(let x=0;x<mi.width;x++){
+ const i=y*mi.width+x,px=x*2,py=y*2;
+ equipmentMask[i*4+3]=128; // nonzero alpha preserves packed RGB in image decoders
+ for(let c=0;c<3;c++)equipmentMask[i*4+c]=mask[i*3+c];
+ if(px>=1400&&px<=1580&&py>=218&&py<=318){
+  equipmentMask[i*4]=255;equipmentMask[i*4+3]=isSky(px,py)?128:255;
+ }
+}
+await writeFile(new URL('motion-mask-v03.png',root),await sharp(equipmentMask,{raw:{width:mi.width,height:mi.height,channels:4}}).png().toBuffer());
 console.log(JSON.stringify({width:W,height:H,period:W*2,patches,method:'Approved painted patches, completed behind roof; virtual mirrored seamless extension. No generation.'}));

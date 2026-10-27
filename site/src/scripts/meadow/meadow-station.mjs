@@ -1,6 +1,6 @@
 // Fixed-view observation, using landmarks actually present in the approved art.
 // Findings survive closing the station; no walking is implied by a marker click.
-export function createMeadowStation({stage}){
+export function createMeadowStation({stage,camera}){
  const $=id=>document.getElementById(id),enter=$('enter-field'),panel=$('field-controls'),button=$('field-action'),note=$('field-note');
  const abort=new AbortController(),{signal}=abort,found=new Set();
  let active=false,observed=false,clue=false,view='archive',disposed=false;
@@ -17,6 +17,7 @@ export function createMeadowStation({stage}){
  function update(){
   const complete=found.size===2,entry=entries[view];
   stage.classList.toggle('exploring',active);stage.dataset.field=active?(clue?'clue':complete?'compared':observed?'observed':'station'):'poster';
+  camera?.setView(!active?'poster':!observed?'station':view);
   panel.hidden=!active;note.hidden=!active||!observed;$('field-sites').hidden=!active;
   $('field-record').hidden=observed;$('field-pin').hidden=$('field-reference').hidden=!observed;
   for(const [id,key]of [['field-pin','stake'],['field-reference','reference']]){
@@ -46,7 +47,8 @@ export function createMeadowStation({stage}){
  }
  enter.addEventListener('click',open,{signal});button.addEventListener('click',action,{signal});$('field-record').addEventListener('click',read,{signal});$('field-reread').addEventListener('click',read,{signal});
  $('field-pin').addEventListener('click',()=>inspect('stake'),{signal});$('field-reference').addEventListener('click',()=>inspect('reference'),{signal});$('field-exit').addEventListener('click',close,{signal});
+ for(const [id,shot]of [['field-pin','stake'],['field-reference','reference'],['field-record','station']])$(id).addEventListener('focus',()=>camera?.setView(shot),{signal});
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&active&&!document.querySelector('dialog[open]')){e.preventDefault();close();}},{signal});
  enter.hidden=false;update();
- return{open,close,action,pause(){},stats:()=>({mode:'station-review',active,observed,findings:[...found],clue,view,disposed,directionalAnimation:false}),destroy(){disposed=true;abort.abort();}};
+ return{open,close,action,pause(value){camera?.pause(value);},stats:()=>({mode:'station-review',active,observed,findings:[...found],clue,view,disposed,directionalAnimation:false,camera:camera?.stats()}),destroy(){disposed=true;abort.abort();camera?.destroy();}};
 }
