@@ -8,7 +8,7 @@
 [![Pages](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/actions/workflows/pages.yml/badge.svg?style=flat-square)](https://seasontemple.github.io/Venturing-into-the-Unmanned-Unknown/)
 [![Release](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/actions/workflows/release.yml/badge.svg?style=flat-square)](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/releases)
 
-以 AI Agent 为一级生产力，人负责意图、约束与裁决的软件工程方法；全书按生命周期组织，并提供可直接加载的 Agent Skills（`SKILL.md`）。目标是放大人的杠杆与对系统的理解，而不是「人不写、不读代码」。
+**AI Agent 为生产与执行主体**；人提供原始意图输入，并作为权重较高的 HITL 裁决源之一，与可执行规格、自动门禁等系统保证共同约束交付。全书按生命周期组织，并提供可直接加载的 Agent Skills（`SKILL.md`）。
 
 ## 章节直达
 
@@ -38,19 +38,19 @@ cp -R skills/* .claude/skills/   # 或 .agents/skills/ / .cursor/skills/
 ```
 
 也可从 [Releases](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/releases) 下载源码 `tar.gz`、技能包 `zip`、合并单文件 `BOOK.md`。
-按需外部依赖（第三方内容，不随本项目打包；来源与许可见 [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md)）：`npx skills add danyuchn/asd-ste100-skill`、`npx skills add younes-io/agent-skills --skill tla-check`。
+按需外部依赖（第三方内容，不随本项目打包；来源与许可见 [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md)）。模型检查等示例：`npx skills add younes-io/agent-skills --skill tla-check`。英语 STE 检查仅为可选，见意图章。
 
 ## 使用顺序与原则
 
-第 0 章对齐原则 → 1 意图与可执行验收 → 2 边界、契约、不变量与可仿真边界 → 4 实现 → 3 / 5 验证与测试（含属性、Expect、确定性仿真等按风险选用）→ 6 过门禁交付 → 7 信号驱动演进与审阅纪律 → 8 维护最小工具集。
+第 0 章对齐角色与原则 → 1 意图输入与可执行验收（允许渐进完备）→ 2 边界、契约、不变量与可仿真边界 → 4 实现 → 3 / 5 验证与测试（按风险）→ 6 系统门禁与交付 → 7 信号驱动演进与 HITL 纪律 → 8 最小工具集。
 
 **缺意图不设计、缺契约不实现、缺门禁不发布。**
 
-设计原则：意图先行 · 风险驱动 · 可检查、可回归 · **可执行规格优先** · 快速可读反馈 · 表达低歧义 · 资产化 · 人机分工（Agent 生产，人裁决与理解）。手段跨语言；验证/仿真工具按语言成熟度与风险选型，不绑定单一生态或厂商。
+原则：意图先行 · 风险驱动 · 可检查可回归 · 可执行规格优先 · 快速可读反馈 · 表达以对齐为目的 · 资产化 · **Agent 主体 + 人意图/HITL + 系统保证**。手段跨语言；重型验证/仿真按成熟度与风险启用。
 
 ## 贡献与引用
 
-见 [CONTRIBUTING.md](./CONTRIBUTING.md)（授权条款、勘误流程、内容公约、改动同步清单）；新增章节请复制 [template/SKILL.md](./template/SKILL.md)。引用本书见 [CITATION.cff](./CITATION.cff)。发版见 [docs/release-process.md](./docs/release-process.md) 与 [docs/release-notes/](./docs/release-notes/)。
+见 [CONTRIBUTING.md](./CONTRIBUTING.md)；新增章节请复制 [template/SKILL.md](./template/SKILL.md)。引用见 [CITATION.cff](./CITATION.cff)。发版见 [docs/release-process.md](./docs/release-process.md) 与 [docs/release-notes/](./docs/release-notes/)。
 
 ## 许可
 
@@ -59,4 +59,4 @@ cp -R skills/* .claude/skills/   # 或 .agents/skills/ / .cursor/skills/
 ## 版本
 
 - 版本：**v0.0.3**
-- 状态：全书技能正文方法论刷新（可执行规格、多语言验证现实、确定性仿真测试、Expect、Agent 审阅纪律等）；清单与附录术语对齐；在线站随 `main` 构建
+- 状态：方法论持续修订于 `main`（角色模型、意图渐进完备、形式化验证专节、DST/Expect、搜索修复等）；正式 Release 以 tag 为准
