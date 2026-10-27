@@ -11,18 +11,20 @@ export function createReaderAtmosphere(sections) {
   const veil = document.createElement('div');
   veil.className = 'reading-veil'; veil.setAttribute('aria-hidden', 'true');
   document.body.prepend(canvas, veil);
-  let bodyVisible=false,disposed=false,chromeFrame=0;
-  const enabled = () => bodyVisible && !preference && !motion.matches && !document.body.classList.contains('focused') && !document.hidden && !document.body.hasAttribute('data-search-modal-open');
-  function resize() { syncChrome(); }
+  let bodyVisible=false,headerVisible=true,disposed=false,chromeFrame=0;
+  const allowed = () => !disposed && !preference && !motion.matches && !document.body.classList.contains('focused') && !document.hidden && !document.body.hasAttribute('data-search-modal-open');
+  const enabled = () => bodyVisible && allowed();
+  function resize() { document.documentElement.style.setProperty('--reader-chrome-height',document.querySelector('.reader-chrome').offsetHeight+'px');syncChrome(); }
   function sync() {
     stats.enabled = !preference && !motion.matches;
     if(document.body.classList.contains('motion-paused')===stats.enabled)document.body.classList.toggle('motion-paused', !stats.enabled);
     const toggle = $('motion-toggle');
     toggle.hidden = false; toggle.disabled = motion.matches;
-    toggle.title = motion.matches ? '系统已启用减少动态效果' : '';
+    toggle.title = motion.matches ? '系统已启用减少动态效果' : '未测绘边界漂移与纸面底层流动';
     toggle.setAttribute('aria-pressed', String(stats.enabled)); toggle.textContent = stats.enabled ? '动效开' : '动效停';
     toggle.setAttribute('aria-label', motion.matches ? '动态效果已按系统偏好关闭' : stats.enabled ? '暂停页面动态效果' : '开启页面动态效果');
     stats.running=enabled();canvas.style.setProperty('--survey-play',stats.running?'running':'paused');
+    stats.headerRunning=headerVisible&&allowed();$('opening').style.setProperty('--survey-header-play',stats.headerRunning?'running':'paused');
     document.dispatchEvent(new Event('readingmotionchange'));
   }
   function toggleMotion() {
@@ -77,7 +79,7 @@ export function createReaderAtmosphere(sections) {
   function closeButton() { close(true); }
   function bodyStart() {
     const marker = sections[0].querySelector('.section-marker') || sections[0];
-    return Math.max(0, marker.getBoundingClientRect().top + scrollY - document.querySelector('.reader-chrome').offsetHeight - 24);
+    return Math.max(0, marker.getBoundingClientRect().top + scrollY - document.querySelector('.reader-chrome').offsetHeight - document.querySelector('.chapter-travel').offsetHeight - 24);
   }
   function jump(bottom) {
     close();
@@ -123,19 +125,21 @@ export function createReaderAtmosphere(sections) {
   function dispose() {
     if (disposed) return;
     disposed = true; stats.disposed = true; clearTimeout(timer);
-    cancelAnimationFrame(chromeFrame); bodyObserver.disconnect(); openingObserver.disconnect();
+    cancelAnimationFrame(chromeFrame); bodyObserver.disconnect(); openingObserver.disconnect();chromeSize.disconnect();
     $('motion-toggle').removeEventListener('click', toggleMotion); motion.removeEventListener('change', sync);
     document.removeEventListener('visibilitychange', sync); removeEventListener('resize', resize); removeEventListener('scroll', scroll);
     document.removeEventListener('keydown', escape); document.removeEventListener('pointerdown', outside);
     removeEventListener('pagehide', pagehide); removeEventListener('pageshow', pageshow);
-    bodyVisibility.disconnect();canvas.remove(); veil.remove(); edge.remove(); document.body.classList.remove('over-survey');
+    bodyVisibility.disconnect();headerVisibility.disconnect();$('opening').style.setProperty('--survey-header-play','paused');canvas.remove(); veil.remove(); edge.remove(); document.body.classList.remove('over-survey');
   }
   function pagehide(event) {
-    if (!event.persisted) dispose(); else {stats.running=false;canvas.style.setProperty('--survey-play','paused');}
+    if (!event.persisted) dispose(); else {stats.running=false;stats.headerRunning=false;canvas.style.setProperty('--survey-play','paused');$('opening').style.setProperty('--survey-header-play','paused');}
   }
   function pageshow() { resize(); sync(); }
   addEventListener('pagehide', pagehide); addEventListener('pageshow', pageshow);
   const bodyVisibility=new IntersectionObserver(([entry])=>{bodyVisible=entry.isIntersecting;sync();});bodyVisibility.observe($('body'));
+  const headerVisibility=new IntersectionObserver(([entry])=>{headerVisible=entry.isIntersecting;sync();});headerVisibility.observe($('opening'));
+  const chromeSize=new ResizeObserver(resize);chromeSize.observe(document.querySelector('.reader-chrome'));
   resize(); sync(); window.__readingStudy.effects = stats;
   return { update, toggleOutline, dispose };
 }

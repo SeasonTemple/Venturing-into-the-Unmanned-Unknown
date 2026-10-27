@@ -95,9 +95,9 @@ h1, h2, h3, p, figure { margin: 0; }
 .section-content th, .section-content td { text-align: left; padding: 13px 14px; border-bottom: 1px solid var(--rd-line); min-width: 96px; }
 .section-content th { font-weight: 550; background: var(--rd-panel); border-top: 1px solid var(--rd-line); }
 .section-content td:first-child { font-family: var(--rd-mono); color: var(--rd-copper); }
-.section-content code { font: .85em/1.8 var(--rd-mono); }
+.section-content :not(pre) > code { font: .85em/1.8 var(--rd-mono); }
 .section-content :not(pre) > code { background: var(--rd-panel); padding: 2px 5px; }
-.section-content pre { background: var(--rd-night); color: var(--rd-light); padding: 23px; border-left: 2px solid var(--rd-copper); overflow: auto; font: 13px/1.85 var(--rd-mono); }
+.section-content pre { background: var(--mt-code-bg,var(--rd-panel)); color: var(--rd-ink); padding: 23px; border-left: 2px solid var(--rd-copper); overflow: auto; font: 14px/1.85 var(--rd-mono); }
 .copy-source { min-height: var(--rd-control); padding: 5px 0; color: var(--rd-copper); font-size: 11px; display: block; margin-left: auto; }
 .section-note { display: none; }
 .chapter-end { max-width: 1160px; margin: 50px auto 0; border-top: 1px solid var(--rd-line); padding: 36px 0 40px; }
@@ -105,18 +105,18 @@ h1, h2, h3, p, figure { margin: 0; }
 .chapter-end a { font-size: 27px; text-decoration: none; display: flex; gap: 45px; align-items: center; }
 .chapter-end button { font-size: 12px; min-height: var(--rd-control); }
 .chapter-end > p:last-child { color: var(--rd-muted); font-size: 11px; }
-dialog { position: fixed; inset: 0 0 0 auto; margin: 0; border: 0; border-left: 1px solid var(--rd-line); background: var(--rd-paper); color: var(--rd-ink); width: min(520px, 100%); height: 100dvh; max-height: 100dvh; max-width: 100%; padding: 32px; }
-dialog::backdrop { background: #14252b77; }
+#navigation { position: fixed; inset: 0 0 0 auto; margin: 0; border: 0; border-left: 1px solid var(--rd-line); background: var(--rd-paper); color: var(--rd-ink); width: min(520px, 100%); height: 100dvh; max-height: 100dvh; max-width: 100%; padding: 32px; }
+#navigation::backdrop { background: #14252b77; }
 .dialog-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .dialog-heading h2 { font-size: 23px; font-weight: 500; }
 .dialog-heading button { font-size: 12px; min-height: var(--rd-control); }
 .dialog-tabs { display: flex; gap: 28px; margin-top: 20px; border-bottom: 1px solid var(--rd-line); }
 .dialog-tabs button { font-size: 13px; min-height: var(--rd-control); padding: 10px 0; }
 .dialog-tabs button[aria-selected=true] { border-bottom: 2px solid var(--rd-copper); color: var(--rd-copper); }
-dialog nav { margin-top: 18px; }
-dialog nav a { display: flex; gap: 23px; align-items: baseline; padding: 15px 0; font-size: 14px; text-decoration: none; border-bottom: 1px solid var(--rd-line); }
-dialog nav a span { font: 11px var(--rd-mono); color: var(--rd-muted); }
-dialog nav a[aria-current] { color: var(--rd-copper); }
+#navigation nav { margin-top: 18px; }
+#navigation nav a { display: flex; gap: 23px; align-items: baseline; padding: 15px 0; font-size: 14px; text-decoration: none; border-bottom: 1px solid var(--rd-line); }
+#navigation nav a span { font: 11px var(--rd-mono); color: var(--rd-muted); }
+#navigation nav a[aria-current] { color: var(--rd-copper); }
 body:has(dialog[open]) { overflow: hidden; }
 
 /* A field journal changes the page structure: a dark opening and contextual marginal notes. */
@@ -199,7 +199,7 @@ body.focused .reading-position { border-top: 0; }
   .chapter-end { margin-top: 35px; }
   .chapter-end a { font-size: 22px; gap: 20px; }
   .chapter-end button { font-size: 11px; flex-shrink: 0; }
-  dialog { padding: 25px 22px; }
+  #navigation { padding: 25px 22px; }
   html { scroll-padding-top: 132px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

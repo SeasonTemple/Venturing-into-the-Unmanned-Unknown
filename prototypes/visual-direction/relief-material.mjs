@@ -1,11 +1,13 @@
 import * as T from 'three';
 import { ImprovedNoise } from 'three/addons/math/ImprovedNoise.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { createReliefField, reliefView } from './relief-field.mjs';
 
 const noise = new ImprovedNoise();
 const smooth = (a,b,x) => { const t=T.MathUtils.clamp((x-a)/(b-a),0,1);return t*t*(3-2*t); };
 const n = (x,z) => noise.noise(x,z,3.71);
-export const reliefBoundary = z => 2.5+.7*Math.sin(z*.68)+.25*Math.sin(z*1.7);
+const field=createReliefField((x,y,z)=>noise.noise(x,y,z));
+export const reliefBoundary=field.boundary,reliefHeight=field.height;
 const boundaryGLSL=`float surveyBank(float z){return 2.5+.7*sin(z*.68)+.25*sin(z*1.7);}`;
 
 // Surface and shadow passes use the same material boundary. Darkness alone is not unknown.
@@ -15,20 +17,6 @@ function surveyVisibility(shader){
   shader.fragmentShader=shader.fragmentShader.replace('#include <alphatest_fragment>',`diffuseColor.a*=1.-smoothstep(surveyBank(vSurvey.z)-.85,surveyBank(vSurvey.z)+.05,vSurvey.x);
     #include <alphatest_fragment>`);
 }
-export function reliefHeight(x,z) {
-  // A continuous, branching ridge field. The geometry stays fixed under moving light.
-  const wx=x+1.5*n(x*.19+6,z*.19), wz=z+1.2*n(x*.21,z*.21+8);
-  let ridge=0,amp=1,freq=.22,weight=1;
-  for(let i=0;i<5;i++) {
-    let r=Math.max(0,1-Math.abs(n(wx*freq+11,wz*freq+4))*1.8);r*=r;
-    ridge+=r*amp*weight;weight=T.MathUtils.clamp(r*1.8,0,1);freq*=2.12;amp*=.48;
-  }
-  const spine=Math.exp(-(((wz+1.1-Math.sin(wx*.34)*1.6)/3.25)**2));
-  const reach=Math.exp(-(((x+1)/9.7)**4));
-  const edge=smooth(0,2.1,10-Math.abs(x))*smooth(0,1.8,6-Math.abs(z));
-  return .08+edge*(.22+ridge*2.3)*(.30+spine*.9)*reach;
-}
-
 export function mineralTexture() {
   const size=256,data=new Uint8Array(size*size*4);
   for(let y=0;y<size;y++)for(let x=0;x<size;x++) {
@@ -52,7 +40,7 @@ export function createRelief(canvas,{editorialBase=false}={}) {
   renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFShadowMap;
   const scene=new T.Scene();scene.background=new T.Color('#101d21');scene.fog=new T.Fog('#101d21',40,85);
   const camera=new T.OrthographicCamera(-16,16,9,-9,.1,100);
-  camera.position.set(12,15.5,19);camera.lookAt(0,.55,0);
+  camera.position.fromArray(reliefView.position);camera.lookAt(...reliefView.target);
   const room=new RoomEnvironment();const pmrem=new T.PMREMGenerator(renderer);
   const env=pmrem.fromScene(room,.06);scene.environment=env.texture;scene.environmentIntensity=.075;room.dispose();pmrem.dispose();
   scene.add(new T.HemisphereLight('#a9c9d3','#1a2726',.26));
@@ -68,7 +56,7 @@ export function createRelief(canvas,{editorialBase=false}={}) {
       #include <tonemapping_fragment>`);
   };
   const floor=new T.Mesh(new T.PlaneGeometry(150,150),floorMaterial);floor.rotation.x=-Math.PI/2;floor.position.y=-.43;floor.receiveShadow=true;scene.add(floor);
-  const nx=compact?160:224,nz=compact?96:134,positions=[],uvs=[],indices=[];
+  const nx=compact?160:reliefView.nx,nz=compact?96:reliefView.nz,positions=[],uvs=[],indices=[];
   for(let j=0;j<=nz;j++)for(let i=0;i<=nx;i++){const x=-10+20*i/nx,z=-6+12*j/nz;positions.push(x,reliefHeight(x,z),z);uvs.push(i/nx,j/nz);}
   for(let j=0;j<nz;j++)for(let i=0;i<nx;i++){
     const x=-10+20*i/nx,z=-6+12*j/nz;

@@ -7,6 +7,20 @@ export async function run({send,evaluate,until,pause,check,report}){
  check('unreviewed directional animation and old three.js hero are not loaded',await evaluate('!window.__meadowWalk&&!document.querySelector(".field-actor")&&!performance.getEntriesByType("resource").some(e=>/three\.|HeroScene|hero-gate|engineer-actions|meadow-walk/.test(e.name))'));
  const before=await evaluate('window.__meadowMotion.stats()');await pause(1000);const after=await evaluate('window.__meadowMotion.stats()');
  check('desktop environment retains bounded draws and texture sizes',after.frames>before.frames&&after.frames-before.frames<=25&&after.textureCount===2&&after.buffer[0]<=1440,{frames:after.frames-before.frames,buffer:after.buffer});
+ const motionPixels=await evaluate(`(async()=>{
+  const canvas=document.querySelector('.environment-motion'),gl=canvas.getContext('webgl'),w=canvas.width,h=canvas.height,mask=new Image();mask.src=new URL('motion-mask-v01.png',new URL(document.querySelector('.landscape').dataset.mediaBase,location.href)).href;await mask.decode();
+  const buffer=document.createElement('canvas');buffer.width=w;buffer.height=h;const ctx=buffer.getContext('2d');ctx.imageSmoothingEnabled=false;ctx.drawImage(mask,0,0,w,h);const zones=ctx.getImageData(0,0,w,h).data;
+  const capture=t=>{window.__meadowMotion.sample(t);const a=new Uint8Array(w*h*4);gl.readPixels(0,0,w,h,gl.RGBA,gl.UNSIGNED_BYTE,a);return a;};
+  window.__meadowMotion.pause(true);const frames=[capture(0),capture(2),capture(80),capture(82)],result={};
+  for(const [name,a,b]of[['early',frames[0],frames[1]],['late',frames[2],frames[3]]]){
+   const counts={cloud:[0,0],water:[0,0],grass:[0,0],fixed:[0,0]};
+   for(let y=0;y<h;y+=3)for(let x=0;x<w;x+=3){const m=(y*w+x)*4,i=((h-1-y)*w+x)*4;let zone=zones[m]>200?'cloud':zones[m+1]>140?'water':zones[m+2]>80?'grass':zones[m]===0&&zones[m+1]===0&&zones[m+2]===0?'fixed':null;if(!zone)continue;counts[zone][0]++;if(Math.max(...[0,1,2].map(k=>Math.abs(a[i+k]-b[i+k])))>3)counts[zone][1]++;}
+   result[name]=Object.fromEntries(Object.entries(counts).map(([k,[n,d]])=>[k,{sampled:n,changed:d,share:n?d/n:0}]));
+  }window.__meadowMotion.pause(false);return result;
+ })()`);
+ report.metrics.motionPixels=motionPixels;
+ check('clouds keep moving after the initial minute and grass and water remain visible',motionPixels.early.cloud.share>.01&&motionPixels.late.cloud.share>.01&&motionPixels.early.grass.share>.01&&motionPixels.early.water.share>.01,motionPixels);
+ check('environment motion leaves the painted character and architecture fixed',motionPixels.early.fixed.changed===0&&motionPixels.late.fixed.changed===0,motionPixels);
  report.metrics.layouts=[];
  for(const width of [320,390,768,1440,2560]){
   await send('Emulation.setDeviceMetricsOverride',{width,height:844,deviceScaleFactor:1,mobile:width<700});await pause(120);

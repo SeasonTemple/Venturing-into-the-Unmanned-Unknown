@@ -18,14 +18,12 @@ function init(){
       if(!h&&node.nodeType===3&&!node.textContent.trim())continue;
       section=document.createElement('section');section.className='article-section';
       const marker=document.createElement('span');marker.className='section-marker';marker.setAttribute('aria-hidden','true');marker.textContent=`原文 / ${chapter.order.padStart(2,'0')}.${String(sections.length+1).padStart(2,'0')}`;
-      content=document.createElement('div');content.className='section-content';section.append(marker,content);article.append(section);sections.push(section);
+      content=document.createElement('div');content.className='section-content';content.append(marker);section.append(content);article.append(section);sections.push(section);
     }
     content.append(node);
   }
   sections=sections.filter(s=>s.querySelector('h2'));
   state.sections=sections.length;
-  const starts=chapter.slug==='ch3'?[0,4,6,8]:[0,Math.floor(sections.length/3),Math.floor(sections.length*2/3)];
-  $('route-links').replaceChildren(...[...new Set(starts)].filter(i=>sections[i]).map((index,i)=>{const heading=sections[index].querySelector('h2'),a=document.createElement('a'),number=document.createElement('span'),title=document.createElement('strong');a.href='#'+heading.id;number.textContent=String(i+1).padStart(2,'0');title.textContent=chapter.slug==='ch3'?['辨明边界','采集证据','追踪反例','带回方法'][i]:heading.textContent.replace(/^\d+[.、]?\s*/,'');a.append(number,title);return a;}));
   for(const table of article.querySelectorAll('table')){const wrap=document.createElement('div');wrap.className='table-scroll';wrap.tabIndex=0;wrap.setAttribute('role','region');wrap.setAttribute('aria-label','可横向滚动的章节表格');table.before(wrap);wrap.append(table);}
   // Editorial aids attach by subject, since upstream chapters may gain sections.
   const aids=[
@@ -41,6 +39,16 @@ function init(){
     const label=document.createElement('span');label.className='note-label';label.textContent=aid[1];const strong=document.createElement('strong');strong.textContent=aid[2];const p=document.createElement('p');p.textContent=aid[3];note.append(label,strong,p);s.append(note);
     if(/分层验证模型/.test(title)){const heading=s.querySelector('h2');(heading.parentElement===s.querySelector('.section-content')?heading:heading.parentElement).after(createLayerPlate());}
   }
+  function marginNote(index){
+    const destination=$('margin-note');destination.replaceChildren();
+    const section=sections[index];if(!section)return;
+    const note=section.querySelector('.section-note');
+    if(note){destination.append(...Array.from(note.childNodes,n=>n.cloneNode(true)));return;}
+    const subheads=[...section.querySelectorAll('h3')];if(!subheads.length)return;
+    const label=document.createElement('span');label.className='note-label';label.textContent='本节线索';destination.append(label);
+    for(const h of subheads){const a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;destination.append(a);}
+  }
+  $('margin-note').addEventListener('click',goHeading,{signal});
   let trigger;
   function tab(name,focus=false){for(const key of ['book','outline']){const active=name===key;$(`${key}-tab`).setAttribute('aria-selected',String(active));$(`${key}-tab`).tabIndex=active?0:-1;$(`${key}-panel`).hidden=!active;}if(focus)$(`${name}-tab`).focus();}
   function openNavigation(name='book'){trigger=document.activeElement;tab(name);$('navigation').showModal();}
@@ -64,7 +72,7 @@ function init(){
     try{const text=JSON.parse($('mt-raw-md').textContent);if(navigator.clipboard?.writeText)await navigator.clipboard.writeText(text);else{const input=document.createElement('textarea');input.value=text;input.style.cssText='position:fixed;top:-1000px';document.body.append(input);input.select();const ok=document.execCommand('copy');input.remove();if(!ok)throw Error('copy failed');}label.textContent='已复制';$('status').textContent='Markdown 已复制';}
     catch{label.textContent='复制失败';$('status').textContent='未能复制，请选择正文或使用浏览器复制功能。';}
   },{signal});
-  function update(){frame=0;const h=document.documentElement.scrollHeight-innerHeight;$('progress').style.transform=`scaleX(${h?Math.min(1,Math.max(0,scrollY/h)):0})`;const index=Math.max(0,sections.findLastIndex(s=>s.getBoundingClientRect().top<180));if(index!==current){current=index;atmosphere?.update(index);for(const[s,i]of sections.map((s,i)=>[s,i]))s.dataset.current=String(i===index);const heading=sections[index]?.querySelector('h2');$('route-links').querySelectorAll('a').forEach(a=>{if(decodeURIComponent(a.hash.slice(1))===heading?.id)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}}
+  function update(){frame=0;const h=document.documentElement.scrollHeight-innerHeight;$('progress').style.transform=`scaleX(${h?Math.min(1,Math.max(0,scrollY/h)):0})`;const index=Math.max(0,sections.findLastIndex(s=>s.getBoundingClientRect().top<document.querySelector('.chapter-travel').getBoundingClientRect().bottom+65));if(index!==current){current=index;marginNote(index);atmosphere?.update(index);for(const[s,i]of sections.map((s,i)=>[s,i]))s.dataset.current=String(i===index);const heading=sections[index]?.querySelector('h2');$('route-links').querySelectorAll('a').forEach(a=>{if(decodeURIComponent(a.hash.slice(1))===heading?.id)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}}
   function schedule(){if(!frame)frame=requestAnimationFrame(update);}
   addEventListener('scroll',schedule,{passive:true,signal});addEventListener('resize',schedule,{signal});
   try{atmosphere=createReaderAtmosphere(sections);}catch(error){state.errors.push(String(error));}

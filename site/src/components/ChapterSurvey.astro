@@ -1,21 +1,36 @@
 ---
-import {surveyRoutes,surveyTargets} from '../scripts/journal/chapter-surveys.mjs';
+import {surveyTargets} from '../scripts/journal/chapter-surveys.mjs';
+import projections from '../scripts/journal/chapter-projections.json';
 const {chapter,survey,headings}=Astro.props;
 const base=import.meta.env.BASE_URL.replace(/\/+$/,'');
-const points=surveyRoutes[chapter.slug];
-const nodes=survey.nodes.map((name,i)=>({name,point:points[i],heading:headings.find(h=>h.text.includes(surveyTargets[chapter.slug][i]))||headings[Math.floor(i*(headings.length-1)/2)]}));
-const last=points.at(-1),unknown=[1290,490];
+const drawing=projections.chapters[chapter.slug];
+const nodes=survey.nodes.map((name,i)=>({name,...drawing.nodes[i],heading:headings.find(h=>h.text.includes(surveyTargets[chapter.slug][i]))||headings[Math.floor(i*(headings.length-1)/2)]}));
 ---
 <figure id="chapter-art" class="chapter-art survey-poster" data-survey={chapter.slug}>
  <svg class="survey-map" viewBox="180 150 1460 660" role="group" aria-labelledby="survey-caption">
-  <image href={base+'/journal/relief-base-v01.webp'} width="1920" height="1080" />
-  <path class="chapter-trace" d={points.map(([x,y],i)=>`${i?'L':'M'}${x} ${y}`).join(' ')} />
-  <path class="chapter-unresolved" d={`M${last[0]} ${last[1]}L${unknown[0]} ${unknown[1]}`} />
-  {nodes.map(({name,point:[x,y],heading},i)=><a href={'#'+heading.slug} class="survey-node" aria-label={`${name}：${heading.text}`}>
-   <circle class="node-halo" cx={x} cy={y} r="38" /><circle class="node-ring" cx={x} cy={y} r="13" /><circle class="node-core" cx={x} cy={y} r="4" />
-   <path class="node-leader" d={`M${x} ${y-21}V${y-65}h18`} /><text x={x+26} y={y-62}><tspan class="node-number">0{i+1}</tspan><tspan class="node-title" dx="14">{name}</tspan></text>
+  <foreignObject x="0" y="0" width="1920" height="1080"><picture xmlns="http://www.w3.org/1999/xhtml"><source media="(max-width:760px)" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'/%3E" /><img src={base+'/journal/relief-base-v01.webp'} width="1920" height="1080" alt="" /></picture></foreignObject>
+  <path class="chapter-trace-contact" d={drawing.trace} />
+  <path class="chapter-trace" d={drawing.trace} />
+  <path class="chapter-unresolved" d={drawing.unresolved} />
+  <g class="frontier-drift" aria-hidden="true">{projections.frontier.map((d,i)=><path d={d} style={`--delay:${-i*.29}s`} />)}</g>
+  {nodes.map(({name,point:[x,y],tip,ground,contact,shadow,faces,label,leader,heading},i)=><a href={'#'+heading.slug} class="survey-node" aria-label={`${name}：${heading.text}`}>
+   <circle class="node-hit" cx={x} cy={y} r="26" />
+   <path class="node-shadow" d={shadow} /><path class="node-contact" d={contact} /><path class="node-ground" d={ground} />
+   <g class="node-solid">{faces.map(face=><path d={face.d} fill={face.fill} />)}</g>
+   <path class="node-leader" d={leader} />
+   <rect class="node-label-hit" x={label[0]-8} y={label[1]-30} width={60+name.length*17} height="48" />
+   <text class="node-caption" x={label[0]} y={label[1]}><tspan class="node-number">0{i+1}</tspan><tspan class="node-title" dx="12">{name}</tspan></text>
+   <path class="node-caption-rule" d={`M${label[0]} ${label[1]+12}h${42+name.length*10}`} />
+   <text class="node-index" x={tip[0]+12} y={tip[1]-8}>0{i+1}</text>
   </a>)}
-  <text class="survey-unknown" x={unknown[0]+20} y={unknown[1]}>{survey.unknown}</text>
+ </svg>
+ <svg class="survey-flat" viewBox="0 0 600 270" role="group" aria-label="本章平面测绘图">
+  <defs><pattern id="survey-grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#63847f" stroke-width=".5" opacity=".25" /></pattern></defs>
+  <rect x="0" y="0" width="600" height="270" fill="url(#survey-grid)" />
+  <g class="flat-contours">{projections.contours.map(d=><path d={d} />)}</g>
+  <path class="flat-boundary" d={projections.flatBoundary} />
+  <path class="flat-route" d={drawing.flatTrace} />
+  {nodes.map(({heading,name},i)=><a class="flat-node" href={'#'+heading.slug} aria-label={`${name}：${heading.text}`}><circle cx={drawing.flatNodes[i][0]} cy={drawing.flatNodes[i][1]} r="26" fill="transparent" /><circle class="flat-station" cx={drawing.flatNodes[i][0]} cy={drawing.flatNodes[i][1]} r="4" /><text x={drawing.flatNodes[i][0]+10} y={drawing.flatNodes[i][1]-10}>0{i+1}</text></a>)}
  </svg>
  <nav class="survey-legend" aria-label="本章测绘节点">{nodes.map(({name,heading},i)=><a href={'#'+heading.slug}><span>0{i+1}</span>{name}</a>)}</nav>
  <figcaption id="survey-caption"><span>本章路线 / {survey.nodes.join(' → ')}</span><span>断线之外：{survey.unknown}</span></figcaption>

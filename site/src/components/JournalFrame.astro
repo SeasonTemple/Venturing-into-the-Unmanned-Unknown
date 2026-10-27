@@ -23,22 +23,23 @@ const headings=toc?.items.filter(h=>h.slug!=='_top') || [];
       <nav aria-label="阅读工具"><Search /><ThemeSelect /><button id="motion-toggle" aria-pressed="true" hidden>动效开</button><button id="focus" aria-pressed="false" hidden>专注阅读</button><button id="open-navigation" aria-haspopup="dialog" hidden>目录 ☰</button><noscript><a href="#journal-book">全书目录</a></noscript></nav>
       <div class="progress" aria-hidden="true"><i id="progress"></i></div>
     </header>
+    <nav class="chapter-travel" aria-label="随页翻章"><a rel="prev" href={previous?base+'/'+previous.slug+'/':base+'/'}><span>← {previous?'上一章':'首页'}</span><strong>{previous?.title||'原野观测站'}</strong></a><span class="travel-position">{String(book.chapters.indexOf(chapter)+1).padStart(2,'0')} / {book.chapters.length}</span><a rel="next" href={next?base+'/'+next.slug+'/':base+'/'}><span>{next?'下一章':'首页'} →</span><strong>{next?.title||'原野观测站'}</strong></a></nav>
     <header id="opening" class:list={['chapter-opening','survey-opening',{'long-title':chapter.title.length>4}]}>
       <div class="opening-inner"><div class="opening-copy">
         <p class="kicker">FIELD NOTES / {chapter.order.padStart(2,'0')}<span class="journal-label"> / 现场手记</span></p>
         <h1 id="_top">{chapter.title}</h1><p id="thesis" class="chapter-thesis">{survey.thesis[0]}<br />{survey.thesis[1]}</p><p id="description" class="chapter-description">{chapter.blurb}</p>
-        <a class="begin" href="#body">开始本章 ↓</a>
       </div>
-      <ChapterSurvey {chapter} {survey} {headings} /></div>
+      <ChapterSurvey {chapter} {survey} {headings} /><a class="begin" href="#body">开始本章 ↓</a></div>
     </header>
     <div class="reading-spread">
-      <aside class="field-route" aria-label="本章阅读路线"><p class="kicker">ROUTE / {chapter.order.padStart(2,'0')}</p><h2>{chapter.title}</h2><nav id="route-links">{headings.map((h,i)=><a href={'#'+h.slug}><span>{String(i+1).padStart(2,'0')}</span><strong>{h.text}</strong></a>)}</nav><a class="route-book" href="#journal-book" id="route-book">全书章节 ↗</a></aside>
+      <aside class="field-route" aria-label="全书章节"><p class="kicker">FIELD NOTES / 全书章节</p><nav class="book-rail">{book.chapters.map(c=><a href={base+'/'+c.slug+'/'} aria-current={c.slug===chapter.slug?'page':undefined}><span>{c.order.padStart(2,'0')}</span><strong>{c.title}</strong></a>)}</nav><a class="route-book" href="#journal-book" id="route-book">展开全书目录 ↗</a></aside>
       <div class="reading-column">
         <div class="reading-position"><button id="open-outline" hidden>本章小节</button></div>
         <div class="journal-reading-tools"><span class="kicker">原文 / {chapter.order.padStart(2,'0')}</span><button type="button" data-mt-copy class="journal-copy" hidden><span class="mt-action-label" data-label-default="复制 Markdown" data-label-done="已复制" data-label-fail="复制失败">复制 Markdown ↗</span></button></div>
         <slot />
         <footer class="chapter-end"><p class="kicker">本章收记 / 继续行程</p><nav class="journal-pagination" aria-label="相邻章节"><a rel="prev" href={previous?base+'/'+previous.slug+'/':base+'/'}><span class="pagination-direction">← {previous?'上一章':'出发处'}</span><strong>{previous?.title||'原野观测站'}</strong></a><a id="next-chapter" rel="next" href={next?base+'/'+next.slug+'/':base+'/'}><span class="pagination-direction">{next?'下一章':'返回'} →</span><strong>{next?.title||'原野观测站'}</strong></a></nav><div class="journal-source-index"><span>文本索引</span><a href={base+'/llms.txt'}>章节索引 ↗</a><a href={base+'/llms-full.txt'}>全书纯文本 ↗</a></div></footer>
       </div>
+      <aside class="chapter-margin" aria-label="本章导航与批注"><p class="kicker">ON THIS CHAPTER / 本章</p><nav id="route-links">{headings.map((h,i)=><a href={'#'+h.slug}><span>{String(i+1).padStart(2,'0')}</span><strong>{h.text}</strong></a>)}</nav><div id="margin-note" class="margin-note" aria-live="off"></div></aside>
     </div>
     <section class="journal-book" id="journal-book" aria-label="全书目录"><p class="kicker">全书章节</p><nav>{book.chapters.map(c=><a href={base+'/'+c.slug+'/'} aria-current={c.slug===chapter.slug?'page':undefined}><span>{c.order.padStart(2,'0')}</span>{c.title}</a>)}</nav></section>
     <dialog id="navigation" aria-labelledby="navigation-title"><div class="dialog-heading"><h2 id="navigation-title">阅读目录</h2><button id="close-navigation">关闭 ×</button></div><div class="dialog-tabs" role="tablist" aria-label="目录范围"><button role="tab" aria-selected="true" aria-controls="book-panel" id="book-tab">全书章节</button><button role="tab" aria-selected="false" aria-controls="outline-panel" id="outline-tab" tabindex="-1">本章小节</button></div><nav id="book-panel" role="tabpanel" aria-labelledby="book-tab">{book.chapters.map(c=><a href={base+'/'+c.slug+'/'} aria-current={c.slug===chapter.slug?'page':undefined}><span>{c.order.padStart(2,'0')}</span>{c.title}</a>)}</nav><nav id="outline-panel" role="tabpanel" aria-labelledby="outline-tab" hidden>{headings.map(h=><a href={'#'+h.slug}>{h.text}</a>)}</nav></dialog>
