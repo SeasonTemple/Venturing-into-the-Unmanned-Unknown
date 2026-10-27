@@ -111,7 +111,7 @@ export async function createMeadowMotion({canvas,art,maskUrl,skyUrl,onState,sign
     raf=requestAnimationFrame(tick);
   };
   const sync=()=>{
-    const next=!destroyed&&!lost&&!userPaused&&!reduce.matches&&visible&&inView&&!document.body.hasAttribute('data-search-modal-open');
+    const next=!destroyed&&!lost&&!userPaused&&!reduce.matches&&visible&&inView&&!document.body.hasAttribute('data-search-modal-open')&&!canvas.closest('.landscape')?.hasAttribute('data-notebook-open');
     if(next!==running){running=next;lastPresented=0;if(raf)cancelAnimationFrame(raf);raf=0;if(next){last=performance.now();nextDraw=last;raf=requestAnimationFrame(tick);}notify();}
     else notify();
   };
@@ -127,6 +127,7 @@ export async function createMeadowMotion({canvas,art,maskUrl,skyUrl,onState,sign
   const resizeObserver=new ResizeObserver(resize);resizeObserver.observe(canvas);
   const observer=new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;sync();},{threshold:.02});observer.observe(canvas);
   const searchObserver=new MutationObserver(sync);searchObserver.observe(document.body,{attributes:true,attributeFilter:['data-search-modal-open']});
+  const notebookObserver=new MutationObserver(sync);notebookObserver.observe(canvas.closest('.landscape'),{attributes:true,attributeFilter:['data-notebook-open']});
   document.addEventListener('visibilitychange',onVisibility);reduce.addEventListener('change',onReduced);
   canvas.addEventListener('webglcontextlost',onLost);canvas.addEventListener('webglcontextrestored',onRestored);
   visible=document.visibilityState==='visible';resize();draw();canvas.classList.add('ready');sync();
@@ -139,6 +140,6 @@ export async function createMeadowMotion({canvas,art,maskUrl,skyUrl,onState,sign
       gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,textures[0]);
       gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,image);draw();
     },
-    destroy(){if(destroyed)return;destroyed=true;sync();resizeObserver.disconnect();observer.disconnect();searchObserver.disconnect();document.removeEventListener('visibilitychange',onVisibility);reduce.removeEventListener('change',onReduced);canvas.removeEventListener('webglcontextlost',onLost);canvas.removeEventListener('webglcontextrestored',onRestored);textures.forEach(t=>gl.deleteTexture(t));shaders.forEach(s=>gl.deleteShader(s));textures.length=0;gl.deleteBuffer(buffer);gl.deleteProgram(program);canvas.classList.remove('ready');canvas.width=canvas.height=1;}
+    destroy(){if(destroyed)return;destroyed=true;sync();resizeObserver.disconnect();observer.disconnect();searchObserver.disconnect();notebookObserver.disconnect();document.removeEventListener('visibilitychange',onVisibility);reduce.removeEventListener('change',onReduced);canvas.removeEventListener('webglcontextlost',onLost);canvas.removeEventListener('webglcontextrestored',onRestored);textures.forEach(t=>gl.deleteTexture(t));shaders.forEach(s=>gl.deleteShader(s));textures.length=0;gl.deleteBuffer(buffer);gl.deleteProgram(program);canvas.classList.remove('ready');canvas.width=canvas.height=1;}
   };
 }

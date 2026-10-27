@@ -13,6 +13,7 @@ const media=base+'/meadow/';
       <button id="field-record" class="field-site station-record" type="button" aria-label="查阅檐下工位的旧记录" aria-controls="field-note" hidden><span class="site-ring" aria-hidden="true"></span><span class="site-label">檐下旧记录</span></button>
       <button id="field-pin" class="field-site" type="button" aria-label="查看维护路左侧的临水旧桩" aria-pressed="false" aria-controls="field-note" hidden><span class="site-ring" aria-hidden="true"></span><span class="site-label">01 · 临水旧桩</span></button>
       <button id="field-reference" class="field-site" type="button" aria-label="核对上游水弯旁的风标" aria-pressed="false" aria-controls="field-note" hidden><span class="site-ring" aria-hidden="true"></span><span class="site-label">02 · 上游风标</span></button>
+      <button id="field-archive" class="field-site" type="button" aria-label="查看站内设备的资料档案" aria-controls="field-notebook"><span class="site-ring" aria-hidden="true"></span><span class="site-label">设备 · 资料档案</span></button>
     </div>
    </div>
   </div>
@@ -44,8 +45,21 @@ const media=base+'/meadow/';
   </aside>
   <div id="field-controls" class="field-controls" hidden>
     <div class="field-status-wrap"><p id="field-status" role="status" aria-live="polite"></p><p id="field-progress" hidden></p></div>
-    <div class="field-buttons"><button id="field-action" type="button" aria-controls="field-note">查阅旧记录</button><button id="field-reread" type="button" hidden>重读旧记录</button><a id="field-reading" href={firstHref}>翻开手记 ↗</a><button id="field-exit" type="button">回到首屏</button></div>
+    <div class="field-buttons"><button id="field-action" type="button" aria-controls="field-note">查阅旧记录</button><button id="field-reread" type="button" hidden>重读旧记录</button><button id="field-reading" type="button" aria-haspopup="dialog" aria-controls="field-notebook">翻开手记</button><button id="field-exit" type="button">回到首屏</button></div>
   </div>
+  <dialog id="field-notebook" class="field-notebook" aria-labelledby="notebook-title" data-chapter-url={base+'/ch3/'}>
+    <header class="notebook-heading"><div><p class="eyebrow">原野观测站 · 随行记录</p><h2 id="notebook-title">随身手记</h2></div><form method="dialog"><button type="submit" autofocus>合上，回到现场 ×</button></form></header>
+    <nav class="notebook-carriers" aria-label="记录载体"><button type="button" id="notebook-human" aria-pressed="true">随身手记</button><button type="button" id="notebook-agent" aria-pressed="false">设备资料档案</button></nav>
+    <div class="notebook-spread">
+      <section class="notebook-leaf"><p id="notebook-location" class="eyebrow">01 / 本次出站</p><h3 id="notebook-leaf-title">沿维护路留下的记录</h3><p id="notebook-empty">手记还没有展开。合上它，先到檐下查阅旧记录。</p><ol id="notebook-entries" class="notebook-entries"></ol></section>
+      <section class="notebook-leaf notebook-method"><p class="eyebrow">方法页签</p><h3>从发现到章节</h3><p id="notebook-discovery">旧记录、现场与判断分开记下，方法会随着探索浮现。</p><button id="notebook-chapter" type="button" disabled>验证 · 尚未关联</button><p class="notebook-margin">章节页签记录的是探索发现；站点的完整阅读始终开放。</p>
+       <form id="notebook-append"><label for="notebook-addition" id="notebook-addition-label">补写一条手记</label><textarea id="notebook-addition" name="addition" maxlength="600" rows="3" required placeholder="还缺什么证据，下一步准备核对什么？"></textarea><button id="notebook-submit" type="submit">记入手记</button></form>
+       <p id="notebook-save-status" role="status" aria-live="polite"></p>
+      </section>
+    </div>
+    <section id="notebook-chapter-page" class="notebook-chapter-page" aria-labelledby="notebook-chapter-title" hidden><button id="notebook-return" type="button">← 回到记录页</button><p class="eyebrow">方法档案 / 已发现</p><h3 id="notebook-chapter-title">验证</h3><p class="notebook-margin">这里展开原章节内容；合上记录，仍回到刚才的现场。</p><div id="notebook-chapter-body" class="notebook-chapter-body"></div></section>
+    <footer class="notebook-footer"><span id="notebook-record-count">尚无记录</span><span>记录保存在此浏览器，不上传</span></footer>
+  </dialog>
   <p class="scene-caption"><span>原野观测站 · 雨后风起</span><span>FIELD STATION / 01</span></p>
 </section>
 <script>import '../scripts/meadow/meadow-study.mjs';</script>
