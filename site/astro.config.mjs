@@ -13,7 +13,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: cfg.title_zh,
-      favicon: '/favicon.svg',
+      favicon: '/favicon-survey.svg',
       description: cfg.title,
       defaultLocale: 'root',
       locales: { root: { label: '简体中文', lang: 'zh-CN' } },

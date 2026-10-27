@@ -199,7 +199,7 @@ html[data-reader=journal]{scroll-padding-top:calc(var(--reader-chrome-height,76p
 @media(min-width:1200px){#production-journal .section-note{display:none}}
 @media(max-width:1199px){#production-journal .reading-spread{grid-template-columns:180px minmax(0,800px);gap:36px}#production-journal .chapter-margin{display:none}#production-journal .section-note{display:block;width:100%;margin:28px 0 0;padding-left:18px;border-left:1px solid var(--rd-copper)}}
 @media(max-width:980px){#production-journal .reading-spread{display:block;max-width:800px}#production-journal .field-route{display:none}}
-body.field-journal.focused #production-journal :is(.field-route,.chapter-margin){display:none}
+body.field-journal.focused #production-journal :is(.field-route,.chapter-margin,.section-note){display:none}
 #production-journal .survey-opening>.opening-inner>.begin{position:absolute;left:var(--jn-page-pad);top:auto;bottom:72px;z-index:3}
 #production-journal .survey-map picture,#production-journal .survey-map img{display:block;width:1920px;height:1080px;max-width:none}
 .frontier-drift{pointer-events:none}.frontier-drift path{fill:none;stroke:#bed6cf;stroke-width:1.1;stroke-linecap:round;opacity:.6;animation:frontier-fragments 4.5s ease-in-out infinite;animation-delay:var(--delay);animation-play-state:var(--survey-header-play,paused)}
