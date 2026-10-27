@@ -4,6 +4,8 @@ html[data-reader=journal] {
   scrollbar-width: thin;
   scrollbar-color: var(--scroll-thumb) var(--scroll-track);
 }
+html[data-reader=journal][data-theme=dark]{--scroll-track:#17262c;--scroll-thumb:#819c94}
+html[data-reader=journal]:has(body.over-survey){--scroll-track:#101d21;--scroll-thumb:#819c94}
 html[data-reader=journal] * { scrollbar-width: thin; scrollbar-color: var(--scroll-thumb) var(--scroll-track); }
 html[data-reader=journal] pre, html[data-reader=journal] .field-plate { --scroll-thumb: #6d8e94; --scroll-track: #14252b; }
 @supports selector(::-webkit-scrollbar) {

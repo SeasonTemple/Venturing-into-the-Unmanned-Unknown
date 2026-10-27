@@ -89,5 +89,6 @@ export async function run({send,evaluate,until,pause,check,report}){
   await send('Page.navigate',{url:`${base}/ch1/`});await until('window.__readingStudy?.ready');await until('window.__readingStudy.artwork.status!=="loading"');
   check('reader is fully independent of WebGL support',await evaluate('window.__readingStudy.artwork.mode==="shared-poster"&&document.getElementById("body").textContent.length>1000&&getComputedStyle(document.querySelector("#chapter-art svg")).visibility!=="hidden"&&!document.querySelector("canvas")'));
   await (await import('./reader-experience-checks.mjs')).run({send,evaluate,until,pause,check,report});
+  await (await import('./reader-chrome-checks.mjs')).run({send,evaluate,until,pause,check,report});
   check('no runtime or shader errors',report.consoleErrors.filter(e=>!e.includes('Error creating WebGL context')).length===0,report.consoleErrors);
 }
