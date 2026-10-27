@@ -1,5 +1,6 @@
 import { createReaderAtmosphere } from './reader-atmosphere.mjs';
 import { createLayerPlate } from './layer-plate.mjs';
+import { setupChapterArrival } from './chapter-arrival.mjs';
 
 const host=document.getElementById('production-journal');
 if(host) init();
@@ -86,4 +87,5 @@ function init(){
   addEventListener('pagehide',dispose,{signal});state.ready=true;
   // Existing deep links retain their heading IDs and land after enhancement.
   if(location.hash){try{document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView({behavior:'instant'});}catch{}}
+  setupChapterArrival(host,{signal,reduced,state});
 }
