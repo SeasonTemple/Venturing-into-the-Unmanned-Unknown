@@ -1,10 +1,13 @@
-import { createWorld, stations } from './world.mjs';
 import { setupInstallation } from './installation.mjs';
+const worlds = { territory: () => import('./territory-world.mjs'), outpost: () => import('./outpost-world.mjs'), legacy: () => import('./world.mjs') };
+const { createWorld, stations } = await (worlds[document.body.dataset.world]?.() ?? import('./frontier-world.mjs'));
 const $ = id => document.getElementById(id), query = new URLSearchParams(location.search);
-const errors = []; let world, book, view = 'home', returnView = 'home', mode = 'agent', currentChapter = 'ch3', currentStation = 2, generation = 0, busy = false, readerTrigger = null;
+const territorial = document.body.dataset.world === 'territory';
+const errors = []; let world, book, view = 'home', returnView = 'home', mode = 'agent', currentChapter = territorial ? 'ch1' : 'ch3', currentStation = territorial ? 0 : 2, generation = 0, travelGeneration = 0, busy = false, readerTrigger = null;
 window.addEventListener('error', e => errors.push(e.message)); window.addEventListener('unhandledrejection', e => errors.push(String(e.reason)));
 function button(text, action, className = '') { const el = document.createElement('button'); el.textContent = text; el.className = className; el.addEventListener('click', action); return el; }
 function projected(points) {
+  if (territorial) return;
   points.forEach((p, i) => { const el = $(`station-${i}`); if (!el) return; el.style.left = `${p.x}px`; el.style.top = `${p.y}px`; el.hidden = !p.visible; });
 }
 const contentReady = fetch('/content.json').then(async response => { if (!response.ok) throw Error('无法读取书籍内容'); return response.json(); }).then(data => {
@@ -20,7 +23,7 @@ const contentReady = fetch('/content.json').then(async response => { if (!respon
 });
 for (const [i, station] of stations.entries()) { const tag = button(station.title, () => selectStation(i), 'station-label'); tag.id = `station-${i}`; tag.setAttribute('aria-pressed', String(i === currentStation)); $('station-labels').append(tag); }
 async function showDisplay(next, animate = true) {
-  if (busy) return; busy = true; view = next; document.body.dataset.view = next;
+  if (busy) return; if (!world) next = 'home'; busy = true; view = next; document.body.dataset.view = next;
   $('leave').disabled = true; $('enter').disabled = true;
   $('display-view').hidden = false; $('reading-view').hidden = true; $('space-ui').hidden = true;
   $('hero-caption').hidden = true; $('enter').hidden = true; $('scroll-cue').hidden = true; $('leave').hidden = next !== 'space';
@@ -28,12 +31,16 @@ async function showDisplay(next, animate = true) {
   try { world?.pause(false); await world?.show(next, animate); }
   finally {
     $('space-ui').hidden = next !== 'space'; $('hero-caption').hidden = next !== 'home'; $('enter').hidden = next !== 'home'; $('scroll-cue').hidden = next !== 'home';
-    busy = false; $('leave').disabled = false; $('enter').disabled = false;
+    busy = false; $('leave').disabled = false; $('enter').disabled = !world;
+    if (next === 'space' && territorial) selectStation(currentStation);
     if (next === 'space') $('space-title').focus({ preventScroll: true }); else $('enter').focus({ preventScroll: true });
   }
 }
-function selectStation(index) {
+async function selectStation(index) {
+  if (!stations[index]) return;
+  const travelStamp = ++travelGeneration;
   currentStation = index; currentChapter = stations[index].chapter;
+  const travel = world?.select?.(index);
   document.querySelectorAll('.station-label').forEach((el, i) => el.setAttribute('aria-pressed', String(index === i)));
   $('space-eyebrow').textContent = `${mode === 'agent' ? 'AI-NATIVE' : 'HUMAN-LED'} / CH ${currentChapter.slice(2).padStart(2, '0')}`;
   const descriptions = {
@@ -45,6 +52,17 @@ function selectStation(index) {
     ch7: ['让新的未知，成为下一次意图。', '运行反馈会带来新条件。环节可以连通，世界仍然没有被完全测绘。'],
   };
   const [title, copy] = descriptions[currentChapter]; $('space-title').textContent = title; $('space-copy').textContent = copy;
+  if (territorial) {
+    const station = stations[index];
+    $('journey-place').textContent = `${String(index + 1).padStart(2, '0')} / ${station.place}`;
+    $('travel-prev').disabled = index === 0; $('travel-next').disabled = index === stations.length - 1;
+    $('travel-prev').textContent = index ? `← ${stations[index - 1].place}` : '起点';
+    $('travel-next').textContent = index < stations.length - 1 ? `前往${stations[index + 1].place} →` : '已到观测边界';
+    $('station-read').disabled = !!world?.stats().moving;
+    $('journey-status').textContent = world?.stats().moving ? '沿路径前往…' : '已抵达';
+    await travel;
+    if (travelStamp === travelGeneration && view === 'space') { $('station-read').disabled = false; $('journey-status').textContent = '已抵达'; }
+  }
 }
 async function readChapter(slug = 'ch3') {
   if (busy) return;
@@ -76,15 +94,16 @@ async function backToDisplay() { generation++; busy = false; await showDisplay(r
 $('enter').addEventListener('click', () => showDisplay('space')); $('leave').addEventListener('click', () => showDisplay('home'));
 $('browse').addEventListener('click', async event => { if (busy) { event.preventDefault(); return; } if (view === 'space') { event.preventDefault(); await showDisplay('home'); $('contents').scrollIntoView({ behavior: 'smooth' }); } });
 $('start-reading').addEventListener('click', () => readChapter('ch0')); $('station-read').addEventListener('click', () => readChapter(stations[currentStation].chapter));
+if (territorial) { $('travel-prev').addEventListener('click', () => selectStation(Math.max(0, currentStation - 1))); $('travel-next').addEventListener('click', () => selectStation(Math.min(stations.length - 1, currentStation + 1))); }
 $('reader-back').addEventListener('click', backToDisplay); $('reader-theme').addEventListener('click', () => { const dark = $('reading-view').classList.toggle('dark'); $('reader-theme').textContent = dark ? '浅色阅读' : '深色阅读'; });
 $('reader-next').addEventListener('click', () => readChapter($('reader-next').dataset.next)); $('reader-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 document.querySelectorAll('input[name=mode]').forEach(input => input.addEventListener('change', () => { if (input.checked) { mode = input.value; world?.setMode(mode); selectStation(currentStation); } }));
 window.addEventListener('keydown', event => { if (event.key === 'Escape' && view === 'reading') backToDisplay(); });
 window.addEventListener('pagehide', () => world?.destroy());
 const ready = contentReady.then(async () => {
-  try { world = createWorld($('scene'), { onFrame: projected, still: query.has('still') }); $('scene-status').textContent = ''; }
-  catch (error) { $('scene-status').textContent = '画面暂不可用，可继续向下阅读。'; errors.push(error.message); }
-  if (query.get('view') === 'space') { await showDisplay('space', false); selectStation(2); }
+  try { world = createWorld($('scene'), { onFrame: projected, still: query.has('still') }); document.body.classList.add('world-ready'); $('scene-status').textContent = ''; }
+  catch (error) { $('scene-status').textContent = '画面暂不可用，可继续向下阅读。'; $('enter').disabled = true; errors.push(error.message); }
+  if (query.get('view') === 'space') { await showDisplay('space', false); await selectStation(territorial ? Math.max(0, Math.min(stations.length - 1, Number(query.get('region')) || 0)) : 2); }
   if (query.get('view') === 'reading') await readChapter(query.get('chapter') || 'ch3');
 }).catch(error => { errors.push(error.message); $('scene-status').textContent = '预览内容暂不可用，请先构建站点后刷新。'; $('enter').disabled = true; });
-window.__visualStudy = { ready, enter: () => showDisplay('space'), home: () => showDisplay('home'), read: readChapter, back: backToDisplay, state: () => ({ view, mode, currentChapter, busy, errors: [...errors], world: world?.stats(), bodyWidth: document.documentElement.scrollWidth, viewport: innerWidth }) };
+window.__visualStudy = { ready, enter: () => showDisplay('space'), home: () => showDisplay('home'), go: selectStation, read: readChapter, back: backToDisplay, state: () => ({ view, mode, currentChapter, busy, errors: [...errors], world: world?.stats(), bodyWidth: document.documentElement.scrollWidth, viewport: innerWidth }) };

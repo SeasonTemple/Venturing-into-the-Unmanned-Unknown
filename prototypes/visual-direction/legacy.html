@@ -1,0 +1,44 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>迈向无人区 · 视觉方向预览</title><link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./installation.css"><script type="importmap">{"imports":{"three":"/deps/three/build/three.module.js","three/addons/":"/deps/three/examples/jsm/"}}</script></head>
+<body data-view="home" data-world="legacy">
+<div class="study-note">空间流程原型 · 场景美术待重设计 <a href="./reading.html">当前探索手记样张 ↗</a></div>
+<main id="display-view">
+  <section class="stage" aria-label="未完成的测绘环">
+    <div id="scene" aria-hidden="true"></div>
+    <header class="stage-header"><a href="./" class="wordmark">无人区 <span>UNMAPPED</span></a><nav aria-label="展示导航"><a href="#contents" id="browse">内容与阅读</a><button id="leave" hidden>退出探索 ↗</button><a href="https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown" target="_blank" rel="noopener">GitHub ↗</a></nav></header>
+    <div class="hero-caption" id="hero-caption"><p class="edition">AN EXPLORATION INTO THE UNKNOWN</p><h1>迈向无人区</h1><p class="hero-line">已知之外，仍有未知。</p></div>
+    <button id="enter" class="entry"><span>迈入未知</span><span class="entry-arrow" aria-hidden="true">↗</span></button>
+    <p id="scene-status" class="scene-status" role="status">正在准备画面…</p>
+    <a class="scroll-cue" id="scroll-cue" href="#contents">向下阅读 <span aria-hidden="true">↓</span></a>
+    <div id="space-ui" hidden>
+      <fieldset class="mode-switch"><legend>探索方式</legend><label><input type="radio" name="mode" value="human">人类主导</label><label><input type="radio" name="mode" value="agent" checked>AI 原生</label></fieldset>
+      <div id="station-labels" class="station-labels" aria-label="空间中的章节"></div>
+      <div class="space-dock"><div><p class="edition" id="space-eyebrow">AI-NATIVE / FIELD NOTES</p><h2 id="space-title" tabindex="-1">先定义边界，再向外探索。</h2><p id="space-copy">工作站已经展开。选择一个环节，查看它如何约束未知。</p></div><button id="station-read" class="quiet-button">阅读当前章节 <span aria-hidden="true">↗</span></button></div>
+    </div>
+  </section>
+  <section id="contents" class="book-body" aria-labelledby="contents-title">
+    <div class="book-intro"><div><p class="folio">THE FIELD GUIDE / AI-NATIVE ENGINEERING</p><h2 id="contents-title">把探索，变成可继续的工作。</h2><p id="book-tagline"></p></div><div class="book-meta"><span id="book-version"></span><span>BSL 1.1</span><span>10 个章节 · Agent Skills</span><button class="text-link" id="start-reading">从导论开始阅读 ↗</button></div></div>
+    <div class="chapter-index" id="chapter-index"></div>
+    <section class="installation" id="installation" aria-labelledby="installation-title">
+      <header class="installation-heading"><div><p class="folio">TAKE THE FIELD GUIDE WITH YOU</p><h2 id="installation-title">安装与下载</h2><p>读完之后，把方法带回工作现场。</p></div><span class="installation-edition" id="installation-edition"></span></header>
+      <div class="installation-layout">
+        <div class="installation-method"><p class="install-label">01 / 安装为 Agent Skills</p><p class="install-description">克隆仓库，把技能复制到项目的 <code>.agents/skills/</code>。</p>
+          <div class="install-terminal"><div class="install-terminal-head"><div role="group" aria-label="安装命令适用系统"><button data-install-os="powershell" aria-pressed="true">Windows</button><button data-install-os="bash" aria-pressed="false">macOS / Linux</button></div><button id="copy-install" aria-label="复制安装命令">复制命令 ↗</button></div><pre tabindex="0" aria-label="安装命令，可横向滚动"><code id="install-command">正在读取仓库地址…</code></pre><p class="install-shell" id="install-shell">PowerShell · 在目标项目目录运行</p></div>
+          <p class="install-footnote">也可按工具约定放入 <code>.claude/skills/</code> 或 <code>.cursor/skills/</code>。<a href="https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown#快速安装" target="_blank" rel="noopener">完整使用说明 ↗</a></p>
+        </div>
+        <div class="installation-files"><p class="install-label">02 / 下载文件</p><p class="install-description" id="release-status">文件与版本以 Releases 发布页为准。</p><div class="artifact-list">
+          <a class="artifact" data-artifact="skills" href="https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/releases" target="_blank" rel="noopener"><span class="artifact-format">ZIP</span><span><strong>技能包</strong><small>独立 SKILL.md，解压后按需加载</small><span class="artifact-file">前往 Releases 选择文件</span></span><span class="artifact-arrow" aria-hidden="true">↗</span></a>
+          <a class="artifact" data-artifact="source" href="https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/releases" target="_blank" rel="noopener"><span class="artifact-format">TAR.GZ</span><span><strong>完整源码</strong><small>书籍源文、技能与站点工程</small><span class="artifact-file">前往 Releases 选择文件</span></span><span class="artifact-arrow" aria-hidden="true">↗</span></a>
+          <a class="artifact" data-artifact="book" href="https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/releases" target="_blank" rel="noopener"><span class="artifact-format">MD</span><span><strong>全书单文件</strong><small>BOOK.md，适合离线阅读与提供给 Agent</small><span class="artifact-file">前往 Releases 选择文件</span></span><span class="artifact-arrow" aria-hidden="true">↗</span></a>
+        </div></div>
+      </div>
+      <div class="agent-access"><div><p class="folio">FOR YOUR AGENT</p><h3>直接读取，也是一种开始。</h3></div><a href="/Venturing-into-the-Unmanned-Unknown/llms.txt"><span>llms.txt</span><small>先定位章节 · 索引与摘要</small><span aria-hidden="true">↗</span></a><a href="/Venturing-into-the-Unmanned-Unknown/llms-full.txt"><span>llms-full.txt</span><small>一次载入 · 完整正文</small><span aria-hidden="true">↗</span></a></div>
+      <p id="install-status" class="install-feedback" role="status"></p>
+    </section>
+    <footer>迈向无人区 <span>未知不会清零，方法可以延续。</span></footer>
+  </section>
+</main>
+<section id="reading-view" class="reading-view" hidden aria-label="普通阅读页样张">
+  <header class="reading-header"><button id="reader-back">← <span id="back-label">返回首页</span></button><a href="./" class="reader-brand">迈向无人区 <span>/ 阅读</span></a><div><button id="reader-theme" aria-label="切换阅读配色">深色阅读</button><a id="source-link" target="_blank" rel="noopener">原阅读页 ↗</a></div></header>
+  <div class="reading-grid"><nav id="chapter-nav" class="chapter-nav" aria-label="全书章节"><p class="folio">全书章节</p></nav><div class="reading-main"><header class="chapter-heading"><p id="reader-folio" class="folio"></p><h1 id="reader-title" tabindex="-1"></h1><p id="reader-description"></p></header><article id="chapter-content" class="chapter-content" aria-busy="false"></article><footer><button id="reader-next" class="text-link">下一章 ↗</button><button id="reader-top" class="text-link">回到顶部 ↑</button></footer></div><aside class="toc-column"><p class="folio">本章目录</p><nav id="chapter-toc" aria-label="本章小节"></nav><p class="reader-margin-note">用清晰的条件，<br>划出结论的边界。</p></aside></div>
+</section>
+<script type="module" src="./app.mjs"></script></body></html>

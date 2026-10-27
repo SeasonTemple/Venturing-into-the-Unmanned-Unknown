@@ -1,18 +1,18 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>迈向无人区 · 视觉方向预览</title><link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./installation.css"><script type="importmap">{"imports":{"three":"/deps/three/build/three.module.js","three/addons/":"/deps/three/examples/jsm/"}}</script></head>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>迈向无人区 · 探索手记</title><link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./installation.css"><link rel="stylesheet" href="./frontier.css"><script type="importmap">{"imports":{"three":"/deps/three/build/three.module.js","three/addons/":"/deps/three/examples/jsm/"}}</script></head>
 <body data-view="home">
-<div class="study-note">空间流程原型 · 场景美术待重设计 <a href="./reading.html">当前探索手记样张 ↗</a></div>
 <main id="display-view">
-  <section class="stage" aria-label="未完成的测绘环">
+  <section class="stage" aria-label="正在被测绘的山地，实体边界外延伸为未连接的线索">
     <div id="scene" aria-hidden="true"></div>
     <header class="stage-header"><a href="./" class="wordmark">无人区 <span>UNMAPPED</span></a><nav aria-label="展示导航"><a href="#contents" id="browse">内容与阅读</a><button id="leave" hidden>退出探索 ↗</button><a href="https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown" target="_blank" rel="noopener">GitHub ↗</a></nav></header>
-    <div class="hero-caption" id="hero-caption"><p class="edition">AN EXPLORATION INTO THE UNKNOWN</p><h1>迈向无人区</h1><p class="hero-line">已知之外，仍有未知。</p></div>
-    <button id="enter" class="entry"><span>迈入未知</span><span class="entry-arrow" aria-hidden="true">↗</span></button>
+    <div class="hero-caption" id="hero-caption"><p class="edition">FIELD NOTES / AI-NATIVE ENGINEERING</p><h1><span>迈向</span><span>无人区<span class="title-period">。</span></span></h1><p class="hero-line">在局部建立秩序，<br>向尚未测绘的地方继续。</p><p class="hero-subject">AI 原生软件工程 · 从意图到持续演进</p></div>
+    <button id="enter" class="entry"><span><strong>迈入未知</strong><small>沿着同一片地形，展开探索</small></span><span class="entry-arrow" aria-hidden="true">↗</span></button>
+    <div class="survey-register" aria-hidden="true"><span>01 / THE SURVEY FRONTIER</span><span>已知有界 · 探索未完</span></div>
     <p id="scene-status" class="scene-status" role="status">正在准备画面…</p>
     <a class="scroll-cue" id="scroll-cue" href="#contents">向下阅读 <span aria-hidden="true">↓</span></a>
     <div id="space-ui" hidden>
       <fieldset class="mode-switch"><legend>探索方式</legend><label><input type="radio" name="mode" value="human">人类主导</label><label><input type="radio" name="mode" value="agent" checked>AI 原生</label></fieldset>
       <div id="station-labels" class="station-labels" aria-label="空间中的章节"></div>
-      <div class="space-dock"><div><p class="edition" id="space-eyebrow">AI-NATIVE / FIELD NOTES</p><h2 id="space-title" tabindex="-1">先定义边界，再向外探索。</h2><p id="space-copy">工作站已经展开。选择一个环节，查看它如何约束未知。</p></div><button id="station-read" class="quiet-button">阅读当前章节 <span aria-hidden="true">↗</span></button></div>
+      <div class="space-dock"><div><p class="edition" id="space-eyebrow">AI-NATIVE / FIELD NOTES</p><h2 id="space-title" tabindex="-1">先定义边界，再向外探索。</h2><p id="space-copy">沿着地形上的工作区，选择一个环节，查看它如何约束未知。</p></div><button id="station-read" class="quiet-button">阅读当前章节 <span aria-hidden="true">↗</span></button></div>
     </div>
   </section>
   <section id="contents" class="book-body" aria-labelledby="contents-title">

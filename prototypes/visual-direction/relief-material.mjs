@@ -29,7 +29,7 @@ export function reliefHeight(x,z) {
   return .08+edge*(.22+ridge*2.3)*(.30+spine*.9)*reach;
 }
 
-function mineralTexture() {
+export function mineralTexture() {
   const size=256,data=new Uint8Array(size*size*4);
   for(let y=0;y<size;y++)for(let x=0;x<size;x++) {
     // Periodic detail makes the wrap seam continuous.

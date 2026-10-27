@@ -1,0 +1,51 @@
+/* The first view and the entered view share the same measured landscape. */
+body{background:#101d21}
+.stage{height:100svh;min-height:760px;background:#101d21}
+.stage-header{inset:25px var(--mt-pad) auto;z-index:3}
+.stage-header::after{content:'';position:absolute;left:0;right:0;top:66px;height:1px;background:linear-gradient(90deg,#879a8a50,#879a8a18)}
+.wordmark{font-weight:500;font-size:15px;letter-spacing:.12em}
+.wordmark span{color:#829b97;font-size:9px;letter-spacing:.18em}
+.hero-caption{left:6vw;top:24%;bottom:auto;max-width:360px}
+.hero-caption .edition{font-size:9px;letter-spacing:.16em;color:#91a7a0;margin-bottom:30px}
+.hero-caption h1{font-family:'Noto Serif SC','Songti SC',SimSun,serif;font-size:clamp(58px,6vw,92px);font-weight:400;letter-spacing:.09em;line-height:1.18;margin:0 0 26px;color:#e9e9dc}
+.hero-caption h1>span{display:block}
+.hero-caption .title-period{color:#d6b17c;font-size:.65em;margin-left:-.08em}
+.hero-line{font-family:'Noto Serif SC','Songti SC',SimSun,serif;font-size:17px;color:#bdc7b8;line-height:1.95;letter-spacing:.08em}
+.hero-subject{font-size:10px;letter-spacing:.08em;color:#859e94;line-height:2;margin-top:24px}
+.entry{right:var(--mt-pad);bottom:90px;gap:30px;min-height:70px;text-align:left;padding:0}
+.entry strong{display:block;font-size:15px;font-weight:400;letter-spacing:.12em}
+.entry small{display:block;font-size:10px;color:#8ea69b;letter-spacing:.05em;line-height:1.8;margin-top:8px}
+.entry-arrow{width:58px;height:58px;border-radius:50%;border-color:#a2ad8f90;font-weight:300}
+.entry:hover small{color:#c2c9b6}
+.scroll-cue{bottom:30px;color:#8ca39c;font-size:10px}
+.scene-status{bottom:25px;color:#829c95}
+.survey-register{position:absolute;right:var(--mt-pad);top:140px;display:flex;flex-direction:column;align-items:flex-end;gap:10px;font:9px/1.8 var(--mt-mono);letter-spacing:.15em;color:#7e9996;pointer-events:none}
+.survey-register span+span{font:10px/1.8 var(--mt-font);letter-spacing:.09em;color:#9caea1}
+body[data-view=space] .survey-register{display:none}
+body[data-view=space] .stage{min-height:760px}
+.mode-switch{top:112px;background:#14252bbf;border:1px solid #718c8060;padding-inline:18px;backdrop-filter:blur(12px)}
+.station-label{background:#14252bd1;backdrop-filter:blur(8px);border:0;border-bottom:1px solid #789b7e80;padding:7px 13px;font-size:12px;color:#d2dac4;min-height:42px}
+.station-label::before{border-radius:50%;width:4px;height:4px;background:#a7b6a1}
+.station-label[aria-pressed=true]{border-color:#d8b582;background:#24362bdb;color:#f0d3a5}
+.space-dock{bottom:45px;padding-top:21px;border-top:1px solid #879b8038}
+.space-dock>div{max-width:460px}
+.space-dock h2{font-family:'Noto Serif SC','Songti SC',SimSun,serif;font-size:25px;line-height:1.6;font-weight:400;color:#e1e4d4}
+.space-dock p:not(.edition){color:#a8bcaa;max-width:410px;line-height:1.9}
+.space-dock .edition{color:#96a993;font-size:9px}
+.quiet-button{color:#e4c797;border-color:#a5ac8b80}
+@media(min-width:1800px){.hero-caption{top:27%;left:7vw}.hero-caption h1{font-size:106px}.hero-line{font-size:20px}.hero-subject{font-size:12px}.entry{bottom:110px}}
+@media(max-width:760px){
+  .stage{min-height:740px}.stage-header{top:17px}.stage-header::after{top:55px}.stage-header nav{font-size:11px}
+  .hero-caption{top:125px;left:var(--mt-pad);right:var(--mt-pad);max-width:none}
+  .hero-caption .edition{font-size:8px;margin-bottom:19px;letter-spacing:.07em}
+  .hero-caption h1{font-size:clamp(40px,12.55vw,49px);line-height:1.15;letter-spacing:.07em;margin-bottom:19px;white-space:nowrap}
+  .hero-caption h1>span{display:inline}
+  .hero-caption .title-period{font-size:.55em}
+  .hero-line{font-size:14px;line-height:1.9}.hero-subject{font-size:9px;margin-top:15px}
+  .survey-register{top:auto;bottom:176px;right:var(--mt-pad);gap:6px;font-size:7px;letter-spacing:.08em}.survey-register span+span{font-size:8px}
+  .entry{left:var(--mt-pad);right:var(--mt-pad);bottom:65px;justify-content:space-between;gap:14px}.entry strong{font-size:14px}.entry small{font-size:9px}.entry-arrow{width:48px;height:48px}
+  .scroll-cue{bottom:13px;font-size:9px}.scene-status{bottom:30px;font-size:9px}
+  body[data-view=space] .stage{min-height:760px}.mode-switch{top:91px;gap:15px;padding:4px 14px}.mode-switch label{font-size:11px;min-height:35px}
+  .station-label{font-size:10px;min-height:36px;padding:5px 8px;gap:6px}
+  .space-dock{bottom:30px;padding-top:15px;display:block}.space-dock h2{font-size:20px;max-width:310px;margin-top:6px}.space-dock p:not(.edition){font-size:10px;max-width:310px}.quiet-button{font-size:12px;margin-top:9px}
+}
