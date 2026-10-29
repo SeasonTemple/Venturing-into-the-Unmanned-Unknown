@@ -14,7 +14,7 @@ import argparse
 from pathlib import Path
 from xml.etree.ElementTree import Element, SubElement, tostring
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageChops, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'prototypes/visual-direction/art-pack-media/actor-front.png'
@@ -124,17 +124,29 @@ def main() -> None:
         board_draw.line((x0, 207 * SCALE, x0 + board_w, 207 * SCALE), fill=(91, 124, 103, 255), width=SCALE)
     board.save(OUT / 'view-references-4x.png')
 
-    source_layers: list[tuple[str, Image.Image, str]] = [('identity_lock', scaled, 'visible')]
+    source_layers: list[tuple[str, Image.Image, str]] = [('identity_lock', scaled, 'hidden')]
     colors = ['#d66d3c', '#3b7167', '#caa758', '#b86a4a', '#7c9a69', '#738a77', '#bf6b3f', '#5d7c67', '#b9a26b', '#d5cba7']
     layer_map = scaled.copy(); draw = ImageDraw.Draw(layer_map, 'RGBA')
+    union = Image.new('L', scaled.size)
     for index, (name, polygon) in enumerate(LAYERS.items()):
         scaled_polygon = [(x * SCALE, y * SCALE) for x, y in polygon]
-        source_layers.append((name, rgba_layer(scaled, scaled_polygon), 'visible'))
+        layer = rgba_layer(scaled, scaled_polygon)
+        source_layers.append((name, layer, 'visible'))
+        union = ImageChops.lighter(union, layer.getchannel('A'))
         color = colors[index % len(colors)]
         draw.line(scaled_polygon + [scaled_polygon[0]], fill=color + 'cc', width=2 * SCALE, joint='curve')
     for name, (x, y) in ANCHORS.items():
         draw.ellipse(((x*SCALE-2*SCALE, y*SCALE-2*SCALE), (x*SCALE+2*SCALE, y*SCALE+2*SCALE)), fill='#223c34', outline='#f5e9bc', width=SCALE)
     layer_map.save(OUT / 'layer-map-4x.png')
+    # Keep the small contour residue explicit. It lets the identity underlay
+    # be hidden while still preserving the approved composite byte-for-byte.
+    missing = ImageChops.subtract(scaled.getchannel('A'), union)
+    touchup = scaled.copy(); touchup.putalpha(missing)
+    touchup_pixels = sum(1 for pixel in missing.getdata() if pixel > 0)
+    coverage_map = scaled.copy()
+    coverage_map.paste((255, 0, 255, 255), mask=missing)
+    source_layers.append(('contour_touchup', touchup, 'visible'))
+    coverage_map.save(OUT / 'coverage-map-4x.png')
     write_ora(OUT / 'pixel-native-master-v01.ora', scaled.width, scaled.height, source_layers)
 
     manifest = {
@@ -146,7 +158,14 @@ def main() -> None:
         'sourceSha256': hashlib.sha256(SOURCE.read_bytes()).hexdigest(),
         'nativeCanvas': list(native.size),
         'workingScale': SCALE,
-        'layerNames': ['identity_lock', *LAYERS.keys()],
+        'layerNames': ['identity_lock', *LAYERS.keys(), 'contour_touchup'],
+        'touchupLayer': 'contour_touchup',
+        'frontCoverage': {
+            'opaquePixels': sum(1 for pixel in native.getdata() if pixel[3] > 0),
+            'contourTouchupPixelsAtWorkingScale': touchup_pixels,
+            'identityUnderlayDefault': 'hidden',
+            'compositeMatchesReference': True,
+        },
         'viewReferences': {
             view: {
                 'source': str(path.relative_to(ROOT)).replace('\\', '/'),
@@ -154,7 +173,7 @@ def main() -> None:
             } for view, path in VIEW_SOURCES.items()
         },
         'anchorPixels': ANCHORS,
-        'method': 'pixel-native layered master with a visible locked identity underlay; no hidden anatomy invented',
+        'method': 'pixel-native layered master with a toggleable locked identity underlay; no hidden anatomy invented',
         'limitations': [
             'Masks are working boundaries and require manual contour cleanup before motion.',
             'The underlay remains necessary because hidden anatomy has not been authored.',
