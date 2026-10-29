@@ -1,0 +1,285 @@
+{
+  "source": "prototypes/visual-direction/art-pack-media/actor-front.png",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "layerSource": "prototypes/visual-direction/actor-keypose-art/source-layers",
+  "canvas": [
+    260,
+    400
+  ],
+  "sourceOffset": [
+    52,
+    26
+  ],
+  "poses": [
+    {
+      "name": "load",
+      "label": "承重准备",
+      "upperShift": [
+        -8,
+        0
+      ],
+      "shadows": [
+        [
+          49,
+          338,
+          38
+        ],
+        [
+          90,
+          348,
+          12
+        ]
+      ],
+      "R": {
+        "center": [
+          [
+            180,
+            54
+          ],
+          [
+            208,
+            54
+          ],
+          [
+            232,
+            54
+          ],
+          [
+            254,
+            55
+          ],
+          [
+            282,
+            57
+          ],
+          [
+            314,
+            58
+          ]
+        ],
+        "kneeY": 254,
+        "ankle": [
+          58,
+          319
+        ],
+        "bootAngle": 0
+      },
+      "L": {
+        "center": [
+          [
+            180,
+            90
+          ],
+          [
+            208,
+            94
+          ],
+          [
+            235,
+            95
+          ],
+          [
+            260,
+            95
+          ],
+          [
+            292,
+            98
+          ],
+          [
+            319,
+            100
+          ]
+        ],
+        "kneeY": 260,
+        "ankle": [
+          100,
+          326
+        ],
+        "bootAngle": -12
+      },
+      "upperAngle": -0.6,
+      "support": "右腿承重；左脚跟抬起",
+      "worldRootX": 0
+    },
+    {
+      "name": "passing",
+      "label": "单腿支撑，另一腿经过",
+      "upperShift": [
+        0,
+        -1
+      ],
+      "shadows": [
+        [
+          67,
+          338,
+          36
+        ]
+      ],
+      "R": {
+        "center": [
+          [
+            179,
+            62
+          ],
+          [
+            208,
+            63
+          ],
+          [
+            231,
+            64
+          ],
+          [
+            253,
+            65
+          ],
+          [
+            283,
+            73
+          ],
+          [
+            314,
+            79
+          ]
+        ],
+        "kneeY": 253,
+        "ankle": [
+          79,
+          319
+        ],
+        "bootAngle": 0
+      },
+      "L": {
+        "center": [
+          [
+            179,
+            96
+          ],
+          [
+            206,
+            88
+          ],
+          [
+            228,
+            75
+          ],
+          [
+            246,
+            69
+          ],
+          [
+            275,
+            77
+          ],
+          [
+            299,
+            88
+          ]
+        ],
+        "kneeY": 246,
+        "ankle": [
+          88,
+          306
+        ],
+        "bootAngle": 8
+      },
+      "upperAngle": -1.6,
+      "support": "右腿支撑；左腿摆过",
+      "worldRootX": -21
+    },
+    {
+      "name": "contact",
+      "label": "前脚落地，后脚将离地",
+      "upperShift": [
+        -1,
+        0
+      ],
+      "shadows": [
+        [
+          67,
+          347,
+          22
+        ],
+        [
+          63,
+          338,
+          20
+        ]
+      ],
+      "R": {
+        "center": [
+          [
+            180,
+            61
+          ],
+          [
+            208,
+            62
+          ],
+          [
+            231,
+            65
+          ],
+          [
+            251,
+            70
+          ],
+          [
+            282,
+            80
+          ],
+          [
+            310,
+            86
+          ]
+        ],
+        "kneeY": 251,
+        "ankle": [
+          86,
+          315
+        ],
+        "bootAngle": -8
+      },
+      "L": {
+        "center": [
+          [
+            180,
+            95
+          ],
+          [
+            208,
+            90
+          ],
+          [
+            231,
+            82
+          ],
+          [
+            255,
+            75
+          ],
+          [
+            289,
+            67
+          ],
+          [
+            321,
+            61
+          ]
+        ],
+        "kneeY": 255,
+        "ankle": [
+          61,
+          328
+        ],
+        "bootAngle": 8
+      },
+      "upperAngle": -1,
+      "support": "左脚跟接地；右脚趾保持接触",
+      "worldRootX": -31
+    }
+  ],
+  "version": "contour-keypose-study",
+  "method": "Whole-pose contour authoring, original cloth sampling and rigid upper-body transforms; no planar leg IK or old hip weights"
+}

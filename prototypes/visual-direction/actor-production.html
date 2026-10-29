@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>完整动作制作台 · 原野手记</title>
+  <link rel="stylesheet" href="actor-production.css">
+  <script type="module" src="actor-production.mjs"></script>
+</head>
+<body>
+  <header>
+    <a href="actor-lane.html?revision=body03">← 既有行走试片</a>
+    <p class="eyebrow">原野手记 / 制作台</p>
+    <h1>旧试验已撤回：膝关节出现反折。</h1>
+    <p class="intro">这份 balance01 保留用于复现失败，不能作为可靠动作依据。<a href="actor-fk-review.html?revision=fk01">查看重新校准的源动作—目标骨架—实际模型同步对照 →</a></p>
+  </header>
+  <main>
+    <section class="workbench" id="workbench" aria-labelledby="motion-title">
+      <div class="heading"><h2 id="motion-title">完整运动 · 连续两秒</h2><p id="status" role="status">正在读取动作…</p></div>
+      <div class="comparison">
+        <figure class="identity"><figcaption>人物身份基准 <span>已有人物原画 · 静态</span></figcaption><img src="art-pack-media/actor-front.png" width="156" height="348" alt="已有原画：赭色夹克男子，右手提银箱，左手持绿色记录器。此图不参与本页播放。"><p>原比例、衣装和器物归属保留。右侧代理的脸型、衣料与光色不作为成品。</p></figure>
+        <figure class="pose"><figcaption>动作与遮挡参照 <span>同一骨架与模型 · 24fps</span></figcaption><canvas id="pose" width="360" height="480" role="img" aria-label="完整身体的逐帧运动参考，灰色模型仅用于检查动作。"></canvas></figure>
+        <div class="explanation"><h3>从骨盆、脚点到握点。</h3><p>骨盆的侧移、转动和行进来自整段记录。双腿分别解算，接触时检查实际鞋底，不再靠整个人上下平移来贴地。</p><p>右肩、肘、腕统一求解；提箱侧保留小幅屈肘，手腕维持握持方向。左臂弯曲，将记录器放到腰前。</p><p>橙点与垂线表示估算质心，绿圈表示鞋底接触处。质量假设为人体 75kg、箱体 3kg、记录器 0.35kg；用于运动学转移，尚未做动力学验证。行走中的质心投影不要求每一帧都在单脚范围内。</p><p class="boundary">原记录是非负重行走，这份改编和人物美术仍待验收。<a href="actor-balance-reference-v01/review/three-view-review.png">查看正面、提箱侧与三分之四对照 ↗</a></p></div>
+      </div>
+      <div id="controls" class="controls" inert>
+        <div class="buttons"><button id="play" type="button">播放整段</button><button id="previous" type="button">← 上一帧</button><button id="next" type="button">下一帧 →</button><button id="restart" type="button">从头看</button><label>速度 <select id="speed"><option value="0.5">½ 倍</option><option value="1" selected>正常</option></select></label><label><input id="joints" type="checkbox">显示关节点</label><label><input id="balance" type="checkbox" checked>承重参考</label></div>
+        <p id="balance-readout" class="intro" style="margin:12px 0;font-size:13px"></p>
+        <label class="timeline" for="timeline"><span id="frame-label">第 1 帧</span><input id="timeline" type="range" min="0" max="47" value="0" step="1"></label>
+      </div>
+      <noscript><p>逐帧查看需要 JavaScript；可<a href="actor-balance-reference-v01/motion-reference.mp4">直接播放完整运动参考</a>。</p></noscript>
+    </section>
+    <section class="scene-study" id="scene-study" aria-labelledby="scene-title"><div class="heading"><h2 id="scene-title">放回场景检查尺度与位移</h2><p>同一帧、同一播放时钟 · 灰模参照</p></div><canvas id="scene" width="1920" height="1080" role="img" aria-label="三维动作代理在既有站房场景中的同步位移，仅用于动作制作检查。"></canvas></section>
+    <section class="notes"><h2>这次修正的范围</h2><p>旧版漏掉骨盆侧移与转动，仅转移骨骼方向并将整体贴地；手臂还在既有姿态上分别叠加旋转。它不能作为可靠的承重参照。新版将骨盆、脚点和握点统一处理，并保留三视角复核。</p><p>这仍是有限的运动学参照。质量与质心来自简化模型，脚的水平方向沿原始记录保留，尚未消除捕捉数据中的滑移；起步、转身、收步、完整像素美术也未完成。</p><div class="links"><a href="actor-balance-reference-v01/reference-keyposes.png">查看完整姿态</a><a href="actor-balance-reference-v01/motion-reference.mp4">播放离线短片</a><a href="actor-balance-reference-v01/motion-reference.blend">可回改的动作工程</a><a href="https://mocap.cs.cmu.edu/search.php?subjectnumber=7">CMU 原始行走记录</a></div></section>
+  </main>
+  <footer>独立制作台 · 运行时使用一张动作图集，无三维渲染 · 美术和自然步态尚未验收</footer>
+</body>
+</html>

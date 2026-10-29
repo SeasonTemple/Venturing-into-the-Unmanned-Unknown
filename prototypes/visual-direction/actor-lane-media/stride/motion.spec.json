@@ -1,0 +1,991 @@
+{
+  "source": "prototypes/visual-direction/art-pack-media/actor-front.png",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "layerSource": "prototypes/visual-direction/actor-keypose-art/source-layers",
+  "canvas": [
+    400,
+    400
+  ],
+  "sourceOffset": [
+    130,
+    26
+  ],
+  "poses": [
+    {
+      "name": "load",
+      "label": "承重准备",
+      "upperShift": [
+        -8,
+        0
+      ],
+      "shadows": [
+        [
+          49,
+          338,
+          38
+        ],
+        [
+          90,
+          348,
+          12
+        ]
+      ],
+      "R": {
+        "center": [
+          [
+            180,
+            54
+          ],
+          [
+            208,
+            54
+          ],
+          [
+            232,
+            54
+          ],
+          [
+            254,
+            55
+          ],
+          [
+            282,
+            57
+          ],
+          [
+            314,
+            58
+          ]
+        ],
+        "kneeY": 254,
+        "ankle": [
+          58,
+          319
+        ],
+        "bootAngle": 0
+      },
+      "L": {
+        "center": [
+          [
+            180,
+            90
+          ],
+          [
+            208,
+            94
+          ],
+          [
+            235,
+            95
+          ],
+          [
+            260,
+            95
+          ],
+          [
+            292,
+            98
+          ],
+          [
+            319,
+            100
+          ]
+        ],
+        "kneeY": 260,
+        "ankle": [
+          100,
+          326
+        ],
+        "bootAngle": -12
+      },
+      "upperAngle": -0.6,
+      "support": "右腿承重；左脚跟抬起",
+      "worldRootX": 0
+    },
+    {
+      "name": "passing",
+      "label": "单腿支撑，另一腿经过",
+      "upperShift": [
+        0,
+        -1
+      ],
+      "shadows": [
+        [
+          67,
+          338,
+          36
+        ]
+      ],
+      "R": {
+        "center": [
+          [
+            179,
+            62
+          ],
+          [
+            208,
+            63
+          ],
+          [
+            231,
+            64
+          ],
+          [
+            253,
+            65
+          ],
+          [
+            283,
+            73
+          ],
+          [
+            314,
+            79
+          ]
+        ],
+        "kneeY": 253,
+        "ankle": [
+          79,
+          319
+        ],
+        "bootAngle": 0
+      },
+      "L": {
+        "center": [
+          [
+            179,
+            96
+          ],
+          [
+            206,
+            88
+          ],
+          [
+            228,
+            75
+          ],
+          [
+            246,
+            69
+          ],
+          [
+            275,
+            77
+          ],
+          [
+            299,
+            88
+          ]
+        ],
+        "kneeY": 246,
+        "ankle": [
+          88,
+          306
+        ],
+        "bootAngle": 8
+      },
+      "upperAngle": -1.6,
+      "support": "右腿支撑；左腿摆过",
+      "worldRootX": -21
+    },
+    {
+      "name": "contact",
+      "label": "前脚落地，后脚将离地",
+      "upperShift": [
+        -1,
+        0
+      ],
+      "shadows": [
+        [
+          67,
+          347,
+          22
+        ],
+        [
+          63,
+          338,
+          20
+        ]
+      ],
+      "R": {
+        "center": [
+          [
+            180,
+            61
+          ],
+          [
+            208,
+            62
+          ],
+          [
+            231,
+            65
+          ],
+          [
+            251,
+            70
+          ],
+          [
+            282,
+            80
+          ],
+          [
+            310,
+            86
+          ]
+        ],
+        "kneeY": 251,
+        "ankle": [
+          86,
+          315
+        ],
+        "bootAngle": -8
+      },
+      "L": {
+        "center": [
+          [
+            180,
+            95
+          ],
+          [
+            208,
+            90
+          ],
+          [
+            231,
+            82
+          ],
+          [
+            255,
+            75
+          ],
+          [
+            289,
+            67
+          ],
+          [
+            321,
+            61
+          ]
+        ],
+        "kneeY": 255,
+        "ankle": [
+          61,
+          328
+        ],
+        "bootAngle": 8
+      },
+      "upperAngle": -1,
+      "support": "左脚跟接地；右脚趾保持接触",
+      "worldRootX": -31
+    },
+    {
+      "name": "transfer",
+      "label": "左腿接住重量",
+      "upperShift": [
+        -1,
+        0
+      ],
+      "shadows": [
+        [
+          67,
+          347,
+          22
+        ],
+        [
+          63,
+          338,
+          20
+        ]
+      ],
+      "R": {
+        "center": [
+          [
+            181,
+            61
+          ],
+          [
+            208,
+            63
+          ],
+          [
+            230,
+            67
+          ],
+          [
+            248,
+            73
+          ],
+          [
+            279,
+            83
+          ],
+          [
+            308,
+            92
+          ]
+        ],
+        "kneeY": 248,
+        "ankle": [
+          92,
+          313
+        ],
+        "bootAngle": -14
+      },
+      "L": {
+        "center": [
+          [
+            181,
+            95
+          ],
+          [
+            209,
+            90
+          ],
+          [
+            233,
+            83
+          ],
+          [
+            255,
+            76
+          ],
+          [
+            290,
+            70
+          ],
+          [
+            322,
+            66
+          ]
+        ],
+        "kneeY": 255,
+        "ankle": [
+          66,
+          329
+        ],
+        "bootAngle": 0
+      },
+      "upperAngle": -1,
+      "support": "左脚跟接地；右脚趾保持接触",
+      "worldRootX": -31
+    },
+    {
+      "name": "passing_R",
+      "label": "左腿接住重量",
+      "upperShift": [
+        -1,
+        0
+      ],
+      "shadows": [
+        [
+          67,
+          347,
+          22
+        ],
+        [
+          63,
+          338,
+          20
+        ]
+      ],
+      "R": {
+        "center": [
+          [
+            179,
+            62
+          ],
+          [
+            207,
+            60
+          ],
+          [
+            227,
+            56
+          ],
+          [
+            243,
+            54
+          ],
+          [
+            270,
+            64
+          ],
+          [
+            295,
+            80
+          ]
+        ],
+        "kneeY": 243,
+        "ankle": [
+          80,
+          300
+        ],
+        "bootAngle": 0
+      },
+      "L": {
+        "center": [
+          [
+            179,
+            97
+          ],
+          [
+            208,
+            96
+          ],
+          [
+            232,
+            93
+          ],
+          [
+            258,
+            89
+          ],
+          [
+            292,
+            86
+          ],
+          [
+            322,
+            83
+          ]
+        ],
+        "kneeY": 258,
+        "ankle": [
+          83,
+          329
+        ],
+        "bootAngle": 0
+      },
+      "upperAngle": -1,
+      "support": "左脚跟接地；右脚趾保持接触",
+      "worldRootX": -31
+    },
+    {
+      "name": "contact_R",
+      "label": "左腿接住重量",
+      "upperShift": [
+        -1,
+        0
+      ],
+      "shadows": [
+        [
+          67,
+          347,
+          22
+        ],
+        [
+          63,
+          338,
+          20
+        ]
+      ],
+      "R": {
+        "center": [
+          [
+            180,
+            62
+          ],
+          [
+            208,
+            57
+          ],
+          [
+            231,
+            52
+          ],
+          [
+            253,
+            51
+          ],
+          [
+            284,
+            58
+          ],
+          [
+            313,
+            62
+          ]
+        ],
+        "kneeY": 253,
+        "ankle": [
+          62,
+          318.06
+        ],
+        "bootAngle": 8
+      },
+      "L": {
+        "center": [
+          [
+            180,
+            97
+          ],
+          [
+            208,
+            97
+          ],
+          [
+            233,
+            94
+          ],
+          [
+            258,
+            92
+          ],
+          [
+            290,
+            95
+          ],
+          [
+            320,
+            98
+          ]
+        ],
+        "kneeY": 258,
+        "ankle": [
+          98.49,
+          327.31
+        ],
+        "bootAngle": -8
+      },
+      "upperAngle": -1,
+      "support": "左脚跟接地；右脚趾保持接触",
+      "worldRootX": -31
+    },
+    {
+      "name": "transfer_R",
+      "label": "左腿接住重量",
+      "upperShift": [
+        -1,
+        0
+      ],
+      "shadows": [
+        [
+          67,
+          347,
+          22
+        ],
+        [
+          63,
+          338,
+          20
+        ]
+      ],
+      "R": {
+        "center": [
+          [
+            181,
+            62
+          ],
+          [
+            208,
+            62
+          ],
+          [
+            232,
+            63
+          ],
+          [
+            254,
+            64
+          ],
+          [
+            286,
+            66
+          ],
+          [
+            314,
+            67
+          ]
+        ],
+        "kneeY": 254,
+        "ankle": [
+          67.42,
+          319
+        ],
+        "bootAngle": 0
+      },
+      "L": {
+        "center": [
+          [
+            181,
+            97
+          ],
+          [
+            210,
+            97
+          ],
+          [
+            233,
+            98
+          ],
+          [
+            258,
+            99
+          ],
+          [
+            290,
+            103
+          ],
+          [
+            319,
+            104
+          ]
+        ],
+        "kneeY": 258,
+        "ankle": [
+          104.26,
+          326.25
+        ],
+        "bootAngle": -14
+      },
+      "upperAngle": -1,
+      "support": "左脚跟接地；右脚趾保持接触",
+      "worldRootX": -31
+    },
+    {
+      "name": "stopped",
+      "label": "左腿接住重量",
+      "upperShift": [
+        -1,
+        0
+      ],
+      "shadows": [
+        [
+          67,
+          347,
+          22
+        ],
+        [
+          63,
+          338,
+          20
+        ]
+      ],
+      "R": {
+        "center": [
+          [
+            181,
+            63
+          ],
+          [
+            209,
+            64
+          ],
+          [
+            233,
+            64
+          ],
+          [
+            255,
+            64
+          ],
+          [
+            286,
+            68
+          ],
+          [
+            314,
+            70
+          ]
+        ],
+        "kneeY": 255,
+        "ankle": [
+          70.42,
+          319
+        ],
+        "bootAngle": 0
+      },
+      "L": {
+        "center": [
+          [
+            181,
+            98
+          ],
+          [
+            210,
+            99
+          ],
+          [
+            234,
+            101
+          ],
+          [
+            260,
+            103
+          ],
+          [
+            293,
+            109
+          ],
+          [
+            322,
+            112
+          ]
+        ],
+        "kneeY": 260,
+        "ankle": [
+          112.27,
+          329.07
+        ],
+        "bootAngle": 0
+      },
+      "upperAngle": -1,
+      "support": "左脚跟接地；右脚趾保持接触",
+      "worldRootX": -31
+    }
+  ],
+  "version": "contour-keypose-study",
+  "method": "Whole-pose contour authoring, original cloth sampling and rigid upper-body transforms; no planar leg IK or old hip weights",
+  "motion": {
+    "fps": 16,
+    "keys": [
+      {
+        "frame": 0,
+        "pose": "contact",
+        "rootX": 0.0,
+        "bodyX": -1,
+        "bodyY": 0,
+        "headLead": -3,
+        "rightArm": 0.8,
+        "leftArm": -0.6,
+        "shoulderDrop": 2,
+        "boxAngle": -1.4,
+        "rightAngle": -8,
+        "leftAngle": 8,
+        "leftAnkleX": 61.00187629956711,
+        "leftAnkleY": 328.00234878526953,
+        "rightAnkleX": 86.2223901074828,
+        "rightAnkleY": 315.27832793576994
+      },
+      {
+        "frame": 4,
+        "pose": "transfer",
+        "rootX": -10.75,
+        "bodyX": -1,
+        "bodyY": 0.7,
+        "headLead": -2,
+        "rightArm": -0.5,
+        "leftArm": -0.2,
+        "shoulderDrop": 1.6,
+        "boxAngle": 2.4,
+        "rightAngle": -14,
+        "leftAngle": 0,
+        "leftAnkleX": 58.269999999999996,
+        "leftAnkleY": 329.07,
+        "rightAnkleX": 83.81368621493388,
+        "rightAnkleY": 312.7608638502414
+      },
+      {
+        "frame": 10,
+        "pose": "passing_R",
+        "rootX": -26.875,
+        "bodyX": 0,
+        "bodyY": -1,
+        "headLead": -4,
+        "rightArm": -0.8,
+        "leftArm": 0.6,
+        "shoulderDrop": 1.6,
+        "boxAngle": 1.2,
+        "rightAngle": 0,
+        "leftAngle": 0,
+        "leftAnkleX": 58.269999999999996,
+        "leftAnkleY": 329.07,
+        "rightAnkleX": 55,
+        "rightAnkleY": 300
+      },
+      {
+        "frame": 16,
+        "pose": "contact_R",
+        "rootX": -43.0,
+        "bodyX": 0,
+        "bodyY": 0.2,
+        "headLead": -3,
+        "rightArm": 0.8,
+        "leftArm": -0.3,
+        "shoulderDrop": 2.2,
+        "boxAngle": -2,
+        "rightAngle": 8,
+        "leftAngle": -8,
+        "leftAnkleX": 55.489464044140746,
+        "leftAnkleY": 327.30648328046925,
+        "rightAnkleX": 5.582971267348615,
+        "rightAnkleY": 318.06178995497123
+      },
+      {
+        "frame": 20,
+        "pose": "transfer_R",
+        "rootX": -53.75,
+        "bodyX": 0.5,
+        "bodyY": 0.6,
+        "headLead": -2,
+        "rightArm": 0.4,
+        "leftArm": 0.3,
+        "shoulderDrop": 1.6,
+        "boxAngle": 1.4,
+        "rightAngle": 0,
+        "leftAngle": -14,
+        "leftAnkleX": 53.25762415147027,
+        "leftAnkleY": 326.24747466236073,
+        "rightAnkleX": 3.0,
+        "rightAnkleY": 319.0
+      },
+      {
+        "frame": 26,
+        "pose": "passing",
+        "rootX": -69.875,
+        "bodyX": 0,
+        "bodyY": -1,
+        "headLead": -4,
+        "rightArm": 1.4,
+        "leftArm": 0.3,
+        "shoulderDrop": 1.6,
+        "boxAngle": -2,
+        "rightAngle": 0,
+        "leftAngle": 0,
+        "leftAnkleX": 18.125,
+        "leftAnkleY": 306,
+        "rightAnkleX": 3.0,
+        "rightAnkleY": 319.0
+      },
+      {
+        "frame": 32,
+        "pose": "contact",
+        "rootX": -86.0,
+        "bodyX": -1,
+        "bodyY": 0,
+        "headLead": -3,
+        "rightArm": 0.8,
+        "leftArm": -0.6,
+        "shoulderDrop": 2,
+        "boxAngle": -1.4,
+        "rightAngle": -8,
+        "leftAngle": 8,
+        "leftAnkleX": -24.998123700432892,
+        "leftAnkleY": 328.00234878526953,
+        "rightAnkleX": 0.2223901074827932,
+        "rightAnkleY": 315.27832793576994
+      }
+    ],
+    "toeOffFrame": 6,
+    "leftContactFrame": 18,
+    "leftHeelAnchor": [
+      36.27,
+      348.07
+    ],
+    "editableFrames": [
+      0,
+      4,
+      10,
+      16,
+      20,
+      26,
+      32
+    ],
+    "phaseLabels": [
+      {
+        "from": 0,
+        "label": "contact"
+      },
+      {
+        "from": 4,
+        "label": "transfer"
+      },
+      {
+        "from": 10,
+        "label": "passing_R"
+      },
+      {
+        "from": 16,
+        "label": "contact_R"
+      },
+      {
+        "from": 20,
+        "label": "transfer_R"
+      },
+      {
+        "from": 26,
+        "label": "passing"
+      },
+      {
+        "from": 32,
+        "label": "contact"
+      }
+    ],
+    "title": "stride",
+    "scope": "Single-view continuous stride candidate; not approved art",
+    "rightToeOffFrame": 22,
+    "rightContactFrame": 34,
+    "rightHeelAnchor": [
+      -6.58,
+      337
+    ],
+    "leftRollFrame": 28,
+    "leftTrailingToeAnchor": [
+      13.27,
+      348.07
+    ],
+    "contacts": {
+      "R": [
+        {
+          "from": 0,
+          "to": 4,
+          "kind": "toe",
+          "anchor": [
+            61,
+            337
+          ]
+        },
+        {
+          "from": 16,
+          "to": 26,
+          "kind": "heel",
+          "anchor": [
+            11,
+            337
+          ]
+        },
+        {
+          "from": 27,
+          "to": 32,
+          "kind": "toe",
+          "anchor": [
+            -25,
+            337
+          ]
+        }
+      ],
+      "L": [
+        {
+          "from": 0,
+          "to": 10,
+          "kind": "heel",
+          "anchor": [
+            67.27,
+            348.07
+          ]
+        },
+        {
+          "from": 11,
+          "to": 20,
+          "kind": "toe",
+          "anchor": [
+            44.27,
+            348.07
+          ]
+        },
+        {
+          "from": 32,
+          "to": 32,
+          "kind": "heel",
+          "anchor": [
+            -18.73,
+            348.07
+          ]
+        }
+      ]
+    },
+    "periodic": true,
+    "canonicalRaster": true
+  }
+}
