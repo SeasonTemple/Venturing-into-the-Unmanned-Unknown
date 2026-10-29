@@ -10,6 +10,7 @@ import hashlib
 import io
 import json
 import zipfile
+import argparse
 from pathlib import Path
 from xml.etree.ElementTree import Element, SubElement, tostring
 
@@ -21,16 +22,20 @@ OUT = ROOT / 'prototypes/visual-direction/pixel-native-master-v01'
 SCALE = 4
 
 LAYERS = {
-    'head_face_hair': [(31, 0), (57, 0), (60, 35), (30, 35)],
-    'coat_torso': [(23, 29), (61, 29), (69, 101), (23, 107)],
-    'arm_carrying_toolbox': [(8, 39), (34, 38), (36, 105), (8, 105)],
-    'arm_recorder_side': [(53, 35), (75, 36), (75, 101), (49, 101)],
-    'toolbox': [(0, 72), (25, 72), (26, 119), (0, 119)],
-    'recorder': [(47, 70), (69, 70), (69, 119), (47, 119)],
-    'pelvis': [(25, 96), (62, 96), (63, 123), (24, 123)],
-    'leg_image_left': [(23, 112), (45, 112), (45, 168), (22, 168)],
-    'leg_image_right': [(41, 109), (64, 109), (65, 170), (40, 170)],
-    'shoes_and_contact': [(19, 158), (67, 158), (68, 174), (17, 174)],
+    # These are native-pixel contour guides, not rectangular crops. They are
+    # intentionally conservative at occlusions; the identity underlay stays
+    # available until hidden anatomy is painted.
+    'head_face_hair': [(31, 0), (57, 0), (59, 24), (54, 31), (48, 35), (31, 33), (28, 25)],
+    'coat_torso': [(28, 31), (46, 31), (54, 38), (60, 60), (58, 83), (53, 102), (42, 108), (24, 106), (16, 96), (14, 75), (20, 53)],
+    'arm_carrying_toolbox': [(22, 39), (31, 38), (30, 60), (25, 75), (19, 83), (12, 81), (11, 69), (16, 54)],
+    'arm_recorder_side': [(49, 34), (60, 36), (70, 45), (76, 60), (74, 72), (66, 80), (58, 77), (51, 65)],
+    'toolbox': [(3, 76), (18, 76), (24, 86), (24, 112), (19, 119), (7, 115), (1, 105)],
+    'recorder': [(49, 74), (63, 74), (66, 113), (60, 118), (49, 115)],
+    'pelvis': [(24, 99), (49, 99), (58, 111), (54, 122), (41, 125), (25, 120)],
+    'leg_image_left': [(23, 111), (41, 111), (40, 131), (37, 151), (35, 168), (23, 171), (21, 154)],
+    'leg_image_right': [(41, 109), (57, 110), (61, 130), (62, 153), (65, 169), (51, 172), (47, 151)],
+    'shoe_image_left': [(18, 164), (35, 163), (42, 170), (39, 174), (17, 174)],
+    'shoe_image_right': [(49, 163), (64, 164), (69, 171), (67, 174), (47, 174)],
 }
 
 ANCHORS = {
@@ -78,8 +83,11 @@ def write_ora(path: Path, width: int, height: int, layers: list[tuple[str, Image
         archive.writestr('stack.xml', tostring(root, encoding='utf-8'))
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--refresh', action='store_true', help='rewrite this study directory in place')
+    args = parser.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
-    if any(OUT.iterdir()):
+    if any(OUT.iterdir()) and not args.refresh:
         raise FileExistsError(f'Keep an existing pixel master intact: {OUT}')
     source = Image.open(SOURCE).convert('RGBA')
     if source.size != (156, 348):

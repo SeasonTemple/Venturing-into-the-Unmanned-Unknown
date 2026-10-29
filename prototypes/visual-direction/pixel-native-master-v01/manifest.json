@@ -21,7 +21,8 @@
     "pelvis",
     "leg_image_left",
     "leg_image_right",
-    "shoes_and_contact"
+    "shoe_image_left",
+    "shoe_image_right"
   ],
   "anchorPixels": {
     "head_top": [
