@@ -1,0 +1,19 @@
+{
+  "revision": "master-v03",
+  "status": "rejected-as-final-character",
+  "artApproved": false,
+  "walkingApproved": false,
+  "homepageIntegrated": false,
+  "reason": "The shared 3D master is structurally reproducible but does not preserve the approved pixel character as a readable person.",
+  "observations": [
+    "The face and head-neck relationship read as a soft 3D approximation rather than the approved pixel identity.",
+    "Both arms collapse into stiff side blocks; the toolbox and recorder do not read as deliberate hand-held weight.",
+    "The legs remain a parallel standing pose; the weight-bearing triangle is not legible at native size.",
+    "Lowering AO and the shoulder line improves material cleanliness but does not solve the silhouette or pose design."
+  ],
+  "allowedUse": [
+    "Reference for approximate volume, camera and equipment attachment.",
+    "Do not use as the final sprite, motion source or homepage character."
+  ],
+  "nextMethod": "pixel-native-layered-master"
+}
