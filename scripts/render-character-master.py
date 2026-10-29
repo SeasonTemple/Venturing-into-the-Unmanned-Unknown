@@ -12,10 +12,11 @@ import bpy
 from mathutils import Vector, Matrix
 
 parser=argparse.ArgumentParser()
-parser.add_argument('--revision',choices=['v01','v02'],default='v01')
+parser.add_argument('--revision',choices=['v01','v02','v03'],default='v01')
 args=parser.parse_args()
 REV=args.revision
-REFINED=REV=='v02'
+REFINED=REV in ('v02','v03')
+V03=REV=='v03'
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / '.lab/character-master/source'
@@ -28,7 +29,7 @@ bpy.context.preferences.filepaths.save_version=0
 def obj_data(path):
     vertices, faces, groups = [], [], []
     group = ''
-    for line in path.read_text().splitlines():
+    for line in path.read_text(encoding='utf8').splitlines():
         parts = line.split()
         if not parts: continue
         if parts[0] == 'v': vertices.append(Vector(map(float, parts[1:4])))
@@ -39,7 +40,7 @@ def obj_data(path):
 
 base, faces, groups = obj_data(SOURCE / 'base.obj')
 for filename in ['male-young.target', 'male-build.target']:
-    for line in (SOURCE / filename).read_text().splitlines():
+    for line in (SOURCE / filename).read_text(encoding='utf8').splitlines():
         if line and not line.startswith('#'):
             p = line.split(); base[int(p[0])] += Vector(map(float, p[1:4]))
 
@@ -47,8 +48,8 @@ for filename in ['male-young.target', 'male-build.target']:
 bottom = min(v.y for v in base)
 def convert(v): return Vector((v.x*.106, -v.z*.106, (v.y-bottom)*.106))
 vertices = [convert(v) for v in base]
-spec = json.loads((SOURCE / 'default.mhskel').read_text())
-weights = json.loads((SOURCE / 'default_weights.mhw').read_text())['weights']
+spec = json.loads((SOURCE / 'default.mhskel').read_text(encoding='utf8'))
+weights = json.loads((SOURCE / 'default_weights.mhw').read_text(encoding='utf8'))['weights']
 vertex_weights = [{} for _ in base]
 for bone, entries in weights.items():
     for i, weight in entries: vertex_weights[i][bone] = weight
@@ -91,7 +92,8 @@ def material(name, colors):
         el.position = .17+i*.7/(len(colors)-1); el.color = rgba(color)
     links.new(remap.outputs['Result'],ramp.inputs[0])
     ao = nodes.new('ShaderNodeAmbientOcclusion');ao.inputs['Distance'].default_value = .065
-    mix = nodes.new('ShaderNodeMixRGB');mix.blend_type='MULTIPLY';mix.inputs[0].default_value=.28 if REFINED else .5
+    # AO is a contact cue at native sprite size; too much turns the coat muddy.
+    mix = nodes.new('ShaderNodeMixRGB');mix.blend_type='MULTIPLY';mix.inputs[0].default_value=.18 if V03 else (.28 if REFINED else .5)
     links.new(ramp.outputs['Color'],mix.inputs[1]);links.new(ao.outputs['Color'],mix.inputs[2])
     links.new(mix.outputs[0],emission.inputs['Color'])
     return mat
@@ -146,7 +148,7 @@ body_faces=[f for f,g in zip(faces,groups) if g=='body']
 if REFINED:
     # Official shoes provide an explicit body occlusion mask. Without it the
     # foot skin protrudes through the shoe upper even in the rest pose.
-    lines=(PACK/'clothes/shoes03/shoes03.mhclo').read_text().splitlines()
+    lines=(PACK/'clothes/shoes03/shoes03.mhclo').read_text(encoding='utf8').splitlines()
     start=next(i for i,line in enumerate(lines) if line.strip()=='delete_verts')
     tokens=' '.join(line for line in lines[start+1:] if not line.startswith('#')).split()
     hidden=set();i=0
@@ -165,7 +167,7 @@ body=mesh('Continuous_human_body',vertices,body_faces,vertex_weights,skin_materi
 def fitted_asset(folder, stem, label, classifier):
     path=PACK/folder/stem
     cv,cf,cg=obj_data(path/(stem+'.obj'))
-    lines=(path/(stem+'.mhclo')).read_text().splitlines(); fitting=[];active=False;scale=Vector((1,1,1))
+    lines=(path/(stem+'.mhclo')).read_text(encoding='utf8').splitlines(); fitting=[];active=False;scale=Vector((1,1,1))
     for line in lines:
         p=line.split()
         if not p or p[0].startswith('#'):continue
@@ -191,7 +193,7 @@ def fitted_asset(folder, stem, label, classifier):
     if REFINED:
         weight_header=next((line.split()[1] for line in lines if line.startswith('vertexboneweights_file ')),None)
         if weight_header:
-            authored=json.loads((path/weight_header).read_text())['weights']
+            authored=json.loads((path/weight_header).read_text(encoding='utf8'))['weights']
             cw=[{} for _ in output]
             for name,entries in authored.items():
                 if not entries:continue
@@ -243,7 +245,7 @@ def fitted_asset(folder, stem, label, classifier):
         texture=path/'short04_diffuse.png'
         image=bpy.data.images.load(str(texture));image.pack()
         uvs=[];face_uvs=[]
-        for line in (path/(stem+'.obj')).read_text().splitlines():
+        for line in (path/(stem+'.obj')).read_text(encoding='utf8').splitlines():
             p=line.split()
             if p and p[0]=='vt':uvs.append(tuple(map(float,p[1:3])))
             elif p and p[0]=='f':face_uvs.append([int(x.split('/')[1])-1 for x in p[1:]])
@@ -349,6 +351,16 @@ for side,sign in [('R',-1),('L',1)]:
             name=f'finger{digit}-{segment}.{side}'
             if name in rig.pose.bones:
                 pb=rig.pose.bones[name];pb.rotation_mode='XYZ';pb.rotation_euler.x=math.radians(45 if digit>1 else 20)
+
+if V03:
+    # Relax the complete standing master before any walk cycle is attempted.
+    # The shoulders follow the collar line and the upper legs keep a readable
+    # weight-bearing triangle. This is one shared pose source, not a patch per
+    # rendered frame.
+    aim('clavicle.L',( .085,-.001,-.012))
+    aim('clavicle.R',(-.085,-.001,-.012))
+    aim('upperleg02.L',( .027,-.009,-.34))
+    aim('upperleg02.R',(-.027,-.009,-.34))
 bpy.context.view_layer.update()
 
 def cube(name,location,dimensions,mat,bone=None,bevel=.005):
@@ -397,13 +409,15 @@ scene.render.resolution_x=128;scene.render.resolution_y=196;scene.render.resolut
 scene.render.image_settings.file_format='PNG';scene.render.image_settings.color_mode='RGBA'
 scene.render.film_transparent=True
 scene.view_settings.view_transform='Standard'
+if V03:
+    scene.view_settings.look='Medium High Contrast'
 scene.render.filter_size=.01
 world=bpy.data.worlds.new('Neutral_world');world.use_nodes=True;world.node_tree.nodes['Background'].inputs[0].default_value=(.35,.43,.38,1);world.node_tree.nodes['Background'].inputs[1].default_value=.6;scene.world=world
 camera_data=bpy.data.cameras.new('Fixed_orthographic_camera');camera=bpy.data.objects.new('Fixed_orthographic_camera',camera_data);bpy.context.collection.objects.link(camera)
 camera.location=(4,-1.7,2.25);target=Vector((0,0,.93));camera.rotation_euler=(target-camera.location).to_track_quat('-Z','Y').to_euler();camera_data.type='ORTHO';camera_data.ortho_scale=1.99;scene.camera=camera
 rig['status']='Structural and style trial; art not approved'
 rig['equipment']='anatomical RIGHT: silver toolbox; anatomical LEFT: green recorder'
-rig['source_commit']=json.loads((SOURCE/'manifest.json').read_text())['commit']
+rig['source_commit']=json.loads((SOURCE/'manifest.json').read_text(encoding='utf8'))['commit']
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT/f'character-master-{REV}.blend'),compress=True)
 scene.render.filepath=str(OUT/f'left-master-{REV}.png');bpy.ops.render.render(write_still=True)
 # A separate, explicitly labelled palette experiment. No dithering, sharpening,
@@ -442,7 +456,7 @@ reference=Image.open(ROOT/'prototypes/visual-direction/art-pack-media/actor-fron
 reference=reference.resize((78,174),Image.Resampling.NEAREST)
 reference_canvas=Image.new('RGBA',(128,196));reference_canvas.alpha_composite(reference,((128-reference.width)//2,18))
 reference_canvas.save(OUT/'identity-reference-v01.png')
-source_manifest=json.loads((SOURCE/'manifest.json').read_text())
+source_manifest=json.loads((SOURCE/'manifest.json').read_text(encoding='utf8'))
 source_manifest['assetPackUrl']='https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip'
 asset_names=['short04','shoes03','low-poly','male_casualsuit05'] if REFINED else ['short01','shoes01','male_casualsuit05']
 source_manifest['packFiles']=[{'file':str(p.relative_to(PACK)).replace('\\','/'),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in PACK.rglob('*') if p.is_file() and p.parent.name in asset_names]
