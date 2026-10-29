@@ -1,0 +1,86 @@
+{
+  "revision": "pixel-native-master-v01",
+  "status": "identity-and-layer-boundary-study",
+  "artApproved": false,
+  "motionApproved": false,
+  "source": "prototypes/visual-direction/art-pack-media/actor-front.png",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "nativeCanvas": [
+    78,
+    174
+  ],
+  "workingScale": 4,
+  "layerNames": [
+    "identity_lock",
+    "head_face_hair",
+    "coat_torso",
+    "arm_carrying_toolbox",
+    "arm_recorder_side",
+    "toolbox",
+    "recorder",
+    "pelvis",
+    "leg_image_left",
+    "leg_image_right",
+    "shoes_and_contact"
+  ],
+  "anchorPixels": {
+    "head_top": [
+      43,
+      1
+    ],
+    "neck_root": [
+      43,
+      31
+    ],
+    "shoulder_left_image": [
+      29,
+      39
+    ],
+    "shoulder_right_image": [
+      59,
+      40
+    ],
+    "pelvis_center": [
+      43,
+      105
+    ],
+    "knee_left_image": [
+      31,
+      129
+    ],
+    "knee_right_image": [
+      52,
+      129
+    ],
+    "ankle_left_image": [
+      29,
+      163
+    ],
+    "ankle_right_image": [
+      55,
+      165
+    ],
+    "toolbox_grip": [
+      20,
+      76
+    ],
+    "recorder_grip": [
+      56,
+      77
+    ],
+    "ground_left": [
+      29,
+      173
+    ],
+    "ground_right": [
+      55,
+      173
+    ]
+  },
+  "method": "pixel-native layered master with a visible locked identity underlay; no hidden anatomy invented",
+  "limitations": [
+    "Masks are working boundaries and require manual contour cleanup before motion.",
+    "The underlay remains necessary because hidden anatomy has not been authored.",
+    "No transforms, interpolation, walk frames or homepage integration are included."
+  ]
+}
