@@ -24,6 +24,24 @@
     "shoe_image_left",
     "shoe_image_right"
   ],
+  "viewReferences": {
+    "front": {
+      "source": "prototypes/visual-direction/art-pack-media/actor-front.png",
+      "sha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af"
+    },
+    "side": {
+      "source": "prototypes/visual-direction/art-pack-media/actor-side.png",
+      "sha256": "67eeb52733fce91afaf64e63df95036aaffccde21026641d83adba32e6e2975f"
+    },
+    "back_side": {
+      "source": "prototypes/visual-direction/art-pack-media/actor-back-side.png",
+      "sha256": "9862d4a2a61614f1c1b5f38e5e352d582c69c2a9497d1d279a48aecf1e58b680"
+    },
+    "back": {
+      "source": "prototypes/visual-direction/art-pack-media/actor-back.png",
+      "sha256": "d63a0729ba62c13f5107c35f73c3ace921606ba792eb977dfbe9b260e0fb0f05"
+    }
+  },
   "anchorPixels": {
     "head_top": [
       43,

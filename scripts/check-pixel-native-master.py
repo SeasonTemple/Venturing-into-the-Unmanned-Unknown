@@ -17,6 +17,10 @@ source = ROOT / manifest['source']
 reference = Image.open(STUDY / 'reference-4x.png').convert('RGBA')
 if hashlib.sha256(source.read_bytes()).hexdigest() != manifest['sourceSha256']:
     raise SystemExit('SOURCE_HASH_MISMATCH')
+for view, entry in manifest['viewReferences'].items():
+    path = ROOT / entry['source']
+    if hashlib.sha256(path.read_bytes()).hexdigest() != entry['sha256']:
+        raise SystemExit(f'VIEW_SOURCE_HASH_MISMATCH:{view}')
 with zipfile.ZipFile(STUDY / 'pixel-native-master-v01.ora') as archive:
     merged = Image.open(io.BytesIO(archive.read('mergedimage.png'))).convert('RGBA')
     if merged.size != reference.size or merged.tobytes() != reference.tobytes():

@@ -20,6 +20,12 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'prototypes/visual-direction/art-pack-media/actor-front.png'
 OUT = ROOT / 'prototypes/visual-direction/pixel-native-master-v01'
 SCALE = 4
+VIEW_SOURCES = {
+    'front': SOURCE,
+    'side': ROOT / 'prototypes/visual-direction/art-pack-media/actor-side.png',
+    'back_side': ROOT / 'prototypes/visual-direction/art-pack-media/actor-back-side.png',
+    'back': ROOT / 'prototypes/visual-direction/art-pack-media/actor-back.png',
+}
 
 LAYERS = {
     # These are native-pixel contour guides, not rectangular crops. They are
@@ -99,6 +105,25 @@ def main() -> None:
     native.save(OUT / 'reference-1x.png')
     scaled.save(OUT / 'reference-4x.png')
 
+    # Keep every supplied direction as a source reference. They are centered
+    # on a common 78x174 native canvas for comparison, never stretched to the
+    # front view's width.
+    board_w, board_h, gap = 190 * SCALE, 224 * SCALE, 12 * SCALE
+    board = Image.new('RGBA', (board_w * len(VIEW_SOURCES) + gap * (len(VIEW_SOURCES) - 1), board_h), (18, 30, 28, 255))
+    try:
+        font = ImageFont.truetype('C:/Windows/Fonts/msyh.ttc', 12 * SCALE)
+    except OSError:
+        font = None
+    board_draw = ImageDraw.Draw(board)
+    for index, (view, path) in enumerate(VIEW_SOURCES.items()):
+        view_im = Image.open(path).convert('RGBA').resize((round(Image.open(path).width / 2 * SCALE), 174 * SCALE), Image.Resampling.NEAREST)
+        x0 = index * (board_w + gap)
+        x = x0 + (board_w - view_im.width) // 2
+        board.alpha_composite(view_im, (x, 32 * SCALE))
+        board_draw.text((x0 + 8 * SCALE, 8 * SCALE), view.replace('_', ' / ').upper(), font=font, fill=(234, 227, 186, 255))
+        board_draw.line((x0, 207 * SCALE, x0 + board_w, 207 * SCALE), fill=(91, 124, 103, 255), width=SCALE)
+    board.save(OUT / 'view-references-4x.png')
+
     source_layers: list[tuple[str, Image.Image, str]] = [('identity_lock', scaled, 'visible')]
     colors = ['#d66d3c', '#3b7167', '#caa758', '#b86a4a', '#7c9a69', '#738a77', '#bf6b3f', '#5d7c67', '#b9a26b', '#d5cba7']
     layer_map = scaled.copy(); draw = ImageDraw.Draw(layer_map, 'RGBA')
@@ -122,6 +147,12 @@ def main() -> None:
         'nativeCanvas': list(native.size),
         'workingScale': SCALE,
         'layerNames': ['identity_lock', *LAYERS.keys()],
+        'viewReferences': {
+            view: {
+                'source': str(path.relative_to(ROOT)).replace('\\', '/'),
+                'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+            } for view, path in VIEW_SOURCES.items()
+        },
         'anchorPixels': ANCHORS,
         'method': 'pixel-native layered master with a visible locked identity underlay; no hidden anatomy invented',
         'limitations': [
