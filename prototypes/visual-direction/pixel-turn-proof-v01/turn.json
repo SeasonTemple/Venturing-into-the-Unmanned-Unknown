@@ -1,0 +1,91 @@
+{
+  "revision": "pixel-turn-proof-v01",
+  "status": "stopped-direction-turn-study",
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false,
+  "canvas": [
+    128,
+    196
+  ],
+  "baseline": 183,
+  "fps": 5,
+  "frames": [
+    {
+      "index": 0,
+      "file": "frames/frame-00.png",
+      "view": "front",
+      "label": "正面停步",
+      "baseline": 183,
+      "source": "prototypes/visual-direction/pixel-native-master-v01/reference-1x.png",
+      "sourceSha256": "de53afa24e26379f8a4767caf96aee357e62bdf583dc332bbc330462a944ca07",
+      "frameSha256": "ac5f16822215e900efb9af8b8181c7276c0fb5ef02d77560dd103537e920811f"
+    },
+    {
+      "index": 1,
+      "file": "frames/frame-01.png",
+      "view": "front",
+      "label": "正面确认",
+      "baseline": 183,
+      "source": "prototypes/visual-direction/pixel-native-master-v01/reference-1x.png",
+      "sourceSha256": "de53afa24e26379f8a4767caf96aee357e62bdf583dc332bbc330462a944ca07",
+      "frameSha256": "ac5f16822215e900efb9af8b8181c7276c0fb5ef02d77560dd103537e920811f"
+    },
+    {
+      "index": 2,
+      "file": "frames/frame-02.png",
+      "view": "side",
+      "label": "侧身开始",
+      "baseline": 183,
+      "source": "prototypes/visual-direction/pixel-native-master-v01/reference-side-1x.png",
+      "sourceSha256": "bbc14fb0bdbd3824e4c8aeae92d4764a3741b8938f01e035da1a9b7de235a870",
+      "frameSha256": "c29918e1b6bc0a375e5d57594a36265bf8fba0a5daf9f596a9a23aaa05cdb6e4"
+    },
+    {
+      "index": 3,
+      "file": "frames/frame-03.png",
+      "view": "side",
+      "label": "侧面停步",
+      "baseline": 183,
+      "source": "prototypes/visual-direction/pixel-native-master-v01/reference-side-1x.png",
+      "sourceSha256": "bbc14fb0bdbd3824e4c8aeae92d4764a3741b8938f01e035da1a9b7de235a870",
+      "frameSha256": "c29918e1b6bc0a375e5d57594a36265bf8fba0a5daf9f596a9a23aaa05cdb6e4"
+    },
+    {
+      "index": 4,
+      "file": "frames/frame-04.png",
+      "view": "back-side",
+      "label": "背侧展开",
+      "baseline": 183,
+      "source": "prototypes/visual-direction/pixel-native-master-v01/reference-back-side-1x.png",
+      "sourceSha256": "9e09dedf97c9ce9f4ffe5a431751e0dbb100fe17dd3ee6ca9b2cdc317ed5b823",
+      "frameSha256": "d3b7a631252bb764fbee2f8de24a519529ada19685587e886b02a666ff242a20"
+    },
+    {
+      "index": 5,
+      "file": "frames/frame-05.png",
+      "view": "back",
+      "label": "背向停步",
+      "baseline": 183,
+      "source": "prototypes/visual-direction/pixel-native-master-v01/reference-back-1x.png",
+      "sourceSha256": "64930d14eeae2e1c4829542e558781fdb4dca3f15dfe5ba9d2d6404af5f6b581",
+      "frameSha256": "0cc05891397995545f3bf88d2ddc66a5b02e083c1dc55cf13cc879a68526d690"
+    },
+    {
+      "index": 6,
+      "file": "frames/frame-06.png",
+      "view": "back",
+      "label": "背向确认",
+      "baseline": 183,
+      "source": "prototypes/visual-direction/pixel-native-master-v01/reference-back-1x.png",
+      "sourceSha256": "64930d14eeae2e1c4829542e558781fdb4dca3f15dfe5ba9d2d6404af5f6b581",
+      "frameSha256": "0cc05891397995545f3bf88d2ddc66a5b02e083c1dc55cf13cc879a68526d690"
+    }
+  ],
+  "method": "complete pixel frames with discrete direction changes; no mirroring, interpolation or limb deformation",
+  "limitations": [
+    "This is a stopped turn, not a walk cycle.",
+    "The supplied direction sources are held on keyframes; intermediate turning anatomy is not invented.",
+    "The source art and layer master remain under review."
+  ]
+}

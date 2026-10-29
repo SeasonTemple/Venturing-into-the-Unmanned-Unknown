@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>像素转身小样 01 · 停步方向切换</title>
+  <link rel="stylesheet" href="pixel-turn-proof-v01.css">
+</head>
+<body>
+<header><a href="pixel-native-master-v01.html">← 像素原生母版</a><span>动作制作 / TURN 01 · 制作中</span></header>
+<main>
+  <p class="eyebrow">方向先于步态</p>
+  <h1>停步，侧身，背向。</h1>
+  <p class="intro">这是一段由完整像素方向帧组成的转身小样。它先验证人物是否会在转向时保持身份、脚底和装备归属，再进入行走。</p>
+  <p class="note"><strong>当前状态：技术小样，未通过最终动作验收。</strong> 中间没有生成未知的三维插值或镜像帧；每次换向都明确使用已有方向原画。</p>
+  <section class="turn-stage" aria-labelledby="stage-heading">
+    <div>
+      <h2 id="stage-heading">逐帧查看</h2>
+      <div class="frame-surface"><img id="turn-frame" src="pixel-turn-proof-v01/frames/frame-00.png" width="256" height="392" alt="正面停步帧。"></div>
+      <div class="controls" role="group" aria-label="转身帧控制">
+        <button id="prev" type="button">← 上一帧</button><button id="play" type="button" aria-pressed="false">播放</button><button id="next" type="button">下一帧 →</button><button id="reset" type="button">回到正面</button>
+      </div>
+    </div>
+    <div class="readout"><h2>当前帧</h2><p id="frame-label" aria-live="polite">01 / 正面停步</p><dl><dt>方向</dt><dd id="frame-view">front</dd><dt>脚底基线</dt><dd>y = 183 / 原生画布 128 × 196</dd><dt>来源</dt><dd id="frame-source">actor-front.png</dd></dl><p>键盘 ← → 可逐帧查看，空格播放或暂停。减少动态时保持静止帧。</p></div>
+  </section>
+  <section aria-labelledby="atlas-heading"><h2 id="atlas-heading">整段对照</h2><p>每帧保持完整人物和装备；这段只证明方向切换的来源与节奏，不证明行走。</p><img class="turn-atlas" src="pixel-turn-proof-v01/turn-atlas-3x.png" alt="七帧停步转身对照图。"></section>
+  <section class="assessment" aria-labelledby="next-heading"><h2 id="next-heading">下一道门槛</h2><p>先检查侧身和背向时的工具箱、记录器、衣摆和脚底是否继续属于同一个人。通过后再为每个方向各做一组负重关键姿态，最后才接限定通路。</p></section>
+</main>
+<footer>TURN 01 · 完整像素方向帧 · <a href="art-pack.html#cast">美术定稿包</a></footer>
+<script type="module">
+  const manifest = await fetch('pixel-turn-proof-v01/turn.json').then(response => response.json());
+  const image = document.querySelector('#turn-frame');
+  const label = document.querySelector('#frame-label');
+  const view = document.querySelector('#frame-view');
+  const source = document.querySelector('#frame-source');
+  const play = document.querySelector('#play');
+  let index = 0;
+  let timer = 0;
+  const render = () => {
+    const frame = manifest.frames[index];
+    image.src = `pixel-turn-proof-v01/${frame.file}`;
+    image.alt = `${frame.label}帧。`;
+    label.textContent = `${String(index + 1).padStart(2, '0')} / ${frame.label}`;
+    view.textContent = frame.view;
+    source.textContent = frame.source.split('/').at(-1);
+  };
+  const stop = () => { window.clearInterval(timer); timer = 0; play.textContent = '播放'; play.setAttribute('aria-pressed', 'false'); };
+  const step = direction => { index = (index + direction + manifest.frames.length) % manifest.frames.length; render(); };
+  document.querySelector('#prev').addEventListener('click', () => { stop(); step(-1); });
+  document.querySelector('#next').addEventListener('click', () => { stop(); step(1); });
+  document.querySelector('#reset').addEventListener('click', () => { stop(); index = 0; render(); });
+  play.addEventListener('click', () => { if (timer) stop(); else { play.textContent = '暂停'; play.setAttribute('aria-pressed', 'true'); timer = window.setInterval(() => step(1), 1000 / manifest.fps); } });
+  document.addEventListener('keydown', event => { if (event.key === 'ArrowLeft') { stop(); step(-1); } if (event.key === 'ArrowRight') { stop(); step(1); } if (event.key === ' ') { event.preventDefault(); play.click(); } });
+  render();
+</script>
+</body>
+</html>
