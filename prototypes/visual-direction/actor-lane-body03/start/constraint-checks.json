@@ -1,0 +1,196 @@
+{
+  "headRasterIdenticalAfterTranslation": null,
+  "headNeckChestShareRigidTransform": true,
+  "footChecks": [
+    {
+      "frame": 0,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 0,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 373,
+      "groundY": 373
+    },
+    {
+      "frame": 1,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 1,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 373,
+      "groundY": 373
+    },
+    {
+      "frame": 2,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 2,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 373,
+      "groundY": 373
+    },
+    {
+      "frame": 3,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 3,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 373,
+      "groundY": 373
+    },
+    {
+      "frame": 4,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 4,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 373,
+      "groundY": 373
+    },
+    {
+      "frame": 5,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 5,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 373,
+      "groundY": 373
+    },
+    {
+      "frame": 6,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 6,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 373,
+      "groundY": 373
+    },
+    {
+      "frame": 7,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 8,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 9,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 10,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 11,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 12,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 13,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 14,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 15,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 16,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 17,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 18,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 18,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    }
+  ],
+  "checksProveAnatomyOrMotionQuality": false
+}

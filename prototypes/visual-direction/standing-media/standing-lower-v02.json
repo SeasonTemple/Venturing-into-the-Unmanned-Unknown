@@ -1,0 +1,40 @@
+{
+  "revision": "standing02",
+  "approved": false,
+  "method": "Static per-row pixel contours for trousers and boots; original front cloth colour clusters reused in side-specific silhouettes. No new media service calls, head edits, IK or runtime animation.",
+  "outputs": {
+    "front": {
+      "file": "front-lower-v02.png",
+      "source": "front-whole.png",
+      "sha256": "53a9a692ea3b15f1dc16fc0297d89d2d12d7c35f49db396f2fc4f589fba549ca",
+      "changedRegion": null
+    },
+    "left": {
+      "file": "left-lower-v02.png",
+      "source": "left-whole.png",
+      "sha256": "9b807e19e88b3deb4987f6eada9b86aa94609cfdd9c9f66b412759494526807a",
+      "changedRegion": [
+        0,
+        126,
+        128,
+        70
+      ]
+    },
+    "right": {
+      "file": "right-lower-v02.png",
+      "source": "right-whole.png",
+      "sha256": "5e772e0859c109898ec6ba5187b1498c7f69a55b783fad3151b03d33ea90d6ec",
+      "changedRegion": [
+        0,
+        126,
+        128,
+        70
+      ]
+    }
+  },
+  "limits": [
+    "Static lower-body candidates only; fabric transfer and new boot shapes need art review.",
+    "Face/shoulder identity, loaded arm pose, tool perspective and source lighting remain unresolved.",
+    "The two soles have a two-pixel image-depth offset; this is not a new walking or world-contact test."
+  ]
+}

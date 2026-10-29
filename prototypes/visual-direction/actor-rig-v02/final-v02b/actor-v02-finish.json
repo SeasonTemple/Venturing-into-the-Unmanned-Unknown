@@ -1,0 +1,54 @@
+{
+  "tag": "actor-v02",
+  "method": "Program-assisted pixel-cluster pose retouch; original raster palette, not a newly generated person or a hand-painted full frame",
+  "poses": [
+    {
+      "name": "standing",
+      "file": "actor-v02-standing.png",
+      "baseRgbaSha256": "00e21b749bf33df87dacdbfbc2c7dae7268786666dbc74e0d57daf3bc44a971c",
+      "finalRgbaSha256": "00e21b749bf33df87dacdbfbc2c7dae7268786666dbc74e0d57daf3bc44a971c",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "contact",
+      "file": "actor-v02-contact.png",
+      "baseRgbaSha256": "c13b05b90e4a25755486c487d985e1a370e407fe91d792b1c458a8a73f0d28a7",
+      "finalRgbaSha256": "c13b05b90e4a25755486c487d985e1a370e407fe91d792b1c458a8a73f0d28a7",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "passing",
+      "file": "actor-v02-passing.png",
+      "baseRgbaSha256": "9e371112b69b820348c607334b8fdb47aec10361f39b0c20fbe69c5e31df5d72",
+      "finalRgbaSha256": "4a673a3adc717225a95c793849307ac9301f1d9519758ab0ff5b0dad9d58e5ae",
+      "changedBounds": [
+        104,
+        280,
+        116,
+        290
+      ],
+      "changedPixels": 39,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [
+        "knee_surface",
+        "compression_folds"
+      ],
+      "paintSource": "passing.ora",
+      "paintSourceSha256": "45add9d7eccf3c545f21f9ddb15ab5face65695e4c0a3be2736a5ee05e1c542e"
+    }
+  ],
+  "paintInputs": "../pose-corrections-v02b/actor-v02-paint-inputs.json",
+  "artApproved": false,
+  "walkCycleValidated": false,
+  "homepageIntegrated": false
+}

@@ -1,0 +1,42 @@
+{
+  "scope": "Complete reference-pose, source shading and held-recorder motion candidate.",
+  "selectedArtifactVersion": "actor-reference-pose-v02",
+  "artApproved": false,
+  "walkingApproved": false,
+  "homepageIntegrated": false,
+  "paidGenerationCalls": 0,
+  "identityComparison": "identity-comparison.png",
+  "nativeSceneComparison": "scene-review.png",
+  "motion": {
+    "source": "inspect-gesture/inspect-gesture.blend",
+    "frameCount": 25,
+    "fps": 12,
+    "continuousExportVerified": true,
+    "gifExports": {
+      "inspect-preview.gif": {
+        "size": [
+          480,
+          672
+        ],
+        "encodedFrames": 23,
+        "durationMs": 2080
+      },
+      "scene-inspect-preview.gif": {
+        "size": [
+          600,
+          440
+        ],
+        "encodedFrames": 22,
+        "durationMs": 2080
+      }
+    },
+    "checks": "inspect-gesture/gesture-checks.json"
+  },
+  "remainingGaps": [
+    "Face identity and authored cloth folds differ from selected illustration.",
+    "Painterly pixel clusters remain under visual review.",
+    "Scene contact shadow is a 2D cue, not physical projection."
+  ],
+  "sourceChecks": "source-checks.json",
+  "reproduction": "../../../docs/homepage-character-representation-study.md"
+}

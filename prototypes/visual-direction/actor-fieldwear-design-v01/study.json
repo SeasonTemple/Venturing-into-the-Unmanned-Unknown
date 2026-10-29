@@ -1,0 +1,222 @@
+{
+  "method": "Shared fieldworker source: structured fieldwear silhouette, open standing collar, backpack, work boots and short beard.",
+  "sourceMaster": "prototypes\\visual-direction\\character-master-media\\character-master-v02.blend",
+  "sourceMasterSha256": "782b5fa21436b0c2cc4681cdabd151848bf98e33e0f3f613596bae3b58e6bea2",
+  "sourceShaderCommit": "f13502c1fa71fd92e3969f35e9edeab17f4da52d",
+  "sourceShaderSha256": "f2f52c52a1902eb5415bef59501c40aaa39590a74d5e50643afab0135decf555",
+  "shaderAdaptation": [
+    "Bayer texture held/packed in memory; no /tmp writes.",
+    "Project color ramps replace default hue outputs.",
+    "Source hair alpha retained with a deterministic threshold.",
+    "Screen-space Bayer blending disabled; mesh normals retained.",
+    "32 Eevee samples reduce stochastic shadow speckles."
+  ],
+  "palettes": {
+    "skin": [
+      "594434",
+      "956746",
+      "c7915b",
+      "e9bb7f",
+      "f6d9a0"
+    ],
+    "coat": [
+      "59372c",
+      "914322",
+      "c96927",
+      "e99838",
+      "f5c66a"
+    ],
+    "pants": [
+      "182a29",
+      "2b4035",
+      "44583a",
+      "73845a",
+      "a8b77a"
+    ],
+    "boots": [
+      "172224",
+      "25312d",
+      "424a3b",
+      "687253",
+      "a0a785"
+    ],
+    "hair": [
+      "101a1c",
+      "192625",
+      "29372b",
+      "44523a",
+      "647147"
+    ],
+    "metal": [
+      "334c48",
+      "617c72",
+      "92a696",
+      "becdb7",
+      "e5e9cd"
+    ],
+    "recorder": [
+      "183c35",
+      "2b5946",
+      "4c7c5b",
+      "82a677",
+      "b7cc91"
+    ],
+    "dark": [
+      "102324",
+      "1b302e",
+      "29413a",
+      "3b5747",
+      "63795b"
+    ],
+    "eye": [
+      "838f78",
+      "aab59b",
+      "cad0b0",
+      "e2e1c0",
+      "f5efd1"
+    ],
+    "stubble": [
+      "3d382d",
+      "5a4a35",
+      "7e6344",
+      "aa8a60",
+      "d1b381"
+    ]
+  },
+  "frames": [
+    {
+      "frame": 1,
+      "pose": "front-quarter",
+      "rootAngleDegrees": 0,
+      "anchor": [
+        80.0,
+        202.0141897201538
+      ],
+      "sameCamera": true,
+      "sourceJointPoseUnchanged": false
+    },
+    {
+      "frame": 2,
+      "pose": "turned",
+      "rootAngleDegrees": -35,
+      "anchor": [
+        80.0,
+        202.0141897201538
+      ],
+      "sameCamera": true,
+      "sourceJointPoseUnchanged": false
+    }
+  ],
+  "resolution": [
+    160,
+    224
+  ],
+  "lightDirection": [
+    -3.0,
+    -4.0,
+    6.0
+  ],
+  "paidGenerationCalls": 0,
+  "sourceLimitations": [
+    "Face identity, authored cloth folds and painterly pixel color groups remain different from selected illustration.",
+    "Reference left arm is bent; standing candidate carries both devices down.",
+    "Two standing orientations and two device-lift keyposes rendered; no new continuous animation verified."
+  ],
+  "artApproved": false,
+  "walkingApproved": false,
+  "homepageIntegrated": false,
+  "renderSamples": 32,
+  "parentStudy": "prototypes\\visual-direction\\actor-representation-study-v03",
+  "parentBlendSha256": "8ddb26bee6d2b85a0eecdbf956d7dca030b221ec054f512a6dc2807977e413f5",
+  "appearanceChanges": [
+    "Opaque eyebrows independent from hair alpha.",
+    "Rest-space iris/pupil and short jaw beard.",
+    "Ochre jacket palette; bounded torso-shell smoothing with boundaries preserved.",
+    "Applied authored clothing body-occlusion mask: 3328 covered faces hidden.",
+    "Palm-plane finger curl and opposing thumbs.",
+    "Equipment positioned at curled fingers; physical recorder top handle."
+  ],
+  "grips": {
+    "R": {
+      "bar": [
+        -0.18018501996994019,
+        -0.03885060176253319,
+        0.7475996017456055
+      ],
+      "palmNormalTarget": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "curlAxis": [
+        0.0,
+        -0.9950233697891235,
+        -0.09964131563901901
+      ]
+    },
+    "L": {
+      "bar": [
+        0.18004333972930908,
+        -0.06147356331348419,
+        0.7511003613471985
+      ],
+      "palmNormalTarget": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "curlAxis": [
+        0.0,
+        0.9950175881385803,
+        0.09969872236251831
+      ]
+    }
+  },
+  "identityReference": "prototypes/visual-direction/art-pack-media/actor-front.png",
+  "identityReferenceScope": "Selected original standing identity; rejected art-cast-v03 is not used.",
+  "comparisonTitle": "肩背与野外衣装修订",
+  "comparisonFooter": "共享母版造型修订；原相机与原握持保持，原画身份对照另附。",
+  "designChanges": [
+    "Restored shoulder girdle without changing hand/finger basis.",
+    "Supported garment yoke and fitted waist.",
+    "Actual open-front standing collar and backpack/webbing.",
+    "Trouser cuffs over taller work-boot shafts.",
+    "Short charcoal beard instead of full cheek mask; fuller hair silhouette."
+  ],
+  "shoulderJointsBefore": {
+    "L": [
+      0.17740079760551453,
+      -0.010640998370945454,
+      1.3709344863891602
+    ],
+    "R": [
+      -0.17740079760551453,
+      -0.010640998370945454,
+      1.3709344863891602
+    ]
+  },
+  "shoulderJointsAfter": {
+    "L": [
+      0.1866130530834198,
+      -0.01056551095098257,
+      1.3964356184005737
+    ],
+    "R": [
+      -0.1866130530834198,
+      -0.01056551095098257,
+      1.3964356184005737
+    ]
+  },
+  "inheritedPoseHistory": [
+    "Ankle centers narrowed from source rest spread to 224mm.",
+    "Forward knee flex, foot orientation kept from original and yawed outward four degrees.",
+    "Whole-body height plus 6.5mm; feet retain original height.",
+    "Lowered clavicle/shoulder chain and aligned split upper/lower-arm bones.",
+    "Recentered cervical curve; retained head orientation and face geometry.",
+    "Fitted 286 upper-shell vertices toward body with 12mm clearance and 12mm displacement cap."
+  ],
+  "poseChanges": [
+    "Restored clavicle and shoulder basis while retaining upper-arm orientation and established finger grips.",
+    "Kept v03 lower-body pose and foot placement."
+  ]
+}

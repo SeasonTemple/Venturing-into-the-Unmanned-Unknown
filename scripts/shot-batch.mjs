@@ -10,11 +10,11 @@ export async function captureBatch(manifest) {
   const folder = resolve('.lab/shot-batch'); await mkdir(folder, {recursive:true});
   const profile = await mkdtemp(resolve(folder,'profile-'));
   const pause = ms => new Promise(r=>setTimeout(r,ms));
-  const chrome = spawn('C:/Program Files/Google/Chrome/Application/chrome.exe', ['--headless=new','--hide-scrollbars','--no-first-run','--no-default-browser-check','--disable-extensions','--remote-debugging-port=0','--user-data-dir='+profile,'about:blank'], {windowsHide:true,stdio:'ignore'});
+  const chrome = spawn('C:/Program Files/Google/Chrome/Application/chrome.exe', ['--headless=new','--hide-scrollbars','--no-first-run','--no-default-browser-check','--disable-extensions','--remote-debugging-port=0','--user-data-dir='+profile,...(process.env.SHOT_CHROME_FLAGS||'').split(/\s+/).filter(Boolean),'about:blank'], {windowsHide:true,stdio:'ignore'});
   let socket; const pids=[chrome.pid];
   try {
     let port;
-    for (let i=0;i<100;i++) { try { port=(await readFile(resolve(profile,'DevToolsActivePort'),'utf8')).split('\n')[0];break; } catch { await pause(100); } }
+    for (let i=0;i<300;i++) { try { port=(await readFile(resolve(profile,'DevToolsActivePort'),'utf8')).split('\n')[0];break; } catch { await pause(100); } }
     if (!port) throw Error('Chrome did not start');
     const tabs=await(await fetch(`http://127.0.0.1:${port}/json/list`)).json();
     socket=new WebSocket(tabs.find(t=>t.type==='page').webSocketDebuggerUrl);
@@ -26,6 +26,7 @@ export async function captureBatch(manifest) {
     await send('Page.enable'); await send('Runtime.enable');
     for (const shot of shots) {
       await send('Emulation.setDeviceMetricsOverride',{width:shot.width||1440,height:shot.height||900,deviceScaleFactor:1,mobile:!!shot.mobile});
+      await send('Emulation.setEmulatedMedia',{features:typeof shot.reducedMotion==='boolean'?[{name:'prefers-reduced-motion',value:shot.reducedMotion?'reduce':'no-preference'}]:[]});
       await send('Page.navigate',{url:shot.url});
       let ready=false;
       for(let i=0;i<150;i++){try{if(await evaluate(shot.ready||'document.readyState === "complete"')){ready=true;break;}}catch{}await pause(100);}

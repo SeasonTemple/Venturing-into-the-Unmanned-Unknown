@@ -1,0 +1,31 @@
+{
+  "status": "whole-character-and-device-gesture-study",
+  "date": "2026-10-29",
+  "artApproved": false,
+  "walkingApproved": false,
+  "homepageIntegrated": false,
+  "paidGenerationCalls": 0,
+  "deliverables": [
+    "representation-study.blend",
+    "native-review.png",
+    "scene-review.png",
+    "face-and-grips.png",
+    "device-gesture/device-gesture.blend",
+    "device-gesture/device-lift-preview.gif",
+    "device-gesture/gesture-filmstrip.png"
+  ],
+  "changes": [
+    "Eyebrows independent of hair transparency; rest-space iris and beard surface patterns.",
+    "Calibrated whole palm plane and finger curl; relocated complete equipment assemblies to grip centers.",
+    "Physical recorder top handle and display; opaque glove includes metacarpals.",
+    "Authored garment body mask, hidden intersecting shirt removed, front placket ray fitting corrected.",
+    "Shared source character used for two root facings and a 33-frame FK device-lift and return."
+  ],
+  "limitations": [
+    "Character appearance remains a candidate, including simplified face and clothing folds.",
+    "Only a device-lift gesture, not walking, reading or a completed station interaction.",
+    "Clothing and rigid device contacts still require checking in future working poses.",
+    "Native pixel zipper detail can alias; final sprite scale and artistic finish remain under review."
+  ],
+  "report": "../../../docs/homepage-character-representation-study.md"
+}

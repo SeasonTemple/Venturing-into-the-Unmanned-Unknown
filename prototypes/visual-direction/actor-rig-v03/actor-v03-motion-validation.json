@@ -1,0 +1,148 @@
+{
+  "scope": "Saved rig, sampled output, support/grip consistency and local motion preview; art unapproved",
+  "renderedFrames": 50,
+  "previewFrames": 49,
+  "previewFps": 12,
+  "packedTextures": 9,
+  "maxReplayAnkleErrorPx": 0,
+  "maxGripAttachmentErrorPx": 2.1579186437578088e-05,
+  "supportIntervals": [
+    {
+      "from": 1,
+      "to": 7,
+      "legs": [
+        "R",
+        "L"
+      ],
+      "side": "R",
+      "maxWorldPinErrorPx": 4.264961199760036e-06
+    },
+    {
+      "from": 1,
+      "to": 7,
+      "legs": [
+        "R",
+        "L"
+      ],
+      "side": "L",
+      "maxWorldPinErrorPx": 6.877043295791605e-06
+    },
+    {
+      "from": 7,
+      "to": 17,
+      "legs": [
+        "L"
+      ],
+      "side": "L",
+      "maxWorldPinErrorPx": 4.264961199760036e-06
+    },
+    {
+      "from": 17,
+      "to": 29,
+      "legs": [
+        "R"
+      ],
+      "side": "R",
+      "maxWorldPinErrorPx": 4.264961199760036e-06
+    },
+    {
+      "from": 29,
+      "to": 49,
+      "legs": [
+        "R",
+        "L"
+      ],
+      "side": "R",
+      "maxWorldPinErrorPx": 8.529922399520072e-06
+    },
+    {
+      "from": 29,
+      "to": 49,
+      "legs": [
+        "R",
+        "L"
+      ],
+      "side": "L",
+      "maxWorldPinErrorPx": 4.264961199760036e-06
+    }
+  ],
+  "soleSamplingDiagnostics": [
+    {
+      "side": "R",
+      "from": 1,
+      "to": 7,
+      "maxOpaqueSoleChannelError": 0
+    },
+    {
+      "side": "L",
+      "from": 1,
+      "to": 7,
+      "maxOpaqueSoleChannelError": 0
+    },
+    {
+      "side": "L",
+      "from": 7,
+      "to": 17,
+      "maxOpaqueSoleChannelError": 0
+    },
+    {
+      "side": "R",
+      "from": 17,
+      "to": 29,
+      "maxOpaqueSoleChannelError": 0
+    },
+    {
+      "side": "R",
+      "from": 29,
+      "to": 49,
+      "maxOpaqueSoleChannelError": 0
+    },
+    {
+      "side": "L",
+      "from": 29,
+      "to": 49,
+      "maxOpaqueSoleChannelError": 0
+    }
+  ],
+  "rerenders": [
+    {
+      "frame": 0,
+      "rgbaPixelsIdentical": true
+    },
+    {
+      "frame": 1,
+      "rgbaPixelsIdentical": true
+    },
+    {
+      "frame": 11,
+      "rgbaPixelsIdentical": true
+    },
+    {
+      "frame": 17,
+      "rgbaPixelsIdentical": true
+    },
+    {
+      "frame": 23,
+      "rgbaPixelsIdentical": true
+    },
+    {
+      "frame": 35,
+      "rgbaPixelsIdentical": true
+    },
+    {
+      "frame": 49,
+      "rgbaPixelsIdentical": true
+    }
+  ],
+  "sourceReferenceAlphaIdentical": true,
+  "sourceReferenceMaxColorDifference": 4,
+  "stoppedHeadPixelsIdentical": true,
+  "headScaleUnchanged": true,
+  "boxMaxAbsWorldDegrees": 2.499996213105607,
+  "boxFinalWorldDegrees": -0.0,
+  "animationState": "Authored short motion candidate, not a validated reusable walk cycle",
+  "poseRetouchApplied": false,
+  "artApproved": false,
+  "homepageIntegrated": false,
+  "newPaidMediaRequests": 0
+}

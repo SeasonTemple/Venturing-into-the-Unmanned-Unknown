@@ -1,0 +1,496 @@
+{
+  "headRasterIdenticalAfterTranslation": true,
+  "footChecks": [
+    {
+      "frame": 0,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 0,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 1,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 1,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 2,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 2,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 3,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 3,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 4,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 4,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 5,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 5,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 6,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 6,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 7,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 7,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 8,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 8,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 9,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 9,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 10,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 10,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 11,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 11,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 12,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 12,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 13,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 13,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 14,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 14,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 15,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 15,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 16,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 16,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 17,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 17,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 18,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 18,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 19,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 19,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 20,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 20,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 21,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 21,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 22,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 22,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 23,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 23,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 24,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 24,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 25,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 25,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 26,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 26,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 27,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 27,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 28,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 28,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 29,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 29,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 30,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 30,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 31,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 31,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 32,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 32,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 33,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 33,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    },
+    {
+      "frame": 34,
+      "side": "R",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 363,
+      "groundY": 363
+    },
+    {
+      "frame": 34,
+      "side": "L",
+      "actualShoeTouchesAnchor": true,
+      "lowestShoePixelY": 374,
+      "groundY": 374
+    }
+  ],
+  "checksProveAnatomyOrMotionQuality": false
+}

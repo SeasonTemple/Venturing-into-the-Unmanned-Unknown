@@ -1,0 +1,168 @@
+{
+  "revision": "walk03",
+  "date": "2026-10-28",
+  "scope": "Right face visibility, head proportion and walking head raster stability; visual approval remains pending",
+  "geometry": {
+    "scope": "Authoring geometry and baked pixel integrity; does not certify visual approval or browser soak performance",
+    "checks": [
+      {
+        "name": "world-stance-contact-and-bone-lengths",
+        "status": "passed",
+        "samples": 14400,
+        "maxSlipPixels": 1.4210854715202004e-14,
+        "maxBoneError": 4.973799150320701e-14,
+        "maxReachError": 0
+      },
+      {
+        "name": "turn-plant-and-anatomical-endpoint-continuity",
+        "status": "passed",
+        "samples": 500
+      },
+      {
+        "name": "run-distance-continuity-and-return",
+        "status": "passed",
+        "samples": 17500,
+        "maxDeltaPerMillisecond": 0.03172504957049682,
+        "duration": 17.499999999999996
+      },
+      {
+        "name": "atlas-margins-binary-alpha-shared-palette-and-equipment-labels",
+        "status": "passed",
+        "opaquePixels": 314726,
+        "frames": 69,
+        "paletteColors": 255,
+        "note": "Equipment ownership labels are checked; source silhouette/visibility requires visual review."
+      },
+      {
+        "name": "rigid-head-pixels-and-right-face-preservation",
+        "status": "passed",
+        "stableHeadFrames": 50,
+        "rightFacePixelsPreserved": 24,
+        "note": "Baked head pixels match after integer translation in all walking/idle poses; face silhouette still requires human visual review."
+      }
+    ]
+  },
+  "browser": [
+    {
+      "kind": "desktop",
+      "checks": [
+        "reduced motion starts static",
+        "pause cancels animation frame",
+        "pause freezes time",
+        "next frame advances",
+        "previous frame returns",
+        "play advances",
+        "hidden freezes time and cancels RAF",
+        "resume excludes hidden elapsed time",
+        "one pending RAF 0",
+        "one pending RAF 1",
+        "one pending RAF 2",
+        "one pending RAF 3",
+        "one pending RAF 4",
+        "one pending RAF 5",
+        "one pending RAF 6",
+        "one pending RAF 7",
+        "one pending RAF 8",
+        "one pending RAF 9",
+        "one pending RAF 10",
+        "one pending RAF 11",
+        "one pending RAF 12",
+        "one pending RAF 13",
+        "one pending RAF 14",
+        "one pending RAF 15",
+        "one pending RAF 16",
+        "one pending RAF 17",
+        "one pending RAF 18",
+        "one pending RAF 19",
+        "twenty replays reuse resources",
+        "three atlas images stay bounded",
+        "timeline reaches actual turn",
+        "return faces right",
+        "canvas space plays",
+        "canvas space pauses",
+        "desktop has no horizontal overflow",
+        "no runtime load error"
+      ],
+      "stats": {
+        "time": 3.2,
+        "playing": false,
+        "ready": true,
+        "visible": true,
+        "skipped": false,
+        "near": true,
+        "pendingFrames": 0,
+        "paints": 88,
+        "loadedAtlases": 3,
+        "paintMs": 0,
+        "p95PaintMs": 0.30000001192092896,
+        "resourceCount": 12,
+        "error": null,
+        "current": {
+          "time": 3.2,
+          "distance": 70.61996034368805,
+          "worldX": 1183.380039656312,
+          "worldY": 858,
+          "direction": "left",
+          "state": "向左行走",
+          "turn": null,
+          "phase": 0.4712491738268343,
+          "frame": 11,
+          "energy": 1,
+          "settle": false,
+          "complete": false
+        }
+      }
+    },
+    {
+      "kind": "mobile-walk02",
+      "revision": "walk02",
+      "stats": {
+        "time": 2.4,
+        "playing": false,
+        "ready": true,
+        "visible": true,
+        "skipped": false,
+        "near": true,
+        "pendingFrames": 0,
+        "paints": 2,
+        "loadedAtlases": 3,
+        "paintMs": 0.3999999761581421,
+        "p95PaintMs": 1,
+        "resourceCount": 12,
+        "error": null,
+        "current": {
+          "time": 2.4,
+          "distance": 45.23992068737608,
+          "worldX": 1208.760079312624,
+          "worldY": 858,
+          "direction": "left",
+          "state": "向左行走",
+          "turn": null,
+          "phase": 0.9424983476536681,
+          "frame": 23,
+          "energy": 1,
+          "settle": false,
+          "complete": false
+        }
+      },
+      "width": 390,
+      "scrollWidth": 390
+    }
+  ],
+  "captures": [
+    ".lab/motion-proof/walk02-right-browser.png",
+    ".lab/motion-proof/walk02-left-browser.png",
+    ".lab/motion-proof/walk02-mobile-browser.png"
+  ],
+  "browserCleanup": {
+    "remainingOwnedProcesses": 0
+  },
+  "runtimeAtlasBytes": 174978,
+  "newGenerationRequests": 0,
+  "limitations": [
+    "Head boundary was narrowed and integer hip anchoring corrected after browser review.",
+    "Turn source poses and their baked lighting remain unchanged.",
+    "Head pixel identity excludes intended integer translation; this does not remove ordinary pixel-grid stepping.",
+    "No ten-minute soak or production integration."
+  ]
+}

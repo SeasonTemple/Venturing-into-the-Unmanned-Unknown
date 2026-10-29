@@ -1,0 +1,35 @@
+{
+  "masterReopened": true,
+  "repeatRenderPixelsIdentical": true,
+  "bodyAlphaBounds": [
+    33,
+    18,
+    81,
+    192
+  ],
+  "visiblePixelHeight": 174,
+  "bodyBoneCount": 163,
+  "meshObjects": 20,
+  "sharedRigMeshes": [
+    "Continuous_human_body",
+    "Editable_coat_and_trousers",
+    "Short_hair",
+    "Ankle_boots"
+  ],
+  "equipmentBones": {
+    "silverToolbox": "wrist.R",
+    "greenRecorder": "wrist.L"
+  },
+  "externalImageDependencies": false,
+  "glbExport": {
+    "bytes": 1302812,
+    "sha256": "e42f3cb170fa908b6ffb77e521364a0f43dc67fdb9e2e81f280a0121be052d2a"
+  },
+  "artApproved": false,
+  "walkingTested": false,
+  "visualLimits": [
+    "Face and costume are approximate; not an identity match.",
+    "Cloth pixel clusters and footwear remain below the approved illustration.",
+    "Grip, deformation and gait require separate pose review."
+  ]
+}

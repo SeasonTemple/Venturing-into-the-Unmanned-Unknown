@@ -1,0 +1,161 @@
+{
+  "date": "2026-10-29",
+  "purpose": "在扩大步态前比较足部校准 FK 与二维关键姿态绘制。",
+  "scope": "同一认可人物、同一相机、同一显示尺寸；只验证四个足部支撑关键姿态。",
+  "poses": [
+    {
+      "id": "heel-strike",
+      "label": "脚跟着地",
+      "support": "前脚跟先接触，后脚趾仍可见",
+      "requiredEvidence": [
+        "鞋底后段接触",
+        "踝—膝方向连续",
+        "骨盆未因脚点被硬拉"
+      ]
+    },
+    {
+      "id": "full-support",
+      "label": "全脚支撑",
+      "support": "一只脚整块鞋底承重",
+      "requiredEvidence": [
+        "鞋底接触面连续",
+        "鞋底法线与地面一致",
+        "重心投影落在接触面内"
+      ]
+    },
+    {
+      "id": "forefoot-load",
+      "label": "前掌承重",
+      "support": "后跟抬起，前掌与趾承重",
+      "requiredEvidence": [
+        "脚跟抬起有明确转折",
+        "膝髋随承重解释",
+        "鞋底没有侧边代替前掌接地"
+      ]
+    },
+    {
+      "id": "toe-off",
+      "label": "趾离地",
+      "support": "支撑脚结束，另一脚进入摆动",
+      "requiredEvidence": [
+        "趾端最后离地",
+        "摆动脚离地清楚",
+        "躯干和头部不冻结在旧位置"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "calibrated-fk-foot",
+      "method": "保留来源骨盆、膝肘曲线；重新建立目标鞋、脚、趾的静止轴和局部滚动链",
+      "mustInspect": [
+        "目标足部静止矩阵",
+        "鞋与脚趾顶点权重",
+        "实际求值鞋底平面",
+        "四姿态的多视角接触"
+      ],
+      "stopIf": [
+        "任一支撑姿态鞋底侧倾超过 5°",
+        "脚踝方向与膝向不一致",
+        "必须逐帧移动骨盆才能接地"
+      ],
+      "trial": {
+        "directory": "../../.lab/whole-walk/fk-foot02",
+        "mode": "relative source-rest to target-rest foot rotation",
+        "kneeElbowChecks": "passed",
+        "frame48LeftSoleTiltDegrees": 28.2918231,
+        "frame48LeftHeightRangeMm": [
+          16.8229174,
+          84.9900618
+        ],
+        "fixedFloorResidualRangeMm": [
+          -20.9854525,
+          20.8239518
+        ],
+        "result": "failed; simple rest-frame calibration does not establish support contact"
+      }
+    },
+    {
+      "id": "raster-keypose",
+      "method": "沿用现有二维分层母版，直接绘制四张完整姿态，再检查是否需要局部姿态修绘",
+      "mustInspect": [
+        "头颈肩连续",
+        "裤腿和鞋底轮廓",
+        "左右装备身份",
+        "整数像素轮廓与接触阴影"
+      ],
+      "stopIf": [
+        "姿态之间换脸或换衣",
+        "脚底只能靠阴影伪造接触",
+        "插值前关键姿态本身已不成立"
+      ],
+      "trial": {
+        "spec": "../../.lab/pipeline-decision/raster01.spec.json",
+        "preview": "../../.lab/pipeline-decision/raster01/keyposes-review.png",
+        "feetPreview": "../../.lab/pipeline-decision/raster01/feet-review.png",
+        "result": "four static poses exported; visual review pending full-body acceptance"
+      }
+    }
+  ],
+  "releaseGate": [
+    "四姿态均由完整人物自行审看通过",
+    "正面、侧面、俯视和实际显示尺寸均通过",
+    "保存重开后输出一致",
+    "未使用最低顶点、关节角或渲染可重复性替代视觉验收"
+  ],
+  "decision": "same-view full-body surface-motion candidate built; complete painted gait and natural walking remain unapproved",
+  "currentEvidence": {
+    "fk": "rejected-foot-contact",
+    "raster": "full-pose paint roundtrip proven; 13-frame articulated weight transfer packaged; no complete walk approval"
+  },
+  "transitionTrial": {
+    "spec": "../../.lab/pipeline-decision/raster04.spec.json",
+    "attemptedTransitions": [
+      "full-support → passing",
+      "passing → contact"
+    ],
+    "result": "rejected-contact-anchor-model",
+    "failureFrame": 21,
+    "failureSide": "L",
+    "failure": "Existing contact assertion combines a single anchor with the whole shoe bounding box; toe-roll frame penetrates despite the anchor adjustment.",
+    "decision": "Separate heel, forefoot and toe contact patches before another transition export."
+  },
+  "externalReference": "homepage-up-huxx-shadow-review.md",
+  "transitionTrialIsolation": {
+    "spec": "../../.lab/pipeline-decision/raster07.spec.json",
+    "preview": "../../.lab/pipeline-decision/raster07/motion-keyposes.png",
+    "result": "rejected-endpoint-interpolation",
+    "finding": "With root travel fixed, contact checks were isolated, but intermediate frames still cross legs and lose credible weight transfer.",
+    "decision": "Author intermediate weight-transfer keyposes; do not fill leg motion from endpoint contour interpolation."
+  },
+  "staticPoseReview": {
+    "raster08": {
+      "result": "rejected-static-leg-crossing",
+      "originalAuthoredPoseCount": 8,
+      "originalDisplayedAuthoredPoseCount": 3,
+      "originalCaptionsMatchedPoses": false,
+      "completeReview": "../../.lab/pipeline-decision/raster08-complete-review/keyposes-review.png"
+    },
+    "currentControl": {
+      "directory": "../../prototypes/visual-direction/actor-pose-source-v01/",
+      "poseCount": 4,
+      "result": "internal-control-only; rigid upper and sampled cloth do not prove full-pose art",
+      "contactPhaseBenchmarkCompleted": false,
+      "artApproved": false
+    }
+  },
+  "fullPosePaintTrial": {
+    "exporter": "../../scripts/export-actor-pose-paint.py",
+    "checks": "actor-pose-paint-checks.json",
+    "result": "engineering-roundtrip-proven; silhouette changes supported; art not approved"
+  },
+  "wholePoseMotionTrial": {
+    "directory": "../../prototypes/visual-direction/actor-whole-pose-v02/",
+    "sourceControls": "control-keyposes.spec.json",
+    "frameCount": 13,
+    "result": "limited finite full-body candidate",
+    "checks": "actor-whole-pose-checks.json",
+    "artApproved": false,
+    "walkingApproved": false
+  }
+}

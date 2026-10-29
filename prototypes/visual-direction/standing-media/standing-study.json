@@ -1,0 +1,114 @@
+{
+  "revision": "standing01",
+  "approved": false,
+  "method": "Whole-frame static raster colour and collar-edge retouch. Uniform full-body resizing only; no head/limb scaling, rotation, IK, mirroring or sprite recomposition.",
+  "sources": {
+    "front": {
+      "file": "../art-pack-media/actor-front.png",
+      "sha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+      "nativeSourceWidth": 78,
+      "nativeSourceHeight": 174,
+      "outputSha256": "53a9a692ea3b15f1dc16fc0297d89d2d12d7c35f49db396f2fc4f589fba549ca"
+    },
+    "left": {
+      "file": "../motion-proof-media/left-reference.png",
+      "sha256": "f005bd48f07f73ca45839043b4941b7acafdf64be96cde39fac1c22fc23e2b6f",
+      "nativeSourceWidth": 52,
+      "nativeSourceHeight": 174,
+      "outputSha256": "9915b5050d19266a5deeae9dfec7c548e553b21fc8df93d2c5c4daef38594fec"
+    },
+    "right": {
+      "file": "../motion-proof-media/right-reference.png",
+      "sha256": "b1f6c50ba81359f0a6bc160dfc776eb1a38db2b9893363ad976aa4a58805b6d9",
+      "nativeSourceWidth": 40,
+      "nativeSourceHeight": 174,
+      "outputSha256": "bb85309f95ceaf0a22122442b4b4673f6ea8ccf59ccac6f1633a577e7129ea2c"
+    }
+  },
+  "edits": {
+    "front": {
+      "alphaEdits": 0,
+      "hairEdits": 0,
+      "skinEdits": 0,
+      "coatEdits": 0,
+      "pantsEdits": 0
+    },
+    "left": {
+      "alphaEdits": 39,
+      "hairEdits": 0,
+      "skinEdits": 0,
+      "coatEdits": 0,
+      "pantsEdits": 0
+    },
+    "right": {
+      "alphaEdits": 39,
+      "hairEdits": 248,
+      "skinEdits": 119,
+      "coatEdits": 1471,
+      "pantsEdits": 526
+    }
+  },
+  "limitations": [
+    "The two existing video views still differ in face, silhouette and baked light. These are conservative retouch candidates, not newly drawn approved character views.",
+    "Elbow posture and side-view tool silhouettes still follow the old source.",
+    "No walking, rig or production integration."
+  ],
+  "generation": {
+    "provider": "MMX image-01",
+    "successfulImages": 4,
+    "validationFailures": 1,
+    "selected": [],
+    "rejected": [
+      "standing-pair-v01_001.jpg",
+      "standing-left-v02_001.jpg",
+      "standing-pair-v03_001.jpg",
+      "standing-right-v04_001.jpg"
+    ],
+    "attempts": [
+      {
+        "file": "standing-pair-v01_001.jpg",
+        "seed": 281201,
+        "prompt": "../meadow-prompts/standing-pair-v01.txt",
+        "characterRef": "../meadow-media/directional-input-v02.png",
+        "size": [
+          1536,
+          1024
+        ],
+        "reason": "Both face right; hoodie/rolled cuffs/full beard and smooth detail depart from identity."
+      },
+      {
+        "file": "standing-left-v02_001.jpg",
+        "seed": 281202,
+        "prompt": "../meadow-prompts/standing-left-v02.txt",
+        "characterRef": "../meadow-media/directional-input-v02.png",
+        "size": [
+          768,
+          1024
+        ],
+        "reason": "Three-quarter view, bulky coat, full beard and high boots differ from the original."
+      },
+      {
+        "file": "standing-pair-v03_001.jpg",
+        "seed": 281203,
+        "prompt": "../meadow-prompts/standing-pair-v03.txt",
+        "characterRef": null,
+        "size": [
+          1024,
+          768
+        ],
+        "reason": "Both show the same front/three-quarter direction, altered equipment ownership and added backpack straps."
+      },
+      {
+        "file": "standing-right-v04_001.jpg",
+        "seed": 281204,
+        "prompt": "../meadow-prompts/standing-right-v04.txt",
+        "characterRef": "../meadow-media/directional-input-v02.png",
+        "size": [
+          768,
+          1024
+        ],
+        "reason": "Front/three-quarter, stylized oversized head, open coat and incorrect recorder."
+      }
+    ]
+  }
+}

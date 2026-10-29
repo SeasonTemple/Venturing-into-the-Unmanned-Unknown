@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>雨后的第一份回传 · 剧情排演</title><link rel="stylesheet" href="story-rehearsal.css"></head>
+<body>
+<header class="review-header"><a href="/Venturing-into-the-Unmanned-Unknown/">无人区 / 首页</a><a href="story-keyframes.html">物件与取景 · 关键帧 →</a><span>剧本排演 01 · 2026.10.28</span><button id="restart" type="button">从头排演</button></header>
+<main>
+ <div class="intro"><p class="eyebrow">一段行动，一份新资料，一个仍未抵达的远处。</p><h1>雨后的第一份回传</h1><p>本页检查剧情、选择与后果。原画裁切用于辨认场所；新增机位用示意图表示。手记与角色动作的成品美术另行制作。</p></div>
+ <fieldset class="perspectives"><legend>对读两种职责脚本</legend><label for="role-human"><input id="role-human" type="radio" name="role" value="human" checked> 人 · 接手、观察与裁决</label><label for="role-agent"><input id="role-agent" type="radio" name="role" value="agent"> 巡检载体 · 采集、留档与回传</label><small>排演可随时对读；正式角色在工位交接。</small></fieldset>
+ <nav class="beats" aria-label="已走过的分镜"><ol id="beats"></ol></nav>
+ <div class="rehearsal">
+  <figure class="frame" id="frame">
+   <img id="painting" src="meadow-media/hero-v04.webp" width="1920" height="1080" alt="认可的原野观测站原画，维护路沿水道延伸。">
+   <svg id="blocking" viewBox="0 0 1000 600" role="img" aria-labelledby="blocking-title" hidden>
+    <title id="blocking-title">待制作机位的空间示意</title>
+    <path class="cloud" d="M30 160h180m350-30h270M350 100h120"/>
+    <path class="distant" d="M0 295Q110 255 230 278T510 256T760 272T1000 238"/>
+    <path class="middle" d="M0 410Q170 340 300 375T600 330T1000 350"/>
+    <path class="road-unknown" d="M465 475Q420 390 560 354T790 275"/>
+    <path class="road-known" d="M355 600Q420 510 465 475"/>
+    <path class="foreground" d="M0 505Q160 400 310 470T615 462L1000 430V600H0Z"/>
+    <path class="road-known" d="M355 600Q420 510 465 475"/>
+    <g class="relay"><path d="M468 470v-90m-12 16h24m-19 45h16"/><circle cx="468" cy="382" r="4"/></g>
+    <path class="sighting" d="M790 269v12m-6-6h12"/>
+    <g class="actor"><circle cx="398" cy="479" r="6"/><path d="M398 486v23m0-15-9 14m9-14 10 12m-10 3-7 18m7-18 7 18"/></g>
+    <g class="rover"><path d="M430 514h25v-12h-25Zm12-12v-10"/><circle cx="435" cy="517" r="3"/><circle cx="451" cy="517" r="3"/></g>
+    <text x="488" y="395">R1 · 本次资料到这里</text><text x="704" y="248">只有反光，尚无测量</text>
+   </svg>
+   <div class="frame-top"><span id="frame-label"></span><span id="frame-type"></span></div>
+   <div class="frame-line"><p id="spoken"></p></div>
+   <figcaption id="camera-cue"></figcaption>
+  </figure>
+  <section class="script"><p class="eyebrow" id="beat-number"></p><h2 id="beat-title" tabindex="-1"></h2><p id="beat-intent"></p><h3>这时看见什么</h3><p id="visible"></p><h3>这次行动留下什么</h3><p id="consequence"></p><div id="actions" class="actions"></div><p id="feedback" role="status"></p><button id="back" type="button" class="back">← 回看上一镜</button></section>
+ </div>
+ <section class="environment-script"><h2>这一镜的环境脚本</h2><p class="eyebrow" id="environment-time"></p><p id="environment-weather"></p><p id="environment-effect"></p><small>这里只排演环境与行动的关系；上方原画及机位示意尚未实现这些天气变化。</small></section>
+ <section id="notebook" class="notebook-rehearsal">
+  <p class="eyebrow" id="notebook-kind">人的手记 / 内容翻阅排演</p><h2>留下的经历，也成为理解的方法。</h2>
+  <p>接下委托后可翻阅。新经历向原页续写，草图配有对象与结论；这里检验内容和翻阅，不代表最终纸本美术。章节理念为情境化改写，探索进度不限制全书阅读。</p>
+  <p id="notebook-empty">还未接下委托。第一页将写下这次要带回什么，以及判断的边界。</p>
+  <div id="notebook-body" hidden>
+   <nav aria-label="已写入的手记页组"><ol id="notebook-index"></ol></nav>
+   <article class="notebook-page">
+    <p id="notebook-count" class="eyebrow"></p><h3 id="notebook-title" tabindex="-1"></h3><p id="notebook-principle"></p>
+    <figure id="notebook-route"><p id="notebook-route-known"></p><p id="notebook-route-unknown"></p><figcaption>实线表示本次已采用的资料范围；虚线表示任务或待查线索。不是全线通信状态。</figcaption></figure>
+    <ol id="notebook-notes"></ol><p id="notebook-caveat" class="notebook-caveat"></p>
+   </article>
+   <nav class="notebook-pagination" aria-label="翻阅手记"><button type="button" id="notebook-prev">← 上一组页</button><button type="button" id="notebook-next">下一组页 →</button></nav>
+  </div>
+ </section>
+ <details class="record-sheet"><summary id="record-kind">人的手记 / 内容排演</summary><p>核对原始事件与来源。上方手记将这些经历续写为可翻阅的理念页。</p><ol id="records"></ol></details>
+ <details class="director"><summary>这段如何拍，接下来制作什么</summary><div><h2>先拍出连续的场所与动作</h2><p>工位 → R1 本地端口 → 回站交接 → 坡肩。当前图像只能支撑原画取景，行进遮挡、接口近景、持书和坡肩展开均需新资产；不把裁切放大当作抵达新区域。</p><h3>手记作为物件</h3><p>软封皮、布脊、纸叠、手部接触与同向光照，内容由一张未完成草图逐笔生长。机器端从实际端口进入资料束；移除纸本里的换肤标签。</p><h3>片段之后</h3><p>回站整理可衔接同场所傍晚稿，稳定的檐灯与独立设备灯。之后才扩展下一份委托与真实可回查的改动，章节不按地点排队发奖。</p></div></details>
+ <noscript><p>脚本排演需要 JavaScript。完整逐镜文字保存在仓库 docs/homepage-exploration-script.md；正式首页与普通阅读不受影响。</p></noscript>
+</main><footer>设计提案 · 没有替换线上手记，没有新增图片或视频生成。</footer>
+<script type="module" src="story-rehearsal.mjs"></script>
+</body></html>

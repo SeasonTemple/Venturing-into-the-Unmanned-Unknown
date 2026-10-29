@@ -1,0 +1,18 @@
+{
+  "sourceCommit": "167e0b2fd75f51a1a3b2284044b210ac886be208",
+  "sourceFilesVerified": 26,
+  "renderedFramesPerVariant": 20,
+  "fps": 30,
+  "spriteSize": [
+    384,
+    512
+  ],
+  "spriteSheetSize": [
+    7680,
+    512
+  ],
+  "technicalReproduction": true,
+  "homepageArtApproved": false,
+  "homepageIntegrated": false,
+  "validation": "../../../docs/research/homepage-cutout-reproduction-validation.json"
+}

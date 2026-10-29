@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>负重换步 · 逐帧检查</title>
+  <link rel="stylesheet" href="actor-motion-review.css">
+  <script type="module" src="actor-motion-review.mjs"></script>
+</head>
+<body>
+  <header>
+    <a href="art-pack.html#cast">← 美术定稿包</a>
+    <nav class="study-links" aria-label="未通过的历史动作试验"><a href="actor-motion-review.html?revision=cloth04">04 / 历史衣褶试验</a><a href="actor-motion-review.html?study=gait05&revision=gait05">05 / 未通过的步态</a></nav>
+    <p class="eyebrow" id="study-number">人物动作试制 / 04</p>
+    <h1 id="study-title">换步时，衣料怎样折起。</h1>
+    <p>历史试验档案：这些动作均未通过完整人物美术验收，当前没有可交付的行走版本。</p>
+    <p class="intro" id="study-intro">同一人物，提箱走两小步，再停稳。先看完整身体，再对照弯腿时的衣褶；这一版仍是动作候选。</p>
+  </header>
+  <main>
+    <section class="player" id="player" aria-labelledby="review-heading">
+      <div class="player-top">
+        <h2 id="review-heading">负重换步 → 停步</h2>
+        <p id="load-status" role="status">正在读取两版图集…</p>
+      </div>
+      <div class="views">
+        <figure class="whole">
+          <figcaption>完整人物 <span>原始帧 300 × 400 · 1×</span></figcaption>
+          <canvas id="actor" width="300" height="400" role="img" aria-label="完整人物：右手银箱、左手记录器，向左短步后停住。"></canvas>
+          <fieldset class="versions">
+            <legend>完整人物显示</legend>
+            <label><input type="radio" name="version" value="before">骨架底图</label>
+            <label><input type="radio" name="version" value="after" checked>衣褶候选</label>
+          </fieldset>
+        </figure>
+        <div class="details">
+          <div class="knee-views">
+            <figure>
+              <figcaption id="before-caption">骨架底图 <span>膝部 · 4×</span></figcaption>
+              <canvas id="knee-before" width="160" height="192" role="img" aria-label="未修绘膝部的四倍整数放大。"></canvas>
+            </figure>
+            <figure>
+              <figcaption id="after-caption">衣褶候选 <span>同帧、同位置 · 4×</span></figcaption>
+              <canvas id="knee-after" width="160" height="192" role="img" aria-label="局部衣褶候选的四倍整数放大，与左图同步。"></canvas>
+            </figure>
+          </div>
+          <div class="scale-view">
+            <canvas id="small" width="90" height="120" role="img" aria-label="人物约一百像素高的场景显示尺度；这个缩小图不用于检查原始像素。"></canvas>
+            <div>
+              <p>约 104px 人物高度</p>
+              <p class="muted">看整体轮廓和动作的阅读感。<br>像素检查看上方整数倍近景。</p>
+              <p id="paint-note">当前帧未修绘。</p>
+              <a id="paint-source" hidden download>打开此帧分层画稿 ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="transport" id="transport" inert>
+        <div class="timeline-label"><label for="frame">逐帧查看</label><span id="frame-label">1 / 49 · 负重站立</span></div>
+        <input id="frame" type="range" min="1" max="49" value="1" step="1" aria-describedby="timeline-hint">
+        <div class="buttons">
+          <button id="play" type="button">播放一次</button>
+          <button id="previous" type="button">← 上一帧</button>
+          <button id="next" type="button">下一帧 →</button>
+          <label for="speed">速度</label>
+          <select id="speed"><option value="1">正常 · 12fps</option><option value="0.5">½ 倍 · 6fps</option></select>
+          <label class="loop"><input id="loop" type="checkbox">循环</label>
+        </div>
+        <p class="muted" id="timeline-hint">拖动会暂停；聚焦进度条后可用方向键逐帧，Home / End 到首尾。默认静止，离开页面或画面后暂停。</p>
+        <div class="keyframes" id="keyframes" aria-label="关键时刻">
+          <button type="button" data-frame="1">站立</button>
+          <button type="button" data-frame="11">右脚提起</button>
+          <button type="button" data-frame="17">右脚落地</button>
+          <button type="button" data-frame="23">左脚提起</button>
+          <button type="button" data-frame="29">左脚落地</button>
+          <button type="button" data-frame="41">停稳</button>
+        </div>
+      </div>
+    </section>
+    <section class="notes">
+      <h2>这次在检查什么</h2>
+      <p id="study-notes">衣褶只在弯腿段逐渐出现、舒展后收起；每一帧都有自己的底图与可回改画层。可用两版对照检查它是否像褶皱，是否在相邻帧中跳动。</p>
+      <p id="study-limits">此次未修改步幅、骨架和原人物比例。仍需判断步态自然度、重心与衣料体积；转身、多方向和现场行走尚未制作完成。</p>
+      <a id="study-still" href="actor-rig-v04/actor-v04-knee-comparison.png">查看两处静帧对照 ↗</a>
+      <noscript><p>逐帧播放器需要 JavaScript。上面的链接可以直接查看静帧对照。</p></noscript>
+    </section>
+  </main>
+  <footer>独立动作预览 · 正式首页未替换 · 无新增媒体生成用量</footer>
+</body>
+</html>

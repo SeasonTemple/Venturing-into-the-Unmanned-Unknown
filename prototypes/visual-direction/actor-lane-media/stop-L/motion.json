@@ -1,0 +1,923 @@
+{
+  "fps": 16,
+  "frameCount": 35,
+  "frameSize": [
+    400,
+    400
+  ],
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "frames": [
+    {
+      "frame": 0,
+      "rootX": 0.0,
+      "headRasterShift": [
+        -4,
+        0
+      ],
+      "boxAngle": -1.4,
+      "feet": {
+        "R": {
+          "ankle": [
+            86.2223901074828,
+            315.27832793576994
+          ],
+          "bootAngle": -8
+        },
+        "L": {
+          "ankle": [
+            61.00187629956709,
+            328.00234878526953
+          ],
+          "bootAngle": 8
+        }
+      },
+      "file": "frames/000.png"
+    },
+    {
+      "frame": 1,
+      "rootX": -0.37037037037037035,
+      "headRasterShift": [
+        -4,
+        0
+      ],
+      "boxAngle": -1.1851851851851851,
+      "feet": {
+        "R": {
+          "ankle": [
+            86.44569763946875,
+            315.5403524809764
+          ],
+          "bootAngle": -7.407407407407407
+        },
+        "L": {
+          "ankle": [
+            60.794661718586866,
+            328.06825022301126
+          ],
+          "bootAngle": 7.407407407407407
+        }
+      },
+      "file": "frames/001.png"
+    },
+    {
+      "frame": 2,
+      "rootX": -1.2962962962962963,
+      "headRasterShift": [
+        -4,
+        0
+      ],
+      "boxAngle": -0.6481481481481481,
+      "feet": {
+        "R": {
+          "ankle": [
+            86.99200646993401,
+            316.2053949384243
+          ],
+          "bootAngle": -5.925925925925926
+        },
+        "L": {
+          "ankle": [
+            60.279703997872005,
+            328.24234855554914
+          ],
+          "bootAngle": 5.925925925925926
+        }
+      },
+      "file": "frames/002.png"
+    },
+    {
+      "frame": 3,
+      "rootX": -2.5,
+      "headRasterShift": [
+        -4,
+        0
+      ],
+      "boxAngle": 0.050000000000000044,
+      "feet": {
+        "R": {
+          "ankle": [
+            87.67617687988081,
+            317.09066583048764
+          ],
+          "bootAngle": -4.0
+        },
+        "L": {
+          "ankle": [
+            59.61729654879994,
+            328.4884747813661
+          ],
+          "bootAngle": 4.0
+        }
+      },
+      "file": "frames/003.png"
+    },
+    {
+      "frame": 4,
+      "rootX": -3.703703703703704,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": 0.7481481481481483,
+      "feet": {
+        "R": {
+          "ankle": [
+            88.33020913981272,
+            317.99842984450765
+          ],
+          "bootAngle": -2.0740740740740735
+        },
+        "L": {
+          "ankle": [
+            58.96353495350486,
+            328.7567237778942
+          ],
+          "bootAngle": 2.0740740740740735
+        }
+      },
+      "file": "frames/004.png"
+    },
+    {
+      "frame": 5,
+      "rootX": -4.629629629629629,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": 1.285185185185185,
+      "feet": {
+        "R": {
+          "ankle": [
+            88.81233728104912,
+            318.7113725237468
+          ],
+          "bootAngle": -0.5925925925925934
+        },
+        "L": {
+          "ankle": [
+            58.46698900836688,
+            328.97793365082794
+          ],
+          "bootAngle": 0.5925925925925934
+        }
+      },
+      "file": "frames/005.png"
+    },
+    {
+      "frame": 6,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": 1.5,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/006.png"
+    },
+    {
+      "frame": 7,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": 1.4434962070504238,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/007.png"
+    },
+    {
+      "frame": 8,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": 1.2969656403391343,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/008.png"
+    },
+    {
+      "frame": 9,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": 1.0948795180722892,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/009.png"
+    },
+    {
+      "frame": 10,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": 0.8717090584560464,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/010.png"
+    },
+    {
+      "frame": 11,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": 0.6619254796965641,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/011.png"
+    },
+    {
+      "frame": 12,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": 0.5,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/012.png"
+    },
+    {
+      "frame": 13,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": 0.36876882530120486,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/013.png"
+    },
+    {
+      "frame": 14,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": 0.23268072289156627,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/014.png"
+    },
+    {
+      "frame": 15,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": 0.09862575301204819,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/015.png"
+    },
+    {
+      "frame": 16,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": -0.026506024096385528,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/016.png"
+    },
+    {
+      "frame": 17,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": -0.13582454819277107,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/017.png"
+    },
+    {
+      "frame": 18,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": -0.22243975903614455,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/018.png"
+    },
+    {
+      "frame": 19,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": -0.2794615963855422,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/019.png"
+    },
+    {
+      "frame": 20,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": -0.3,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/020.png"
+    },
+    {
+      "frame": 21,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": -0.2777777777777778,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/021.png"
+    },
+    {
+      "frame": 22,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": -0.2222222222222222,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/022.png"
+    },
+    {
+      "frame": 23,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": -0.15,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/023.png"
+    },
+    {
+      "frame": 24,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": -0.07777777777777775,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/024.png"
+    },
+    {
+      "frame": 25,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": -0.022222222222222254,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/025.png"
+    },
+    {
+      "frame": 26,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": 0.0,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/026.png"
+    },
+    {
+      "frame": 27,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": 0.0,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/027.png"
+    },
+    {
+      "frame": 28,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": 0.0,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/028.png"
+    },
+    {
+      "frame": 29,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": 0.0,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/029.png"
+    },
+    {
+      "frame": 30,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": 0.0,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/030.png"
+    },
+    {
+      "frame": 31,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": 0.0,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/031.png"
+    },
+    {
+      "frame": 32,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": 0.0,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/032.png"
+    },
+    {
+      "frame": 33,
+      "rootX": -5.0,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": 0.0,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0.0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0.0
+        }
+      },
+      "file": "frames/033.png"
+    },
+    {
+      "frame": 34,
+      "rootX": -5,
+      "headRasterShift": [
+        -5,
+        0
+      ],
+      "boxAngle": 0,
+      "feet": {
+        "R": {
+          "ankle": [
+            89.0,
+            319.0
+          ],
+          "bootAngle": 0
+        },
+        "L": {
+          "ankle": [
+            58.26999999999998,
+            329.06999999999994
+          ],
+          "bootAngle": 0
+        }
+      },
+      "file": "frames/034.png"
+    }
+  ],
+  "artApproved": false,
+  "scope": "Single-view continuous stride candidate; not approved art"
+}

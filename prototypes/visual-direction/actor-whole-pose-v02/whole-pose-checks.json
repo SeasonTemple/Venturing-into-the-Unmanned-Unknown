@@ -1,0 +1,199 @@
+{
+  "neutralUpperReconstructionPixelIdentical": true,
+  "framesChecked": 13,
+  "actualUpperFrameCount": 13,
+  "actualHeadBoundingBoxCount": 6,
+  "allSavedOraAndAtlasFramesVerified": true,
+  "finalHoldPixelIdentical": true,
+  "sourceOwnershipTransferPixelCount": 285,
+  "checks": [
+    {
+      "frame": 0,
+      "savedOraMatchesPng": true,
+      "atlasMatchesPng": true,
+      "facePixelsPreservedAfterTranslation": true,
+      "shoulderSeamHoles": 0,
+      "connectedArtworkFractions": {
+        "boot_R": 1.0,
+        "boot_L": 1.0,
+        "toolbox_R": 1.0,
+        "recorder_L": 1.0
+      }
+    },
+    {
+      "frame": 1,
+      "savedOraMatchesPng": true,
+      "atlasMatchesPng": true,
+      "facePixelsPreservedAfterTranslation": true,
+      "shoulderSeamHoles": 0,
+      "connectedArtworkFractions": {
+        "boot_R": 1.0,
+        "boot_L": 1.0,
+        "toolbox_R": 1.0,
+        "recorder_L": 1.0
+      }
+    },
+    {
+      "frame": 2,
+      "savedOraMatchesPng": true,
+      "atlasMatchesPng": true,
+      "facePixelsPreservedAfterTranslation": true,
+      "shoulderSeamHoles": 0,
+      "connectedArtworkFractions": {
+        "boot_R": 1.0,
+        "boot_L": 1.0,
+        "toolbox_R": 1.0,
+        "recorder_L": 1.0
+      }
+    },
+    {
+      "frame": 3,
+      "savedOraMatchesPng": true,
+      "atlasMatchesPng": true,
+      "facePixelsPreservedAfterTranslation": true,
+      "shoulderSeamHoles": 0,
+      "connectedArtworkFractions": {
+        "boot_R": 1.0,
+        "boot_L": 1.0,
+        "toolbox_R": 1.0,
+        "recorder_L": 1.0
+      }
+    },
+    {
+      "frame": 4,
+      "savedOraMatchesPng": true,
+      "atlasMatchesPng": true,
+      "facePixelsPreservedAfterTranslation": true,
+      "shoulderSeamHoles": 0,
+      "connectedArtworkFractions": {
+        "boot_R": 1.0,
+        "boot_L": 1.0,
+        "toolbox_R": 1.0,
+        "recorder_L": 1.0
+      }
+    },
+    {
+      "frame": 5,
+      "savedOraMatchesPng": true,
+      "atlasMatchesPng": true,
+      "facePixelsPreservedAfterTranslation": true,
+      "shoulderSeamHoles": 0,
+      "connectedArtworkFractions": {
+        "boot_R": 1.0,
+        "boot_L": 1.0,
+        "toolbox_R": 1.0,
+        "recorder_L": 1.0
+      }
+    },
+    {
+      "frame": 6,
+      "savedOraMatchesPng": true,
+      "atlasMatchesPng": true,
+      "facePixelsPreservedAfterTranslation": true,
+      "shoulderSeamHoles": 0,
+      "connectedArtworkFractions": {
+        "boot_R": 1.0,
+        "boot_L": 1.0,
+        "toolbox_R": 1.0,
+        "recorder_L": 1.0
+      }
+    },
+    {
+      "frame": 7,
+      "savedOraMatchesPng": true,
+      "atlasMatchesPng": true,
+      "facePixelsPreservedAfterTranslation": true,
+      "shoulderSeamHoles": 0,
+      "connectedArtworkFractions": {
+        "boot_R": 1.0,
+        "boot_L": 1.0,
+        "toolbox_R": 1.0,
+        "recorder_L": 1.0
+      }
+    },
+    {
+      "frame": 8,
+      "savedOraMatchesPng": true,
+      "atlasMatchesPng": true,
+      "facePixelsPreservedAfterTranslation": true,
+      "shoulderSeamHoles": 0,
+      "connectedArtworkFractions": {
+        "boot_R": 1.0,
+        "boot_L": 1.0,
+        "toolbox_R": 1.0,
+        "recorder_L": 1.0
+      }
+    },
+    {
+      "frame": 9,
+      "savedOraMatchesPng": true,
+      "atlasMatchesPng": true,
+      "facePixelsPreservedAfterTranslation": true,
+      "shoulderSeamHoles": 0,
+      "connectedArtworkFractions": {
+        "boot_R": 1.0,
+        "boot_L": 1.0,
+        "toolbox_R": 1.0,
+        "recorder_L": 1.0
+      }
+    },
+    {
+      "frame": 10,
+      "savedOraMatchesPng": true,
+      "atlasMatchesPng": true,
+      "facePixelsPreservedAfterTranslation": true,
+      "shoulderSeamHoles": 0,
+      "connectedArtworkFractions": {
+        "boot_R": 1.0,
+        "boot_L": 1.0,
+        "toolbox_R": 1.0,
+        "recorder_L": 1.0
+      }
+    },
+    {
+      "frame": 11,
+      "savedOraMatchesPng": true,
+      "atlasMatchesPng": true,
+      "facePixelsPreservedAfterTranslation": true,
+      "shoulderSeamHoles": 0,
+      "connectedArtworkFractions": {
+        "boot_R": 1.0,
+        "boot_L": 1.0,
+        "toolbox_R": 1.0,
+        "recorder_L": 1.0
+      }
+    },
+    {
+      "frame": 12,
+      "savedOraMatchesPng": true,
+      "atlasMatchesPng": true,
+      "facePixelsPreservedAfterTranslation": true,
+      "shoulderSeamHoles": 0,
+      "connectedArtworkFractions": {
+        "boot_R": 1.0,
+        "boot_L": 1.0,
+        "toolbox_R": 1.0,
+        "recorder_L": 1.0
+      }
+    }
+  ],
+  "media": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 900,
+        "height": 900,
+        "r_frame_rate": "10/1",
+        "nb_frames": "25"
+      }
+    ],
+    "format": {
+      "duration": "2.500000"
+    }
+  },
+  "checksProveAnatomyOrNaturalMotion": false,
+  "artApproved": false,
+  "walkingApproved": false
+}

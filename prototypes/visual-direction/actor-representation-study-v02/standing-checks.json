@@ -1,0 +1,36 @@
+{
+  "freshProcessReopen": true,
+  "previousBlendUnchanged": true,
+  "packedImagesOnly": true,
+  "soleWorldHeights": {
+    "R": {
+      "sampleCount": 88,
+      "minZ": 1.8081627786159515e-06,
+      "maxZ": 0.008796000853180885
+    },
+    "L": {
+      "sampleCount": 88,
+      "minZ": 1.8102582544088364e-06,
+      "maxZ": 0.008796000853180885
+    }
+  },
+  "kneeFlexDegrees": {
+    "R": 10.34408073381607,
+    "L": 10.34408073381607
+  },
+  "equipmentBoneParents": {
+    "RIGHT_silver_toolbox": "wrist.R",
+    "Toolbox_handle_support": "wrist.R",
+    "Toolbox_handle_support.001": "wrist.R",
+    "Toolbox_handle_in_right_palm": "wrist.R",
+    "Toolbox_metal_latch": "wrist.R",
+    "Toolbox_metal_latch.001": "wrist.R",
+    "LEFT_green_recorder": "wrist.L",
+    "Recorder_physical_screen": "wrist.L",
+    "Recorder_button": "wrist.L",
+    "Recorder_button.001": "wrist.L"
+  },
+  "artApproved": false,
+  "walkingApproved": false,
+  "scope": "Standing geometry and source attachments; not anatomy or aesthetic approval."
+}

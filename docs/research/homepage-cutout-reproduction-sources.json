@@ -1,0 +1,271 @@
+{
+  "repository": "https://github.com/ndee85/coa_tools",
+  "commit": "167e0b2fd75f51a1a3b2284044b210ac886be208",
+  "files": [
+    {
+      "path": "coa-source/LICENSE",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/LICENSE",
+      "gitBlobSha": "9cecc1d4669ee8af2ca727a5d8cde10cd8b2d7cc",
+      "expectedBytes": 35141,
+      "bytes": 35141,
+      "sha256": "589ed823e9a84c56feb95ac58e7cf384626b9cbf4fda2a907bc36e103de1bad2",
+      "gitBlobVerified": true,
+      "repositoryPath": "LICENSE"
+    },
+    {
+      "path": "coa-source/README.md",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/README.md",
+      "gitBlobSha": "efe6bfc6278d0ed1de11d7baed485a60fe5c076a",
+      "expectedBytes": 5282,
+      "bytes": 5282,
+      "sha256": "7a2e9c4e6ab6718461b41176279f814fd6a27d55ce9ce5c8e48599a65fc8e636",
+      "gitBlobVerified": true,
+      "repositoryPath": "README.md"
+    },
+    {
+      "path": "coa-source/Sample Files/sprites/Arm_L.png",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/sprites/Arm_L.png",
+      "gitBlobSha": "1b3dc4e7e551f17eed7df3603b1319be390a732f",
+      "expectedBytes": 11942,
+      "bytes": 11942,
+      "sha256": "43a615622986626086b155ef30994aa58b4a099eb87d8554e4c8532e23cfe37e",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/sprites/Arm_L.png"
+    },
+    {
+      "path": "coa-source/Sample Files/sprites/Arm_R.png",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/sprites/Arm_R.png",
+      "gitBlobSha": "7977c5ad83541b7c6375a9d18ae7ff8f79e18e3b",
+      "expectedBytes": 13944,
+      "bytes": 13944,
+      "sha256": "5491f54500414180cd746e872396acd317691509975e2c1544e8ea586d430b8a",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/sprites/Arm_R.png"
+    },
+    {
+      "path": "coa-source/Sample Files/sprites/Ear_L.png",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/sprites/Ear_L.png",
+      "gitBlobSha": "7158ebaa2de0ef539efed81c9d5786f8971c2624",
+      "expectedBytes": 9499,
+      "bytes": 9499,
+      "sha256": "f8b4ffb0b9702fc0a8761b1c34cbd5b505dd263cd20ff561f232252b2a0a1682",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/sprites/Ear_L.png"
+    },
+    {
+      "path": "coa-source/Sample Files/sprites/Ear_R.png",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/sprites/Ear_R.png",
+      "gitBlobSha": "2395f44f3c9063234ab962f438a56841f6452350",
+      "expectedBytes": 13512,
+      "bytes": 13512,
+      "sha256": "24c192fdefc65c7720042a8a36abea865c38b0cf0ef43a257e60e4aa31406cfa",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/sprites/Ear_R.png"
+    },
+    {
+      "path": "coa-source/Sample Files/sprites/Foot_L.png",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/sprites/Foot_L.png",
+      "gitBlobSha": "58b3933bd4efacf8a0ed3f6190410dc5e95f4c5d",
+      "expectedBytes": 12243,
+      "fallbackUrl": "https://api.github.com/repos/ndee85/coa_tools/git/blobs/58b3933bd4efacf8a0ed3f6190410dc5e95f4c5d",
+      "bytes": 12243,
+      "sha256": "a35ad984b11cbc99909b914d71bd6042d20b22cd4faeded947031c401fc32832",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/sprites/Foot_L.png"
+    },
+    {
+      "path": "coa-source/Sample Files/sprites/Foot_R_01.png",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/sprites/Foot_R_01.png",
+      "gitBlobSha": "7c6d2d999df46267f08b9908b4b6f365eac83875",
+      "expectedBytes": 7622,
+      "bytes": 7622,
+      "sha256": "42d014231798a55bded6978078cffe23a436da8b511056f7efbdcb115e742698",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/sprites/Foot_R_01.png"
+    },
+    {
+      "path": "coa-source/Sample Files/sprites/Foot_R_02.png",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/sprites/Foot_R_02.png",
+      "gitBlobSha": "72fb4570e295ad468b7e7153d763e97a14bf019a",
+      "expectedBytes": 12432,
+      "bytes": 12432,
+      "sha256": "3a70c0e88e997a094ff6fc2ca92e2fb23a14b056294c4792813cfbeadf6d267b",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/sprites/Foot_R_02.png"
+    },
+    {
+      "path": "coa-source/Sample Files/sprites/Forearm_L.png",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/sprites/Forearm_L.png",
+      "gitBlobSha": "d0cb7b1e8f9bd4a1d29ef7d95517e13c82211818",
+      "expectedBytes": 21270,
+      "bytes": 21270,
+      "sha256": "43f783df58507d7d4dbefd01bedafb80282bfa8239b88f22d84f98d38ea472bb",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/sprites/Forearm_L.png"
+    },
+    {
+      "path": "coa-source/Sample Files/sprites/Forearm_R.png",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/sprites/Forearm_R.png",
+      "gitBlobSha": "7f63b6aa27c947430a63b6b9ba12bcef6f57de04",
+      "expectedBytes": 17056,
+      "bytes": 17056,
+      "sha256": "d3db831947496432ce3379722a693195d3f07bd1dfea1f5c39beb7e14de6d97f",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/sprites/Forearm_R.png"
+    },
+    {
+      "path": "coa-source/Sample Files/sprites/Hand_L.png",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/sprites/Hand_L.png",
+      "gitBlobSha": "3476d68b6f20e786a4c949a3cae6d5f6af49f507",
+      "expectedBytes": 12182,
+      "bytes": 12182,
+      "sha256": "b70caf49f57f7a49542ec2735ea477e5b51155d93133549285894a826ceaa1ab",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/sprites/Hand_L.png"
+    },
+    {
+      "path": "coa-source/Sample Files/sprites/Hand_R.png",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/sprites/Hand_R.png",
+      "gitBlobSha": "5c919240b5d754b88162825ceb8f5d335fa8609e",
+      "expectedBytes": 10992,
+      "bytes": 10992,
+      "sha256": "cd4161448bd38787810c1b9027e9ca81c75957a8837f83f64cc12424113635ae",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/sprites/Hand_R.png"
+    },
+    {
+      "path": "coa-source/Sample Files/sprites/Head.png",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/sprites/Head.png",
+      "gitBlobSha": "fb1e5c496c9d99b841601c2702c3773facc16f44",
+      "expectedBytes": 93215,
+      "bytes": 93215,
+      "sha256": "7a5dee666a6f1ac609d7bce6a1c915e2475056536805de12def572b259011b18",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/sprites/Head.png"
+    },
+    {
+      "path": "coa-source/Sample Files/sprites/Hip.png",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/sprites/Hip.png",
+      "gitBlobSha": "aad69c57686e63abd7c7b6007ab380eccd46df14",
+      "expectedBytes": 11129,
+      "bytes": 11129,
+      "sha256": "b8519308c0e86d342c65cb3aa34679276d77a4cf5253c39d1cc4394cddb7b0a4",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/sprites/Hip.png"
+    },
+    {
+      "path": "coa-source/Sample Files/sprites/Leg_L.png",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/sprites/Leg_L.png",
+      "gitBlobSha": "9e2501f83782d793e21624b17c615853a79bd208",
+      "expectedBytes": 7134,
+      "bytes": 7134,
+      "sha256": "03e24cbc132e968256d4fbd631769f2ce8029710739e9daa2af885e168d16352",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/sprites/Leg_L.png"
+    },
+    {
+      "path": "coa-source/Sample Files/sprites/Leg_R.png",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/sprites/Leg_R.png",
+      "gitBlobSha": "24009604cfa34637978bf400a2350594853d37c6",
+      "expectedBytes": 5854,
+      "bytes": 5854,
+      "sha256": "4c477bac427246bc046f7666600eecd0313b53ee4ffe884fb6690ac04400c9d3",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/sprites/Leg_R.png"
+    },
+    {
+      "path": "coa-source/Sample Files/sprites/Shin_L.png",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/sprites/Shin_L.png",
+      "gitBlobSha": "950d08b21a57e227effda602dc96f92ca7cf9cfb",
+      "expectedBytes": 9982,
+      "bytes": 9982,
+      "sha256": "cfde85abb0b9d72beb4f5cba9ea70f047e4bf0dbc77b3db8b6deebc515b7d1db",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/sprites/Shin_L.png"
+    },
+    {
+      "path": "coa-source/Sample Files/sprites/Shin_R.png",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/sprites/Shin_R.png",
+      "gitBlobSha": "7a7b7b86be1363020b863f5424d41ebb79ca9846",
+      "expectedBytes": 7264,
+      "fallbackUrl": "https://api.github.com/repos/ndee85/coa_tools/git/blobs/7a7b7b86be1363020b863f5424d41ebb79ca9846",
+      "bytes": 7264,
+      "sha256": "3cbcee7c81c4f9429d9e6f2307cc80fd56342aea9b52d496d063282d9c73ab5c",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/sprites/Shin_R.png"
+    },
+    {
+      "path": "coa-source/Sample Files/sprites/Tail_01.png",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/sprites/Tail_01.png",
+      "gitBlobSha": "eb130acd4f0814463d778cc7ec1468fbbb8e5112",
+      "expectedBytes": 7019,
+      "bytes": 7019,
+      "sha256": "1109a63afd177e87a647e0870549f562273a00cc2492c81c26c6e745e38f568a",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/sprites/Tail_01.png"
+    },
+    {
+      "path": "coa-source/Sample Files/sprites/Tail_02.png",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/sprites/Tail_02.png",
+      "gitBlobSha": "8f998a4e1b1dd948f0b604a2b1c7add24b02940b",
+      "expectedBytes": 8516,
+      "fallbackUrl": "https://api.github.com/repos/ndee85/coa_tools/git/blobs/8f998a4e1b1dd948f0b604a2b1c7add24b02940b",
+      "bytes": 8516,
+      "sha256": "3ae3c0fb027c372cf0e9691f3bb074b46268af9e87cb0b21742c160e88f30057",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/sprites/Tail_02.png"
+    },
+    {
+      "path": "coa-source/Sample Files/sprites/Tail_03.png",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/sprites/Tail_03.png",
+      "gitBlobSha": "e4a93ea2e3f45f4ff1d811fd5ef5a0ef432a2866",
+      "expectedBytes": 6854,
+      "bytes": 6854,
+      "sha256": "a09de374f45828c5717c3cfd274825810c4fa5b7b715ae703c39d85fdd732024",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/sprites/Tail_03.png"
+    },
+    {
+      "path": "coa-source/Sample Files/sprites/UpperBody_01.png",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/sprites/UpperBody_01.png",
+      "gitBlobSha": "5dbea12b46bafa395a5a3633948446f8633536ab",
+      "expectedBytes": 36526,
+      "bytes": 36526,
+      "sha256": "64ea54ab71a489017b52edae287420f9d997af0fcd95befe3b19739858268ff0",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/sprites/UpperBody_01.png"
+    },
+    {
+      "path": "coa-source/Sample Files/sprites/UpperBody_02.png",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/sprites/UpperBody_02.png",
+      "gitBlobSha": "2f662f2653f2f3af939766eca9eca3b842c82a8c",
+      "expectedBytes": 34580,
+      "bytes": 34580,
+      "sha256": "16c26d1987c4bfbfe7e39171d80c3333ff6e259144defcf14705a54f7d5741af",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/sprites/UpperBody_02.png"
+    },
+    {
+      "path": "coa-source/Sample Files/stip.blend",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/stip.blend",
+      "gitBlobSha": "7096f35d4631603e3ffd1c2c1682b6362ee6f566",
+      "expectedBytes": 1826556,
+      "bytes": 1826556,
+      "sha256": "c61741de21cf134b763beb40a0bdbfa1a8203a89eb9d035b37701457b17e00e9",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/stip.blend"
+    },
+    {
+      "path": "coa-source/Sample Files/stip.json",
+      "url": "https://raw.githubusercontent.com/ndee85/coa_tools/167e0b2fd75f51a1a3b2284044b210ac886be208/Sample%20Files/stip.json",
+      "gitBlobSha": "e9cbda553881808b73f7aefd61dfa263a949bf7a",
+      "expectedBytes": 10969,
+      "bytes": 10969,
+      "sha256": "c1cba0838cbad40a8827b0c802842abb5af727451ac53a1ccf231d65b7dba499",
+      "gitBlobVerified": true,
+      "repositoryPath": "Sample Files/stip.json"
+    }
+  ],
+  "purpose": "Pinned third-party cutout sample for local workflow reproduction, not homepage art.",
+  "rootLicense": "GPL-3.0; retain upstream LICENSE, no CC0 claim for the sample."
+}

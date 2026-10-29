@@ -1,0 +1,23 @@
+{
+  "status": "structural repaint experiment retained; not accepted as target-style artwork",
+  "staticOnly": true,
+  "artApproved": false,
+  "walkingApproved": false,
+  "homepageIntegrated": false,
+  "retained": "Source head/jacket, opposite arm and case; device body repositioned.",
+  "changed": "Both trouser legs and boots, pelvis, recorder-side sleeve and glove are new explicit raster paint.",
+  "limits": [
+    "Code-authored repaint may be flatter than source painting.",
+    "This is a two-foot standing posture, not a single-support walking keyframe.",
+    "No natural motion or physical balance claim."
+  ],
+  "makerReview": [
+    "Leg and boot silhouettes are painted anew rather than warped from the rejected pose.",
+    "Device is placed over a supporting palm; source equipment body is retained.",
+    "New sleeve/trousers/boots remain visibly flatter and harder-edged than the source jacket.",
+    "A static two-foot stance does not establish single-support balance or a walking key pose."
+  ],
+  "existingPaintReuseReview": "Loaded-walk v01-v04 rechecked: incompatible camera/style/equipment; none selected for splicing.",
+  "oraReopenPixelIdentical": true,
+  "recommendation": "Retain as a structural draft, not production artwork. Do not expand into frames or integrate into homepage."
+}

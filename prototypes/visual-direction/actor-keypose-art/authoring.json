@@ -1,0 +1,61 @@
+{
+  "method": "Author discrete complete-pose studies from explicit trouser contours.\n\nThis is source-cloth sampling on authored silhouettes plus pose-local paint,\nnot a new generative character, not planar IK, and not a finished walk cycle.\nUpper-body/equipment artwork stays continuous under one rigid pose transform. Each\noutput has a full-canvas OpenRaster paint source for further editing.\n",
+  "recipeSha256": "95e8fe84cdbe7d8475b836034b214912dad8f0fe04f293817fec9cd06b30c137",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "poses": [
+    {
+      "pose": "load",
+      "label": "承重准备",
+      "upperArt": "same source, one rigid transform",
+      "upperAngle": -0.6,
+      "upperShift": [
+        -8,
+        0
+      ],
+      "png": "load.png",
+      "editable": "load.ora",
+      "artApproved": false
+    },
+    {
+      "pose": "passing",
+      "label": "单腿支撑，另一腿经过",
+      "upperArt": "same source, one rigid transform",
+      "upperAngle": -1.6,
+      "upperShift": [
+        0,
+        -1
+      ],
+      "png": "passing.png",
+      "editable": "passing.ora",
+      "artApproved": false
+    },
+    {
+      "pose": "contact",
+      "label": "前脚落地，后脚将离地",
+      "upperArt": "same source, one rigid transform",
+      "upperAngle": -1,
+      "upperShift": [
+        -1,
+        0
+      ],
+      "png": "contact.png",
+      "editable": "contact.ora",
+      "artApproved": false
+    }
+  ],
+  "artApproved": false,
+  "layerSourceSha256": {
+    "arm_L.png": "662a988141dda5b4f6629d79fc0cea8b6ea2f07cb5276c4fed207558aaefb350",
+    "arm_R.png": "ec86a9afd734a3f0ad16142295ab7d83367df011de4f8dc723a06bc1cd40c97e",
+    "glove_R.png": "940bf0568f2bfc0a5aa14c6997ccf36222e277f51958840a4fccfb0ee0556a29",
+    "leg_L.png": "3e37edb883d77675e7208c9037facfc2f4e54f50b9572afbaa7c6e65e5d25ecb",
+    "leg_R.png": "519cf223098d7299d343c6567c840292ae8e406d697e9fad5145a9349b945781",
+    "pelvis.png": "0ca5ca0c3591ef21758c694011d427a362199615a995c242648550eac9768564",
+    "recorder_L.png": "9ea7ff84fb85c8ecb246ee0aef64547f12ee0b8d0af181d66252fd6b7fc6d567",
+    "toolbox_R.png": "bd582767d1dcb469983be182569f0ce30da3dc896b101da3507218a7a90df91a",
+    "upper_body.png": "ee28b46b38c96fe6ae1856dfb1bfa14bd61fa128b9aa2c6439bafeea107e86ae"
+  },
+  "editedClothMaster": null,
+  "editedClothMasterSha256": null,
+  "status": "static-pose-study; no animation produced"
+}

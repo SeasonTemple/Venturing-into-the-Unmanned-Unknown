@@ -1,0 +1,1444 @@
+{
+  "sourceHingeChannelMaxErrorDegrees": 3.822719918389339e-12,
+  "previous": {
+    "reference": "E:\\theorylab\\Venturing-into-the-Unmanned-Unknown\\prototypes\\visual-direction\\actor-balance-reference-v01\\reference.json",
+    "measurements": [
+      {
+        "frame": 1,
+        "side": "R",
+        "sourceFlexDegrees": 30.0014,
+        "targetSignedFlexDegrees": 23.144766609648244,
+        "sourceDeviationDegrees": -6.856633390351757
+      },
+      {
+        "frame": 1,
+        "side": "L",
+        "sourceFlexDegrees": -1.90833e-14,
+        "targetSignedFlexDegrees": -9.686667505625941,
+        "sourceDeviationDegrees": -9.686667505625921
+      },
+      {
+        "frame": 2,
+        "side": "R",
+        "sourceFlexDegrees": 33.9692,
+        "targetSignedFlexDegrees": 28.021670077814477,
+        "sourceDeviationDegrees": -5.947529922185524
+      },
+      {
+        "frame": 2,
+        "side": "L",
+        "sourceFlexDegrees": 15.5217,
+        "targetSignedFlexDegrees": 29.69499595500704,
+        "sourceDeviationDegrees": 14.173295955007042
+      },
+      {
+        "frame": 3,
+        "side": "R",
+        "sourceFlexDegrees": 34.2301,
+        "targetSignedFlexDegrees": 29.913371597198623,
+        "sourceDeviationDegrees": -4.3167284028013775
+      },
+      {
+        "frame": 3,
+        "side": "L",
+        "sourceFlexDegrees": 39.3587,
+        "targetSignedFlexDegrees": 38.45631380975645,
+        "sourceDeviationDegrees": -0.902386190243547
+      },
+      {
+        "frame": 4,
+        "side": "R",
+        "sourceFlexDegrees": 30.2891,
+        "targetSignedFlexDegrees": 24.685502516449397,
+        "sourceDeviationDegrees": -5.603597483550605
+      },
+      {
+        "frame": 4,
+        "side": "L",
+        "sourceFlexDegrees": 57.1018,
+        "targetSignedFlexDegrees": 59.25995522666832,
+        "sourceDeviationDegrees": 2.1581552266683204
+      },
+      {
+        "frame": 5,
+        "side": "R",
+        "sourceFlexDegrees": 26.5103,
+        "targetSignedFlexDegrees": 21.189778512971312,
+        "sourceDeviationDegrees": -5.320521487028689
+      },
+      {
+        "frame": 5,
+        "side": "L",
+        "sourceFlexDegrees": 65.9127,
+        "targetSignedFlexDegrees": 67.44082918587905,
+        "sourceDeviationDegrees": 1.5281291858790524
+      },
+      {
+        "frame": 6,
+        "side": "R",
+        "sourceFlexDegrees": 23.2075,
+        "targetSignedFlexDegrees": 17.284831844228925,
+        "sourceDeviationDegrees": -5.922668155771074
+      },
+      {
+        "frame": 6,
+        "side": "L",
+        "sourceFlexDegrees": 69.0603,
+        "targetSignedFlexDegrees": 69.97105574204176,
+        "sourceDeviationDegrees": 0.9107557420417578
+      },
+      {
+        "frame": 7,
+        "side": "R",
+        "sourceFlexDegrees": 22.3935,
+        "targetSignedFlexDegrees": 20.368727500488397,
+        "sourceDeviationDegrees": -2.0247724995116023
+      },
+      {
+        "frame": 7,
+        "side": "L",
+        "sourceFlexDegrees": 67.0718,
+        "targetSignedFlexDegrees": 67.17693985083677,
+        "sourceDeviationDegrees": 0.10513985083677824
+      },
+      {
+        "frame": 8,
+        "side": "R",
+        "sourceFlexDegrees": 21.8876,
+        "targetSignedFlexDegrees": 21.167466155225092,
+        "sourceDeviationDegrees": -0.7201338447749066
+      },
+      {
+        "frame": 8,
+        "side": "L",
+        "sourceFlexDegrees": 60.4782,
+        "targetSignedFlexDegrees": 59.437694865981236,
+        "sourceDeviationDegrees": -1.0405051340187654
+      },
+      {
+        "frame": 9,
+        "side": "R",
+        "sourceFlexDegrees": 18.8711,
+        "targetSignedFlexDegrees": 22.70000418205806,
+        "sourceDeviationDegrees": 3.8289041820580607
+      },
+      {
+        "frame": 9,
+        "side": "L",
+        "sourceFlexDegrees": 46.7622,
+        "targetSignedFlexDegrees": 43.68438759035791,
+        "sourceDeviationDegrees": -3.0778124096420925
+      },
+      {
+        "frame": 10,
+        "side": "R",
+        "sourceFlexDegrees": 14.9911,
+        "targetSignedFlexDegrees": 22.680841694166517,
+        "sourceDeviationDegrees": 7.689741694166518
+      },
+      {
+        "frame": 10,
+        "side": "L",
+        "sourceFlexDegrees": 29.1562,
+        "targetSignedFlexDegrees": 6.052904577224167,
+        "sourceDeviationDegrees": -23.10329542277583
+      },
+      {
+        "frame": 11,
+        "side": "R",
+        "sourceFlexDegrees": 8.13867,
+        "targetSignedFlexDegrees": 25.14169447154338,
+        "sourceDeviationDegrees": 17.003024471543384
+      },
+      {
+        "frame": 11,
+        "side": "L",
+        "sourceFlexDegrees": 17.9405,
+        "targetSignedFlexDegrees": 6.005659563996589,
+        "sourceDeviationDegrees": -11.934840436003412
+      },
+      {
+        "frame": 12,
+        "side": "R",
+        "sourceFlexDegrees": 6.36111e-15,
+        "targetSignedFlexDegrees": -22.510489132031587,
+        "sourceDeviationDegrees": -22.510489132031594
+      },
+      {
+        "frame": 12,
+        "side": "L",
+        "sourceFlexDegrees": 16.4883,
+        "targetSignedFlexDegrees": 6.010842384651923,
+        "sourceDeviationDegrees": -10.477457615348076
+      },
+      {
+        "frame": 13,
+        "side": "R",
+        "sourceFlexDegrees": 3.18055e-15,
+        "targetSignedFlexDegrees": -19.4388712188201,
+        "sourceDeviationDegrees": -19.438871218820104
+      },
+      {
+        "frame": 13,
+        "side": "L",
+        "sourceFlexDegrees": 21.1427,
+        "targetSignedFlexDegrees": 6.039363849571496,
+        "sourceDeviationDegrees": -15.103336150428506
+      },
+      {
+        "frame": 14,
+        "side": "R",
+        "sourceFlexDegrees": -1.59028e-14,
+        "targetSignedFlexDegrees": -22.269317647878893,
+        "sourceDeviationDegrees": -22.26931764787888
+      },
+      {
+        "frame": 14,
+        "side": "L",
+        "sourceFlexDegrees": 25.5097,
+        "targetSignedFlexDegrees": 6.148408375070948,
+        "sourceDeviationDegrees": -19.361291624929052
+      },
+      {
+        "frame": 15,
+        "side": "R",
+        "sourceFlexDegrees": 22.8922,
+        "targetSignedFlexDegrees": 37.0806307559844,
+        "sourceDeviationDegrees": 14.188430755984403
+      },
+      {
+        "frame": 15,
+        "side": "L",
+        "sourceFlexDegrees": 30.3788,
+        "targetSignedFlexDegrees": 19.444519221184457,
+        "sourceDeviationDegrees": -10.934280778815541
+      },
+      {
+        "frame": 16,
+        "side": "R",
+        "sourceFlexDegrees": 42.9417,
+        "targetSignedFlexDegrees": 49.253842674591326,
+        "sourceDeviationDegrees": 6.312142674591328
+      },
+      {
+        "frame": 16,
+        "side": "L",
+        "sourceFlexDegrees": 27.6356,
+        "targetSignedFlexDegrees": 17.70300119584067,
+        "sourceDeviationDegrees": -9.93259880415933
+      },
+      {
+        "frame": 17,
+        "side": "R",
+        "sourceFlexDegrees": 58.7834,
+        "targetSignedFlexDegrees": 63.219797706618806,
+        "sourceDeviationDegrees": 4.436397706618806
+      },
+      {
+        "frame": 17,
+        "side": "L",
+        "sourceFlexDegrees": 21.6118,
+        "targetSignedFlexDegrees": 7.789119039673836,
+        "sourceDeviationDegrees": -13.822680960326164
+      },
+      {
+        "frame": 18,
+        "side": "R",
+        "sourceFlexDegrees": 66.1861,
+        "targetSignedFlexDegrees": 69.81413440037907,
+        "sourceDeviationDegrees": 3.6280344003790788
+      },
+      {
+        "frame": 18,
+        "side": "L",
+        "sourceFlexDegrees": 18.0573,
+        "targetSignedFlexDegrees": 6.074450257193688,
+        "sourceDeviationDegrees": -11.982849742806312
+      },
+      {
+        "frame": 19,
+        "side": "R",
+        "sourceFlexDegrees": 68.7838,
+        "targetSignedFlexDegrees": 72.10173967142094,
+        "sourceDeviationDegrees": 3.3179396714209446
+      },
+      {
+        "frame": 19,
+        "side": "L",
+        "sourceFlexDegrees": 12.7159,
+        "targetSignedFlexDegrees": 6.042573957572308,
+        "sourceDeviationDegrees": -6.673326042427692
+      },
+      {
+        "frame": 20,
+        "side": "R",
+        "sourceFlexDegrees": 66.6979,
+        "targetSignedFlexDegrees": 68.14223710672391,
+        "sourceDeviationDegrees": 1.444337106723907
+      },
+      {
+        "frame": 20,
+        "side": "L",
+        "sourceFlexDegrees": 14.0255,
+        "targetSignedFlexDegrees": 6.8078231260256965,
+        "sourceDeviationDegrees": -7.217676873974303
+      },
+      {
+        "frame": 21,
+        "side": "R",
+        "sourceFlexDegrees": 60.1646,
+        "targetSignedFlexDegrees": 60.619511860740154,
+        "sourceDeviationDegrees": 0.4549118607401539
+      },
+      {
+        "frame": 21,
+        "side": "L",
+        "sourceFlexDegrees": 16.3642,
+        "targetSignedFlexDegrees": 12.604618873518088,
+        "sourceDeviationDegrees": -3.759581126481912
+      },
+      {
+        "frame": 22,
+        "side": "R",
+        "sourceFlexDegrees": 48.9265,
+        "targetSignedFlexDegrees": 48.17915848392179,
+        "sourceDeviationDegrees": -0.7473415160782082
+      },
+      {
+        "frame": 22,
+        "side": "L",
+        "sourceFlexDegrees": 13.4949,
+        "targetSignedFlexDegrees": 13.111347176790469,
+        "sourceDeviationDegrees": -0.38355282320953066
+      },
+      {
+        "frame": 23,
+        "side": "R",
+        "sourceFlexDegrees": 34.7547,
+        "targetSignedFlexDegrees": 32.39293619090467,
+        "sourceDeviationDegrees": -2.3617638090953292
+      },
+      {
+        "frame": 23,
+        "side": "L",
+        "sourceFlexDegrees": 3.09372,
+        "targetSignedFlexDegrees": 1.934307650076278,
+        "sourceDeviationDegrees": -1.1594123499237219
+      },
+      {
+        "frame": 24,
+        "side": "R",
+        "sourceFlexDegrees": 27.1454,
+        "targetSignedFlexDegrees": 26.364957906223992,
+        "sourceDeviationDegrees": -0.7804420937760064
+      },
+      {
+        "frame": 24,
+        "side": "L",
+        "sourceFlexDegrees": 4.13472e-14,
+        "targetSignedFlexDegrees": -5.23666875476263,
+        "sourceDeviationDegrees": -5.236668754762672
+      },
+      {
+        "frame": 25,
+        "side": "R",
+        "sourceFlexDegrees": 26.4615,
+        "targetSignedFlexDegrees": 27.881852084343688,
+        "sourceDeviationDegrees": 1.420352084343687
+      },
+      {
+        "frame": 25,
+        "side": "L",
+        "sourceFlexDegrees": 1.59028e-14,
+        "targetSignedFlexDegrees": -5.30409974568621,
+        "sourceDeviationDegrees": -5.3040997456862256
+      },
+      {
+        "frame": 26,
+        "side": "R",
+        "sourceFlexDegrees": 27.4295,
+        "targetSignedFlexDegrees": 20.809902251774623,
+        "sourceDeviationDegrees": -6.619597748225377
+      },
+      {
+        "frame": 26,
+        "side": "L",
+        "sourceFlexDegrees": 1.59028e-14,
+        "targetSignedFlexDegrees": -4.803095021043498,
+        "sourceDeviationDegrees": -4.803095021043514
+      },
+      {
+        "frame": 27,
+        "side": "R",
+        "sourceFlexDegrees": 31.7924,
+        "targetSignedFlexDegrees": 22.957409550004986,
+        "sourceDeviationDegrees": -8.834990449995015
+      },
+      {
+        "frame": 27,
+        "side": "L",
+        "sourceFlexDegrees": -2.22639e-14,
+        "targetSignedFlexDegrees": -12.063179035288217,
+        "sourceDeviationDegrees": -12.063179035288194
+      },
+      {
+        "frame": 28,
+        "side": "R",
+        "sourceFlexDegrees": 36.8901,
+        "targetSignedFlexDegrees": 30.597284909868897,
+        "sourceDeviationDegrees": -6.2928150901311
+      },
+      {
+        "frame": 28,
+        "side": "L",
+        "sourceFlexDegrees": 9.80488,
+        "targetSignedFlexDegrees": 28.489150409832735,
+        "sourceDeviationDegrees": 18.684270409832735
+      },
+      {
+        "frame": 29,
+        "side": "R",
+        "sourceFlexDegrees": 36.3428,
+        "targetSignedFlexDegrees": 31.86703913972907,
+        "sourceDeviationDegrees": -4.475760860270928
+      },
+      {
+        "frame": 29,
+        "side": "L",
+        "sourceFlexDegrees": 37.0563,
+        "targetSignedFlexDegrees": 37.013258254009756,
+        "sourceDeviationDegrees": -0.04304174599024435
+      },
+      {
+        "frame": 30,
+        "side": "R",
+        "sourceFlexDegrees": 31.7856,
+        "targetSignedFlexDegrees": 27.487970922380335,
+        "sourceDeviationDegrees": -4.297629077619664
+      },
+      {
+        "frame": 30,
+        "side": "L",
+        "sourceFlexDegrees": 55.2095,
+        "targetSignedFlexDegrees": 57.83932125558197,
+        "sourceDeviationDegrees": 2.629821255581973
+      },
+      {
+        "frame": 31,
+        "side": "R",
+        "sourceFlexDegrees": 27.7175,
+        "targetSignedFlexDegrees": 24.76037624591917,
+        "sourceDeviationDegrees": -2.9571237540808326
+      },
+      {
+        "frame": 31,
+        "side": "L",
+        "sourceFlexDegrees": 64.5346,
+        "targetSignedFlexDegrees": 66.4195351325256,
+        "sourceDeviationDegrees": 1.884935132525598
+      },
+      {
+        "frame": 32,
+        "side": "R",
+        "sourceFlexDegrees": 24.6076,
+        "targetSignedFlexDegrees": 22.189897416744433,
+        "sourceDeviationDegrees": -2.4177025832555685
+      },
+      {
+        "frame": 32,
+        "side": "L",
+        "sourceFlexDegrees": 67.7181,
+        "targetSignedFlexDegrees": 68.98613080063059,
+        "sourceDeviationDegrees": 1.2680308006305836
+      },
+      {
+        "frame": 33,
+        "side": "R",
+        "sourceFlexDegrees": 23.3806,
+        "targetSignedFlexDegrees": 22.349303313155772,
+        "sourceDeviationDegrees": -1.0312966868442288
+      },
+      {
+        "frame": 33,
+        "side": "L",
+        "sourceFlexDegrees": 66.909,
+        "targetSignedFlexDegrees": 67.2678062739127,
+        "sourceDeviationDegrees": 0.35880627391269115
+      },
+      {
+        "frame": 34,
+        "side": "R",
+        "sourceFlexDegrees": 21.9695,
+        "targetSignedFlexDegrees": 22.251178958074842,
+        "sourceDeviationDegrees": 0.281678958074842
+      },
+      {
+        "frame": 34,
+        "side": "L",
+        "sourceFlexDegrees": 60.0801,
+        "targetSignedFlexDegrees": 59.31499146213368,
+        "sourceDeviationDegrees": -0.7651085378663183
+      },
+      {
+        "frame": 35,
+        "side": "R",
+        "sourceFlexDegrees": 17.3288,
+        "targetSignedFlexDegrees": 21.51635220367738,
+        "sourceDeviationDegrees": 4.187552203677377
+      },
+      {
+        "frame": 35,
+        "side": "L",
+        "sourceFlexDegrees": 47.9827,
+        "targetSignedFlexDegrees": 45.33266191380714,
+        "sourceDeviationDegrees": -2.6500380861928647
+      },
+      {
+        "frame": 36,
+        "side": "R",
+        "sourceFlexDegrees": 13.5566,
+        "targetSignedFlexDegrees": 21.84421091668378,
+        "sourceDeviationDegrees": 8.287610916683782
+      },
+      {
+        "frame": 36,
+        "side": "L",
+        "sourceFlexDegrees": 31.0809,
+        "targetSignedFlexDegrees": 15.175187099594915,
+        "sourceDeviationDegrees": -15.905712900405085
+      },
+      {
+        "frame": 37,
+        "side": "R",
+        "sourceFlexDegrees": 7.4915,
+        "targetSignedFlexDegrees": 30.220385790993255,
+        "sourceDeviationDegrees": 22.728885790993253
+      },
+      {
+        "frame": 37,
+        "side": "L",
+        "sourceFlexDegrees": 17.9216,
+        "targetSignedFlexDegrees": 6.0088064719559044,
+        "sourceDeviationDegrees": -11.912793528044098
+      },
+      {
+        "frame": 38,
+        "side": "R",
+        "sourceFlexDegrees": 6.99722e-14,
+        "targetSignedFlexDegrees": -21.146134300176517,
+        "sourceDeviationDegrees": -21.146134300176588
+      },
+      {
+        "frame": 38,
+        "side": "L",
+        "sourceFlexDegrees": 16.4495,
+        "targetSignedFlexDegrees": 6.016347989547305,
+        "sourceDeviationDegrees": -10.433152010452694
+      },
+      {
+        "frame": 39,
+        "side": "R",
+        "sourceFlexDegrees": 1.90833e-14,
+        "targetSignedFlexDegrees": -19.37105235260682,
+        "sourceDeviationDegrees": -19.37105235260684
+      },
+      {
+        "frame": 39,
+        "side": "L",
+        "sourceFlexDegrees": 20.1083,
+        "targetSignedFlexDegrees": 6.04026776784216,
+        "sourceDeviationDegrees": -14.06803223215784
+      },
+      {
+        "frame": 40,
+        "side": "R",
+        "sourceFlexDegrees": -6.99722e-14,
+        "targetSignedFlexDegrees": -21.230060124685632,
+        "sourceDeviationDegrees": -21.23006012468556
+      },
+      {
+        "frame": 40,
+        "side": "L",
+        "sourceFlexDegrees": 26.3559,
+        "targetSignedFlexDegrees": 8.99928393243986,
+        "sourceDeviationDegrees": -17.35661606756014
+      },
+      {
+        "frame": 41,
+        "side": "R",
+        "sourceFlexDegrees": 20.5637,
+        "targetSignedFlexDegrees": 37.92335464470364,
+        "sourceDeviationDegrees": 17.359654644703642
+      },
+      {
+        "frame": 41,
+        "side": "L",
+        "sourceFlexDegrees": 32.235,
+        "targetSignedFlexDegrees": 21.60159763785128,
+        "sourceDeviationDegrees": -10.633402362148718
+      },
+      {
+        "frame": 42,
+        "side": "R",
+        "sourceFlexDegrees": 43.4531,
+        "targetSignedFlexDegrees": 49.71145226210869,
+        "sourceDeviationDegrees": 6.258352262108694
+      },
+      {
+        "frame": 42,
+        "side": "L",
+        "sourceFlexDegrees": 30.6549,
+        "targetSignedFlexDegrees": 22.796961020643664,
+        "sourceDeviationDegrees": -7.857938979356337
+      },
+      {
+        "frame": 43,
+        "side": "R",
+        "sourceFlexDegrees": 60.1754,
+        "targetSignedFlexDegrees": 64.4629115741455,
+        "sourceDeviationDegrees": 4.287511574145491
+      },
+      {
+        "frame": 43,
+        "side": "L",
+        "sourceFlexDegrees": 26.5227,
+        "targetSignedFlexDegrees": 18.070981011902315,
+        "sourceDeviationDegrees": -8.451718988097685
+      },
+      {
+        "frame": 44,
+        "side": "R",
+        "sourceFlexDegrees": 67.908,
+        "targetSignedFlexDegrees": 71.05144325213747,
+        "sourceDeviationDegrees": 3.143443252137473
+      },
+      {
+        "frame": 44,
+        "side": "L",
+        "sourceFlexDegrees": 22.703,
+        "targetSignedFlexDegrees": 15.059106162159251,
+        "sourceDeviationDegrees": -7.643893837840748
+      },
+      {
+        "frame": 45,
+        "side": "R",
+        "sourceFlexDegrees": 69.832,
+        "targetSignedFlexDegrees": 72.15724010529904,
+        "sourceDeviationDegrees": 2.325240105299045
+      },
+      {
+        "frame": 45,
+        "side": "L",
+        "sourceFlexDegrees": 17.6166,
+        "targetSignedFlexDegrees": 6.085580417282625,
+        "sourceDeviationDegrees": -11.531019582717374
+      },
+      {
+        "frame": 46,
+        "side": "R",
+        "sourceFlexDegrees": 66.3376,
+        "targetSignedFlexDegrees": 67.59696547692668,
+        "sourceDeviationDegrees": 1.259365476926689
+      },
+      {
+        "frame": 46,
+        "side": "L",
+        "sourceFlexDegrees": 17.2581,
+        "targetSignedFlexDegrees": 8.041670583040297,
+        "sourceDeviationDegrees": -9.216429416959702
+      },
+      {
+        "frame": 47,
+        "side": "R",
+        "sourceFlexDegrees": 59.0205,
+        "targetSignedFlexDegrees": 59.364843219998775,
+        "sourceDeviationDegrees": 0.3443432199987768
+      },
+      {
+        "frame": 47,
+        "side": "L",
+        "sourceFlexDegrees": 17.8698,
+        "targetSignedFlexDegrees": 13.742658985110024,
+        "sourceDeviationDegrees": -4.127141014889977
+      },
+      {
+        "frame": 48,
+        "side": "R",
+        "sourceFlexDegrees": 46.0649,
+        "targetSignedFlexDegrees": 45.190193984089355,
+        "sourceDeviationDegrees": -0.8747060159106468
+      },
+      {
+        "frame": 48,
+        "side": "L",
+        "sourceFlexDegrees": 15.257,
+        "targetSignedFlexDegrees": 11.573332460875228,
+        "sourceDeviationDegrees": -3.6836675391247713
+      }
+    ],
+    "backwardKnees": [
+      {
+        "frame": 1,
+        "side": "L",
+        "sourceFlexDegrees": -1.90833e-14,
+        "targetSignedFlexDegrees": -9.686667505625941,
+        "sourceDeviationDegrees": -9.686667505625921
+      },
+      {
+        "frame": 12,
+        "side": "R",
+        "sourceFlexDegrees": 6.36111e-15,
+        "targetSignedFlexDegrees": -22.510489132031587,
+        "sourceDeviationDegrees": -22.510489132031594
+      },
+      {
+        "frame": 13,
+        "side": "R",
+        "sourceFlexDegrees": 3.18055e-15,
+        "targetSignedFlexDegrees": -19.4388712188201,
+        "sourceDeviationDegrees": -19.438871218820104
+      },
+      {
+        "frame": 14,
+        "side": "R",
+        "sourceFlexDegrees": -1.59028e-14,
+        "targetSignedFlexDegrees": -22.269317647878893,
+        "sourceDeviationDegrees": -22.26931764787888
+      },
+      {
+        "frame": 24,
+        "side": "L",
+        "sourceFlexDegrees": 4.13472e-14,
+        "targetSignedFlexDegrees": -5.23666875476263,
+        "sourceDeviationDegrees": -5.236668754762672
+      },
+      {
+        "frame": 25,
+        "side": "L",
+        "sourceFlexDegrees": 1.59028e-14,
+        "targetSignedFlexDegrees": -5.30409974568621,
+        "sourceDeviationDegrees": -5.3040997456862256
+      },
+      {
+        "frame": 26,
+        "side": "L",
+        "sourceFlexDegrees": 1.59028e-14,
+        "targetSignedFlexDegrees": -4.803095021043498,
+        "sourceDeviationDegrees": -4.803095021043514
+      },
+      {
+        "frame": 27,
+        "side": "L",
+        "sourceFlexDegrees": -2.22639e-14,
+        "targetSignedFlexDegrees": -12.063179035288217,
+        "sourceDeviationDegrees": -12.063179035288194
+      },
+      {
+        "frame": 38,
+        "side": "R",
+        "sourceFlexDegrees": 6.99722e-14,
+        "targetSignedFlexDegrees": -21.146134300176517,
+        "sourceDeviationDegrees": -21.146134300176588
+      },
+      {
+        "frame": 39,
+        "side": "R",
+        "sourceFlexDegrees": 1.90833e-14,
+        "targetSignedFlexDegrees": -19.37105235260682,
+        "sourceDeviationDegrees": -19.37105235260684
+      },
+      {
+        "frame": 40,
+        "side": "R",
+        "sourceFlexDegrees": -6.99722e-14,
+        "targetSignedFlexDegrees": -21.230060124685632,
+        "sourceDeviationDegrees": -21.23006012468556
+      }
+    ],
+    "maxSourceDeviationDegrees": 23.10329542277583,
+    "naturalMotionApproved": false
+  },
+  "axisCorrectionExperiment": {
+    "reference": ".lab\\whole-walk\\knee-axis01\\reference.json",
+    "measurements": [
+      {
+        "frame": 1,
+        "side": "R",
+        "sourceFlexDegrees": 30.0014,
+        "targetSignedFlexDegrees": 21.370266361453965,
+        "sourceDeviationDegrees": -8.631133638546036
+      },
+      {
+        "frame": 1,
+        "side": "L",
+        "sourceFlexDegrees": -1.90833e-14,
+        "targetSignedFlexDegrees": 19.72370636641323,
+        "sourceDeviationDegrees": 19.723706366413246
+      },
+      {
+        "frame": 2,
+        "side": "R",
+        "sourceFlexDegrees": 33.9692,
+        "targetSignedFlexDegrees": 28.146327665457793,
+        "sourceDeviationDegrees": -5.8228723345422075
+      },
+      {
+        "frame": 2,
+        "side": "L",
+        "sourceFlexDegrees": 15.5217,
+        "targetSignedFlexDegrees": 30.131103712505283,
+        "sourceDeviationDegrees": 14.609403712505284
+      },
+      {
+        "frame": 3,
+        "side": "R",
+        "sourceFlexDegrees": 34.2301,
+        "targetSignedFlexDegrees": 30.13098510111452,
+        "sourceDeviationDegrees": -4.099114898885482
+      },
+      {
+        "frame": 3,
+        "side": "L",
+        "sourceFlexDegrees": 39.3587,
+        "targetSignedFlexDegrees": 38.58086795994725,
+        "sourceDeviationDegrees": -0.7778320400527505
+      },
+      {
+        "frame": 4,
+        "side": "R",
+        "sourceFlexDegrees": 30.2891,
+        "targetSignedFlexDegrees": 24.926550797170705,
+        "sourceDeviationDegrees": -5.362549202829296
+      },
+      {
+        "frame": 4,
+        "side": "L",
+        "sourceFlexDegrees": 57.1018,
+        "targetSignedFlexDegrees": 59.2992672833808,
+        "sourceDeviationDegrees": 2.197467283380803
+      },
+      {
+        "frame": 5,
+        "side": "R",
+        "sourceFlexDegrees": 26.5103,
+        "targetSignedFlexDegrees": 21.5481894269564,
+        "sourceDeviationDegrees": -4.962110573043599
+      },
+      {
+        "frame": 5,
+        "side": "L",
+        "sourceFlexDegrees": 65.9127,
+        "targetSignedFlexDegrees": 67.4542474512817,
+        "sourceDeviationDegrees": 1.5415474512817013
+      },
+      {
+        "frame": 6,
+        "side": "R",
+        "sourceFlexDegrees": 23.2075,
+        "targetSignedFlexDegrees": 17.757560296015107,
+        "sourceDeviationDegrees": -5.449939703984892
+      },
+      {
+        "frame": 6,
+        "side": "L",
+        "sourceFlexDegrees": 69.0603,
+        "targetSignedFlexDegrees": 69.97127585246619,
+        "sourceDeviationDegrees": 0.9109758524661942
+      },
+      {
+        "frame": 7,
+        "side": "R",
+        "sourceFlexDegrees": 22.3935,
+        "targetSignedFlexDegrees": 20.834479925443897,
+        "sourceDeviationDegrees": -1.559020074556102
+      },
+      {
+        "frame": 7,
+        "side": "L",
+        "sourceFlexDegrees": 67.0718,
+        "targetSignedFlexDegrees": 67.16401462209734,
+        "sourceDeviationDegrees": 0.09221462209734455
+      },
+      {
+        "frame": 8,
+        "side": "R",
+        "sourceFlexDegrees": 21.8876,
+        "targetSignedFlexDegrees": 21.623572614835506,
+        "sourceDeviationDegrees": -0.26402738516449276
+      },
+      {
+        "frame": 8,
+        "side": "L",
+        "sourceFlexDegrees": 60.4782,
+        "targetSignedFlexDegrees": 59.4253707613999,
+        "sourceDeviationDegrees": -1.0528292386001041
+      },
+      {
+        "frame": 9,
+        "side": "R",
+        "sourceFlexDegrees": 18.8711,
+        "targetSignedFlexDegrees": 23.306048756607602,
+        "sourceDeviationDegrees": 4.434948756607604
+      },
+      {
+        "frame": 9,
+        "side": "L",
+        "sourceFlexDegrees": 46.7622,
+        "targetSignedFlexDegrees": 43.682843391747454,
+        "sourceDeviationDegrees": -3.079356608252546
+      },
+      {
+        "frame": 10,
+        "side": "R",
+        "sourceFlexDegrees": 14.9911,
+        "targetSignedFlexDegrees": 23.6091246637688,
+        "sourceDeviationDegrees": 8.6180246637688
+      },
+      {
+        "frame": 10,
+        "side": "L",
+        "sourceFlexDegrees": 29.1562,
+        "targetSignedFlexDegrees": 6.078380735460267,
+        "sourceDeviationDegrees": -23.07781926453973
+      },
+      {
+        "frame": 11,
+        "side": "R",
+        "sourceFlexDegrees": 8.13867,
+        "targetSignedFlexDegrees": 28.968457660379546,
+        "sourceDeviationDegrees": 20.829787660379544
+      },
+      {
+        "frame": 11,
+        "side": "L",
+        "sourceFlexDegrees": 17.9405,
+        "targetSignedFlexDegrees": 6.055435504613784,
+        "sourceDeviationDegrees": -11.885064495386217
+      },
+      {
+        "frame": 12,
+        "side": "R",
+        "sourceFlexDegrees": 6.36111e-15,
+        "targetSignedFlexDegrees": 39.76046448411334,
+        "sourceDeviationDegrees": 39.760464484113335
+      },
+      {
+        "frame": 12,
+        "side": "L",
+        "sourceFlexDegrees": 16.4883,
+        "targetSignedFlexDegrees": 6.04627766927272,
+        "sourceDeviationDegrees": -10.44202233072728
+      },
+      {
+        "frame": 13,
+        "side": "R",
+        "sourceFlexDegrees": 3.18055e-15,
+        "targetSignedFlexDegrees": 30.66389505942542,
+        "sourceDeviationDegrees": 30.663895059425418
+      },
+      {
+        "frame": 13,
+        "side": "L",
+        "sourceFlexDegrees": 21.1427,
+        "targetSignedFlexDegrees": 6.059432965643135,
+        "sourceDeviationDegrees": -15.083267034356865
+      },
+      {
+        "frame": 14,
+        "side": "R",
+        "sourceFlexDegrees": -1.59028e-14,
+        "targetSignedFlexDegrees": 34.1258629569266,
+        "sourceDeviationDegrees": 34.12586295692662
+      },
+      {
+        "frame": 14,
+        "side": "L",
+        "sourceFlexDegrees": 25.5097,
+        "targetSignedFlexDegrees": 6.07077450024725,
+        "sourceDeviationDegrees": -19.43892549975275
+      },
+      {
+        "frame": 15,
+        "side": "R",
+        "sourceFlexDegrees": 22.8922,
+        "targetSignedFlexDegrees": 37.29045036324395,
+        "sourceDeviationDegrees": 14.39825036324395
+      },
+      {
+        "frame": 15,
+        "side": "L",
+        "sourceFlexDegrees": 30.3788,
+        "targetSignedFlexDegrees": 19.428528988499085,
+        "sourceDeviationDegrees": -10.950271011500913
+      },
+      {
+        "frame": 16,
+        "side": "R",
+        "sourceFlexDegrees": 42.9417,
+        "targetSignedFlexDegrees": 49.29188641430115,
+        "sourceDeviationDegrees": 6.350186414301156
+      },
+      {
+        "frame": 16,
+        "side": "L",
+        "sourceFlexDegrees": 27.6356,
+        "targetSignedFlexDegrees": 17.685556642462718,
+        "sourceDeviationDegrees": -9.950043357537282
+      },
+      {
+        "frame": 17,
+        "side": "R",
+        "sourceFlexDegrees": 58.7834,
+        "targetSignedFlexDegrees": 63.234354797475795,
+        "sourceDeviationDegrees": 4.450954797475795
+      },
+      {
+        "frame": 17,
+        "side": "L",
+        "sourceFlexDegrees": 21.6118,
+        "targetSignedFlexDegrees": 7.700170754647226,
+        "sourceDeviationDegrees": -13.911629245352774
+      },
+      {
+        "frame": 18,
+        "side": "R",
+        "sourceFlexDegrees": 66.1861,
+        "targetSignedFlexDegrees": 69.83913768847884,
+        "sourceDeviationDegrees": 3.6530376884788467
+      },
+      {
+        "frame": 18,
+        "side": "L",
+        "sourceFlexDegrees": 18.0573,
+        "targetSignedFlexDegrees": 6.105406649927766,
+        "sourceDeviationDegrees": -11.951893350072236
+      },
+      {
+        "frame": 19,
+        "side": "R",
+        "sourceFlexDegrees": 68.7838,
+        "targetSignedFlexDegrees": 72.12560164585418,
+        "sourceDeviationDegrees": 3.3418016458541757
+      },
+      {
+        "frame": 19,
+        "side": "L",
+        "sourceFlexDegrees": 12.7159,
+        "targetSignedFlexDegrees": 6.1068266299965535,
+        "sourceDeviationDegrees": -6.609073370003446
+      },
+      {
+        "frame": 20,
+        "side": "R",
+        "sourceFlexDegrees": 66.6979,
+        "targetSignedFlexDegrees": 68.16210494566299,
+        "sourceDeviationDegrees": 1.4642049456629849
+      },
+      {
+        "frame": 20,
+        "side": "L",
+        "sourceFlexDegrees": 14.0255,
+        "targetSignedFlexDegrees": 6.653228660796906,
+        "sourceDeviationDegrees": -7.372271339203094
+      },
+      {
+        "frame": 21,
+        "side": "R",
+        "sourceFlexDegrees": 60.1646,
+        "targetSignedFlexDegrees": 60.64393718588795,
+        "sourceDeviationDegrees": 0.4793371858879496
+      },
+      {
+        "frame": 21,
+        "side": "L",
+        "sourceFlexDegrees": 16.3642,
+        "targetSignedFlexDegrees": 12.554851309402583,
+        "sourceDeviationDegrees": -3.8093486905974174
+      },
+      {
+        "frame": 22,
+        "side": "R",
+        "sourceFlexDegrees": 48.9265,
+        "targetSignedFlexDegrees": 48.216282642459454,
+        "sourceDeviationDegrees": -0.710217357540543
+      },
+      {
+        "frame": 22,
+        "side": "L",
+        "sourceFlexDegrees": 13.4949,
+        "targetSignedFlexDegrees": 13.11611624609338,
+        "sourceDeviationDegrees": -0.3787837539066192
+      },
+      {
+        "frame": 23,
+        "side": "R",
+        "sourceFlexDegrees": 34.7547,
+        "targetSignedFlexDegrees": 32.10869938358773,
+        "sourceDeviationDegrees": -2.646000616412273
+      },
+      {
+        "frame": 23,
+        "side": "L",
+        "sourceFlexDegrees": 3.09372,
+        "targetSignedFlexDegrees": 8.389328039491648,
+        "sourceDeviationDegrees": 5.295608039491649
+      },
+      {
+        "frame": 24,
+        "side": "R",
+        "sourceFlexDegrees": 27.1454,
+        "targetSignedFlexDegrees": 24.28329639838172,
+        "sourceDeviationDegrees": -2.86210360161828
+      },
+      {
+        "frame": 24,
+        "side": "L",
+        "sourceFlexDegrees": 4.13472e-14,
+        "targetSignedFlexDegrees": 7.892588646260726,
+        "sourceDeviationDegrees": 7.892588646260684
+      },
+      {
+        "frame": 25,
+        "side": "R",
+        "sourceFlexDegrees": 26.4615,
+        "targetSignedFlexDegrees": 24.74112861921394,
+        "sourceDeviationDegrees": -1.7203713807860623
+      },
+      {
+        "frame": 25,
+        "side": "L",
+        "sourceFlexDegrees": 1.59028e-14,
+        "targetSignedFlexDegrees": 6.078730414773939,
+        "sourceDeviationDegrees": 6.078730414773923
+      },
+      {
+        "frame": 26,
+        "side": "R",
+        "sourceFlexDegrees": 27.4295,
+        "targetSignedFlexDegrees": 16.023384554504094,
+        "sourceDeviationDegrees": -11.406115445495907
+      },
+      {
+        "frame": 26,
+        "side": "L",
+        "sourceFlexDegrees": 1.59028e-14,
+        "targetSignedFlexDegrees": 6.064919920452726,
+        "sourceDeviationDegrees": 6.06491992045271
+      },
+      {
+        "frame": 27,
+        "side": "R",
+        "sourceFlexDegrees": 31.7924,
+        "targetSignedFlexDegrees": 21.175736185751376,
+        "sourceDeviationDegrees": -10.616663814248625
+      },
+      {
+        "frame": 27,
+        "side": "L",
+        "sourceFlexDegrees": -2.22639e-14,
+        "targetSignedFlexDegrees": 20.136309384113744,
+        "sourceDeviationDegrees": 20.136309384113765
+      },
+      {
+        "frame": 28,
+        "side": "R",
+        "sourceFlexDegrees": 36.8901,
+        "targetSignedFlexDegrees": 30.663841744741877,
+        "sourceDeviationDegrees": -6.22625825525812
+      },
+      {
+        "frame": 28,
+        "side": "L",
+        "sourceFlexDegrees": 9.80488,
+        "targetSignedFlexDegrees": 29.34988756459923,
+        "sourceDeviationDegrees": 19.545007564599228
+      },
+      {
+        "frame": 29,
+        "side": "R",
+        "sourceFlexDegrees": 36.3428,
+        "targetSignedFlexDegrees": 32.00799003995286,
+        "sourceDeviationDegrees": -4.334809960047139
+      },
+      {
+        "frame": 29,
+        "side": "L",
+        "sourceFlexDegrees": 37.0563,
+        "targetSignedFlexDegrees": 37.104970106689,
+        "sourceDeviationDegrees": 0.04867010668900207
+      },
+      {
+        "frame": 30,
+        "side": "R",
+        "sourceFlexDegrees": 31.7856,
+        "targetSignedFlexDegrees": 27.729660276108028,
+        "sourceDeviationDegrees": -4.055939723891971
+      },
+      {
+        "frame": 30,
+        "side": "L",
+        "sourceFlexDegrees": 55.2095,
+        "targetSignedFlexDegrees": 57.88323452802425,
+        "sourceDeviationDegrees": 2.673734528024255
+      },
+      {
+        "frame": 31,
+        "side": "R",
+        "sourceFlexDegrees": 27.7175,
+        "targetSignedFlexDegrees": 25.08549857115184,
+        "sourceDeviationDegrees": -2.6320014288481595
+      },
+      {
+        "frame": 31,
+        "side": "L",
+        "sourceFlexDegrees": 64.5346,
+        "targetSignedFlexDegrees": 66.43437967167104,
+        "sourceDeviationDegrees": 1.8997796716710411
+      },
+      {
+        "frame": 32,
+        "side": "R",
+        "sourceFlexDegrees": 24.6076,
+        "targetSignedFlexDegrees": 22.59162569291384,
+        "sourceDeviationDegrees": -2.015974307086161
+      },
+      {
+        "frame": 32,
+        "side": "L",
+        "sourceFlexDegrees": 67.7181,
+        "targetSignedFlexDegrees": 68.98953825675154,
+        "sourceDeviationDegrees": 1.2714382567515372
+      },
+      {
+        "frame": 33,
+        "side": "R",
+        "sourceFlexDegrees": 23.3806,
+        "targetSignedFlexDegrees": 22.74686224173546,
+        "sourceDeviationDegrees": -0.6337377582645409
+      },
+      {
+        "frame": 33,
+        "side": "L",
+        "sourceFlexDegrees": 66.909,
+        "targetSignedFlexDegrees": 67.2596912606443,
+        "sourceDeviationDegrees": 0.3506912606442967
+      },
+      {
+        "frame": 34,
+        "side": "R",
+        "sourceFlexDegrees": 21.9695,
+        "targetSignedFlexDegrees": 22.661915323623383,
+        "sourceDeviationDegrees": 0.6924153236233828
+      },
+      {
+        "frame": 34,
+        "side": "L",
+        "sourceFlexDegrees": 60.0801,
+        "targetSignedFlexDegrees": 59.307291030801345,
+        "sourceDeviationDegrees": -0.7728089691986568
+      },
+      {
+        "frame": 35,
+        "side": "R",
+        "sourceFlexDegrees": 17.3288,
+        "targetSignedFlexDegrees": 22.19945704534633,
+        "sourceDeviationDegrees": 4.870657045346327
+      },
+      {
+        "frame": 35,
+        "side": "L",
+        "sourceFlexDegrees": 47.9827,
+        "targetSignedFlexDegrees": 45.33649696076045,
+        "sourceDeviationDegrees": -2.646203039239552
+      },
+      {
+        "frame": 36,
+        "side": "R",
+        "sourceFlexDegrees": 13.5566,
+        "targetSignedFlexDegrees": 22.836763065479957,
+        "sourceDeviationDegrees": 9.280163065479957
+      },
+      {
+        "frame": 36,
+        "side": "L",
+        "sourceFlexDegrees": 31.0809,
+        "targetSignedFlexDegrees": 15.084577732580074,
+        "sourceDeviationDegrees": -15.996322267419925
+      },
+      {
+        "frame": 37,
+        "side": "R",
+        "sourceFlexDegrees": 7.4915,
+        "targetSignedFlexDegrees": 34.45079946081744,
+        "sourceDeviationDegrees": 26.95929946081744
+      },
+      {
+        "frame": 37,
+        "side": "L",
+        "sourceFlexDegrees": 17.9216,
+        "targetSignedFlexDegrees": 6.058786947533357,
+        "sourceDeviationDegrees": -11.862813052466645
+      },
+      {
+        "frame": 38,
+        "side": "R",
+        "sourceFlexDegrees": 6.99722e-14,
+        "targetSignedFlexDegrees": 39.488614116663186,
+        "sourceDeviationDegrees": 39.488614116663115
+      },
+      {
+        "frame": 38,
+        "side": "L",
+        "sourceFlexDegrees": 16.4495,
+        "targetSignedFlexDegrees": 6.045786059349929,
+        "sourceDeviationDegrees": -10.403713940650071
+      },
+      {
+        "frame": 39,
+        "side": "R",
+        "sourceFlexDegrees": 1.90833e-14,
+        "targetSignedFlexDegrees": 31.251435680265917,
+        "sourceDeviationDegrees": 31.2514356802659
+      },
+      {
+        "frame": 39,
+        "side": "L",
+        "sourceFlexDegrees": 20.1083,
+        "targetSignedFlexDegrees": 6.058697232373691,
+        "sourceDeviationDegrees": -14.049602767626308
+      },
+      {
+        "frame": 40,
+        "side": "R",
+        "sourceFlexDegrees": -6.99722e-14,
+        "targetSignedFlexDegrees": 32.528033007103836,
+        "sourceDeviationDegrees": 32.52803300710391
+      },
+      {
+        "frame": 40,
+        "side": "L",
+        "sourceFlexDegrees": 26.3559,
+        "targetSignedFlexDegrees": 6.069695190816042,
+        "sourceDeviationDegrees": -20.286204809183957
+      },
+      {
+        "frame": 41,
+        "side": "R",
+        "sourceFlexDegrees": 20.5637,
+        "targetSignedFlexDegrees": 38.175275540825496,
+        "sourceDeviationDegrees": 17.611575540825495
+      },
+      {
+        "frame": 41,
+        "side": "L",
+        "sourceFlexDegrees": 32.235,
+        "targetSignedFlexDegrees": 21.57929745030579,
+        "sourceDeviationDegrees": -10.655702549694208
+      },
+      {
+        "frame": 42,
+        "side": "R",
+        "sourceFlexDegrees": 43.4531,
+        "targetSignedFlexDegrees": 49.738581834950736,
+        "sourceDeviationDegrees": 6.285481834950737
+      },
+      {
+        "frame": 42,
+        "side": "L",
+        "sourceFlexDegrees": 30.6549,
+        "targetSignedFlexDegrees": 22.78057903100177,
+        "sourceDeviationDegrees": -7.87432096899823
+      },
+      {
+        "frame": 43,
+        "side": "R",
+        "sourceFlexDegrees": 60.1754,
+        "targetSignedFlexDegrees": 64.47065240527091,
+        "sourceDeviationDegrees": 4.295252405270908
+      },
+      {
+        "frame": 43,
+        "side": "L",
+        "sourceFlexDegrees": 26.5227,
+        "targetSignedFlexDegrees": 18.043847679977024,
+        "sourceDeviationDegrees": -8.478852320022977
+      },
+      {
+        "frame": 44,
+        "side": "R",
+        "sourceFlexDegrees": 67.908,
+        "targetSignedFlexDegrees": 71.06232833305701,
+        "sourceDeviationDegrees": 3.154328333057009
+      },
+      {
+        "frame": 44,
+        "side": "L",
+        "sourceFlexDegrees": 22.703,
+        "targetSignedFlexDegrees": 15.020889145589628,
+        "sourceDeviationDegrees": -7.682110854410372
+      },
+      {
+        "frame": 45,
+        "side": "R",
+        "sourceFlexDegrees": 69.832,
+        "targetSignedFlexDegrees": 72.18378583004265,
+        "sourceDeviationDegrees": 2.351785830042658
+      },
+      {
+        "frame": 45,
+        "side": "L",
+        "sourceFlexDegrees": 17.6166,
+        "targetSignedFlexDegrees": 6.107429703910707,
+        "sourceDeviationDegrees": -11.509170296089291
+      },
+      {
+        "frame": 46,
+        "side": "R",
+        "sourceFlexDegrees": 66.3376,
+        "targetSignedFlexDegrees": 67.61487246865377,
+        "sourceDeviationDegrees": 1.277272468653777
+      },
+      {
+        "frame": 46,
+        "side": "L",
+        "sourceFlexDegrees": 17.2581,
+        "targetSignedFlexDegrees": 7.880678424596296,
+        "sourceDeviationDegrees": -9.377421575403702
+      },
+      {
+        "frame": 47,
+        "side": "R",
+        "sourceFlexDegrees": 59.0205,
+        "targetSignedFlexDegrees": 59.394294589567544,
+        "sourceDeviationDegrees": 0.3737945895675452
+      },
+      {
+        "frame": 47,
+        "side": "L",
+        "sourceFlexDegrees": 17.8698,
+        "targetSignedFlexDegrees": 13.671118763965325,
+        "sourceDeviationDegrees": -4.198681236034677
+      },
+      {
+        "frame": 48,
+        "side": "R",
+        "sourceFlexDegrees": 46.0649,
+        "targetSignedFlexDegrees": 45.24528237152178,
+        "sourceDeviationDegrees": -0.8196176284782197
+      },
+      {
+        "frame": 48,
+        "side": "L",
+        "sourceFlexDegrees": 15.257,
+        "targetSignedFlexDegrees": 11.485272189398902,
+        "sourceDeviationDegrees": -3.7717278106010976
+      }
+    ],
+    "backwardKnees": [],
+    "maxSourceDeviationDegrees": 39.760464484113335,
+    "naturalMotionApproved": false
+  },
+  "conclusion": "Reject balance01. Removing backward knees alone does not restore the source gait; contact and pelvis corrections still alter knee flexion.",
+  "artApproved": false,
+  "productionIntegrated": false
+}

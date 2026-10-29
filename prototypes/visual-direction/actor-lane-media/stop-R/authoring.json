@@ -1,0 +1,139 @@
+{
+  "method": "Finite authored contour transitions, articulated loaded arms and contact locks.\n\nCalled by author-actor-contour-poses.py. Uses the same shared cloth master;\ndoes not load the rejected planar leg rig or its bone/skin weights.\n",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "recipeSha256": "c8c4cfc03b24b2a681d8927a6f978c45d84c3d6c131ed1d0dafe193a21fdf0ed",
+  "frameCount": 31,
+  "fps": 16,
+  "artApproved": false,
+  "productionIntegrated": false,
+  "editedClothInput": "prototypes\\visual-direction\\actor-keypose-art\\working-cloth.ora",
+  "editedClothSha256": "b1e90a82ae512127f3e7884b580daf8c15d7cd04820735e1fc51dd0ca2a4c4f3",
+  "upperUnderpaintInput": null,
+  "sleeveOwnershipTransfers": [
+    {
+      "to": "arm_L",
+      "pixels": [
+        [
+          138,
+          96
+        ]
+      ]
+    },
+    {
+      "to": "arm_L",
+      "pixels": [
+        [
+          136,
+          94
+        ]
+      ]
+    },
+    {
+      "to": "arm_L",
+      "pixels": [
+        [
+          125,
+          137
+        ],
+        [
+          125,
+          138
+        ]
+      ]
+    },
+    {
+      "to": "arm_L",
+      "pixels": [
+        [
+          155,
+          126
+        ]
+      ]
+    },
+    {
+      "to": "arm_L",
+      "pixels": [
+        [
+          142,
+          101
+        ],
+        [
+          141,
+          100
+        ],
+        [
+          142,
+          100
+        ],
+        [
+          143,
+          102
+        ],
+        [
+          140,
+          99
+        ],
+        [
+          140,
+          98
+        ]
+      ]
+    },
+    {
+      "to": "arm_L",
+      "pixels": [
+        [
+          128,
+          161
+        ]
+      ]
+    },
+    {
+      "to": "arm_R",
+      "pixels": [
+        [
+          39,
+          84
+        ]
+      ]
+    },
+    {
+      "to": "arm_L",
+      "pixels": [
+        [
+          126,
+          163
+        ]
+      ]
+    },
+    {
+      "to": "arm_R",
+      "pixels": [
+        [
+          33,
+          94
+        ]
+      ]
+    },
+    {
+      "to": "arm_L",
+      "pixels": [
+        [
+          121,
+          143
+        ]
+      ]
+    },
+    {
+      "to": "arm_L",
+      "pixels": [
+        [
+          110,
+          70
+        ]
+      ]
+    }
+  ],
+  "upperUnderpaintRgbaSha256": "a7de7e9a60d12a3caef779181d22ff7c719c16e261f998fcafe77eafd28ecef0",
+  "newPaidMediaRequests": 0
+}

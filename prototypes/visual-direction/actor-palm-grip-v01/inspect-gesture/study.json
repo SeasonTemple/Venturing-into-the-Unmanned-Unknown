@@ -1,0 +1,115 @@
+{
+  "sourceBlend": "E:\\theorylab\\Venturing-into-the-Unmanned-Unknown\\prototypes\\visual-direction\\actor-palm-grip-v01\\representation-study.blend",
+  "sourceSha256": "a1656772b9af6c772395187f3829907322755254ca5d928a8969e78b54b4a601",
+  "frameCount": 25,
+  "fps": 12,
+  "scope": "Rear grip: forearm and palm carry fixed recorder toward face, pause and lower. No independent device turn.",
+  "forearmTwist": [
+    {
+      "frame": 1,
+      "forearmAxialTurnDegrees": 2.0947800432666255e-05
+    },
+    {
+      "frame": 2,
+      "forearmAxialTurnDegrees": 2.0947800432666255e-05
+    },
+    {
+      "frame": 3,
+      "forearmAxialTurnDegrees": 2.0947800432666255e-05
+    },
+    {
+      "frame": 4,
+      "forearmAxialTurnDegrees": 2.0947800432666255e-05
+    },
+    {
+      "frame": 5,
+      "forearmAxialTurnDegrees": 0.8978600844539236
+    },
+    {
+      "frame": 6,
+      "forearmAxialTurnDegrees": 2.592080487037723
+    },
+    {
+      "frame": 7,
+      "forearmAxialTurnDegrees": 3.268493049855444
+    },
+    {
+      "frame": 8,
+      "forearmAxialTurnDegrees": 2.3571768863050124
+    },
+    {
+      "frame": 9,
+      "forearmAxialTurnDegrees": 2.004363430982194
+    },
+    {
+      "frame": 10,
+      "forearmAxialTurnDegrees": 3.7436367366373227
+    },
+    {
+      "frame": 11,
+      "forearmAxialTurnDegrees": 5.117367527734231
+    },
+    {
+      "frame": 12,
+      "forearmAxialTurnDegrees": 5.117367527734231
+    },
+    {
+      "frame": 13,
+      "forearmAxialTurnDegrees": 5.117367527734231
+    },
+    {
+      "frame": 14,
+      "forearmAxialTurnDegrees": 5.117367527734231
+    },
+    {
+      "frame": 15,
+      "forearmAxialTurnDegrees": 5.117367527734231
+    },
+    {
+      "frame": 16,
+      "forearmAxialTurnDegrees": 5.117367527734231
+    },
+    {
+      "frame": 17,
+      "forearmAxialTurnDegrees": 3.7436367366373227
+    },
+    {
+      "frame": 18,
+      "forearmAxialTurnDegrees": 2.004363430982194
+    },
+    {
+      "frame": 19,
+      "forearmAxialTurnDegrees": 2.3571768863050124
+    },
+    {
+      "frame": 20,
+      "forearmAxialTurnDegrees": 3.268493049855444
+    },
+    {
+      "frame": 21,
+      "forearmAxialTurnDegrees": 2.592080487037723
+    },
+    {
+      "frame": 22,
+      "forearmAxialTurnDegrees": 0.8978600844539236
+    },
+    {
+      "frame": 23,
+      "forearmAxialTurnDegrees": 2.0947800432666255e-05
+    },
+    {
+      "frame": 24,
+      "forearmAxialTurnDegrees": 2.0947800432666255e-05
+    },
+    {
+      "frame": 25,
+      "forearmAxialTurnDegrees": 2.0947800432666255e-05
+    }
+  ],
+  "gripDesign": "fixed-palm-side-rear-grip",
+  "continuousExportVerified": false,
+  "artApproved": false,
+  "walkingApproved": false,
+  "homepageIntegrated": false,
+  "paidGenerationCalls": 0
+}

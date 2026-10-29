@@ -1,0 +1,18 @@
+{
+  "status": "representation-study-only",
+  "date": "2026-10-29",
+  "artApproved": false,
+  "walkingApproved": false,
+  "homepageIntegrated": false,
+  "sourceJointPoseUnchanged": true,
+  "rootOrientationsDegrees": [0, -35],
+  "cameraAndLightsFixed": true,
+  "paidGenerationCalls": 0,
+  "limitations": [
+    "Generic source face and clothing do not establish approved project identity.",
+    "Two orientations of one standing pose, not walking or weight-transfer poses.",
+    "Finger grip not approved; contact ellipse is not a physical scene shadow.",
+    "Whole-person style and clothing design must pass before expanding animation."
+  ],
+  "report": "../../../docs/homepage-character-representation-study.md"
+}

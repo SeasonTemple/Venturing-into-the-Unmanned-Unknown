@@ -1,0 +1,34 @@
+{
+  "scope": "Saved layer/rig/pose/export consistency; not visual approval",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "bones": 18,
+  "packedTextures": 9,
+  "anatomicalEquipmentParentsVerified": true,
+  "rerenders": [
+    {
+      "pose": "standing",
+      "frame": 1,
+      "rgbaPixelsIdentical": true
+    },
+    {
+      "pose": "contact",
+      "frame": 9,
+      "rgbaPixelsIdentical": true
+    },
+    {
+      "pose": "passing",
+      "frame": 17,
+      "rgbaPixelsIdentical": true
+    }
+  ],
+  "artApproved": false,
+  "walkCycleValidated": false,
+  "homepageIntegrated": false,
+  "sourceLayerMergePixelIdentical": true,
+  "restRenderVsLayerMaster": {
+    "silhouetteAlphaIdentical": true,
+    "changedVisiblePixels": 1,
+    "maxChannelDifference": 4,
+    "note": "Layer merge is exact. Renderer texture sampling at a triangle boundary can differ slightly."
+  }
+}

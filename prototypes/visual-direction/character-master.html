@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>同一个人物 · 离线母版试片</title>
+  <link rel="stylesheet" href="character-master.css">
+</head>
+<body>
+<header><a href="art-pack.html#cast">← 美术定稿包</a><span>人物制作试验 / MASTER 01</span></header>
+<main>
+  <p class="eyebrow">原野中的记录者</p>
+  <h1>先让一个完整的人物成立。</h1>
+  <p class="intro">同一人体、骨架和衣装，固定相机与光向，离线导出朝左站姿。此页检验新制作链与原画的距离；人物美术仍未通过。</p>
+  <section aria-labelledby="native-heading">
+    <h2 id="native-heading">实际尺寸</h2>
+    <p>统一画布 128 × 196；人物可见身高 174px。参照由 2 倍展示图整数还原，渲染不拆分缩放头或四肢。</p>
+    <div class="native-grid">
+      <figure><div class="surface"><img src="character-master-media/identity-reference-v01.png" width="128" height="196" alt="身份参照：橙色工作外套、深绿裤装，右手工具箱、左手记录器。"></div><figcaption><strong>01 / 原人物参照</strong><span>用于身份与光色对照；朝向不同。</span></figcaption></figure>
+      <figure><div class="surface"><img src="character-master-media/left-master-v01.png" width="128" height="196" alt="朝左完整人物的三维离线直接渲染。"></div><figcaption><strong>02 / 直接渲染</strong><span>连续人体、拟合衣装与实体器物。</span></figcaption></figure>
+      <figure><div class="surface"><img src="character-master-media/left-palette-v01.png" width="128" height="196" alt="同一渲染经固定色板归并后的像素风格试验。"></div><figcaption><strong>03 / 色板试验</strong><span>固定 50 色归并，无抖色。尚非完成稿。</span></figcaption></figure>
+    </div>
+  </section>
+  <section aria-labelledby="detail-heading">
+    <h2 id="detail-heading">整数倍检查</h2>
+    <p>桌面 3 倍，小屏 2 倍。重点看头颈肩、眼睛、衣摆、膝踝与握点。</p>
+    <div class="detail-grid">
+      <figure><div class="surface"><img src="character-master-media/left-master-v01.png" width="128" height="196" alt="直接渲染的整数倍放大。" loading="lazy"></div><figcaption>直接渲染 / 保留材质转折</figcaption></figure>
+      <figure><div class="surface"><img src="character-master-media/left-palette-v01.png" width="128" height="196" alt="固定色板试验的整数倍放大。" loading="lazy"></div><figcaption>色板归并 / 检查轮廓和色块损失</figcaption></figure>
+    </div>
+  </section>
+  <section class="assessment" aria-labelledby="assessment-heading">
+    <h2 id="assessment-heading">目前的判断</h2>
+    <dl>
+      <dt>已落实</dt><dd>CC0 来源和实际文件、可编辑 Blender 母版、连续人体蒙皮、衣装拟合、器物左右归属、固定相机和重复导出。</dd>
+      <dt>仍有差距</dt><dd>脸部辨识与原画气质、外套剪裁、裤装和鞋型、手与器物的接触，以及原画有组织的织物色块。色阶归并仍显三维渲染感。</dd>
+      <dt>下一道门槛</dt><dd>先在这个完整模型上修正造型与光色，再判断能否进入少量负重关键姿态。尚未制作新步态，也未接入首页。</dd>
+    </dl>
+    <p class="downloads"><a href="character-master-media/character-master-v01.blend" download>可编辑母版 · Blender</a><a href="character-master-media/source-manifest-v01.json">来源与文件哈希</a><a href="character-master-media/master-v01.json">制作参数</a></p>
+  </section>
+</main>
+<footer>MASTER 01 · 离线渲染试验 · <a href="https://github.com/makehumancommunity/makehuman">MakeHuman CC0 资产</a> · 本页仅显示静态图片</footer>
+</body>
+</html>

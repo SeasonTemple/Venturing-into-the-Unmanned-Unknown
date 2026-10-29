@@ -2,7 +2,7 @@
 // 唯一的截图入口。一次运行 = 一个 Chrome 进程，必然退出，不留残余。
 // 用法：node scripts/shot.mjs --url <url> --out <a.png> [--width 1440] [--height 900] [--wait 8000] [--theme light|dark]
 // 多图共用一个浏览器：node scripts/shot.mjs --batch <manifest.json>
-// manifest: [{url, out, width, height, mobile?, ready?, prepare?, wait?}]，最多6张。
+// manifest: [{url, out, width, height, mobile?, reducedMotion?, ready?, prepare?, wait?}]，最多6张。
 import { spawn } from 'node:child_process';
 import { mkdtempSync, mkdirSync, readdirSync, rmSync, existsSync, statSync } from 'node:fs';
 import { tmpdir } from 'node:os';

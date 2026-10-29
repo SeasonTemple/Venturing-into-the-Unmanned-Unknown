@@ -1,0 +1,24 @@
+{
+  "artApproved": false,
+  "walkingApproved": false,
+  "homepageIntegrated": false,
+  "paidGenerationCalls": 0,
+  "scope": "Whole-character fieldwear silhouette and identity revision.",
+  "identityReference": "../art-pack-media/actor-front.png",
+  "comparison": "identity-comparison.png",
+  "source": "representation-study.blend",
+  "poseCheck": {
+    "renderedFrames": [
+      1,
+      13
+    ],
+    "savedActionFrames": 33,
+    "continuousExportVerified": false
+  },
+  "remainingGaps": [
+    "Face identity, authored cloth folds and painterly pixel color groups remain different from selected illustration.",
+    "Reference left arm is bent; standing candidate carries both devices down.",
+    "Two standing orientations and two device-lift keyposes rendered; no new continuous animation verified."
+  ],
+  "verification": "source-checks.json"
+}

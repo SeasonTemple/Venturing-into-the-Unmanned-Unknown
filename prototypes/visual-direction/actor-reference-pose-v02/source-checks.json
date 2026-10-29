@@ -1,0 +1,23 @@
+{
+  "freshProcessReopen": true,
+  "parentBlendUnchanged": true,
+  "fileImagesPacked": true,
+  "newSurfacesRiggedAndWeighted": {
+    "Field_Jacket_Open_Standing_Collar": true,
+    "Field_Backpack_Canvas_Body": true,
+    "Field_Backpack_Folded_Flap": true,
+    "Field_Backpack_Shoulder_Strap.L": true,
+    "Field_Backpack_Shoulder_Strap.R": true,
+    "Field_Workboot_Shaft.L": true,
+    "Field_Workboot_Shaft.R": true
+  },
+  "backpackWeightedToSpine": true,
+  "feetWorldDeltaMeters": 0.0,
+  "gripWristRelativeMatrixMaxDelta": 0.5720116886077449,
+  "gripValidationMode": "center-and-bar-axis",
+  "gripCenterWristLocalMaxDelta": 1.4901161193847656e-07,
+  "gripBarAxisWristLocalMaxDelta": 3.7997961044311523e-07,
+  "rightGripMatrixMaxDelta": 0.0,
+  "artApproved": false,
+  "scope": "Saved source structure and attachments only. Motion export status is recorded separately in the gesture study."
+}

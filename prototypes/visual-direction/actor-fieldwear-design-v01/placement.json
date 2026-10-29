@@ -1,0 +1,43 @@
+{
+  "plate": "prototypes\\visual-direction\\meadow-media\\walk-plate-v01.webp",
+  "plateSize": [
+    1920,
+    1080
+  ],
+  "worldRouteFootpoint": [
+    1120,
+    887
+  ],
+  "spriteScale": 1,
+  "contactShadow": "2D compositing cue, not physical shadow simulation",
+  "views": [
+    {
+      "pose": "front-quarter",
+      "paste": [
+        1040,
+        685
+      ],
+      "visibleBounds": [
+        47,
+        19,
+        106,
+        209
+      ],
+      "sourceFrame": 1
+    },
+    {
+      "pose": "turned",
+      "paste": [
+        1040,
+        685
+      ],
+      "visibleBounds": [
+        49,
+        19,
+        110,
+        209
+      ],
+      "sourceFrame": 2
+    }
+  ]
+}

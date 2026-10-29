@@ -1,0 +1,120 @@
+{
+  "scope": "Reopen, packed textures, actual renders, and a persisted pose edit; not art approval.",
+  "artApproved": false,
+  "variants": {
+    "base": {
+      "masterSha256": "01206b4b85b485cb39b5ebe986f391f21f64c2c0d3e838185ab2fea86dc47a5e",
+      "bones": 23,
+      "packedTextures": 22,
+      "rerenders": [
+        {
+          "frame": 0,
+          "rgbaPixelsIdentical": true
+        },
+        {
+          "frame": 8,
+          "rgbaPixelsIdentical": true
+        }
+      ]
+    },
+    "edited": {
+      "masterSha256": "4fd9e61ef407a945dd2dd7ed37afe5054115f2ce28b6653f80f96ecab4dab041",
+      "bones": 23,
+      "packedTextures": 22,
+      "rerenders": [
+        {
+          "frame": 0,
+          "rgbaPixelsIdentical": true
+        },
+        {
+          "frame": 8,
+          "rgbaPixelsIdentical": true
+        }
+      ]
+    }
+  },
+  "checks": {
+    "sameFixedCamera": true,
+    "sameFrameDimensions": true,
+    "poseEditChangesActualFrame8": true,
+    "unchangedEndpointFrames": [
+      0,
+      19
+    ],
+    "changedFrames": [
+      {
+        "frame": 1,
+        "differenceBounds": [
+          58,
+          270,
+          148,
+          352
+        ]
+      },
+      {
+        "frame": 2,
+        "differenceBounds": [
+          81,
+          283,
+          160,
+          361
+        ]
+      },
+      {
+        "frame": 3,
+        "differenceBounds": [
+          144,
+          303,
+          192,
+          394
+        ]
+      },
+      {
+        "frame": 5,
+        "differenceBounds": [
+          241,
+          281,
+          318,
+          375
+        ]
+      },
+      {
+        "frame": 6,
+        "differenceBounds": [
+          117,
+          264,
+          347,
+          374
+        ]
+      },
+      {
+        "frame": 7,
+        "differenceBounds": [
+          247,
+          252,
+          354,
+          325
+        ]
+      },
+      {
+        "frame": 8,
+        "differenceBounds": [
+          241,
+          230,
+          356,
+          323
+        ]
+      },
+      {
+        "frame": 9,
+        "differenceBounds": [
+          237,
+          224,
+          346,
+          323
+        ]
+      }
+    ],
+    "frameCountPerVariant": 20
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "scope": "Saved layer/rig/pose/export consistency; not visual approval",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "bones": 18,
+  "packedTextures": 9,
+  "anatomicalEquipmentParentsVerified": true,
+  "rerenders": [
+    {
+      "pose": "standing",
+      "frame": 1,
+      "rgbaPixelsIdentical": true
+    },
+    {
+      "pose": "contact",
+      "frame": 9,
+      "rgbaPixelsIdentical": true
+    },
+    {
+      "pose": "passing",
+      "frame": 17,
+      "rgbaPixelsIdentical": true
+    }
+  ],
+  "artApproved": false,
+  "walkCycleValidated": false,
+  "homepageIntegrated": false,
+  "editableLayerRoundtrip": {
+    "unchangedOraReimport": {
+      "allThreePosesPixelIdentical": true
+    },
+    "isolatedPaintEdit": {
+      "sourcePixel": [
+        75,
+        100
+      ],
+      "carriedIntoAllThreePoses": true,
+      "changes": [
+        {
+          "pose": "standing",
+          "changedRegion": [
+            107,
+            126,
+            108,
+            127
+          ],
+          "changedPixels": 1
+        },
+        {
+          "pose": "contact",
+          "changedRegion": [
+            107,
+            127,
+            108,
+            128
+          ],
+          "changedPixels": 1
+        },
+        {
+          "pose": "passing",
+          "changedRegion": [
+            106,
+            126,
+            108,
+            127
+          ],
+          "changedPixels": 2
+        }
+      ]
+    },
+    "scope": "Input/export validation only; scratch paint change is not an art revision",
+    "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+    "specSha256": "6e7e813b162806d1e2d6e2d90099449776d1e376b0a2c3c4b2b6c858521828b7"
+  },
+  "sourceLayerMergePixelIdentical": true,
+  "restRenderVsLayerMaster": {
+    "silhouetteAlphaIdentical": true,
+    "changedVisiblePixels": 1,
+    "maxChannelDifference": 4,
+    "note": "Layer merge is exact. Renderer texture sampling at a triangle boundary can differ slightly."
+  }
+}

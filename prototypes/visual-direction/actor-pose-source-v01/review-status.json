@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-29",
+  "status": "internal-static-control; not motion or art approved",
+  "method": "Explicit silhouette controls with original cloth sampling; upper reference is rigid.",
+  "reviewedViews": [
+    "complete-pose native-size contact sheet",
+    "approximately 104px figure contact sheet"
+  ],
+  "supportLabels": "Authored intentions, not measured anatomical or dynamic contact approval.",
+  "observedImprovement": "Old scissor-shaped leg crossing is absent in these four candidate stills.",
+  "unresolved": [
+    "Full upper-body and loaded-prop articulation is not authored.",
+    "Source standing cloth has not been repainted for new volumes and creases.",
+    "Single-view silhouettes do not establish anatomical knee or sole structure in other views.",
+    "These are four short-step stages, not the planned same-foot four contact phases.",
+    "No continuous transition, stop, turn, second-leg cycle or world-foot-contact verification."
+  ],
+  "engineeringEvidence": "../../../docs/research/actor-pose-paint-checks.json",
+  "artApproved": false,
+  "walkCycleValidated": false,
+  "homepageIntegrated": false
+}

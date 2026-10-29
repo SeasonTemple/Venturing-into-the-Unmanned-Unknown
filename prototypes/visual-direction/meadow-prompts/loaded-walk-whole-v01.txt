@@ -1,0 +1,17 @@
+Production animation key-pose sheet for the EXACT adult field worker in the character reference. This is one consistent character acting, not a redesign or a line-up of different people. Match his slim adult proportions, short dark hair, stubble, small realistic head, ochre outdoor jacket, dark green work trousers, black boots, right-hand silver metal toolbox, and left-hand small dark-green recorder. Keep the anatomical hands and the equipment ownership consistent throughout; never mirror the character.
+
+Eight sequential FULL BODY frames in a precise FOUR COLUMNS by TWO ROWS grid. Every cell 512x512 in a 2048x1024 sheet. One figure per cell, height about 410 pixels, head to boots entirely visible, ample plain background around each figure. Fixed orthographic camera, fixed scale, fixed light from upper left. Solid untextured pale lavender background #dbd4e8, no scenery, no labels, no ground shadow. Retain the reference's painterly pixel-art clusters and warm sunlit coat against cool shadows. No vector outlines, no chibi proportions, no 3D plastic.
+
+ALL eight figures walk steadily toward SCREEN LEFT, seen in three-quarter left-facing view, with chest AND pelvis aimed along the travel direction. We see his face in three-quarter/profile, not a frontal torso with sideways feet. Head and neck remain naturally connected to the leaning trunk. His gaze follows the path. His anatomical right arm, nearer the camera, carries the silver toolbox downward by its handle beside his right thigh. The left elbow is lightly bent and his left hand secures the green recorder close to his waist. Both are occupied, so their swing is smaller than unladen walking. The box remains rigid and hangs under gravity; the shoulder bears its weight.
+
+Read order LEFT TO RIGHT on top row, then LEFT TO RIGHT on bottom row. Show ONE full, natural, moderately short loaded walk cycle:
+1. RIGHT heel contacts ahead (screen left), LEFT toe still behind; legs visibly separated.
+2. Weight settles onto RIGHT foot, right knee flexes, pelvis lowers, trunk and head follow as one whole body; LEFT heel releases behind.
+3. RIGHT leg supports nearly under pelvis, LEFT knee bends and swings forward past it, left boot visibly clears the ground. Pelvis rises, shoulders counterbalance.
+4. RIGHT heel lifts into push-off behind, LEFT lower leg reaches forward to contact. Toolbox lags subtly behind its moving hand.
+5. LEFT heel contacts ahead (screen left), RIGHT toe behind. Opposite leg contact, same person and equipment, no mirror.
+6. Weight settles onto LEFT foot with left knee flexion, RIGHT heel releases, modest whole-body compression.
+7. LEFT leg supports under pelvis, RIGHT knee bends and swings forward past it, right boot clear of ground. Pelvis rises, shoulders counterbalance.
+8. LEFT heel lifts into push-off behind, RIGHT lower leg reaches forward ready to return to frame 1.
+
+Each pose must change as a coherent COMPLETE figure: feet, ankles, knees, hips, pelvis, coat hem, shoulder line, neck, head, elbows, wrists and equipment. Shoulders and pelvis counter-rotate subtly, with restrained vertical rise/fall, not a static torso over moving legs. Keep adult limb lengths constant. Keep a visible gap when legs separate. Knees bend toward the travel direction; no knee bending backwards, no crossed scissor legs. Keep boots grounded for support and raised only for swing. Avoid extreme strides or exaggerated bobbing. No duplicated standing poses.

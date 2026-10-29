@@ -1,0 +1,32 @@
+{
+  "frames": 48,
+  "maxErrors": {
+    "kneeDegrees": 0.00011826510203150065,
+    "elbowDegrees": 0.0001590822586097218,
+    "publishedJointM": 7.153042420441188e-07,
+    "publishedSoleM": 0.0
+  },
+  "minSignedKneeDegrees": -4.993111175641484e-05,
+  "maxLimbSpanLengthVariationM": 6.090235067923722e-07,
+  "rerenderIdentical": {
+    "1": true,
+    "13": true,
+    "31": true
+  },
+  "oneStaticCalibration": true,
+  "perFrameFootIK": false,
+  "massTrajectoryFitting": false,
+  "fixedFloorResidualRangeMm": [
+    -7.886269129812717,
+    12.336492538452148
+  ],
+  "handMode": "relaxed",
+  "evaluatedHands": {
+    "maxWristDeviationDegrees": 0.0,
+    "maxPalmFrameStepDegrees": 12.443905427146952,
+    "minMiddleFingerPalmarCurlM": 0.0811985407199245
+  },
+  "artApproved": false,
+  "naturalLoadedGaitApproved": false,
+  "maxBodyAndWristJointChangeFromFK01M": 5.497296674757217e-07
+}

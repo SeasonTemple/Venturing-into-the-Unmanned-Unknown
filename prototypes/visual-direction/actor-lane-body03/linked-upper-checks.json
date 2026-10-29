@@ -1,0 +1,9 @@
+{
+  "framesChecked": 118,
+  "exportedHeadAndChestUseSameRigidPose": true,
+  "headNeckAndNeckChestDistancesConstant": true,
+  "headMovesWithTorso": true,
+  "neutralPoseUnchanged": true,
+  "footTracksUnchanged": true,
+  "artApprovalImplied": false
+}

@@ -1,0 +1,99 @@
+{
+  "date": "2026-10-28",
+  "revision": "standing01",
+  "artApproved": false,
+  "assetIntegrity": {
+    "revision": "standing01",
+    "scope": "Source position/alpha integrity only; not art approval",
+    "checks": [
+      {
+        "view": "front",
+        "nativeCanvas": [
+          128,
+          196
+        ],
+        "sourceHeight": 174,
+        "headOrLimbTransforms": false,
+        "bodySilhouetteBelowCollar": "preserved",
+        "removedEdgePixels": 0
+      },
+      {
+        "view": "left",
+        "nativeCanvas": [
+          128,
+          196
+        ],
+        "sourceHeight": 174,
+        "headOrLimbTransforms": false,
+        "bodySilhouetteBelowCollar": "preserved",
+        "removedEdgePixels": 39
+      },
+      {
+        "view": "right",
+        "nativeCanvas": [
+          128,
+          196
+        ],
+        "sourceHeight": 174,
+        "headOrLimbTransforms": false,
+        "bodySilhouetteBelowCollar": "preserved",
+        "removedEdgePixels": 39
+      }
+    ]
+  },
+  "browser": [
+    {
+      "width": 1440,
+      "checks": [
+        "no horizontal overflow",
+        "static review has no script or animation loop",
+        "full-frame images, no runtime compositing",
+        "current standing board loaded",
+        "native standing canvas",
+        "native standing canvas",
+        "native standing canvas",
+        "native standing canvas",
+        "rejected candidates collapsed"
+      ],
+      "scrollWidth": 1440,
+      "mainImageSize": [
+        768,
+        392
+      ],
+      "resources": 7
+    },
+    {
+      "width": 606,
+      "checks": [
+        "no horizontal overflow",
+        "static review has no script or animation loop",
+        "full-frame images, no runtime compositing",
+        "current standing board loaded",
+        "native standing canvas",
+        "native standing canvas",
+        "native standing canvas",
+        "native standing canvas",
+        "rejected candidates collapsed"
+      ],
+      "scrollWidth": 606,
+      "mainImageSize": [
+        768,
+        392
+      ],
+      "resources": 6
+    }
+  ],
+  "screenshots": [
+    ".lab/standing-study/desktop.png",
+    ".lab/standing-study/phone.png"
+  ],
+  "screenshotSuccessfulCount": 2,
+  "browserOwnedProcessesRemaining": 0,
+  "qaIssue": "Initial mobile QA awaited offscreen lazy-image decode and timed out. A test-only eager load fixed the QA script. Production images remain lazy below the fold.",
+  "generatedImages": 4,
+  "rejectedImages": 4,
+  "apiValidationFailures": 1,
+  "newVideos": 0,
+  "newTripoTasks": 0,
+  "limitations": "Whole-frame retouch candidate only. Face/shoulder/lighting consistency, loaded arms and equipment perspective remain unresolved."
+}

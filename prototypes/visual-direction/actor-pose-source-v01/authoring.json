@@ -1,0 +1,152 @@
+{
+  "method": "Author discrete complete-pose studies from explicit trouser contours.\n\nThis is source-cloth sampling on authored silhouettes plus pose-local paint,\nnot a new generative character, not planar IK, and not a finished walk cycle.\nUpper-body/equipment artwork stays continuous under one rigid pose transform. Each\noutput has a full-canvas OpenRaster paint source for further editing.\n",
+  "recipeSha256": "33197000aab77b2b447eb7c8d77843695d0251ea0d4404ce617f58c531e4cd97",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "poses": [
+    {
+      "pose": "right-support",
+      "label": "01 右腿承重",
+      "support": "右足全掌，左足前掌接触",
+      "legOrder": [
+        "R",
+        "L"
+      ],
+      "upperArt": "same source, one rigid transform",
+      "upperAngle": 0,
+      "upperShift": [
+        -6,
+        0
+      ],
+      "png": "right-support.png",
+      "editable": "right-support.ora",
+      "baseRgbaSha256": "e6868446b9bd5f744c8e0314a0ff9fced9ef4cbdbed8ecbcaf3ff78c54a1fbb7",
+      "layerNames": [
+        "ground_contact",
+        "trouser_R",
+        "boot_R",
+        "trouser_L",
+        "boot_L",
+        "original_upper_and_equipment",
+        "pose_paint"
+      ],
+      "artApproved": false
+    },
+    {
+      "pose": "left-passing",
+      "label": "02 左腿前摆",
+      "support": "右足支撑，左足离地",
+      "legOrder": [
+        "R",
+        "L"
+      ],
+      "upperArt": "same source, one rigid transform",
+      "upperAngle": 0,
+      "upperShift": [
+        -5,
+        -1
+      ],
+      "png": "left-passing.png",
+      "editable": "left-passing.ora",
+      "baseRgbaSha256": "0e51edb777a7f4879470fed25fe3726760e0f38db03f9caad46bcc47dc404c8f",
+      "layerNames": [
+        "ground_contact",
+        "trouser_R",
+        "boot_R",
+        "trouser_L",
+        "boot_L",
+        "original_upper_and_equipment",
+        "pose_paint"
+      ],
+      "artApproved": false
+    },
+    {
+      "pose": "left-heel-contact",
+      "label": "03 左脚跟落地",
+      "support": "左足跟接触，右足前掌支撑",
+      "legOrder": [
+        "R",
+        "L"
+      ],
+      "upperArt": "same source, one rigid transform",
+      "upperAngle": 0,
+      "upperShift": [
+        -7,
+        0
+      ],
+      "png": "left-heel-contact.png",
+      "editable": "left-heel-contact.ora",
+      "baseRgbaSha256": "cc30da6bde26a1b541a4ffa18d1b50b412ff63111ce5c7a118d625d0f04f2dbc",
+      "layerNames": [
+        "ground_contact",
+        "trouser_R",
+        "boot_R",
+        "trouser_L",
+        "boot_L",
+        "original_upper_and_equipment",
+        "pose_paint"
+      ],
+      "artApproved": false
+    },
+    {
+      "pose": "left-loaded",
+      "label": "04 换到左腿承重",
+      "support": "左足全掌，右足开始离地",
+      "legOrder": [
+        "R",
+        "L"
+      ],
+      "upperArt": "same source, one rigid transform",
+      "upperAngle": 0,
+      "upperShift": [
+        -9,
+        0
+      ],
+      "png": "left-loaded.png",
+      "editable": "left-loaded.ora",
+      "baseRgbaSha256": "bb2ceaf8b0114f46af54b3649cf96904b77d5382740c415961a3cdb0d673dc33",
+      "layerNames": [
+        "ground_contact",
+        "trouser_R",
+        "boot_R",
+        "trouser_L",
+        "boot_L",
+        "original_upper_and_equipment",
+        "pose_paint"
+      ],
+      "artApproved": false
+    }
+  ],
+  "artApproved": false,
+  "layerSourceSha256": {
+    "arm_L.png": "662a988141dda5b4f6629d79fc0cea8b6ea2f07cb5276c4fed207558aaefb350",
+    "arm_R.png": "ec86a9afd734a3f0ad16142295ab7d83367df011de4f8dc723a06bc1cd40c97e",
+    "glove_R.png": "940bf0568f2bfc0a5aa14c6997ccf36222e277f51958840a4fccfb0ee0556a29",
+    "leg_L.png": "3e37edb883d77675e7208c9037facfc2f4e54f50b9572afbaa7c6e65e5d25ecb",
+    "leg_R.png": "519cf223098d7299d343c6567c840292ae8e406d697e9fad5145a9349b945781",
+    "pelvis.png": "0ca5ca0c3591ef21758c694011d427a362199615a995c242648550eac9768564",
+    "recorder_L.png": "9ea7ff84fb85c8ecb246ee0aef64547f12ee0b8d0af181d66252fd6b7fc6d567",
+    "toolbox_R.png": "bd582767d1dcb469983be182569f0ce30da3dc896b101da3507218a7a90df91a",
+    "upper_body.png": "ee28b46b38c96fe6ae1856dfb1bfa14bd61fa128b9aa2c6439bafeea107e86ae"
+  },
+  "editedClothMaster": null,
+  "editedClothMasterSha256": null,
+  "status": "static-pose-study; no animation produced",
+  "editablePoseContract": "full-canvas-normal-layers-v1",
+  "canvas": [
+    260,
+    400
+  ],
+  "reviewSheet": {
+    "file": "keyposes-review.png",
+    "poseIds": [
+      "source-reference",
+      "right-support",
+      "left-passing",
+      "left-heel-contact",
+      "left-loaded"
+    ],
+    "cardCount": 5,
+    "columns": 5,
+    "rows": 1
+  }
+}

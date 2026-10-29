@@ -1,0 +1,120 @@
+{
+  "tag": "actor-v02",
+  "canvas": [
+    220,
+    400
+  ],
+  "correctionsDirectory": "pose-corrections-v02b",
+  "finalDirectory": "final-v02b",
+  "method": "Program-assisted pixel-cluster pose retouch; original raster palette, not a newly generated person or a hand-painted full frame",
+  "poses": [
+    {
+      "name": "standing",
+      "baseFile": "actor-v02-standing.png",
+      "operations": []
+    },
+    {
+      "name": "contact",
+      "baseFile": "actor-v02-contact.png",
+      "operations": []
+    },
+    {
+      "name": "passing",
+      "baseFile": "actor-v02-passing.png",
+      "clipBox": [
+        93,
+        274,
+        121,
+        295
+      ],
+      "operations": [
+        {
+          "layer": "knee_surface",
+          "polygon": [
+            [
+              104,
+              280
+            ],
+            [
+              106,
+              280
+            ],
+            [
+              109,
+              281
+            ],
+            [
+              110,
+              282
+            ],
+            [
+              108,
+              283
+            ],
+            [
+              105,
+              282
+            ]
+          ],
+          "color": "#253632"
+        },
+        {
+          "layer": "compression_folds",
+          "polygon": [
+            [
+              109,
+              283
+            ],
+            [
+              112,
+              284
+            ],
+            [
+              114,
+              285
+            ],
+            [
+              115,
+              287
+            ],
+            [
+              113,
+              287
+            ],
+            [
+              111,
+              285
+            ]
+          ],
+          "color": "#19262a"
+        },
+        {
+          "layer": "compression_folds",
+          "polygon": [
+            [
+              108,
+              286
+            ],
+            [
+              110,
+              287
+            ],
+            [
+              111,
+              289
+            ],
+            [
+              109,
+              289
+            ],
+            [
+              108,
+              288
+            ]
+          ],
+          "color": "#263630"
+        }
+      ]
+    }
+  ]
+}

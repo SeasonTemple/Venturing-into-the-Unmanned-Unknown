@@ -1,0 +1,651 @@
+{
+  "purpose": "Reproduce editable cutout asset -> original rig/action -> PNG frames. Not final homepage art.",
+  "source": "E:\\theorylab\\Venturing-into-the-Unmanned-Unknown\\.lab\\pipeline-reproduction\\coa-source\\Sample Files\\stip.blend",
+  "sourceSha256": "c61741de21cf134b763beb40a0bdbfa1a8203a89eb9d035b37701457b17e00e9",
+  "blender": "4.5.3 LTS",
+  "sourceBlenderVersion": [
+    2,
+    79,
+    0
+  ],
+  "sourceScriptsEnabled": false,
+  "legacyAddonInstalled": false,
+  "animationCollections": [
+    {
+      "name": "NO ACTION",
+      "name_old": "NO ACTION"
+    },
+    {
+      "name": "Restpose",
+      "name_old": "Restpose",
+      "frame_end": 1
+    },
+    {
+      "name": "Idle",
+      "name_old": "Idle",
+      "action_collection": 1,
+      "name_change_to": "Idle",
+      "frame_end": 59
+    },
+    {
+      "name": "Run",
+      "name_old": "Run",
+      "action_collection": 1,
+      "name_change_to": "Run",
+      "frame_end": 19,
+      "frame_start": 0
+    }
+  ],
+  "sprites": [
+    {
+      "name": "Foot_R",
+      "slots": [
+        {
+          "mesh": {
+            "idName": "Foot_R_01.png",
+            "idType": "Mesh"
+          },
+          "index": 0,
+          "active": 1
+        },
+        {
+          "mesh": {
+            "idName": "Foot_R_01.png.001",
+            "idType": "Mesh"
+          },
+          "index": 1,
+          "active": 0
+        }
+      ],
+      "activeSlot": 0,
+      "dimensions": [
+        1.3400006294250488,
+        1.1548399925231934e-07,
+        0.7400002479553223
+      ],
+      "uvBounds": [
+        [
+          9.998001769417897e-05,
+          0.9999000430107117
+        ],
+        [
+          9.998001769417897e-05,
+          0.9999001026153564
+        ]
+      ]
+    },
+    {
+      "name": "UpperBody",
+      "slots": [
+        {
+          "mesh": {
+            "idName": "UpperBody.png.001",
+            "idType": "Mesh"
+          },
+          "index": 0,
+          "active": 1
+        },
+        {
+          "mesh": {
+            "idName": "UpperBody.png.000",
+            "idType": "Mesh"
+          },
+          "index": 1,
+          "active": 0
+        }
+      ],
+      "activeSlot": 0,
+      "dimensions": [
+        1.6554127931594849,
+        1.30385160446167e-08,
+        2.617992877960205
+      ],
+      "uvBounds": [
+        [
+          9.996185690397397e-05,
+          0.9999000430107117
+        ],
+        [
+          9.996185690397397e-05,
+          0.99953693151474
+        ]
+      ]
+    },
+    {
+      "name": "Ear_L.png",
+      "slots": [],
+      "activeSlot": 0,
+      "dimensions": [
+        1.0663869380950928,
+        8.531873874062512e-09,
+        0.8411252498626709
+      ],
+      "uvBounds": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Ear_R.png",
+      "slots": [],
+      "activeSlot": 0,
+      "dimensions": [
+        0.919314980506897,
+        7.450580596923828e-09,
+        1.1625981330871582
+      ],
+      "uvBounds": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Head.png",
+      "slots": [],
+      "activeSlot": 0,
+      "dimensions": [
+        3.2621774673461914,
+        2.7939677238464355e-08,
+        2.988799810409546
+      ],
+      "uvBounds": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.9999999403953552
+        ]
+      ]
+    },
+    {
+      "name": "Arm_R.png",
+      "slots": [],
+      "activeSlot": 0,
+      "dimensions": [
+        0.9264535307884216,
+        7.450580596923828e-09,
+        1.288612723350525
+      ],
+      "uvBounds": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Forearm_R.png",
+      "slots": [],
+      "activeSlot": 0,
+      "dimensions": [
+        0.9693806767463684,
+        7.450580596923828e-09,
+        1.7890040874481201
+      ],
+      "uvBounds": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Hand_R.png",
+      "slots": [],
+      "activeSlot": 0,
+      "dimensions": [
+        1.024863600730896,
+        7.450580596923828e-09,
+        1.043924331665039
+      ],
+      "uvBounds": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Arm_L.png",
+      "slots": [],
+      "activeSlot": 0,
+      "dimensions": [
+        0.6648917198181152,
+        7.450580596923828e-09,
+        1.2367215156555176
+      ],
+      "uvBounds": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Forearm_L.png",
+      "slots": [],
+      "activeSlot": 0,
+      "dimensions": [
+        1.1828314065933228,
+        7.450580596923828e-09,
+        1.8785576820373535
+      ],
+      "uvBounds": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Hand_L.png",
+      "slots": [],
+      "activeSlot": 0,
+      "dimensions": [
+        1.0012129545211792,
+        7.450580596923828e-09,
+        0.9630908966064453
+      ],
+      "uvBounds": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Leg_R.png",
+      "slots": [],
+      "activeSlot": 0,
+      "dimensions": [
+        0.5755425095558167,
+        9.313225746154785e-10,
+        0.9732460975646973
+      ],
+      "uvBounds": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Shin_R.png",
+      "slots": [],
+      "activeSlot": 0,
+      "dimensions": [
+        0.6893703937530518,
+        1.862645149230957e-09,
+        1.1038424968719482
+      ],
+      "uvBounds": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Leg_L.png",
+      "slots": [],
+      "activeSlot": 0,
+      "dimensions": [
+        0.6419807076454163,
+        0.0,
+        1.039455533027649
+      ],
+      "uvBounds": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Shin_L.png",
+      "slots": [],
+      "activeSlot": 0,
+      "dimensions": [
+        1.184690237045288,
+        0.0,
+        1.3069558143615723
+      ],
+      "uvBounds": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Foot_L.png",
+      "slots": [],
+      "activeSlot": 0,
+      "dimensions": [
+        1.429999589920044,
+        1.2665987014770508e-07,
+        0.7800002694129944
+      ],
+      "uvBounds": [
+        [
+          0.0,
+          0.9999999403953552
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Hip.png",
+      "slots": [],
+      "activeSlot": 0,
+      "dimensions": [
+        1.1699998378753662,
+        0.0,
+        1.0399999618530273
+      ],
+      "uvBounds": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Tail_01.png",
+      "slots": [],
+      "activeSlot": 0,
+      "dimensions": [
+        0.7656787633895874,
+        2.0489096641540527e-08,
+        0.7203050851821899
+      ],
+      "uvBounds": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Tail_02.png",
+      "slots": [],
+      "activeSlot": 0,
+      "dimensions": [
+        0.8300894498825073,
+        1.5273690223693848e-07,
+        1.0493249893188477
+      ],
+      "uvBounds": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "Tail_03.png",
+      "slots": [],
+      "activeSlot": 0,
+      "dimensions": [
+        0.8490413427352905,
+        1.2852251529693604e-07,
+        0.7608376741409302
+      ],
+      "uvBounds": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "action": "Run_Armature",
+  "renderFrames": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "artApproved": false,
+  "homepageIntegrated": false,
+  "edit": {
+    "bone": "Forearm_L",
+    "sourceFrame": 8,
+    "planeHingeDegrees": 18.0,
+    "boneLocalAxis": [
+      -1.6052956297585297e-08,
+      2.772960680519354e-11,
+      1.0
+    ],
+    "action": "Run_pipeline_forearm_edit",
+    "originalQuaternion": [
+      0.8211523294448853,
+      8.515732119462882e-09,
+      -2.652618924514627e-08,
+      -0.4601917862892151
+    ],
+    "editedQuaternion": [
+      0.8830324411392212,
+      1.0496396640746752e-08,
+      -2.601954207648305e-08,
+      -0.32606959342956543
+    ]
+  },
+  "camera": {
+    "location": [
+      0.2475740909576416,
+      -25.0,
+      1.2756260633468628
+    ],
+    "orthoScale": 8.389147758483887,
+    "cycleBounds": [
+      [
+        -2.464434862136841,
+        -0.04004520922899246,
+        -2.0536839962005615
+      ],
+      [
+        2.959583044052124,
+        0.12000856548547745,
+        4.604936122894287
+      ]
+    ]
+  },
+  "outputSize": [
+    384,
+    512
+  ],
+  "packedSpriteImages": 22,
+  "editableMaster": "editable-cutout.blend",
+  "frames": [
+    {
+      "sourceFrame": 0,
+      "file": "frame-000.png",
+      "sha256": "6aefa30e519519d217d4b40af1e0c6cac80b14937a70920fc6597509844f9d5b"
+    },
+    {
+      "sourceFrame": 1,
+      "file": "frame-001.png",
+      "sha256": "33c9679e7823b275e0218d43646c43add6b1b716148d20121f59116449d4d354"
+    },
+    {
+      "sourceFrame": 2,
+      "file": "frame-002.png",
+      "sha256": "b28538e5ba320f592011a5eafda542335096be871df67877f3aa4ebaa0046fe9"
+    },
+    {
+      "sourceFrame": 3,
+      "file": "frame-003.png",
+      "sha256": "e6bd653bb19def9d134449bd592876c2848393b1e1876cb4f18fba8ae9111290"
+    },
+    {
+      "sourceFrame": 4,
+      "file": "frame-004.png",
+      "sha256": "82ad93d9d183c8cfe040f32ebad6990deba08651176e3157c0313d07426a04ba"
+    },
+    {
+      "sourceFrame": 5,
+      "file": "frame-005.png",
+      "sha256": "0372abf9e08983e82ec7e89285916ac1486b25ea2de26085cb0786dbe60f8cc5"
+    },
+    {
+      "sourceFrame": 6,
+      "file": "frame-006.png",
+      "sha256": "7affa6f7a982f0b54b33159dfbcbdcf2f5849b3bf8cd7957a3d38ce258a56f78"
+    },
+    {
+      "sourceFrame": 7,
+      "file": "frame-007.png",
+      "sha256": "78062109c147629122664d19df0487d2713b9633d59ef706af219e6e5f1df1ba"
+    },
+    {
+      "sourceFrame": 8,
+      "file": "frame-008.png",
+      "sha256": "ac1903d5af53d812bd155f33aab8bac5dd596c1e2330102b51d7417c0f538cbb"
+    },
+    {
+      "sourceFrame": 9,
+      "file": "frame-009.png",
+      "sha256": "e1df7df8ca8b6e7be1b519c959b9937f6c5fc50d0d66e54c97cdc0bb003e93ed"
+    },
+    {
+      "sourceFrame": 10,
+      "file": "frame-010.png",
+      "sha256": "9d88e702ddfa2b691f079bde9e5ed03b6520a59f885ec4909e97fe5ec5cc0864"
+    },
+    {
+      "sourceFrame": 11,
+      "file": "frame-011.png",
+      "sha256": "beee6bdddd1e72eb542c3ed7e8e370f6e42d299b68074f51b571a070b75cfdfe"
+    },
+    {
+      "sourceFrame": 12,
+      "file": "frame-012.png",
+      "sha256": "e6358a1076583a8943f819254eb101f887690629b185423102a0908e7d26c30b"
+    },
+    {
+      "sourceFrame": 13,
+      "file": "frame-013.png",
+      "sha256": "24cec17f3e44af4f432e5c804b213b8f56368f5d142418e6a9a06fe58178cb73"
+    },
+    {
+      "sourceFrame": 14,
+      "file": "frame-014.png",
+      "sha256": "dcfa1107317a94eab50e51e88a8bbddf4e552ec1c25b00fc1e47add914a05d73"
+    },
+    {
+      "sourceFrame": 15,
+      "file": "frame-015.png",
+      "sha256": "78df013e554fe071949a26f672bc13df01d9ea96392606796fe2d65018a407b6"
+    },
+    {
+      "sourceFrame": 16,
+      "file": "frame-016.png",
+      "sha256": "caf18807738738f850326055ad6f94da0e71c31673f5f565cd63bbfd6bcc23aa"
+    },
+    {
+      "sourceFrame": 17,
+      "file": "frame-017.png",
+      "sha256": "ec626f4dda03fd8d3d96d884c65583d4d6609e4aefd6e40ab003a79204df7a9e"
+    },
+    {
+      "sourceFrame": 18,
+      "file": "frame-018.png",
+      "sha256": "ebd6c89300030d421d4bda287e840770aff20269c0bea161d97189356020eba3"
+    },
+    {
+      "sourceFrame": 19,
+      "file": "frame-019.png",
+      "sha256": "8a96d8e028b44267c04499e3419a7b90e2e72705a0d2a758002177e2d5f8f86c"
+    }
+  ]
+}

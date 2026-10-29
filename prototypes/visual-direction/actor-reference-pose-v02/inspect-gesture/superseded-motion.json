@@ -1,0 +1,7 @@
+{
+  "motionRecommended": false,
+  "reason": "User identified reversed-hand inspection. Old code independently rotated device while keeping grip center aligned.",
+  "replacement": "../../actor-palm-grip-v02/inspect-gesture/inspect-preview.gif",
+  "retainsTechnicalEvidence": true,
+  "sourceStaticDesignNotEntirelyRejected": true
+}

@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-28",
+  "revision": "standing02",
+  "artApproved": false,
+  "scope": "Static lower-body raster candidate and preview; not gait or world-contact validation",
+  "assets": {
+    "revision": "standing02",
+    "artApproved": false,
+    "checks": [
+      {
+        "view": "front",
+        "canvas": [
+          128,
+          196
+        ],
+        "upperBodyBytesUnchanged": true,
+        "lowerBodyConnected": "original identity"
+      },
+      {
+        "view": "left",
+        "canvas": [
+          128,
+          196
+        ],
+        "upperBodyBytesUnchanged": true,
+        "lowerBodyConnected": true
+      },
+      {
+        "view": "right",
+        "canvas": [
+          128,
+          196
+        ],
+        "upperBodyBytesUnchanged": true,
+        "lowerBodyConnected": true
+      }
+    ]
+  },
+  "browser": [
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "checks": [
+        "no horizontal overflow",
+        "current lower-body board",
+        "current before-after comparison",
+        "no animation or application script"
+      ]
+    },
+    {
+      "width": 606,
+      "scrollWidth": 606,
+      "checks": [
+        "no horizontal overflow",
+        "current lower-body board",
+        "current before-after comparison",
+        "no animation or application script"
+      ]
+    }
+  ],
+  "captures": [
+    ".lab/standing-lower-study/desktop.png",
+    ".lab/standing-lower-study/phone.png"
+  ],
+  "ownedBrowserProcessesRemaining": 0,
+  "newGenerationRequests": 0,
+  "limitations": [
+    "Original front cloth reused in new authored side contours; material consistency and naturalness still need visual review.",
+    "Upper-body identity, lighting, loaded arms and tool perspective remain unresolved."
+  ]
+}

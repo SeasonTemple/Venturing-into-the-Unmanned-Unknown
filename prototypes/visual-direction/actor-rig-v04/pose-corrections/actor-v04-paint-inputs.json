@@ -1,0 +1,301 @@
+{
+  "tag": "actor-v04",
+  "recipeSha256": "f9a35b590693e410d19afab647252d911c33d7e42ca6ecf7cc9770daf4f61ff4",
+  "method": "Program-assisted small cloth clusters, knee-registered per frame with explicit step envelopes; no silhouette or rig edits",
+  "poses": [
+    {
+      "name": "frame-001",
+      "baseFile": "../actor-rig-v03/actor-v03-loaded_stand.png",
+      "baseRgbaSha256": "9520f7b3c6d761ccb4b11e3a747e326f37cae9c72d80d77e6a5761411f3ccbba",
+      "ora": null
+    },
+    {
+      "name": "frame-002",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-002.png",
+      "baseRgbaSha256": "5b9e8616e321c5f44cdf4decf2be20937119b47dad72ce343063f54945176e8e",
+      "ora": null
+    },
+    {
+      "name": "frame-003",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-003.png",
+      "baseRgbaSha256": "be8ee05f43cdbfb9466432a7d6916137b7a22f3582e29f19deb8d0d371f4a4fd",
+      "ora": null
+    },
+    {
+      "name": "frame-004",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-004.png",
+      "baseRgbaSha256": "411c2ac055a6c23706df82ff30def1ddae8df4ad95c59f870fa51eda7581f1f6",
+      "ora": null
+    },
+    {
+      "name": "frame-005",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-005.png",
+      "baseRgbaSha256": "6ea645a3b2aef4e542e9fab44820d3add4ed26c24c049011e3e6ad6671ba9099",
+      "ora": null
+    },
+    {
+      "name": "frame-006",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-006.png",
+      "baseRgbaSha256": "0ac5ce450e5c941e1e9bc4f06c64d512827713265f883acc91b7249775ac99e9",
+      "ora": null
+    },
+    {
+      "name": "frame-007",
+      "baseFile": "../actor-rig-v03/actor-v03-prepare.png",
+      "baseRgbaSha256": "55fc268a205b37038d241b17e76622b3e76785ef1cf7bb0c4a400f152b46a34b",
+      "ora": null
+    },
+    {
+      "name": "frame-008",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-008.png",
+      "baseRgbaSha256": "ccb4ff550e6253504fb0d455e20b338e4f91d76ae85658935ec9f1bf1a735e43",
+      "ora": "frame-008.ora"
+    },
+    {
+      "name": "frame-009",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-009.png",
+      "baseRgbaSha256": "dc2a2166b79f7c97a2e6d02052da02167b17277f8a885ae482392bd178bc9af9",
+      "ora": "frame-009.ora"
+    },
+    {
+      "name": "frame-010",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-010.png",
+      "baseRgbaSha256": "2848796fd9b20b779970ba94e60e2fdc8ec6568fdcaee5fbed3159a5ff9627a8",
+      "ora": "frame-010.ora"
+    },
+    {
+      "name": "frame-011",
+      "baseFile": "../actor-rig-v03/actor-v03-passing_R.png",
+      "baseRgbaSha256": "909915da30d6d13823c6227d783965dd739c2435bd15247f3717b25995e54998",
+      "ora": "frame-011.ora"
+    },
+    {
+      "name": "frame-012",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-012.png",
+      "baseRgbaSha256": "c8bbaeda52299db61ce56199906986fc68e8c01f59e45340c16290d210600f57",
+      "ora": "frame-012.ora"
+    },
+    {
+      "name": "frame-013",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-013.png",
+      "baseRgbaSha256": "94433a1593b1922550a7488a2e575c56b13e88a0bf3192a9de86a2d7df548003",
+      "ora": "frame-013.ora"
+    },
+    {
+      "name": "frame-014",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-014.png",
+      "baseRgbaSha256": "607e062d13693e30d1a5f8849b97da8454d66e4e0cb5ea539292c49f77886335",
+      "ora": "frame-014.ora"
+    },
+    {
+      "name": "frame-015",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-015.png",
+      "baseRgbaSha256": "784784820c0255cd22480e1ff7d0e15aba4eb75982a7571d64d5a507ecdfa4b1",
+      "ora": "frame-015.ora"
+    },
+    {
+      "name": "frame-016",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-016.png",
+      "baseRgbaSha256": "59522daf4f70d5cf73dff904fbb2aaddd51c1d5882ec6b7b55636b413be0bb4d",
+      "ora": "frame-016.ora"
+    },
+    {
+      "name": "frame-017",
+      "baseFile": "../actor-rig-v03/actor-v03-contact_R.png",
+      "baseRgbaSha256": "ae1b3ed23fbbf002de2c2ae138264aa3a45caacb940c95d4abcbd3db847ad643",
+      "ora": null
+    },
+    {
+      "name": "frame-018",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-018.png",
+      "baseRgbaSha256": "1f9656159777400eb65b61646aae7dccb84ac82d0f3ff42db1fc29436be1a5f6",
+      "ora": "frame-018.ora"
+    },
+    {
+      "name": "frame-019",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-019.png",
+      "baseRgbaSha256": "9daac0c98db425651c30de4021363b1fe98c54de9480e2d2e30b13b05ad7f8d2",
+      "ora": "frame-019.ora"
+    },
+    {
+      "name": "frame-020",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-020.png",
+      "baseRgbaSha256": "d95fab6a3e17b24de13a8c89ebdc32f5b2d658a7fc2a6de41f1405a89d93bdc4",
+      "ora": "frame-020.ora"
+    },
+    {
+      "name": "frame-021",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-021.png",
+      "baseRgbaSha256": "67880a41978dc18b5b01de43199afa2f6620eb2da47dad2941bd28fa4aee79b2",
+      "ora": "frame-021.ora"
+    },
+    {
+      "name": "frame-022",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-022.png",
+      "baseRgbaSha256": "61cd1c9fe595d9572d4bb427f3575e342623e0cbcef8e3678547cc5ae202061b",
+      "ora": "frame-022.ora"
+    },
+    {
+      "name": "frame-023",
+      "baseFile": "../actor-rig-v03/actor-v03-passing_L.png",
+      "baseRgbaSha256": "fb96856714c495caaf2a42a2deeb5e47da6162038f02aae61fd1f169a4a3ecd1",
+      "ora": "frame-023.ora"
+    },
+    {
+      "name": "frame-024",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-024.png",
+      "baseRgbaSha256": "638de3185a80885522ad5e678b86852a6273c42debf5f45d3da3510a8d08de06",
+      "ora": "frame-024.ora"
+    },
+    {
+      "name": "frame-025",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-025.png",
+      "baseRgbaSha256": "d87e24d03c25da855a2eaec7fe3e22e5e0fed451d90d5d0d0206a03efb160331",
+      "ora": "frame-025.ora"
+    },
+    {
+      "name": "frame-026",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-026.png",
+      "baseRgbaSha256": "3b3f6d2bd6875cafe6cee5d048bc4b7ed3d245d575257b909f5f0fd53ee1ba97",
+      "ora": "frame-026.ora"
+    },
+    {
+      "name": "frame-027",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-027.png",
+      "baseRgbaSha256": "e8b2da0455f9a874445d25a9f4c8b40df3bf469fd976c4afde97a9154dadac45",
+      "ora": "frame-027.ora"
+    },
+    {
+      "name": "frame-028",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-028.png",
+      "baseRgbaSha256": "160effdc600eea12fe208616c2c3c81eae687639d767c5bec843b353ed82d7be",
+      "ora": "frame-028.ora"
+    },
+    {
+      "name": "frame-029",
+      "baseFile": "../actor-rig-v03/actor-v03-contact_L.png",
+      "baseRgbaSha256": "054db67230e3c25014a8153a8042e0258e28d2014045d8881e1cc731b48ee63a",
+      "ora": null
+    },
+    {
+      "name": "frame-030",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-030.png",
+      "baseRgbaSha256": "576fa9208d15efa76119a4227a2a237697d187c1ec2cf228a71c5d5b44410cd0",
+      "ora": null
+    },
+    {
+      "name": "frame-031",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-031.png",
+      "baseRgbaSha256": "67967e7cc7b8f9a19112ef1bec9659dd5f13904756dcac0a082e58f34f36f3e6",
+      "ora": null
+    },
+    {
+      "name": "frame-032",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-032.png",
+      "baseRgbaSha256": "6ff1dee2edc8ab2df05a9dead8556a05b5b2664565001fb0a3e263c3cd48c501",
+      "ora": null
+    },
+    {
+      "name": "frame-033",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-033.png",
+      "baseRgbaSha256": "212b39e61682602332141ed5b714a6821440b0dca6722da9ed3ff5cae2f0259e",
+      "ora": null
+    },
+    {
+      "name": "frame-034",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-034.png",
+      "baseRgbaSha256": "96fcd1c25f80d58f014d8ff07a91d4481ea20a32dca5d9ecd7157a38297ede96",
+      "ora": null
+    },
+    {
+      "name": "frame-035",
+      "baseFile": "../actor-rig-v03/actor-v03-braking.png",
+      "baseRgbaSha256": "f5512c66fcd7cca30d0b3bfd2a65d6a2ed60a3643bbe64238ce8e38fce8215df",
+      "ora": null
+    },
+    {
+      "name": "frame-036",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-036.png",
+      "baseRgbaSha256": "c8c7a6b98f04c2e5288172fccd4aca1e48837e49756336d3d2e68fbc8209a511",
+      "ora": null
+    },
+    {
+      "name": "frame-037",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-037.png",
+      "baseRgbaSha256": "5d09b476918ab6a8e99e3769fabc09cb7e2443e14e80b2badd503079043126c5",
+      "ora": null
+    },
+    {
+      "name": "frame-038",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-038.png",
+      "baseRgbaSha256": "a7228306b184f1333d4fd083a925cd43239f3e7dfb20d62111a7e53c088b300e",
+      "ora": null
+    },
+    {
+      "name": "frame-039",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-039.png",
+      "baseRgbaSha256": "c204a8ef69e262a9536c16fe680091b7b4c85bbca54b5c75855ebc3c2c3e6702",
+      "ora": null
+    },
+    {
+      "name": "frame-040",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-040.png",
+      "baseRgbaSha256": "ca2bf2131fe8e3bac35b56fc5dbdd51c0530ce8dee9e559fb5f817cc6c2f97ca",
+      "ora": null
+    },
+    {
+      "name": "frame-041",
+      "baseFile": "../actor-rig-v03/actor-v03-stopped.png",
+      "baseRgbaSha256": "75348da093444a6c3fd4f8db97e084c7635c8a6205df35ea25d56824edea39fa",
+      "ora": null
+    },
+    {
+      "name": "frame-042",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-042.png",
+      "baseRgbaSha256": "271e582f06fe7f5e7fe9374b23434a340dfb11cb5dd6af82ae93e05db3b70874",
+      "ora": null
+    },
+    {
+      "name": "frame-043",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-043.png",
+      "baseRgbaSha256": "319a7ad62dbf199f1ff23089151c7734cefec045700316b53851e882ff60e115",
+      "ora": null
+    },
+    {
+      "name": "frame-044",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-044.png",
+      "baseRgbaSha256": "71f2d6e34a6bda54480b8f3107309a1309372fdafa3e95f953b4176d8b47223c",
+      "ora": null
+    },
+    {
+      "name": "frame-045",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-045.png",
+      "baseRgbaSha256": "f624504125b96e461e5c0adbe2737a3279da0ac364fede1a8f3b5aa5fe710448",
+      "ora": null
+    },
+    {
+      "name": "frame-046",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-046.png",
+      "baseRgbaSha256": "bf7abbf1c3c1ed0e5485c7ab54e4887a2685764184e385b9d3dd4b68ec8a1aff",
+      "ora": null
+    },
+    {
+      "name": "frame-047",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-047.png",
+      "baseRgbaSha256": "02cc9e35b2030b8405c5796ed1389b560a529076de0b2f5e168dc8c54a14d939",
+      "ora": null
+    },
+    {
+      "name": "frame-048",
+      "baseFile": "../actor-rig-v03/actor-v03-transition-048.png",
+      "baseRgbaSha256": "cd96fd48a2136523b9ebe81f9157e9ceb98e0e53fa658ba5d4421e4aaa63e572",
+      "ora": null
+    },
+    {
+      "name": "frame-049",
+      "baseFile": "../actor-rig-v03/actor-v03-stopped_hold.png",
+      "baseRgbaSha256": "d5760845572efaa65ea6949280b79df2d9c699d34534a17431078e87620f522b",
+      "ora": null
+    }
+  ]
+}

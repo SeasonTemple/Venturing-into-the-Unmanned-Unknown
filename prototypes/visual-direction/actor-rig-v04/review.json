@@ -1,0 +1,556 @@
+{
+  "version": "cloth04",
+  "fps": 12,
+  "frameCount": 49,
+  "frameSize": [
+    300,
+    400
+  ],
+  "columns": 7,
+  "beforeAtlas": "actor-v03-atlas.png",
+  "afterAtlas": "actor-v04-atlas.png",
+  "sourceRig": "../actor-rig-v03/actor-v03-editable.blend",
+  "frames": [
+    {
+      "number": 1,
+      "label": "负重站立",
+      "side": "R",
+      "knee": [
+        127,
+        280
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 2,
+      "label": "负重站立",
+      "side": "R",
+      "knee": [
+        126,
+        280
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 3,
+      "label": "负重站立",
+      "side": "R",
+      "knee": [
+        125,
+        280
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 4,
+      "label": "负重站立",
+      "side": "R",
+      "knee": [
+        124,
+        280
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 5,
+      "label": "负重站立",
+      "side": "R",
+      "knee": [
+        123,
+        280
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 6,
+      "label": "负重站立",
+      "side": "R",
+      "knee": [
+        122,
+        280
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 7,
+      "label": "准备换重心",
+      "side": "R",
+      "knee": [
+        122,
+        280
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 8,
+      "label": "准备换重心",
+      "side": "R",
+      "knee": [
+        116,
+        280
+      ],
+      "changedPixels": 18,
+      "ora": "pose-corrections/frame-008.ora"
+    },
+    {
+      "number": 9,
+      "label": "准备换重心",
+      "side": "R",
+      "knee": [
+        107,
+        278
+      ],
+      "changedPixels": 17,
+      "ora": "pose-corrections/frame-009.ora"
+    },
+    {
+      "number": 10,
+      "label": "准备换重心",
+      "side": "R",
+      "knee": [
+        99,
+        275
+      ],
+      "changedPixels": 20,
+      "ora": "pose-corrections/frame-010.ora"
+    },
+    {
+      "number": 11,
+      "label": "右脚提起",
+      "side": "R",
+      "knee": [
+        95,
+        274
+      ],
+      "changedPixels": 25,
+      "ora": "pose-corrections/frame-011.ora"
+    },
+    {
+      "number": 12,
+      "label": "右脚提起",
+      "side": "R",
+      "knee": [
+        95,
+        274
+      ],
+      "changedPixels": 23,
+      "ora": "pose-corrections/frame-012.ora"
+    },
+    {
+      "number": 13,
+      "label": "右脚提起",
+      "side": "R",
+      "knee": [
+        95,
+        275
+      ],
+      "changedPixels": 21,
+      "ora": "pose-corrections/frame-013.ora"
+    },
+    {
+      "number": 14,
+      "label": "右脚提起",
+      "side": "R",
+      "knee": [
+        94,
+        276
+      ],
+      "changedPixels": 21,
+      "ora": "pose-corrections/frame-014.ora"
+    },
+    {
+      "number": 15,
+      "label": "右脚提起",
+      "side": "R",
+      "knee": [
+        95,
+        278
+      ],
+      "changedPixels": 18,
+      "ora": "pose-corrections/frame-015.ora"
+    },
+    {
+      "number": 16,
+      "label": "右脚提起",
+      "side": "R",
+      "knee": [
+        96,
+        279
+      ],
+      "changedPixels": 16,
+      "ora": "pose-corrections/frame-016.ora"
+    },
+    {
+      "number": 17,
+      "label": "右脚落地",
+      "side": "R",
+      "knee": [
+        97,
+        280
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 18,
+      "label": "右脚落地",
+      "side": "L",
+      "knee": [
+        152,
+        289
+      ],
+      "changedPixels": 13,
+      "ora": "pose-corrections/frame-018.ora"
+    },
+    {
+      "number": 19,
+      "label": "右脚落地",
+      "side": "L",
+      "knee": [
+        146,
+        289
+      ],
+      "changedPixels": 33,
+      "ora": "pose-corrections/frame-019.ora"
+    },
+    {
+      "number": 20,
+      "label": "右脚落地",
+      "side": "L",
+      "knee": [
+        138,
+        288
+      ],
+      "changedPixels": 34,
+      "ora": "pose-corrections/frame-020.ora"
+    },
+    {
+      "number": 21,
+      "label": "右脚落地",
+      "side": "L",
+      "knee": [
+        132,
+        287
+      ],
+      "changedPixels": 34,
+      "ora": "pose-corrections/frame-021.ora"
+    },
+    {
+      "number": 22,
+      "label": "右脚落地",
+      "side": "L",
+      "knee": [
+        127,
+        286
+      ],
+      "changedPixels": 34,
+      "ora": "pose-corrections/frame-022.ora"
+    },
+    {
+      "number": 23,
+      "label": "左脚提起",
+      "side": "L",
+      "knee": [
+        126,
+        285
+      ],
+      "changedPixels": 34,
+      "ora": "pose-corrections/frame-023.ora"
+    },
+    {
+      "number": 24,
+      "label": "左脚提起",
+      "side": "L",
+      "knee": [
+        126,
+        285
+      ],
+      "changedPixels": 34,
+      "ora": "pose-corrections/frame-024.ora"
+    },
+    {
+      "number": 25,
+      "label": "左脚提起",
+      "side": "L",
+      "knee": [
+        125,
+        285
+      ],
+      "changedPixels": 34,
+      "ora": "pose-corrections/frame-025.ora"
+    },
+    {
+      "number": 26,
+      "label": "左脚提起",
+      "side": "L",
+      "knee": [
+        125,
+        286
+      ],
+      "changedPixels": 34,
+      "ora": "pose-corrections/frame-026.ora"
+    },
+    {
+      "number": 27,
+      "label": "左脚提起",
+      "side": "L",
+      "knee": [
+        126,
+        286
+      ],
+      "changedPixels": 34,
+      "ora": "pose-corrections/frame-027.ora"
+    },
+    {
+      "number": 28,
+      "label": "左脚提起",
+      "side": "L",
+      "knee": [
+        128,
+        287
+      ],
+      "changedPixels": 15,
+      "ora": "pose-corrections/frame-028.ora"
+    },
+    {
+      "number": 29,
+      "label": "左脚落地",
+      "side": "L",
+      "knee": [
+        129,
+        287
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 30,
+      "label": "左脚落地",
+      "side": "L",
+      "knee": [
+        129,
+        287
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 31,
+      "label": "左脚落地",
+      "side": "L",
+      "knee": [
+        129,
+        287
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 32,
+      "label": "左脚落地",
+      "side": "L",
+      "knee": [
+        128,
+        287
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 33,
+      "label": "左脚落地",
+      "side": "L",
+      "knee": [
+        128,
+        287
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 34,
+      "label": "左脚落地",
+      "side": "L",
+      "knee": [
+        128,
+        287
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 35,
+      "label": "停步收重心",
+      "side": "L",
+      "knee": [
+        127,
+        287
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 36,
+      "label": "停步收重心",
+      "side": "L",
+      "knee": [
+        128,
+        287
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 37,
+      "label": "停步收重心",
+      "side": "L",
+      "knee": [
+        128,
+        287
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 38,
+      "label": "停步收重心",
+      "side": "L",
+      "knee": [
+        129,
+        287
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 39,
+      "label": "停步收重心",
+      "side": "L",
+      "knee": [
+        130,
+        287
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 40,
+      "label": "停步收重心",
+      "side": "L",
+      "knee": [
+        131,
+        287
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 41,
+      "label": "停步回稳",
+      "side": "L",
+      "knee": [
+        131,
+        287
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 42,
+      "label": "停步回稳",
+      "side": "L",
+      "knee": [
+        131,
+        287
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 43,
+      "label": "停步回稳",
+      "side": "L",
+      "knee": [
+        131,
+        287
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 44,
+      "label": "停步回稳",
+      "side": "L",
+      "knee": [
+        131,
+        287
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 45,
+      "label": "停步回稳",
+      "side": "L",
+      "knee": [
+        131,
+        287
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 46,
+      "label": "停步回稳",
+      "side": "L",
+      "knee": [
+        131,
+        287
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 47,
+      "label": "停步回稳",
+      "side": "L",
+      "knee": [
+        131,
+        287
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 48,
+      "label": "停步回稳",
+      "side": "L",
+      "knee": [
+        131,
+        287
+      ],
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 49,
+      "label": "保持现场",
+      "side": "L",
+      "knee": [
+        131,
+        287
+      ],
+      "changedPixels": 0,
+      "ora": null
+    }
+  ],
+  "artApproved": false,
+  "homepageIntegrated": false
+}

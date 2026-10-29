@@ -1,0 +1,44 @@
+{
+  "baseBlendSha256": "b82dad5b52e704ab73244ea8c21d2d35da7c7dd0f24bdbfb09e7d1188007e0be",
+  "editedBlendSha256": "3d264dcdba3abfda2a42972e12bd1773fc5d864c53619059b95b3ad8c1d9f36e",
+  "object": "Recorder_physical_screen",
+  "material": "Study_Local_Edit_Amber_Recorder_Screen",
+  "scope": "Screen color only, copied material; same body, pose, camera and lights.",
+  "packedImagesOnly": true,
+  "freshProcessReopen": true,
+  "savedScreenMaterialValuesPreserved": true,
+  "views": [
+    {
+      "view": "front-quarter",
+      "allChangedPixelsBeforeAfter": 21,
+      "screenChangedPixels": 21,
+      "screenBounds": [
+        100,
+        124,
+        107,
+        134
+      ],
+      "reopenedScreenPixelsIdentical": false,
+      "reopenedPixelsIdentical": false,
+      "reopenedDifferentPixelCount": 1,
+      "reopenedMaximumChannelDelta": 2
+    },
+    {
+      "view": "turned",
+      "allChangedPixelsBeforeAfter": 36,
+      "screenChangedPixels": 34,
+      "screenBounds": [
+        81,
+        128,
+        91,
+        137
+      ],
+      "reopenedScreenPixelsIdentical": true,
+      "reopenedPixelsIdentical": false,
+      "reopenedDifferentPixelCount": 2,
+      "reopenedMaximumChannelDelta": 3
+    }
+  ],
+  "validates": "Local material edit persists through save/reopen/render.",
+  "doesNotValidate": "Anatomy, character identity, walking, final art quality."
+}

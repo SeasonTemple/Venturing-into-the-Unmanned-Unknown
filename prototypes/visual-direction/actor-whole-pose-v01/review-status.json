@@ -1,0 +1,7 @@
+{
+  "status": "withdrawn-surface-boundary-sampling",
+  "reason": "Outer face/hair sample row could be clipped under fractional translation.",
+  "replacement": "../actor-whole-pose-v02/",
+  "artApproved": false,
+  "walkingApproved": false
+}

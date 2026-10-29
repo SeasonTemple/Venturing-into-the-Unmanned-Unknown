@@ -1,0 +1,50 @@
+{
+  "scope": "Palm-side rear grip and whole-hand inspection correction.",
+  "selectedArtifact": "actor-palm-grip-v02",
+  "artApproved": false,
+  "walkingApproved": false,
+  "homepageIntegrated": false,
+  "paidGenerationCalls": 0,
+  "userApproved": false,
+  "changes": [
+    "Replaced invented top carry loop with actual fixed rear grip.",
+    "Housing is on palm side; screen and palm normals have the same orientation.",
+    "Forearm, hand and full device move together; no independent device animation.",
+    "Thinner housing; actual rear mounts; contrasting grip material."
+  ],
+  "comparison": "grip-change-comparison.png",
+  "closeViews": "inspect-gesture/grip-contact-review.png",
+  "motion": {
+    "source": "inspect-gesture/inspect-gesture.blend",
+    "renderedFrames": 25,
+    "fps": 12,
+    "gifExports": {
+      "inspect-preview.gif": {
+        "pixels": [
+          480,
+          672
+        ],
+        "encodedFrames": 20,
+        "durationMs": 2080
+      },
+      "scene-inspect-preview.gif": {
+        "pixels": [
+          600,
+          440
+        ],
+        "encodedFrames": 23,
+        "durationMs": 2080
+      }
+    },
+    "checks": "inspect-gesture/gesture-checks.json"
+  },
+  "regressionGuard": {
+    "rejectsLegacyTopCarrySource": true,
+    "leavesNoOutputDirectoryOnRejectedSource": true
+  },
+  "remainingGaps": [
+    "Face identity and painterly cloth groups remain candidates.",
+    "Rear grip changes the old outward-screen carrying silhouette.",
+    "Full-body artistic naturalness remains subject to visual review."
+  ]
+}
