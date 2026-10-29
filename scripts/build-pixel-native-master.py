@@ -104,6 +104,11 @@ def main() -> None:
     scaled = native.resize((native.width * SCALE, native.height * SCALE), Image.Resampling.NEAREST)
     native.save(OUT / 'reference-1x.png')
     scaled.save(OUT / 'reference-4x.png')
+    for view, path in VIEW_SOURCES.items():
+        if view == 'front':
+            continue
+        view_im = Image.open(path).convert('RGBA').resize((round(Image.open(path).width / 2), 174), Image.Resampling.NEAREST)
+        view_im.save(OUT / f'reference-{view.replace("_", "-")}-1x.png')
 
     # Keep every supplied direction as a source reference. They are centered
     # on a common 78x174 native canvas for comparison, never stretched to the

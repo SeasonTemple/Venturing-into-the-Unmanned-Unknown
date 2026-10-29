@@ -104,7 +104,7 @@
       173
     ]
   },
-  "method": "pixel-native layered master with a visible locked identity underlay; no hidden anatomy invented",
+  "method": "pixel-native layered master with a toggleable locked identity underlay; no hidden anatomy invented",
   "limitations": [
     "Masks are working boundaries and require manual contour cleanup before motion.",
     "The underlay remains necessary because hidden anatomy has not been authored.",
