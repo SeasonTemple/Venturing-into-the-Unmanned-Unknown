@@ -1,0 +1,36 @@
+{
+  "revision": "character-production-stage-report-v01",
+  "updated": "2026-10-30",
+  "stage1IdentitySource": {
+    "status": "pass-as-source-contract",
+    "evidence": [
+      "manifest.json",
+      "direction-contract.json",
+      "pixel-native-master-v01.ora",
+      "reference-1x.png",
+      "view-references-4x.png"
+    ],
+    "verified": [
+      "four supplied directions remain separate pixel sources",
+      "front composite matches the approved source after hiding identity_lock",
+      "shared baseline, equipment ownership and unknown areas are recorded"
+    ],
+    "boundary": "This pass does not invent hidden anatomy or approve motion."
+  },
+  "stage2StoppedTurn": {
+    "status": "technical-proof-only",
+    "evidence": [
+      "../pixel-turn-proof-v01/turn.json",
+      "../pixel-turn-proof-v01/turn-atlas-3x.png"
+    ],
+    "verified": [
+      "complete direction frames load in a fixed order",
+      "integer canvas and baseline remain stable",
+      "playback has a pause control and frame stepping"
+    ],
+    "missing": "three hand-authored front-to-profile intermediate keyframes"
+  },
+  "stage3LoadedKeyposes": {"status": "not-started", "requires": "stage2 art pass"},
+  "stage4HomepageIntegration": {"status": "not-started", "requires": "stage3 art and motion pass"},
+  "nextAction": "author and review exactly three complete pixel frames between front and profile; do not expand the frame count until those pass"
+}
