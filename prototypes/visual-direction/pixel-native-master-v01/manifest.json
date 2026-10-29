@@ -22,8 +22,16 @@
     "leg_image_left",
     "leg_image_right",
     "shoe_image_left",
-    "shoe_image_right"
+    "shoe_image_right",
+    "contour_touchup"
   ],
+  "touchupLayer": "contour_touchup",
+  "frontCoverage": {
+    "opaquePixels": 6322,
+    "contourTouchupPixelsAtWorkingScale": 3376,
+    "identityUnderlayDefault": "hidden",
+    "compositeMatchesReference": true
+  },
   "viewReferences": {
     "front": {
       "source": "prototypes/visual-direction/art-pack-media/actor-front.png",
