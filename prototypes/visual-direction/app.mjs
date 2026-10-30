@@ -3,9 +3,18 @@ const worlds = { territory: () => import('./territory-world.mjs'), outpost: () =
 const { createWorld, stations } = await (worlds[document.body.dataset.world]?.() ?? import('./frontier-world.mjs'));
 const $ = id => document.getElementById(id), query = new URLSearchParams(location.search);
 const territorial = document.body.dataset.world === 'territory';
+const actorPreview = query.get('actorPreview') === '1';
 const errors = []; let world, book, view = 'home', returnView = 'home', mode = 'agent', currentChapter = territorial ? 'ch1' : 'ch3', currentStation = territorial ? 0 : 2, generation = 0, travelGeneration = 0, busy = false, readerTrigger = null;
 window.addEventListener('error', e => errors.push(e.message)); window.addEventListener('unhandledrejection', e => errors.push(String(e.reason)));
 function button(text, action, className = '') { const el = document.createElement('button'); el.textContent = text; el.className = className; el.addEventListener('click', action); return el; }
+function updateRouteControls() {
+  const previous = $('route-previous'), turn = $('route-turn'), routeStatus = $('space-route-status');
+  if (!previous || !turn || !routeStatus || !world?.stats) return;
+  const stats = world.stats();
+  previous.disabled = !!stats.actorMoving || stats.actorIndex <= 0 || stats.actorFacing !== 'left';
+  turn.disabled = !!stats.actorMoving || !stats.actorReady;
+  routeStatus.textContent = stats.actorStatus || (stats.actorFacing === 'left' ? '停稳 · 左侧朝向' : '停稳 · 正面朝向');
+}
 function projected(points) {
   if (territorial) return;
   points.forEach((p, i) => { const el = $(`station-${i}`); if (!el) return; el.style.left = `${p.x}px`; el.style.top = `${p.y}px`; el.hidden = !p.visible; });
@@ -33,6 +42,7 @@ async function showDisplay(next, animate = true) {
     $('space-ui').hidden = next !== 'space'; $('hero-caption').hidden = next !== 'home'; $('enter').hidden = next !== 'home'; $('scroll-cue').hidden = next !== 'home';
     busy = false; $('leave').disabled = false; $('enter').disabled = !world;
     if (next === 'space' && territorial) selectStation(currentStation);
+    updateRouteControls();
     if (next === 'space') $('space-title').focus({ preventScroll: true }); else $('enter').focus({ preventScroll: true });
   }
 }
@@ -52,6 +62,7 @@ async function selectStation(index) {
     ch7: ['让新的未知，成为下一次意图。', '运行反馈会带来新条件。环节可以连通，世界仍然没有被完全测绘。'],
   };
   const [title, copy] = descriptions[currentChapter]; $('space-title').textContent = title; $('space-copy').textContent = copy;
+  updateRouteControls();
   if (territorial) {
     const station = stations[index];
     $('journey-place').textContent = `${String(index + 1).padStart(2, '0')} / ${station.place}`;
@@ -63,6 +74,8 @@ async function selectStation(index) {
     await travel;
     if (travelStamp === travelGeneration && view === 'space') { $('station-read').disabled = false; $('journey-status').textContent = '已抵达'; }
   }
+  if (!territorial && travel?.then) await travel;
+  updateRouteControls();
 }
 async function readChapter(slug = 'ch3') {
   if (busy) return;
@@ -95,13 +108,15 @@ $('enter').addEventListener('click', () => showDisplay('space')); $('leave').add
 $('browse').addEventListener('click', async event => { if (busy) { event.preventDefault(); return; } if (view === 'space') { event.preventDefault(); await showDisplay('home'); $('contents').scrollIntoView({ behavior: 'smooth' }); } });
 $('start-reading').addEventListener('click', () => readChapter('ch0')); $('station-read').addEventListener('click', () => readChapter(stations[currentStation].chapter));
 if (territorial) { $('travel-prev').addEventListener('click', () => selectStation(Math.max(0, currentStation - 1))); $('travel-next').addEventListener('click', () => selectStation(Math.min(stations.length - 1, currentStation + 1))); }
+$('route-previous')?.addEventListener('click', async () => { const index = (world?.stats().actorIndex ?? currentStation) - 1; if (index >= 0) { await world.moveActorTo(index); updateRouteControls(); } });
+$('route-turn')?.addEventListener('click', async () => { await world?.turnActor?.(); updateRouteControls(); });
 $('reader-back').addEventListener('click', backToDisplay); $('reader-theme').addEventListener('click', () => { const dark = $('reading-view').classList.toggle('dark'); $('reader-theme').textContent = dark ? '浅色阅读' : '深色阅读'; });
 $('reader-next').addEventListener('click', () => readChapter($('reader-next').dataset.next)); $('reader-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 document.querySelectorAll('input[name=mode]').forEach(input => input.addEventListener('change', () => { if (input.checked) { mode = input.value; world?.setMode(mode); selectStation(currentStation); } }));
 window.addEventListener('keydown', event => { if (event.key === 'Escape' && view === 'reading') backToDisplay(); });
 window.addEventListener('pagehide', () => world?.destroy());
 const ready = contentReady.then(async () => {
-  try { world = createWorld($('scene'), { onFrame: projected, still: query.has('still') }); document.body.classList.add('world-ready'); $('scene-status').textContent = ''; }
+  try { world = createWorld($('scene'), { onFrame: projected, onActorStatus: text => { const status = $('space-route-status'); if (status) status.textContent = text; updateRouteControls(); }, actorPreview, still: query.has('still') }); document.body.classList.add('world-ready'); $('space-route').hidden = !actorPreview; $('scene-status').textContent = ''; updateRouteControls(); }
   catch (error) { $('scene-status').textContent = '画面暂不可用，可继续向下阅读。'; $('enter').disabled = true; errors.push(error.message); }
   if (query.get('view') === 'space') { await showDisplay('space', false); await selectStation(territorial ? Math.max(0, Math.min(stations.length - 1, Number(query.get('region')) || 0)) : 2); }
   if (query.get('view') === 'reading') await readChapter(query.get('chapter') || 'ch3');

@@ -1,0 +1,48 @@
+{
+  "revision": "pixel-route-v01",
+  "status": "independent-behavior-shell",
+  "sourceArtApproved": true,
+  "artApproved": false,
+  "motionApproved": false,
+  "behaviorApproved": true,
+  "homepageIntegrated": false,
+  "usesPendingWalkSource": false,
+  "scene": {
+    "width": 960,
+    "height": 540,
+    "groundRatio": 0.87,
+    "startX": 0.78,
+    "minX": 0.22,
+    "speed": 0.12
+  },
+  "stops": [
+    {"id": "station", "x": 0.78, "label": "观测站门前", "detail": "起点：从站房出发"},
+    {"id": "marker", "x": 0.62, "label": "旧标记", "detail": "沿维护路经过旧标记"},
+    {"id": "r1", "x": 0.45, "label": "R1 测点", "detail": "可停下核对现场测点"},
+    {"id": "shoulder", "x": 0.25, "label": "坡肩视野", "detail": "到达观测边界前停下"}
+  ],
+  "walk": {
+    "fps": 8,
+    "frames": [
+      {"file": "pixel-walk-v01/frames/frame-00.png", "phase": "right-contact", "label": "右脚着地"},
+      {"file": "pixel-walk-v01/frames/frame-01.png", "phase": "right-lift", "label": "右脚抬起"},
+      {"file": "pixel-walk-v01/frames/frame-02.png", "phase": "left-forward", "label": "左腿前摆"},
+      {"file": "pixel-walk-v01/frames/frame-03.png", "phase": "left-heel", "label": "左脚跟落地"},
+      {"file": "pixel-walk-v01/frames/frame-04.png", "phase": "left-contact", "label": "左脚着地"},
+      {"file": "pixel-walk-v01/frames/frame-05.png", "phase": "left-lift", "label": "左脚抬起"},
+      {"file": "pixel-walk-v01/frames/frame-06.png", "phase": "right-forward", "label": "右腿前摆"},
+      {"file": "pixel-walk-v01/frames/frame-07.png", "phase": "right-heel", "label": "右脚跟落地"}
+    ]
+  },
+  "turn": {
+    "fps": 6,
+    "frames": [
+      {"file": "pixel-turn-keyframes-v01/frames/frame-00.png", "view": "front", "label": "正面停步"},
+      {"file": "pixel-turn-keyframes-v01/frames/frame-01.png", "view": "turn-15", "label": "转身 15°"},
+      {"file": "pixel-turn-keyframes-v01/frames/frame-02.png", "view": "turn-30", "label": "转身 30°"},
+      {"file": "pixel-turn-keyframes-v01/frames/frame-03.png", "view": "turn-45", "label": "转身 45°"},
+      {"file": "pixel-turn-keyframes-v01/frames/frame-04.png", "view": "side", "label": "左侧停步"}
+    ]
+  },
+  "gate": "Source art is approved; visual quality, scene-scale motion and homepage integration remain open."
+}

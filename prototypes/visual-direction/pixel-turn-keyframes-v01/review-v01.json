@@ -1,0 +1,27 @@
+{
+  "revision": "pixel-turn-keyframes-v01-review-v01",
+  "status": "pass-source-constrained-turn",
+  "reviewSurface": "pixel-turn-keyframes-v01.html",
+  "automatedEvidence": {
+    "checker": "scripts/check-pixel-turn-keyframes-v01.py",
+    "audit": "scripts/audit-pixel-turn-keyframes-v01.py",
+    "result": "pass",
+    "checks": [
+      "five frames are 128 × 196",
+      "all five frames share alpha contact rows y=10..183",
+      "frame order is front → 15° → 30° → 45° → side",
+      "upper-body silhouette width closes monotonically at y=80: 63 → 45 → 40 → 37 → 34",
+      "middle frames are marked hand-authored complete pixel frames",
+      "no mirroring, interpolation, stretch or limb-only transform is declared",
+      "audit-v01 records visible coverage, silhouette width and distinct colour clusters"
+    ]
+  },
+  "manualChecklist": [
+    {"id":"head-heading", "question":"15° still reads toward camera, 30° bridges it, 45° reads left profile", "status":"pass"},
+    {"id":"torso-pelvis", "question":"shoulder, chest and pelvis rotate together without a frozen upper body", "status":"pass"},
+    {"id":"leg-contact", "question":"knees remain plausible and both boots stay on y=183", "status":"pass"},
+    {"id":"equipment", "question":"toolbox remains in the near hand and recorder remains at the hip", "status":"pass"},
+    {"id":"pixel-density", "question":"intermediate cluster density belongs to the endpoint pixel-paint style", "status":"pass-with-observation", "evidence":"audit-v01.json records a lower authored palette count; native-size silhouette and material clusters remain readable"}
+  ],
+  "decision": "Turn source passes as a source-constrained stopped turn. Motion is not approved; proceed to loaded keyposes with the same pixel source rules."
+}

@@ -1,0 +1,331 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "name": "route page exposes a ready state snapshot",
+      "pass": true
+    },
+    {
+      "name": "initial state starts left-facing and stopped",
+      "pass": true
+    },
+    {
+      "name": "scene and four stop controls render",
+      "pass": true
+    },
+    {
+      "name": "scene places a readable pixel sprite with integer positioning",
+      "pass": true,
+      "detail": {
+        "w": 242,
+        "h": 370,
+        "left": "673px",
+        "rendering": "pixelated",
+        "natural": 128
+      }
+    },
+    {
+      "name": "clicking a forward stop starts auto movement",
+      "pass": true,
+      "detail": {
+        "x": 0.78,
+        "target": 0.62,
+        "mode": "auto",
+        "facing": "left",
+        "frameIndex": 0,
+        "distanceSinceFrame": 0,
+        "stopRequested": false,
+        "manualHeld": false,
+        "pendingTurn": null,
+        "turnFrames": [],
+        "turnCursor": 0,
+        "turnClock": 0,
+        "paused": false,
+        "reduced": false,
+        "ready": true,
+        "skipped": false,
+        "status": "自动行进中；按住 ← 可立即接管。",
+        "renders": 2,
+        "resources": 14
+      }
+    },
+    {
+      "name": "auto movement advances position and frame phase",
+      "pass": true,
+      "detail": {
+        "x": 0.7588440000000001,
+        "target": 0.62,
+        "mode": "auto",
+        "facing": "left",
+        "frameIndex": 1,
+        "distanceSinceFrame": 0.0042479999999999974,
+        "stopRequested": false,
+        "manualHeld": false,
+        "pendingTurn": null,
+        "turnFrames": [],
+        "turnCursor": 0,
+        "turnClock": 0,
+        "paused": false,
+        "reduced": false,
+        "ready": true,
+        "skipped": false,
+        "status": "自动行进中；按住 ← 可立即接管。",
+        "renders": 13,
+        "resources": 14
+      }
+    },
+    {
+      "name": "scene frame changes keep the raster at an integer world position",
+      "pass": true,
+      "detail": {
+        "src": "http://127.0.0.1:4395/pixel-walk-v01/frames/frame-01.png",
+        "frame": 1,
+        "left": "652px",
+        "width": 242
+      }
+    },
+    {
+      "name": "manual left input takes over auto movement",
+      "pass": true,
+      "detail": {
+        "x": 0.7567800000000001,
+        "target": null,
+        "mode": "manual",
+        "facing": "left",
+        "frameIndex": 1,
+        "distanceSinceFrame": 0,
+        "stopRequested": false,
+        "manualHeld": true,
+        "pendingTurn": null,
+        "turnFrames": [],
+        "turnCursor": 0,
+        "turnClock": 0,
+        "paused": false,
+        "reduced": false,
+        "ready": true,
+        "skipped": false,
+        "status": "手动行进中；松开 ← 在落脚时收步。",
+        "renders": 15,
+        "resources": 14
+      }
+    },
+    {
+      "name": "releasing left requests a stop without reversing",
+      "pass": true,
+      "detail": {
+        "x": 0.7056840000000001,
+        "target": null,
+        "mode": "idle",
+        "facing": "left",
+        "frameIndex": 4,
+        "distanceSinceFrame": 0,
+        "stopRequested": false,
+        "manualHeld": false,
+        "pendingTurn": null,
+        "turnFrames": [],
+        "turnCursor": 0,
+        "turnClock": 0,
+        "paused": false,
+        "reduced": false,
+        "ready": true,
+        "skipped": false,
+        "status": "已在落脚处收步。",
+        "renders": 40,
+        "resources": 14
+      }
+    },
+    {
+      "name": "turn uses the complete front/side keyframe sequence",
+      "pass": true,
+      "detail": {
+        "x": 0.7056840000000001,
+        "target": null,
+        "mode": "idle",
+        "facing": "front",
+        "frameIndex": 0,
+        "distanceSinceFrame": 0,
+        "stopRequested": false,
+        "manualHeld": false,
+        "pendingTurn": null,
+        "turnFrames": [
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "turnCursor": 5,
+        "turnClock": 0,
+        "paused": false,
+        "reduced": false,
+        "ready": true,
+        "skipped": false,
+        "status": "已转向正面；右向步态资产未制作，当前停在这里。",
+        "renders": 92,
+        "resources": 14
+      }
+    },
+    {
+      "name": "left input turns back to the authored side view",
+      "pass": true,
+      "detail": {
+        "x": 0.7056840000000001,
+        "target": null,
+        "mode": "idle",
+        "facing": "left",
+        "frameIndex": 0,
+        "distanceSinceFrame": 0,
+        "stopRequested": false,
+        "manualHeld": false,
+        "pendingTurn": null,
+        "turnFrames": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "turnCursor": 5,
+        "turnClock": 0,
+        "paused": false,
+        "reduced": false,
+        "ready": true,
+        "skipped": false,
+        "status": "已转回左侧，可继续沿维护路行进。",
+        "renders": 144,
+        "resources": 14
+      }
+    },
+    {
+      "name": "pause freezes position and frame state",
+      "pass": true,
+      "detail": {
+        "paused": {
+          "x": 0.7056840000000001,
+          "target": null,
+          "mode": "idle",
+          "facing": "left",
+          "frameIndex": 0,
+          "distanceSinceFrame": 0,
+          "stopRequested": false,
+          "manualHeld": false,
+          "pendingTurn": null,
+          "turnFrames": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "turnCursor": 5,
+          "turnClock": 0,
+          "paused": true,
+          "reduced": false,
+          "ready": true,
+          "skipped": false,
+          "status": "已暂停；位置和时间都被冻结。",
+          "renders": 145,
+          "resources": 14
+        },
+        "pausedAgain": {
+          "x": 0.7056840000000001,
+          "target": null,
+          "mode": "idle",
+          "facing": "left",
+          "frameIndex": 0,
+          "distanceSinceFrame": 0,
+          "stopRequested": false,
+          "manualHeld": false,
+          "pendingTurn": null,
+          "turnFrames": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "turnCursor": 5,
+          "turnClock": 0,
+          "paused": true,
+          "reduced": false,
+          "ready": true,
+          "skipped": false,
+          "status": "已暂停；位置和时间都被冻结。",
+          "renders": 145,
+          "resources": 14
+        }
+      }
+    },
+    {
+      "name": "reduced motion switches to static frame mode",
+      "pass": true,
+      "detail": {
+        "x": 0.7056840000000001,
+        "target": null,
+        "mode": "idle",
+        "facing": "left",
+        "frameIndex": 0,
+        "distanceSinceFrame": 0,
+        "stopRequested": false,
+        "manualHeld": false,
+        "pendingTurn": null,
+        "turnFrames": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "turnCursor": 5,
+        "turnClock": 0,
+        "paused": false,
+        "reduced": true,
+        "ready": true,
+        "skipped": false,
+        "status": "继续当前路线。",
+        "renders": 148,
+        "resources": 14
+      }
+    },
+    {
+      "name": "narrow route preview has no horizontal overflow",
+      "pass": true
+    },
+    {
+      "name": "route page reports no runtime console errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "metrics": {
+    "final": {
+      "x": 0.7056840000000001,
+      "target": null,
+      "mode": "idle",
+      "facing": "left",
+      "frameIndex": 0,
+      "distanceSinceFrame": 0,
+      "stopRequested": false,
+      "manualHeld": false,
+      "pendingTurn": null,
+      "turnFrames": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "turnCursor": 5,
+      "turnClock": 0,
+      "paused": false,
+      "reduced": true,
+      "ready": true,
+      "skipped": false,
+      "status": "继续当前路线。",
+      "renders": 149,
+      "resources": 14
+    },
+    "cleanupError": "Error: Command failed: taskkill /PID 59100 /T /F"
+  },
+  "consoleErrors": []
+}

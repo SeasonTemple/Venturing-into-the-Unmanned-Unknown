@@ -1,0 +1,35 @@
+{
+  "revision": "pixel-loaded-keyposes-v01-review-v01",
+  "status": "pass-source-constrained-keyposes",
+  "reviewSurface": "pixel-loaded-keyposes-v01.html",
+  "manualChecklist": [
+    {
+      "id": "support",
+      "question": "support foot carries pelvis and knee points over it",
+      "status": "pass"
+    },
+    {
+      "id": "pelvis-chest",
+      "question": "pelvis, chest and shoulders respond across the four poses",
+      "status": "pass",
+      "evidence": "audit-v01.json records upper-body centroid movement"
+    },
+    {
+      "id": "arms-equipment",
+      "question": "elbows, hands, toolbox and recorder remain connected",
+      "status": "pass"
+    },
+    {
+      "id": "knees",
+      "question": "knees bend outward or forward without inward collapse",
+      "status": "pass"
+    },
+    {
+      "id": "contact",
+      "question": "all feet share y=183 with no floating or buried sole",
+      "status": "pass"
+    }
+  ],
+  "decision": "Loaded pose source passes; proceed to an independently authored 8-frame walk and keep motion approval separate.",
+  "audit": "audit-v01.json"
+}

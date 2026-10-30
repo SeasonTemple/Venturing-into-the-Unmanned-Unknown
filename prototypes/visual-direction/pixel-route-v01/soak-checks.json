@@ -1,0 +1,127 @@
+{
+  "pass": true,
+  "durationTargetSeconds": 600,
+  "cycles": 134,
+  "samples": [
+    {
+      "cycle": 10,
+      "elapsedSeconds": 45,
+      "x": 0.25,
+      "frameIndex": 0,
+      "resources": 14,
+      "renders": 2570,
+      "heap": 856923
+    },
+    {
+      "cycle": 20,
+      "elapsedSeconds": 90,
+      "x": 0.25,
+      "frameIndex": 0,
+      "resources": 14,
+      "renders": 5131,
+      "heap": 881107
+    },
+    {
+      "cycle": 30,
+      "elapsedSeconds": 135,
+      "x": 0.25,
+      "frameIndex": 0,
+      "resources": 14,
+      "renders": 7698,
+      "heap": 907879
+    },
+    {
+      "cycle": 40,
+      "elapsedSeconds": 180,
+      "x": 0.25,
+      "frameIndex": 0,
+      "resources": 14,
+      "renders": 10258,
+      "heap": 918531
+    },
+    {
+      "cycle": 50,
+      "elapsedSeconds": 225,
+      "x": 0.25,
+      "frameIndex": 0,
+      "resources": 14,
+      "renders": 12823,
+      "heap": 959559
+    },
+    {
+      "cycle": 60,
+      "elapsedSeconds": 270,
+      "x": 0.25,
+      "frameIndex": 0,
+      "resources": 14,
+      "renders": 15386,
+      "heap": 768103
+    },
+    {
+      "cycle": 70,
+      "elapsedSeconds": 315,
+      "x": 0.25,
+      "frameIndex": 0,
+      "resources": 14,
+      "renders": 17947,
+      "heap": 796227
+    },
+    {
+      "cycle": 80,
+      "elapsedSeconds": 360,
+      "x": 0.25,
+      "frameIndex": 0,
+      "resources": 14,
+      "renders": 20510,
+      "heap": 821599
+    },
+    {
+      "cycle": 90,
+      "elapsedSeconds": 405,
+      "x": 0.25,
+      "frameIndex": 0,
+      "resources": 14,
+      "renders": 23072,
+      "heap": 848159
+    },
+    {
+      "cycle": 100,
+      "elapsedSeconds": 450,
+      "x": 0.25,
+      "frameIndex": 0,
+      "resources": 14,
+      "renders": 25630,
+      "heap": 870607
+    },
+    {
+      "cycle": 110,
+      "elapsedSeconds": 495,
+      "x": 0.25,
+      "frameIndex": 0,
+      "resources": 14,
+      "renders": 28194,
+      "heap": 900803
+    },
+    {
+      "cycle": 120,
+      "elapsedSeconds": 540,
+      "x": 0.25,
+      "frameIndex": 0,
+      "resources": 14,
+      "renders": 30749,
+      "heap": 924727
+    },
+    {
+      "cycle": 130,
+      "elapsedSeconds": 585,
+      "x": 0.25,
+      "frameIndex": 0,
+      "resources": 14,
+      "renders": 33313,
+      "heap": 954207
+    }
+  ],
+  "consoleErrors": [],
+  "elapsedSeconds": 603,
+  "heapDelta": 97284
+}

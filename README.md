@@ -1,12 +1,15 @@
-# Venturing into the Unmanned Unknown: An AI-Native Software Engineering Guidebook
-
-**迈向无人区：AI 原生软件工程指南**（短名：AI-Native SDLC Guidebook）
-
-[![License](https://img.shields.io/badge/license-BSL%201.1-555?style=flat-square&labelColor=2b2f36)](./LICENSE)
-[![Version](https://img.shields.io/badge/version-v0.0.3-555?style=flat-square&labelColor=2b2f36)](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/releases)
-[![Validate Skills](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/actions/workflows/validate-skills.yml/badge.svg?style=flat-square)](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/actions/workflows/validate-skills.yml)
-[![Pages](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/actions/workflows/pages.yml/badge.svg?style=flat-square)](https://seasontemple.github.io/Venturing-into-the-Unmanned-Unknown/)
-[![Release](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/actions/workflows/release.yml/badge.svg?style=flat-square)](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/releases)
+<div align="center">
+  <img src="./site/public/meadow/hero-v04.webp" alt="测绘站外的维护路与原野" width="100%">
+  <h1>迈向无人区</h1>
+  <p><strong>AI 原生软件工程指南</strong><br>Venturing into the Unmanned Unknown · AI-Native SDLC Guidebook</p>
+  <p>
+    <a href="./LICENSE"><img src="https://img.shields.io/badge/license-BSL%201.1-555?style=flat-square&labelColor=2b2f36" alt="License: BSL 1.1"></a>
+    <a href="https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/releases"><img src="https://img.shields.io/badge/version-v0.0.3-555?style=flat-square&labelColor=2b2f36" alt="Version v0.0.3"></a>
+    <a href="https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/actions/workflows/validate-skills.yml"><img src="https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/actions/workflows/validate-skills.yml/badge.svg?style=flat-square" alt="Validate Skills"></a>
+    <a href="https://seasontemple.github.io/Venturing-into-the-Unmanned-Unknown/"><img src="https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/actions/workflows/pages.yml/badge.svg?style=flat-square" alt="Pages"></a>
+    <a href="https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/releases"><img src="https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/actions/workflows/release.yml/badge.svg?style=flat-square" alt="Release"></a>
+  </p>
+</div>
 
 **AI Agent 为生产与执行主体**；人提供原始意图输入，并作为权重较高的 HITL 裁决源之一，与可执行规格、自动门禁等系统保证共同约束交付。全书按生命周期组织，并提供可直接加载的 Agent Skills（`SKILL.md`）。
 

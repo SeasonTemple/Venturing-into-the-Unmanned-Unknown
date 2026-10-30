@@ -1,0 +1,38 @@
+{
+  "revision": "pixel-walk-v01-review-v02",
+  "status": "pass-source-constrained-walk-art",
+  "reviewSurface": "pixel-walk-v01.html",
+  "manualChecklist": [
+    {
+      "id": "contact",
+      "question": "contact and lift phases alternate without floating or buried soles",
+      "status": "pass-source-review"
+    },
+    {
+      "id": "rhythm",
+      "question": "eight frames read as one left-facing walk rather than four held poses",
+      "status": "pass-source-review"
+    },
+    {
+      "id": "torso",
+      "question": "head, chest and pelvis respond to the step cycle",
+      "status": "pass-source-review"
+    },
+    {
+      "id": "equipment",
+      "question": "toolbox and recorder remain attached through the cycle",
+      "status": "pass-source-review"
+    },
+    {
+      "id": "native",
+      "question": "native-size silhouette remains readable and no tearing appears at 3x",
+      "status": "pass-source-review"
+    }
+  ],
+  "notes": [
+    "The complete upper-body source changes with the loaded pose sequence; the authored one-pixel bob is visible in the 3x strip.",
+    "Toolbox and recorder remain attached to their owning hands through all eight frames.",
+    "This is a source-art approval only; scene-scale naturalness, start/stop timing and long-run performance remain open."
+  ],
+  "decision": "Source art passes; keep motionApproved false until scene-scale behavior review."
+}

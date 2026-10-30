@@ -1,0 +1,64 @@
+{
+  "revision": "pixel-loaded-keyposes-v01",
+  "status": "loaded-keypose-art-review",
+  "artApproved": true,
+  "motionApproved": false,
+  "homepageIntegrated": false,
+  "canvas": [
+    128,
+    196
+  ],
+  "baseline": 183,
+  "fps": 6,
+  "frames": [
+    {
+      "index": 0,
+      "file": "frames/frame-00.png",
+      "view": "right-bearing",
+      "label": "右腿承重",
+      "baseline": 183,
+      "authoring": "hand-authored-complete-loaded-keypose",
+      "operations": 61,
+      "frameSha256": "8a7c621f71b4251ff397990b9fd1d06362e9a2d4111265768dbba2cc550b3494"
+    },
+    {
+      "index": 1,
+      "file": "frames/frame-01.png",
+      "view": "left-forward",
+      "label": "左腿前摆",
+      "baseline": 183,
+      "authoring": "hand-authored-complete-loaded-keypose",
+      "operations": 61,
+      "frameSha256": "47937d2404297c34336a0a6401dc90179ae4b2a7c8dfffeadfda57d66f525625"
+    },
+    {
+      "index": 2,
+      "file": "frames/frame-02.png",
+      "view": "left-heel",
+      "label": "左脚跟落地",
+      "baseline": 183,
+      "authoring": "hand-authored-complete-loaded-keypose",
+      "operations": 61,
+      "frameSha256": "135c937f1d1071cf31339f070900265599f037853995b9c8f9ba8f4b98dbc29c"
+    },
+    {
+      "index": 3,
+      "file": "frames/frame-03.png",
+      "view": "left-bearing",
+      "label": "左腿承重",
+      "baseline": 183,
+      "authoring": "hand-authored-complete-loaded-keypose",
+      "operations": 61,
+      "frameSha256": "1fbc93e5279414118446196c7e0c9512ee5abce8f45c6a5463ad219f7da7bfcb"
+    }
+  ],
+  "method": "four complete pose-specific native pixel drawings; no leg-only runtime transform or generic tween",
+  "source": "prototypes/visual-direction/pixel-turn-keyframes-v01/frames/frame-03.png",
+  "poseContract": [
+    "right leg supports and left leg relaxes",
+    "left leg swings forward while right supports",
+    "left heel contacts while right supports",
+    "left leg supports and right leg trails"
+  ],
+  "gate": "Approve pelvis, chest, shoulder, elbow, head, hands, equipment, knees and foot contact in all four poses before walking."
+}

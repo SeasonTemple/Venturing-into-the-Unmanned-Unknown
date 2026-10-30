@@ -1,0 +1,82 @@
+{
+  "revision": "pixel-turn-keyframes-v01-audit-v01",
+  "status": "diagnostic",
+  "frames": [
+    {
+      "index": 0,
+      "view": "front",
+      "alphaBounds": [
+        25,
+        10,
+        103,
+        184
+      ],
+      "visiblePixels": 6322,
+      "distinctRGBA": 4786,
+      "silhouetteWidthAtY80": 63
+    },
+    {
+      "index": 1,
+      "view": "turn-15",
+      "alphaBounds": [
+        28,
+        10,
+        89,
+        184
+      ],
+      "visiblePixels": 5033,
+      "distinctRGBA": 31,
+      "silhouetteWidthAtY80": 45
+    },
+    {
+      "index": 2,
+      "view": "turn-30",
+      "alphaBounds": [
+        31,
+        10,
+        86,
+        184
+      ],
+      "visiblePixels": 4859,
+      "distinctRGBA": 31,
+      "silhouetteWidthAtY80": 40
+    },
+    {
+      "index": 3,
+      "view": "turn-45",
+      "alphaBounds": [
+        31,
+        10,
+        82,
+        184
+      ],
+      "visiblePixels": 4649,
+      "distinctRGBA": 31,
+      "silhouetteWidthAtY80": 37
+    },
+    {
+      "index": 4,
+      "view": "side",
+      "alphaBounds": [
+        38,
+        10,
+        90,
+        184
+      ],
+      "visiblePixels": 4673,
+      "distinctRGBA": 3397,
+      "silhouetteWidthAtY80": 34
+    }
+  ],
+  "endpointDistinctRGBA": [
+    4786,
+    3397
+  ],
+  "middleDistinctRGBA": [
+    31,
+    31,
+    31
+  ],
+  "styleDensityRisk": true,
+  "interpretation": "RGBA count is a review signal only; it does not approve or reject the art."
+}
