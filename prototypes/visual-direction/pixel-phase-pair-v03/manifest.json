@@ -22,5 +22,7 @@
     "no interpolation or video",
     "needs target scene-size review",
     "upper body remains intentionally quiet for this phase check"
-  ]
+  ],
+  "sceneSizeReview": "scene-size-diagnostic.png",
+  "sceneSizeReviewStatus": "leg phases remain readable at approximately 104px character height; upper-body motion not yet evaluated"
 }

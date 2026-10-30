@@ -1,0 +1,73 @@
+{
+  "targetHeightPx": 104,
+  "scale": 0.2988505747126437,
+  "frames": [
+    {
+      "name": "right-support",
+      "sourceSize": [
+        260,
+        400
+      ],
+      "alphaBBox": [
+        47,
+        26,
+        200,
+        374
+      ],
+      "sceneScale": 0.2988505747126437,
+      "sceneHeight": 104.0,
+      "baselineCanvasY": 373
+    },
+    {
+      "name": "left-passing",
+      "sourceSize": [
+        260,
+        400
+      ],
+      "alphaBBox": [
+        44,
+        25,
+        202,
+        364
+      ],
+      "sceneScale": 0.2988505747126437,
+      "sceneHeight": 101.31,
+      "baselineCanvasY": 373
+    },
+    {
+      "name": "left-contact",
+      "sourceSize": [
+        260,
+        400
+      ],
+      "alphaBBox": [
+        44,
+        26,
+        201,
+        371
+      ],
+      "sceneScale": 0.2988505747126437,
+      "sceneHeight": 103.1,
+      "baselineCanvasY": 373
+    },
+    {
+      "name": "left-support",
+      "sourceSize": [
+        260,
+        400
+      ],
+      "alphaBBox": [
+        45,
+        26,
+        196,
+        372
+      ],
+      "sceneScale": 0.2988505747126437,
+      "sceneHeight": 103.4,
+      "baselineCanvasY": 373
+    }
+  ],
+  "status": "pending-small-size-visual-review",
+  "motionApproved": false,
+  "homepageIntegrated": false
+}
