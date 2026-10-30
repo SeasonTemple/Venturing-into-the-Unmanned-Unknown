@@ -1,0 +1,20 @@
+{
+  "frames": 48,
+  "imageRoundtrip": {
+    "1": true,
+    "13": true,
+    "31": true
+  },
+  "maxLandmarkErrorM": 0,
+  "maxHandleOffsetErrorM": 4.278086787449e-07,
+  "artApproved": false,
+  "physicalBalanceProven": false,
+  "elbowFlexRangeDegrees": [
+    14.662052582283309,
+    15.760486780666668
+  ],
+  "maxContactHeightErrorM": 2.9243528842926025e-07,
+  "maxAnkleTargetErrorM": 2.722226413208129e-06,
+  "maxEstimatedComTrajectoryErrorM": 0.0035280084421662025,
+  "noNewMediaGeneration": true
+}

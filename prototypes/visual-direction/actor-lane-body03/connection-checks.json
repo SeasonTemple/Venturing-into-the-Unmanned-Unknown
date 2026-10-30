@@ -1,0 +1,7 @@
+{
+  "startToStride": true,
+  "strideClosure": true,
+  "strideToLeftStop": true,
+  "strideToRightStop": true,
+  "artApprovalImplied": false
+}

@@ -1,0 +1,16 @@
+{
+  "frame": 12,
+  "layer": "pose_paint",
+  "point": [
+    93,
+    104
+  ],
+  "rgba": [
+    250,
+    184,
+    61,
+    255
+  ],
+  "baseRgbaSha256": "ec816c877e2f91d1aa75b7342b853eae006301a544aef3fc0f27a320376b643f",
+  "reason": "Authored cloth coverage at the loaded shoulder after full-body pose review; not automatic hole filling."
+}

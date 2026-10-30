@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-29",
+  "shortUrl": "https://b23.tv/ofIUetJ",
+  "resolvedTo": "https://space.bilibili.com/197808848",
+  "creator": "huxx_shadow",
+  "uid": 197808848,
+  "sampleWorks": [
+    {"bvid": "BV1FmxL62EZh", "title": "海星 | 程序化动画 | 运动学模拟", "durationSeconds": 31},
+    {"bvid": "BV1ZEso6XELX", "title": "海星 竖琴 | 程序化动画 | 德彪西《阿拉伯风格曲》", "durationSeconds": 44},
+    {"bvid": "BV1eFHG67EUL", "title": "章鱼 | 程序化动画 | 《野蜂飞舞》《潮鸣》", "durationSeconds": 124},
+    {"bvid": "BV16VxM6dEYb", "title": "螃蟹 (优化版) | 程序化动画 |《God Knows》", "durationSeconds": 286},
+    {"bvid": "BV1rxxj6SEZ5", "title": "玩偶鱼 | 程序化小动画", "durationSeconds": null}
+  ],
+  "referenceValue": {
+    "proceduralMotion": true,
+    "hierarchicalTransforms": true,
+    "contactAndStatePhases": true,
+    "performanceStructure": true,
+    "characterIdentityOrPixelStyle": false,
+    "humanFootAnatomy": false
+  },
+  "decision": "Use as technique reference for environment and constraint phases; do not substitute for character keypose validation."
+}

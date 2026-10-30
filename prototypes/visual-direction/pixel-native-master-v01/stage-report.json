@@ -1,0 +1,84 @@
+{
+  "revision": "character-production-stage-report-v01",
+  "updated": "2026-10-30",
+  "stage1IdentitySource": {
+    "status": "pass-as-source-contract",
+    "evidence": [
+      "manifest.json",
+      "direction-contract.json",
+      "pixel-native-master-v01.ora",
+      "reference-1x.png",
+      "view-references-4x.png"
+    ],
+    "verified": [
+      "four supplied directions remain separate pixel sources",
+      "front composite matches the approved source after hiding identity_lock",
+      "shared baseline, equipment ownership and unknown areas are recorded"
+    ],
+    "boundary": "This pass does not invent hidden anatomy or approve motion."
+  },
+  "stage2StoppedTurn": {
+    "status": "technical-evidence-only-visual-pending",
+    "evidence": [
+      "../pixel-turn-proof-v01/turn.json",
+      "../pixel-turn-proof-v01/turn-atlas-3x.png",
+      "../pixel-turn-keyframes-v01/manifest.json",
+      "../pixel-turn-keyframes-v01/turn-keyframes-native.png",
+      "../pixel-turn-keyframes-v01/turn-keyframes-atlas-3x.png",
+      "../pixel-turn-keyframes-v01/review-v01.json",
+      "../pixel-turn-keyframes-v01/audit-v01.json"
+    ],
+    "newSample": "../pixel-turn-keyframes-v01/manifest.json",
+    "verified": [
+      "complete endpoint and hand-authored intermediate frames load at 128 × 196",
+      "shared baseline and explicit no-transform method are recorded",
+      "native and 3x contact sheets plus editable OpenRaster source are present"
+    ],
+    "missing": "Visual acceptance is absent. Automated geometry, resource and behavior results do not authorize downstream artwork or homepage integration."
+  },
+  "stage3LoadedKeyposes": {
+    "status": "technical-evidence-only-visual-pending",
+    "requires": "A visually accepted full-body source and pose; not satisfied.",
+    "evidence": [
+      "../pixel-loaded-keyposes-v01/manifest.json",
+      "../pixel-loaded-keyposes-v01/loaded-keyposes-native.png",
+      "../pixel-loaded-keyposes-v01/loaded-keyposes-atlas-3x.png",
+      "../pixel-loaded-keyposes-v01/review-v01.json",
+      "../pixel-loaded-keyposes-v01/audit-v01.json"
+    ],
+    "verified": [
+      "four distinct complete pose frames are authored",
+      "head top stays within y=10..11 and all sole contact rows end at y=183",
+      "support, forward, heel-contact and left-bearing pose labels are recorded",
+      "upper-body centroid moves with the weight sequence rather than remaining fixed"
+    ],
+    "missing": "Visual acceptance is absent. Automated geometry, resource and behavior results do not authorize downstream artwork or homepage integration."
+  },
+  "stage4HomepageIntegration": {
+    "status": "visual-rejected",
+    "requires": "A visually accepted full-body source and pose; not satisfied.",
+    "evidence": [
+      "../pixel-walk-v01/manifest.json",
+      "../pixel-walk-v01/walk-native.png",
+      "../pixel-walk-v01/walk-atlas-3x.png",
+      "../pixel-walk-v01/review-v01.json",
+      "../pixel-walk-v01/audit-v01.json",
+      "../pixel-route-v01/behavior-checks.json",
+      "../pixel-route-v01/soak-checks.json",
+      "../pixel-route-v01/home-checks.json",
+      "../../../scripts/check-home-pixel-route-browser.mjs"
+    ],
+    "verified": [
+      "eight unique complete frames are authored",
+      "right/left contact, lift, forward and heel phases are represented",
+      "all frames share the y=183 contact contract",
+      "independent route behavior shell passes browser checks without homepage integration",
+      "preview-only homepage route can show the actor at the verification point and complete previous-stop movement",
+      "preview-only turn sequence completes and returns to the authored left-facing state",
+      "preview-only desktop, narrow layout, reduced motion and runtime-error checks pass",
+      "ten-minute independent route soak keeps 14 resources and does not show sustained heap growth"
+    ],
+    "missing": "Visual acceptance is absent. Automated geometry, resource and behavior results do not authorize downstream artwork or homepage integration."
+  },
+  "nextAction": "Restore one complete source-consistent loaded pose beside the untouched source; do not extend frames, directions or homepage integration."
+}

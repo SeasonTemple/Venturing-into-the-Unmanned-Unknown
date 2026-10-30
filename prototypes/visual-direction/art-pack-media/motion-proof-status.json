@@ -1,0 +1,423 @@
+{
+  "checkedOn": "2026-10-29",
+  "stage": "Calibrated unladen FK baseline with synchronized source/target/deformed-mesh review",
+  "status": "hands02-withdrawn-foot-contact-failure; method-review-required",
+  "currentHipCorrection": {
+    "page": "../actor-motion-review.html?study=hip06&revision=hip06",
+    "record": "../../../docs/homepage-character-hip-correction.md",
+    "delivery": "../actor-rig-v06/actor-v06-delivery.json",
+    "rightHipTransition": [
+      197,
+      220
+    ],
+    "leftHipTransition": [
+      202,
+      229
+    ],
+    "boneMotionUnchanged": true,
+    "artApproved": false,
+    "productionIntegrated": false,
+    "newPaidMediaRequests": 0,
+    "reviewOutcome": "rejected",
+    "recommended": false,
+    "rejectionReasons": [
+      "Upper thigh has a false hinge between the pelvis-fixed strip and rotating leg.",
+      "First posed frame switches both knees to the opposite planar IK branch from the source rest.",
+      "Leg crossing, clothing volume and shoe contact are not credible in the complete figure."
+    ]
+  },
+  "activeAuth": {
+    "method": "oauth",
+    "source": "config.json"
+  },
+  "videoEligibility": {
+    "eligible": false,
+    "current_interval_total_count": 0,
+    "current_weekly_total_count": 0,
+    "current_interval_status": 3,
+    "current_weekly_status": 3,
+    "reportedRemainingPercent": 100,
+    "cliText": "不在当前套餐中",
+    "interpretation": "The remaining percentage does not mean video is included. MMX's installed quota formatter classifies both zero totals plus status 3 as not in the current plan."
+  },
+  "newImageGenerationCalls": 0,
+  "newVideoCreationRequests": 0,
+  "newVideoTaskIds": [],
+  "input": "walk-left-input-v03.png",
+  "inputFrame": 96,
+  "inputOriginalVideo": "../meadow-media/directional-v02.mp4",
+  "inputTimeSeconds": 4,
+  "legacyVideoTask": "456891456205414",
+  "walkingApproved": false,
+  "research": "../../../docs/homepage-motion-method-research.md",
+  "nextStep": "Stop local FK patching. Audit target foot rest axes, shoe/toe weights and support transitions; compare calibrated-FK and four-keypose raster routes before producing another walk cycle.",
+  "currentGaitStudy": {
+    "version": "gait05",
+    "page": "../actor-motion-review.html?study=gait05&revision=gait05",
+    "record": "../../../docs/homepage-character-gait-study.md",
+    "delivery": "../actor-rig-v05/actor-v05-delivery.json",
+    "validation": "../actor-rig-v05/actor-v05-validation.json",
+    "previewFrames": 49,
+    "previewFps": 12,
+    "actualLeadFootSequence": [
+      "R",
+      "L",
+      "R"
+    ],
+    "rootTravelPx": 60,
+    "sourceViewOnly": true,
+    "footRollImplemented": false,
+    "artApproved": false,
+    "productionIntegrated": false,
+    "newPaidMediaRequests": 0,
+    "reviewOutcome": "rejected",
+    "recommended": false
+  },
+  "currentFrameReview": {
+    "version": "cloth04",
+    "page": "../actor-motion-review.html?revision=cloth04",
+    "record": "../../../docs/homepage-character-motion-retouch.md",
+    "delivery": "../actor-rig-v04/review.json",
+    "recipe": "../actor-rig-v04/actor-v04-retouch.recipe.json",
+    "validation": "../actor-rig-v04/actor-v04-validation.json",
+    "editValidation": "../actor-rig-v04/actor-v04-edit-validation.json",
+    "poseRetouchFrames": 20,
+    "previewFrames": 49,
+    "previewFps": 12,
+    "sourceMotion": "v03",
+    "headGripSolesAndSilhouetteUnchanged": true,
+    "artApproved": false,
+    "temporalArtApproved": false,
+    "productionIntegrated": false,
+    "newPaidMediaRequests": 0
+  },
+  "currentMotionStudy": {
+    "version": "v03",
+    "record": "../../../docs/homepage-character-load-motion.md",
+    "delivery": "../actor-rig-v03/actor-v03-delivery.json",
+    "previewVideo": "../actor-rig-v03/actor-v03-motion.mp4",
+    "losslessPreview": "../actor-rig-v03/actor-v03-motion.webp",
+    "previewFrames": 49,
+    "previewFps": 12,
+    "fixedSupportVerified": true,
+    "opaqueSolePixelsStableInSupport": true,
+    "gripAttachmentVerified": true,
+    "stoppedHeadPixelsStable": true,
+    "savedProjectRerendersVerified": true,
+    "poseRetouchApplied": false,
+    "artApproved": false,
+    "reusableWalkCycleValidated": false,
+    "sceneContactValidated": false,
+    "productionIntegrated": false,
+    "newPaidMediaRequests": 0
+  },
+  "currentCharacterPipeline": {
+    "version": "v02",
+    "record": "../../../docs/homepage-character-editable-pipeline.md",
+    "review": "../actor-rig-v02/actor-v02-comparison.png",
+    "delivery": "../actor-rig-v02/actor-v02-delivery.json",
+    "editableMaster": "../actor-rig-v02/actor-v02-editable.blend",
+    "sharedPaintLayers": "../actor-rig-v02/actor-v02-layers.ora",
+    "selectedPosePaint": "../actor-rig-v02/pose-corrections-v02b/passing.ora",
+    "selectedFramesDirectory": "../actor-rig-v02/final-v02b/",
+    "sharedLayerReimportVerified": true,
+    "posePaintReimportVerified": true,
+    "croppedLayerOffsetsVerified": true,
+    "staleBaseRejectionVerified": true,
+    "failedExportPreservesPriorOutput": true,
+    "artApproved": false,
+    "walkCycleValidated": false,
+    "productionIntegrated": false,
+    "newPaidMediaRequests": 0
+  },
+  "approvedActorMigration": {
+    "record": "../../../docs/homepage-actor-rig-migration.md",
+    "review": "../actor-rig-media/actor-v01-review.png",
+    "result": "../actor-rig-media/actor-v01.json",
+    "validation": "../actor-rig-media/actor-v01-validation.json",
+    "editableMaster": "../actor-rig-media/actor-v01-editable.blend",
+    "editablePaintLayers": "../actor-rig-media/actor-v01-layers.ora",
+    "source": "actor-front.png",
+    "layers": 9,
+    "bones": 18,
+    "authoredPoses": [
+      "standing",
+      "contact",
+      "passing"
+    ],
+    "sourceLayerMergePixelIdentical": true,
+    "savedProjectRerenderVerified": true,
+    "editableLayerReimportVerified": true,
+    "artApproved": false,
+    "walkingTested": false,
+    "productionIntegrated": false,
+    "newPaidMediaRequests": 0
+  },
+  "cutoutPipelineReproduction": {
+    "record": "../../../docs/homepage-cutout-pipeline-reproduction.md",
+    "source": "ndee85/coa_tools Sample Files/stip.blend",
+    "sourceCommit": "167e0b2fd75f51a1a3b2284044b210ac886be208",
+    "preview": "../cutout-pipeline-media/cutout-reproduction.gif",
+    "editableBase": "../cutout-pipeline-media/base-editable.blend",
+    "editablePoseEdit": "../cutout-pipeline-media/edited-editable.blend",
+    "framesPerVariant": 20,
+    "bones": 23,
+    "packedTextures": 22,
+    "technicalReproduction": true,
+    "savedProjectRerenderVerified": true,
+    "homepageCharacterMigrated": false,
+    "artApproved": false,
+    "productionIntegrated": false,
+    "newPaidMediaRequests": 0
+  },
+  "completeRasterStudy": {
+    "page": "../pixel-stance.html",
+    "record": "../pixel-character-media/pixel-stance-v04.json",
+    "authoring": "../pixel-character-media/pixel-stance-v04.ora",
+    "method": "Complete program-assisted raster drawing from explicit pixel-cluster brush commands; no source image pixels, local body transforms or texture sampling.",
+    "artApproved": false,
+    "walkingTested": false,
+    "productionIntegrated": false,
+    "mmxGeneratedCandidatesThisRound": 1,
+    "mmxSelectedThisRound": 0
+  },
+  "offlineMasterStudy": {
+    "page": "../character-master-v02.html",
+    "record": "../character-master-media/master-v02.json",
+    "editableMaster": "../character-master-media/character-master-v02.blend",
+    "technicalChainValidated": true,
+    "artApproved": false,
+    "walkingTested": false,
+    "productionIntegrated": false,
+    "newPaidMediaRequests": 0
+  },
+  "standingStudy": {
+    "page": "../standing-review.html?revision=standing02",
+    "record": "../standing-media/standing-lower-v02.json",
+    "artApproved": false,
+    "newImagesGenerated": 4,
+    "newVideoRequests": 0,
+    "latestChange": "Static trouser/boot contour redraw, original front cloth samples, upper body preserved. Art approval remains false."
+  },
+  "supplementaryResearch": "../../../docs/homepage-asset-route-supplement.md",
+  "tripoResearch": {
+    "cliVersion": "0.7.3",
+    "proxyReadOnlyBalanceQuery": "succeeded",
+    "availableCredits": 0,
+    "dryRunValid": true,
+    "newTasks": 0,
+    "modelOrMotionQualityValidated": false
+  },
+  "prototype": {
+    "page": "../motion-proof.html?revision=walk01",
+    "record": "../motion-proof-media/motion.json",
+    "walkFramesEachDirection": 24,
+    "turnFrames": 19,
+    "totalPoseFrames": 69,
+    "productionIntegrated": false
+  },
+  "delivery": "../../../docs/homepage-motion-prototype.md",
+  "retrospective": "../../../docs/homepage-character-production-retrospective.md",
+  "pipelineResearch": "../../../docs/homepage-character-pipeline-decision.md",
+  "pipelineDecisionStudy": "../../../docs/research/actor-pipeline-decision-study.json",
+  "supplementaryCourseResearch": "../../../docs/homepage-bilibili-course-pipeline-review.md",
+  "acceptedMotion": null,
+  "identityBaseline": "actor-front.png",
+  "currentStaticPoseStudy": {
+    "record": "../../../docs/homepage-character-contour-keyposes.md",
+    "preview": "../actor-keypose-art/keyposes-review.png",
+    "sharedEditable": "../actor-keypose-art/working-cloth.ora",
+    "specification": "../actor-keypose-art/keypose.spec.json",
+    "method": "Explicit pose contours with source-cloth sampling and rigid upper-body transforms; not a full redraw",
+    "poses": [
+      "load",
+      "passing",
+      "contact"
+    ],
+    "motionProduced": false,
+    "artApproved": false,
+    "productionIntegrated": false,
+    "newPaidMediaRequests": 0
+  },
+  "currentContourMotion": {
+    "record": "../../../docs/homepage-character-contour-motion.md",
+    "previewVideo": "../actor-contour-motion/loaded-step.mp4",
+    "specification": "../actor-contour-motion/motion.spec.json",
+    "authoring": "../actor-contour-motion/authoring.json",
+    "validation": "../actor-contour-motion/constraint-checks.json",
+    "seamValidation": "../actor-contour-motion/seam-checks.json",
+    "frameCount": 65,
+    "fps": 16,
+    "scope": "Two loaded steps and settling; one view, no turn or loop",
+    "headRasterPreserved": true,
+    "artApproved": false,
+    "productionIntegrated": false,
+    "newPaidMediaRequests": 0
+  },
+  "currentLaneStudy": {
+    "page": "../actor-lane.html?revision=body03",
+    "record": "../../../docs/homepage-character-lane.md",
+    "manifest": "../actor-lane-media/lane.json",
+    "connections": "../actor-lane-media/connection-checks.json",
+    "startStrideAndBothStops": true,
+    "keyboardAndClick": true,
+    "sourceViewOnly": true,
+    "artApproved": false,
+    "productionIntegrated": false,
+    "newPaidMediaRequests": 0,
+    "bodyResponseVersion": "body03",
+    "bodyRecord": "../actor-lane-body03/linked-upper-checks.json",
+    "bodyComparison": "../actor-lane-body03/linked-upper-comparison.mp4",
+    "reviewOutcome": "connection-experiment",
+    "previousBodyResponseReview": {
+      "version": "body02",
+      "reviewOutcome": "rejected",
+      "reason": "Chest slides beneath independently translated head/neck; whole-body motion remains unnatural."
+    },
+    "naturalMotionApproved": false
+  },
+  "wholeMotionReference": {
+    "date": "2026-10-29",
+    "page": "../actor-production.html?revision=motion-source01",
+    "reference": "../actor-motion-reference-v02/reference.json",
+    "source": "CMU 07_01 walk, 120fps",
+    "purpose": "Whole-body motion and occlusion reference only",
+    "acceptedMotion": null,
+    "walkingApproved": false,
+    "artApproved": false,
+    "productionIntegrated": false,
+    "record": "../../../docs/homepage-character-whole-motion-source.md",
+    "reviewOutcome": "rejected-retargeting",
+    "rejectionReasons": [
+      "Pelvis lateral translation and orientation omitted.",
+      "Whole-body shoe grounding confused with support.",
+      "Independent arm rotations broke the shoulder-elbow-wrist relationship."
+    ]
+  },
+  "currentBalanceReference": {
+    "date": "2026-10-29",
+    "page": "../actor-production.html?revision=balance01",
+    "reference": "../actor-balance-reference-v01/reference.json",
+    "checks": "../actor-balance-reference-v01/evaluation-checks.json",
+    "threeViewReview": "../actor-balance-reference-v01/review/three-view-review.png",
+    "editableMaster": "../actor-balance-reference-v01/motion-reference.blend",
+    "record": "../../../docs/homepage-character-whole-motion-source.md",
+    "source": "CMU 07_01 walk, 120fps; occupied arms locally adapted",
+    "bodyMassKg": 75,
+    "caseMassKg": 3,
+    "recorderMassKg": 0.35,
+    "pelvisMotionTransferred": true,
+    "actualContactSolesChecked": true,
+    "savedProjectRerendersVerified": true,
+    "horizontalSlipCorrected": false,
+    "physicalBalanceProven": false,
+    "naturalMotionApproved": false,
+    "artApproved": false,
+    "walkingApproved": false,
+    "productionIntegrated": false,
+    "newPaidMediaRequests": 0,
+    "reviewOutcome": "rejected",
+    "recommended": false,
+    "rejectionReasons": [
+      "User identified the left knee visibly bending backwards.",
+      "11 leg/frame samples bend backwards around the original anatomical knee axis.",
+      "Near-straight source knees do not provide a stable positional IK pole.",
+      "Ankle residuals and saved-project reproducibility did not validate anatomy."
+    ],
+    "audit": "../../../docs/research/actor-knee-axis-audit.json",
+    "comparison": "../../../docs/images/homepage-knee-axis-rejection.png"
+  },
+  "kneeAxisExperiment": {
+    "directory": ".lab/whole-walk/knee-axis01",
+    "backwardKneesRemoved": true,
+    "sourceFlexionPreserved": false,
+    "naturalMotionApproved": false,
+    "productionIntegrated": false,
+    "decision": "Diagnostic only; not promoted to a new motion reference"
+  },
+  "currentFKReference": {
+    "page": "../actor-fk-review.html?revision=hands02",
+    "record": "../../../docs/homepage-character-fk-baseline.md",
+    "reference": "../actor-fk-reference-v02/reference.json",
+    "checks": "../actor-fk-reference-v02/evaluation-checks.json",
+    "editableMaster": "../actor-fk-reference-v02/motion-reference.blend",
+    "review": "../actor-fk-reference-v02/keypose-review.png",
+    "sourceTargetMeshSynchronized": true,
+    "sourceKneeElbowCurvesVerifiedFromSavedRig": true,
+    "singleStaticGroundCalibration": true,
+    "perFrameFootIK": false,
+    "massTrajectoryFitting": false,
+    "fixedFloorSoleResidualMm": [
+      -7.886269129812717,
+      12.336492538452148
+    ],
+    "loadedMotionProvided": false,
+    "artApproved": false,
+    "walkingApproved": false,
+    "naturalLoadedGaitApproved": false,
+    "productionIntegrated": false,
+    "newPaidMediaRequests": 0,
+    "previousHandReview": {
+      "version": "fk01",
+      "outcome": "rejected-hand-mapping",
+      "reason": "Unvalidated helper-point palm mapping and reset fingers cause persistent wrist deviation and splayed hands."
+    },
+    "handPose": "Authored neutral palm and relaxed fingers; captured forearm pronation retained.",
+    "handReview": "../actor-fk-reference-v02/hand-review/hand-contact-sheet.png",
+    "maxBodyAndWristJointChangeFromFK01M": 5.497296674757217e-07,
+    "wholeCharacterArtApproved": false,
+    "reviewOutcome": "rejected-foot-contact",
+    "rejectionReasons": [
+      "Frame 48 left stance shoe bottom plane is approximately 26.4 degrees from horizontal.",
+      "Bottom-surface heights span about -1.63 to +46.64 mm; the lowest vertex alone falsely suggested contact.",
+      "Feet and toes still copy source world rotations without target shoe-axis calibration.",
+      "Complete support transitions were not visually validated from multiple views."
+    ],
+    "audit": "../../../docs/homepage-character-foot-contact-audit.md",
+    "methodDecision": "Withdraw current FK output as a motion baseline; compare a corrected foot-calibration FK proof with a four-keypose raster proof before expanding scope.",
+    "footContactAudit": "../actor-fk-reference-v02/foot-contact-audit.json",
+    "footContactMethod": "Evaluated shoe geometry bottom-sample plane fit; lowest vertex is explicitly non-authoritative.",
+    "footContactAuditSummary": {
+      "frameCount": 48,
+      "maxSoleTiltDegrees": 75.76104421371316,
+      "frame48": {
+        "frame": 48,
+        "sourceFrame": 236,
+        "sides": {
+          "R": {
+            "tiltDegrees": 18.448625385183675,
+            "rmsMm": 4.391587961852006,
+            "sampleCount": 65,
+            "heightRangeMm": [
+              32.174210995435715,
+              79.59946244955063
+            ],
+            "lowestPointMm": 32.174210995435715
+          },
+          "L": {
+            "tiltDegrees": 26.593565896371043,
+            "rmsMm": 1.1177996891635664,
+            "sampleCount": 65,
+            "heightRangeMm": [
+              -1.6344174509868026,
+              49.95883256196976
+            ],
+            "lowestPointMm": -1.6344174509868026
+          }
+        }
+      }
+    },
+    "footCalibrationExperiment": {
+      "directory": "../../.lab/whole-walk/fk-foot02",
+      "mode": "relative source-rest to target-rest foot rotation",
+      "reviewOutcome": "rejected-simple-calibration",
+      "frame48LeftSoleTiltDegrees": 28.2918231,
+      "fixedFloorResidualRangeMm": [
+        -20.9854525,
+        20.8239518
+      ],
+      "kneeElbowChecks": "passed",
+      "decision": "Requires foot geometry/weight/support-roll reconstruction; do not promote."
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "method": "Existing editable CC0 structural master, actual Eevee lights, pinned upstream pixel shader with explicit project ramps, two full-rig orientations.",
+  "sourceMaster": "prototypes\\visual-direction\\character-master-media\\character-master-v02.blend",
+  "sourceMasterSha256": "782b5fa21436b0c2cc4681cdabd151848bf98e33e0f3f613596bae3b58e6bea2",
+  "sourceShaderCommit": "f13502c1fa71fd92e3969f35e9edeab17f4da52d",
+  "sourceShaderSha256": "f2f52c52a1902eb5415bef59501c40aaa39590a74d5e50643afab0135decf555",
+  "shaderAdaptation": [
+    "Bayer texture held/packed in memory; no /tmp writes.",
+    "Project color ramps replace default hue outputs.",
+    "Source hair alpha retained with a deterministic threshold.",
+    "Screen-space Bayer blending disabled; mesh normals retained.",
+    "32 Eevee samples reduce stochastic shadow speckles."
+  ],
+  "palettes": {
+    "skin": [
+      "594434",
+      "956746",
+      "c7915b",
+      "e9bb7f",
+      "f6d9a0"
+    ],
+    "coat": [
+      "59372c",
+      "914322",
+      "c96927",
+      "e99838",
+      "f5c66a"
+    ],
+    "pants": [
+      "182a29",
+      "2b4035",
+      "44583a",
+      "73845a",
+      "a8b77a"
+    ],
+    "boots": [
+      "172224",
+      "25312d",
+      "424a3b",
+      "687253",
+      "a0a785"
+    ],
+    "hair": [
+      "101a1c",
+      "192625",
+      "29372b",
+      "44523a",
+      "647147"
+    ],
+    "metal": [
+      "334c48",
+      "617c72",
+      "92a696",
+      "becdb7",
+      "e5e9cd"
+    ],
+    "recorder": [
+      "183c35",
+      "2b5946",
+      "4c7c5b",
+      "82a677",
+      "b7cc91"
+    ],
+    "dark": [
+      "102324",
+      "1b302e",
+      "29413a",
+      "3b5747",
+      "63795b"
+    ],
+    "eye": [
+      "838f78",
+      "aab59b",
+      "cad0b0",
+      "e2e1c0",
+      "f5efd1"
+    ],
+    "stubble": [
+      "3d382d",
+      "5a4a35",
+      "7e6344",
+      "aa8a60",
+      "d1b381"
+    ]
+  },
+  "frames": [
+    {
+      "frame": 1,
+      "pose": "front-quarter",
+      "rootAngleDegrees": 0,
+      "anchor": [
+        80.0,
+        202.0141897201538
+      ],
+      "sameCamera": true,
+      "sourceJointPoseUnchanged": true
+    },
+    {
+      "frame": 2,
+      "pose": "turned",
+      "rootAngleDegrees": -35,
+      "anchor": [
+        80.0,
+        202.0141897201538
+      ],
+      "sameCamera": true,
+      "sourceJointPoseUnchanged": true
+    }
+  ],
+  "resolution": [
+    160,
+    224
+  ],
+  "lightDirection": [
+    -3.0,
+    -4.0,
+    6.0
+  ],
+  "paidGenerationCalls": 0,
+  "sourceLimitations": [
+    "Generic structural master is not an approved project character.",
+    "Source finger grip and clothing remain to be judged visually.",
+    "No new walking pose, retargeting or animation interpolation."
+  ],
+  "artApproved": false,
+  "walkingApproved": false,
+  "homepageIntegrated": false,
+  "renderSamples": 32
+}

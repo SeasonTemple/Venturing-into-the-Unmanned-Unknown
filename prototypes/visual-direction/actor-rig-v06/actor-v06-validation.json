@@ -1,0 +1,131 @@
+{
+  "sourceIdentityAndEquipmentPreserved": true,
+  "headScaleUnchanged": true,
+  "sourceReferenceAlphaIdentical": true,
+  "supportChecks": [
+    {
+      "from": 1,
+      "to": 4,
+      "legs": [
+        "R",
+        "L"
+      ],
+      "side": "R",
+      "maxAnkleErrorPx": 3.814697265625e-06,
+      "maxFootMatrixError": 3.814697265625e-06
+    },
+    {
+      "from": 1,
+      "to": 4,
+      "legs": [
+        "R",
+        "L"
+      ],
+      "side": "L",
+      "maxAnkleErrorPx": 4.264961199760036e-06,
+      "maxFootMatrixError": 3.814697265625e-06
+    },
+    {
+      "from": 4,
+      "to": 13,
+      "legs": [
+        "R"
+      ],
+      "side": "R",
+      "maxAnkleErrorPx": 5.7220458984375e-06,
+      "maxFootMatrixError": 5.7220458984375e-06
+    },
+    {
+      "from": 13,
+      "to": 15,
+      "legs": [
+        "R",
+        "L"
+      ],
+      "side": "R",
+      "maxAnkleErrorPx": 4.264961199760036e-06,
+      "maxFootMatrixError": 3.814697265625e-06
+    },
+    {
+      "from": 13,
+      "to": 15,
+      "legs": [
+        "R",
+        "L"
+      ],
+      "side": "L",
+      "maxAnkleErrorPx": 6.877043295791605e-06,
+      "maxFootMatrixError": 5.7220458984375e-06
+    },
+    {
+      "from": 15,
+      "to": 23,
+      "legs": [
+        "L"
+      ],
+      "side": "L",
+      "maxAnkleErrorPx": 6.877043295791605e-06,
+      "maxFootMatrixError": 5.7220458984375e-06
+    },
+    {
+      "from": 23,
+      "to": 49,
+      "legs": [
+        "R",
+        "L"
+      ],
+      "side": "R",
+      "maxAnkleErrorPx": 1.375408659158321e-05,
+      "maxFootMatrixError": 1.1444091796875e-05
+    },
+    {
+      "from": 23,
+      "to": 49,
+      "legs": [
+        "R",
+        "L"
+      ],
+      "side": "L",
+      "maxAnkleErrorPx": 7.62939453125e-06,
+      "maxFootMatrixError": 7.62939453125e-06
+    }
+  ],
+  "maxGripErrorPx": 1.7059844799041168e-05,
+  "actualLeadFootSequence": [
+    "R",
+    "L",
+    "R"
+  ],
+  "rootTravelMonotone": true,
+  "minTravelPerFrameDuringStridesPx": 1.6290718611884105,
+  "stoppedHeadPixelsIdenticalFrames31To49": true,
+  "noFrameClipped": true,
+  "savedRigRerenderIdenticalFrames": [
+    0,
+    8,
+    13,
+    18,
+    23,
+    31,
+    49
+  ],
+  "durationSeconds": 4.083333333333333,
+  "footRollImplemented": false,
+  "poseRetouchReused": false,
+  "compositeSolePixelStabilityClaimed": false,
+  "artApproved": false,
+  "sceneValidated": false,
+  "newPaidMediaRequests": 0,
+  "boneMotionIdenticalToV05": true,
+  "headHandsAndLowerLegRegionPixelsUnchanged": true,
+  "hipTransitionBySide": {
+    "R": [
+      197,
+      220
+    ],
+    "L": [
+      202,
+      229
+    ]
+  }
+}

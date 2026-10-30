@@ -1,0 +1,22 @@
+{
+  "version": "hip06",
+  "page": "../actor-motion-review.html?study=hip06&revision=hip06",
+  "record": "../../../docs/homepage-character-hip-correction.md",
+  "previewVideo": "actor-v06-comparison.mp4",
+  "rigSource": "actor-v06-editable.blend",
+  "sharedPaintSource": "actor-v06-layers.ora",
+  "specification": "actor-rig-v06.spec.json",
+  "validation": "actor-v06-validation.json",
+  "scope": "Right/toolbox-side hip-to-thigh skin weighting on unchanged v05 bone motion",
+  "leftHipCoverageUnresolved": true,
+  "artApproved": false,
+  "homepageIntegrated": false,
+  "newPaidMediaRequests": 0,
+  "reviewOutcome": "rejected",
+  "recommended": false,
+  "rejectionReasons": [
+    "Upper thigh has a false hinge between the pelvis-fixed strip and rotating leg.",
+    "First posed frame switches both knees to the opposite planar IK branch from the source rest.",
+    "Leg crossing, clothing volume and shoe contact are not credible in the complete figure."
+  ]
+}

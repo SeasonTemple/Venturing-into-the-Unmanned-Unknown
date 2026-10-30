@@ -1,0 +1,19 @@
+{
+  "oraArchiveValid": true,
+  "layers": 8,
+  "layerRecompositionMatchesNativePNG": true,
+  "mergedImageMatchesNativePNG": true,
+  "pngMode": "RGBA",
+  "pngDimensions": [
+    128,
+    196
+  ],
+  "bodyAlphaBounds": [
+    33,
+    17,
+    90,
+    193
+  ],
+  "artApproved": false,
+  "interpretation": "File integrity only; this does not establish natural anatomy or style approval."
+}

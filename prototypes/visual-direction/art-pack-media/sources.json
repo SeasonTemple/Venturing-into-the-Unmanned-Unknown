@@ -1,0 +1,393 @@
+{
+  "created": "2026-10-28",
+  "stage": "key art / first review; art gate not passed",
+  "imageGenerationCalls": 4,
+  "videoCreationAttempts": 1,
+  "videoTasksCreated": 0,
+  "records": [
+    {
+      "name": "art-notebook-v03",
+      "model": "image-01",
+      "service": "MiniMax through mmx-cli",
+      "seed": 281101,
+      "prompt": "../meadow-prompts/art-notebook-v03.txt",
+      "promptSha256": "e4547b5bf9dafcc48286816b262d7bec7dea5a6c50bfe1288ebe1e483e0eae97",
+      "subjectReference": "../meadow-media/hero-v04.webp",
+      "referenceSha256": "7f799e726a758af65aed2fe3c886f539e2670cb92c97ad7aca97109601ed91c2",
+      "source": "art-notebook-v03_001.jpg",
+      "sourceSha256": "87f2b7d23032425b9a32695149d6db516d67af20e47db525a8e61fc47c22c1f4",
+      "width": 1920,
+      "height": 1080,
+      "selection": "Photographic hands and book; rejected for pixel style.",
+      "productionUse": false
+    },
+    {
+      "name": "art-relay-v01",
+      "model": "image-01",
+      "service": "MiniMax through mmx-cli",
+      "seed": 281102,
+      "prompt": "../meadow-prompts/art-relay-v01.txt",
+      "promptSha256": "cb99b6cd3859da223e8d602fbb4c3cecb8c3d3ba9307c1bade9e1d6f7411988e",
+      "subjectReference": "../meadow-media/hero-v04.webp",
+      "referenceSha256": "7f799e726a758af65aed2fe3c886f539e2670cb92c97ad7aca97109601ed91c2",
+      "source": "art-relay-v01_001.jpg",
+      "sourceSha256": "5e920e69ed0b78e98f55bec9bd3521ae7ea3437a3b4725457c5ab6f120cb9497",
+      "width": 1920,
+      "height": 1080,
+      "selection": "Heavy rover, smooth rendering and invented towers; rejected for identity and spatial continuity.",
+      "productionUse": false
+    },
+    {
+      "name": "art-boundary-v03",
+      "model": "image-01",
+      "service": "MiniMax through mmx-cli",
+      "seed": 281103,
+      "prompt": "../meadow-prompts/art-boundary-v03.txt",
+      "promptSha256": "a680aa099193bd8dc5dca7b022e4367a2ae961b570a169f227e80560e1314889",
+      "subjectReference": "../meadow-media/hero-v04.webp",
+      "referenceSha256": "7f799e726a758af65aed2fe3c886f539e2670cb92c97ad7aca97109601ed91c2",
+      "source": "art-boundary-v03_001.jpg",
+      "sourceSha256": "ebe0e83b258c24bee9abaa93f44943a93727649b739587d98c17733a44172aaa",
+      "width": 1920,
+      "height": 1080,
+      "selection": "Smooth 3D style and wrong path/device scale; rejected.",
+      "productionUse": false
+    },
+    {
+      "name": "art-cast-v03",
+      "model": "image-01",
+      "service": "MiniMax through mmx-cli",
+      "seed": 281104,
+      "prompt": "../meadow-prompts/art-cast-v03.txt",
+      "promptSha256": "4cd5cc62d6ca87996a88403d6404e9c58953dbcc7c95a5950ad1e4f869b961bc",
+      "subjectReference": "../meadow-media/directional-input-v02.png",
+      "referenceSha256": "1e0de52cffb512f6015bb5d39d636b4020026e7c77ff262ea3954b305d929cd2",
+      "source": "art-cast-v03_001.jpg",
+      "sourceSha256": "74f91288721b5409186bdbc26b2f6eb8fdf135730fd38eca2488ff62b60415d5",
+      "width": 1920,
+      "height": 1080,
+      "selection": "Costume/equipment drift, wrong pose count and smooth style; rejected as character/animation source.",
+      "productionUse": false
+    }
+  ],
+  "videoAttempt": {
+    "model": "MiniMax-Hailuo-2.3",
+    "input": "../meadow-media/directional-left-v02.png",
+    "inputSha256": "07c03d0e9fc602f00d4e4ada24bf2285a73e929dafc2295a92af9764e258575f",
+    "prompt": "../meadow-prompts/art-walk-proof-v01.txt",
+    "promptSha256": "2c553f1e8b2263947e6f17ebcf669a29e7117fefa4c9fc7c87f0b79254efd7bd",
+    "result": "Token Plan quota limit; creation failed; no task ID or video; no retry. Later exact-frame audit found this legacy input is a rear view, not the intended side view; do not reuse it for a side-walk request.",
+    "taskId": null
+  },
+  "orientationAudit": {
+    "source": "../meadow-media/directional-v02.mp4",
+    "sourceSha256": "6d0287232d6ecdb9c05484d6dbdf977d4f2b239102abf0be9b78f3de3632421f",
+    "sourceFps": 24,
+    "poses": [
+      {
+        "file": "actor-front.png",
+        "view": "original standing identity reference",
+        "frame": null,
+        "seconds": null
+      },
+      {
+        "file": "actor-side.png",
+        "view": "left-facing side profile",
+        "frame": 96,
+        "seconds": 4
+      },
+      {
+        "file": "actor-back-side.png",
+        "view": "left-facing rear three-quarter",
+        "frame": 48,
+        "seconds": 2
+      },
+      {
+        "file": "actor-back.png",
+        "view": "rear view",
+        "frame": 84,
+        "seconds": 3.5
+      }
+    ],
+    "walkingApproved": false,
+    "newGenerationCalls": 0
+  },
+  "derived": [
+    {
+      "file": "station-overcast.webp",
+      "sha256": "af92976838191fb2321507f6ad20fe1d5d4de356cca5c6c07c160bca55ead50f",
+      "bytes": 203892,
+      "width": 1920,
+      "height": 1080,
+      "sources": [
+        "../meadow-media/hero-v04.webp"
+      ],
+      "processing": "Connected sky mask, separate roof/ground palette, localized night light masks and pixel light fixtures; no new weather geometry or dynamic shadows.",
+      "status": "review study; not approved final art"
+    },
+    {
+      "file": "station-overcast-small.webp",
+      "sha256": "472def070400b81ec6b7e80b994aae85d512a8d710857017d7d74e7739805a68",
+      "bytes": 48624,
+      "width": 960,
+      "height": 540,
+      "sources": [
+        "../meadow-media/hero-v04.webp"
+      ],
+      "processing": "Connected sky mask, separate roof/ground palette, localized night light masks and pixel light fixtures; no new weather geometry or dynamic shadows.",
+      "status": "review study; not approved final art"
+    },
+    {
+      "file": "station-evening.webp",
+      "sha256": "a544bbb07c31739616af551c16e4cb698bce337422db3d45e28f68eb8a293d24",
+      "bytes": 230470,
+      "width": 1920,
+      "height": 1080,
+      "sources": [
+        "../meadow-media/hero-v04.webp"
+      ],
+      "processing": "Connected sky mask, separate roof/ground palette, localized night light masks and pixel light fixtures; no new weather geometry or dynamic shadows.",
+      "status": "review study; not approved final art"
+    },
+    {
+      "file": "station-evening-small.webp",
+      "sha256": "b4211961e7dd1915f03d1431058ae39e01d5c5ccc611d187542ff00a786d4830",
+      "bytes": 56376,
+      "width": 960,
+      "height": 540,
+      "sources": [
+        "../meadow-media/hero-v04.webp"
+      ],
+      "processing": "Connected sky mask, separate roof/ground palette, localized night light masks and pixel light fixtures; no new weather geometry or dynamic shadows.",
+      "status": "review study; not approved final art"
+    },
+    {
+      "file": "station-night.webp",
+      "sha256": "f434d64934af60149937017eac6979c982e149e7552acc76720cd9a6d9f14aed",
+      "bytes": 105850,
+      "width": 1920,
+      "height": 1080,
+      "sources": [
+        "../meadow-media/hero-v04.webp"
+      ],
+      "processing": "Connected sky mask, separate roof/ground palette, localized night light masks and pixel light fixtures; no new weather geometry or dynamic shadows.",
+      "status": "review study; not approved final art"
+    },
+    {
+      "file": "station-night-small.webp",
+      "sha256": "3bcc36dfb4799a10e0bbaaed34465d2ecf73808a3552d83ead095ea0cf087d8d",
+      "bytes": 22234,
+      "width": 960,
+      "height": 540,
+      "sources": [
+        "../meadow-media/hero-v04.webp"
+      ],
+      "processing": "Connected sky mask, separate roof/ground palette, localized night light masks and pixel light fixtures; no new weather geometry or dynamic shadows.",
+      "status": "review study; not approved final art"
+    },
+    {
+      "file": "environment-comparison.webp",
+      "sha256": "52d36fef51152662cea0f9f10fbc66dada31fac02df244703ee282d11d45684a",
+      "bytes": 285066,
+      "width": 1920,
+      "height": 1080,
+      "sources": [
+        "../meadow-media/hero-v04.webp",
+        "station-overcast.webp",
+        "station-evening.webp",
+        "station-night.webp"
+      ],
+      "processing": "Same-coordinate 2x2 contact sheet; reading order day, overcast, evening, night.",
+      "status": "review study; not approved final art"
+    },
+    {
+      "file": "notebook-pixel-foreground.png",
+      "sha256": "173a99a948674e446b17744c89524ca8787340dca79fc1479a9e0a495c592347",
+      "bytes": 2529769,
+      "width": 1920,
+      "height": 1080,
+      "sources": [
+        "../story-media/notebook-foreground-v01.png"
+      ],
+      "processing": "Repainted paper leaves; original hand positions preserved by contour masks; muted cuffs. No photographic source used.",
+      "status": "review study; not approved final art"
+    },
+    {
+      "file": "notebook-readable.webp",
+      "sha256": "21352a4f1d80cab92e63be4854b5d0f1f992ef82534e07a7b72e5bf1da80d928",
+      "bytes": 81428,
+      "width": 1060,
+      "height": 720,
+      "sources": [
+        "notebook-pixel-foreground.png",
+        "../meadow-media/hero-route-v01.webp"
+      ],
+      "processing": "Foreground composite, cropped x440 y345 w1060 h720. Real text is rendered by art-pack.mjs, not baked into image.",
+      "status": "review study; not approved final art"
+    },
+    {
+      "file": "notebook-readable-small.webp",
+      "sha256": "1869a0b42a12b1328a61d791a6fe9d942e3aad28a87e9a172273d2999752e304",
+      "bytes": 24074,
+      "width": 530,
+      "height": 360,
+      "sources": [
+        "notebook-pixel-foreground.png",
+        "../meadow-media/hero-route-v01.webp"
+      ],
+      "processing": "Foreground composite, cropped x440 y345 w1060 h720. Real text is rendered by art-pack.mjs, not baked into image.",
+      "status": "review study; not approved final art"
+    },
+    {
+      "file": "station-workbench.webp",
+      "sha256": "00807a7125c0256663bb31be9cfd2fa4070427ac9e00b6e78796befc2cd47812",
+      "bytes": 69350,
+      "width": 1280,
+      "height": 840,
+      "sources": [
+        "../meadow-media/hero-v04.webp"
+      ],
+      "processing": "Original x1280 y540 w640 h420 crop, 2x nearest-neighbor. Crop reference, not a new viewpoint.",
+      "status": "review study; not approved final art"
+    },
+    {
+      "file": "actor-front.png",
+      "sha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+      "bytes": 23254,
+      "width": 156,
+      "height": 348,
+      "sources": [
+        "../meadow-media/directional-input-v02.png"
+      ],
+      "processing": "Original still. Green-key removal, trim, 348px height. original standing identity reference. Reference only; not an approved gait or new stance.",
+      "status": "existing pose reference / direction label corrected"
+    },
+    {
+      "file": "actor-side.png",
+      "sha256": "67eeb52733fce91afaf64e63df95036aaffccde21026641d83adba32e6e2975f",
+      "bytes": 45246,
+      "width": 105,
+      "height": 348,
+      "sources": [
+        "../meadow-media/directional-v02.mp4"
+      ],
+      "processing": "Decode original video from frame zero; select exact frame 96 at 4s / 24fps. Green-key removal, trim, 348px height. left-facing side profile. Reference only; not an approved gait or new stance.",
+      "status": "existing pose reference / direction label corrected"
+    },
+    {
+      "file": "actor-back-side.png",
+      "sha256": "9862d4a2a61614f1c1b5f38e5e352d582c69c2a9497d1d279a48aecf1e58b680",
+      "bytes": 59450,
+      "width": 155,
+      "height": 348,
+      "sources": [
+        "../meadow-media/directional-v02.mp4"
+      ],
+      "processing": "Decode original video from frame zero; select exact frame 48 at 2s / 24fps. Green-key removal, trim, 348px height. left-facing rear three-quarter. Reference only; not an approved gait or new stance.",
+      "status": "existing pose reference / direction label corrected"
+    },
+    {
+      "file": "actor-back.png",
+      "sha256": "d63a0729ba62c13f5107c35f73c3ace921606ba792eb977dfbe9b260e0fb0f05",
+      "bytes": 63218,
+      "width": 175,
+      "height": 348,
+      "sources": [
+        "../meadow-media/directional-v02.mp4"
+      ],
+      "processing": "Decode original video from frame zero; select exact frame 84 at 3.5s / 24fps. Green-key removal, trim, 348px height. rear view. Reference only; not an approved gait or new stance.",
+      "status": "existing pose reference / direction label corrected"
+    },
+    {
+      "file": "orientation-audit.webp",
+      "sha256": "fd321c523f552c9e57bc319b12e548364b830c351c376aca318841c3eee7dabd",
+      "bytes": 49228,
+      "width": 1280,
+      "height": 448,
+      "sources": [
+        "actor-front.png",
+        "actor-side.png",
+        "actor-back-side.png",
+        "actor-back.png"
+      ],
+      "processing": "Four reference views on a common foot baseline, no mirroring or generated in-between frames. Labels use decoded frame numbers.",
+      "status": "review study; not approved final art"
+    },
+    {
+      "file": "walk-left-input-v03.png",
+      "sha256": "a34562ff68062f99ef0a678a499ba281fab00ea17c836668d0f5f1d7359e08bc",
+      "bytes": 89038,
+      "width": 768,
+      "height": 768,
+      "sources": [
+        "../meadow-media/directional-v02.mp4"
+      ],
+      "processing": "Exact decoded frame 96 / 4.00s at 24fps, original green background and 768px canvas retained. Correct left-facing reference for a future walk test; not a newly generated or approved gait.",
+      "status": "review study; not approved final art"
+    },
+    {
+      "file": "rover-approved.png",
+      "sha256": "a10f5b3933beae6a85bc27c04fe0dff59f6a3cbf60516dea0a5d443273d5a35f",
+      "bytes": 92934,
+      "width": 200,
+      "height": 220,
+      "sources": [
+        "../meadow-media/hero-v04.webp"
+      ],
+      "processing": "Polygon alpha cutout at original coordinates; original mast and wheel silhouette.",
+      "status": "existing identity reference"
+    },
+    {
+      "file": "relay-continuity-study.webp",
+      "sha256": "bb9021230c7130f20d1d0dc9b1f53b4abec59ccc3a13e654d68496496b842d21",
+      "bytes": 69366,
+      "width": 1300,
+      "height": 480,
+      "sources": [
+        "../meadow-media/hero-route-v01.webp",
+        "rover-approved.png"
+      ],
+      "processing": "Authored pixel cabinet, hood, port and cable at original scene coordinates. Vehicle moved near cabinet for blocking; crop excludes original parked foreground vehicle.",
+      "status": "review study; not approved final art"
+    },
+    {
+      "file": "relay-device-detail.webp",
+      "sha256": "d8c05e89e5e2223fa1e6f583ec09a531311f037afd20d359c73cb1edfbace508",
+      "bytes": 15868,
+      "width": 560,
+      "height": 800,
+      "sources": [
+        "../meadow-media/hero-route-v01.webp",
+        "rover-approved.png"
+      ],
+      "processing": "Authored pixel cabinet, hood, port and cable at original scene coordinates. Vehicle moved near cabinet for blocking; crop excludes original parked foreground vehicle.",
+      "status": "review study; not approved final art"
+    },
+    {
+      "file": "boundary-palette-study.webp",
+      "sha256": "507b173cc7ae852b71a89a45e81fea79d158dd68884d8952e016ae9cd061a7c3",
+      "bytes": 182574,
+      "width": 1920,
+      "height": 1080,
+      "sources": [
+        "../story-media/boundary-study-v01.webp"
+      ],
+      "processing": "Local yellow grass shifted toward approved green palette. Near-slope collage rejected, not displayed.",
+      "status": "review study; not approved final art"
+    },
+    {
+      "file": "boundary-palette-study-small.webp",
+      "sha256": "c290e4376803c468066cc0072e4cb64bdec3774adba8474ff02bcc327aa492f2",
+      "bytes": 49640,
+      "width": 960,
+      "height": 540,
+      "sources": [
+        "../story-media/boundary-study-v01.webp"
+      ],
+      "processing": "Local yellow grass shifted toward approved green palette. Near-slope collage rejected, not displayed.",
+      "status": "review study; not approved final art"
+    }
+  ],
+  "rebuild": "node prototypes/visual-direction/build-art-pack.mjs (requires local ffmpeg and sharp)",
+  "builderSha256": "016fa5a3cad7941456c8f088f7c75d8fd1482865c4b4ef3c2bdeac24c41532ae"
+}

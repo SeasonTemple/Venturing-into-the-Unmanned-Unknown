@@ -1,0 +1,38 @@
+{
+  "revision": "pixel04",
+  "status": "complete raster drawing trial; art not approved",
+  "artApproved": false,
+  "sourceImagePixelsUsed": false,
+  "bodyTransforms": false,
+  "nativeCanvas": [
+    128,
+    196
+  ],
+  "alphaBounds": [
+    33,
+    17,
+    90,
+    193
+  ],
+  "paletteColorsUsed": 46,
+  "layers": 8,
+  "brushCommands": 146,
+  "sha256": "ff1f7a823e236bb36013459e50ca0c9cd23c18c3ac6405551da5ec708cc66d42",
+  "generatedCandidate": {
+    "file": "pixel-stance-v03_001.jpg",
+    "provider": "MMX image-01",
+    "seed": 281301,
+    "selected": false,
+    "reasons": [
+      "Smooth 3D instead of pixel painting",
+      "Added hood and changed beard/proportions",
+      "Equipment changes side",
+      "Not a flat backdrop"
+    ]
+  },
+  "limitations": [
+    "Identity and pixel style require full-person art review.",
+    "No animation, other facing direction or production integration.",
+    "Layered authoring is not a ready animation rig."
+  ]
+}

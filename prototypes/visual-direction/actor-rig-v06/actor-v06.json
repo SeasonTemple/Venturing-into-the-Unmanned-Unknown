@@ -1,0 +1,3991 @@
+{
+  "version": "actor-rig-v06",
+  "source": "../art-pack-media/actor-front.png",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "tag": "actor-v06",
+  "rigName": "ActorRig-v06",
+  "layersDirectory": "layers-v06",
+  "specification": "actor-rig-v06.spec.json",
+  "specSha256": "55eeace83bd479a3ff2297f6be6310b1d95a0cdf125b7940b2176816972bb654",
+  "sourceSize": [
+    156,
+    348
+  ],
+  "sourceLayerReassemblyPixelIdentical": true,
+  "editableLayerInput": null,
+  "method": "Original raster separation, limited nearest-cloth hidden caps, continuous skinned meshes and authored 2D bone poses",
+  "newGeneratedImages": 0,
+  "newVideoRequests": 0,
+  "hiddenCapPixels": {
+    "arm_R": 50,
+    "arm_L": 44
+  },
+  "meshes": [
+    {
+      "name": "leg_R",
+      "vertices": 628,
+      "triangles": 1092,
+      "bones": [
+        "pelvis",
+        "thigh_R",
+        "thigh_L",
+        "shin_R",
+        "foot_R"
+      ],
+      "preserveVolume": true
+    },
+    {
+      "name": "leg_L",
+      "vertices": 602,
+      "triangles": 1050,
+      "bones": [
+        "pelvis",
+        "thigh_R",
+        "thigh_L",
+        "shin_L",
+        "foot_L"
+      ],
+      "preserveVolume": true
+    },
+    {
+      "name": "pelvis",
+      "vertices": 254,
+      "triangles": 416,
+      "bones": [
+        "pelvis",
+        "thigh_R",
+        "thigh_L"
+      ],
+      "preserveVolume": true
+    },
+    {
+      "name": "arm_R",
+      "vertices": 218,
+      "triangles": 354,
+      "bones": [
+        "upperarm_R",
+        "forearm_R",
+        "hand_R"
+      ],
+      "preserveVolume": false
+    },
+    {
+      "name": "arm_L",
+      "vertices": 338,
+      "triangles": 556,
+      "bones": [
+        "upperarm_L",
+        "forearm_L",
+        "hand_L"
+      ],
+      "preserveVolume": false
+    },
+    {
+      "name": "upper_body",
+      "vertices": 1358,
+      "triangles": 2422,
+      "bones": [
+        "head",
+        "torso"
+      ],
+      "preserveVolume": false
+    },
+    {
+      "name": "toolbox_R",
+      "vertices": 226,
+      "triangles": 364,
+      "bones": [
+        "toolbox_R"
+      ],
+      "preserveVolume": false
+    },
+    {
+      "name": "glove_R",
+      "vertices": 133,
+      "triangles": 216,
+      "bones": [
+        "hand_R"
+      ],
+      "preserveVolume": false
+    },
+    {
+      "name": "recorder_L",
+      "vertices": 179,
+      "triangles": 304,
+      "bones": [
+        "recorder_L"
+      ],
+      "preserveVolume": false
+    }
+  ],
+  "bones": 18,
+  "poses": [
+    {
+      "frame": 0,
+      "name": "standing",
+      "label": "原画站姿参考",
+      "pelvisShift": [
+        0,
+        0
+      ],
+      "rightFootShift": [
+        0,
+        0
+      ],
+      "leftFootShift": [
+        0,
+        0
+      ],
+      "torsoDegrees": 0,
+      "loadedArmDegrees": 0,
+      "forearmDegrees": 0,
+      "shoulderDropPx": 0,
+      "toolboxWorldDegrees": 0,
+      "solvedLegs": {}
+    },
+    {
+      "frame": 1,
+      "name": "loaded_stand",
+      "label": "负重站立",
+      "pelvisShift": [
+        0,
+        0.3
+      ],
+      "rightFootShift": [
+        0,
+        0
+      ],
+      "leftFootShift": [
+        0,
+        0
+      ],
+      "torsoDegrees": 0.25,
+      "loadedArmDegrees": 0.3,
+      "forearmDegrees": 1,
+      "shoulderDropPx": 1.1,
+      "toolboxWorldDegrees": 0,
+      "solvedLegs": {
+        "R": {
+          "hip": [
+            61.0,
+            187.3000030517578
+          ],
+          "knee": [
+            54.77906036376953,
+            254.0105743408203
+          ],
+          "ankle": [
+            58.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            95.0,
+            188.3000030517578
+          ],
+          "knee": [
+            94.86640167236328,
+            260.5494384765625
+          ],
+          "ankle": [
+            104.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      }
+    },
+    {
+      "frame": 4,
+      "name": "prepare",
+      "label": "支撑右脚，准备迈后脚",
+      "pelvisShift": [
+        -2,
+        2
+      ],
+      "rightFootShift": [
+        0,
+        0
+      ],
+      "leftFootShift": [
+        0,
+        0
+      ],
+      "torsoDegrees": -0.65,
+      "loadedArmDegrees": 0.7,
+      "forearmDegrees": 1.5,
+      "shoulderDropPx": 1.7,
+      "toolboxWorldDegrees": 0.5,
+      "solvedLegs": {
+        "R": {
+          "hip": [
+            59.0,
+            189.0
+          ],
+          "knee": [
+            46.861454010009766,
+            254.89125061035156
+          ],
+          "ankle": [
+            58.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            93.0,
+            190.0
+          ],
+          "knee": [
+            87.26979064941406,
+            262.02197265625
+          ],
+          "ankle": [
+            104.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      }
+    },
+    {
+      "frame": 8,
+      "name": "passing_L",
+      "label": "左脚经过支撑脚",
+      "pelvisShift": [
+        -12,
+        1.4
+      ],
+      "rightFootShift": [
+        0,
+        0
+      ],
+      "leftFootShift": [
+        -36,
+        -8
+      ],
+      "torsoDegrees": -1.4,
+      "loadedArmDegrees": 1,
+      "forearmDegrees": 2,
+      "shoulderDropPx": 2.1,
+      "toolboxWorldDegrees": -1.5,
+      "solvedLegs": {
+        "R": {
+          "hip": [
+            49.0,
+            188.39999389648438
+          ],
+          "knee": [
+            44.85771942138672,
+            255.27182006835938
+          ],
+          "ankle": [
+            58.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            83.0,
+            189.39999389648438
+          ],
+          "knee": [
+            50.886512756347656,
+            254.12034606933594
+          ],
+          "ankle": [
+            68.0,
+            320.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      }
+    },
+    {
+      "frame": 13,
+      "name": "contact_L",
+      "label": "左脚越过并落地",
+      "pelvisShift": [
+        -27,
+        3
+      ],
+      "rightFootShift": [
+        0,
+        0
+      ],
+      "leftFootShift": [
+        -64,
+        0
+      ],
+      "torsoDegrees": -1.15,
+      "loadedArmDegrees": 0.5,
+      "forearmDegrees": 1.8,
+      "shoulderDropPx": 2.2,
+      "toolboxWorldDegrees": -3,
+      "solvedLegs": {
+        "R": {
+          "hip": [
+            34.0,
+            190.0
+          ],
+          "knee": [
+            38.800601959228516,
+            256.82781982421875
+          ],
+          "ankle": [
+            58.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            68.0,
+            191.0
+          ],
+          "knee": [
+            47.87993240356445,
+            260.3915100097656
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      }
+    },
+    {
+      "frame": 15,
+      "name": "transfer_L",
+      "label": "承重转到左脚",
+      "pelvisShift": [
+        -32,
+        3.5
+      ],
+      "rightFootShift": [
+        0,
+        0
+      ],
+      "leftFootShift": [
+        -64,
+        0
+      ],
+      "torsoDegrees": -1.2,
+      "loadedArmDegrees": -0.1,
+      "forearmDegrees": 1.5,
+      "shoulderDropPx": 2.1,
+      "toolboxWorldDegrees": -1.8,
+      "solvedLegs": {
+        "R": {
+          "hip": [
+            29.0,
+            190.5
+          ],
+          "knee": [
+            39.11172866821289,
+            256.7325439453125
+          ],
+          "ankle": [
+            58.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            63.0,
+            191.5
+          ],
+          "knee": [
+            39.831512451171875,
+            259.9340515136719
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      }
+    },
+    {
+      "frame": 18,
+      "name": "passing_R",
+      "label": "右脚经过支撑脚",
+      "pelvisShift": [
+        -40,
+        1.4
+      ],
+      "rightFootShift": [
+        -30,
+        -9
+      ],
+      "leftFootShift": [
+        -64,
+        0
+      ],
+      "torsoDegrees": -1.35,
+      "loadedArmDegrees": -0.8,
+      "forearmDegrees": 1.6,
+      "shoulderDropPx": 2,
+      "toolboxWorldDegrees": -0.1,
+      "solvedLegs": {
+        "R": {
+          "hip": [
+            21.0,
+            188.39999389648438
+          ],
+          "knee": [
+            -0.9224224090576172,
+            251.71197509765625
+          ],
+          "ankle": [
+            28.0,
+            310.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            55.0,
+            189.39999389648438
+          ],
+          "knee": [
+            39.361820220947266,
+            259.9368591308594
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      }
+    },
+    {
+      "frame": 23,
+      "name": "contact_R",
+      "label": "右脚越过并落地",
+      "pelvisShift": [
+        -53,
+        1
+      ],
+      "rightFootShift": [
+        -60,
+        0
+      ],
+      "leftFootShift": [
+        -64,
+        0
+      ],
+      "torsoDegrees": -0.8,
+      "loadedArmDegrees": -0.3,
+      "forearmDegrees": 1.6,
+      "shoulderDropPx": 2.1,
+      "toolboxWorldDegrees": 2.5,
+      "solvedLegs": {
+        "R": {
+          "hip": [
+            8.0,
+            188.0
+          ],
+          "knee": [
+            -3.7854771614074707,
+            253.955322265625
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            42.0,
+            189.0
+          ],
+          "knee": [
+            31.442102432250977,
+            260.4739990234375
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      }
+    },
+    {
+      "frame": 27,
+      "name": "braking",
+      "label": "双脚着地，收回前倾",
+      "pelvisShift": [
+        -59,
+        2.2
+      ],
+      "rightFootShift": [
+        -60,
+        0
+      ],
+      "leftFootShift": [
+        -64,
+        0
+      ],
+      "torsoDegrees": 0.65,
+      "loadedArmDegrees": 0.6,
+      "forearmDegrees": 1.3,
+      "shoulderDropPx": 1.6,
+      "toolboxWorldDegrees": 3,
+      "solvedLegs": {
+        "R": {
+          "hip": [
+            2.0,
+            189.1999969482422
+          ],
+          "knee": [
+            -12.046425819396973,
+            254.7110595703125
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            36.0,
+            190.1999969482422
+          ],
+          "knee": [
+            24.9998779296875,
+            261.60723876953125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      }
+    },
+    {
+      "frame": 31,
+      "name": "stopped",
+      "label": "身体停稳，箱体回摆",
+      "pelvisShift": [
+        -60,
+        0.6
+      ],
+      "rightFootShift": [
+        -60,
+        0
+      ],
+      "leftFootShift": [
+        -64,
+        0
+      ],
+      "torsoDegrees": 0.25,
+      "loadedArmDegrees": 0.3,
+      "forearmDegrees": 1,
+      "shoulderDropPx": 1.1,
+      "toolboxWorldDegrees": -1.1,
+      "solvedLegs": {
+        "R": {
+          "hip": [
+            1.0,
+            187.60000610351562
+          ],
+          "knee": [
+            -6.9872355461120605,
+            254.12222290039062
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.0,
+            188.60000610351562
+          ],
+          "knee": [
+            29.982053756713867,
+            260.67510986328125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      }
+    },
+    {
+      "frame": 37,
+      "name": "settled",
+      "label": "箱体回正",
+      "pelvisShift": [
+        -60,
+        0.6
+      ],
+      "rightFootShift": [
+        -60,
+        0
+      ],
+      "leftFootShift": [
+        -64,
+        0
+      ],
+      "torsoDegrees": 0.25,
+      "loadedArmDegrees": 0.3,
+      "forearmDegrees": 1,
+      "shoulderDropPx": 1.1,
+      "toolboxWorldDegrees": 0,
+      "solvedLegs": {
+        "R": {
+          "hip": [
+            1.0,
+            187.60000610351562
+          ],
+          "knee": [
+            -6.9872355461120605,
+            254.12222290039062
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.0,
+            188.60000610351562
+          ],
+          "knee": [
+            29.982053756713867,
+            260.67510986328125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      }
+    },
+    {
+      "frame": 49,
+      "name": "stopped_hold",
+      "label": "保持现场",
+      "pelvisShift": [
+        -60,
+        0.6
+      ],
+      "rightFootShift": [
+        -60,
+        0
+      ],
+      "leftFootShift": [
+        -64,
+        0
+      ],
+      "torsoDegrees": 0.25,
+      "loadedArmDegrees": 0.3,
+      "forearmDegrees": 1,
+      "shoulderDropPx": 1.1,
+      "toolboxWorldDegrees": 0,
+      "solvedLegs": {
+        "R": {
+          "hip": [
+            1.0,
+            187.60000610351562
+          ],
+          "knee": [
+            -6.9872355461120605,
+            254.12222290039062
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.0,
+            188.60000610351562
+          ],
+          "knee": [
+            29.982053756713867,
+            260.67510986328125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      }
+    }
+  ],
+  "frames": [
+    {
+      "pose": "standing",
+      "frame": 0,
+      "file": "actor-v06-standing.png",
+      "sha256": "df52eef494b21c4f83f2b524863b9c0b89dd2bf3a965fa11b8db598d70044111"
+    },
+    {
+      "pose": "loaded_stand",
+      "frame": 1,
+      "file": "actor-v06-loaded_stand.png",
+      "sha256": "3e9991e7f751a333b9a744c432c88a4d7dbca231d9af12f544b6586c5b7e3313"
+    },
+    {
+      "pose": "transition-002",
+      "frame": 2,
+      "file": "actor-v06-transition-002.png",
+      "sha256": "6fc307df81de12bd8067d48d1821895eb82ea240b18f67f827543de8f0670147"
+    },
+    {
+      "pose": "transition-003",
+      "frame": 3,
+      "file": "actor-v06-transition-003.png",
+      "sha256": "eb5662b8961dee4dd971f588e901d72d5e547eaa2d19076a3baac84a741e70a2"
+    },
+    {
+      "pose": "prepare",
+      "frame": 4,
+      "file": "actor-v06-prepare.png",
+      "sha256": "436425e9287aed996ad860ca29f628ed5c9d9dcfb53b694871ae3820eeb5896f"
+    },
+    {
+      "pose": "transition-005",
+      "frame": 5,
+      "file": "actor-v06-transition-005.png",
+      "sha256": "26c7ab3d27a9587fb790f1b69eaaa2ec78357a038ec122a08c4cfbe8825450e9"
+    },
+    {
+      "pose": "transition-006",
+      "frame": 6,
+      "file": "actor-v06-transition-006.png",
+      "sha256": "eddbfc77ff91db23b2f36bb29627d8873906b6d3981fff2e6f905c5c607e939a"
+    },
+    {
+      "pose": "transition-007",
+      "frame": 7,
+      "file": "actor-v06-transition-007.png",
+      "sha256": "a58e841659015d39760da8a2bde0dcfd87a48b4640530d89a127bc439ee92e50"
+    },
+    {
+      "pose": "passing_L",
+      "frame": 8,
+      "file": "actor-v06-passing_L.png",
+      "sha256": "8f395564e099d7cc2c176fb27051eb984bd8e94e2ea12b82ec269ec2352b0d08"
+    },
+    {
+      "pose": "transition-009",
+      "frame": 9,
+      "file": "actor-v06-transition-009.png",
+      "sha256": "cca9502e7978393cb1d02ca5d87d58e01d1c8564e543bba96099aacebc58b31f"
+    },
+    {
+      "pose": "transition-010",
+      "frame": 10,
+      "file": "actor-v06-transition-010.png",
+      "sha256": "8d35e94ebd534b41ced6a47e5095ea63577f779087d01654be2f4f28d84d2e85"
+    },
+    {
+      "pose": "transition-011",
+      "frame": 11,
+      "file": "actor-v06-transition-011.png",
+      "sha256": "4727b42557f446eb02984c92aadf17fdb355d02aa17e8b597494bc9914cb344f"
+    },
+    {
+      "pose": "transition-012",
+      "frame": 12,
+      "file": "actor-v06-transition-012.png",
+      "sha256": "ee65d359617018508720ccc51fc97dabc5382917085a15f1c9b418dfb1892808"
+    },
+    {
+      "pose": "contact_L",
+      "frame": 13,
+      "file": "actor-v06-contact_L.png",
+      "sha256": "c70c4fccc4b87e3a5a42a0760817d68e82f5585793568bd49b8b1e58193de0f8"
+    },
+    {
+      "pose": "transition-014",
+      "frame": 14,
+      "file": "actor-v06-transition-014.png",
+      "sha256": "feede8a3ca92f3eba14de69fa3f20f14151dd84214013aa8945335db90f2c8a9"
+    },
+    {
+      "pose": "transfer_L",
+      "frame": 15,
+      "file": "actor-v06-transfer_L.png",
+      "sha256": "f3dad90d8d03221821b4334456211265a3852786fb47c223d79139cdbd56af2f"
+    },
+    {
+      "pose": "transition-016",
+      "frame": 16,
+      "file": "actor-v06-transition-016.png",
+      "sha256": "ebfa66ed6223b5480945fea28469a7f46404e6eb61dec656f3e782ffbd7b4b9b"
+    },
+    {
+      "pose": "transition-017",
+      "frame": 17,
+      "file": "actor-v06-transition-017.png",
+      "sha256": "3e9901f4d19d9ec470a05617afbf8130be69f82796839d8f1e7392a60b9d8cb1"
+    },
+    {
+      "pose": "passing_R",
+      "frame": 18,
+      "file": "actor-v06-passing_R.png",
+      "sha256": "30450f8a3dda0a03a4680262e36d3bc0b15b39a179b41051c43b4a4e15b4779e"
+    },
+    {
+      "pose": "transition-019",
+      "frame": 19,
+      "file": "actor-v06-transition-019.png",
+      "sha256": "4725839f6dadf84b66171c13f6cb30a2dedf41897b44fc6b515e50210919709d"
+    },
+    {
+      "pose": "transition-020",
+      "frame": 20,
+      "file": "actor-v06-transition-020.png",
+      "sha256": "8c968e1ceb73b9ccd97efc2270d1180aa55b4b09b9358772867e2015281a6ca8"
+    },
+    {
+      "pose": "transition-021",
+      "frame": 21,
+      "file": "actor-v06-transition-021.png",
+      "sha256": "42881d12e65a53830e971c854b45dd0b5a0b10e15b092885a648ff3d3353d795"
+    },
+    {
+      "pose": "transition-022",
+      "frame": 22,
+      "file": "actor-v06-transition-022.png",
+      "sha256": "21125b90be049a6173213850ca100743f9d68a0fe92d108edd0ea8cc94c857d3"
+    },
+    {
+      "pose": "contact_R",
+      "frame": 23,
+      "file": "actor-v06-contact_R.png",
+      "sha256": "8a8f357b16830ed42bc7a3b69eba6bdbc29cdd62677f0290dea598ec0005cacc"
+    },
+    {
+      "pose": "transition-024",
+      "frame": 24,
+      "file": "actor-v06-transition-024.png",
+      "sha256": "bb1758ccec8963b6e6d20b542b55ae1747499b7e8e3c5817fd00b9c08cf756f4"
+    },
+    {
+      "pose": "transition-025",
+      "frame": 25,
+      "file": "actor-v06-transition-025.png",
+      "sha256": "8973155dc9c59e00219ecfd40758ef63bc1db041c1643c374b88d35891ac5208"
+    },
+    {
+      "pose": "transition-026",
+      "frame": 26,
+      "file": "actor-v06-transition-026.png",
+      "sha256": "3209c929089d738683e92886d3c34b2c45c3dc10fbb8772feb960fa98b92161e"
+    },
+    {
+      "pose": "braking",
+      "frame": 27,
+      "file": "actor-v06-braking.png",
+      "sha256": "001fe66b5f1c5ceb742e117591aacd5ab9b1ff7d5c91db16c1a46b35a71cadf9"
+    },
+    {
+      "pose": "transition-028",
+      "frame": 28,
+      "file": "actor-v06-transition-028.png",
+      "sha256": "5ddf2480424a74c84bcc25359665922cf431486c858dab7995178e211fec4b40"
+    },
+    {
+      "pose": "transition-029",
+      "frame": 29,
+      "file": "actor-v06-transition-029.png",
+      "sha256": "b69ac9bfc470b696b6155ab5e6b4ca56e7934bd78f7987f2ebf5221bdc97f624"
+    },
+    {
+      "pose": "transition-030",
+      "frame": 30,
+      "file": "actor-v06-transition-030.png",
+      "sha256": "4a3c5a06fba79cbfbb6544f943b413955aa7bd2b5e455396727252e649d59fa4"
+    },
+    {
+      "pose": "stopped",
+      "frame": 31,
+      "file": "actor-v06-stopped.png",
+      "sha256": "08956e5552d0831453dd151150c60c10dcd72c5fced0eac386075eb9b2df79fb"
+    },
+    {
+      "pose": "transition-032",
+      "frame": 32,
+      "file": "actor-v06-transition-032.png",
+      "sha256": "09b543b7b6834794aaaf050e673f6ecb931e7604163b1c76e5466f2a0920efef"
+    },
+    {
+      "pose": "transition-033",
+      "frame": 33,
+      "file": "actor-v06-transition-033.png",
+      "sha256": "e32e912badef58390ea8f5d437360001baa5ec65a44f09957bf1908d9d5f76c8"
+    },
+    {
+      "pose": "transition-034",
+      "frame": 34,
+      "file": "actor-v06-transition-034.png",
+      "sha256": "c169335889efcefabee6c74bab1f5f2605bb7f825dc6d4bd07459e1380f7ca51"
+    },
+    {
+      "pose": "transition-035",
+      "frame": 35,
+      "file": "actor-v06-transition-035.png",
+      "sha256": "e648148717a8076a5d4792c66b4c636733dded5af748bdf32bdcef1bbc684175"
+    },
+    {
+      "pose": "transition-036",
+      "frame": 36,
+      "file": "actor-v06-transition-036.png",
+      "sha256": "149dec622f72b4fe80427e59382a1fc8275212d2e4c7395a013283585cc669c0"
+    },
+    {
+      "pose": "settled",
+      "frame": 37,
+      "file": "actor-v06-settled.png",
+      "sha256": "fc25b9ffacdf79cbdb399efbb3049738c3f6272dcf88750bbf7b45e6ff36c347"
+    },
+    {
+      "pose": "transition-038",
+      "frame": 38,
+      "file": "actor-v06-transition-038.png",
+      "sha256": "dfd5f9cb12fed907d4fd438d098361e71d181d62be07251cab719ebb0e04bfd5"
+    },
+    {
+      "pose": "transition-039",
+      "frame": 39,
+      "file": "actor-v06-transition-039.png",
+      "sha256": "24977fe286d8cf7e4295fdcb24299358bad12b5695afe97bc0c8adbc29fdf153"
+    },
+    {
+      "pose": "transition-040",
+      "frame": 40,
+      "file": "actor-v06-transition-040.png",
+      "sha256": "d91cd519bd4d3e7c470da26d548c2c84ab268e2ee76aa7dc0f95fbf60458d1b8"
+    },
+    {
+      "pose": "transition-041",
+      "frame": 41,
+      "file": "actor-v06-transition-041.png",
+      "sha256": "6e91b97dd9ac6380c78435415c40e5d9473689ba07d9804525b93ec255481682"
+    },
+    {
+      "pose": "transition-042",
+      "frame": 42,
+      "file": "actor-v06-transition-042.png",
+      "sha256": "12e8da2e4c68bf06fa09a77439ccb72fa8cd1d7a955371dfbd998e78ca866da5"
+    },
+    {
+      "pose": "transition-043",
+      "frame": 43,
+      "file": "actor-v06-transition-043.png",
+      "sha256": "00eefcadb0c08600d9295166b95d19e75843468f0bb36c06493e4b50730c6c1c"
+    },
+    {
+      "pose": "transition-044",
+      "frame": 44,
+      "file": "actor-v06-transition-044.png",
+      "sha256": "c02ec21c75a17d9976f3f91aca6662a54956ec3057b15defd8dfde41a51cc314"
+    },
+    {
+      "pose": "transition-045",
+      "frame": 45,
+      "file": "actor-v06-transition-045.png",
+      "sha256": "807ae5b1c9c1cc1a338373dce5dda0bfd9e46806ce80cf90028ff96b51019585"
+    },
+    {
+      "pose": "transition-046",
+      "frame": 46,
+      "file": "actor-v06-transition-046.png",
+      "sha256": "2202e942efd0857f713a0dd8f8238b508bf0eff0ba927c05cb19a7fb35b80ea2"
+    },
+    {
+      "pose": "transition-047",
+      "frame": 47,
+      "file": "actor-v06-transition-047.png",
+      "sha256": "479a880fced080dd44e2eb40ee306e4cd1dea23261c99c6d027336c6f27ad1e9"
+    },
+    {
+      "pose": "transition-048",
+      "frame": 48,
+      "file": "actor-v06-transition-048.png",
+      "sha256": "b807cbd3fe81f0ddf489fecbf5d583ca162083cafc161fd26475083b186eb727"
+    },
+    {
+      "pose": "stopped_hold",
+      "frame": 49,
+      "file": "actor-v06-stopped_hold.png",
+      "sha256": "9f3c201a3ccfb1addeb900e8f9ce835d68430eeacaeca319a26687bce4de2f95"
+    }
+  ],
+  "motionSamples": [
+    {
+      "frame": 0,
+      "rootShift": [
+        0,
+        0
+      ],
+      "legs": {},
+      "actualAnkles": {
+        "R": [
+          58.0,
+          319.0
+        ],
+        "L": [
+          104.00000190734863,
+          328.0000228881836
+        ]
+      },
+      "ankleTargetError": 0,
+      "toolboxGripError": 0.0,
+      "toolboxWorldAngleDegrees": -0.0
+    },
+    {
+      "frame": 1,
+      "rootShift": [
+        0,
+        0.3
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            61.0,
+            187.3000030517578
+          ],
+          "knee": [
+            54.77906036376953,
+            254.0105743408203
+          ],
+          "ankle": [
+            58.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            95.0,
+            188.3000030517578
+          ],
+          "knee": [
+            94.86640167236328,
+            260.5494384765625
+          ],
+          "ankle": [
+            104.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          58.0,
+          319.0
+        ],
+        "L": [
+          103.99999809265137,
+          328.0
+        ]
+      },
+      "ankleTargetError": 1.908670816647148e-06,
+      "toolboxGripError": 3.814697265625061e-06,
+      "toolboxWorldAngleDegrees": -0.0
+    },
+    {
+      "frame": 2,
+      "rootShift": [
+        -0.29087624209575424,
+        0.7407407407407407
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            60.70912551879883,
+            187.74073791503906
+          ],
+          "knee": [
+            52.16154861450195,
+            254.19326782226562
+          ],
+          "ankle": [
+            58.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            94.70912170410156,
+            188.74073791503906
+          ],
+          "knee": [
+            92.28478240966797,
+            260.9496154785156
+          ],
+          "ankle": [
+            104.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          57.99999809265137,
+          319.0
+        ],
+        "L": [
+          104.00000190734863,
+          327.99999809265137
+        ]
+      },
+      "ankleTargetError": 2.698408809369744e-06,
+      "toolboxGripError": 3.814697265625061e-06,
+      "toolboxWorldAngleDegrees": 0.12962305458773796
+    },
+    {
+      "frame": 3,
+      "rootShift": [
+        -1.0261969286359531,
+        1.5592592592592591
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            59.97380447387695,
+            188.55926513671875
+          ],
+          "knee": [
+            48.68375778198242,
+            254.60118103027344
+          ],
+          "ankle": [
+            58.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            93.97380065917969,
+            189.55926513671875
+          ],
+          "knee": [
+            88.89814758300781,
+            261.63031005859375
+          ],
+          "ankle": [
+            104.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          58.0,
+          319.00000190734863
+        ],
+        "L": [
+          104.00000190734863,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 2.749831809892795e-06,
+      "toolboxGripError": 1.5728399755926745e-05,
+      "toolboxWorldAngleDegrees": 0.37037266008483327
+    },
+    {
+      "frame": 4,
+      "rootShift": [
+        -2,
+        2
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            59.0,
+            189.0
+          ],
+          "knee": [
+            46.861454010009766,
+            254.89125061035156
+          ],
+          "ankle": [
+            58.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            93.0,
+            190.0
+          ],
+          "knee": [
+            87.26979064941406,
+            262.02197265625
+          ],
+          "ankle": [
+            104.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          57.999996185302734,
+          319.0
+        ],
+        "L": [
+          104.0,
+          327.99999809265137
+        ]
+      },
+      "ankleTargetError": 3.883928691089323e-06,
+      "toolboxGripError": 3.814697265630897e-06,
+      "toolboxWorldAngleDegrees": 0.4999926711510911
+    },
+    {
+      "frame": 5,
+      "rootShift": [
+        -3.6290718611884105,
+        1.90625
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            57.37092971801758,
+            188.90625
+          ],
+          "knee": [
+            46.31734848022461,
+            254.9881591796875
+          ],
+          "ankle": [
+            58.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            91.37092590332031,
+            189.90625
+          ],
+          "knee": [
+            79.89938354492188,
+            261.23931884765625
+          ],
+          "ankle": [
+            98.375,
+            326.75
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          58.0,
+          318.99999809265137
+        ],
+        "L": [
+          98.375,
+          326.75000190734863
+        ]
+      },
+      "ankleTargetError": 2.0017373056204135e-06,
+      "toolboxGripError": 0.0,
+      "toolboxWorldAngleDegrees": 0.18750346532688986
+    },
+    {
+      "frame": 6,
+      "rootShift": [
+        -6.153134719266656,
+        1.7
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            54.846866607666016,
+            188.6999969482422
+          ],
+          "knee": [
+            45.7949333190918,
+            255.08570861816406
+          ],
+          "ankle": [
+            58.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            88.84686279296875,
+            189.6999969482422
+          ],
+          "knee": [
+            67.11897277832031,
+            258.60498046875
+          ],
+          "ankle": [
+            86.0,
+            324.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          57.99999809265137,
+          318.99999809265137
+        ],
+        "L": [
+          86.00000095367432,
+          324.0
+        ]
+      },
+      "ankleTargetError": 2.715531020346454e-06,
+      "toolboxGripError": 3.637978807091713e-12,
+      "toolboxWorldAngleDegrees": -0.49999929411158084
+    },
+    {
+      "frame": 7,
+      "rootShift": [
+        -9.100630217711572,
+        1.49375
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            51.89936828613281,
+            188.49374389648438
+          ],
+          "knee": [
+            45.3480224609375,
+            255.1726837158203
+          ],
+          "ankle": [
+            58.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            85.89936828613281,
+            189.49374389648438
+          ],
+          "knee": [
+            56.333457946777344,
+            255.4168701171875
+          ],
+          "ankle": [
+            73.625,
+            321.25
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          57.99999809265137,
+          319.0
+        ],
+        "L": [
+          73.625,
+          321.25
+        ]
+      },
+      "ankleTargetError": 2.1559093726653415e-06,
+      "toolboxGripError": 3.637978807091713e-12,
+      "toolboxWorldAngleDegrees": -1.187501680801687
+    },
+    {
+      "frame": 8,
+      "rootShift": [
+        -12,
+        1.4
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            49.0,
+            188.39999389648438
+          ],
+          "knee": [
+            44.85771942138672,
+            255.27182006835938
+          ],
+          "ankle": [
+            58.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            83.0,
+            189.39999389648438
+          ],
+          "knee": [
+            50.886512756347656,
+            254.12034606933594
+          ],
+          "ankle": [
+            68.0,
+            320.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          57.99999809265137,
+          318.99999809265137
+        ],
+        "L": [
+          68.0,
+          320.0
+        ]
+      },
+      "ankleTargetError": 2.697623221957299e-06,
+      "toolboxGripError": 7.629394531252118e-06,
+      "toolboxWorldAngleDegrees": -1.5000112667610304
+    },
+    {
+      "frame": 9,
+      "rootShift": [
+        -14.86882808466701,
+        1.5664
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            46.13117218017578,
+            188.56640625
+          ],
+          "knee": [
+            43.697303771972656,
+            255.52218627929688
+          ],
+          "ankle": [
+            58.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            80.13117218017578,
+            189.56640625
+          ],
+          "knee": [
+            48.90240478515625,
+            254.71824645996094
+          ],
+          "ankle": [
+            65.08799743652344,
+            320.8320007324219
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          57.99999809265137,
+          319.0
+        ],
+        "L": [
+          65.08799743652344,
+          320.8320007324219
+        ]
+      },
+      "ankleTargetError": 1.9303453004912134e-06,
+      "toolboxGripError": 7.629394531262607e-06,
+      "toolboxWorldAngleDegrees": -1.656007296706567
+    },
+    {
+      "frame": 10,
+      "rootShift": [
+        -17.944739287558082,
+        1.9632
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            43.055259704589844,
+            188.96319580078125
+          ],
+          "knee": [
+            41.90304183959961,
+            255.9532928466797
+          ],
+          "ankle": [
+            58.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            77.05525970458984,
+            189.96319580078125
+          ],
+          "knee": [
+            47.00588607788086,
+            255.66734313964844
+          ],
+          "ankle": [
+            58.14400100708008,
+            322.8160095214844
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          58.00000190734863,
+          319.0
+        ],
+        "L": [
+          58.143999099731445,
+          322.8160095214844
+        ]
+      },
+      "ankleTargetError": 1.9465480302001868e-06,
+      "toolboxGripError": 3.637978807091713e-12,
+      "toolboxWorldAngleDegrees": -2.0280137778723697
+    },
+    {
+      "frame": 11,
+      "rootShift": [
+        -21.086236448115642,
+        2.4368
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            39.91376495361328,
+            189.43679809570312
+          ],
+          "knee": [
+            40.11684036254883,
+            256.4364929199219
+          ],
+          "ankle": [
+            58.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            73.91376495361328,
+            190.43679809570312
+          ],
+          "knee": [
+            46.320709228515625,
+            257.209716796875
+          ],
+          "ankle": [
+            49.85599899291992,
+            325.1839904785156
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          58.0,
+          319.0
+        ],
+        "L": [
+          49.85599899291992,
+          325.1839904785156
+        ]
+      },
+      "ankleTargetError": 2.9344969390883964e-06,
+      "toolboxGripError": 7.629394531256265e-06,
+      "toolboxWorldAngleDegrees": -2.4719943765791177
+    },
+    {
+      "frame": 12,
+      "rootShift": [
+        -24.151822405782138,
+        2.8336
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            36.848175048828125,
+            189.83360290527344
+          ],
+          "knee": [
+            38.88197708129883,
+            256.8027038574219
+          ],
+          "ankle": [
+            58.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            70.84817504882812,
+            190.83360290527344
+          ],
+          "knee": [
+            47.68479919433594,
+            259.2693786621094
+          ],
+          "ankle": [
+            42.9119987487793,
+            327.1679992675781
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          58.0,
+          319.00000190734863
+        ],
+        "L": [
+          42.91200637817383,
+          327.1679992675781
+        ]
+      },
+      "ankleTargetError": 7.793536542367562e-06,
+      "toolboxGripError": 1.52587890625e-05,
+      "toolboxWorldAngleDegrees": -2.84399713990944
+    },
+    {
+      "frame": 13,
+      "rootShift": [
+        -27,
+        3
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            34.0,
+            190.0
+          ],
+          "knee": [
+            38.800601959228516,
+            256.82781982421875
+          ],
+          "ankle": [
+            58.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            68.0,
+            191.0
+          ],
+          "knee": [
+            47.87993240356445,
+            260.3915100097656
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          58.0,
+          319.00000190734863
+        ],
+        "L": [
+          40.000003814697266,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 4.283929281704305e-06,
+      "toolboxGripError": 1.525878906250066e-05,
+      "toolboxWorldAngleDegrees": -3.000004267327887
+    },
+    {
+      "frame": 14,
+      "rootShift": [
+        -29.52930009904259,
+        3.25
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            31.470699310302734,
+            190.25
+          ],
+          "knee": [
+            38.7005615234375,
+            256.8587646484375
+          ],
+          "ankle": [
+            58.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            65.470703125,
+            191.25
+          ],
+          "knee": [
+            43.30036544799805,
+            260.013916015625
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          58.00000190734863,
+          318.99999809265137
+        ],
+        "L": [
+          40.00000762939453,
+          328.0
+        ]
+      },
+      "ankleTargetError": 7.724315715969802e-06,
+      "toolboxGripError": 7.62939453125229e-06,
+      "toolboxWorldAngleDegrees": -2.400000643455852
+    },
+    {
+      "frame": 15,
+      "rootShift": [
+        -32,
+        3.5
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            29.0,
+            190.5
+          ],
+          "knee": [
+            39.11172866821289,
+            256.7325439453125
+          ],
+          "ankle": [
+            58.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            63.0,
+            191.5
+          ],
+          "knee": [
+            39.831512451171875,
+            259.9340515136719
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          58.0,
+          319.0
+        ],
+        "L": [
+          40.0,
+          327.99999618530273
+        ]
+      },
+      "ankleTargetError": 3.819393691138384e-06,
+      "toolboxGripError": 1.7059844799041168e-05,
+      "toolboxWorldAngleDegrees": -1.8000085627428637
+    },
+    {
+      "frame": 16,
+      "rootShift": [
+        -34.632856948386895,
+        2.9555555555555557
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            26.367141723632812,
+            189.95555114746094
+          ],
+          "knee": [
+            24.43000602722168,
+            256.92755126953125
+          ],
+          "ankle": [
+            50.22222137451172,
+            316.6666564941406
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            60.36714172363281,
+            190.95555114746094
+          ],
+          "knee": [
+            38.90157699584961,
+            259.9427185058594
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          50.22221755981445,
+          316.666654586792
+        ],
+        "L": [
+          40.000003814697266,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 4.374845329408511e-06,
+      "toolboxGripError": 1.7059844799041168e-05,
+      "toolboxWorldAngleDegrees": -1.359264217449967
+    },
+    {
+      "frame": 17,
+      "rootShift": [
+        -37.326753477126694,
+        1.9444444444444444
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            23.673248291015625,
+            188.94444274902344
+          ],
+          "knee": [
+            7.183624267578125,
+            253.8835906982422
+          ],
+          "ankle": [
+            35.77777862548828,
+            312.3333435058594
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            57.673248291015625,
+            189.94444274902344
+          ],
+          "knee": [
+            39.74517822265625,
+            259.934326171875
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          35.77777862548828,
+          312.3333435058594
+        ],
+        "L": [
+          40.0,
+          328.0
+        ]
+      },
+      "ankleTargetError": 6.207102299363662e-07,
+      "toolboxGripError": 1.5258789062501575e-05,
+      "toolboxWorldAngleDegrees": -0.5407536106091834
+    },
+    {
+      "frame": 18,
+      "rootShift": [
+        -40,
+        1.4
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            21.0,
+            188.39999389648438
+          ],
+          "knee": [
+            -0.9224224090576172,
+            251.71197509765625
+          ],
+          "ankle": [
+            28.0,
+            310.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            55.0,
+            189.39999389648438
+          ],
+          "knee": [
+            39.361820220947266,
+            259.9368591308594
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          27.999996185302734,
+          310.00000381469727
+        ],
+        "L": [
+          39.999996185302734,
+          328.0
+        ]
+      },
+      "ankleTargetError": 8.74141670542961e-06,
+      "toolboxGripError": 1.5258789062501626e-05,
+      "toolboxWorldAngleDegrees": -0.09999731823744726
+    },
+    {
+      "frame": 19,
+      "rootShift": [
+        -42.73744731219764,
+        1.3583999999999998
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            18.262554168701172,
+            188.3583984375
+          ],
+          "knee": [
+            -2.6921157836914062,
+            251.9972381591797
+          ],
+          "ankle": [
+            24.880001068115234,
+            310.9360046386719
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            52.26255416870117,
+            189.3583984375
+          ],
+          "knee": [
+            37.08697509765625,
+            259.9962158203125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          24.8800048828125,
+          310.93600845336914
+        ],
+        "L": [
+          39.999996185302734,
+          328.0
+        ]
+      },
+      "ankleTargetError": 5.4746355680920525e-06,
+      "toolboxGripError": 0.0,
+      "toolboxWorldAngleDegrees": 0.17038900346903693
+    },
+    {
+      "frame": 20,
+      "rootShift": [
+        -45.56951194715258,
+        1.2591999999999999
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            15.430488586425781,
+            188.2592010498047
+          ],
+          "knee": [
+            -4.967445373535156,
+            252.07867431640625
+          ],
+          "ankle": [
+            17.439998626708984,
+            313.1679992675781
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            49.43048858642578,
+            189.2592010498047
+          ],
+          "knee": [
+            35.236331939697266,
+            260.1007385253906
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          17.439998626708984,
+          313.1679992675781
+        ],
+        "L": [
+          40.0,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 2.8401015944076505e-06,
+      "toolboxGripError": 7.629394531252561e-06,
+      "toolboxWorldAngleDegrees": 0.8151994434167379
+    },
+    {
+      "frame": 21,
+      "rootShift": [
+        -48.3328529260087,
+        1.1408
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            12.66714859008789,
+            188.1407928466797
+          ],
+          "knee": [
+            -6.143827438354492,
+            252.44590759277344
+          ],
+          "ankle": [
+            8.560001373291016,
+            315.8320007324219
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            46.66714859008789,
+            189.1407928466797
+          ],
+          "knee": [
+            33.73220443725586,
+            260.2230529785156
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          8.55999755859375,
+          315.8319969177246
+        ],
+        "L": [
+          40.0,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 3.814697265625002e-06,
+      "toolboxGripError": 1.705984479904018e-05,
+      "toolboxWorldAngleDegrees": 1.5847925302601331
+    },
+    {
+      "frame": 22,
+      "rootShift": [
+        -50.864129269909874,
+        1.0415999999999999
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            10.135871887207031,
+            188.04159545898438
+          ],
+          "knee": [
+            -5.080275058746338,
+            253.29087829589844
+          ],
+          "ankle": [
+            1.1199989318847656,
+            318.0639953613281
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            44.13587188720703,
+            189.04159545898438
+          ],
+          "knee": [
+            32.501075744628906,
+            260.34820556640625
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          1.1199951171875,
+          318.0639953613281
+        ],
+        "L": [
+          39.999996185302734,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 4.274934615057934e-06,
+      "toolboxGripError": 1.5258789062500007e-05,
+      "toolboxWorldAngleDegrees": 2.229604979231214
+    },
+    {
+      "frame": 23,
+      "rootShift": [
+        -53,
+        1
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            8.0,
+            188.0
+          ],
+          "knee": [
+            -3.7854771614074707,
+            253.955322265625
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            42.0,
+            189.0
+          ],
+          "knee": [
+            31.442102432250977,
+            260.4739990234375
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -2.0,
+          319.0000057220459
+        ],
+        "L": [
+          40.0,
+          328.0
+        ]
+      },
+      "ankleTargetError": 6.218837958688728e-06,
+      "toolboxGripError": 7.629394531261008e-06,
+      "toolboxWorldAngleDegrees": 2.499996213105607
+    },
+    {
+      "frame": 24,
+      "rootShift": [
+        -54.91673588039867,
+        1.1875
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            6.083263397216797,
+            188.1875
+          ],
+          "knee": [
+            -6.14174747467041,
+            254.062744140625
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            40.0832633972168,
+            189.1875
+          ],
+          "knee": [
+            29.80316925048828,
+            260.70196533203125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -2.0,
+          318.99999809265137
+        ],
+        "L": [
+          40.000003814697266,
+          328.00000381469727
+        ]
+      },
+      "ankleTargetError": 5.426311539706353e-06,
+      "toolboxGripError": 7.629394531262197e-06,
+      "toolboxWorldAngleDegrees": 2.5781212864092176
+    },
+    {
+      "frame": 25,
+      "rootShift": [
+        -56.72757475083056,
+        1.6
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            4.272426605224609,
+            188.60000610351562
+          ],
+          "knee": [
+            -8.882707595825195,
+            254.2958526611328
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            38.27242660522461,
+            189.60000610351562
+          ],
+          "knee": [
+            27.647602081298828,
+            261.0640869140625
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -2.0,
+          319.00000190734863
+        ],
+        "L": [
+          39.99999237060547,
+          328.0
+        ]
+      },
+      "ankleTargetError": 7.740241415875406e-06,
+      "toolboxGripError": 7.275957614183426e-12,
+      "toolboxWorldAngleDegrees": 2.7499946367015684
+    },
+    {
+      "frame": 26,
+      "rootShift": [
+        -58.17462624584717,
+        2.0125
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            2.8253746032714844,
+            189.0124969482422
+          ],
+          "knee": [
+            -11.040811538696289,
+            254.56192016601562
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            36.825374603271484,
+            190.0124969482422
+          ],
+          "knee": [
+            25.842693328857422,
+            261.4224548339844
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -2.0,
+          319.00000381469727
+        ],
+        "L": [
+          40.0,
+          328.0
+        ]
+      },
+      "ankleTargetError": 4.477288164029235e-06,
+      "toolboxGripError": 1.70598447990402e-05,
+      "toolboxWorldAngleDegrees": 2.9218775925603517
+    },
+    {
+      "frame": 27,
+      "rootShift": [
+        -59,
+        2.2
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            2.0,
+            189.1999969482422
+          ],
+          "knee": [
+            -12.046425819396973,
+            254.7110595703125
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            36.0,
+            190.1999969482422
+          ],
+          "knee": [
+            24.9998779296875,
+            261.60723876953125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -2.0,
+          319.00000190734863
+        ],
+        "L": [
+          40.000003814697266,
+          327.99999809265137
+        ]
+      },
+      "ankleTargetError": 7.723347773535573e-06,
+      "toolboxGripError": 7.275957614183426e-12,
+      "toolboxWorldAngleDegrees": 3.000004267327887
+    },
+    {
+      "frame": 28,
+      "rootShift": [
+        -59.39732142857143,
+        1.9500000000000002
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            1.6026802062988281,
+            188.9499969482422
+          ],
+          "knee": [
+            -11.581185340881348,
+            254.64007568359375
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.60268020629883,
+            189.9499969482422
+          ],
+          "knee": [
+            25.518081665039062,
+            261.4922790527344
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -2.0,
+          319.00000190734863
+        ],
+        "L": [
+          39.999996185302734,
+          328.0
+        ]
+      },
+      "ankleTargetError": 3.9070800275781795e-06,
+      "toolboxGripError": 0.0,
+      "toolboxWorldAngleDegrees": 2.359379283805038
+    },
+    {
+      "frame": 29,
+      "rootShift": [
+        -59.714285714285715,
+        1.4000000000000001
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            1.2857131958007812,
+            188.39999389648438
+          ],
+          "knee": [
+            -10.061509132385254,
+            254.43212890625
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.28571319580078,
+            189.39999389648438
+          ],
+          "knee": [
+            27.045085906982422,
+            261.1780700683594
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -2.0,
+          319.00000190734863
+        ],
+        "L": [
+          39.999996185302734,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 4.335395108342742e-06,
+      "toolboxGripError": 7.62939453125247e-06,
+      "toolboxWorldAngleDegrees": 0.9499977086134271
+    },
+    {
+      "frame": 30,
+      "rootShift": [
+        -59.92410714285714,
+        0.8500000000000001
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            1.0758934020996094,
+            187.85000610351562
+          ],
+          "knee": [
+            -8.10573959350586,
+            254.2178955078125
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.07589340209961,
+            188.85000610351562
+          ],
+          "knee": [
+            28.939510345458984,
+            260.8385314941406
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -1.9999923706054688,
+          318.9999942779541
+        ],
+        "L": [
+          39.999996185302734,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 9.541186458316825e-06,
+      "toolboxGripError": 7.62939453125229e-06,
+      "toolboxWorldAngleDegrees": -0.45936442565514995
+    },
+    {
+      "frame": 31,
+      "rootShift": [
+        -60,
+        0.6
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            1.0,
+            187.60000610351562
+          ],
+          "knee": [
+            -6.9872355461120605,
+            254.12222290039062
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.0,
+            188.60000610351562
+          ],
+          "knee": [
+            29.982053756713867,
+            260.67510986328125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -1.9999923706054688,
+          318.99999618530273
+        ],
+        "L": [
+          39.999996185302734,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 8.67642858437254e-06,
+      "toolboxGripError": 7.629394531252378e-06,
+      "toolboxWorldAngleDegrees": -1.099997642386645
+    },
+    {
+      "frame": 32,
+      "rootShift": [
+        -60.0,
+        0.6
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            1.0,
+            187.60000610351562
+          ],
+          "knee": [
+            -6.9872355461120605,
+            254.12222290039062
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.0,
+            188.60000610351562
+          ],
+          "knee": [
+            29.982053756713867,
+            260.67510986328125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -1.9999923706054688,
+          318.99999618530273
+        ],
+        "L": [
+          39.999996185302734,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 8.67642858437254e-06,
+      "toolboxGripError": 7.629394531252378e-06,
+      "toolboxWorldAngleDegrees": -1.01851860639703
+    },
+    {
+      "frame": 33,
+      "rootShift": [
+        -60.0,
+        0.6
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            1.0,
+            187.60000610351562
+          ],
+          "knee": [
+            -6.9872355461120605,
+            254.12222290039062
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.0,
+            188.60000610351562
+          ],
+          "knee": [
+            29.982053756713867,
+            260.67510986328125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -1.9999923706054688,
+          318.99999618530273
+        ],
+        "L": [
+          39.999996185302734,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 8.67642858437254e-06,
+      "toolboxGripError": 7.629394531252378e-06,
+      "toolboxWorldAngleDegrees": -0.8148153358461858
+    },
+    {
+      "frame": 34,
+      "rootShift": [
+        -60.0,
+        0.6
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            1.0,
+            187.60000610351562
+          ],
+          "knee": [
+            -6.9872355461120605,
+            254.12222290039062
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.0,
+            188.60000610351562
+          ],
+          "knee": [
+            29.982053756713867,
+            260.67510986328125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -1.9999923706054688,
+          318.99999618530273
+        ],
+        "L": [
+          39.999996185302734,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 8.67642858437254e-06,
+      "toolboxGripError": 7.629394531252378e-06,
+      "toolboxWorldAngleDegrees": -0.5499869610912196
+    },
+    {
+      "frame": 35,
+      "rootShift": [
+        -60.0,
+        0.6
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            1.0,
+            187.60000610351562
+          ],
+          "knee": [
+            -6.9872355461120605,
+            254.12222290039062
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.0,
+            188.60000610351562
+          ],
+          "knee": [
+            29.982053756713867,
+            260.67510986328125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -1.9999923706054688,
+          318.99999618530273
+        ],
+        "L": [
+          39.999996185302734,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 8.67642858437254e-06,
+      "toolboxGripError": 7.629394531252378e-06,
+      "toolboxWorldAngleDegrees": -0.2851835425267407
+    },
+    {
+      "frame": 36,
+      "rootShift": [
+        -60.0,
+        0.6
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            1.0,
+            187.60000610351562
+          ],
+          "knee": [
+            -6.9872355461120605,
+            254.12222290039062
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.0,
+            188.60000610351562
+          ],
+          "knee": [
+            29.982053756713867,
+            260.67510986328125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -1.9999923706054688,
+          318.99999618530273
+        ],
+        "L": [
+          39.999996185302734,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 8.67642858437254e-06,
+      "toolboxGripError": 7.629394531252378e-06,
+      "toolboxWorldAngleDegrees": -0.0814787958620068
+    },
+    {
+      "frame": 37,
+      "rootShift": [
+        -60,
+        0.6
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            1.0,
+            187.60000610351562
+          ],
+          "knee": [
+            -6.9872355461120605,
+            254.12222290039062
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.0,
+            188.60000610351562
+          ],
+          "knee": [
+            29.982053756713867,
+            260.67510986328125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -1.9999923706054688,
+          318.99999618530273
+        ],
+        "L": [
+          39.999996185302734,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 8.67642858437254e-06,
+      "toolboxGripError": 7.629394531252378e-06,
+      "toolboxWorldAngleDegrees": -0.0
+    },
+    {
+      "frame": 38,
+      "rootShift": [
+        -60.0,
+        0.6
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            1.0,
+            187.60000610351562
+          ],
+          "knee": [
+            -6.9872355461120605,
+            254.12222290039062
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.0,
+            188.60000610351562
+          ],
+          "knee": [
+            29.982053756713867,
+            260.67510986328125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -1.9999923706054688,
+          318.99999618530273
+        ],
+        "L": [
+          39.999996185302734,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 8.67642858437254e-06,
+      "toolboxGripError": 7.629394531252378e-06,
+      "toolboxWorldAngleDegrees": -0.0
+    },
+    {
+      "frame": 39,
+      "rootShift": [
+        -60.0,
+        0.6
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            1.0,
+            187.60000610351562
+          ],
+          "knee": [
+            -6.9872355461120605,
+            254.12222290039062
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.0,
+            188.60000610351562
+          ],
+          "knee": [
+            29.982053756713867,
+            260.67510986328125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -1.9999923706054688,
+          318.99999618530273
+        ],
+        "L": [
+          39.999996185302734,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 8.67642858437254e-06,
+      "toolboxGripError": 7.629394531252378e-06,
+      "toolboxWorldAngleDegrees": -0.0
+    },
+    {
+      "frame": 40,
+      "rootShift": [
+        -60.0,
+        0.6
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            1.0,
+            187.60000610351562
+          ],
+          "knee": [
+            -6.9872355461120605,
+            254.12222290039062
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.0,
+            188.60000610351562
+          ],
+          "knee": [
+            29.982053756713867,
+            260.67510986328125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -1.9999923706054688,
+          318.99999618530273
+        ],
+        "L": [
+          39.999996185302734,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 8.67642858437254e-06,
+      "toolboxGripError": 7.629394531252378e-06,
+      "toolboxWorldAngleDegrees": -0.0
+    },
+    {
+      "frame": 41,
+      "rootShift": [
+        -60.0,
+        0.6
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            1.0,
+            187.60000610351562
+          ],
+          "knee": [
+            -6.9872355461120605,
+            254.12222290039062
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.0,
+            188.60000610351562
+          ],
+          "knee": [
+            29.982053756713867,
+            260.67510986328125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -1.9999923706054688,
+          318.99999618530273
+        ],
+        "L": [
+          39.999996185302734,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 8.67642858437254e-06,
+      "toolboxGripError": 7.629394531252378e-06,
+      "toolboxWorldAngleDegrees": -0.0
+    },
+    {
+      "frame": 42,
+      "rootShift": [
+        -60.0,
+        0.6
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            1.0,
+            187.60000610351562
+          ],
+          "knee": [
+            -6.9872355461120605,
+            254.12222290039062
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.0,
+            188.60000610351562
+          ],
+          "knee": [
+            29.982053756713867,
+            260.67510986328125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -1.9999923706054688,
+          318.99999618530273
+        ],
+        "L": [
+          39.999996185302734,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 8.67642858437254e-06,
+      "toolboxGripError": 7.629394531252378e-06,
+      "toolboxWorldAngleDegrees": -0.0
+    },
+    {
+      "frame": 43,
+      "rootShift": [
+        -60.0,
+        0.6
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            1.0,
+            187.60000610351562
+          ],
+          "knee": [
+            -6.9872355461120605,
+            254.12222290039062
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.0,
+            188.60000610351562
+          ],
+          "knee": [
+            29.982053756713867,
+            260.67510986328125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -1.9999923706054688,
+          318.99999618530273
+        ],
+        "L": [
+          39.999996185302734,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 8.67642858437254e-06,
+      "toolboxGripError": 7.629394531252378e-06,
+      "toolboxWorldAngleDegrees": -0.0
+    },
+    {
+      "frame": 44,
+      "rootShift": [
+        -60.0,
+        0.6
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            1.0,
+            187.60000610351562
+          ],
+          "knee": [
+            -6.9872355461120605,
+            254.12222290039062
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.0,
+            188.60000610351562
+          ],
+          "knee": [
+            29.982053756713867,
+            260.67510986328125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -1.9999923706054688,
+          318.99999618530273
+        ],
+        "L": [
+          39.999996185302734,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 8.67642858437254e-06,
+      "toolboxGripError": 7.629394531252378e-06,
+      "toolboxWorldAngleDegrees": -0.0
+    },
+    {
+      "frame": 45,
+      "rootShift": [
+        -60.0,
+        0.6
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            1.0,
+            187.60000610351562
+          ],
+          "knee": [
+            -6.9872355461120605,
+            254.12222290039062
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.0,
+            188.60000610351562
+          ],
+          "knee": [
+            29.982053756713867,
+            260.67510986328125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -1.9999923706054688,
+          318.99999618530273
+        ],
+        "L": [
+          39.999996185302734,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 8.67642858437254e-06,
+      "toolboxGripError": 7.629394531252378e-06,
+      "toolboxWorldAngleDegrees": -0.0
+    },
+    {
+      "frame": 46,
+      "rootShift": [
+        -60.0,
+        0.6
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            1.0,
+            187.60000610351562
+          ],
+          "knee": [
+            -6.9872355461120605,
+            254.12222290039062
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.0,
+            188.60000610351562
+          ],
+          "knee": [
+            29.982053756713867,
+            260.67510986328125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -1.9999923706054688,
+          318.99999618530273
+        ],
+        "L": [
+          39.999996185302734,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 8.67642858437254e-06,
+      "toolboxGripError": 7.629394531252378e-06,
+      "toolboxWorldAngleDegrees": -0.0
+    },
+    {
+      "frame": 47,
+      "rootShift": [
+        -60.0,
+        0.6
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            1.0,
+            187.60000610351562
+          ],
+          "knee": [
+            -6.9872355461120605,
+            254.12222290039062
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.0,
+            188.60000610351562
+          ],
+          "knee": [
+            29.982053756713867,
+            260.67510986328125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -1.9999923706054688,
+          318.99999618530273
+        ],
+        "L": [
+          39.999996185302734,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 8.67642858437254e-06,
+      "toolboxGripError": 7.629394531252378e-06,
+      "toolboxWorldAngleDegrees": -0.0
+    },
+    {
+      "frame": 48,
+      "rootShift": [
+        -60.0,
+        0.6
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            1.0,
+            187.60000610351562
+          ],
+          "knee": [
+            -6.9872355461120605,
+            254.12222290039062
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.0,
+            188.60000610351562
+          ],
+          "knee": [
+            29.982053756713867,
+            260.67510986328125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -1.9999923706054688,
+          318.99999618530273
+        ],
+        "L": [
+          39.999996185302734,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 8.67642858437254e-06,
+      "toolboxGripError": 7.629394531252378e-06,
+      "toolboxWorldAngleDegrees": -0.0
+    },
+    {
+      "frame": 49,
+      "rootShift": [
+        -60,
+        0.6
+      ],
+      "legs": {
+        "R": {
+          "hip": [
+            1.0,
+            187.60000610351562
+          ],
+          "knee": [
+            -6.9872355461120605,
+            254.12222290039062
+          ],
+          "ankle": [
+            -2.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            35.0,
+            188.60000610351562
+          ],
+          "knee": [
+            29.982053756713867,
+            260.67510986328125
+          ],
+          "ankle": [
+            40.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      },
+      "actualAnkles": {
+        "R": [
+          -1.9999923706054688,
+          318.99999618530273
+        ],
+        "L": [
+          39.999996185302734,
+          328.00000190734863
+        ]
+      },
+      "ankleTargetError": 8.67642858437254e-06,
+      "toolboxGripError": 7.629394531252378e-06,
+      "toolboxWorldAngleDegrees": -0.0
+    }
+  ],
+  "outputSize": [
+    300,
+    400
+  ],
+  "sourceOffset": [
+    72,
+    26
+  ],
+  "artApproved": false,
+  "walkingValidated": false,
+  "homepageIntegrated": false,
+  "limitations": [
+    "One original view only",
+    "No full unseen anatomy or clothing redrawn",
+    "Deformation pixel clusters require visual review",
+    "Not a walk loop or turn animation"
+  ]
+}

@@ -1,0 +1,11 @@
+For the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced.
+
+integrated_multimodal_description: [Shot 1] One continuous locked full-body shot of the exact adult field worker in the first frame. Preserve the original painterly pixel-art clusters, stepped edges, adult proportions, face, short dark hair, orange ochre jacket, dark green trousers and boots. Keep the flat dark green background and upper-left lighting. The worker keeps the same three-quarter body orientation, facing toward the lower left of the image. Their anatomical right hand remains gripping the same handle of the silver equipment case; their anatomical left hand keeps holding the same green recorder beside the waist. Preserve these hand-to-prop connections throughout.
+
+From 0.0 to 1.0 seconds, hold the initial two-feet-planted stance. From 1.0 to 3.0 seconds, perform just one very small loaded step: smoothly transfer weight onto the worker's own right leg, keeping the right sole grounded; gently bend the left knee, lift the left foot only half a shoe height, then place it half a shoe length forward along the existing facing direction. Coordinate the pelvis, chest, shoulders, neck and head over the supporting leg. The body and carried case respond together to the small weight transfer. From 3.0 to 4.0 seconds, settle into the new stance with both soles grounded and hold it until the end. Do not take another step or return to the starting pose.
+
+Keep the same camera, viewing direction, full-body framing and character scale. Allow only the small root travel physically required by the step. No camera motion, zoom, cuts, turnaround, loop, reversed movement, added gear, hood or backpack. Do not swap hands, suspend the props from straps, raise the case to the chest, detach hands from handles, distort joints, cross the legs or take a wide stride. Preserve the source pixel-art style without photorealistic or smooth 3D rendering. No text or new background objects. Complete silence.
+
+overall_soundscape: N/A
+
+non_diegetic_music: N/A

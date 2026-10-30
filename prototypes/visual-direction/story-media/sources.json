@@ -1,0 +1,80 @@
+{
+  "created": "2026-10-28",
+  "generationCalls": 4,
+  "videoCalls": 0,
+  "status": "Concept studies, not approved production art or animation frames",
+  "records": [
+    {
+      "name": "notebook-keyframe-v01",
+      "model": "image-01",
+      "service": "MiniMax through mmx-cli 1.0.28",
+      "seed": 281001,
+      "prompt": "../meadow-prompts/notebook-keyframe-v01.txt",
+      "promptSha256": "8a3b457ca5bbc5f8b3108dc245e22dace843d18910373960977325e5d548f3b1",
+      "subjectReference": "../meadow-media/hero-v04.webp",
+      "source": "notebook-keyframe-v01_001.jpg",
+      "sourceSha256": "d172c646835b1683388e61bae176ba02103742acfe6877aea5878506a06df1b7",
+      "width": 1920,
+      "height": 1080,
+      "selection": "rejected: smooth photoreal material, aerial islands and large album instead of ground-level pixel art"
+    },
+    {
+      "name": "boundary-keyframe-v01",
+      "model": "image-01",
+      "service": "MiniMax through mmx-cli 1.0.28",
+      "seed": 281002,
+      "prompt": "../meadow-prompts/boundary-keyframe-v01.txt",
+      "promptSha256": "224b0c9c48d245b14a7e5c61b599ded3592f2f395745593ba317a414b5d7622c",
+      "subjectReference": "../meadow-media/hero-v04.webp",
+      "source": "boundary-keyframe-v01_001.jpg",
+      "sourceSha256": "ea427632e0b84a79996979ec3a7be7cf1078b7a922a3b82d9a4626c2d83a6f83",
+      "width": 1920,
+      "height": 1080,
+      "selection": "rejected for continuity: foreground portrait scale, large lake and distant tower; pixel treatment useful as research"
+    },
+    {
+      "name": "notebook-keyframe-v02",
+      "model": "image-01",
+      "service": "MiniMax through mmx-cli 1.0.28",
+      "seed": 281004,
+      "prompt": "../meadow-prompts/notebook-keyframe-v02.txt",
+      "promptSha256": "3518993ee9dfd51d918fe538f416a21b3fdbefecf7e686c9e4f6e27ff9fba12b",
+      "subjectReference": "../meadow-media/hero-v04.webp",
+      "source": "notebook-keyframe-v02_001.jpg",
+      "sourceSha256": "9c589863a2afffb9c307a5fa7abad69f30f72cecba1dd0845f6ebd5c2d8b4ac3",
+      "width": 1920,
+      "height": 1080,
+      "selection": "foreground selected for material/compositing study only; background not retained"
+    },
+    {
+      "name": "boundary-keyframe-v02",
+      "model": "image-01",
+      "service": "MiniMax through mmx-cli 1.0.28",
+      "seed": 281005,
+      "prompt": "../meadow-prompts/boundary-keyframe-v02.txt",
+      "promptSha256": "5ac97e5cadd3d1b9ce176af2850f1861e90b61ff83004c81a19df83eb4f42c09",
+      "subjectReference": null,
+      "source": "boundary-keyframe-v02_001.jpg",
+      "sourceSha256": "91ef669e575af60777c4fac620f96106be92e4624bf9206a6330b9e9578c9fe4",
+      "width": 1920,
+      "height": 1080,
+      "selection": "wide composition candidate; extra vehicles/logos removed locally; still needs art review"
+    }
+  ],
+  "derived": [
+    {
+      "file": "notebook-foreground-v01.png",
+      "processing": "Polygon alpha with local green background rejection; local yellow-paper palette adjustment; no whole-image pixelation or photo filter."
+    },
+    {
+      "file": "notebook-study-v01.webp",
+      "background": "../meadow-media/hero-route-v01.webp",
+      "processing": "Composite extracted generated hands/book over existing character-free scene; this is a fixed concept composite, not a true new viewpoint. Foreground not yet approved."
+    },
+    {
+      "file": "boundary-study-v01.webp",
+      "processing": "Local grass patches remove two unrequested vehicle shapes and two generated fictitious logo regions. No original signature or third-party art involved; source generated for this task."
+    }
+  ],
+  "rebuild": "node prototypes/visual-direction/build-story-keyframes.mjs"
+}

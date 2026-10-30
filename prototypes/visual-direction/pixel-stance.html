@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>完整二维人物 · 像素绘制试片</title>
+  <link rel="stylesheet" href="pixel-stance.css">
+</head>
+<body>
+<header><a href="character-master-v02.html">← 三维辅助母版</a><span>完整二维人物 / PIXEL 04 · 试片</span></header>
+<main>
+  <p class="eyebrow">原野中的记录者</p>
+  <h1>一张完整的侧面像素人物。</h1>
+  <p class="intro">从空白栅格绘制头颈、衣装、四肢与器物，按同一种色块语言完成整个人。制作方式是程序辅助的二维像素绘制；本页提供原画、三维辅稿和实际输出供比较。</p>
+  <section aria-labelledby="native-heading">
+    <h2 id="native-heading">先看实际尺寸</h2>
+    <p>均为 128 × 196 画布，按原生像素显示。原画与辅稿人物高 174px，新试片高 176px；未局部缩放头或肢体。</p>
+    <div class="native-grid">
+      <figure><div class="surface"><img src="character-master-media/identity-reference-v01.png" width="128" height="196" alt="原画中的完整人物，赭橙工作外套、深绿长裤、右手工具箱和左手记录器。"></div><figcaption><strong>原画 / 造型与光色</strong><span>已认可的身份参照，朝向与新稿不同。</span></figcaption></figure>
+      <figure><div class="surface"><img src="character-master-media/left-palette-v02.png" width="128" height="196" alt="上一轮的朝左三维预渲染母版，作为身体与握持的辅助参考。"></div><figcaption><strong>三维 / 姿态辅稿</strong><span>用于身体与器物关系；未采样它的像素。</span></figcaption></figure>
+      <figure><div class="surface"><img src="pixel-character-media/pixel-stance-v04.png" width="128" height="196" alt="完整二维像素人物试片，朝左站立，短黑发胡茬、橙色立领工作外套、深绿裤装，右手提箱、左手握记录器。"></div><figcaption><strong>二维 / 完整绘制试片</strong><span>同一画布内完成，保留可编辑图层与笔触。</span></figcaption></figure>
+    </div>
+  </section>
+  <section aria-labelledby="detail-heading">
+    <h2 id="detail-heading">原画与新稿 · 整数倍检查</h2>
+    <p>桌面 3 倍、小屏 2 倍。看完整轮廓、面部朝向、颈肩、衣褶和手部接触。</p>
+    <div class="detail-grid">
+      <figure><div class="surface"><img src="character-master-media/identity-reference-v01.png" width="128" height="196" loading="lazy" alt="原画参考的整数倍放大，供比较布料明暗与面部气质。"></div><figcaption>原画 / 保留原生像素与整个人体</figcaption></figure>
+      <figure><div class="surface"><img src="pixel-character-media/pixel-stance-v04.png" width="128" height="196" loading="lazy" alt="新二维人物的整数倍放大，供检查完整色块组织。"></div><figcaption>PIXEL 04 / 无抖色与自动锐化</figcaption></figure>
+    </div>
+  </section>
+  <section class="assessment" aria-labelledby="assessment-heading">
+    <h2 id="assessment-heading">目前的判断</h2>
+    <p>这一版有了统一的二维轮廓和像素色块，面部与器物朝向也能直接控制。与原画相比，人物面貌、布料层次和衣褶仍偏概括，尚未定稿。下一步是否值得扩为动作，应由这张完整人物的观感决定。</p>
+    <dl>
+      <dt>制作方式</dt><dd>明确坐标与颜色的像素簇笔触，程序负责落笔和保存。不是人工手绘或模型生成结果，也未将旧图的头、腿或纹理拼接到新图。</dd>
+      <dt>可编辑源</dt><dd>OpenRaster 图层文件可用于支持该格式的绘图软件；另保留完整笔触与色板。图层是绘制组织，不是已经验证的动画绑定。</dd>
+      <dt>当前范围</dt><dd>一个方向、一个完整站姿。没有新增步态、视频或正式首页替换。</dd>
+    </dl>
+    <p class="downloads"><a href="pixel-character-media/pixel-stance-v04.png" download>原生 PNG</a><a href="pixel-character-media/pixel-stance-v04.ora" download>可编辑图层 · ORA</a><a href="pixel-character-media/pixel-stance-v04-authoring.json">笔触与色板</a><a href="pixel-character-media/pixel-stance-v04.json">制作记录</a></p>
+  </section>
+  <details class="generation-record">
+    <summary>本轮 MMX 试验：1 张，未采用</summary>
+    <p>使用三维母版作人物参考的生成结果仍偏光滑三维，增加了兜帽、改变了胡须与比例，并交换了器物所在的一侧，因此淘汰。本轮未继续追加同类请求。</p>
+    <figure><img src="pixel-character-media/pixel-stance-v03_001.jpg" width="768" height="1024" loading="lazy" alt="淘汰的 MMX 候选：有兜帽、比例与器物归属不符的光滑三维人物。"><figcaption>未采用的原始生成结果，未经修改。</figcaption></figure>
+  </details>
+</main>
+<footer>PIXEL 04 · 完整栅格绘制试片 · <a href="art-pack.html#cast">返回美术定稿包</a> · 本页仅显示静态图片</footer>
+</body>
+</html>

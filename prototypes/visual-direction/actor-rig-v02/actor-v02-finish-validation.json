@@ -1,0 +1,13 @@
+{
+  "scope": "Real isolated edit/import/export checks, not visual approval",
+  "unmodifiedExportsMatch": true,
+  "croppedOraLayersRestoreOffsets": true,
+  "singlePosePaintEditReachesExport": true,
+  "otherPosesUnaffectedByPosePaint": true,
+  "staleBaseRejected": true,
+  "archivedBaseEditRejected": true,
+  "failedApplyPreservesExistingOutput": true,
+  "testArtifacts": ".lab/actor-layer-study/finish-validation-u0cogr78",
+  "recipeSha256": "651be2a2e9c1d270e20bea20275e4247290133d4e8b81daa0c49f70ee7d24a32",
+  "artApproved": false
+}

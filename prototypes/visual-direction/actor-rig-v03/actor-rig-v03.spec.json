@@ -1,0 +1,754 @@
+{
+  "version": "actor-rig-v03",
+  "source": "../art-pack-media/actor-front.png",
+  "sourceSize": [
+    156,
+    348
+  ],
+  "scope": "Loaded shoulder/elbow/grip study, two short steps and settling in the original view; art and scene behavior unapproved",
+  "anatomicalRight": "screen-left arm, silver toolbox",
+  "anatomicalLeft": "screen-right bent arm, green recorder",
+  "bones": [
+    [
+      "root",
+      [
+        78,
+        340
+      ],
+      [
+        78,
+        320
+      ],
+      null
+    ],
+    [
+      "pelvis",
+      [
+        78,
+        189
+      ],
+      [
+        78,
+        171
+      ],
+      "root"
+    ],
+    [
+      "torso",
+      [
+        78,
+        177
+      ],
+      [
+        81,
+        65
+      ],
+      "pelvis"
+    ],
+    [
+      "head",
+      [
+        81,
+        65
+      ],
+      [
+        82,
+        10
+      ],
+      "torso"
+    ],
+    [
+      "upperarm_R",
+      [
+        47,
+        84
+      ],
+      [
+        35,
+        119
+      ],
+      "torso"
+    ],
+    [
+      "forearm_R",
+      [
+        35,
+        119
+      ],
+      [
+        25,
+        158
+      ],
+      "upperarm_R"
+    ],
+    [
+      "hand_R",
+      [
+        25,
+        158
+      ],
+      [
+        27,
+        171
+      ],
+      "forearm_R"
+    ],
+    [
+      "toolbox_R",
+      [
+        27,
+        171
+      ],
+      [
+        27,
+        204
+      ],
+      "hand_R"
+    ],
+    [
+      "upperarm_L",
+      [
+        109,
+        81
+      ],
+      [
+        141,
+        126
+      ],
+      "torso"
+    ],
+    [
+      "forearm_L",
+      [
+        141,
+        126
+      ],
+      [
+        119,
+        151
+      ],
+      "upperarm_L"
+    ],
+    [
+      "hand_L",
+      [
+        119,
+        151
+      ],
+      [
+        108,
+        158
+      ],
+      "forearm_L"
+    ],
+    [
+      "recorder_L",
+      [
+        108,
+        158
+      ],
+      [
+        108,
+        182
+      ],
+      "hand_L"
+    ],
+    [
+      "thigh_R",
+      [
+        61,
+        187
+      ],
+      [
+        61,
+        254
+      ],
+      "pelvis"
+    ],
+    [
+      "shin_R",
+      [
+        61,
+        254
+      ],
+      [
+        58,
+        319
+      ],
+      "thigh_R"
+    ],
+    [
+      "foot_R",
+      [
+        58,
+        319
+      ],
+      [
+        35,
+        334
+      ],
+      "shin_R"
+    ],
+    [
+      "thigh_L",
+      [
+        95,
+        188
+      ],
+      [
+        101,
+        260
+      ],
+      "pelvis"
+    ],
+    [
+      "shin_L",
+      [
+        101,
+        260
+      ],
+      [
+        104,
+        328
+      ],
+      "thigh_L"
+    ],
+    [
+      "foot_L",
+      [
+        104,
+        328
+      ],
+      [
+        102,
+        340
+      ],
+      "shin_L"
+    ]
+  ],
+  "ownershipPolygons": {
+    "arm_R": [
+      [
+        42,
+        80
+      ],
+      [
+        53,
+        78
+      ],
+      [
+        46,
+        117
+      ],
+      [
+        41,
+        139
+      ],
+      [
+        37,
+        155
+      ],
+      [
+        31,
+        169
+      ],
+      [
+        17,
+        164
+      ],
+      [
+        15,
+        151
+      ],
+      [
+        22,
+        129
+      ],
+      [
+        27,
+        105
+      ]
+    ],
+    "arm_L": [
+      [
+        107,
+        69
+      ],
+      [
+        119,
+        76
+      ],
+      [
+        151,
+        112
+      ],
+      [
+        155,
+        124
+      ],
+      [
+        149,
+        142
+      ],
+      [
+        131,
+        157
+      ],
+      [
+        118,
+        171
+      ],
+      [
+        109,
+        167
+      ],
+      [
+        108,
+        152
+      ],
+      [
+        122,
+        143
+      ],
+      [
+        130,
+        132
+      ],
+      [
+        134,
+        125
+      ],
+      [
+        123,
+        114
+      ],
+      [
+        114,
+        111
+      ],
+      [
+        108,
+        101
+      ]
+    ],
+    "toolbox_R": [
+      [
+        10,
+        158
+      ],
+      [
+        39,
+        157
+      ],
+      [
+        39,
+        181
+      ],
+      [
+        41,
+        203
+      ],
+      [
+        37,
+        225
+      ],
+      [
+        8,
+        225
+      ],
+      [
+        0,
+        208
+      ],
+      [
+        0,
+        193
+      ],
+      [
+        15,
+        185
+      ]
+    ],
+    "glove_R": [
+      [
+        15,
+        151
+      ],
+      [
+        36,
+        149
+      ],
+      [
+        40,
+        161
+      ],
+      [
+        35,
+        178
+      ],
+      [
+        21,
+        189
+      ],
+      [
+        13,
+        181
+      ]
+    ],
+    "recorder_L": [
+      [
+        94,
+        153
+      ],
+      [
+        119,
+        153
+      ],
+      [
+        121,
+        201
+      ],
+      [
+        94,
+        202
+      ]
+    ]
+  },
+  "hiddenCaps": {
+    "arm_R": {
+      "polygon": [
+        [
+          42,
+          80
+        ],
+        [
+          48,
+          76
+        ],
+        [
+          56,
+          80
+        ],
+        [
+          49,
+          99
+        ],
+        [
+          44,
+          116
+        ],
+        [
+          37,
+          113
+        ]
+      ],
+      "sampleY": [
+        87,
+        113
+      ]
+    },
+    "arm_L": {
+      "polygon": [
+        [
+          103,
+          72
+        ],
+        [
+          109,
+          69
+        ],
+        [
+          119,
+          77
+        ],
+        [
+          124,
+          92
+        ],
+        [
+          116,
+          101
+        ],
+        [
+          107,
+          89
+        ]
+      ],
+      "sampleY": [
+        82,
+        104
+      ]
+    }
+  },
+  "poses": [
+    {
+      "frame": 0,
+      "name": "standing",
+      "label": "原画站姿参考",
+      "pelvisShift": [
+        0,
+        0
+      ],
+      "rightFootShift": [
+        0,
+        0
+      ],
+      "leftFootShift": [
+        0,
+        0
+      ],
+      "torsoDegrees": 0,
+      "loadedArmDegrees": 0,
+      "forearmDegrees": 0,
+      "shoulderDropPx": 0,
+      "toolboxWorldDegrees": 0
+    },
+    {
+      "frame": 1,
+      "name": "loaded_stand",
+      "label": "负重站立",
+      "pelvisShift": [
+        0,
+        0.3
+      ],
+      "rightFootShift": [
+        0,
+        0
+      ],
+      "leftFootShift": [
+        0,
+        0
+      ],
+      "torsoDegrees": 0.25,
+      "loadedArmDegrees": 0.3,
+      "forearmDegrees": 1.0,
+      "shoulderDropPx": 1.1,
+      "toolboxWorldDegrees": 0
+    },
+    {
+      "frame": 7,
+      "name": "prepare",
+      "label": "准备换重心",
+      "pelvisShift": [
+        -2,
+        1
+      ],
+      "rightFootShift": [
+        0,
+        0
+      ],
+      "leftFootShift": [
+        0,
+        0
+      ],
+      "torsoDegrees": -0.1,
+      "loadedArmDegrees": 0.8,
+      "forearmDegrees": 1.4,
+      "shoulderDropPx": 1.3,
+      "toolboxWorldDegrees": 0.5
+    },
+    {
+      "frame": 11,
+      "name": "passing_R",
+      "label": "右脚提起",
+      "pelvisShift": [
+        -8,
+        1
+      ],
+      "rightFootShift": [
+        -18,
+        -8
+      ],
+      "leftFootShift": [
+        0,
+        0
+      ],
+      "torsoDegrees": -0.5,
+      "loadedArmDegrees": 1.0,
+      "forearmDegrees": 1.6,
+      "shoulderDropPx": 1.3,
+      "toolboxWorldDegrees": -1.4
+    },
+    {
+      "frame": 17,
+      "name": "contact_R",
+      "label": "右脚落地",
+      "pelvisShift": [
+        -16,
+        3
+      ],
+      "rightFootShift": [
+        -36,
+        0
+      ],
+      "leftFootShift": [
+        0,
+        0
+      ],
+      "torsoDegrees": -0.4,
+      "loadedArmDegrees": -0.6,
+      "forearmDegrees": 1.1,
+      "shoulderDropPx": 1.6,
+      "toolboxWorldDegrees": -2.5
+    },
+    {
+      "frame": 23,
+      "name": "passing_L",
+      "label": "左脚提起",
+      "pelvisShift": [
+        -23,
+        1.2
+      ],
+      "rightFootShift": [
+        -36,
+        0
+      ],
+      "leftFootShift": [
+        -20,
+        -8
+      ],
+      "torsoDegrees": -0.6,
+      "loadedArmDegrees": -0.5,
+      "forearmDegrees": 1.0,
+      "shoulderDropPx": 1.2,
+      "toolboxWorldDegrees": 0.7
+    },
+    {
+      "frame": 29,
+      "name": "contact_L",
+      "label": "左脚落地",
+      "pelvisShift": [
+        -30,
+        1
+      ],
+      "rightFootShift": [
+        -36,
+        0
+      ],
+      "leftFootShift": [
+        -36,
+        0
+      ],
+      "torsoDegrees": -0.2,
+      "loadedArmDegrees": 0.7,
+      "forearmDegrees": 1.5,
+      "shoulderDropPx": 1.5,
+      "toolboxWorldDegrees": 2.3
+    },
+    {
+      "frame": 35,
+      "name": "braking",
+      "label": "停步收重心",
+      "pelvisShift": [
+        -35,
+        1
+      ],
+      "rightFootShift": [
+        -36,
+        0
+      ],
+      "leftFootShift": [
+        -36,
+        0
+      ],
+      "torsoDegrees": 0.5,
+      "loadedArmDegrees": 0.6,
+      "forearmDegrees": 1.2,
+      "shoulderDropPx": 1.3,
+      "toolboxWorldDegrees": -0.9
+    },
+    {
+      "frame": 41,
+      "name": "stopped",
+      "label": "停步回稳",
+      "pelvisShift": [
+        -36,
+        0.3
+      ],
+      "rightFootShift": [
+        -36,
+        0
+      ],
+      "leftFootShift": [
+        -36,
+        0
+      ],
+      "torsoDegrees": 0.25,
+      "loadedArmDegrees": 0.3,
+      "forearmDegrees": 1.0,
+      "shoulderDropPx": 1.1,
+      "toolboxWorldDegrees": 0.2
+    },
+    {
+      "frame": 49,
+      "name": "stopped_hold",
+      "label": "保持现场",
+      "pelvisShift": [
+        -36,
+        0.3
+      ],
+      "rightFootShift": [
+        -36,
+        0
+      ],
+      "leftFootShift": [
+        -36,
+        0
+      ],
+      "torsoDegrees": 0.25,
+      "loadedArmDegrees": 0.3,
+      "forearmDegrees": 1.0,
+      "shoulderDropPx": 1.1,
+      "toolboxWorldDegrees": 0
+    }
+  ],
+  "skinning": {
+    "sharedHipWeights": true,
+    "preserveLegVolume": true,
+    "hipTransition": [
+      202,
+      229
+    ]
+  },
+  "outputSize": [
+    300,
+    400
+  ],
+  "motion": {
+    "fps": 12,
+    "startFrame": 1,
+    "actionName": "Loaded two-step and settling / constrained per-frame controls",
+    "supportIntervals": [
+      {
+        "from": 1,
+        "to": 7,
+        "legs": [
+          "R",
+          "L"
+        ]
+      },
+      {
+        "from": 7,
+        "to": 17,
+        "legs": [
+          "L"
+        ]
+      },
+      {
+        "from": 17,
+        "to": 29,
+        "legs": [
+          "R"
+        ]
+      },
+      {
+        "from": 29,
+        "to": 49,
+        "legs": [
+          "R",
+          "L"
+        ]
+      }
+    ]
+  }
+}

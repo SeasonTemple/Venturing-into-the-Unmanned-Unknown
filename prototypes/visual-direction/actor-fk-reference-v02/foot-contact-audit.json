@@ -1,0 +1,1397 @@
+{
+  "method": "Evaluated shoe geometry; per-side local-z bottom sample plane fit",
+  "cutoffLocalZ": 0.01,
+  "lowestVertexIsNotContactProof": true,
+  "frames": [
+    {
+      "frame": 1,
+      "sourceFrame": 1,
+      "sides": {
+        "R": {
+          "tiltDegrees": 19.490720827485294,
+          "rmsMm": 4.622334718782723,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            9.74345300346613,
+            63.488878309726715
+          ],
+          "lowestPointMm": 9.74345300346613
+        },
+        "L": {
+          "tiltDegrees": 33.17067520976804,
+          "rmsMm": 5.400224509430998,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            6.891957484185696,
+            107.27953910827637
+          ],
+          "lowestPointMm": 6.891957484185696
+        }
+      }
+    },
+    {
+      "frame": 2,
+      "sourceFrame": 6,
+      "sides": {
+        "R": {
+          "tiltDegrees": 20.292726215168553,
+          "rmsMm": 3.2206759001479797,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -5.96191082149744,
+            37.58075460791588
+          ],
+          "lowestPointMm": -5.96191082149744
+        },
+        "L": {
+          "tiltDegrees": 46.57485240988491,
+          "rmsMm": 7.259924450015515,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            5.858617834746838,
+            142.717182636261
+          ],
+          "lowestPointMm": 5.858617834746838
+        }
+      }
+    },
+    {
+      "frame": 3,
+      "sourceFrame": 11,
+      "sides": {
+        "R": {
+          "tiltDegrees": 21.650266593848524,
+          "rmsMm": 2.98559218920998,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -6.956607569009066,
+            38.674626499414444
+          ],
+          "lowestPointMm": -6.956607569009066
+        },
+        "L": {
+          "tiltDegrees": 64.14070456525327,
+          "rmsMm": 8.050603858139834,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            46.15865275263786,
+            199.17789101600647
+          ],
+          "lowestPointMm": 46.15865275263786
+        }
+      }
+    },
+    {
+      "frame": 4,
+      "sourceFrame": 16,
+      "sides": {
+        "R": {
+          "tiltDegrees": 22.90328166119959,
+          "rmsMm": 3.1018751488591656,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -5.222770851105452,
+            43.247394263744354
+          ],
+          "lowestPointMm": -5.222770851105452
+        },
+        "L": {
+          "tiltDegrees": 60.986850857828266,
+          "rmsMm": 10.063531673565192,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            72.1108615398407,
+            225.31184554100037
+          ],
+          "lowestPointMm": 72.1108615398407
+        }
+      }
+    },
+    {
+      "frame": 5,
+      "sourceFrame": 21,
+      "sides": {
+        "R": {
+          "tiltDegrees": 23.69019171516636,
+          "rmsMm": 2.582834917682501,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -5.16610499471426,
+            44.18962076306343
+          ],
+          "lowestPointMm": -5.16610499471426
+        },
+        "L": {
+          "tiltDegrees": 58.270286333579044,
+          "rmsMm": 4.519150686460926,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            88.26600015163422,
+            227.4804264307022
+          ],
+          "lowestPointMm": 88.26600015163422
+        }
+      }
+    },
+    {
+      "frame": 6,
+      "sourceFrame": 26,
+      "sides": {
+        "R": {
+          "tiltDegrees": 24.23276264067022,
+          "rmsMm": 3.0448364003714397,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -3.6708146799355745,
+            47.87030071020126
+          ],
+          "lowestPointMm": -3.6708146799355745
+        },
+        "L": {
+          "tiltDegrees": 48.86026632342762,
+          "rmsMm": 2.9812192265909827,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            82.74479955434799,
+            202.74823904037476
+          ],
+          "lowestPointMm": 82.74479955434799
+        }
+      }
+    },
+    {
+      "frame": 7,
+      "sourceFrame": 31,
+      "sides": {
+        "R": {
+          "tiltDegrees": 25.073296692299223,
+          "rmsMm": 3.069004200793522,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -4.841976333409548,
+            49.01605844497681
+          ],
+          "lowestPointMm": -4.841976333409548
+        },
+        "L": {
+          "tiltDegrees": 36.4708218086544,
+          "rmsMm": 4.479691667046282,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            53.871650248765945,
+            153.49766612052917
+          ],
+          "lowestPointMm": 53.871650248765945
+        }
+      }
+    },
+    {
+      "frame": 8,
+      "sourceFrame": 36,
+      "sides": {
+        "R": {
+          "tiltDegrees": 25.727392902572607,
+          "rmsMm": 3.824598006007568,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -4.338315688073635,
+            53.358294069767
+          ],
+          "lowestPointMm": -4.338315688073635
+        },
+        "L": {
+          "tiltDegrees": 26.41903424842201,
+          "rmsMm": 2.46967582339481,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            34.472864121198654,
+            109.24885421991348
+          ],
+          "lowestPointMm": 34.472864121198654
+        }
+      }
+    },
+    {
+      "frame": 9,
+      "sourceFrame": 41,
+      "sides": {
+        "R": {
+          "tiltDegrees": 26.85814690977998,
+          "rmsMm": 3.5118974235703098,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -4.952660761773586,
+            58.678846806287766
+          ],
+          "lowestPointMm": -4.952660761773586
+        },
+        "L": {
+          "tiltDegrees": 21.879048905974656,
+          "rmsMm": 3.4967331973058573,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            16.301434487104416,
+            66.14547967910767
+          ],
+          "lowestPointMm": 16.301434487104416
+        }
+      }
+    },
+    {
+      "frame": 10,
+      "sourceFrame": 46,
+      "sides": {
+        "R": {
+          "tiltDegrees": 28.1273333274852,
+          "rmsMm": 3.865466762758166,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -5.6368806399405,
+            64.94059413671494
+          ],
+          "lowestPointMm": -5.6368806399405
+        },
+        "L": {
+          "tiltDegrees": 27.219422896108753,
+          "rmsMm": 3.5695019211411116,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            20.69164253771305,
+            91.17082506418228
+          ],
+          "lowestPointMm": 20.69164253771305
+        }
+      }
+    },
+    {
+      "frame": 11,
+      "sourceFrame": 51,
+      "sides": {
+        "R": {
+          "tiltDegrees": 29.32678073426037,
+          "rmsMm": 4.134886113695034,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -5.195748060941696,
+            73.8641768693924
+          ],
+          "lowestPointMm": -5.195748060941696
+        },
+        "L": {
+          "tiltDegrees": 33.646825293875935,
+          "rmsMm": 3.686650202404412,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            38.661889731884,
+            137.61381804943085
+          ],
+          "lowestPointMm": 38.661889731884
+        }
+      }
+    },
+    {
+      "frame": 12,
+      "sourceFrame": 56,
+      "sides": {
+        "R": {
+          "tiltDegrees": 31.787014964114576,
+          "rmsMm": 4.059932491529466,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -0.33012544736266136,
+            89.81283754110336
+          ],
+          "lowestPointMm": -0.33012544736266136
+        },
+        "L": {
+          "tiltDegrees": 36.20480661783978,
+          "rmsMm": 3.630119513166135,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            44.27427053451538,
+            149.90393817424774
+          ],
+          "lowestPointMm": 44.27427053451538
+        }
+      }
+    },
+    {
+      "frame": 13,
+      "sourceFrame": 61,
+      "sides": {
+        "R": {
+          "tiltDegrees": 37.22016102745753,
+          "rmsMm": 3.8236263793213485,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            8.57613142579794,
+            113.99010568857193
+          ],
+          "lowestPointMm": 8.57613142579794
+        },
+        "L": {
+          "tiltDegrees": 29.27403664107935,
+          "rmsMm": 2.9313394800887527,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            18.29848438501358,
+            98.55537116527557
+          ],
+          "lowestPointMm": 18.29848438501358
+        }
+      }
+    },
+    {
+      "frame": 14,
+      "sourceFrame": 66,
+      "sides": {
+        "R": {
+          "tiltDegrees": 44.62613265117103,
+          "rmsMm": 5.724390088563123,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            9.772599674761295,
+            139.20018076896667
+          ],
+          "lowestPointMm": 9.772599674761295
+        },
+        "L": {
+          "tiltDegrees": 24.767963213330358,
+          "rmsMm": 2.5994848342366623,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            3.883251454681158,
+            56.73322081565857
+          ],
+          "lowestPointMm": 3.883251454681158
+        }
+      }
+    },
+    {
+      "frame": 15,
+      "sourceFrame": 71,
+      "sides": {
+        "R": {
+          "tiltDegrees": 60.265279843573886,
+          "rmsMm": 6.080173703372689,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            32.9706072807312,
+            182.95258283615112
+          ],
+          "lowestPointMm": 32.9706072807312
+        },
+        "L": {
+          "tiltDegrees": 25.68498226487175,
+          "rmsMm": 2.2122740334451847,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -2.219040412455797,
+            46.34420946240425
+          ],
+          "lowestPointMm": -2.219040412455797
+        }
+      }
+    },
+    {
+      "frame": 16,
+      "sourceFrame": 76,
+      "sides": {
+        "R": {
+          "tiltDegrees": 73.75808487108414,
+          "rmsMm": 10.486038466760503,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            76.15707814693451,
+            235.51499843597412
+          ],
+          "lowestPointMm": 76.15707814693451
+        },
+        "L": {
+          "tiltDegrees": 26.255201411619225,
+          "rmsMm": 2.0344622588169283,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -3.208594862371683,
+            45.49972712993622
+          ],
+          "lowestPointMm": -3.208594862371683
+        }
+      }
+    },
+    {
+      "frame": 17,
+      "sourceFrame": 81,
+      "sides": {
+        "R": {
+          "tiltDegrees": 70.58975744258636,
+          "rmsMm": 4.874149445378743,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            109.66745018959045,
+            259.45010781288147
+          ],
+          "lowestPointMm": 109.66745018959045
+        },
+        "L": {
+          "tiltDegrees": 26.41916182733889,
+          "rmsMm": 2.16467279488874,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -2.889815717935562,
+            46.85988277196884
+          ],
+          "lowestPointMm": -2.889815717935562
+        }
+      }
+    },
+    {
+      "frame": 18,
+      "sourceFrame": 86,
+      "sides": {
+        "R": {
+          "tiltDegrees": 63.10754776378303,
+          "rmsMm": 4.956916709384148,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            113.95677179098129,
+            259.18030738830566
+          ],
+          "lowestPointMm": 113.95677179098129
+        },
+        "L": {
+          "tiltDegrees": 26.074697079894847,
+          "rmsMm": 2.057670569891888,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -2.949922578409314,
+            45.91449350118637
+          ],
+          "lowestPointMm": -2.949922578409314
+        }
+      }
+    },
+    {
+      "frame": 19,
+      "sourceFrame": 91,
+      "sides": {
+        "R": {
+          "tiltDegrees": 51.33675790027037,
+          "rmsMm": 3.1077565392623345,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            106.74229264259338,
+            232.32202231884003
+          ],
+          "lowestPointMm": 106.74229264259338
+        },
+        "L": {
+          "tiltDegrees": 25.907347875869313,
+          "rmsMm": 2.6344406165233285,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -4.129229113459587,
+            46.46874964237213
+          ],
+          "lowestPointMm": -4.129229113459587
+        }
+      }
+    },
+    {
+      "frame": 20,
+      "sourceFrame": 96,
+      "sides": {
+        "R": {
+          "tiltDegrees": 37.79961363581837,
+          "rmsMm": 3.7287018287256743,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            80.88633418083191,
+            185.78186631202698
+          ],
+          "lowestPointMm": 80.88633418083191
+        },
+        "L": {
+          "tiltDegrees": 25.77575851076857,
+          "rmsMm": 2.4911968457756664,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -6.413198541849852,
+            43.47339645028114
+          ],
+          "lowestPointMm": -6.413198541849852
+        }
+      }
+    },
+    {
+      "frame": 21,
+      "sourceFrame": 101,
+      "sides": {
+        "R": {
+          "tiltDegrees": 26.242213704640875,
+          "rmsMm": 4.083102141331761,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            50.26264488697052,
+            130.3393542766571
+          ],
+          "lowestPointMm": 50.26264488697052
+        },
+        "L": {
+          "tiltDegrees": 25.674337057450757,
+          "rmsMm": 2.2732001612389703,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -6.234060972929001,
+            43.513353914022446
+          ],
+          "lowestPointMm": -6.234060972929001
+        }
+      }
+    },
+    {
+      "frame": 22,
+      "sourceFrame": 106,
+      "sides": {
+        "R": {
+          "tiltDegrees": 17.901743946704464,
+          "rmsMm": 3.919627324966233,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            32.26222097873688,
+            80.46431094408035
+          ],
+          "lowestPointMm": 32.26222097873688
+        },
+        "L": {
+          "tiltDegrees": 25.625822509752123,
+          "rmsMm": 2.1609170369228474,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -7.886269129812717,
+            43.14754158258438
+          ],
+          "lowestPointMm": -7.886269129812717
+        }
+      }
+    },
+    {
+      "frame": 23,
+      "sourceFrame": 111,
+      "sides": {
+        "R": {
+          "tiltDegrees": 19.167433659480483,
+          "rmsMm": 2.638762350365623,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            29.503561556339264,
+            83.38883519172668
+          ],
+          "lowestPointMm": 29.503561556339264
+        },
+        "L": {
+          "tiltDegrees": 25.442306271404423,
+          "rmsMm": 2.0191605832045396,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -7.115344516932964,
+            44.39450427889824
+          ],
+          "lowestPointMm": -7.115344516932964
+        }
+      }
+    },
+    {
+      "frame": 24,
+      "sourceFrame": 116,
+      "sides": {
+        "R": {
+          "tiltDegrees": 29.259138658202712,
+          "rmsMm": 4.212070234198217,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            45.39519548416138,
+            136.88813149929047
+          ],
+          "lowestPointMm": 45.39519548416138
+        },
+        "L": {
+          "tiltDegrees": 25.123489001140403,
+          "rmsMm": 2.265569894409795,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -0.23114748182706535,
+            53.679972887039185
+          ],
+          "lowestPointMm": -0.23114748182706535
+        }
+      }
+    },
+    {
+      "frame": 25,
+      "sourceFrame": 121,
+      "sides": {
+        "R": {
+          "tiltDegrees": 33.30608039266786,
+          "rmsMm": 5.5940845788550035,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            54.06196787953377,
+            158.52992236614227
+          ],
+          "lowestPointMm": 54.06196787953377
+        },
+        "L": {
+          "tiltDegrees": 25.706881644349398,
+          "rmsMm": 2.840184956714737,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            6.628835573792458,
+            68.14854592084885
+          ],
+          "lowestPointMm": 6.628835573792458
+        }
+      }
+    },
+    {
+      "frame": 26,
+      "sourceFrame": 126,
+      "sides": {
+        "R": {
+          "tiltDegrees": 27.36684459265305,
+          "rmsMm": 5.051370836726929,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            28.996704146265984,
+            117.31450259685516
+          ],
+          "lowestPointMm": 28.996704146265984
+        },
+        "L": {
+          "tiltDegrees": 28.207820509121444,
+          "rmsMm": 2.632872838877612,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            11.238658800721169,
+            85.45731008052826
+          ],
+          "lowestPointMm": 11.238658800721169
+        }
+      }
+    },
+    {
+      "frame": 27,
+      "sourceFrame": 131,
+      "sides": {
+        "R": {
+          "tiltDegrees": 19.543190396115588,
+          "rmsMm": 4.625951184531165,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            12.336492538452148,
+            65.677210688591
+          ],
+          "lowestPointMm": 12.336492538452148
+        },
+        "L": {
+          "tiltDegrees": 33.09553288404557,
+          "rmsMm": 4.568313231535706,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            15.824537724256516,
+            113.16872388124466
+          ],
+          "lowestPointMm": 15.824537724256516
+        }
+      }
+    },
+    {
+      "frame": 28,
+      "sourceFrame": 136,
+      "sides": {
+        "R": {
+          "tiltDegrees": 21.170401554279888,
+          "rmsMm": 3.53376409133717,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -0.43096370063722134,
+            45.318011194467545
+          ],
+          "lowestPointMm": -0.43096370063722134
+        },
+        "L": {
+          "tiltDegrees": 47.09936555407141,
+          "rmsMm": 5.912145197599961,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            14.639846980571747,
+            148.10636639595032
+          ],
+          "lowestPointMm": 14.639846980571747
+        }
+      }
+    },
+    {
+      "frame": 29,
+      "sourceFrame": 141,
+      "sides": {
+        "R": {
+          "tiltDegrees": 23.480048503202,
+          "rmsMm": 3.0657558848938753,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -1.5478921122848988,
+            47.960106283426285
+          ],
+          "lowestPointMm": -1.5478921122848988
+        },
+        "L": {
+          "tiltDegrees": 63.07577363143155,
+          "rmsMm": 6.3979569555949665,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            55.39925768971443,
+            203.1918615102768
+          ],
+          "lowestPointMm": 55.39925768971443
+        }
+      }
+    },
+    {
+      "frame": 30,
+      "sourceFrame": 146,
+      "sides": {
+        "R": {
+          "tiltDegrees": 24.49382943655461,
+          "rmsMm": 2.889640744806764,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -1.3196595245972276,
+            50.16447976231575
+          ],
+          "lowestPointMm": -1.3196595245972276
+        },
+        "L": {
+          "tiltDegrees": 62.49943554675207,
+          "rmsMm": 6.593048841601626,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            83.55992287397385,
+            231.99105262756348
+          ],
+          "lowestPointMm": 83.55992287397385
+        }
+      }
+    },
+    {
+      "frame": 31,
+      "sourceFrame": 151,
+      "sides": {
+        "R": {
+          "tiltDegrees": 25.03793015035477,
+          "rmsMm": 2.6175139224619612,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -2.009732648730278,
+            50.7790744304657
+          ],
+          "lowestPointMm": -2.009732648730278
+        },
+        "L": {
+          "tiltDegrees": 53.26326342874829,
+          "rmsMm": 6.098817870849328,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            95.71074694395065,
+            231.6291183233261
+          ],
+          "lowestPointMm": 95.71074694395065
+        }
+      }
+    },
+    {
+      "frame": 32,
+      "sourceFrame": 156,
+      "sides": {
+        "R": {
+          "tiltDegrees": 25.51618547091922,
+          "rmsMm": 2.7698707779983707,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            0.09451305959373713,
+            55.77176809310913
+          ],
+          "lowestPointMm": 0.09451305959373713
+        },
+        "L": {
+          "tiltDegrees": 45.81763687332633,
+          "rmsMm": 4.315639862748929,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            88.9265388250351,
+            207.863911986351
+          ],
+          "lowestPointMm": 88.9265388250351
+        }
+      }
+    },
+    {
+      "frame": 33,
+      "sourceFrame": 161,
+      "sides": {
+        "R": {
+          "tiltDegrees": 25.9547462843188,
+          "rmsMm": 3.309190081899289,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -0.27085666079074144,
+            57.643890380859375
+          ],
+          "lowestPointMm": -0.27085666079074144
+        },
+        "L": {
+          "tiltDegrees": 38.23025199072442,
+          "rmsMm": 2.6453233496953246,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            65.88277965784073,
+            168.011873960495
+          ],
+          "lowestPointMm": 65.88277965784073
+        }
+      }
+    },
+    {
+      "frame": 34,
+      "sourceFrame": 166,
+      "sides": {
+        "R": {
+          "tiltDegrees": 26.979112723596238,
+          "rmsMm": 2.842177167449008,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            1.3078531483188272,
+            62.5699982047081
+          ],
+          "lowestPointMm": 1.3078531483188272
+        },
+        "L": {
+          "tiltDegrees": 27.36275108694207,
+          "rmsMm": 2.393546153976731,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            40.44828563928604,
+            118.2776391506195
+          ],
+          "lowestPointMm": 40.44828563928604
+        }
+      }
+    },
+    {
+      "frame": 35,
+      "sourceFrame": 171,
+      "sides": {
+        "R": {
+          "tiltDegrees": 27.549057705666268,
+          "rmsMm": 3.1129024912412615,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            3.3337101340293884,
+            69.1126212477684
+          ],
+          "lowestPointMm": 3.3337101340293884
+        },
+        "L": {
+          "tiltDegrees": 20.819008459191565,
+          "rmsMm": 2.716984827865718,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            27.424141764640808,
+            76.10873878002167
+          ],
+          "lowestPointMm": 27.424141764640808
+        }
+      }
+    },
+    {
+      "frame": 36,
+      "sourceFrame": 176,
+      "sides": {
+        "R": {
+          "tiltDegrees": 28.225028264401786,
+          "rmsMm": 3.5556265522695547,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            2.798114437609911,
+            73.49253445863724
+          ],
+          "lowestPointMm": 2.798114437609911
+        },
+        "L": {
+          "tiltDegrees": 25.638203652997902,
+          "rmsMm": 3.202695760833577,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            25.64401365816593,
+            91.03255718946457
+          ],
+          "lowestPointMm": 25.64401365816593
+        }
+      }
+    },
+    {
+      "frame": 37,
+      "sourceFrame": 181,
+      "sides": {
+        "R": {
+          "tiltDegrees": 29.79239975153532,
+          "rmsMm": 3.1945630898902904,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            2.1621230989694595,
+            80.9890553355217
+          ],
+          "lowestPointMm": 2.1621230989694595
+        },
+        "L": {
+          "tiltDegrees": 33.74494252704091,
+          "rmsMm": 4.246870385461978,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            40.745582431554794,
+            141.7306810617447
+          ],
+          "lowestPointMm": 40.745582431554794
+        }
+      }
+    },
+    {
+      "frame": 38,
+      "sourceFrame": 186,
+      "sides": {
+        "R": {
+          "tiltDegrees": 32.3441216553204,
+          "rmsMm": 3.557581370430196,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            6.557703949511051,
+            97.03127294778824
+          ],
+          "lowestPointMm": 6.557703949511051
+        },
+        "L": {
+          "tiltDegrees": 37.66555671638108,
+          "rmsMm": 2.76291416525674,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            54.73063141107559,
+            161.62656247615814
+          ],
+          "lowestPointMm": 54.73063141107559
+        }
+      }
+    },
+    {
+      "frame": 39,
+      "sourceFrame": 191,
+      "sides": {
+        "R": {
+          "tiltDegrees": 37.851982521622524,
+          "rmsMm": 4.205072015024651,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            9.703285992145538,
+            118.18014830350876
+          ],
+          "lowestPointMm": 9.703285992145538
+        },
+        "L": {
+          "tiltDegrees": 32.332012233245074,
+          "rmsMm": 4.1911666664359375,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            25.825737044215202,
+            121.39680236577988
+          ],
+          "lowestPointMm": 25.825737044215202
+        }
+      }
+    },
+    {
+      "frame": 40,
+      "sourceFrame": 196,
+      "sides": {
+        "R": {
+          "tiltDegrees": 46.71647987619709,
+          "rmsMm": 5.496500290384088,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            14.216436073184013,
+            147.03109860420227
+          ],
+          "lowestPointMm": 14.216436073184013
+        },
+        "L": {
+          "tiltDegrees": 24.640327473941984,
+          "rmsMm": 3.454533640860348,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            9.166233241558075,
+            66.6099488735199
+          ],
+          "lowestPointMm": 9.166233241558075
+        }
+      }
+    },
+    {
+      "frame": 41,
+      "sourceFrame": 201,
+      "sides": {
+        "R": {
+          "tiltDegrees": 62.52101088044478,
+          "rmsMm": 7.8928458835359,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            27.105938643217087,
+            184.93668735027313
+          ],
+          "lowestPointMm": 27.105938643217087
+        },
+        "L": {
+          "tiltDegrees": 25.487930367100976,
+          "rmsMm": 1.8797559485714077,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -0.00795675441622734,
+            47.09773138165474
+          ],
+          "lowestPointMm": -0.00795675441622734
+        }
+      }
+    },
+    {
+      "frame": 42,
+      "sourceFrame": 206,
+      "sides": {
+        "R": {
+          "tiltDegrees": 75.76104421371316,
+          "rmsMm": 15.00641424898085,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            76.78092271089554,
+            242.04546213150024
+          ],
+          "lowestPointMm": 76.78092271089554
+        },
+        "L": {
+          "tiltDegrees": 26.231133808717768,
+          "rmsMm": 1.4476270646885576,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -2.3208290804177523,
+            46.94071784615517
+          ],
+          "lowestPointMm": -2.3208290804177523
+        }
+      }
+    },
+    {
+      "frame": 43,
+      "sourceFrame": 211,
+      "sides": {
+        "R": {
+          "tiltDegrees": 72.90552416183158,
+          "rmsMm": 10.740265291841718,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            107.81565308570862,
+            268.1531608104706
+          ],
+          "lowestPointMm": 107.81565308570862
+        },
+        "L": {
+          "tiltDegrees": 26.424743619618237,
+          "rmsMm": 1.4404318882926819,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -1.7687669023871422,
+            47.640249133110046
+          ],
+          "lowestPointMm": -1.7687669023871422
+        }
+      }
+    },
+    {
+      "frame": 44,
+      "sourceFrame": 216,
+      "sides": {
+        "R": {
+          "tiltDegrees": 62.80302707297364,
+          "rmsMm": 6.272701594108364,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            117.11627244949341,
+            264.72654938697815
+          ],
+          "lowestPointMm": 117.11627244949341
+        },
+        "L": {
+          "tiltDegrees": 26.134606989289786,
+          "rmsMm": 1.1292708823833446,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -2.4972197134047747,
+            46.06199637055397
+          ],
+          "lowestPointMm": -2.4972197134047747
+        }
+      }
+    },
+    {
+      "frame": 45,
+      "sourceFrame": 221,
+      "sides": {
+        "R": {
+          "tiltDegrees": 50.37227994981779,
+          "rmsMm": 6.25236545989276,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            103.95893454551697,
+            235.23716628551483
+          ],
+          "lowestPointMm": 103.95893454551697
+        },
+        "L": {
+          "tiltDegrees": 26.08354903362683,
+          "rmsMm": 1.1783707626072204,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -0.6140156765468419,
+            47.53721132874489
+          ],
+          "lowestPointMm": -0.6140156765468419
+        }
+      }
+    },
+    {
+      "frame": 46,
+      "sourceFrame": 226,
+      "sides": {
+        "R": {
+          "tiltDegrees": 37.56059027157781,
+          "rmsMm": 5.1404991229178085,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            78.62655073404312,
+            186.71494722366333
+          ],
+          "lowestPointMm": 78.62655073404312
+        },
+        "L": {
+          "tiltDegrees": 26.115040504420303,
+          "rmsMm": 1.388043936908806,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -1.521793194115162,
+            47.80382663011551
+          ],
+          "lowestPointMm": -1.521793194115162
+        }
+      }
+    },
+    {
+      "frame": 47,
+      "sourceFrame": 231,
+      "sides": {
+        "R": {
+          "tiltDegrees": 25.60964770239275,
+          "rmsMm": 4.787599501459255,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            48.590436577796936,
+            129.31782007217407
+          ],
+          "lowestPointMm": 48.590436577796936
+        },
+        "L": {
+          "tiltDegrees": 26.491977931522886,
+          "rmsMm": 1.248803567494963,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -3.198698628693819,
+            47.621265053749084
+          ],
+          "lowestPointMm": -3.198698628693819
+        }
+      }
+    },
+    {
+      "frame": 48,
+      "sourceFrame": 236,
+      "sides": {
+        "R": {
+          "tiltDegrees": 18.448625385183675,
+          "rmsMm": 4.391587961852006,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            32.174210995435715,
+            79.59946244955063
+          ],
+          "lowestPointMm": 32.174210995435715
+        },
+        "L": {
+          "tiltDegrees": 26.593565896371043,
+          "rmsMm": 1.1177996891635664,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -1.6344174509868026,
+            49.95883256196976
+          ],
+          "lowestPointMm": -1.6344174509868026
+        }
+      }
+    }
+  ],
+  "summary": {
+    "frameCount": 48,
+    "maxSoleTiltDegrees": 75.76104421371316,
+    "frame48": {
+      "frame": 48,
+      "sourceFrame": 236,
+      "sides": {
+        "R": {
+          "tiltDegrees": 18.448625385183675,
+          "rmsMm": 4.391587961852006,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            32.174210995435715,
+            79.59946244955063
+          ],
+          "lowestPointMm": 32.174210995435715
+        },
+        "L": {
+          "tiltDegrees": 26.593565896371043,
+          "rmsMm": 1.1177996891635664,
+          "sampleCount": 65,
+          "heightRangeMm": [
+            -1.6344174509868026,
+            49.95883256196976
+          ],
+          "lowestPointMm": -1.6344174509868026
+        }
+      }
+    }
+  },
+  "axisEvidence": {
+    "purpose": "Expose the uncalibrated foot-frame inputs before choosing a correction.",
+    "targetRestAxes": {
+      "R": [
+        [
+          0.9938066601753235,
+          -0.026174180209636688,
+          -0.10799727588891983
+        ],
+        [
+          0.026174113154411316,
+          -0.8893847465515137,
+          0.45640993118286133
+        ],
+        [
+          -0.10799703747034073,
+          -0.4564085304737091,
+          -0.8831890225410461
+        ]
+      ],
+      "L": [
+        [
+          0.9938066601753235,
+          0.026174180209636688,
+          0.10799727588891983
+        ],
+        [
+          -0.026174113154411316,
+          -0.8893847465515137,
+          0.45640993118286133
+        ],
+        [
+          0.10799703747034073,
+          -0.4564085304737091,
+          -0.8831890225410461
+        ]
+      ]
+    },
+    "sourceFrame48FootAxes": {
+      "R": [
+        [
+          0.9196544097174899,
+          0.13771808387098566,
+          -0.36779001626210567
+        ],
+        [
+          -0.1576434656749252,
+          0.9871912747406026,
+          -0.02453415590604454
+        ],
+        [
+          0.3597002980498825,
+          0.08054263747188575,
+          0.9295851650773578
+        ]
+      ],
+      "L": [
+        [
+          0.9017865515607195,
+          -0.06428332457824494,
+          0.4273741564547322
+        ],
+        [
+          0.0741602548048022,
+          0.9972252473504551,
+          -0.006485572766566004
+        ],
+        [
+          -0.4257713847025335,
+          0.037542778639727874,
+          0.9040515846678753
+        ]
+      ]
+    },
+    "sourceFrame48ToeAxes": {
+      "R": [
+        [
+          0.9360653302368045,
+          0.1401624597756049,
+          -0.32270138270282445
+        ],
+        [
+          -0.04289295825765034,
+          0.955840095578065,
+          0.2907402720938783
+        ],
+        [
+          0.34920179217834807,
+          -0.2583102718727363,
+          0.9007407572573051
+        ]
+      ],
+      "L": [
+        [
+          0.8994730873097853,
+          -0.05316155645041887,
+          0.4337303472448896
+        ],
+        [
+          0.11324650302037187,
+          0.9870197089658467,
+          -0.11387415715004218
+        ],
+        [
+          -0.4220466736737308,
+          0.15154518477584333,
+          0.8938180252222462
+        ]
+      ]
+    },
+    "directWorldRotationCopy": true
+  }
+}

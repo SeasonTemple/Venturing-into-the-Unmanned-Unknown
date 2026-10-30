@@ -1,0 +1,54 @@
+{
+  "revision": "pixel-native-direction-contract-v01",
+  "status": "source-reference-contract",
+  "nativeHeight": 174,
+  "workingScale": 4,
+  "baseline": 173,
+  "views": [
+    {
+      "id": "front",
+      "file": "reference-1x.png",
+      "source": "actor-front.png",
+      "heading": "toward-camera-quarter",
+      "nativeSourceSize": [78, 174],
+      "mirror": false
+    },
+    {
+      "id": "side",
+      "file": "reference-side-1x.png",
+      "source": "actor-side.png",
+      "heading": "profile",
+      "nativeSourceSize": [52, 174],
+      "mirror": false
+    },
+    {
+      "id": "back-side",
+      "file": "reference-back-side-1x.png",
+      "source": "actor-back-side.png",
+      "heading": "away-quarter",
+      "nativeSourceSize": [78, 174],
+      "mirror": false
+    },
+    {
+      "id": "back",
+      "file": "reference-back-1x.png",
+      "source": "actor-back.png",
+      "heading": "away-camera-quarter",
+      "nativeSourceSize": [88, 174],
+      "mirror": false
+    }
+  ],
+  "transitionRules": [
+    "Keep each source at native integer pixels; do not mirror to manufacture the opposite side.",
+    "Change view at a stop, turn keypose or deliberate occlusion; do not interpolate front pixels into profile pixels.",
+    "Move the complete sprite by integer pixels; derive foot contact from the shared baseline.",
+    "A walk frame is valid only when the full silhouette, face direction, hands and equipment agree with the heading."
+  ],
+  "unknownAreas": [
+    "front view hidden under the toolbox and recorder",
+    "finger contact on the far side of each device",
+    "inside sleeve and knee folds during a loaded step",
+    "turning frames between the supplied directions"
+  ],
+  "nextGate": "author one stopped front-to-profile turn from complete pixel frames before any loop or homepage integration"
+}

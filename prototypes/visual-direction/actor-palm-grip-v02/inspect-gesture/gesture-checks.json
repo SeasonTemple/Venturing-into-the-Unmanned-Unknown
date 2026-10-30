@@ -1,0 +1,19 @@
+{
+  "freshProcessReopen": true,
+  "maxFootMovementMeters": 0,
+  "maxGripCenterWristLocalDriftMeters": 3.3295009987807767e-07,
+  "minimumDisplayFacingHeadDotDuringHold": 0.9123754799365997,
+  "palmForearmAngleDegreesRange": [
+    4.281210809975006,
+    39.078524355066925
+  ],
+  "fullBodyReturnMatrixMaxDelta": 0.0,
+  "completeRecorderReturnMatrixMaxDelta": 0.0,
+  "maxRigidDeviceWristRelativeMatrixDrift": 3.650784492492676e-07,
+  "minimumPalmAndScreenNormalDot": 0.9999999362044036,
+  "minimumHousingOnPalmSideMeters": 0.047999944537878036,
+  "noIndependentDeviceAnimation": true,
+  "sourceBlendUnchanged": true,
+  "artApproved": false,
+  "scope": "Support, full rigid grip, anatomical palm side and display facing. Does not certify natural motion."
+}

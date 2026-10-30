@@ -1,0 +1,16 @@
+{
+  "unchangedOraReimport": {
+    "standing": true,
+    "contact": true,
+    "passing": true
+  },
+  "upperBodyUnchangedVsV01": {
+    "standing": true,
+    "contact": true,
+    "passing": true
+  },
+  "staleBaseRejected": true,
+  "failedApplyPreservesExistingOutput": true,
+  "rigRerenders": "actor-v02-validation.json",
+  "artApproved": false
+}

@@ -1,0 +1,46 @@
+{
+  "revision": "pixel-walk-v01-review-v02",
+  "status": "rejected-by-user",
+  "reviewSurface": "pixel-walk-v01.html",
+  "manualChecklist": [
+    {
+      "id": "contact",
+      "question": "contact and lift phases alternate without floating or buried soles",
+      "status": "blocked"
+    },
+    {
+      "id": "rhythm",
+      "question": "eight frames read as one left-facing walk rather than four held poses",
+      "status": "blocked"
+    },
+    {
+      "id": "torso",
+      "question": "head, chest and pelvis respond to the step cycle",
+      "status": "blocked"
+    },
+    {
+      "id": "equipment",
+      "question": "toolbox and recorder remain attached through the cycle",
+      "status": "blocked"
+    },
+    {
+      "id": "native",
+      "question": "native-size silhouette remains readable and no tearing appears at 3x",
+      "status": "blocked"
+    }
+  ],
+  "notes": [
+    "Automated checks establish resource integrity only; no visual acceptance is inferred."
+  ],
+  "decision": "Rejected pixels retained for diagnosis; do not expand or publish.",
+  "userDecision": {
+    "status": "rejected",
+    "frameSetSha256": "8f924da1e4b39d8a949065806341e7464cb9a93c48d2a00348540b58fd5a71a0",
+    "reason": "用户在 pixel-walk-v01 页面明确否决当前人物与动作；自动检查通过不能覆盖该结论。",
+    "source": "conversation: user feedback on pixel-walk-v01"
+  },
+  "frameSetSha256": "8f924da1e4b39d8a949065806341e7464cb9a93c48d2a00348540b58fd5a71a0",
+  "producer": "asset-builder",
+  "artApproved": false,
+  "motionApproved": false
+}

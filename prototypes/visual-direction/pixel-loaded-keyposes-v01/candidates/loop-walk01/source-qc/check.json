@@ -1,0 +1,19 @@
+{
+  "walk": {
+    "verdict": "PASS",
+    "issues": [],
+    "frames": 107,
+    "background_mode": "transparent",
+    "key_ref": [
+      192,
+      87,
+      196
+    ],
+    "drift_frames": 0,
+    "drift_onset": null,
+    "missing_frames": 0,
+    "edge_frames": 0,
+    "worst_purity": 0.9858,
+    "first_frame_diff": 3.1
+  }
+}

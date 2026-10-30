@@ -1,0 +1,23 @@
+{
+  "status": "standing-correction-study",
+  "date": "2026-10-29",
+  "artApproved": false,
+  "walkingApproved": false,
+  "homepageIntegrated": false,
+  "sourceJointPoseUnchanged": false,
+  "rootOrientationsDegrees": [0, -35],
+  "cameraAndLightsFixed": true,
+  "paidGenerationCalls": 0,
+  "changes": [
+    "Ankle centers narrowed from 382mm to 224mm; forward knee flex with grounded soles.",
+    "Clavicle and shoulder chains lowered; both subdivisions of each arm directed together.",
+    "Cervical curve recentered, head orientation retained without head scaling.",
+    "Upper garment shell fitted closer to body with bounded rest-space edits."
+  ],
+  "limitations": [
+    "Generic face, clothing design and finger grip are still not approved.",
+    "Two orientations of one standing pose, not walking or weight-transfer poses.",
+    "Source attachments preserved; not a proof of correct finger contact or aesthetics."
+  ],
+  "report": "../../../docs/homepage-character-representation-study.md"
+}

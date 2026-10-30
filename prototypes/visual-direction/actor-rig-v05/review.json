@@ -1,0 +1,508 @@
+{
+  "version": "gait05",
+  "kind": "gait",
+  "fps": 12,
+  "frameCount": 49,
+  "frameSize": [
+    300,
+    400
+  ],
+  "columns": 7,
+  "beforeAtlas": "actor-v04-motion-atlas.png",
+  "afterAtlas": "actor-v05-atlas.png",
+  "sourceRig": "actor-v05-editable.blend",
+  "frames": [
+    {
+      "number": 1,
+      "label": "负重站立",
+      "beforeLabel": "负重站立",
+      "rootX": 0,
+      "beforeRootX": 0,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 2,
+      "label": "负重站立",
+      "beforeLabel": "负重站立",
+      "rootX": -0.29087624209575424,
+      "beforeRootX": -0.14814814814814814,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 3,
+      "label": "负重站立",
+      "beforeLabel": "负重站立",
+      "rootX": -1.0261969286359531,
+      "beforeRootX": -0.5185185185185185,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 4,
+      "label": "支撑右脚，准备迈后脚",
+      "beforeLabel": "负重站立",
+      "rootX": -2,
+      "beforeRootX": -1.0,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 5,
+      "label": "支撑右脚，准备迈后脚",
+      "beforeLabel": "负重站立",
+      "rootX": -3.6290718611884105,
+      "beforeRootX": -1.4814814814814814,
+      "support": "R",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 6,
+      "label": "支撑右脚，准备迈后脚",
+      "beforeLabel": "负重站立",
+      "rootX": -6.153134719266656,
+      "beforeRootX": -1.851851851851852,
+      "support": "R",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 7,
+      "label": "支撑右脚，准备迈后脚",
+      "beforeLabel": "准备换重心",
+      "rootX": -9.100630217711572,
+      "beforeRootX": -2,
+      "support": "R",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 8,
+      "label": "左脚经过支撑脚",
+      "beforeLabel": "准备换重心",
+      "rootX": -12,
+      "beforeRootX": -2.9375,
+      "support": "R",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 9,
+      "label": "左脚经过支撑脚",
+      "beforeLabel": "准备换重心",
+      "rootX": -14.86882808466701,
+      "beforeRootX": -5.0,
+      "support": "R",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 10,
+      "label": "左脚经过支撑脚",
+      "beforeLabel": "准备换重心",
+      "rootX": -17.944739287558082,
+      "beforeRootX": -7.0625,
+      "support": "R",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 11,
+      "label": "左脚经过支撑脚",
+      "beforeLabel": "右脚提起",
+      "rootX": -21.086236448115642,
+      "beforeRootX": -8,
+      "support": "R",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 12,
+      "label": "左脚经过支撑脚",
+      "beforeLabel": "右脚提起",
+      "rootX": -24.151822405782138,
+      "beforeRootX": -8.592592592592592,
+      "support": "R",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 13,
+      "label": "左脚越过并落地",
+      "beforeLabel": "右脚提起",
+      "rootX": -27,
+      "beforeRootX": -10.074074074074074,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 14,
+      "label": "左脚越过并落地",
+      "beforeLabel": "右脚提起",
+      "rootX": -29.52930009904259,
+      "beforeRootX": -12.0,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 15,
+      "label": "承重转到左脚",
+      "beforeLabel": "右脚提起",
+      "rootX": -32,
+      "beforeRootX": -13.925925925925926,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 16,
+      "label": "承重转到左脚",
+      "beforeLabel": "右脚提起",
+      "rootX": -34.632856948386895,
+      "beforeRootX": -15.407407407407408,
+      "support": "L",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 17,
+      "label": "承重转到左脚",
+      "beforeLabel": "右脚落地",
+      "rootX": -37.326753477126694,
+      "beforeRootX": -16,
+      "support": "L",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 18,
+      "label": "右脚经过支撑脚",
+      "beforeLabel": "右脚落地",
+      "rootX": -40,
+      "beforeRootX": -16.51851851851852,
+      "support": "L",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 19,
+      "label": "右脚经过支撑脚",
+      "beforeLabel": "右脚落地",
+      "rootX": -42.73744731219764,
+      "beforeRootX": -17.814814814814813,
+      "support": "L",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 20,
+      "label": "右脚经过支撑脚",
+      "beforeLabel": "右脚落地",
+      "rootX": -45.56951194715258,
+      "beforeRootX": -19.5,
+      "support": "L",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 21,
+      "label": "右脚经过支撑脚",
+      "beforeLabel": "右脚落地",
+      "rootX": -48.3328529260087,
+      "beforeRootX": -21.185185185185183,
+      "support": "L",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 22,
+      "label": "右脚经过支撑脚",
+      "beforeLabel": "右脚落地",
+      "rootX": -50.864129269909874,
+      "beforeRootX": -22.48148148148148,
+      "support": "L",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 23,
+      "label": "右脚越过并落地",
+      "beforeLabel": "左脚提起",
+      "rootX": -53,
+      "beforeRootX": -23,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 24,
+      "label": "右脚越过并落地",
+      "beforeLabel": "左脚提起",
+      "rootX": -54.91673588039867,
+      "beforeRootX": -23.51851851851852,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 25,
+      "label": "右脚越过并落地",
+      "beforeLabel": "左脚提起",
+      "rootX": -56.72757475083056,
+      "beforeRootX": -24.814814814814813,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 26,
+      "label": "右脚越过并落地",
+      "beforeLabel": "左脚提起",
+      "rootX": -58.17462624584717,
+      "beforeRootX": -26.5,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 27,
+      "label": "双脚着地，收回前倾",
+      "beforeLabel": "左脚提起",
+      "rootX": -59,
+      "beforeRootX": -28.185185185185183,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 28,
+      "label": "双脚着地，收回前倾",
+      "beforeLabel": "左脚提起",
+      "rootX": -59.39732142857143,
+      "beforeRootX": -29.48148148148148,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 29,
+      "label": "双脚着地，收回前倾",
+      "beforeLabel": "左脚落地",
+      "rootX": -59.714285714285715,
+      "beforeRootX": -30,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 30,
+      "label": "双脚着地，收回前倾",
+      "beforeLabel": "左脚落地",
+      "rootX": -59.92410714285714,
+      "beforeRootX": -30.37037037037037,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 31,
+      "label": "身体停稳，箱体回摆",
+      "beforeLabel": "左脚落地",
+      "rootX": -60,
+      "beforeRootX": -31.296296296296298,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 32,
+      "label": "身体停稳，箱体回摆",
+      "beforeLabel": "左脚落地",
+      "rootX": -60.0,
+      "beforeRootX": -32.5,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 33,
+      "label": "身体停稳，箱体回摆",
+      "beforeLabel": "左脚落地",
+      "rootX": -60.0,
+      "beforeRootX": -33.7037037037037,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 34,
+      "label": "身体停稳，箱体回摆",
+      "beforeLabel": "左脚落地",
+      "rootX": -60.0,
+      "beforeRootX": -34.62962962962963,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 35,
+      "label": "身体停稳，箱体回摆",
+      "beforeLabel": "停步收重心",
+      "rootX": -60.0,
+      "beforeRootX": -35,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 36,
+      "label": "身体停稳，箱体回摆",
+      "beforeLabel": "停步收重心",
+      "rootX": -60.0,
+      "beforeRootX": -35.074074074074076,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 37,
+      "label": "箱体回正",
+      "beforeLabel": "停步收重心",
+      "rootX": -60,
+      "beforeRootX": -35.25925925925926,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 38,
+      "label": "箱体回正",
+      "beforeLabel": "停步收重心",
+      "rootX": -60.0,
+      "beforeRootX": -35.5,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 39,
+      "label": "箱体回正",
+      "beforeLabel": "停步收重心",
+      "rootX": -60.0,
+      "beforeRootX": -35.74074074074074,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 40,
+      "label": "箱体回正",
+      "beforeLabel": "停步收重心",
+      "rootX": -60.0,
+      "beforeRootX": -35.925925925925924,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 41,
+      "label": "箱体回正",
+      "beforeLabel": "停步回稳",
+      "rootX": -60.0,
+      "beforeRootX": -36,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 42,
+      "label": "箱体回正",
+      "beforeLabel": "停步回稳",
+      "rootX": -60.0,
+      "beforeRootX": -36.0,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 43,
+      "label": "箱体回正",
+      "beforeLabel": "停步回稳",
+      "rootX": -60.0,
+      "beforeRootX": -36.0,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 44,
+      "label": "箱体回正",
+      "beforeLabel": "停步回稳",
+      "rootX": -60.0,
+      "beforeRootX": -36.0,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 45,
+      "label": "箱体回正",
+      "beforeLabel": "停步回稳",
+      "rootX": -60.0,
+      "beforeRootX": -36.0,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 46,
+      "label": "箱体回正",
+      "beforeLabel": "停步回稳",
+      "rootX": -60.0,
+      "beforeRootX": -36.0,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 47,
+      "label": "箱体回正",
+      "beforeLabel": "停步回稳",
+      "rootX": -60.0,
+      "beforeRootX": -36.0,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 48,
+      "label": "箱体回正",
+      "beforeLabel": "停步回稳",
+      "rootX": -60.0,
+      "beforeRootX": -36.0,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    },
+    {
+      "number": 49,
+      "label": "保持现场",
+      "beforeLabel": "保持现场",
+      "rootX": -60,
+      "beforeRootX": -36,
+      "support": "RL",
+      "changedPixels": 0,
+      "ora": null
+    }
+  ],
+  "artApproved": false,
+  "homepageIntegrated": false
+}

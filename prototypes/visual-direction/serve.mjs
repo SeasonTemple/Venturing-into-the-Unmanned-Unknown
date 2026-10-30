@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { BASE } from '../../site/site.config.mjs';
 const root = fileURLToPath(new URL('.', import.meta.url)).replace(/[\\/]$/, '');
 const repo = resolve(root, '../..'), dist = resolve(repo, 'site/dist'), deps = resolve(repo, 'site/node_modules/three');
-const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.mjs': 'text/javascript', '.js': 'text/javascript', '.json': 'application/json', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.woff2': 'font/woff2', '.png': 'image/png', '.txt': 'text/plain; charset=utf-8', '.wasm': 'application/wasm' };
+const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.mjs': 'text/javascript', '.js': 'text/javascript', '.json': 'application/json', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.woff2': 'font/woff2', '.png': 'image/png', '.txt': 'text/plain; charset=utf-8', '.wasm': 'application/wasm', '.mp4': 'video/mp4' };
 const bounded = (base, path) => { const file = resolve(base, '.' + path); if (!file.startsWith(base + sep)) throw Error('Invalid path'); return file; };
 createServer(async (req, res) => {
   try {

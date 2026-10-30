@@ -1,0 +1,10 @@
+{
+  "startedUtc": "2026-10-30T07:02:28.1522826Z",
+  "maximumGenerationCalls": 1,
+  "route": "installed agy-bridge -> agy -> image-generator",
+  "imageBackend": "not-exposed",
+  "inputs": [
+    "first-frame.png",
+    "landing-candidate-frame048.png"
+  ]
+}

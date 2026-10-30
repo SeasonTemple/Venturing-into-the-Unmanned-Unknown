@@ -1,0 +1,23 @@
+{
+  "version": "v03",
+  "record": "../../../docs/homepage-character-load-motion.md",
+  "previewVideo": "actor-v03-motion.mp4",
+  "losslessPreview": "actor-v03-motion.webp",
+  "previewStill": "actor-v03-motion-preview.png",
+  "keyposes": "actor-v03-keyposes.png",
+  "rigSource": "actor-v03-editable.blend",
+  "sharedPaintSource": "actor-v03-layers.ora",
+  "motionSpecification": "actor-rig-v03.spec.json",
+  "rawFrameRecord": "actor-v03.json",
+  "validation": "actor-v03-motion-validation.json",
+  "durationSeconds": 4.083333,
+  "previewFrames": 49,
+  "previewFps": 12,
+  "scope": "Original-view loaded short steps and settling; constrained offline motion candidate",
+  "poseSpecificRetouchApplied": false,
+  "artApproved": false,
+  "reusableWalkCycleValidated": false,
+  "sceneContactValidated": false,
+  "homepageIntegrated": false,
+  "newPaidMediaRequests": 0
+}

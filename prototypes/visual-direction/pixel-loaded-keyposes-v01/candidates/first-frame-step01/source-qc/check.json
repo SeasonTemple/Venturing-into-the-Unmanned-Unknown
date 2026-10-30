@@ -1,0 +1,15 @@
+{
+  "step": {
+    "verdict": "PASS",
+    "issues": [],
+    "frames": 107,
+    "background_mode": "keep",
+    "key_ref": null,
+    "drift_frames": 0,
+    "drift_onset": null,
+    "missing_frames": 0,
+    "edge_frames": 0,
+    "worst_purity": null,
+    "first_frame_diff": 2.1
+  }
+}

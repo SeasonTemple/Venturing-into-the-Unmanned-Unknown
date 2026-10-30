@@ -1,0 +1,19 @@
+{
+  "freshProcessReopen": true,
+  "parentBlendUnchanged": true,
+  "fileImagesPacked": true,
+  "newSurfacesRiggedAndWeighted": {
+    "Field_Jacket_Open_Standing_Collar": true,
+    "Field_Backpack_Canvas_Body": true,
+    "Field_Backpack_Folded_Flap": true,
+    "Field_Backpack_Shoulder_Strap.L": true,
+    "Field_Backpack_Shoulder_Strap.R": true,
+    "Field_Workboot_Shaft.L": true,
+    "Field_Workboot_Shaft.R": true
+  },
+  "backpackWeightedToSpine": true,
+  "feetWorldDeltaMeters": 0.0,
+  "gripWristRelativeMatrixMaxDelta": 1.1920928955078125e-07,
+  "artApproved": false,
+  "scope": "Saved source structure and attachment checks only. Two gesture keyposes rendered; no new continuous export."
+}

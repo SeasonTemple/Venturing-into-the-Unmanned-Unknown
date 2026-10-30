@@ -1,0 +1,758 @@
+{
+  "tag": "actor-v04",
+  "method": "Program-assisted small cloth clusters, knee-registered per frame with explicit step envelopes; no silhouette or rig edits",
+  "poses": [
+    {
+      "name": "frame-001",
+      "file": "actor-v04-frame-001.png",
+      "baseRgbaSha256": "9520f7b3c6d761ccb4b11e3a747e326f37cae9c72d80d77e6a5761411f3ccbba",
+      "finalRgbaSha256": "9520f7b3c6d761ccb4b11e3a747e326f37cae9c72d80d77e6a5761411f3ccbba",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-002",
+      "file": "actor-v04-frame-002.png",
+      "baseRgbaSha256": "5b9e8616e321c5f44cdf4decf2be20937119b47dad72ce343063f54945176e8e",
+      "finalRgbaSha256": "5b9e8616e321c5f44cdf4decf2be20937119b47dad72ce343063f54945176e8e",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-003",
+      "file": "actor-v04-frame-003.png",
+      "baseRgbaSha256": "be8ee05f43cdbfb9466432a7d6916137b7a22f3582e29f19deb8d0d371f4a4fd",
+      "finalRgbaSha256": "be8ee05f43cdbfb9466432a7d6916137b7a22f3582e29f19deb8d0d371f4a4fd",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-004",
+      "file": "actor-v04-frame-004.png",
+      "baseRgbaSha256": "411c2ac055a6c23706df82ff30def1ddae8df4ad95c59f870fa51eda7581f1f6",
+      "finalRgbaSha256": "411c2ac055a6c23706df82ff30def1ddae8df4ad95c59f870fa51eda7581f1f6",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-005",
+      "file": "actor-v04-frame-005.png",
+      "baseRgbaSha256": "6ea645a3b2aef4e542e9fab44820d3add4ed26c24c049011e3e6ad6671ba9099",
+      "finalRgbaSha256": "6ea645a3b2aef4e542e9fab44820d3add4ed26c24c049011e3e6ad6671ba9099",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-006",
+      "file": "actor-v04-frame-006.png",
+      "baseRgbaSha256": "0ac5ce450e5c941e1e9bc4f06c64d512827713265f883acc91b7249775ac99e9",
+      "finalRgbaSha256": "0ac5ce450e5c941e1e9bc4f06c64d512827713265f883acc91b7249775ac99e9",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-007",
+      "file": "actor-v04-frame-007.png",
+      "baseRgbaSha256": "55fc268a205b37038d241b17e76622b3e76785ef1cf7bb0c4a400f152b46a34b",
+      "finalRgbaSha256": "55fc268a205b37038d241b17e76622b3e76785ef1cf7bb0c4a400f152b46a34b",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-008",
+      "file": "actor-v04-frame-008.png",
+      "baseRgbaSha256": "ccb4ff550e6253504fb0d455e20b338e4f91d76ae85658935ec9f1bf1a735e43",
+      "finalRgbaSha256": "b0323e3f10222eb00c65c0d248366cc058a0efa21c2493c2e854b987c8fdc82b",
+      "changedBounds": [
+        118,
+        276,
+        124,
+        285
+      ],
+      "changedPixels": 18,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [
+        "fold_shadow",
+        "cloth_turn"
+      ],
+      "paintSource": "frame-008.ora",
+      "paintSourceSha256": "5196f99be2d68815a0f73b2d53a76a7b5ce49453984deac65c2fd448f1d1c719"
+    },
+    {
+      "name": "frame-009",
+      "file": "actor-v04-frame-009.png",
+      "baseRgbaSha256": "dc2a2166b79f7c97a2e6d02052da02167b17277f8a885ae482392bd178bc9af9",
+      "finalRgbaSha256": "33ad3285ce4333bc2418c16d6d94381bbfe7246c3149ccbf4bac75722526fda9",
+      "changedBounds": [
+        109,
+        274,
+        115,
+        283
+      ],
+      "changedPixels": 17,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [
+        "fold_shadow",
+        "cloth_turn"
+      ],
+      "paintSource": "frame-009.ora",
+      "paintSourceSha256": "25097e57b4d6c4608c02d406a1c32d5fd5d35c1e52c2b78fa90af450393e7833"
+    },
+    {
+      "name": "frame-010",
+      "file": "actor-v04-frame-010.png",
+      "baseRgbaSha256": "2848796fd9b20b779970ba94e60e2fdc8ec6568fdcaee5fbed3159a5ff9627a8",
+      "finalRgbaSha256": "6e02006e7aa2cf16644438e67b2ba9840d650ccef5018604d682cbf698582b9e",
+      "changedBounds": [
+        101,
+        270,
+        110,
+        280
+      ],
+      "changedPixels": 20,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [
+        "fold_shadow",
+        "cloth_turn"
+      ],
+      "paintSource": "frame-010.ora",
+      "paintSourceSha256": "bc614ac57712d661b326d4ad47c121ab9c7574280a4ecfee56617186396632d9"
+    },
+    {
+      "name": "frame-011",
+      "file": "actor-v04-frame-011.png",
+      "baseRgbaSha256": "909915da30d6d13823c6227d783965dd739c2435bd15247f3717b25995e54998",
+      "finalRgbaSha256": "f9a604dac6b1dae4c067a80e04fb492f68ba2605a4a84d6f63244d0e7269af27",
+      "changedBounds": [
+        97,
+        269,
+        106,
+        280
+      ],
+      "changedPixels": 25,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [
+        "fold_shadow",
+        "cloth_turn"
+      ],
+      "paintSource": "frame-011.ora",
+      "paintSourceSha256": "7169167ad41467354cff3c5794134738e6fcb785d6ebf721f9b01d3a3d44f0cd"
+    },
+    {
+      "name": "frame-012",
+      "file": "actor-v04-frame-012.png",
+      "baseRgbaSha256": "c8bbaeda52299db61ce56199906986fc68e8c01f59e45340c16290d210600f57",
+      "finalRgbaSha256": "6057c697fe85f74ad27d3f84ee3fca26006cd3b89f41fa6ddb70183cfd9efd52",
+      "changedBounds": [
+        97,
+        269,
+        106,
+        279
+      ],
+      "changedPixels": 23,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [
+        "fold_shadow",
+        "cloth_turn"
+      ],
+      "paintSource": "frame-012.ora",
+      "paintSourceSha256": "af2f1cb431f4feab4ec8cfe25fdb93ad4a161ca0f6bb9eb79b83c9d582a4d9d1"
+    },
+    {
+      "name": "frame-013",
+      "file": "actor-v04-frame-013.png",
+      "baseRgbaSha256": "94433a1593b1922550a7488a2e575c56b13e88a0bf3192a9de86a2d7df548003",
+      "finalRgbaSha256": "26a4413aec42e9750da8aae4c0f7bf3b382803d0687e04f2ad5c7cc45c4c9dd5",
+      "changedBounds": [
+        97,
+        270,
+        106,
+        279
+      ],
+      "changedPixels": 21,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [
+        "fold_shadow",
+        "cloth_turn"
+      ],
+      "paintSource": "frame-013.ora",
+      "paintSourceSha256": "4b33e7020d4730a958ff7237da2de2d26b861d967115676f6a377d68737750c3"
+    },
+    {
+      "name": "frame-014",
+      "file": "actor-v04-frame-014.png",
+      "baseRgbaSha256": "607e062d13693e30d1a5f8849b97da8454d66e4e0cb5ea539292c49f77886335",
+      "finalRgbaSha256": "24950f4030da12bfe9d2179db36420ab9628b343a07621f66ea58d3569e6969f",
+      "changedBounds": [
+        96,
+        271,
+        105,
+        280
+      ],
+      "changedPixels": 21,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [
+        "fold_shadow",
+        "cloth_turn"
+      ],
+      "paintSource": "frame-014.ora",
+      "paintSourceSha256": "655a4dbf254e786d39598faf29687a303f85e79d6ae03e7a126f3da8515743c3"
+    },
+    {
+      "name": "frame-015",
+      "file": "actor-v04-frame-015.png",
+      "baseRgbaSha256": "784784820c0255cd22480e1ff7d0e15aba4eb75982a7571d64d5a507ecdfa4b1",
+      "finalRgbaSha256": "936782b15bb00bf40d3fd165604a60459f1ce76e1a75f76957285ad19912f9b1",
+      "changedBounds": [
+        97,
+        274,
+        103,
+        279
+      ],
+      "changedPixels": 18,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [
+        "fold_shadow",
+        "cloth_turn"
+      ],
+      "paintSource": "frame-015.ora",
+      "paintSourceSha256": "b6cf2305657f590984f4100bf1f7b498c8b93f8d93ae1d7e42d569903ca3e44f"
+    },
+    {
+      "name": "frame-016",
+      "file": "actor-v04-frame-016.png",
+      "baseRgbaSha256": "59522daf4f70d5cf73dff904fbb2aaddd51c1d5882ec6b7b55636b413be0bb4d",
+      "finalRgbaSha256": "d3644ad1f98ffa08fa91c23ac65a2efdda3f33b233b09510afaa739ce4149e26",
+      "changedBounds": [
+        98,
+        275,
+        104,
+        283
+      ],
+      "changedPixels": 16,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [
+        "fold_shadow",
+        "cloth_turn"
+      ],
+      "paintSource": "frame-016.ora",
+      "paintSourceSha256": "7c7a8bfb2218c8ee767b5fe12c4c74899f63880631745783ac2f4851c210aa5d"
+    },
+    {
+      "name": "frame-017",
+      "file": "actor-v04-frame-017.png",
+      "baseRgbaSha256": "ae1b3ed23fbbf002de2c2ae138264aa3a45caacb940c95d4abcbd3db847ad643",
+      "finalRgbaSha256": "ae1b3ed23fbbf002de2c2ae138264aa3a45caacb940c95d4abcbd3db847ad643",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-018",
+      "file": "actor-v04-frame-018.png",
+      "baseRgbaSha256": "1f9656159777400eb65b61646aae7dccb84ac82d0f3ff42db1fc29436be1a5f6",
+      "finalRgbaSha256": "60c0db4879043ad886ed4982c5ce6ff8573c12190c95f90c580916e6f4b4fb93",
+      "changedBounds": [
+        154,
+        285,
+        162,
+        290
+      ],
+      "changedPixels": 13,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [
+        "fold_shadow",
+        "cloth_turn"
+      ],
+      "paintSource": "frame-018.ora",
+      "paintSourceSha256": "917e6d071b1529b72da953d03a57d19712c100bb416ee01a13c3922f70be9edf"
+    },
+    {
+      "name": "frame-019",
+      "file": "actor-v04-frame-019.png",
+      "baseRgbaSha256": "9daac0c98db425651c30de4021363b1fe98c54de9480e2d2e30b13b05ad7f8d2",
+      "finalRgbaSha256": "2019183421c8d0612c011e1e0854954275e4f59efff6a2fbe61858f0d000359e",
+      "changedBounds": [
+        148,
+        285,
+        158,
+        296
+      ],
+      "changedPixels": 33,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [
+        "fold_shadow",
+        "cloth_turn"
+      ],
+      "paintSource": "frame-019.ora",
+      "paintSourceSha256": "68a8c4546e305304d90d2ac8ea7bbca8b2bc9380371852a27632202c4cb7e901"
+    },
+    {
+      "name": "frame-020",
+      "file": "actor-v04-frame-020.png",
+      "baseRgbaSha256": "d95fab6a3e17b24de13a8c89ebdc32f5b2d658a7fc2a6de41f1405a89d93bdc4",
+      "finalRgbaSha256": "c7edc1689151022b283470740cc82784fd2fab929ac955073e7e3ac2392bf440",
+      "changedBounds": [
+        140,
+        283,
+        150,
+        295
+      ],
+      "changedPixels": 34,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [
+        "fold_shadow",
+        "cloth_turn"
+      ],
+      "paintSource": "frame-020.ora",
+      "paintSourceSha256": "c63ed8e17d6673c5bcd4b125ff7cedcb32f1c93ce24877b943eb252e2e4d426a"
+    },
+    {
+      "name": "frame-021",
+      "file": "actor-v04-frame-021.png",
+      "baseRgbaSha256": "67880a41978dc18b5b01de43199afa2f6620eb2da47dad2941bd28fa4aee79b2",
+      "finalRgbaSha256": "9a95108ba49308c83a2ca18fe9d34e999896b2f3c5be559547381332735b6054",
+      "changedBounds": [
+        134,
+        282,
+        144,
+        294
+      ],
+      "changedPixels": 34,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [
+        "fold_shadow",
+        "cloth_turn"
+      ],
+      "paintSource": "frame-021.ora",
+      "paintSourceSha256": "690a068e1b7ecbaea78d31467bbdd6cb17c805427a97d485fc1e89b85f237fbe"
+    },
+    {
+      "name": "frame-022",
+      "file": "actor-v04-frame-022.png",
+      "baseRgbaSha256": "61cd1c9fe595d9572d4bb427f3575e342623e0cbcef8e3678547cc5ae202061b",
+      "finalRgbaSha256": "dfedd009912a8564ee75ed0a6fec9679d60360941d45ea106bb3f773d66adcdb",
+      "changedBounds": [
+        129,
+        281,
+        139,
+        293
+      ],
+      "changedPixels": 34,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [
+        "fold_shadow",
+        "cloth_turn"
+      ],
+      "paintSource": "frame-022.ora",
+      "paintSourceSha256": "62c070fa21d1bce9928176c4507ede8f0134ec775b6e8c33a15ac27e4fa42bb9"
+    },
+    {
+      "name": "frame-023",
+      "file": "actor-v04-frame-023.png",
+      "baseRgbaSha256": "fb96856714c495caaf2a42a2deeb5e47da6162038f02aae61fd1f169a4a3ecd1",
+      "finalRgbaSha256": "279eb43cb0fcf0c28a2bc45b22ff158deb7b39a1ceee54e8da35863df7346dd7",
+      "changedBounds": [
+        128,
+        280,
+        138,
+        292
+      ],
+      "changedPixels": 34,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [
+        "fold_shadow",
+        "cloth_turn"
+      ],
+      "paintSource": "frame-023.ora",
+      "paintSourceSha256": "b59b3a68be8696741d138b540db5555f48dccf6122e0fdcec7f5697f1e562094"
+    },
+    {
+      "name": "frame-024",
+      "file": "actor-v04-frame-024.png",
+      "baseRgbaSha256": "638de3185a80885522ad5e678b86852a6273c42debf5f45d3da3510a8d08de06",
+      "finalRgbaSha256": "0dff5d2ce8a9c95ef65d3ebc62277f9c8c33e45b4c359d7b4b341ce4a877fcc8",
+      "changedBounds": [
+        128,
+        280,
+        138,
+        292
+      ],
+      "changedPixels": 34,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [
+        "fold_shadow",
+        "cloth_turn"
+      ],
+      "paintSource": "frame-024.ora",
+      "paintSourceSha256": "d59c548a9f40ca7ba7cb34f5bb4e3036052ef2078e3db04584ebf69994ebf687"
+    },
+    {
+      "name": "frame-025",
+      "file": "actor-v04-frame-025.png",
+      "baseRgbaSha256": "d87e24d03c25da855a2eaec7fe3e22e5e0fed451d90d5d0d0206a03efb160331",
+      "finalRgbaSha256": "88ffd21edd56d7cc59c7bfe70dd95879259b8aad58a4ad40dd13e327abc399b4",
+      "changedBounds": [
+        127,
+        280,
+        137,
+        292
+      ],
+      "changedPixels": 34,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [
+        "fold_shadow",
+        "cloth_turn"
+      ],
+      "paintSource": "frame-025.ora",
+      "paintSourceSha256": "6f11b8b4b63890963fe0821ece6e4117154c488d42577f77331a56b597989947"
+    },
+    {
+      "name": "frame-026",
+      "file": "actor-v04-frame-026.png",
+      "baseRgbaSha256": "3b3f6d2bd6875cafe6cee5d048bc4b7ed3d245d575257b909f5f0fd53ee1ba97",
+      "finalRgbaSha256": "aa0b4f1df7bd2b96cc3bcb2d2d1eee4c4753714a61d9bb686ec10f01936084ef",
+      "changedBounds": [
+        127,
+        281,
+        137,
+        293
+      ],
+      "changedPixels": 34,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [
+        "fold_shadow",
+        "cloth_turn"
+      ],
+      "paintSource": "frame-026.ora",
+      "paintSourceSha256": "6ddccecfa80012ae8bb694230920097311405481b396f61cc4c4604b960b3a6c"
+    },
+    {
+      "name": "frame-027",
+      "file": "actor-v04-frame-027.png",
+      "baseRgbaSha256": "e8b2da0455f9a874445d25a9f4c8b40df3bf469fd976c4afde97a9154dadac45",
+      "finalRgbaSha256": "8cd2ff39b2372209684d20cd662d316eeb5868ee8d213f114f50f50c4cb2b216",
+      "changedBounds": [
+        128,
+        281,
+        138,
+        293
+      ],
+      "changedPixels": 34,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [
+        "fold_shadow",
+        "cloth_turn"
+      ],
+      "paintSource": "frame-027.ora",
+      "paintSourceSha256": "56b89f3be1dac48ff97868b34c828e8e5e9ae6774ce401719bed674155fd730e"
+    },
+    {
+      "name": "frame-028",
+      "file": "actor-v04-frame-028.png",
+      "baseRgbaSha256": "160effdc600eea12fe208616c2c3c81eae687639d767c5bec843b353ed82d7be",
+      "finalRgbaSha256": "39d14ef445ebf74fef6b74f4ff1c970e447b396b13923e9729acaccac260ac7d",
+      "changedBounds": [
+        130,
+        282,
+        139,
+        288
+      ],
+      "changedPixels": 15,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [
+        "fold_shadow",
+        "cloth_turn"
+      ],
+      "paintSource": "frame-028.ora",
+      "paintSourceSha256": "05b512f7b5454fc4abe04bda38dee15890ac4a2e2e2e348e83bae653cdd1e39c"
+    },
+    {
+      "name": "frame-029",
+      "file": "actor-v04-frame-029.png",
+      "baseRgbaSha256": "054db67230e3c25014a8153a8042e0258e28d2014045d8881e1cc731b48ee63a",
+      "finalRgbaSha256": "054db67230e3c25014a8153a8042e0258e28d2014045d8881e1cc731b48ee63a",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-030",
+      "file": "actor-v04-frame-030.png",
+      "baseRgbaSha256": "576fa9208d15efa76119a4227a2a237697d187c1ec2cf228a71c5d5b44410cd0",
+      "finalRgbaSha256": "576fa9208d15efa76119a4227a2a237697d187c1ec2cf228a71c5d5b44410cd0",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-031",
+      "file": "actor-v04-frame-031.png",
+      "baseRgbaSha256": "67967e7cc7b8f9a19112ef1bec9659dd5f13904756dcac0a082e58f34f36f3e6",
+      "finalRgbaSha256": "67967e7cc7b8f9a19112ef1bec9659dd5f13904756dcac0a082e58f34f36f3e6",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-032",
+      "file": "actor-v04-frame-032.png",
+      "baseRgbaSha256": "6ff1dee2edc8ab2df05a9dead8556a05b5b2664565001fb0a3e263c3cd48c501",
+      "finalRgbaSha256": "6ff1dee2edc8ab2df05a9dead8556a05b5b2664565001fb0a3e263c3cd48c501",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-033",
+      "file": "actor-v04-frame-033.png",
+      "baseRgbaSha256": "212b39e61682602332141ed5b714a6821440b0dca6722da9ed3ff5cae2f0259e",
+      "finalRgbaSha256": "212b39e61682602332141ed5b714a6821440b0dca6722da9ed3ff5cae2f0259e",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-034",
+      "file": "actor-v04-frame-034.png",
+      "baseRgbaSha256": "96fcd1c25f80d58f014d8ff07a91d4481ea20a32dca5d9ecd7157a38297ede96",
+      "finalRgbaSha256": "96fcd1c25f80d58f014d8ff07a91d4481ea20a32dca5d9ecd7157a38297ede96",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-035",
+      "file": "actor-v04-frame-035.png",
+      "baseRgbaSha256": "f5512c66fcd7cca30d0b3bfd2a65d6a2ed60a3643bbe64238ce8e38fce8215df",
+      "finalRgbaSha256": "f5512c66fcd7cca30d0b3bfd2a65d6a2ed60a3643bbe64238ce8e38fce8215df",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-036",
+      "file": "actor-v04-frame-036.png",
+      "baseRgbaSha256": "c8c7a6b98f04c2e5288172fccd4aca1e48837e49756336d3d2e68fbc8209a511",
+      "finalRgbaSha256": "c8c7a6b98f04c2e5288172fccd4aca1e48837e49756336d3d2e68fbc8209a511",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-037",
+      "file": "actor-v04-frame-037.png",
+      "baseRgbaSha256": "5d09b476918ab6a8e99e3769fabc09cb7e2443e14e80b2badd503079043126c5",
+      "finalRgbaSha256": "5d09b476918ab6a8e99e3769fabc09cb7e2443e14e80b2badd503079043126c5",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-038",
+      "file": "actor-v04-frame-038.png",
+      "baseRgbaSha256": "a7228306b184f1333d4fd083a925cd43239f3e7dfb20d62111a7e53c088b300e",
+      "finalRgbaSha256": "a7228306b184f1333d4fd083a925cd43239f3e7dfb20d62111a7e53c088b300e",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-039",
+      "file": "actor-v04-frame-039.png",
+      "baseRgbaSha256": "c204a8ef69e262a9536c16fe680091b7b4c85bbca54b5c75855ebc3c2c3e6702",
+      "finalRgbaSha256": "c204a8ef69e262a9536c16fe680091b7b4c85bbca54b5c75855ebc3c2c3e6702",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-040",
+      "file": "actor-v04-frame-040.png",
+      "baseRgbaSha256": "ca2bf2131fe8e3bac35b56fc5dbdd51c0530ce8dee9e559fb5f817cc6c2f97ca",
+      "finalRgbaSha256": "ca2bf2131fe8e3bac35b56fc5dbdd51c0530ce8dee9e559fb5f817cc6c2f97ca",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-041",
+      "file": "actor-v04-frame-041.png",
+      "baseRgbaSha256": "75348da093444a6c3fd4f8db97e084c7635c8a6205df35ea25d56824edea39fa",
+      "finalRgbaSha256": "75348da093444a6c3fd4f8db97e084c7635c8a6205df35ea25d56824edea39fa",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-042",
+      "file": "actor-v04-frame-042.png",
+      "baseRgbaSha256": "271e582f06fe7f5e7fe9374b23434a340dfb11cb5dd6af82ae93e05db3b70874",
+      "finalRgbaSha256": "271e582f06fe7f5e7fe9374b23434a340dfb11cb5dd6af82ae93e05db3b70874",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-043",
+      "file": "actor-v04-frame-043.png",
+      "baseRgbaSha256": "319a7ad62dbf199f1ff23089151c7734cefec045700316b53851e882ff60e115",
+      "finalRgbaSha256": "319a7ad62dbf199f1ff23089151c7734cefec045700316b53851e882ff60e115",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-044",
+      "file": "actor-v04-frame-044.png",
+      "baseRgbaSha256": "71f2d6e34a6bda54480b8f3107309a1309372fdafa3e95f953b4176d8b47223c",
+      "finalRgbaSha256": "71f2d6e34a6bda54480b8f3107309a1309372fdafa3e95f953b4176d8b47223c",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-045",
+      "file": "actor-v04-frame-045.png",
+      "baseRgbaSha256": "f624504125b96e461e5c0adbe2737a3279da0ac364fede1a8f3b5aa5fe710448",
+      "finalRgbaSha256": "f624504125b96e461e5c0adbe2737a3279da0ac364fede1a8f3b5aa5fe710448",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-046",
+      "file": "actor-v04-frame-046.png",
+      "baseRgbaSha256": "bf7abbf1c3c1ed0e5485c7ab54e4887a2685764184e385b9d3dd4b68ec8a1aff",
+      "finalRgbaSha256": "bf7abbf1c3c1ed0e5485c7ab54e4887a2685764184e385b9d3dd4b68ec8a1aff",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-047",
+      "file": "actor-v04-frame-047.png",
+      "baseRgbaSha256": "02cc9e35b2030b8405c5796ed1389b560a529076de0b2f5e168dc8c54a14d939",
+      "finalRgbaSha256": "02cc9e35b2030b8405c5796ed1389b560a529076de0b2f5e168dc8c54a14d939",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-048",
+      "file": "actor-v04-frame-048.png",
+      "baseRgbaSha256": "cd96fd48a2136523b9ebe81f9157e9ceb98e0e53fa658ba5d4421e4aaa63e572",
+      "finalRgbaSha256": "cd96fd48a2136523b9ebe81f9157e9ceb98e0e53fa658ba5d4421e4aaa63e572",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    },
+    {
+      "name": "frame-049",
+      "file": "actor-v04-frame-049.png",
+      "baseRgbaSha256": "d5760845572efaa65ea6949280b79df2d9c699d34534a17431078e87620f522b",
+      "finalRgbaSha256": "d5760845572efaa65ea6949280b79df2d9c699d34534a17431078e87620f522b",
+      "changedBounds": null,
+      "changedPixels": 0,
+      "silhouetteAlphaPreserved": true,
+      "correctionLayers": [],
+      "paintSource": null,
+      "paintSourceSha256": null
+    }
+  ],
+  "paintInputs": "../pose-corrections/actor-v04-paint-inputs.json",
+  "artApproved": false,
+  "walkCycleValidated": false,
+  "homepageIntegrated": false
+}

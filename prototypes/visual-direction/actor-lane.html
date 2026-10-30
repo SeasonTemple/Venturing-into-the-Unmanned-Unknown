@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>门前这一段路 · 行走样片</title>
+  <link rel="stylesheet" href="actor-lane.css">
+  <script type="module" src="actor-lane.mjs"></script>
+</head>
+<body>
+  <header>
+    <a href="art-pack.html#cast">← 人物与场所</a>
+    <p class="eyebrow">原野手记 / 行走样片</p>
+    <h1>门前这一段路。</h1>
+    <p class="intro">沿着站房门前走一段。先让起步、连续换步、收步和再次出发连起来。</p>
+  </header>
+  <main>
+    <section class="study" id="study" aria-labelledby="scene-title">
+      <div class="study-heading"><h2 id="scene-title">站房门前</h2><p id="status" role="status">正在准备画面…</p></div>
+      <div class="views">
+        <div class="scene-wrap">
+          <canvas id="scene" width="1920" height="1080" tabindex="0" role="img" aria-label="站房门前的单向行走预览。聚焦后按住左方向键行进，松开后在下一次落脚时收步。" aria-describedby="help"></canvas>
+          <p class="caption">雨后午后 · 门前石地 <span>点击人物前方路面，或使用下方停点。</span></p>
+        </div>
+        <figure>
+          <figcaption>完整人物 · 原尺寸</figcaption>
+          <canvas id="detail" width="200" height="400" role="img" aria-label="与场景同步的完整人物原尺寸预览。"></canvas>
+          <p id="phase" class="caption">站立</p>
+          <a href="actor-lane-media/stride-review.png">查看连续换步关键帧 ↗</a>
+        </figure>
+      </div>
+      <div class="controls" id="controls" inert>
+        <div class="destinations" role="group" aria-label="选择前方停点">
+          <button type="button" data-target="-122">门前</button>
+          <button type="button" data-target="-208">门侧</button>
+          <button type="button" data-target="-380">走到廊边</button>
+        </div>
+        <div class="transport">
+          <button type="button" id="stop">收步</button>
+          <button type="button" id="pause" aria-pressed="false">暂停</button>
+          <button type="button" id="reset">重置场地</button>
+          <label><input type="checkbox" id="reduced">减少动态</label>
+        </div>
+        <p id="help" class="caption">聚焦画面后按住 ← 行进，松开或按 Esc 收步；空格暂停。点击路面可接管停点，按住 ← 可接管自动行进。</p>
+      </div>
+      <noscript><p>行走预览需要 JavaScript。<a href="actor-lane-media/stride-review.png">查看完整姿态</a>。</p></noscript>
+    </section>
+    <section class="notes">
+      <h2>这一段检验什么</h2>
+      <p>当前人物的自然步态未通过；头颈连接修正没有解决完整运动。<a href="actor-production.html?revision=motion-source01">查看完整动作制作台</a>：真实行走资料、逐帧骨架与场景尺度检查。制作台中的灰模仅作运动参照。</p>
+      <p>起步进入连续换步；停止指令在下一次落脚时收步，停稳后可以再次出发。衣袖、提箱手和箱体一起响应，脚步与位移共用同一条动作数据。</p>
+      <p>本次只制作朝左的行进方向，返回与转身仍待制作。“重置场地”会重新摆放人物。这是独立动作候选，尚未接入正式首页。</p>
+    </section>
+  </main>
+  <footer>独立预览 · 保留既有人物与场景 · 无新增媒体生成用量</footer>
+</body>
+</html>

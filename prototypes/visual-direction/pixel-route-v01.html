@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>限定通路行为壳 · 像素角色样片</title>
+  <link rel="stylesheet" href="pixel-route-v01.css">
+  <script type="module" src="pixel-route-v01.mjs"></script>
+</head>
+<body>
+  <header class="page-head">
+    <a href="pixel-walk-v01.html">← 返回行走样片</a>
+    <p class="eyebrow">首页探索 / 行为壳 V01</p>
+    <h1>沿维护路走到 R1。</h1>
+    <p class="intro">这是一段独立路线状态机预览，沿用已被否决的行走帧排查移动、停步、停点、转身和输入接管；人物源与动作尚未通过视觉验收。</p>
+    <p class="gate" role="status"><strong>闸门：</strong>仅行为壳有技术检查证据。人物与动作未通过，正式首页不显示这套角色；右向步态不使用镜像伪装。</p>
+  </header>
+
+  <main>
+    <section class="route-panel" id="route-panel" aria-labelledby="route-title">
+      <div class="panel-head">
+        <div><p class="eyebrow">限定路段 · 雨后午后</p><h2 id="route-title">站房—旧标记—R1—坡肩</h2></div>
+        <p id="status" class="status" role="status" aria-live="polite">正在准备路线…</p>
+      </div>
+      <div class="route-layout">
+        <div>
+          <div id="scene" class="scene" tabindex="0" aria-label="限定维护路场景。聚焦后按住左方向键行进，松开后在落脚时收步。" aria-describedby="help">
+            <div class="route-line" aria-hidden="true"></div>
+            <div class="stop-layer" aria-label="路线停点">
+              <button class="stop" type="button" data-stop="station" style="--x:78%"><span>站房</span></button>
+              <button class="stop" type="button" data-stop="marker" style="--x:62%"><span>旧标记</span></button>
+              <button class="stop" type="button" data-stop="r1" style="--x:45%"><span>R1</span></button>
+              <button class="stop" type="button" data-stop="shoulder" style="--x:25%"><span>坡肩</span></button>
+            </div>
+            <img id="actor" class="actor" width="128" height="196" alt="左向行走中的像素人物。">
+            <div class="scene-caption"><span>雨后午后</span><span>脚点沿维护路</span></div>
+          </div>
+          <p id="help" class="help">聚焦画面后按住 <kbd>←</kbd> 行进；松开或按 <kbd>Esc</kbd> 在下一次落脚时收步。点击左侧停点可自动行进，按住 <kbd>←</kbd> 会接管自动行进。<kbd>→</kbd> 只触发转身，不伪造右向步态。</p>
+        </div>
+
+        <aside class="inspector" aria-labelledby="inspector-title">
+          <h2 id="inspector-title">现场状态</h2>
+          <dl>
+            <dt>位置</dt><dd id="position">观测站门前</dd>
+            <dt>模式</dt><dd id="mode">停稳</dd>
+            <dt>朝向</dt><dd id="facing">左侧</dd>
+            <dt>帧</dt><dd id="frame">01 / 右脚着地</dd>
+          </dl>
+          <div class="controls" aria-label="路线控制">
+            <div class="control-group" role="group" aria-label="选择停点">
+              <button type="button" data-target="station">站房</button>
+              <button type="button" data-target="marker">旧标记</button>
+              <button type="button" data-target="r1">R1 测点</button>
+              <button type="button" data-target="shoulder">坡肩</button>
+            </div>
+            <div class="control-group">
+              <button type="button" id="stop">收步</button>
+              <button type="button" id="turn" aria-pressed="false">转身</button>
+              <button type="button" id="pause" aria-pressed="false">暂停</button>
+              <button type="button" id="reset">重置</button>
+            </div>
+            <label class="check"><input id="reduced" type="checkbox"> 减少动态</label>
+          </div>
+          <p class="note">当前页面只负责验证路线状态机。任何“右向返回”都停在转身状态，等右向完整像素帧另行绘制；场景运动通过后才接入首页。</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="notes" aria-labelledby="notes-title">
+      <h2 id="notes-title">本页的验收范围</h2>
+      <ol>
+        <li>手动输入能让自动行进立即接管，松开后在接触帧收步。</li>
+        <li>点击停点只允许前方路段，停稳后保留位置和当前状态。</li>
+        <li>转身使用已存在的完整关键帧，不横向翻转人物。</li>
+        <li>失焦、离屏和减少动态时不持续运行渲染时钟。</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>独立行为壳 · `pixel-route-v01` · 不代表首页已接入</footer>
+</body>
+</html>

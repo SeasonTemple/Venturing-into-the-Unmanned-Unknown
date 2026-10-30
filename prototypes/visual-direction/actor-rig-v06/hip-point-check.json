@@ -1,0 +1,88 @@
+{
+  "v05": {
+    "sourceVertex": [
+      49.0,
+      213.0
+    ],
+    "trajectory": [
+      {
+        "frame": 4,
+        "relativeToBody": [
+          47.31,
+          212.151
+        ]
+      },
+      {
+        "frame": 8,
+        "relativeToBody": [
+          48.42,
+          212.724
+        ]
+      },
+      {
+        "frame": 13,
+        "relativeToBody": [
+          49.68,
+          213.303
+        ]
+      },
+      {
+        "frame": 18,
+        "relativeToBody": [
+          45.954,
+          211.364
+        ]
+      },
+      {
+        "frame": 23,
+        "relativeToBody": [
+          47.359,
+          212.178
+        ]
+      }
+    ]
+  },
+  "v06": {
+    "sourceVertex": [
+      49.0,
+      213.0
+    ],
+    "trajectory": [
+      {
+        "frame": 4,
+        "relativeToBody": [
+          45.445,
+          211.042
+        ]
+      },
+      {
+        "frame": 8,
+        "relativeToBody": [
+          47.762,
+          212.392
+        ]
+      },
+      {
+        "frame": 13,
+        "relativeToBody": [
+          50.47,
+          213.629
+        ]
+      },
+      {
+        "frame": 18,
+        "relativeToBody": [
+          42.727,
+          209.048
+        ]
+      },
+      {
+        "frame": 23,
+        "relativeToBody": [
+          45.545,
+          211.107
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "version": "v02",
+  "record": "../../../docs/homepage-character-editable-pipeline.md",
+  "review": "actor-v02-comparison.png",
+  "specification": "actor-rig-v02.spec.json",
+  "sharedPaintSource": "actor-v02-layers.ora",
+  "rigSource": "actor-v02-editable.blend",
+  "poseRetouchRecipe": "actor-v02-retouch.recipe.json",
+  "selectedPoseRetouchSource": "pose-corrections-v02b/passing.ora",
+  "selectedFinalFrames": [
+    "final-v02b/actor-v02-standing.png",
+    "final-v02b/actor-v02-contact.png",
+    "final-v02b/actor-v02-passing.png"
+  ],
+  "selectedFinalRecord": "final-v02b/actor-v02-finish.json",
+  "validation": [
+    "actor-v02-validation.json",
+    "actor-v02-pipeline-validation.json",
+    "actor-v02-finish-validation.json"
+  ],
+  "rejectedPosePaint": {
+    "source": "pose-corrections-v02/passing.ora",
+    "framesDirectory": "final-v02",
+    "reason": "Initial knee retouch read as an overly explicit cloth band; kept as an unselected source, not used by the current recipe"
+  },
+  "authoredPoseCount": 3,
+  "artApproved": false,
+  "walkCycleValidated": false,
+  "homepageIntegrated": false,
+  "newPaidMediaRequests": 0
+}

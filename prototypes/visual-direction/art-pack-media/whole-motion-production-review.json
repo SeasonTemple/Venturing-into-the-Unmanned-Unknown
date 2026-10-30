@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-29",
+  "imageOutputs": [
+    {
+      "file": "loaded-walk-whole-v01.jpg",
+      "size": [
+        1024,
+        1024
+      ],
+      "sha256": "607da33c1b7f553bfddcbe2d9c8777969d10ef7c716b2ff02dc23f22f03ba300",
+      "accepted": false
+    },
+    {
+      "file": "loaded-walk-whole-v02.jpg",
+      "size": [
+        2048,
+        1024
+      ],
+      "sha256": "1738d2c61d227d82d69d09c8ee4757010a28158acd03d84230fc4da947b7f221",
+      "accepted": false
+    },
+    {
+      "file": "loaded-walk-whole-v03.jpg",
+      "size": [
+        1024,
+        1024
+      ],
+      "sha256": "30c6704470deec6bce439036b7e4cb420acb9cfebc72f2a10035ccdbc39b27bd",
+      "accepted": false
+    },
+    {
+      "file": "loaded-walk-whole-v04.jpg",
+      "size": [
+        1024,
+        1024
+      ],
+      "sha256": "2db54f9222bd11f93790c006506e030098ab47e5ac4be407f90e4f121de488b3",
+      "accepted": false
+    }
+  ],
+  "returnedImages": 4,
+  "lengthRejectedRequests": 1,
+  "newVideoTasks": 0,
+  "acceptedMotion": null,
+  "walkingApproved": false,
+  "referencePage": "../actor-production.html?revision=motion-source01",
+  "productionIntegrated": false
+}

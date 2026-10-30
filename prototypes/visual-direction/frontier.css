@@ -29,6 +29,12 @@ body[data-view=space] .stage{min-height:760px}
 .station-label[aria-pressed=true]{border-color:#d8b582;background:#24362bdb;color:#f0d3a5}
 .space-dock{bottom:45px;padding-top:21px;border-top:1px solid #879b8038}
 .space-dock>div{max-width:460px}
+.space-route{margin-top:14px;padding-top:10px;border-top:1px solid #879b8038;max-width:390px}
+.space-route-label{font:9px/1.8 var(--mt-mono);letter-spacing:.12em;color:#96a993!important;text-transform:uppercase}
+.space-route button{margin:7px 12px 0 0;padding:7px 0;border-bottom:1px solid #a5ac8b80;color:#e4c797;font-size:12px;min-height:34px}
+.space-route button:hover,.space-route button:focus-visible{color:#f0d3a5;border-color:#d8b582}
+.space-route button:disabled{opacity:.45;cursor:wait}
+.space-route-status{font:10px/1.7 var(--mt-mono);color:#a8bcaa!important;margin-top:5px}
 .space-dock h2{font-family:'Noto Serif SC','Songti SC',SimSun,serif;font-size:25px;line-height:1.6;font-weight:400;color:#e1e4d4}
 .space-dock p:not(.edition){color:#a8bcaa;max-width:410px;line-height:1.9}
 .space-dock .edition{color:#96a993;font-size:9px}
@@ -47,5 +53,5 @@ body[data-view=space] .stage{min-height:760px}
   .scroll-cue{bottom:13px;font-size:9px}.scene-status{bottom:30px;font-size:9px}
   body[data-view=space] .stage{min-height:760px}.mode-switch{top:91px;gap:15px;padding:4px 14px}.mode-switch label{font-size:11px;min-height:35px}
   .station-label{font-size:10px;min-height:36px;padding:5px 8px;gap:6px}
-  .space-dock{bottom:30px;padding-top:15px;display:block}.space-dock h2{font-size:20px;max-width:310px;margin-top:6px}.space-dock p:not(.edition){font-size:10px;max-width:310px}.quiet-button{font-size:12px;margin-top:9px}
+  .space-dock{bottom:30px;padding-top:15px;display:block}.space-dock h2{font-size:20px;max-width:310px;margin-top:6px}.space-dock p:not(.edition){font-size:10px;max-width:310px}.space-route{margin-top:10px;max-width:310px}.space-route button{font-size:11px;margin-top:5px}.space-route-status{font-size:9px}.quiet-button{font-size:12px;margin-top:9px}
 }

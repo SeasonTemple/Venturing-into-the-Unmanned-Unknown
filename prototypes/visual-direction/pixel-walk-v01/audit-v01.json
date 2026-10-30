@@ -1,0 +1,156 @@
+{
+  "revision": "pixel-walk-v01-audit-v01",
+  "status": "diagnostic",
+  "frames": [
+    {
+      "index": 0,
+      "phase": "right-contact",
+      "bounds": [
+        25,
+        11,
+        81,
+        184
+      ],
+      "headCentroid": [
+        54.717,
+        36.276
+      ],
+      "upperCentroid": [
+        54.366,
+        97.969
+      ]
+    },
+    {
+      "index": 1,
+      "phase": "right-lift",
+      "bounds": [
+        14,
+        10,
+        81,
+        184
+      ],
+      "headCentroid": [
+        57.389,
+        35.934
+      ],
+      "upperCentroid": [
+        55.471,
+        97.582
+      ]
+    },
+    {
+      "index": 2,
+      "phase": "left-forward",
+      "bounds": [
+        14,
+        10,
+        81,
+        184
+      ],
+      "headCentroid": [
+        57.389,
+        35.934
+      ],
+      "upperCentroid": [
+        55.465,
+        97.569
+      ]
+    },
+    {
+      "index": 3,
+      "phase": "left-heel",
+      "bounds": [
+        17,
+        12,
+        81,
+        184
+      ],
+      "headCentroid": [
+        59.208,
+        36.559
+      ],
+      "upperCentroid": [
+        56.82,
+        97.59
+      ]
+    },
+    {
+      "index": 4,
+      "phase": "left-contact",
+      "bounds": [
+        34,
+        12,
+        82,
+        184
+      ],
+      "headCentroid": [
+        61.144,
+        36.459
+      ],
+      "upperCentroid": [
+        58.015,
+        98.421
+      ]
+    },
+    {
+      "index": 5,
+      "phase": "left-lift",
+      "bounds": [
+        17,
+        11,
+        81,
+        184
+      ],
+      "headCentroid": [
+        59.279,
+        36.289
+      ],
+      "upperCentroid": [
+        56.602,
+        98.014
+      ]
+    },
+    {
+      "index": 6,
+      "phase": "right-forward",
+      "bounds": [
+        14,
+        10,
+        89,
+        184
+      ],
+      "headCentroid": [
+        57.389,
+        35.934
+      ],
+      "upperCentroid": [
+        55.465,
+        97.569
+      ]
+    },
+    {
+      "index": 7,
+      "phase": "right-heel",
+      "bounds": [
+        25,
+        11,
+        89,
+        184
+      ],
+      "headCentroid": [
+        54.717,
+        36.276
+      ],
+      "upperCentroid": [
+        54.371,
+        97.978
+      ]
+    }
+  ],
+  "headVerticalRange": 0.625,
+  "upperVerticalRange": 0.852,
+  "headHorizontalRange": 6.427,
+  "upperHorizontalRange": 3.649,
+  "upperBodyResponds": true,
+  "interpretation": "Centroid changes support review of shared motion; they do not approve anatomy, balance or naturalness."
+}

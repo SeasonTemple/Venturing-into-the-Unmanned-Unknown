@@ -183,13 +183,15 @@ html[data-theme=dark] body.field-journal{--mt-code-bg:#112128}
 body.field-journal.over-survey .chapter-travel{background:#101d21;color:#e5e8dc;border-color:#ffffff20}.over-survey .chapter-travel a>span{color:#f0bc7b}.over-survey .travel-position{color:#c0cbc1}
 html[data-reader=journal]{scroll-padding-top:calc(var(--reader-chrome-height,76px) + 69px)}
 #production-journal .section-content :is(h2,h3,h4),#production-journal .article-section{scroll-margin-top:16px}
-#production-journal .reading-spread{max-width:1580px;grid-template-columns:minmax(176px,220px) minmax(0,min(800px,72ch)) minmax(200px,260px);gap:clamp(28px,3.5vw,72px);justify-content:center}
+/* Own the layout mode as well as its tracks: preview breakpoints switch this
+   element to block, which otherwise leaves sticky rails over the article. */
+#production-journal .reading-spread{display:grid;max-width:1580px;grid-template-columns:minmax(176px,220px) minmax(0,min(800px,72ch)) minmax(200px,260px);gap:clamp(28px,3.5vw,72px);justify-content:center}
 #production-journal .reading-column{width:100%;margin:0;min-width:0}
 #production-journal .article-section{display:block;min-width:0}
 #production-journal .section-marker{padding:0 0 16px;border:0;margin:0}
 #production-journal .section-content{min-width:0;width:100%}
 #production-journal .section-content> :is(p,ul,ol,blockquote){max-width:none}
-#production-journal .field-route,#production-journal .chapter-margin{position:sticky;top:calc(var(--reader-chrome-height,76px) + 72px);align-self:start;max-height:none;overflow:visible;padding:28px 4px 16px 0;min-width:0}
+#production-journal .field-route,#production-journal .chapter-margin{display:block;position:sticky;top:calc(var(--reader-chrome-height,76px) + 72px);align-self:start;max-height:none;overflow:visible;padding:28px 4px 16px 0;min-width:0}
 #production-journal .field-route.route-flow{position:sticky}
 .book-rail{margin-top:22px;display:grid;gap:2px}.book-rail a{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:baseline;padding:10px 0 10px 12px;border-left:1px solid var(--rd-line);min-height:44px;text-decoration:none;font-size:13px;line-height:1.7;color:var(--rd-muted)}.book-rail strong{font-weight:400}.book-rail span{font:10px var(--rd-mono)}.book-rail [aria-current=page]{border-left:2px solid var(--rd-copper);color:var(--rd-copper);background:var(--rd-panel)}
 #production-journal #route-links{display:grid;gap:3px;margin-top:22px;border-left:1px solid var(--rd-line)}
@@ -200,6 +202,7 @@ html[data-reader=journal]{scroll-padding-top:calc(var(--reader-chrome-height,76p
 @media(max-width:1199px){#production-journal .reading-spread{grid-template-columns:180px minmax(0,800px);gap:36px}#production-journal .chapter-margin{display:none}#production-journal .section-note{display:block;width:100%;margin:28px 0 0;padding-left:18px;border-left:1px solid var(--rd-copper)}}
 @media(max-width:980px){#production-journal .reading-spread{display:block;max-width:800px}#production-journal .field-route{display:none}}
 body.field-journal.focused #production-journal :is(.field-route,.chapter-margin,.section-note){display:none}
+body.field-journal.focused #production-journal .reading-spread{display:block;max-width:850px;border-top:0}
 #production-journal .survey-opening>.opening-inner>.begin{position:absolute;left:var(--jn-page-pad);top:auto;bottom:72px;z-index:3}
 #production-journal .survey-map picture,#production-journal .survey-map img{display:block;width:1920px;height:1080px;max-width:none}
 .frontier-drift{pointer-events:none}.frontier-drift path{fill:none;stroke:#bed6cf;stroke-width:1.1;stroke-linecap:round;opacity:.6;animation:frontier-fragments 4.5s ease-in-out infinite;animation-delay:var(--delay);animation-play-state:var(--survey-header-play,paused)}
@@ -223,7 +226,7 @@ body.field-journal.focused #production-journal :is(.field-route,.chapter-margin,
  #production-journal .section-content .expressive-code pre{font-size:.875rem}
 }
 @media(prefers-reduced-motion:reduce){.frontier-drift path,.survey-map .chapter-unresolved{animation:none}}
-@media print{#production-journal :is(.chapter-travel,.chapter-margin){display:none!important}}
+@media print{#production-journal :is(.chapter-travel,.chapter-margin){display:none!important}#production-journal .reading-spread{display:block}}
 
 .survey-flat .flat-boundary{animation:frontier-dashes 5s linear infinite;animation-play-state:var(--survey-header-play,paused)}
 @media(prefers-reduced-motion:reduce){.survey-flat .flat-boundary{animation:none}}

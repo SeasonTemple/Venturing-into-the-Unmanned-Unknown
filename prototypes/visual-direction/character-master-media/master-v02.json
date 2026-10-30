@@ -1,0 +1,52 @@
+{
+  "status": "unreviewed offline style proof",
+  "artApproved": false,
+  "blender": "4.5.3 LTS",
+  "resolution": [
+    128,
+    196
+  ],
+  "sourceCommit": "a8bc2d54ff0ac92e78ff71431b1023eda42bf482",
+  "baseLicense": "CC0",
+  "camera": {
+    "location": [
+      4.0,
+      -1.7000000476837158,
+      2.25
+    ],
+    "target": [
+      0.0,
+      0.0,
+      0.9300000071525574
+    ],
+    "orthoScale": 1.9900000095367432
+  },
+  "method": "CC0 MakeHuman mesh and rig; source-fitted clothing, eyes, hair and closed boots; skeletal garment tailoring and rigid props; fixed normal-ramp/AO materials; offline Cycles CPU render",
+  "runtimeIntegration": false,
+  "bodyPatchTransforms": false,
+  "paletteExperiment": {
+    "colors": 50,
+    "dither": false,
+    "wholeImage": true,
+    "file": "left-palette-v02.png"
+  },
+  "refinements": {
+    "removedBlazerLapel": true,
+    "closedFrontAndStandingCollar": true,
+    "sourceBootOcclusionApplied": true,
+    "sourceBootWeightsApplied": true,
+    "sourceEyeSocketFit": true,
+    "hairAlphaPacked": true,
+    "groundedWholeRigZ": -0.0031644015107303858,
+    "secondViewCamera": [
+      2.7,
+      -3.5,
+      2.25
+    ]
+  },
+  "limitations": [
+    "Character identity, grip and painterly cloth blocks remain under art review.",
+    "Body deformation and loaded gait are not approved.",
+    "The second view changes the camera only; it is not another animated facing direction."
+  ]
+}

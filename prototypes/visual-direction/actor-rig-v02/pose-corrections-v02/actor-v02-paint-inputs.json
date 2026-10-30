@@ -1,0 +1,25 @@
+{
+  "tag": "actor-v02",
+  "recipeSha256": "2b9b75af14b9cc55b991a8ba4fe5a0c290e50cafd166ab9649cd36e6b6dc5b00",
+  "method": "Program-assisted pixel-cluster pose retouch; original raster palette, not a newly generated person or a hand-painted full frame",
+  "poses": [
+    {
+      "name": "standing",
+      "baseFile": "actor-v02-standing.png",
+      "baseRgbaSha256": "00e21b749bf33df87dacdbfbc2c7dae7268786666dbc74e0d57daf3bc44a971c",
+      "ora": null
+    },
+    {
+      "name": "contact",
+      "baseFile": "actor-v02-contact.png",
+      "baseRgbaSha256": "c13b05b90e4a25755486c487d985e1a370e407fe91d792b1c458a8a73f0d28a7",
+      "ora": null
+    },
+    {
+      "name": "passing",
+      "baseFile": "actor-v02-passing.png",
+      "baseRgbaSha256": "9e371112b69b820348c607334b8fdb47aec10361f39b0c20fbe69c5e31df5d72",
+      "ora": "passing.ora"
+    }
+  ]
+}

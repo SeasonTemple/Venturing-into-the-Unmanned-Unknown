@@ -1,0 +1,24 @@
+{
+  "allPhaseStopAndResume": true,
+  "routeTargets": true,
+  "largeDeltaClamped": true,
+  "idleStopsDrawing": true,
+  "manualTakeover": true,
+  "keyReleaseStops": true,
+  "pauseStable": true,
+  "spaceResumes": true,
+  "stopThenRestart": true,
+  "reducedMotionStatic": true,
+  "roadPointer": true,
+  "offscreenStopsDrawing": true,
+  "mobileNoOverflow": true,
+  "decodedResources": 5,
+  "errors": [],
+  "version": "body03",
+  "artApprovalImplied": false,
+  "sourceHashes": {
+    "prototypes\\visual-direction\\actor-lane-media\\lane.json": "762fb93c3d181498ea999455504b7c0ae17e72e5d407198247781f83cb67e5d6",
+    "prototypes\\visual-direction\\actor-lane-state.mjs": "0056e16cd23185943d47ca81bf26ba918e587df90745815b812e07ff14af1caa",
+    "prototypes\\visual-direction\\actor-lane.mjs": "b03ec3364e427d95424fc9ff1bb46219c91b577e9a220da312ca421f5becb910"
+  }
+}

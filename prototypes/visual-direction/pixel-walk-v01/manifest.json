@@ -1,0 +1,107 @@
+{
+  "revision": "pixel-walk-v01",
+  "status": "visual-rejected",
+  "sourceArtApproved": false,
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false,
+  "canvas": [
+    128,
+    196
+  ],
+  "baseline": 183,
+  "fps": 8,
+  "direction": "left-facing",
+  "frames": [
+    {
+      "index": 0,
+      "file": "frames/frame-00.png",
+      "phase": "right-contact",
+      "label": "右脚着地",
+      "baseline": 183,
+      "authoring": "complete-pixel-keypose-anchor",
+      "operations": 61,
+      "frameSha256": "16221fccbb75acc1cae6894ac1a9803bbeec652bc1fe51dad0a5c779a1e91b52"
+    },
+    {
+      "index": 1,
+      "file": "frames/frame-01.png",
+      "phase": "right-lift",
+      "label": "右脚抬起",
+      "baseline": 183,
+      "authoring": "complete-pixel-frame-with-authored-step",
+      "operations": 66,
+      "frameSha256": "b82071419eeb5e92b0e68a29832d4226d2f66a88957a6a3f5a4cb157159a0fdf"
+    },
+    {
+      "index": 2,
+      "file": "frames/frame-02.png",
+      "phase": "left-forward",
+      "label": "左腿前摆",
+      "baseline": 183,
+      "authoring": "complete-pixel-keypose-anchor",
+      "operations": 61,
+      "frameSha256": "47937d2404297c34336a0a6401dc90179ae4b2a7c8dfffeadfda57d66f525625"
+    },
+    {
+      "index": 3,
+      "file": "frames/frame-03.png",
+      "phase": "left-heel",
+      "label": "左脚跟落地",
+      "baseline": 183,
+      "authoring": "complete-pixel-keypose-anchor",
+      "operations": 61,
+      "frameSha256": "f975af7655478cdef02b5e6ab4b6814e8baeb64bb967f8ced2555f772a6e7133"
+    },
+    {
+      "index": 4,
+      "file": "frames/frame-04.png",
+      "phase": "left-contact",
+      "label": "左脚着地",
+      "baseline": 183,
+      "authoring": "complete-pixel-keypose-anchor",
+      "operations": 61,
+      "frameSha256": "5cf48dd4ee5694d313bb7d1d72565e61ba2ca4bea0ef637e77a179133394d63a"
+    },
+    {
+      "index": 5,
+      "file": "frames/frame-05.png",
+      "phase": "left-lift",
+      "label": "左脚抬起",
+      "baseline": 183,
+      "authoring": "complete-pixel-frame-with-authored-step",
+      "operations": 66,
+      "frameSha256": "b42b9aa474801ae0c84075c1bb99febe0f6be4fbb3dc4bedb4be8e6b9e277c0c"
+    },
+    {
+      "index": 6,
+      "file": "frames/frame-06.png",
+      "phase": "right-forward",
+      "label": "右腿前摆",
+      "baseline": 183,
+      "authoring": "complete-pixel-frame-with-authored-step",
+      "operations": 66,
+      "frameSha256": "4529ee8b6d19cff82bfab26cc59b53f819aa5b9e12f47d78b66a53fe57035ff3"
+    },
+    {
+      "index": 7,
+      "file": "frames/frame-07.png",
+      "phase": "right-heel",
+      "label": "右脚跟落地",
+      "baseline": 183,
+      "authoring": "complete-pixel-frame-with-authored-step",
+      "operations": 66,
+      "frameSha256": "34fc45123ab99957dc0fe8a80b44b4158b706bed4a947a033e1d19c2e76ca469"
+    }
+  ],
+  "method": "eight complete native pixel frames; four loaded keypose upper-body anchors with explicit lower-body phases and a one-pixel authored weight bob",
+  "forbiddenMethods": [
+    "mirroring",
+    "horizontal stretch",
+    "runtime limb deformation",
+    "generic tween"
+  ],
+  "gate": "Visual acceptance is absent. Retain as a diagnostic candidate, outside the formal homepage.",
+  "visualReviewStatus": "rejected-by-user",
+  "frameSetSha256": "8f924da1e4b39d8a949065806341e7464cb9a93c48d2a00348540b58fd5a71a0"
+}

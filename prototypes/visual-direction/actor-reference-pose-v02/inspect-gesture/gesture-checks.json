@@ -1,0 +1,15 @@
+{
+  "freshProcessReopen": true,
+  "maxFootMovementMeters": 0,
+  "maxGripCenterWristLocalDriftMeters": 3.825276390610169e-07,
+  "minimumDisplayFacingHeadDotDuringHold": 0.9438994042575359,
+  "palmForearmAngleDegreesRange": [
+    0.0,
+    39.08788512932443
+  ],
+  "fullBodyReturnMatrixMaxDelta": 0.0,
+  "completeRecorderReturnMatrixMaxDelta": 0.0,
+  "sourceBlendUnchanged": true,
+  "artApproved": false,
+  "scope": "Support, grip center and display facing only; visual motion still judged from full frames."
+}

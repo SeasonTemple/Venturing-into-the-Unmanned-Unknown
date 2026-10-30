@@ -1,0 +1,17 @@
+{
+  "frame": 12,
+  "layer": "pose_paint",
+  "point": [
+    93,
+    104
+  ],
+  "rgba": [
+    250,
+    184,
+    61,
+    255
+  ],
+  "reason": "Pose-specific cloth coverage at the loaded shoulder; original torso/sleeve edge separates after articulation.",
+  "baseRgbaSha256": "a7d5d5ce7a7e616b16514a192908bd6c1e15fafe1febadb93a8c54726932d3ea",
+  "scope": "One visible cloth pixel only after complete-pose review, not automatic hole filling or anatomy repair."
+}

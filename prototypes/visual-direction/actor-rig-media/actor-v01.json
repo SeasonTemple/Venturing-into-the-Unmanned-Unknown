@@ -1,0 +1,275 @@
+{
+  "version": "actor-rig-v01",
+  "source": "../art-pack-media/actor-front.png",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "specSha256": "6e7e813b162806d1e2d6e2d90099449776d1e376b0a2c3c4b2b6c858521828b7",
+  "sourceSize": [
+    156,
+    348
+  ],
+  "sourceLayerReassemblyPixelIdentical": true,
+  "editableLayerInput": null,
+  "method": "Original raster separation, limited nearest-cloth hidden caps, continuous skinned meshes and authored 2D bone poses",
+  "newGeneratedImages": 0,
+  "newVideoRequests": 0,
+  "hiddenCapPixels": {
+    "arm_R": 50,
+    "arm_L": 44
+  },
+  "meshes": [
+    {
+      "name": "leg_R",
+      "vertices": 628,
+      "triangles": 1092,
+      "bones": [
+        "pelvis",
+        "thigh_R",
+        "shin_R",
+        "foot_R"
+      ]
+    },
+    {
+      "name": "leg_L",
+      "vertices": 602,
+      "triangles": 1050,
+      "bones": [
+        "pelvis",
+        "thigh_L",
+        "shin_L",
+        "foot_L"
+      ]
+    },
+    {
+      "name": "pelvis",
+      "vertices": 254,
+      "triangles": 416,
+      "bones": [
+        "pelvis"
+      ]
+    },
+    {
+      "name": "arm_R",
+      "vertices": 218,
+      "triangles": 354,
+      "bones": [
+        "upperarm_R",
+        "forearm_R",
+        "hand_R"
+      ]
+    },
+    {
+      "name": "arm_L",
+      "vertices": 338,
+      "triangles": 556,
+      "bones": [
+        "upperarm_L",
+        "forearm_L",
+        "hand_L"
+      ]
+    },
+    {
+      "name": "upper_body",
+      "vertices": 1358,
+      "triangles": 2422,
+      "bones": [
+        "head",
+        "torso"
+      ]
+    },
+    {
+      "name": "toolbox_R",
+      "vertices": 226,
+      "triangles": 364,
+      "bones": [
+        "toolbox_R"
+      ]
+    },
+    {
+      "name": "glove_R",
+      "vertices": 133,
+      "triangles": 216,
+      "bones": [
+        "hand_R"
+      ]
+    },
+    {
+      "name": "recorder_L",
+      "vertices": 179,
+      "triangles": 304,
+      "bones": [
+        "recorder_L"
+      ]
+    }
+  ],
+  "bones": 18,
+  "poses": [
+    {
+      "frame": 1,
+      "name": "standing",
+      "label": "站立 · 原姿态",
+      "pelvisShift": [
+        0,
+        0
+      ],
+      "torsoDegrees": 0,
+      "rightFootShift": [
+        0,
+        0
+      ],
+      "leftFootShift": [
+        0,
+        0
+      ],
+      "loadedArmDegrees": 0,
+      "solvedLegs": {}
+    },
+    {
+      "frame": 9,
+      "name": "contact",
+      "label": "承重接触 · 关键姿态候选",
+      "pelvisShift": [
+        1,
+        1
+      ],
+      "torsoDegrees": -0.8,
+      "rightFootShift": [
+        -10,
+        0
+      ],
+      "leftFootShift": [
+        6,
+        0
+      ],
+      "loadedArmDegrees": 1.0,
+      "solvedLegs": {
+        "R": {
+          "hip": [
+            62.0,
+            188.0
+          ],
+          "knee": [
+            50.30665588378906,
+            253.97169494628906
+          ],
+          "ankle": [
+            48.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ]
+        },
+        "L": {
+          "hip": [
+            96.0,
+            189.0
+          ],
+          "knee": [
+            96.69853210449219,
+            261.2461853027344
+          ],
+          "ankle": [
+            110.0,
+            328.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      }
+    },
+    {
+      "frame": 17,
+      "name": "passing",
+      "label": "经过 · 抬脚姿态候选",
+      "pelvisShift": [
+        0,
+        0
+      ],
+      "torsoDegrees": -0.5,
+      "rightFootShift": [
+        0,
+        0
+      ],
+      "leftFootShift": [
+        -8,
+        -6
+      ],
+      "loadedArmDegrees": -0.5,
+      "solvedLegs": {
+        "R": {
+          "hip": [
+            61.0,
+            187.0
+          ],
+          "knee": [
+            61.0,
+            254.0
+          ],
+          "ankle": [
+            58.0,
+            319.0
+          ],
+          "lengths": [
+            67.0,
+            65.06919393998976
+          ],
+          "sourceConfigurationPreserved": true
+        },
+        "L": {
+          "hip": [
+            95.0,
+            188.0
+          ],
+          "knee": [
+            74.72142028808594,
+            257.3453674316406
+          ],
+          "ankle": [
+            96.0,
+            322.0
+          ],
+          "lengths": [
+            72.24956747275377,
+            68.06614430096654
+          ]
+        }
+      }
+    }
+  ],
+  "frames": [
+    {
+      "pose": "standing",
+      "frame": 1,
+      "file": "actor-v01-standing.png",
+      "sha256": "3648ef8a4194e9c3186bbd5ad3d7ea2e66feb41d6fbeb38d2351bca957343dfd"
+    },
+    {
+      "pose": "contact",
+      "frame": 9,
+      "file": "actor-v01-contact.png",
+      "sha256": "2dcfbcf61c053314a85aefe0fadd31f08fde594a72048a630e4f2f38246b3034"
+    },
+    {
+      "pose": "passing",
+      "frame": 17,
+      "file": "actor-v01-passing.png",
+      "sha256": "441cbde8067b4b7ccc921848aeb52fdf8e6b94e8b59f494e7e9f17ac5a1d1f68"
+    }
+  ],
+  "outputSize": [
+    220,
+    400
+  ],
+  "artApproved": false,
+  "walkingValidated": false,
+  "homepageIntegrated": false,
+  "limitations": [
+    "One original view only",
+    "No full unseen anatomy or clothing redrawn",
+    "Deformation pixel clusters require visual review",
+    "Not a walk loop or turn animation"
+  ]
+}

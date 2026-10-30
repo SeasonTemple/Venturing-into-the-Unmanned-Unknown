@@ -1,0 +1,35 @@
+{
+  "sourceBlend": "E:\\theorylab\\Venturing-into-the-Unmanned-Unknown\\prototypes\\visual-direction\\actor-fieldwear-design-v01\\representation-study.blend",
+  "sourceSha256": "e086ce1e178038c922190c37a44d4f7dedd5ce2413ef21cd1ded3759bc03b26f",
+  "frameCount": 33,
+  "fps": 12,
+  "keyFrames": [
+    1,
+    5,
+    13,
+    17,
+    29,
+    33
+  ],
+  "scope": "Left device lift and return; feet and right case remain stationary. Not walking or reading.",
+  "feetBefore": {
+    "L": [
+      0.11199988424777985,
+      -0.008972903713583946,
+      0.09496165066957474
+    ],
+    "R": [
+      -0.11199988424777985,
+      -0.008972903713583946,
+      0.09496165066957474
+    ]
+  },
+  "artApproved": false,
+  "walkingApproved": false,
+  "homepageIntegrated": false,
+  "renderedFrames": [
+    1,
+    13
+  ],
+  "continuousExportVerified": false
+}

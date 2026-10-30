@@ -1,0 +1,1318 @@
+{
+  "method": "Complete-pose ORA paint reimport; no contour regeneration; silhouette edits permitted.",
+  "recipeSha256": "65876fb3f870c056c9397be8062a03ade9f896aae5645bc89fd3e0d8b0ab0872",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "poses": [
+    {
+      "pose": "frame-000",
+      "label": "01 / 13",
+      "support": "右脚承重，左脚离地",
+      "legOrder": [
+        "R",
+        "L"
+      ],
+      "upperArt": "connected body surface and articulated occupied arms",
+      "upperPose": {
+        "pelvis": [
+          72.0,
+          178.0
+        ],
+        "chest": [
+          70.45026092863158,
+          104.01622942286143
+        ],
+        "neck": [
+          69.98601489689219,
+          66.01906537576426
+        ],
+        "head": [
+          65.98601489689219,
+          30.019065375764256
+        ],
+        "R": {
+          "shoulder": [
+            39.216950885615,
+            86.37226118827778
+          ],
+          "elbow": [
+            25.6099682666064,
+            122.92154331537293
+          ],
+          "wrist": [
+            18.21905297542499,
+            152.0827224952103
+          ],
+          "grip": [
+            19.51202753726683,
+            166.0587096439748
+          ],
+          "upperAngle": -2.2,
+          "forearmAngle": -1.2000000000000002
+        },
+        "L": {
+          "shoulder": [
+            103.15462359714452,
+            82.68679606000617
+          ],
+          "elbow": [
+            135.95520461571567,
+            120.85906197184524
+          ],
+          "wrist": [
+            114.3111395074079,
+            150.12567171037378
+          ],
+          "grip": [
+            105.39733018631055,
+            157.23510230551418
+          ],
+          "upperAngle": 0.30000000000000004,
+          "forearmAngle": -0.7
+        }
+      },
+      "upperAngle": 0,
+      "upperShift": [
+        -6.0,
+        0.0
+      ],
+      "png": "frame-000.png",
+      "editable": "frame-000.ora",
+      "baseRgbaSha256": "c3d01fc58affbf7c6ffe3c3223c890284f9e02f68923265c3d6ed60a98a04677",
+      "layerNames": [
+        "ground_contact",
+        "trouser_R",
+        "boot_R",
+        "trouser_L",
+        "boot_L",
+        "hidden_jacket_coverage",
+        "sleeve_R",
+        "sleeve_L",
+        "continuous_body_head_neck",
+        "toolbox_R",
+        "glove_R",
+        "recorder_L",
+        "pose_paint"
+      ],
+      "artApproved": false,
+      "priorBaseRgbaSha256": "c3d01fc58affbf7c6ffe3c3223c890284f9e02f68923265c3d6ed60a98a04677",
+      "changedPixels": 0,
+      "silhouetteChangedPixels": 0,
+      "changedBounds": null,
+      "paintSourceSha256": "580874572f0ce24c328d7ef9b9a0e5b068d7a22f6b435078b17fba6e902688cd"
+    },
+    {
+      "pose": "frame-001",
+      "label": "02 / 13",
+      "support": "右脚承重，左脚离地",
+      "legOrder": [
+        "R",
+        "L"
+      ],
+      "upperArt": "connected body surface and articulated occupied arms",
+      "upperPose": {
+        "pelvis": [
+          72.25,
+          177.75
+        ],
+        "chest": [
+          70.5388571960748,
+          103.76978649459996
+        ],
+        "neck": [
+          69.97513652605754,
+          65.77396805353732
+        ],
+        "head": [
+          65.97513652605754,
+          29.773968053537317
+        ],
+        "R": {
+          "shoulder": [
+            39.25611913192282,
+            86.2024799792531
+          ],
+          "elbow": [
+            25.10843421266278,
+            122.54588393960526
+          ],
+          "wrist": [
+            17.603060521487087,
+            151.67781428683435
+          ],
+          "grip": [
+            18.841141681565958,
+            165.65877115827408
+          ],
+          "upperAngle": -1.35,
+          "forearmAngle": -0.9750000000000001
+        },
+        "L": {
+          "shoulder": [
+            103.17934674335595,
+            82.37023170438212
+          ],
+          "elbow": [
+            136.5754651288352,
+            120.02257926443548
+          ],
+          "wrist": [
+            114.88035314216505,
+            149.25136842659273
+          ],
+          "grip": [
+            105.95414910668916,
+            156.34523066919752
+          ],
+          "upperAngle": -0.6,
+          "forearmAngle": -0.6
+        }
+      },
+      "upperAngle": 0,
+      "upperShift": [
+        -5.75,
+        -0.25
+      ],
+      "png": "frame-001.png",
+      "editable": "frame-001.ora",
+      "baseRgbaSha256": "ee782b4fd1994db3f8f2919012dfe9a7973ba1be7af5c7e9fff32eeba39e01ef",
+      "layerNames": [
+        "ground_contact",
+        "trouser_R",
+        "boot_R",
+        "trouser_L",
+        "boot_L",
+        "hidden_jacket_coverage",
+        "sleeve_R",
+        "sleeve_L",
+        "continuous_body_head_neck",
+        "toolbox_R",
+        "glove_R",
+        "recorder_L",
+        "pose_paint"
+      ],
+      "artApproved": false,
+      "priorBaseRgbaSha256": "ee782b4fd1994db3f8f2919012dfe9a7973ba1be7af5c7e9fff32eeba39e01ef",
+      "changedPixels": 0,
+      "silhouetteChangedPixels": 0,
+      "changedBounds": null,
+      "paintSourceSha256": "c9aa02f38a771f48b294d64d53cd8d502658a0aa4cfee5b4a7d24ce01375de25"
+    },
+    {
+      "pose": "frame-002",
+      "label": "03 / 13",
+      "support": "右脚承重，左脚离地",
+      "legOrder": [
+        "R",
+        "L"
+      ],
+      "upperArt": "connected body surface and articulated occupied arms",
+      "upperPose": {
+        "pelvis": [
+          72.5,
+          177.5
+        ],
+        "chest": [
+          70.6274616079508,
+          103.52369568591371
+        ],
+        "neck": [
+          69.96427016333404,
+          65.52948326997084
+        ],
+        "head": [
+          65.96427016333404,
+          29.52948326997084
+        ],
+        "R": {
+          "shoulder": [
+            39.295496391732875,
+            86.03318002919714
+          ],
+          "elbow": [
+            24.610222823711766,
+            122.16270729198291
+          ],
+          "wrist": [
+            16.9905064746887,
+            151.26493955619986
+          ],
+          "grip": [
+            18.17367514026153,
+            165.25065054666462
+          ],
+          "upperAngle": -0.5,
+          "forearmAngle": -0.75
+        },
+        "L": {
+          "shoulder": [
+            103.20389467563194,
+            82.05418692788484
+          ],
+          "elbow": [
+            137.18731043552452,
+            119.17732598279619
+          ],
+          "wrist": [
+            115.4412176575656,
+            148.36820553262137
+          ],
+          "grip": [
+            106.50264609847667,
+            155.44647781355593
+          ],
+          "upperAngle": -1.5,
+          "forearmAngle": -0.5
+        }
+      },
+      "upperAngle": 0,
+      "upperShift": [
+        -5.5,
+        -0.5
+      ],
+      "png": "frame-002.png",
+      "editable": "frame-002.ora",
+      "baseRgbaSha256": "34351c046b29bf588b76334f3b932f35b47a37c56fe40f3b439cb47da63847cc",
+      "layerNames": [
+        "ground_contact",
+        "trouser_R",
+        "boot_R",
+        "trouser_L",
+        "boot_L",
+        "hidden_jacket_coverage",
+        "sleeve_R",
+        "sleeve_L",
+        "continuous_body_head_neck",
+        "toolbox_R",
+        "glove_R",
+        "recorder_L",
+        "pose_paint"
+      ],
+      "artApproved": false,
+      "priorBaseRgbaSha256": "34351c046b29bf588b76334f3b932f35b47a37c56fe40f3b439cb47da63847cc",
+      "changedPixels": 0,
+      "silhouetteChangedPixels": 0,
+      "changedBounds": null,
+      "paintSourceSha256": "47e5f0a17d5b1433a8a37914a329b41afe1311c36ee7960294545f905253859b"
+    },
+    {
+      "pose": "frame-003",
+      "label": "04 / 13",
+      "support": "右脚承重，左脚离地",
+      "legOrder": [
+        "R",
+        "L"
+      ],
+      "upperArt": "connected body surface and articulated occupied arms",
+      "upperPose": {
+        "pelvis": [
+          72.75,
+          177.25
+        ],
+        "chest": [
+          70.71607493244537,
+          103.27795697819633
+        ],
+        "neck": [
+          69.95341725866898,
+          65.28561099545094
+        ],
+        "head": [
+          65.95341725866898,
+          29.285610995450938
+        ],
+        "R": {
+          "shoulder": [
+            39.335083770628295,
+            85.86436079318761
+          ],
+          "elbow": [
+            24.115453518948016,
+            121.7720598980055
+          ],
+          "wrist": [
+            16.38151201752971,
+            150.84414528678764
+          ],
+          "grip": [
+            17.50974994267203,
+            164.8343947193128
+          ],
+          "upperAngle": 0.3500000000000001,
+          "forearmAngle": -0.5249999999999999
+        },
+        "L": {
+          "shoulder": [
+            103.22826860119416,
+            81.73866219136465
+          ],
+          "elbow": [
+            137.79059683616606,
+            118.32343316205768
+          ],
+          "wrist": [
+            115.99358950928826,
+            147.47631417906928
+          ],
+          "grip": [
+            107.04267765502544,
+            154.5389749366887
+          ],
+          "upperAngle": -2.4,
+          "forearmAngle": -0.3999999999999999
+        }
+      },
+      "upperAngle": 0,
+      "upperShift": [
+        -5.25,
+        -0.75
+      ],
+      "png": "frame-003.png",
+      "editable": "frame-003.ora",
+      "baseRgbaSha256": "851828cc2df9e7561b79f5b1e93d1fcb8f4a5454c939abcfc1393b3260c70ad7",
+      "layerNames": [
+        "ground_contact",
+        "trouser_R",
+        "boot_R",
+        "trouser_L",
+        "boot_L",
+        "hidden_jacket_coverage",
+        "sleeve_R",
+        "sleeve_L",
+        "continuous_body_head_neck",
+        "toolbox_R",
+        "glove_R",
+        "recorder_L",
+        "pose_paint"
+      ],
+      "artApproved": false,
+      "priorBaseRgbaSha256": "851828cc2df9e7561b79f5b1e93d1fcb8f4a5454c939abcfc1393b3260c70ad7",
+      "changedPixels": 0,
+      "silhouetteChangedPixels": 0,
+      "changedBounds": null,
+      "paintSourceSha256": "c7c517991bbc79424516c29f4e9d01c5a432f40c4679942dda175e05c2cc8c79"
+    },
+    {
+      "pose": "frame-004",
+      "label": "05 / 13",
+      "support": "左腿前摆",
+      "legOrder": [
+        "R",
+        "L"
+      ],
+      "upperArt": "connected body surface and articulated occupied arms",
+      "upperPose": {
+        "pelvis": [
+          73.0,
+          177.0
+        ],
+        "chest": [
+          70.8046979377018,
+          103.03257035116559
+        ],
+        "neck": [
+          69.94257926193612,
+          65.04235119690306
+        ],
+        "head": [
+          65.94257926193612,
+          29.042351196903056
+        ],
+        "R": {
+          "shoulder": [
+            39.37488237277076,
+            85.69602172374483
+          ],
+          "elbow": [
+            23.624245004847232,
+            121.37399003058891
+          ],
+          "wrist": [
+            15.776197617978987,
+            150.41548021641563
+          ],
+          "grip": [
+            16.849487403866288,
+            164.4100523440482
+          ],
+          "upperAngle": 1.2000000000000002,
+          "forearmAngle": -0.2999999999999998
+        },
+        "L": {
+          "shoulder": [
+            103.25246972847563,
+            81.42365795284493
+          ],
+          "elbow": [
+            138.38518270120213,
+            117.46103409451229
+          ],
+          "wrist": [
+            116.5373272228699,
+            146.5758277739789
+          ],
+          "grip": [
+            107.574102339463,
+            153.62285549419366
+          ],
+          "upperAngle": -3.3,
+          "forearmAngle": -0.2999999999999998
+        }
+      },
+      "upperAngle": 0,
+      "upperShift": [
+        -5.0,
+        -1.0
+      ],
+      "png": "frame-004.png",
+      "editable": "frame-004.ora",
+      "baseRgbaSha256": "6d9201a14ef126b5aaadd1e5a8f37daff23c570300cdd6adcfb3b10b08963aec",
+      "layerNames": [
+        "ground_contact",
+        "trouser_R",
+        "boot_R",
+        "trouser_L",
+        "boot_L",
+        "hidden_jacket_coverage",
+        "sleeve_R",
+        "sleeve_L",
+        "continuous_body_head_neck",
+        "toolbox_R",
+        "glove_R",
+        "recorder_L",
+        "pose_paint"
+      ],
+      "artApproved": false,
+      "priorBaseRgbaSha256": "6d9201a14ef126b5aaadd1e5a8f37daff23c570300cdd6adcfb3b10b08963aec",
+      "changedPixels": 0,
+      "silhouetteChangedPixels": 0,
+      "changedBounds": null,
+      "paintSourceSha256": "326080e01bc186e3aef6d35b09e46ee2bc0c5282df4f5fda25f27dc6db61a4af"
+    },
+    {
+      "pose": "frame-005",
+      "label": "06 / 13",
+      "support": "左腿前摆",
+      "legOrder": [
+        "R",
+        "L"
+      ],
+      "upperArt": "connected body surface and articulated occupied arms",
+      "upperPose": {
+        "pelvis": [
+          72.5,
+          177.25
+        ],
+        "chest": [
+          70.53062848397114,
+          103.27621021042754
+        ],
+        "neck": [
+          69.66850980820547,
+          65.285991056165
+        ],
+        "head": [
+          65.66850980820546,
+          29.285991056165003
+        ],
+        "R": {
+          "shoulder": [
+            39.1008129190401,
+            85.93966158300677
+          ],
+          "elbow": [
+            23.584022992927338,
+            121.71995267166179
+          ],
+          "wrist": [
+            15.482842840623526,
+            150.6918507824159
+          ],
+          "grip": [
+            16.433967628468185,
+            164.6952561410402
+          ],
+          "upperAngle": 0.8250000000000002,
+          "forearmAngle": 0.20000000000000018
+        },
+        "L": {
+          "shoulder": [
+            102.97840027474497,
+            81.66729781210687
+          ],
+          "elbow": [
+            137.5566883368588,
+            118.23698464004505
+          ],
+          "wrist": [
+            115.89985532179763,
+            147.49414758790718
+          ],
+          "grip": [
+            106.98294477503478,
+            154.59968812336467
+          ],
+          "upperAngle": -2.425,
+          "forearmAngle": -0.6749999999999998
+        }
+      },
+      "upperAngle": 0,
+      "upperShift": [
+        -5.5,
+        -0.75
+      ],
+      "png": "frame-005.png",
+      "editable": "frame-005.ora",
+      "baseRgbaSha256": "d3bf75828c6f6b9db622624ba1a5f307591886508d930ca7ecf79cc72af3ff81",
+      "layerNames": [
+        "ground_contact",
+        "trouser_R",
+        "boot_R",
+        "trouser_L",
+        "boot_L",
+        "hidden_jacket_coverage",
+        "sleeve_R",
+        "sleeve_L",
+        "continuous_body_head_neck",
+        "toolbox_R",
+        "glove_R",
+        "recorder_L",
+        "pose_paint"
+      ],
+      "artApproved": false,
+      "priorBaseRgbaSha256": "d3bf75828c6f6b9db622624ba1a5f307591886508d930ca7ecf79cc72af3ff81",
+      "changedPixels": 0,
+      "silhouetteChangedPixels": 0,
+      "changedBounds": null,
+      "paintSourceSha256": "a711c5b389a15ca614030d904df12ecbaa76206244616236a79c6bda301044a2"
+    },
+    {
+      "pose": "frame-006",
+      "label": "07 / 13",
+      "support": "左腿前摆",
+      "legOrder": [
+        "R",
+        "L"
+      ],
+      "upperArt": "connected body surface and articulated occupied arms",
+      "upperPose": {
+        "pelvis": [
+          72.0,
+          177.5
+        ],
+        "chest": [
+          70.25657740231284,
+          103.52054016386796
+        ],
+        "neck": [
+          69.39445872654716,
+          65.53032100960543
+        ],
+        "head": [
+          65.39445872654716,
+          29.53032100960543
+        ],
+        "R": {
+          "shoulder": [
+            38.8267618373818,
+            86.18399153644721
+          ],
+          "elbow": [
+            23.54448404071635,
+            122.06507269832896
+          ],
+          "wrist": [
+            15.190788059210565,
+            150.9651724118001
+          ],
+          "grip": [
+            16.019675417177556,
+            164.97634458788167
+          ],
+          "upperAngle": 0.44999999999999996,
+          "forearmAngle": 0.7
+        },
+        "L": {
+          "shoulder": [
+            102.70434919308667,
+            81.91162776554731
+          ],
+          "elbow": [
+            136.7201480592019,
+            119.00509656397588
+          ],
+          "wrist": [
+            115.25526521405861,
+            148.40337550074824
+          ],
+          "grip": [
+            106.38505097470986,
+            155.567124473741
+          ],
+          "upperAngle": -1.55,
+          "forearmAngle": -1.05
+        }
+      },
+      "upperAngle": 0,
+      "upperShift": [
+        -6.0,
+        -0.5
+      ],
+      "png": "frame-006.png",
+      "editable": "frame-006.ora",
+      "baseRgbaSha256": "b325cc234d6ea72372748c7458a85e6ce12dd6eaa3dbb7b9774317ce90c84855",
+      "layerNames": [
+        "ground_contact",
+        "trouser_R",
+        "boot_R",
+        "trouser_L",
+        "boot_L",
+        "hidden_jacket_coverage",
+        "sleeve_R",
+        "sleeve_L",
+        "continuous_body_head_neck",
+        "toolbox_R",
+        "glove_R",
+        "recorder_L",
+        "pose_paint"
+      ],
+      "artApproved": false,
+      "priorBaseRgbaSha256": "b325cc234d6ea72372748c7458a85e6ce12dd6eaa3dbb7b9774317ce90c84855",
+      "changedPixels": 0,
+      "silhouetteChangedPixels": 0,
+      "changedBounds": null,
+      "paintSourceSha256": "c05deab8086b404ce6e8a2922d82afe63551bd44b336f7432f0cb6341eee272b"
+    },
+    {
+      "pose": "frame-007",
+      "label": "08 / 13",
+      "support": "左腿前摆",
+      "legOrder": [
+        "R",
+        "L"
+      ],
+      "upperArt": "connected body surface and articulated occupied arms",
+      "upperPose": {
+        "pelvis": [
+          71.5,
+          177.75
+        ],
+        "chest": [
+          69.98254258487177,
+          103.76556026438213
+        ],
+        "neck": [
+          69.12042390910608,
+          65.7753411101196
+        ],
+        "head": [
+          65.12042390910608,
+          29.775341110119598
+        ],
+        "R": {
+          "shoulder": [
+            38.552727019940725,
+            86.42901163696135
+          ],
+          "elbow": [
+            23.505615994640024,
+            122.40934584597439
+          ],
+          "wrist": [
+            14.90004035022391,
+            151.23544630767805
+          ],
+          "grip": [
+            15.606627155331758,
+            165.25331829620924
+          ],
+          "upperAngle": 0.07500000000000018,
+          "forearmAngle": 1.2000000000000002
+        },
+        "L": {
+          "shoulder": [
+            102.4303143756456,
+            82.15664786606145
+          ],
+          "elbow": [
+            135.87569094308242,
+            119.76524776372247
+          ],
+          "wrist": [
+            114.60367775199741,
+            149.30338336498048
+          ],
+          "grip": [
+            105.78053979051839,
+            156.52503390434526
+          ],
+          "upperAngle": -0.6749999999999998,
+          "forearmAngle": -1.4249999999999998
+        }
+      },
+      "upperAngle": 0,
+      "upperShift": [
+        -6.5,
+        -0.25
+      ],
+      "png": "frame-007.png",
+      "editable": "frame-007.ora",
+      "baseRgbaSha256": "f7b529fa438f97fc0f2409e292b571120d07495d2a359375c2a8e74cd9fd9c5e",
+      "layerNames": [
+        "ground_contact",
+        "trouser_R",
+        "boot_R",
+        "trouser_L",
+        "boot_L",
+        "hidden_jacket_coverage",
+        "sleeve_R",
+        "sleeve_L",
+        "continuous_body_head_neck",
+        "toolbox_R",
+        "glove_R",
+        "recorder_L",
+        "pose_paint"
+      ],
+      "artApproved": false,
+      "priorBaseRgbaSha256": "f7b529fa438f97fc0f2409e292b571120d07495d2a359375c2a8e74cd9fd9c5e",
+      "changedPixels": 0,
+      "silhouetteChangedPixels": 0,
+      "changedBounds": null,
+      "paintSourceSha256": "4e43824ece820e7c4ca22b1a66ca2e4d86ea3a9ae70142b50092a03163c1506c"
+    },
+    {
+      "pose": "frame-008",
+      "label": "09 / 13",
+      "support": "左脚跟落地",
+      "legOrder": [
+        "R",
+        "L"
+      ],
+      "upperArt": "connected body surface and articulated occupied arms",
+      "upperPose": {
+        "pelvis": [
+          71.0,
+          178.0
+        ],
+        "chest": [
+          69.70852192364102,
+          104.01127055842704
+        ],
+        "neck": [
+          68.84640324787534,
+          66.02105140416451
+        ],
+        "head": [
+          64.84640324787533,
+          30.02105140416451
+        ],
+        "R": {
+          "shoulder": [
+            38.278706358709975,
+            86.67472193100627
+          ],
+          "elbow": [
+            23.467406672929677,
+            122.75276790938493
+          ],
+          "wrist": [
+            14.610606713506392,
+            151.50267390016617
+          ],
+          "grip": [
+            15.194839156434227,
+            165.52617818592267
+          ],
+          "upperAngle": -0.30000000000000004,
+          "forearmAngle": 1.7
+        },
+        "L": {
+          "shoulder": [
+            102.15629371441484,
+            82.40235816010639
+          ],
+          "elbow": [
+            135.02344791334343,
+            120.5173181478048
+          ],
+          "wrist": [
+            113.94521559856305,
+            150.19404509812983
+          ],
+          "grip": [
+            105.16953186881837,
+            157.47328785239313
+          ],
+          "upperAngle": 0.19999999999999996,
+          "forearmAngle": -1.8
+        }
+      },
+      "upperAngle": 0,
+      "upperShift": [
+        -7.0,
+        0.0
+      ],
+      "png": "frame-008.png",
+      "editable": "frame-008.ora",
+      "baseRgbaSha256": "6083258246047f83d8aba9d60ecfb1223114e46eafe0b385dba3e52bf1584714",
+      "layerNames": [
+        "ground_contact",
+        "trouser_R",
+        "boot_R",
+        "trouser_L",
+        "boot_L",
+        "hidden_jacket_coverage",
+        "sleeve_R",
+        "sleeve_L",
+        "continuous_body_head_neck",
+        "toolbox_R",
+        "glove_R",
+        "recorder_L",
+        "pose_paint"
+      ],
+      "artApproved": false,
+      "priorBaseRgbaSha256": "6083258246047f83d8aba9d60ecfb1223114e46eafe0b385dba3e52bf1584714",
+      "changedPixels": 0,
+      "silhouetteChangedPixels": 0,
+      "changedBounds": null,
+      "paintSourceSha256": "f0a897d0b1d43e26641dc61292067e9f56c32f14ffdeaae14e8d98587362b93e"
+    },
+    {
+      "pose": "frame-009",
+      "label": "10 / 13",
+      "support": "左脚跟落地",
+      "legOrder": [
+        "R",
+        "L"
+      ],
+      "upperArt": "connected body surface and articulated occupied arms",
+      "upperPose": {
+        "pelvis": [
+          70.5,
+          178.0
+        ],
+        "chest": [
+          69.07938926242296,
+          104.01363730299833
+        ],
+        "neck": [
+          68.10124026701543,
+          66.02622853979386
+        ],
+        "head": [
+          64.10124026701543,
+          30.026228539793863
+        ],
+        "R": {
+          "shoulder": [
+            37.59286706753056,
+            86.76713867452764
+          ],
+          "elbow": [
+            23.365926872588133,
+            123.07959070808676
+          ],
+          "wrist": [
+            15.10054005071754,
+            152.0050704912269
+          ],
+          "grip": [
+            15.972218165986334,
+            166.0136456244573
+          ],
+          "upperAngle": -1.225,
+          "forearmAngle": 0.5249999999999999
+        },
+        "L": {
+          "shoulder": [
+            101.45177215145537,
+            82.32371785521777
+          ],
+          "elbow": [
+            134.352175408581,
+            120.40998133062998
+          ],
+          "wrist": [
+            113.1704804006767,
+            150.01295071871877
+          ],
+          "grip": [
+            104.36944083637849,
+            157.26151627251335
+          ],
+          "upperAngle": 0.1499999999999999,
+          "forearmAngle": -1.6
+        }
+      },
+      "upperAngle": 0,
+      "upperShift": [
+        -7.5,
+        0.0
+      ],
+      "png": "frame-009.png",
+      "editable": "frame-009.ora",
+      "baseRgbaSha256": "6fa4568467ebc6fa2d31fb4a2ad0d1ea6efdb643f83cebada47a90b6ab7d1be4",
+      "layerNames": [
+        "ground_contact",
+        "trouser_R",
+        "boot_R",
+        "trouser_L",
+        "boot_L",
+        "hidden_jacket_coverage",
+        "sleeve_R",
+        "sleeve_L",
+        "continuous_body_head_neck",
+        "toolbox_R",
+        "glove_R",
+        "recorder_L",
+        "pose_paint"
+      ],
+      "artApproved": false,
+      "priorBaseRgbaSha256": "6fa4568467ebc6fa2d31fb4a2ad0d1ea6efdb643f83cebada47a90b6ab7d1be4",
+      "changedPixels": 0,
+      "silhouetteChangedPixels": 0,
+      "changedBounds": null,
+      "paintSourceSha256": "09cbf7ec546f4f19dbd798cf1875f21c41a3579a98efe72e46c04cdd2419f21a"
+    },
+    {
+      "pose": "frame-010",
+      "label": "11 / 13",
+      "support": "左脚跟落地",
+      "legOrder": [
+        "R",
+        "L"
+      ],
+      "upperArt": "connected body surface and articulated occupied arms",
+      "upperPose": {
+        "pelvis": [
+          70.0,
+          178.0
+        ],
+        "chest": [
+          68.45026092863158,
+          104.01622942286143
+        ],
+        "neck": [
+          67.35609073863756,
+          66.03198543149932
+        ],
+        "head": [
+          63.35609073863756,
+          30.031985431499322
+        ],
+        "R": {
+          "shoulder": [
+            36.90730740992576,
+            86.85995357358284
+          ],
+          "elbow": [
+            23.268434710502113,
+            123.39734745285284
+          ],
+          "wrist": [
+            15.59793701548607,
+            152.4862364847625
+          ],
+          "grip": [
+            16.756694220881514,
+            166.47399119161034
+          ],
+          "upperAngle": -2.15,
+          "forearmAngle": -0.6499999999999999
+        },
+        "L": {
+          "shoulder": [
+            100.74700784600229,
+            82.24553356541342
+          ],
+          "elbow": [
+            133.68063510623665,
+            120.303071524193
+          ],
+          "wrist": [
+            112.39573549747756,
+            149.8319226472057
+          ],
+          "grip": [
+            103.56944733651548,
+            157.04972267904785
+          ],
+          "upperAngle": 0.10000000000000009,
+          "forearmAngle": -1.4
+        }
+      },
+      "upperAngle": 0,
+      "upperShift": [
+        -8.0,
+        0.0
+      ],
+      "png": "frame-010.png",
+      "editable": "frame-010.ora",
+      "baseRgbaSha256": "6244fbe0b36594e5cf573d2968b63c87358fa2d9428794bd16946e4f9c7b37f6",
+      "layerNames": [
+        "ground_contact",
+        "trouser_R",
+        "boot_R",
+        "trouser_L",
+        "boot_L",
+        "hidden_jacket_coverage",
+        "sleeve_R",
+        "sleeve_L",
+        "continuous_body_head_neck",
+        "toolbox_R",
+        "glove_R",
+        "recorder_L",
+        "pose_paint"
+      ],
+      "artApproved": false,
+      "priorBaseRgbaSha256": "6244fbe0b36594e5cf573d2968b63c87358fa2d9428794bd16946e4f9c7b37f6",
+      "changedPixels": 0,
+      "silhouetteChangedPixels": 0,
+      "changedBounds": null,
+      "paintSourceSha256": "f8ee520001155f68ce218aff8e30698a1172e79e719ecaf30dd3dd582baa27a8"
+    },
+    {
+      "pose": "frame-011",
+      "label": "12 / 13",
+      "support": "左脚跟落地",
+      "legOrder": [
+        "R",
+        "L"
+      ],
+      "upperArt": "connected body surface and articulated occupied arms",
+      "upperPose": {
+        "pelvis": [
+          69.5,
+          178.0
+        ],
+        "chest": [
+          67.82113731561418,
+          104.01904691012032
+        ],
+        "neck": [
+          66.61095613843933,
+          66.03832204186102
+        ],
+        "head": [
+          62.61095613843932,
+          30.038322041861008
+        ],
+        "R": {
+          "shoulder": [
+            36.22202830568511,
+            86.95316577859649
+          ],
+          "elbow": [
+            23.174777836889767,
+            123.70597866692545
+          ],
+          "wrist": [
+            16.102395078784408,
+            152.94604368263384
+          ],
+          "grip": [
+            17.547744061645126,
+            166.9070954452248
+          ],
+          "upperAngle": -3.0749999999999997,
+          "forearmAngle": -1.8249999999999997
+        },
+        "L": {
+          "shoulder": [
+            100.04200189700336,
+            82.1678060363525
+          ],
+          "elbow": [
+            133.00882807995666,
+            120.19658949602874
+          ],
+          "wrist": [
+            111.62098322012741,
+            149.6509625542331
+          ],
+          "grip": [
+            102.76955400803729,
+            156.83790911750725
+          ],
+          "upperAngle": 0.050000000000000266,
+          "forearmAngle": -1.1999999999999997
+        }
+      },
+      "upperAngle": 0,
+      "upperShift": [
+        -8.5,
+        0.0
+      ],
+      "png": "frame-011.png",
+      "editable": "frame-011.ora",
+      "baseRgbaSha256": "ff89ba9c0248ae14f3fbc0c718d472847a5f93ef2606e052198df2061e6eb272",
+      "layerNames": [
+        "ground_contact",
+        "trouser_R",
+        "boot_R",
+        "trouser_L",
+        "boot_L",
+        "hidden_jacket_coverage",
+        "sleeve_R",
+        "sleeve_L",
+        "continuous_body_head_neck",
+        "toolbox_R",
+        "glove_R",
+        "recorder_L",
+        "pose_paint"
+      ],
+      "artApproved": false,
+      "priorBaseRgbaSha256": "ff89ba9c0248ae14f3fbc0c718d472847a5f93ef2606e052198df2061e6eb272",
+      "changedPixels": 0,
+      "silhouetteChangedPixels": 0,
+      "changedBounds": null,
+      "paintSourceSha256": "1520b23aa112325eeeec7777c6b563a440e3ffa650d47115b69112a4c8478f9d"
+    },
+    {
+      "pose": "frame-012",
+      "label": "13 / 13",
+      "support": "换到左腿承重",
+      "legOrder": [
+        "R",
+        "L"
+      ],
+      "upperArt": "connected body surface and articulated occupied arms",
+      "upperPose": {
+        "pelvis": [
+          69.0,
+          178.0
+        ],
+        "chest": [
+          67.19201881670367,
+          104.02208975619244
+        ],
+        "neck": [
+          65.86583794200862,
+          66.0452383294668
+        ],
+        "head": [
+          61.865837942008625,
+          30.045238329466798
+        ],
+        "R": {
+          "shoulder": [
+            35.537030672010545,
+            87.04677443770257
+          ],
+          "elbow": [
+            23.08480297290169,
+            124.00542735321812
+          ],
+          "wrist": [
+            16.613509425910472,
+            153.38437151104432
+          ],
+          "grip": [
+            18.34484234806626,
+            167.3128490413654
+          ],
+          "upperAngle": -4.0,
+          "forearmAngle": -3.0
+        },
+        "L": {
+          "shoulder": [
+            99.33675540569031,
+            82.09053601084891
+          ],
+          "elbow": [
+            132.33675540569033,
+            120.09053601084891
+          ],
+          "wrist": [
+            110.84622589893094,
+            149.4700721120045
+          ],
+          "grip": [
+            101.9697634875844,
+            156.62607763603478
+          ],
+          "upperAngle": 0.0,
+          "forearmAngle": -1.0
+        }
+      },
+      "upperAngle": 0,
+      "upperShift": [
+        -9.0,
+        0.0
+      ],
+      "png": "frame-012.png",
+      "editable": "frame-012.ora",
+      "baseRgbaSha256": "398d0b730660cc02d7b52bc9396281b4fe9a9863d65c14cde37ccb7f1d1ecfcc",
+      "layerNames": [
+        "ground_contact",
+        "trouser_R",
+        "boot_R",
+        "trouser_L",
+        "boot_L",
+        "hidden_jacket_coverage",
+        "sleeve_R",
+        "sleeve_L",
+        "continuous_body_head_neck",
+        "toolbox_R",
+        "glove_R",
+        "recorder_L",
+        "pose_paint"
+      ],
+      "artApproved": false,
+      "priorBaseRgbaSha256": "a7d5d5ce7a7e616b16514a192908bd6c1e15fafe1febadb93a8c54726932d3ea",
+      "changedPixels": 1,
+      "silhouetteChangedPixels": 1,
+      "changedBounds": [
+        93,
+        104,
+        94,
+        105
+      ],
+      "paintSourceSha256": "2931313ab1fdcced0f4c81d0449edf95b41ded4487b01ef33f9dc01807032d39"
+    }
+  ],
+  "artApproved": false,
+  "layerSourceSha256": {
+    "arm_L.png": "662a988141dda5b4f6629d79fc0cea8b6ea2f07cb5276c4fed207558aaefb350",
+    "arm_R.png": "ec86a9afd734a3f0ad16142295ab7d83367df011de4f8dc723a06bc1cd40c97e",
+    "glove_R.png": "940bf0568f2bfc0a5aa14c6997ccf36222e277f51958840a4fccfb0ee0556a29",
+    "leg_L.png": "3e37edb883d77675e7208c9037facfc2f4e54f50b9572afbaa7c6e65e5d25ecb",
+    "leg_R.png": "519cf223098d7299d343c6567c840292ae8e406d697e9fad5145a9349b945781",
+    "pelvis.png": "0ca5ca0c3591ef21758c694011d427a362199615a995c242648550eac9768564",
+    "recorder_L.png": "9ea7ff84fb85c8ecb246ee0aef64547f12ee0b8d0af181d66252fd6b7fc6d567",
+    "toolbox_R.png": "bd582767d1dcb469983be182569f0ce30da3dc896b101da3507218a7a90df91a",
+    "upper_body.png": "ee28b46b38c96fe6ae1856dfb1bfa14bd61fa128b9aa2c6439bafeea107e86ae"
+  },
+  "editedClothMaster": null,
+  "editedClothMasterSha256": null,
+  "status": "static-pose-paint-export; art and motion not approved",
+  "editablePoseContract": "full-canvas-normal-layers-v1",
+  "canvas": [
+    260,
+    400
+  ],
+  "reviewSheet": {
+    "file": "keyposes-review.png",
+    "poseIds": [
+      "source-reference",
+      "frame-000",
+      "frame-001",
+      "frame-002",
+      "frame-003",
+      "frame-004",
+      "frame-005",
+      "frame-006",
+      "frame-007",
+      "frame-008",
+      "frame-009",
+      "frame-010",
+      "frame-011",
+      "frame-012"
+    ],
+    "cardCount": 14,
+    "columns": 4,
+    "rows": 4
+  },
+  "parentPaintDirectory": "E:\\theorylab\\Venturing-into-the-Unmanned-Unknown\\.lab\\whole-pose-body\\paint-source03",
+  "walkCycleValidated": false,
+  "homepageIntegrated": false
+}

@@ -1,0 +1,26 @@
+{
+  "status": "rejected-by-producer",
+  "service": "MiniMax through mmx-cli",
+  "model": "image-01",
+  "seed": 301031,
+  "generationCalls": 1,
+  "sourceReference": null,
+  "raw": "candidate_001.jpg",
+  "rawSha256": "922546ed610f5010cc9a16acf2c584eb878550e1604b71ed2d92865eebbb8c67",
+  "prompt": "prompt.txt",
+  "promptSha256": "970f551f700a0401a0aa19ee3658b5beb8a82bf663f259572383b6d59ec3ffb5",
+  "dimensions": [
+    768,
+    1024
+  ],
+  "inspection": [
+    "Style-first Chinese prompt produces stepped pixel-like rendering",
+    "Face and body turn toward screen right instead of the requested left",
+    "Toolbox is cradled at chest instead of hanging from its handle",
+    "Long split stride replaces the requested restrained weight shift",
+    "Identity and outfit details differ from the original"
+  ],
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false
+}

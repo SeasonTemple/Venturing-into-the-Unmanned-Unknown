@@ -1,0 +1,15 @@
+{
+  "duration": 4.0625,
+  "width": 1600,
+  "height": 1600,
+  "ended": true,
+  "nativeControls": true,
+  "decodedFrames": 94,
+  "droppedFrames": 0,
+  "playPause": true,
+  "seek": true,
+  "halfSpeed": true,
+  "videoSha256": "818a96ef62c3e7c9ee38ddf6fe57390f8cc0272efc25d947f0f2202a15590f4f",
+  "testedUrl": "http://127.0.0.1:4395/actor-contour-motion/loaded-step.mp4",
+  "scope": "Native media playback smoke check only; not site performance or art approval"
+}

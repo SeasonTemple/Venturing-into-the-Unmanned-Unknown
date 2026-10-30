@@ -1,0 +1,31 @@
+{
+  "scope": "Engineering checks only; diagnostic magenta patch is not production art.",
+  "unchangedRoundtripPoseCount": 4,
+  "editedPose": "left-heel-contact",
+  "changedPixels": 21,
+  "silhouetteChangedPixels": 14,
+  "croppedLayerOffsetsApplied": true,
+  "staleMergedPreviewIgnored": true,
+  "otherPosesUnchanged": true,
+  "paintedSecondExportIdentical": true,
+  "changedRecipeRejectedBeforeOutput": true,
+  "changedSharedLayerRejectedBeforeOutput": true,
+  "invalidFinalPoseRejectedBeforeAnyOutput": true,
+  "originalInputsUnchanged": true,
+  "artApproved": false,
+  "walkCycleValidated": false,
+  "date": "2026-10-29",
+  "source": "../../prototypes/visual-direction/actor-pose-source-v01/",
+  "evidenceDirectory": "../../.lab/pipeline-decision/pose-paint-check02/",
+  "recipeSha256": "33197000aab77b2b447eb7c8d77843695d0251ea0d4404ce617f58c531e4cd97",
+  "allEightPriorPoseRendersUnchangedByReviewFix": true,
+  "priorReviewCardsAfterFix": 9,
+  "currentReviewCards": 5,
+  "displayedPoseIds": [
+    "source-reference",
+    "right-support",
+    "left-passing",
+    "left-heel-contact",
+    "left-loaded"
+  ]
+}

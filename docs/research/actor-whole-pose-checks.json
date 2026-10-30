@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-29",
+  "package": "../../prototypes/visual-direction/actor-whole-pose-v02/",
+  "framesChecked": 13,
+  "neutralUpperPixelIdentical": true,
+  "allFacePixelsPreservedAfterTranslation": true,
+  "upperFrameCount": 13,
+  "headBoundingBoxCount": 6,
+  "savedOraAndAtlasVerified": true,
+  "finalHoldPixelIdentical": true,
+  "media": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 900,
+        "height": 900,
+        "r_frame_rate": "10/1",
+        "nb_frames": "25"
+      }
+    ],
+    "format": {
+      "duration": "2.500000"
+    }
+  },
+  "artApproved": false,
+  "walkingApproved": false,
+  "homepageIntegrated": false,
+  "visualStatus": "rejected; final full-body pose failed despite technical checks",
+  "rejectionRecord": "../../prototypes/visual-direction/actor-whole-pose-v02/review-status.json"
+}

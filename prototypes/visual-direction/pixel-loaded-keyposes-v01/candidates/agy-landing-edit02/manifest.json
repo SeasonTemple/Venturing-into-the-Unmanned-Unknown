@@ -1,0 +1,26 @@
+{
+  "status": "ground-contact-improved-endpoint-displacement-insufficient",
+  "sourceImages": [
+    "prototypes\\visual-direction\\pixel-loaded-keyposes-v01\\candidates\\first-frame-step01\\first-frame.png",
+    "prototypes\\visual-direction\\pixel-loaded-keyposes-v01\\candidates\\first-frame-step01\\landing-candidate-frame048.png"
+  ],
+  "generationCallsReported": 1,
+  "route": "installed agy-bridge -> agy -> image-generator -> generate_image",
+  "sessionId": "7831a4d0-3e30-4e03-b34e-aa857109cf35",
+  "backendImageModel": "not-exposed",
+  "output": "candidate.jpg",
+  "outputSize": [
+    896,
+    1200
+  ],
+  "outputSha256": "4e1f2d1bc4517b2bff539bf74fb7a14e910029554c686ad284130453d67d240d",
+  "producerReview": {
+    "wholeFigure": "Same adult worker, broad proportions, costume and prop ownership retained.",
+    "feet": "Previous raised heel corrected; both boots read as grounded in the static candidate.",
+    "scope": "Static contact improved; motion-trial eligibility withdrawn after endpoint comparison.",
+    "endpointComparison": "After common-canvas alignment, foot placement remains too close to the original stance to represent the specified half-shoe forward step. Do not use as the motion endpoint."
+  },
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false
+}

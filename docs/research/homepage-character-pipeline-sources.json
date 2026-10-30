@@ -1,0 +1,205 @@
+{
+  "checkedOn": "2026-10-28",
+  "scope": "Primary-source research and original-image diagnostic only.",
+  "newImageGenerationCalls": 0,
+  "newVideoCalls": 0,
+  "newServiceUploads": 0,
+  "modelsDownloaded": false,
+  "searchTool": "MiniMax mmx search query (4 queries); primary documents fetched separately.",
+  "sources": [
+    {
+      "id": "pixellab-api",
+      "requestedUrl": "https://www.pixellab.ai/pixellab-api",
+      "status": 200,
+      "finalUrl": "https://www.pixellab.ai/pixellab-api",
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 178078,
+      "sha256": "4da2e98c128fcab2ec47f7387dfb2e6122d7d2db47bdb9b52db78b1860f1a4ad",
+      "textFile": "pixellab-api.txt"
+    },
+    {
+      "id": "pixellab-skeleton",
+      "requestedUrl": "https://www.pixellab.ai/docs/tools/animate-with-skeleton",
+      "status": 200,
+      "finalUrl": "https://www.pixellab.ai/docs/tools/animate-with-skeleton",
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 178125,
+      "sha256": "e34627af096d9df6df4d9e21f3fe9c63bf2e38635b45f4abf499f6cd76cff139",
+      "textFile": "pixellab-skeleton.txt"
+    },
+    {
+      "id": "pixellab-skeleton-v3",
+      "requestedUrl": "https://www.pixellab.ai/docs/tools/animate-with-skeleton-v3",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "pixellab-animation-new",
+      "requestedUrl": "https://www.pixellab.ai/docs/tools/animate-with-text-new",
+      "status": 200,
+      "finalUrl": "https://www.pixellab.ai/docs/tools/animate-with-text-new",
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 109048,
+      "sha256": "c81b7d10349b7efd6ac378660ce226649982e23c1c74f297d060bc14b72edbef",
+      "textFile": "pixellab-animation-new.txt"
+    },
+    {
+      "id": "pixellab-pricing",
+      "requestedUrl": "https://www.pixellab.ai/pricing",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "krita-readme",
+      "requestedUrl": "https://raw.githubusercontent.com/Acly/krita-ai-diffusion/main/README.md",
+      "error": "The read operation timed out"
+    },
+    {
+      "id": "krita-docs",
+      "requestedUrl": "https://docs.interstice.cloud/",
+      "status": 200,
+      "finalUrl": "https://docs.interstice.cloud/",
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 31039,
+      "sha256": "adf09efb02f10a40e0f2208b5fd9144b2c4d0aba8490e6997ccb93b522e0fd42",
+      "textFile": "krita-docs.txt"
+    },
+    {
+      "id": "sprite-paper",
+      "requestedUrl": "https://arxiv.org/html/2412.03685v1",
+      "status": 200,
+      "finalUrl": "https://arxiv.org/html/2412.03685v1",
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 87223,
+      "sha256": "f15a28501b45e077eb6017eff447aaaa40fe45176998c65f0bfeb9c83a8107d8",
+      "textFile": "sprite-paper.txt"
+    },
+    {
+      "id": "sprite-repo-search",
+      "requestedUrl": "https://api.github.com/search/repositories?q=Sprite-Sheet-Diffusion",
+      "status": 200,
+      "finalUrl": "https://api.github.com/search/repositories?q=Sprite-Sheet-Diffusion",
+      "contentType": "application/json; charset=utf-8",
+      "bytes": 24348,
+      "sha256": "52667b93dcf1206f287cc8665af5bb33d7a3a28582cc4839e7bb0d910745911e",
+      "textFile": "sprite-repo-search.txt"
+    },
+    {
+      "id": "pixellab-openapi",
+      "requestedUrl": "https://api.pixellab.ai/v2/openapi.json",
+      "status": 200,
+      "finalUrl": "https://api.pixellab.ai/v2/openapi.json",
+      "contentType": "application/json",
+      "bytes": 501206,
+      "sha256": "ae1f76eb70320706c9c6f375e5378177d5ff94323436474245bd81146554b596",
+      "textFile": "pixellab-openapi.txt"
+    },
+    {
+      "id": "pixellab-api-docs",
+      "requestedUrl": "https://api.pixellab.ai/v2/docs",
+      "status": 200,
+      "finalUrl": "https://api.pixellab.ai/v2/docs",
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 5970,
+      "sha256": "4bff119cb7669348cd1b2588c30d09e259c26e66b04a49b56c55f4b6652844fc",
+      "textFile": "pixellab-api-docs.txt"
+    },
+    {
+      "id": "krita-controls",
+      "requestedUrl": "https://docs.interstice.cloud/control-layers/",
+      "status": 200,
+      "finalUrl": "https://docs.interstice.cloud/control-layers/",
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 94673,
+      "sha256": "1cee20a2b01308fc371dcde6b159fbbecfd568ec9b6eefea708af5e9b2674c6a",
+      "textFile": "krita-controls.txt"
+    },
+    {
+      "id": "krita-install",
+      "requestedUrl": "https://docs.interstice.cloud/installation/",
+      "status": 200,
+      "finalUrl": "https://docs.interstice.cloud/installation/",
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 54521,
+      "sha256": "322772c815986c86774930ce3b1bf7e6b96702d6ab86232a28c1f54436acd8b0",
+      "textFile": "krita-install.txt"
+    },
+    {
+      "id": "krita-edit",
+      "requestedUrl": "https://docs.interstice.cloud/edit-models/",
+      "status": 200,
+      "finalUrl": "https://docs.interstice.cloud/edit-models/",
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 50152,
+      "sha256": "5740d86eff307cdb1d3c850cf0f000248e2aa7e14eb569ca0f3b715971ff1188",
+      "textFile": "krita-edit.txt"
+    },
+    {
+      "id": "sprite-repo-readme",
+      "requestedUrl": "https://api.github.com/repos/chenganhsieh/Sprite-Sheet-Diffusion/readme",
+      "error": "HTTP Error 403: rate limit exceeded"
+    },
+    {
+      "id": "sprite-repo-files",
+      "requestedUrl": "https://api.github.com/repos/chenganhsieh/Sprite-Sheet-Diffusion/contents/",
+      "error": "HTTP Error 403: rate limit exceeded"
+    },
+    {
+      "id": "sprite-repo-commits",
+      "requestedUrl": "https://api.github.com/repos/chenganhsieh/Sprite-Sheet-Diffusion/commits?per_page=1",
+      "error": "HTTP Error 403: rate limit exceeded"
+    },
+    {
+      "id": "krita-repo-readme",
+      "requestedUrl": "https://api.github.com/repos/Acly/krita-ai-diffusion/readme",
+      "error": "HTTP Error 403: rate limit exceeded"
+    },
+    {
+      "id": "sprite-readme-raw",
+      "requestedUrl": "https://raw.githubusercontent.com/chenganhsieh/Sprite-Sheet-Diffusion/main/README.md",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "sprite-repo-page",
+      "requestedUrl": "https://github.com/chenganhsieh/Sprite-Sheet-Diffusion",
+      "status": 200,
+      "finalUrl": "https://github.com/chenganhsieh/Sprite-Sheet-Diffusion",
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 281767,
+      "sha256": "ef27d5684b8768715965d622521555be12710aa20d32fd3990e299c58ea8c55f",
+      "textFile": "sprite-repo-page.txt"
+    },
+    {
+      "id": "sprite-readme",
+      "requestedUrl": "https://raw.githubusercontent.com/chenganhsieh/Sprite-Sheet-Diffusion/main/readme.md",
+      "status": 200,
+      "finalUrl": "https://raw.githubusercontent.com/chenganhsieh/Sprite-Sheet-Diffusion/main/readme.md",
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 3424,
+      "sha256": "4b45398230c0b689021bb8c27b4b04c8c93e0ee6bd86e20fcac7e2445dd766dd",
+      "textFile": "sprite-readme.txt"
+    },
+    {
+      "id": "sprite-inference",
+      "requestedUrl": "https://raw.githubusercontent.com/chenganhsieh/Sprite-Sheet-Diffusion/main/inference.py",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "sprite-requirements",
+      "requestedUrl": "https://raw.githubusercontent.com/chenganhsieh/Sprite-Sheet-Diffusion/main/requirements.txt",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "referenceImageCheck": {
+    "path": "prototypes/visual-direction/art-pack-media/actor-front.png",
+    "size": [
+      156,
+      348
+    ],
+    "sha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+    "test": "Nearest-neighbour resize to 78x174, then back to 156x348; compare all RGBA channels.",
+    "exact2xPixelReplication": false,
+    "changedPixels": 11112,
+    "totalPixels": 54288,
+    "interpretation": "78x174 is a reduced derivative, not demonstrated native pixel recovery. This does not explain all earlier art failures."
+  },
+  "proofBoundary": "Endpoint fields and file dimensions are verified; no candidate animation pipeline was executed or visually approved."
+}

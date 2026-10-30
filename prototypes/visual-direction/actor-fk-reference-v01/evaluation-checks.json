@@ -1,0 +1,25 @@
+{
+  "frames": 48,
+  "maxErrors": {
+    "kneeDegrees": 0.00011826510203150065,
+    "elbowDegrees": 0.00010827690602610573,
+    "publishedJointM": 7.153042420441188e-07,
+    "publishedSoleM": 0.0
+  },
+  "minSignedKneeDegrees": -4.993111175641484e-05,
+  "maxLimbSpanLengthVariationM": 4.808014149038087e-07,
+  "rerenderIdentical": {
+    "1": true,
+    "13": true,
+    "31": true
+  },
+  "oneStaticCalibration": true,
+  "perFrameFootIK": false,
+  "massTrajectoryFitting": false,
+  "fixedFloorResidualRangeMm": [
+    -7.886269129812717,
+    12.336492538452148
+  ],
+  "artApproved": false,
+  "naturalLoadedGaitApproved": false
+}

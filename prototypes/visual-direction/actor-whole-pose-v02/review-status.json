@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-29",
+  "packageVersion": "actor-whole-pose-v02",
+  "status": "withdrawn: complete key pose failed visual review; technical study only",
+  "frameCount": 13,
+  "fps": 10,
+  "videoDurationSeconds": 2.5,
+  "scope": "Same-view loaded weight transfer: support, swing, heel contact and transfer. No route or turn.",
+  "makerReview": [
+    "Complete-pose key frames at native size and approximately 104px scene size.",
+    "All upper-body and leg transition frames inspected as sequential strips.",
+    "Source face pixel size and visibility preserved; torso/head/arms/props are not a single frozen upper image."
+  ],
+  "limitations": [
+    "Original standing cloth sampling remains; no fully repainted outfit animation.",
+    "No full alternating gait, stop/start, turn, world-route contact, multi-view sole-plane or physical balance approval.",
+    "Body and joint anchors are 2D artwork controls, not measured anatomical joints."
+  ],
+  "engineeringChecks": "whole-pose-checks.json",
+  "posePaintNote": "pose-paint-note.json",
+  "artApproved": false,
+  "walkingApproved": false,
+  "homepageIntegrated": false,
+  "recommended": false,
+  "visualRejection": {
+    "date": "2026-10-29",
+    "frame": "frame-012.png",
+    "frameOrdinal": 13,
+    "trigger": "User screenshot followed by comparison with exported final frame and full-pose contact sheet.",
+    "observations": [
+      "Knee silhouettes narrow excessively; lower-leg and boot transitions appear twisted.",
+      "Final hold does not clearly communicate the claimed transfer onto a supporting leg.",
+      "Device-side arm retains a near hand-on-hip silhouette with unclear grip."
+    ],
+    "methodFinding": "Source-image surface deformation and export correctness did not establish a credible new complete pose.",
+    "limits": "No anatomical reverse-knee or measured center-of-mass claim is inferred from the single projection.",
+    "disposition": "Retain editable/export tools and failed media as evidence. Do not extend this sequence or integrate it into homepage.",
+    "nextGate": "Credible full-body support and transfer key poses, including boots, grip and clothing, before interpolation."
+  }
+}

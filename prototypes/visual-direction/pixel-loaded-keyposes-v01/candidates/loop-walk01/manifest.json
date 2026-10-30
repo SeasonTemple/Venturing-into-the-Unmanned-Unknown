@@ -1,0 +1,53 @@
+{
+  "status": "source-reviewed-rejected-for-continuous-walk",
+  "model": "MiniMax-H3",
+  "requestedDurationSeconds": 4,
+  "maximumVideoGenerationCalls": 1,
+  "videoTasksCreated": 1,
+  "inputMode": "first-last-frame",
+  "firstFrame": "loop-anchor.png",
+  "lastFrame": "loop-anchor.png",
+  "source": "prototypes\\visual-direction\\art-pack-media\\actor-front.png",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "anchorSha256": "1d518ae234b1bee2cb9d4065855344e7f5dc2f1d40c7c83032c566fa58b5ae03",
+  "processing": "Unmodified source RGBA enlarged exactly 2x with nearest-neighbour, full figure composited at [228,164] on a flat key background. No limb edits or generated static pose used.",
+  "keyColor": "#c45ac8",
+  "minimumSourceRgbDistanceToKey": 86.70063436907483,
+  "use": "Bounded in-place whole-body walking loop experiment; no scene integration until source and extracted-frame review.",
+  "playback": "forward-loop-no-reversal",
+  "mirror": false,
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false,
+  "submissionAttemptUtc": "2026-10-30T07:17:03.5309103Z",
+  "taskId": "457899280536139",
+  "video": "walk-loop01.mp4",
+  "actualVideo": {
+    "index": 0,
+    "codec_name": "h264",
+    "codec_type": "video",
+    "width": 1440,
+    "height": 1920,
+    "avg_frame_rate": "24/1",
+    "duration": "4.458333",
+    "nb_frames": "107"
+  },
+  "actualContainer": {
+    "duration": "4.459000",
+    "size": "1085191"
+  },
+  "sourceReview": "source-review.md",
+  "diagnostics": "source-diagnostics.json",
+  "diagnosticPreview": "source-diagnostic.gif",
+  "reviewSummary": {
+    "identity": "mostly-retained-not-user-approved",
+    "motion": "whole-body-response-present-but-start-stop-drift-and-high-knees",
+    "automaticLoop": "source-boundary-selected-technical-pass-not-gait-approval",
+    "audio": {
+      "meanDb": -91.0,
+      "maxDb": -80.8,
+      "diagnosticAudioRemoved": true
+    },
+    "nextControlCondition": "validated-moving-gait-phase-anchor-instead-of-idle-anchor"
+  }
+}

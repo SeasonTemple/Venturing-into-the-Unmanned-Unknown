@@ -1,0 +1,81 @@
+{
+  "revision": "pixel-turn-keyframes-v01",
+  "status": "visual-review-pending",
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false,
+  "canvas": [
+    128,
+    196
+  ],
+  "baseline": 183,
+  "fps": 6,
+  "frames": [
+    {
+      "index": 0,
+      "file": "frames/frame-00.png",
+      "view": "front",
+      "label": "正面停步",
+      "baseline": 183,
+      "authoring": "endpoint-reference",
+      "operations": 1,
+      "frameSha256": "ac5f16822215e900efb9af8b8181c7276c0fb5ef02d77560dd103537e920811f"
+    },
+    {
+      "index": 1,
+      "file": "frames/frame-01.png",
+      "view": "turn-15",
+      "label": "转身 15°",
+      "baseline": 183,
+      "authoring": "hand-authored-complete-pixel-frame",
+      "operations": 90,
+      "frameSha256": "129dcd1aa5c51ef69a541af17ce4f16ecd274b883b970fab1d2de8ef3b1dd2ad"
+    },
+    {
+      "index": 2,
+      "file": "frames/frame-02.png",
+      "view": "turn-30",
+      "label": "转身 30°",
+      "baseline": 183,
+      "authoring": "hand-authored-complete-pixel-frame",
+      "operations": 79,
+      "frameSha256": "3df050e3be04783d6e27e36c8a5f25cc71e2628bcbea2399559d701eb9f068e5"
+    },
+    {
+      "index": 3,
+      "file": "frames/frame-03.png",
+      "view": "turn-45",
+      "label": "转身 45°",
+      "baseline": 183,
+      "authoring": "hand-authored-complete-pixel-frame",
+      "operations": 79,
+      "frameSha256": "b8c4d93888746777e660f5b21ddf8c093debee12950fedc01d465253045b8b73"
+    },
+    {
+      "index": 4,
+      "file": "frames/frame-04.png",
+      "view": "side",
+      "label": "左侧停步",
+      "baseline": 183,
+      "authoring": "endpoint-reference",
+      "operations": 1,
+      "frameSha256": "c29918e1b6bc0a375e5d57594a36265bf8fba0a5daf9f596a9a23aaa05cdb6e4"
+    }
+  ],
+  "method": "complete native pixel frames; endpoint references are retained, three intermediate frames are explicit cluster drawings",
+  "forbiddenMethods": [
+    "mirroring",
+    "horizontal stretch",
+    "3D interpolation",
+    "limb-only transforms",
+    "generic motion tween"
+  ],
+  "sourceReferences": {
+    "front": "prototypes/visual-direction/pixel-native-master-v01/reference-1x.png",
+    "side": "prototypes/visual-direction/pixel-native-master-v01/reference-side-1x.png"
+  },
+  "gate": "Visual acceptance is absent. Retain as a diagnostic candidate, outside the formal homepage.",
+  "sourceArtApproved": false,
+  "visualReviewStatus": "pending-visual-review",
+  "frameSetSha256": "09d1ec2d1585617f19a43243dfd60828d83d409589b1fdbd3edb3ef2d5ba3b42"
+}

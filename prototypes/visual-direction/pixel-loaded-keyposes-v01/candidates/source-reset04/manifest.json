@@ -1,0 +1,28 @@
+{
+  "status": "rejected-by-producer",
+  "service": "MiniMax through mmx-cli",
+  "model": "image-01",
+  "seed": 301031,
+  "generationCalls": 1,
+  "sourceReference": "../../../art-pack-media/actor-front.png",
+  "referenceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "raw": "candidate_001.jpg",
+  "rawSha256": "6501f823e62e44ef4870bda631c022af2fc6968142335be0aa4e83f35d23472c",
+  "prompt": "prompt.txt",
+  "promptSha256": "970f551f700a0401a0aa19ee3658b5beb8a82bf663f259572383b6d59ec3ffb5",
+  "dimensions": [
+    768,
+    1024
+  ],
+  "inspection": [
+    "Same style-first Chinese prompt, seed and dimensions as 03, with original character reference added",
+    "Smooth illustrative/realistic rendering instead of pixel clusters",
+    "Face and boots point screen right instead of requested left",
+    "Toolbox hangs behind or intersects the hand without a readable grip",
+    "Recorder moved onto a large harness rather than remaining in the left hand",
+    "Long stride replaces the requested small loaded step"
+  ],
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false
+}

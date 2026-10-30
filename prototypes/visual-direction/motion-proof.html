@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><title>走出去，再走回来 · 人物动作小样</title><link rel="stylesheet" href="motion-proof.css"></head>
+<body>
+<header class="page-header"><a href="art-pack.html#cast">← 美术包 · 人物参照</a><span>原野观测站 / 动作试作 01</span><a href="#frames">查看逐帧</a></header>
+<main>
+ <div class="intro"><p class="eyebrow">动作制作 / 第一个可检查的往返</p><h1>走出去，再走回来。</h1><p>同一个人，两件随身器物。先看脚下是否站得住，再看身体怎样带着重量前行。</p><p class="review-note">此动作版本美术未通过：人物身份、头颈肩连接、裤腿材质与转身光色仍有问题。当前回到<a href="standing-review.html?revision=standing02">完整站姿精修与对照</a>；下方保留旧动作以便检查。</p></div>
+ <section id="motion" class="motion-workspace" aria-labelledby="motion-title">
+  <div class="motion-main">
+   <div class="figure-heading"><h2 id="motion-title">起步，停步，换步转身，返回。</h2><span id="native-scale">原画人物高约 174px</span></div>
+   <div id="animation-container" class="animation-container">
+    <canvas id="route-canvas" width="960" height="330" tabindex="0" role="img" aria-label="人物动作试验：朝左走出四个步态周期，停步换向后朝右返回。可用下方按钮暂停和逐帧检查。">动作预览需要 Canvas。可直接查看下方逐帧图。</canvas>
+   </div>
+   <div class="playback-line"><span class="state-dot" aria-hidden="true"></span><output id="motion-state" aria-live="off">正在载入动作</output><span id="frame-number"></span></div>
+   <div class="controls" aria-label="动作播放控制">
+    <button id="play" type="button" disabled>播放往返</button><button id="restart" type="button" disabled>从头看</button><button id="previous-frame" type="button" disabled aria-label="上一动作帧">← 上一帧</button><button id="next-frame" type="button" disabled aria-label="下一动作帧">下一帧 →</button>
+    <label class="speed-label">速度<select id="speed"><option value="0.5">½ 倍</option><option value="1" selected>正常</option></select></label>
+    <label class="check-label"><input id="show-joints" type="checkbox">接触与关节</label>
+   </div>
+   <label class="timeline-label" for="timeline"><span>往返进度</span><output id="time-position" aria-live="off">0.0 / 17.5 秒</output></label>
+   <input id="timeline" type="range" min="0" max="17.5" step="0.01" value="0" disabled>
+   <p id="playback-message" class="small-note" role="status">减少动态偏好下默认停在静帧，仍可手动播放或逐帧查看。</p>
+  </div>
+  <figure class="zoom-panel"><div class="figure-heading"><h2>近看</h2><span id="zoom-scale">2× 像素</span></div><canvas id="zoom-canvas" width="256" height="392" role="img" aria-label="跟随人物的放大预览，用于检查衣物、握持和关节连接。"></canvas><figcaption>右手工具箱，左手记录器。开启关节标记后，绿色短线标示支撑脚，空心圆标示离地脚。</figcaption></figure>
+ </section>
+ <section class="comparison" aria-labelledby="comparison-title">
+  <div><p class="eyebrow">对照身份，而不是只看动作量</p><h2 id="comparison-title">衣装与器物，沿用同一个人。</h2><p>原画是身份基准。两侧造型取自已有朝向视频，补齐关节边缘、裤腿和被遮住的袖面后，离线输出完整帧。</p><p>本轮重点：动作随实际路程推进，负重手限制摆幅，停步后换脚转向。裤腿色块、转身时的衣身与工具箱轮廓仍列入美术评审。</p><p class="small-note">此处先在水平地面检查动作。坡度、透视缩放、持书与端口作业留待这一小样通过后继续。</p></div>
+  <figure><img src="art-pack-media/actor-front.png" width="110" height="348" alt="原画人物身份基准：橙色外套、深绿裤装、银色工具箱与绿色记录器。"><figcaption>原画身份基准</figcaption></figure>
+  <figure><img src="motion-proof-media/left-reference.png" width="52" height="174" alt="原视频第 96 帧的真实朝左侧面参考。"><figcaption>朝左 · 原片第 96 帧</figcaption></figure>
+  <figure><img src="motion-proof-media/right-reference.png" width="40" height="174" alt="原视频第 114 帧的真实朝右侧面参考，工具箱位于近侧的右手。"><figcaption>朝右 · 原片第 114 帧</figcaption></figure>
+ </section>
+ <section id="frames" aria-labelledby="frames-title">
+  <div class="section-heading"><p class="eyebrow">停下来，一帧帧看</p><h2 id="frames-title">接触、承重、经过、抬升。</h2><p>每侧 24 帧行走，转身 19 帧。下图选取两侧相同相位和转身过程；播放控制可查看完整序列。</p></div>
+  <a class="contact-link" href="motion-proof-media/contact.webp"><img src="motion-proof-media/contact.webp" width="1536" height="1272" loading="lazy" alt="动作逐帧对照：第一行朝左，第二行朝右，第三行展示换步转身。两侧器物没有镜像交换。"></a>
+ </section>
+ <details class="production-details"><summary>制作记录与尚未通过的项目</summary><div class="details-grid"><p>本轮没有图片、视频或 Tripo 生成请求。站姿和转身参照均来自已有本地素材；补绘、关节解算、锁色与拼表离线完成。网页只播放图集，不在运行时解算人物骨架。</p><p>接地计算检查通过，也不能代替画风与动作评审。转身中间朝向来自旧视频，衣身、面容和器物存在变化；补绘裤腿的材质与膝部仍需对照原画。此版本不接入正式首页。</p></div><p><a href="motion-proof-media/motion.json">来源、关节与帧记录</a> · <a href="motion-proof-media/rig-config.json">可编辑的分层配置</a></p></details>
+ <noscript><p>动态预览需要 JavaScript，人物参照和逐帧图可直接查看。</p></noscript>
+</main><footer>动作试作 01 · 独立预览 · 原画约 174px · 页面内不加载三维引擎</footer>
+<script type="module" src="motion-proof.mjs"></script>
+</body></html>

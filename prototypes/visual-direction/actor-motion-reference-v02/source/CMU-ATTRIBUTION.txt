@@ -1,0 +1,5 @@
+Motion capture data: CMU Graphics Lab Motion Capture Database, subject 07, trial 01 (walk, 120fps).
+https://mocap.cs.cmu.edu/subjects/07/07_01.amc
+Usage: https://mocap.cs.cmu.edu/faqs.php
+The FAQ states: "The motion capture data may be copied, modified, or redistributed without permission."
+Source is unladen walking. This project's occupied-arm adaptation is not captured loaded motion.

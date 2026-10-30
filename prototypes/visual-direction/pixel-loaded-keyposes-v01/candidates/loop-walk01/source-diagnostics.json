@@ -1,0 +1,1906 @@
+{
+  "purpose": "Diagnosis only: full source chronology and root motion retained",
+  "key": {
+    "near": 35,
+    "far": 70,
+    "perFrameBorderEstimate": true
+  },
+  "sourceFrameCount": 107,
+  "fps": 24,
+  "positionRangeDiagnosticPixels": 18.358954069772977,
+  "positionMetricLimitation": "Opaque silhouette centroid includes articulation; not an anatomical root measurement",
+  "automaticLoop": {
+    "i": 0,
+    "j": 106,
+    "diff": 0.153,
+    "phase_window_diff": 0.153,
+    "cycle_frames": 106,
+    "motion_coverage": 1.0,
+    "sampling": "motion-spaced",
+    "boundary_source": "source-boundary"
+  },
+  "automaticPicks": [
+    0,
+    12,
+    18,
+    25,
+    31,
+    37,
+    44,
+    52,
+    60,
+    65,
+    69,
+    75,
+    81,
+    89,
+    94,
+    97
+  ],
+  "automaticSeam": {
+    "verdict": "PASS",
+    "chronological": true,
+    "selected_outside_cycle": [],
+    "boundary_diff": 0.153,
+    "selected_seam_diff": 6.638,
+    "median_internal_step_diff": 4.95,
+    "seam_ratio": 1.341
+  },
+  "automaticPlayback": {
+    "verdict": "PASS",
+    "issues": [],
+    "frame_count": 16,
+    "expected_frames": 16,
+    "minimum_frames": 0,
+    "step_diffs": [
+      5.413,
+      5.154,
+      3.81,
+      5.258,
+      5.047,
+      4.9,
+      4.95,
+      4.325,
+      5.088,
+      4.85,
+      5.402,
+      4.841,
+      3.429,
+      6.673,
+      3.304
+    ],
+    "median_step_diff": 4.95,
+    "transition_cv": 0.17,
+    "near_freeze_steps": [],
+    "jump_steps": [],
+    "seam_diff": 6.638,
+    "seam_ratio": 1.341
+  },
+  "automaticMetricsLimitation": "Pixel similarity cannot verify gait phase, weight, joint anatomy or naturalness",
+  "frames": [
+    {
+      "index": 0,
+      "time": 0.0,
+      "purity": 0.9980926513671875,
+      "estimatedKey": [
+        193.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 190.44975907862263,
+      "opaqueBounds": [
+        114,
+        82,
+        269,
+        429
+      ]
+    },
+    {
+      "index": 1,
+      "time": 0.041666666666666664,
+      "purity": 0.9980214436848959,
+      "estimatedKey": [
+        192.0,
+        87.0,
+        196.0
+      ],
+      "opaqueCenterX": 190.45409662630775,
+      "opaqueBounds": [
+        114,
+        82,
+        269,
+        429
+      ]
+    },
+    {
+      "index": 2,
+      "time": 0.08333333333333333,
+      "purity": 0.9980723063151041,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 190.4541286201356,
+      "opaqueBounds": [
+        114,
+        82,
+        269,
+        429
+      ]
+    },
+    {
+      "index": 3,
+      "time": 0.125,
+      "purity": 0.9980570475260416,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 190.45543972409467,
+      "opaqueBounds": [
+        114,
+        82,
+        269,
+        429
+      ]
+    },
+    {
+      "index": 4,
+      "time": 0.16666666666666666,
+      "purity": 0.998016357421875,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 190.45361915585687,
+      "opaqueBounds": [
+        114,
+        82,
+        269,
+        429
+      ]
+    },
+    {
+      "index": 5,
+      "time": 0.20833333333333334,
+      "purity": 0.9978383382161459,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 190.45892506865437,
+      "opaqueBounds": [
+        114,
+        82,
+        269,
+        429
+      ]
+    },
+    {
+      "index": 6,
+      "time": 0.25,
+      "purity": 0.998748779296875,
+      "estimatedKey": [
+        192.0,
+        89.0,
+        196.0
+      ],
+      "opaqueCenterX": 189.8001734536997,
+      "opaqueBounds": [
+        113,
+        82,
+        269,
+        429
+      ]
+    },
+    {
+      "index": 7,
+      "time": 0.2916666666666667,
+      "purity": 0.9988454182942709,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 189.7737321196359,
+      "opaqueBounds": [
+        113,
+        82,
+        267,
+        429
+      ]
+    },
+    {
+      "index": 8,
+      "time": 0.3333333333333333,
+      "purity": 0.9987589518229166,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 187.5971804584684,
+      "opaqueBounds": [
+        110,
+        82,
+        265,
+        428
+      ]
+    },
+    {
+      "index": 9,
+      "time": 0.375,
+      "purity": 0.9987589518229166,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 187.5536417131055,
+      "opaqueBounds": [
+        110,
+        82,
+        265,
+        428
+      ]
+    },
+    {
+      "index": 10,
+      "time": 0.4166666666666667,
+      "purity": 0.9984385172526041,
+      "estimatedKey": [
+        192.0,
+        89.0,
+        196.0
+      ],
+      "opaqueCenterX": 185.763147566719,
+      "opaqueBounds": [
+        109,
+        83,
+        263,
+        427
+      ]
+    },
+    {
+      "index": 11,
+      "time": 0.4583333333333333,
+      "purity": 0.9984842936197916,
+      "estimatedKey": [
+        192.0,
+        89.0,
+        196.0
+      ],
+      "opaqueCenterX": 185.78477237048665,
+      "opaqueBounds": [
+        109,
+        83,
+        263,
+        427
+      ]
+    },
+    {
+      "index": 12,
+      "time": 0.5,
+      "purity": 0.9982706705729166,
+      "estimatedKey": [
+        192.0,
+        89.0,
+        196.0
+      ],
+      "opaqueCenterX": 184.01281396171535,
+      "opaqueBounds": [
+        108,
+        85,
+        261,
+        425
+      ]
+    },
+    {
+      "index": 13,
+      "time": 0.5416666666666666,
+      "purity": 0.9982808430989584,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 184.05770893938202,
+      "opaqueBounds": [
+        108,
+        85,
+        261,
+        425
+      ]
+    },
+    {
+      "index": 14,
+      "time": 0.5833333333333334,
+      "purity": 0.9979756673177084,
+      "estimatedKey": [
+        192.0,
+        89.0,
+        196.0
+      ],
+      "opaqueCenterX": 182.19077958053026,
+      "opaqueBounds": [
+        106,
+        88,
+        259,
+        422
+      ]
+    },
+    {
+      "index": 15,
+      "time": 0.625,
+      "purity": 0.998046875,
+      "estimatedKey": [
+        192.0,
+        89.0,
+        196.0
+      ],
+      "opaqueCenterX": 182.18848084753134,
+      "opaqueBounds": [
+        106,
+        88,
+        259,
+        422
+      ]
+    },
+    {
+      "index": 16,
+      "time": 0.6666666666666666,
+      "purity": 0.9984486897786459,
+      "estimatedKey": [
+        192.0,
+        89.0,
+        196.0
+      ],
+      "opaqueCenterX": 180.27923542680756,
+      "opaqueBounds": [
+        104,
+        91,
+        257,
+        420
+      ]
+    },
+    {
+      "index": 17,
+      "time": 0.7083333333333334,
+      "purity": 0.9984130859375,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 180.2559822805838,
+      "opaqueBounds": [
+        104,
+        91,
+        257,
+        420
+      ]
+    },
+    {
+      "index": 18,
+      "time": 0.75,
+      "purity": 0.9982350667317709,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 178.92644961977186,
+      "opaqueBounds": [
+        102,
+        94,
+        257,
+        419
+      ]
+    },
+    {
+      "index": 19,
+      "time": 0.7916666666666666,
+      "purity": 0.9983418782552084,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 178.70666455596012,
+      "opaqueBounds": [
+        102,
+        94,
+        257,
+        419
+      ]
+    },
+    {
+      "index": 20,
+      "time": 0.8333333333333334,
+      "purity": 0.9984283447265625,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 177.38576823693103,
+      "opaqueBounds": [
+        100,
+        97,
+        255,
+        419
+      ]
+    },
+    {
+      "index": 21,
+      "time": 0.875,
+      "purity": 0.9984181722005209,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 177.36470635015309,
+      "opaqueBounds": [
+        100,
+        97,
+        255,
+        419
+      ]
+    },
+    {
+      "index": 22,
+      "time": 0.9166666666666666,
+      "purity": 0.99822998046875,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 175.77069033530572,
+      "opaqueBounds": [
+        98,
+        99,
+        254,
+        419
+      ]
+    },
+    {
+      "index": 23,
+      "time": 0.9583333333333334,
+      "purity": 0.9981028238932291,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 175.74764104386276,
+      "opaqueBounds": [
+        98,
+        99,
+        254,
+        419
+      ]
+    },
+    {
+      "index": 24,
+      "time": 1.0,
+      "purity": 0.9979044596354166,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 175.23310252576914,
+      "opaqueBounds": [
+        97,
+        99,
+        253,
+        419
+      ]
+    },
+    {
+      "index": 25,
+      "time": 1.0416666666666667,
+      "purity": 0.9979146321614584,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 175.17594050055092,
+      "opaqueBounds": [
+        96,
+        99,
+        253,
+        419
+      ]
+    },
+    {
+      "index": 26,
+      "time": 1.0833333333333333,
+      "purity": 0.997894287109375,
+      "estimatedKey": [
+        192.0,
+        87.0,
+        196.0
+      ],
+      "opaqueCenterX": 173.5968529147632,
+      "opaqueBounds": [
+        93,
+        100,
+        253,
+        417
+      ]
+    },
+    {
+      "index": 27,
+      "time": 1.125,
+      "purity": 0.9977264404296875,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 173.52951748388358,
+      "opaqueBounds": [
+        93,
+        100,
+        253,
+        417
+      ]
+    },
+    {
+      "index": 28,
+      "time": 1.1666666666666667,
+      "purity": 0.9980977376302084,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 173.1340218284239,
+      "opaqueBounds": [
+        91,
+        98,
+        253,
+        415
+      ]
+    },
+    {
+      "index": 29,
+      "time": 1.2083333333333333,
+      "purity": 0.9980621337890625,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 173.08678994487667,
+      "opaqueBounds": [
+        91,
+        98,
+        253,
+        415
+      ]
+    },
+    {
+      "index": 30,
+      "time": 1.25,
+      "purity": 0.9982503255208334,
+      "estimatedKey": [
+        192.0,
+        87.0,
+        196.0
+      ],
+      "opaqueCenterX": 172.58329699948473,
+      "opaqueBounds": [
+        88,
+        96,
+        253,
+        418
+      ]
+    },
+    {
+      "index": 31,
+      "time": 1.2916666666666667,
+      "purity": 0.998260498046875,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 172.59302002776124,
+      "opaqueBounds": [
+        88,
+        96,
+        253,
+        418
+      ]
+    },
+    {
+      "index": 32,
+      "time": 1.3333333333333333,
+      "purity": 0.9983164469401041,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 172.3622730220493,
+      "opaqueBounds": [
+        86,
+        94,
+        253,
+        422
+      ]
+    },
+    {
+      "index": 33,
+      "time": 1.375,
+      "purity": 0.9982706705729166,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 172.37115992542758,
+      "opaqueBounds": [
+        86,
+        94,
+        253,
+        422
+      ]
+    },
+    {
+      "index": 34,
+      "time": 1.4166666666666667,
+      "purity": 0.9982248942057291,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 172.0999709988814,
+      "opaqueBounds": [
+        84,
+        92,
+        255,
+        426
+      ]
+    },
+    {
+      "index": 35,
+      "time": 1.4583333333333333,
+      "purity": 0.9980672200520834,
+      "estimatedKey": [
+        192.0,
+        87.0,
+        195.0
+      ],
+      "opaqueCenterX": 172.16557417855958,
+      "opaqueBounds": [
+        83,
+        92,
+        255,
+        426
+      ]
+    },
+    {
+      "index": 36,
+      "time": 1.5,
+      "purity": 0.9981536865234375,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        195.0
+      ],
+      "opaqueCenterX": 172.40985497692816,
+      "opaqueBounds": [
+        81,
+        91,
+        255,
+        431
+      ]
+    },
+    {
+      "index": 37,
+      "time": 1.5416666666666667,
+      "purity": 0.9979654947916666,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 172.43363632624522,
+      "opaqueBounds": [
+        81,
+        90,
+        257,
+        431
+      ]
+    },
+    {
+      "index": 38,
+      "time": 1.5833333333333333,
+      "purity": 0.99822998046875,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 172.68323685382342,
+      "opaqueBounds": [
+        79,
+        90,
+        257,
+        432
+      ]
+    },
+    {
+      "index": 39,
+      "time": 1.625,
+      "purity": 0.9982147216796875,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 172.72932148626816,
+      "opaqueBounds": [
+        79,
+        90,
+        257,
+        433
+      ]
+    },
+    {
+      "index": 40,
+      "time": 1.6666666666666667,
+      "purity": 0.9977518717447916,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 173.52990397258637,
+      "opaqueBounds": [
+        78,
+        91,
+        259,
+        437
+      ]
+    },
+    {
+      "index": 41,
+      "time": 1.7083333333333333,
+      "purity": 0.9976959228515625,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 173.54057502891095,
+      "opaqueBounds": [
+        78,
+        91,
+        259,
+        437
+      ]
+    },
+    {
+      "index": 42,
+      "time": 1.75,
+      "purity": 0.9979400634765625,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 174.0450172229481,
+      "opaqueBounds": [
+        78,
+        94,
+        259,
+        442
+      ]
+    },
+    {
+      "index": 43,
+      "time": 1.7916666666666667,
+      "purity": 0.9980672200520834,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 174.0892490118577,
+      "opaqueBounds": [
+        78,
+        94,
+        259,
+        442
+      ]
+    },
+    {
+      "index": 44,
+      "time": 1.8333333333333333,
+      "purity": 0.99798583984375,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 174.13834491471889,
+      "opaqueBounds": [
+        77,
+        97,
+        259,
+        447
+      ]
+    },
+    {
+      "index": 45,
+      "time": 1.875,
+      "purity": 0.9978739420572916,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 174.13186379078772,
+      "opaqueBounds": [
+        77,
+        97,
+        259,
+        447
+      ]
+    },
+    {
+      "index": 46,
+      "time": 1.9166666666666667,
+      "purity": 0.9981435139973959,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 174.41524649425972,
+      "opaqueBounds": [
+        78,
+        101,
+        261,
+        448
+      ]
+    },
+    {
+      "index": 47,
+      "time": 1.9583333333333333,
+      "purity": 0.9980061848958334,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 174.42112782253264,
+      "opaqueBounds": [
+        78,
+        101,
+        261,
+        448
+      ]
+    },
+    {
+      "index": 48,
+      "time": 2.0,
+      "purity": 0.9981486002604166,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 175.10465531610907,
+      "opaqueBounds": [
+        78,
+        103,
+        261,
+        448
+      ]
+    },
+    {
+      "index": 49,
+      "time": 2.0416666666666665,
+      "purity": 0.9980977376302084,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 175.08934312363564,
+      "opaqueBounds": [
+        78,
+        103,
+        261,
+        448
+      ]
+    },
+    {
+      "index": 50,
+      "time": 2.0833333333333335,
+      "purity": 0.9980570475260416,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 175.53726819541376,
+      "opaqueBounds": [
+        78,
+        104,
+        261,
+        449
+      ]
+    },
+    {
+      "index": 51,
+      "time": 2.125,
+      "purity": 0.998046875,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 175.54625901861522,
+      "opaqueBounds": [
+        78,
+        104,
+        261,
+        449
+      ]
+    },
+    {
+      "index": 52,
+      "time": 2.1666666666666665,
+      "purity": 0.99822998046875,
+      "estimatedKey": [
+        192.0,
+        87.0,
+        196.0
+      ],
+      "opaqueCenterX": 175.9523828482701,
+      "opaqueBounds": [
+        80,
+        105,
+        263,
+        448
+      ]
+    },
+    {
+      "index": 53,
+      "time": 2.2083333333333335,
+      "purity": 0.9980875651041666,
+      "estimatedKey": [
+        192.0,
+        87.0,
+        196.0
+      ],
+      "opaqueCenterX": 176.01369372238366,
+      "opaqueBounds": [
+        80,
+        105,
+        263,
+        448
+      ]
+    },
+    {
+      "index": 54,
+      "time": 2.25,
+      "purity": 0.9979451497395834,
+      "estimatedKey": [
+        192.0,
+        87.0,
+        196.0
+      ],
+      "opaqueCenterX": 176.48368316831684,
+      "opaqueBounds": [
+        81,
+        105,
+        263,
+        447
+      ]
+    },
+    {
+      "index": 55,
+      "time": 2.2916666666666665,
+      "purity": 0.9981282552083334,
+      "estimatedKey": [
+        192.0,
+        87.0,
+        196.0
+      ],
+      "opaqueCenterX": 176.49556435643564,
+      "opaqueBounds": [
+        81,
+        105,
+        263,
+        447
+      ]
+    },
+    {
+      "index": 56,
+      "time": 2.3333333333333335,
+      "purity": 0.998199462890625,
+      "estimatedKey": [
+        192.0,
+        87.0,
+        196.0
+      ],
+      "opaqueCenterX": 176.42673216337204,
+      "opaqueBounds": [
+        82,
+        105,
+        263,
+        446
+      ]
+    },
+    {
+      "index": 57,
+      "time": 2.375,
+      "purity": 0.9979400634765625,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 176.52852302172613,
+      "opaqueBounds": [
+        83,
+        104,
+        263,
+        443
+      ]
+    },
+    {
+      "index": 58,
+      "time": 2.4166666666666665,
+      "purity": 0.9979502360026041,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 176.51172979647112,
+      "opaqueBounds": [
+        83,
+        104,
+        263,
+        443
+      ]
+    },
+    {
+      "index": 59,
+      "time": 2.4583333333333335,
+      "purity": 0.99798583984375,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 176.7980947863552,
+      "opaqueBounds": [
+        85,
+        102,
+        265,
+        441
+      ]
+    },
+    {
+      "index": 60,
+      "time": 2.5,
+      "purity": 0.9978892008463541,
+      "estimatedKey": [
+        192.0,
+        87.0,
+        196.0
+      ],
+      "opaqueCenterX": 177.0981635414653,
+      "opaqueBounds": [
+        86,
+        101,
+        265,
+        438
+      ]
+    },
+    {
+      "index": 61,
+      "time": 2.5416666666666665,
+      "purity": 0.9978790283203125,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 177.1107335907336,
+      "opaqueBounds": [
+        86,
+        101,
+        265,
+        438
+      ]
+    },
+    {
+      "index": 62,
+      "time": 2.5833333333333335,
+      "purity": 0.997955322265625,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 177.34657394459353,
+      "opaqueBounds": [
+        87,
+        100,
+        265,
+        437
+      ]
+    },
+    {
+      "index": 63,
+      "time": 2.625,
+      "purity": 0.9979451497395834,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 177.34881874881876,
+      "opaqueBounds": [
+        87,
+        100,
+        265,
+        437
+      ]
+    },
+    {
+      "index": 64,
+      "time": 2.6666666666666665,
+      "purity": 0.9978485107421875,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 177.32574611723908,
+      "opaqueBounds": [
+        90,
+        96,
+        265,
+        433
+      ]
+    },
+    {
+      "index": 65,
+      "time": 2.7083333333333335,
+      "purity": 0.9975840250651041,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 177.12668762714998,
+      "opaqueBounds": [
+        90,
+        95,
+        265,
+        431
+      ]
+    },
+    {
+      "index": 66,
+      "time": 2.75,
+      "purity": 0.9977264404296875,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 176.96665929855584,
+      "opaqueBounds": [
+        91,
+        93,
+        263,
+        429
+      ]
+    },
+    {
+      "index": 67,
+      "time": 2.7916666666666665,
+      "purity": 0.9976806640625,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 176.98397317810037,
+      "opaqueBounds": [
+        91,
+        93,
+        263,
+        429
+      ]
+    },
+    {
+      "index": 68,
+      "time": 2.8333333333333335,
+      "purity": 0.997802734375,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 176.567012987013,
+      "opaqueBounds": [
+        92,
+        92,
+        263,
+        430
+      ]
+    },
+    {
+      "index": 69,
+      "time": 2.875,
+      "purity": 0.9976755777994791,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 176.29865971705138,
+      "opaqueBounds": [
+        94,
+        92,
+        261,
+        433
+      ]
+    },
+    {
+      "index": 70,
+      "time": 2.9166666666666665,
+      "purity": 0.9979146321614584,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 175.81490384615384,
+      "opaqueBounds": [
+        94,
+        92,
+        261,
+        434
+      ]
+    },
+    {
+      "index": 71,
+      "time": 2.9583333333333335,
+      "purity": 0.9979400634765625,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 175.77802799984985,
+      "opaqueBounds": [
+        94,
+        92,
+        261,
+        434
+      ]
+    },
+    {
+      "index": 72,
+      "time": 3.0,
+      "purity": 0.9979349772135416,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 175.513010310057,
+      "opaqueBounds": [
+        96,
+        93,
+        261,
+        434
+      ]
+    },
+    {
+      "index": 73,
+      "time": 3.0416666666666665,
+      "purity": 0.9978993733723959,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 175.48793201133145,
+      "opaqueBounds": [
+        96,
+        92,
+        259,
+        434
+      ]
+    },
+    {
+      "index": 74,
+      "time": 3.0833333333333335,
+      "purity": 0.9977925618489584,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 174.6183194375072,
+      "opaqueBounds": [
+        97,
+        95,
+        259,
+        437
+      ]
+    },
+    {
+      "index": 75,
+      "time": 3.125,
+      "purity": 0.9978892008463541,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 174.60839832494526,
+      "opaqueBounds": [
+        97,
+        94,
+        259,
+        437
+      ]
+    },
+    {
+      "index": 76,
+      "time": 3.1666666666666665,
+      "purity": 0.9982198079427084,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 173.85565458965158,
+      "opaqueBounds": [
+        90,
+        97,
+        257,
+        442
+      ]
+    },
+    {
+      "index": 77,
+      "time": 3.2083333333333335,
+      "purity": 0.9980977376302084,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 173.99003091190107,
+      "opaqueBounds": [
+        90,
+        97,
+        257,
+        442
+      ]
+    },
+    {
+      "index": 78,
+      "time": 3.25,
+      "purity": 0.9979604085286459,
+      "estimatedKey": [
+        192.0,
+        89.0,
+        196.0
+      ],
+      "opaqueCenterX": 173.51077476631858,
+      "opaqueBounds": [
+        88,
+        100,
+        255,
+        447
+      ]
+    },
+    {
+      "index": 79,
+      "time": 3.2916666666666665,
+      "purity": 0.9978841145833334,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 173.6047794117647,
+      "opaqueBounds": [
+        88,
+        100,
+        255,
+        447
+      ]
+    },
+    {
+      "index": 80,
+      "time": 3.3333333333333335,
+      "purity": 0.9978383382161459,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 173.5926631729395,
+      "opaqueBounds": [
+        90,
+        102,
+        257,
+        448
+      ]
+    },
+    {
+      "index": 81,
+      "time": 3.375,
+      "purity": 0.9980061848958334,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 173.5560805177274,
+      "opaqueBounds": [
+        90,
+        102,
+        257,
+        448
+      ]
+    },
+    {
+      "index": 82,
+      "time": 3.4166666666666665,
+      "purity": 0.9982401529947916,
+      "estimatedKey": [
+        192.0,
+        89.0,
+        196.0
+      ],
+      "opaqueCenterX": 173.48855084067253,
+      "opaqueBounds": [
+        94,
+        105,
+        257,
+        447
+      ]
+    },
+    {
+      "index": 83,
+      "time": 3.4583333333333335,
+      "purity": 0.9982554117838541,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 173.49897930592803,
+      "opaqueBounds": [
+        95,
+        104,
+        257,
+        447
+      ]
+    },
+    {
+      "index": 84,
+      "time": 3.5,
+      "purity": 0.9984385172526041,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 174.04302919125857,
+      "opaqueBounds": [
+        99,
+        102,
+        258,
+        446
+      ]
+    },
+    {
+      "index": 85,
+      "time": 3.5416666666666665,
+      "purity": 0.9984334309895834,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 174.107932327827,
+      "opaqueBounds": [
+        99,
+        102,
+        258,
+        446
+      ]
+    },
+    {
+      "index": 86,
+      "time": 3.5833333333333335,
+      "purity": 0.9982808430989584,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        195.0
+      ],
+      "opaqueCenterX": 174.50510244758033,
+      "opaqueBounds": [
+        103,
+        101,
+        257,
+        445
+      ]
+    },
+    {
+      "index": 87,
+      "time": 3.625,
+      "purity": 0.9982503255208334,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 174.55136276697482,
+      "opaqueBounds": [
+        103,
+        101,
+        257,
+        445
+      ]
+    },
+    {
+      "index": 88,
+      "time": 3.6666666666666665,
+      "purity": 0.9985249837239584,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 175.19617622610141,
+      "opaqueBounds": [
+        104,
+        98,
+        254,
+        444
+      ]
+    },
+    {
+      "index": 89,
+      "time": 3.7083333333333335,
+      "purity": 0.9985504150390625,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 175.2013696461088,
+      "opaqueBounds": [
+        104,
+        98,
+        254,
+        444
+      ]
+    },
+    {
+      "index": 90,
+      "time": 3.75,
+      "purity": 0.9983927408854166,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 176.56203808704493,
+      "opaqueBounds": [
+        105,
+        94,
+        255,
+        440
+      ]
+    },
+    {
+      "index": 91,
+      "time": 3.7916666666666665,
+      "purity": 0.9983418782552084,
+      "estimatedKey": [
+        192.0,
+        89.0,
+        196.0
+      ],
+      "opaqueCenterX": 176.55935385457818,
+      "opaqueBounds": [
+        105,
+        94,
+        255,
+        440
+      ]
+    },
+    {
+      "index": 92,
+      "time": 3.8333333333333335,
+      "purity": 0.9983418782552084,
+      "estimatedKey": [
+        192.0,
+        89.0,
+        196.0
+      ],
+      "opaqueCenterX": 177.73367442587096,
+      "opaqueBounds": [
+        106,
+        91,
+        255,
+        437
+      ]
+    },
+    {
+      "index": 93,
+      "time": 3.875,
+      "purity": 0.9983876546223959,
+      "estimatedKey": [
+        192.0,
+        89.0,
+        196.0
+      ],
+      "opaqueCenterX": 177.72381882077315,
+      "opaqueBounds": [
+        106,
+        91,
+        255,
+        437
+      ]
+    },
+    {
+      "index": 94,
+      "time": 3.9166666666666665,
+      "purity": 0.9980417887369791,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 180.32091201675132,
+      "opaqueBounds": [
+        106,
+        87,
+        259,
+        432
+      ]
+    },
+    {
+      "index": 95,
+      "time": 3.9583333333333335,
+      "purity": 0.9979654947916666,
+      "estimatedKey": [
+        192.0,
+        89.0,
+        196.0
+      ],
+      "opaqueCenterX": 182.05552739325404,
+      "opaqueBounds": [
+        108,
+        85,
+        261,
+        428
+      ]
+    },
+    {
+      "index": 96,
+      "time": 4.0,
+      "purity": 0.9980723063151041,
+      "estimatedKey": [
+        192.0,
+        89.0,
+        196.0
+      ],
+      "opaqueCenterX": 183.15090142823695,
+      "opaqueBounds": [
+        108,
+        85,
+        261,
+        426
+      ]
+    },
+    {
+      "index": 97,
+      "time": 4.041666666666667,
+      "purity": 0.9980570475260416,
+      "estimatedKey": [
+        192.0,
+        89.0,
+        196.0
+      ],
+      "opaqueCenterX": 183.14903414634145,
+      "opaqueBounds": [
+        108,
+        85,
+        261,
+        426
+      ]
+    },
+    {
+      "index": 98,
+      "time": 4.083333333333333,
+      "purity": 0.9979197184244791,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 186.045989055769,
+      "opaqueBounds": [
+        110,
+        83,
+        265,
+        426
+      ]
+    },
+    {
+      "index": 99,
+      "time": 4.125,
+      "purity": 0.9977264404296875,
+      "estimatedKey": [
+        192.0,
+        89.0,
+        196.0
+      ],
+      "opaqueCenterX": 186.68600829485877,
+      "opaqueBounds": [
+        110,
+        83,
+        265,
+        426
+      ]
+    },
+    {
+      "index": 100,
+      "time": 4.166666666666667,
+      "purity": 0.9974873860677084,
+      "estimatedKey": [
+        192.0,
+        89.0,
+        196.0
+      ],
+      "opaqueCenterX": 190.4575532791711,
+      "opaqueBounds": [
+        114,
+        82,
+        269,
+        429
+      ]
+    },
+    {
+      "index": 101,
+      "time": 4.208333333333333,
+      "purity": 0.9975433349609375,
+      "estimatedKey": [
+        192.0,
+        89.0,
+        196.0
+      ],
+      "opaqueCenterX": 190.43665567075087,
+      "opaqueBounds": [
+        114,
+        82,
+        269,
+        429
+      ]
+    },
+    {
+      "index": 102,
+      "time": 4.25,
+      "purity": 0.9977315266927084,
+      "estimatedKey": [
+        192.0,
+        89.0,
+        196.0
+      ],
+      "opaqueCenterX": 190.43942545426003,
+      "opaqueBounds": [
+        114,
+        82,
+        269,
+        429
+      ]
+    },
+    {
+      "index": 103,
+      "time": 4.291666666666667,
+      "purity": 0.9978078206380209,
+      "estimatedKey": [
+        192.0,
+        88.0,
+        196.0
+      ],
+      "opaqueCenterX": 190.43949319421017,
+      "opaqueBounds": [
+        114,
+        82,
+        269,
+        429
+      ]
+    },
+    {
+      "index": 104,
+      "time": 4.333333333333333,
+      "purity": 0.9977315266927084,
+      "estimatedKey": [
+        192.0,
+        89.0,
+        196.0
+      ],
+      "opaqueCenterX": 190.45194081400368,
+      "opaqueBounds": [
+        114,
+        82,
+        269,
+        429
+      ]
+    },
+    {
+      "index": 105,
+      "time": 4.375,
+      "purity": 0.997772216796875,
+      "estimatedKey": [
+        192.0,
+        89.0,
+        196.0
+      ],
+      "opaqueCenterX": 190.45027862805117,
+      "opaqueBounds": [
+        114,
+        82,
+        269,
+        429
+      ]
+    },
+    {
+      "index": 106,
+      "time": 4.416666666666667,
+      "purity": 0.997772216796875,
+      "estimatedKey": [
+        192.0,
+        89.0,
+        196.0
+      ],
+      "opaqueCenterX": 190.447217643827,
+      "opaqueBounds": [
+        114,
+        82,
+        269,
+        429
+      ]
+    }
+  ],
+  "gif": {
+    "frames": 107,
+    "durationMs": 4460,
+    "expectedDurationMs": 4460
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "revision": "pixel-loaded-keyposes-v01-audit-v01",
+  "status": "diagnostic",
+  "frames": [
+    {
+      "index": 0,
+      "view": "right-bearing",
+      "upperBody": {
+        "bounds": [
+          38,
+          30,
+          81,
+          106
+        ],
+        "centroidX": 57.212,
+        "visiblePixels": 2045
+      },
+      "lowerBody": {
+        "bounds": [
+          25,
+          105,
+          70,
+          184
+        ],
+        "centroidX": 50.293,
+        "visiblePixels": 2188
+      },
+      "contactSpan": [
+        45,
+        62
+      ]
+    },
+    {
+      "index": 1,
+      "view": "left-forward",
+      "upperBody": {
+        "bounds": [
+          39,
+          30,
+          81,
+          106
+        ],
+        "centroidX": 58.685,
+        "visiblePixels": 1984
+      },
+      "lowerBody": {
+        "bounds": [
+          14,
+          105,
+          70,
+          184
+        ],
+        "centroidX": 48.136,
+        "visiblePixels": 2099
+      },
+      "contactSpan": [
+        29,
+        61
+      ]
+    },
+    {
+      "index": 2,
+      "view": "left-heel",
+      "upperBody": {
+        "bounds": [
+          41,
+          30,
+          81,
+          106
+        ],
+        "centroidX": 60.004,
+        "visiblePixels": 1926
+      },
+      "lowerBody": {
+        "bounds": [
+          17,
+          105,
+          73,
+          184
+        ],
+        "centroidX": 49.067,
+        "visiblePixels": 2024
+      },
+      "contactSpan": [
+        33,
+        61
+      ]
+    },
+    {
+      "index": 3,
+      "view": "left-bearing",
+      "upperBody": {
+        "bounds": [
+          43,
+          30,
+          81,
+          106
+        ],
+        "centroidX": 61.378,
+        "visiblePixels": 1858
+      },
+      "lowerBody": {
+        "bounds": [
+          34,
+          105,
+          82,
+          184
+        ],
+        "centroidX": 55.491,
+        "visiblePixels": 2066
+      },
+      "contactSpan": [
+        48,
+        75
+      ]
+    }
+  ],
+  "upperBodyCentroidDelta": 4.166,
+  "lowerBodyCentroidDelta": 5.198,
+  "upperBodyResponds": true,
+  "interpretation": "Centroid movement supports review; it does not approve anatomy or balance."
+}

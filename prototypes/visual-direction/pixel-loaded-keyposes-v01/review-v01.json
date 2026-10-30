@@ -1,0 +1,41 @@
+{
+  "revision": "pixel-loaded-keyposes-v01-review-v01",
+  "status": "pending-visual-review",
+  "reviewSurface": "pixel-loaded-keyposes-v01.html",
+  "manualChecklist": [
+    {
+      "id": "support",
+      "question": "support foot carries pelvis and knee points over it",
+      "status": "needs-visual-review"
+    },
+    {
+      "id": "pelvis-chest",
+      "question": "pelvis, chest and shoulders respond across the four poses",
+      "status": "needs-visual-review"
+    },
+    {
+      "id": "arms-equipment",
+      "question": "elbows, hands, toolbox and recorder remain connected",
+      "status": "needs-visual-review"
+    },
+    {
+      "id": "knees",
+      "question": "knees bend outward or forward without inward collapse",
+      "status": "needs-visual-review"
+    },
+    {
+      "id": "contact",
+      "question": "all feet share y=183 with no floating or buried sole",
+      "status": "needs-visual-review"
+    }
+  ],
+  "decision": "Candidate only. File integrity and diagnostic metrics do not approve art or motion.",
+  "audit": "audit-v01.json",
+  "frameSetSha256": "4cc8cbef52cf6d88dda8c69843ffb9bad02b034229cc939899af66f531d01518",
+  "producer": "asset-builder",
+  "artApproved": false,
+  "motionApproved": false,
+  "notes": [
+    "Automated checks establish resource integrity only; no visual acceptance is inferred."
+  ]
+}
