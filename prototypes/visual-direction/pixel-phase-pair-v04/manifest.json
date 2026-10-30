@@ -1,0 +1,23 @@
+{
+  "status": "candidate-v04-six-pose-pending-visual-review",
+  "method": "whole-pose-native-pixel-authoring",
+  "source": "prototypes/visual-direction/art-pack-media/actor-front.png",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "frames": [
+    "right-support.png",
+    "right-through.png",
+    "left-passing.png",
+    "left-contact.png",
+    "left-through.png",
+    "left-support.png"
+  ],
+  "sceneSize": "scene-size-diagnostic.png",
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false,
+  "limitations": [
+    "six static authored poses only",
+    "no interpolation or video",
+    "upper body motion intentionally restrained for phase review"
+  ]
+}
