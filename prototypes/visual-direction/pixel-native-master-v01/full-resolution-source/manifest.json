@@ -1,0 +1,41 @@
+{
+  "status": "source-restored-not-new-pose",
+  "source": "prototypes/visual-direction/art-pack-media/actor-front.png",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "sourceRasterSize": [
+    156,
+    348
+  ],
+  "nativePixelGridKnown": false,
+  "previousWorkingSize": [
+    78,
+    174
+  ],
+  "pixelsChangedByPreviousDownsampleRoundtrip": 11112,
+  "layers": [
+    "identity_reference",
+    "head_face_hair_guide",
+    "coat_torso_guide",
+    "arm_carrying_toolbox_guide",
+    "arm_recorder_side_guide",
+    "toolbox_guide",
+    "recorder_guide",
+    "pelvis_guide",
+    "leg_image_left_guide",
+    "leg_image_right_guide",
+    "shoe_image_left_guide",
+    "shoe_image_right_guide",
+    "unassigned_source_pixels"
+  ],
+  "guideCoordinates": "existing guide polygons scaled by 2; no hidden-region painting",
+  "limitations": [
+    "not motion-ready",
+    "occluded areas remain unpainted",
+    "no new loaded pose"
+  ],
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false,
+  "decodedLayerCompositeMatchesSource": true,
+  "verification": "Actual visible ORA layers decoded and recomposited; source RGBA bytes match exactly. This verifies source retention only."
+}
