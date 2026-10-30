@@ -1,0 +1,27 @@
+{
+  "version": "motion-geometry-reference-v01",
+  "source": "prototypes/visual-direction/pixel-loaded-keyposes-v01/candidates/agy-phase-study01/candidate.jpg",
+  "sourceSha256": "538eadbb6e3fced5adf3040b50cea1cfcaeb151835c6e2232d777ea775d575ec",
+  "role": "motion-geometry-reference-only",
+  "notProductionAsset": true,
+  "observations": {
+    "view": "three-quarter, moving image-left",
+    "supportFoot": "image-left/front foot fully planted under pelvis",
+    "passingFoot": "image-right/rear foot lifted close to ground",
+    "pelvis": "held above support foot with a small forward lean",
+    "knees": "separate readable bends; no scissor crossing",
+    "feet": "complete shoe silhouettes with ankle-to-shoe continuity",
+    "step": "restrained short passing step, not a wide stride"
+  },
+  "transferRules": [
+    "Copy the support/passing relationship and knee direction only.",
+    "Rebuild the pose on the approved source character at native pixel scale.",
+    "Keep silver case in anatomical right hand and green recorder in anatomical left hand.",
+    "Do not copy the AGY face, costume changes, JPEG softness, proportions, or grip drift.",
+    "Validate full silhouette and ankle connection before adding a second pose."
+  ],
+  "status": "reference-accepted-for-geometry-study",
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false
+}
