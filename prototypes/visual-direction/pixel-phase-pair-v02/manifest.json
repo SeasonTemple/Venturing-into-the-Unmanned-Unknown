@@ -1,0 +1,28 @@
+{
+  "status": "candidate-v02-pending-visual-review",
+  "method": "whole-pose-native-pixel-authoring",
+  "source": "prototypes/visual-direction/art-pack-media/actor-front.png",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "frames": [
+    "right-support.png",
+    "left-passing.png",
+    "left-support.png"
+  ],
+  "canvas": [
+    260,
+    400
+  ],
+  "changes": [
+    "left-support passing leg authored as a shorter bent path with lifted toe",
+    "supporting left leg given a small knee flex",
+    "upper body, head, silver case and green recorder kept as one shared identity group"
+  ],
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false,
+  "limitations": [
+    "static three-pose review only",
+    "no interpolation or video",
+    "needs review at 104px scene scale and native pixel scale"
+  ]
+}
