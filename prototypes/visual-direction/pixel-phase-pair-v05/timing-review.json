@@ -1,0 +1,54 @@
+{
+  "sequence": [
+    "right-support",
+    "right-through",
+    "left-passing",
+    "left-touchdown",
+    "left-contact",
+    "left-through",
+    "left-support"
+  ],
+  "sceneHeightPx": 104,
+  "metrics": [
+    {
+      "from": "right-support",
+      "to": "right-through",
+      "changedRatio": 0.0388,
+      "meanAbs": 3.16
+    },
+    {
+      "from": "right-through",
+      "to": "left-passing",
+      "changedRatio": 0.0268,
+      "meanAbs": 1.97
+    },
+    {
+      "from": "left-passing",
+      "to": "left-touchdown",
+      "changedRatio": 0.0176,
+      "meanAbs": 1.64
+    },
+    {
+      "from": "left-touchdown",
+      "to": "left-contact",
+      "changedRatio": 0.0607,
+      "meanAbs": 5.64
+    },
+    {
+      "from": "left-contact",
+      "to": "left-through",
+      "changedRatio": 0.0503,
+      "meanAbs": 3.57
+    },
+    {
+      "from": "left-through",
+      "to": "left-support",
+      "changedRatio": 0.0324,
+      "meanAbs": 2.04
+    }
+  ],
+  "status": "timing-review-pending",
+  "interpretation": "The touchdown frame holds the support leg and upper body, reducing the first landing jump. Metrics flag remaining large changes only; they do not prove natural motion.",
+  "motionApproved": false,
+  "homepageIntegrated": false
+}
