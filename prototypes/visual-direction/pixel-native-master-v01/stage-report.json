@@ -18,7 +18,7 @@
     "boundary": "This pass does not invent hidden anatomy or approve motion."
   },
   "stage2StoppedTurn": {
-    "status": "pass-source-constrained-turn",
+    "status": "technical-evidence-only-visual-pending",
     "evidence": [
       "../pixel-turn-proof-v01/turn.json",
       "../pixel-turn-proof-v01/turn-atlas-3x.png",
@@ -34,11 +34,11 @@
       "shared baseline and explicit no-transform method are recorded",
       "native and 3x contact sheets plus editable OpenRaster source are present"
     ],
-    "missing": "motion approval; this pass authorizes loaded keyposes but not walking or homepage integration"
+    "missing": "Visual acceptance is absent. Automated geometry, resource and behavior results do not authorize downstream artwork or homepage integration."
   },
   "stage3LoadedKeyposes": {
-    "status": "pass-source-constrained-keyposes",
-    "requires": "stage2 source-constrained turn pass",
+    "status": "technical-evidence-only-visual-pending",
+    "requires": "A visually accepted full-body source and pose; not satisfied.",
     "evidence": [
       "../pixel-loaded-keyposes-v01/manifest.json",
       "../pixel-loaded-keyposes-v01/loaded-keyposes-native.png",
@@ -52,11 +52,11 @@
       "support, forward, heel-contact and left-bearing pose labels are recorded",
       "upper-body centroid moves with the weight sequence rather than remaining fixed"
     ],
-    "missing": "motion approval; this pass authorizes the walk sample but not route movement or homepage integration"
+    "missing": "Visual acceptance is absent. Automated geometry, resource and behavior results do not authorize downstream artwork or homepage integration."
   },
   "stage4HomepageIntegration": {
-    "status": "walk-art-source-pass-visual-pending",
-    "requires": "stage3 source-constrained keypose pass",
+    "status": "visual-rejected",
+    "requires": "A visually accepted full-body source and pose; not satisfied.",
     "evidence": [
       "../pixel-walk-v01/manifest.json",
       "../pixel-walk-v01/walk-native.png",
@@ -72,14 +72,13 @@
       "eight unique complete frames are authored",
       "right/left contact, lift, forward and heel phases are represented",
       "all frames share the y=183 contact contract",
-      "source art manual review passes; visual quality remains open",
       "independent route behavior shell passes browser checks without homepage integration",
       "preview-only homepage route can show the actor at the verification point and complete previous-stop movement",
       "preview-only turn sequence completes and returns to the authored left-facing state",
       "preview-only desktop, narrow layout, reduced motion and runtime-error checks pass",
       "ten-minute independent route soak keeps 14 resources and does not show sustained heap growth"
     ],
-    "missing": "visual character approval, scene-scale naturalness and formal homepage integration"
+    "missing": "Visual acceptance is absent. Automated geometry, resource and behavior results do not authorize downstream artwork or homepage integration."
   },
-  "nextAction": "redesign the native character source and pass an original-size visual review before exposing it to the formal homepage"
+  "nextAction": "Restore one complete source-consistent loaded pose beside the untouched source; do not extend frames, directions or homepage integration."
 }

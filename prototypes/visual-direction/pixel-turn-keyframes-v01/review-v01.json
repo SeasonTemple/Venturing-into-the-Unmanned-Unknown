@@ -1,6 +1,6 @@
 {
   "revision": "pixel-turn-keyframes-v01-review-v01",
-  "status": "pass-source-constrained-turn",
+  "status": "pending-visual-review",
   "reviewSurface": "pixel-turn-keyframes-v01.html",
   "automatedEvidence": {
     "checker": "scripts/check-pixel-turn-keyframes-v01.py",
@@ -17,11 +17,38 @@
     ]
   },
   "manualChecklist": [
-    {"id":"head-heading", "question":"15° still reads toward camera, 30° bridges it, 45° reads left profile", "status":"pass"},
-    {"id":"torso-pelvis", "question":"shoulder, chest and pelvis rotate together without a frozen upper body", "status":"pass"},
-    {"id":"leg-contact", "question":"knees remain plausible and both boots stay on y=183", "status":"pass"},
-    {"id":"equipment", "question":"toolbox remains in the near hand and recorder remains at the hip", "status":"pass"},
-    {"id":"pixel-density", "question":"intermediate cluster density belongs to the endpoint pixel-paint style", "status":"pass-with-observation", "evidence":"audit-v01.json records a lower authored palette count; native-size silhouette and material clusters remain readable"}
+    {
+      "id": "head-heading",
+      "question": "15° still reads toward camera, 30° bridges it, 45° reads left profile",
+      "status": "needs-visual-review"
+    },
+    {
+      "id": "torso-pelvis",
+      "question": "shoulder, chest and pelvis rotate together without a frozen upper body",
+      "status": "needs-visual-review"
+    },
+    {
+      "id": "leg-contact",
+      "question": "knees remain plausible and both boots stay on y=183",
+      "status": "needs-visual-review"
+    },
+    {
+      "id": "equipment",
+      "question": "toolbox remains in the near hand and recorder remains at the hip",
+      "status": "needs-visual-review"
+    },
+    {
+      "id": "pixel-density",
+      "question": "intermediate cluster density belongs to the endpoint pixel-paint style",
+      "status": "needs-visual-review"
+    }
   ],
-  "decision": "Turn source passes as a source-constrained stopped turn. Motion is not approved; proceed to loaded keyposes with the same pixel source rules."
+  "decision": "Candidate only. File integrity and diagnostic metrics do not approve art or motion.",
+  "frameSetSha256": "09d1ec2d1585617f19a43243dfd60828d83d409589b1fdbd3edb3ef2d5ba3b42",
+  "producer": "asset-builder",
+  "artApproved": false,
+  "motionApproved": false,
+  "notes": [
+    "Automated checks establish resource integrity only; no visual acceptance is inferred."
+  ]
 }

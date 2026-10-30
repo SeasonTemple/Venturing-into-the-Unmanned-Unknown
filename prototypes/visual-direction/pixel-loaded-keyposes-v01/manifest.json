@@ -1,7 +1,7 @@
 {
   "revision": "pixel-loaded-keyposes-v01",
-  "status": "loaded-keypose-art-review",
-  "artApproved": true,
+  "status": "visual-review-pending",
+  "artApproved": false,
   "motionApproved": false,
   "homepageIntegrated": false,
   "canvas": [
@@ -60,5 +60,8 @@
     "left heel contacts while right supports",
     "left leg supports and right leg trails"
   ],
-  "gate": "Approve pelvis, chest, shoulder, elbow, head, hands, equipment, knees and foot contact in all four poses before walking."
+  "gate": "Visual acceptance is absent. Retain as a diagnostic candidate, outside the formal homepage.",
+  "sourceArtApproved": false,
+  "visualReviewStatus": "pending-visual-review",
+  "frameSetSha256": "4cc8cbef52cf6d88dda8c69843ffb9bad02b034229cc939899af66f531d01518"
 }

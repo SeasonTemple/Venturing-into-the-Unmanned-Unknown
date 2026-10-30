@@ -13,8 +13,8 @@ manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
 assert manifest["status"] == "independent-behavior-shell"
 assert manifest["homepageIntegrated"] is False
 assert manifest["behaviorApproved"] is True
-assert manifest["usesPendingWalkSource"] is False
-assert manifest["sourceArtApproved"] is True
+assert manifest["usesPendingWalkSource"] is True
+assert manifest["sourceArtApproved"] is False
 assert manifest["artApproved"] is False
 assert manifest["motionApproved"] is False
 assert len(manifest["walk"]["frames"]) == 8
@@ -33,4 +33,4 @@ for needle in ("requestAnimationFrame", "IntersectionObserver", "prefers-reduced
 home_report = ROOT / "prototypes/visual-direction/pixel-route-v01/home-checks.json"
 assert home_report.is_file()
 assert json.loads(home_report.read_text(encoding="utf-8"))["pass"] is True
-print(json.dumps({"status":"ok","revision":manifest["revision"],"walkFrames":8,"turnFrames":5,"homepageIntegrated":False,"behaviorReview":"pass-independent-shell","sourceArtApproved":True,"artApproved":False,"motionApproved":False}, ensure_ascii=False))
+print(json.dumps({"status":"integrity-ok","revision":manifest["revision"],"walkFrames":8,"turnFrames":5,"homepageIntegrated":False,"behaviorReview":"pass-independent-shell","sourceArtApproved":False,"artApproved":False,"motionApproved":False}, ensure_ascii=False))

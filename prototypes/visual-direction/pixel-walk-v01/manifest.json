@@ -1,7 +1,7 @@
 {
   "revision": "pixel-walk-v01",
-  "status": "walk-art-source-pass",
-  "sourceArtApproved": true,
+  "status": "visual-rejected",
+  "sourceArtApproved": false,
   "artApproved": false,
   "motionApproved": false,
   "homepageIntegrated": false,
@@ -101,5 +101,7 @@
     "runtime limb deformation",
     "generic tween"
   ],
-  "gate": "Source art passes native and 3x review; scene-scale motion and visual approval remain open before homepage integration."
+  "gate": "Visual acceptance is absent. Retain as a diagnostic candidate, outside the formal homepage.",
+  "visualReviewStatus": "rejected-by-user",
+  "frameSetSha256": "8f924da1e4b39d8a949065806341e7464cb9a93c48d2a00348540b58fd5a71a0"
 }

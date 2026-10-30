@@ -1,7 +1,7 @@
 {
   "revision": "pixel-turn-keyframes-v01",
-  "status": "hand-authored-turn-gate",
-  "artApproved": true,
+  "status": "visual-review-pending",
+  "artApproved": false,
   "motionApproved": false,
   "homepageIntegrated": false,
   "canvas": [
@@ -74,5 +74,8 @@
     "front": "prototypes/visual-direction/pixel-native-master-v01/reference-1x.png",
     "side": "prototypes/visual-direction/pixel-native-master-v01/reference-side-1x.png"
   },
-  "gate": "Approve all three intermediate frames at native size and 3x before stage 3 loaded keyposes."
+  "gate": "Visual acceptance is absent. Retain as a diagnostic candidate, outside the formal homepage.",
+  "sourceArtApproved": false,
+  "visualReviewStatus": "pending-visual-review",
+  "frameSetSha256": "09d1ec2d1585617f19a43243dfd60828d83d409589b1fdbd3edb3ef2d5ba3b42"
 }

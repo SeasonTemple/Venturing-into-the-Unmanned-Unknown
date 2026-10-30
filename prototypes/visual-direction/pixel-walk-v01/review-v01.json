@@ -1,38 +1,46 @@
 {
   "revision": "pixel-walk-v01-review-v02",
-  "status": "pass-source-constrained-walk-art",
+  "status": "rejected-by-user",
   "reviewSurface": "pixel-walk-v01.html",
   "manualChecklist": [
     {
       "id": "contact",
       "question": "contact and lift phases alternate without floating or buried soles",
-      "status": "pass-source-review"
+      "status": "blocked"
     },
     {
       "id": "rhythm",
       "question": "eight frames read as one left-facing walk rather than four held poses",
-      "status": "pass-source-review"
+      "status": "blocked"
     },
     {
       "id": "torso",
       "question": "head, chest and pelvis respond to the step cycle",
-      "status": "pass-source-review"
+      "status": "blocked"
     },
     {
       "id": "equipment",
       "question": "toolbox and recorder remain attached through the cycle",
-      "status": "pass-source-review"
+      "status": "blocked"
     },
     {
       "id": "native",
       "question": "native-size silhouette remains readable and no tearing appears at 3x",
-      "status": "pass-source-review"
+      "status": "blocked"
     }
   ],
   "notes": [
-    "The complete upper-body source changes with the loaded pose sequence; the authored one-pixel bob is visible in the 3x strip.",
-    "Toolbox and recorder remain attached to their owning hands through all eight frames.",
-    "This is a source-art approval only; scene-scale naturalness, start/stop timing and long-run performance remain open."
+    "Automated checks establish resource integrity only; no visual acceptance is inferred."
   ],
-  "decision": "Source art passes; keep motionApproved false until scene-scale behavior review."
+  "decision": "Rejected pixels retained for diagnosis; do not expand or publish.",
+  "userDecision": {
+    "status": "rejected",
+    "frameSetSha256": "8f924da1e4b39d8a949065806341e7464cb9a93c48d2a00348540b58fd5a71a0",
+    "reason": "用户在 pixel-walk-v01 页面明确否决当前人物与动作；自动检查通过不能覆盖该结论。",
+    "source": "conversation: user feedback on pixel-walk-v01"
+  },
+  "frameSetSha256": "8f924da1e4b39d8a949065806341e7464cb9a93c48d2a00348540b58fd5a71a0",
+  "producer": "asset-builder",
+  "artApproved": false,
+  "motionApproved": false
 }

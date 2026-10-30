@@ -225,7 +225,8 @@ def main() -> None:
             buf = BytesIO(); Image.open(OUT/e["file"]).save(buf, format="PNG"); name = f"data/frame-{i:02d}.png"; z.writestr(name, buf.getvalue()); SubElement(stack, "layer", {"name":e["label"], "src":name, "opacity":"1.0", "visibility":"visible", "composite-op":"svg:src-over", "x":"0", "y":"0"})
         z.writestr("stack.xml", tostring(root, encoding="utf-8", xml_declaration=True)); buf = BytesIO(); Image.open(OUT/"turn-keyframes-native.png").save(buf, format="PNG"); z.writestr("mergedimage.png", buf.getvalue()); z.writestr("Thumbnails/thumbnail.png", buf.getvalue())
     manifest = {"revision":"pixel-turn-keyframes-v01", "status":"hand-authored-turn-gate", "artApproved":False, "motionApproved":False, "homepageIntegrated":False, "canvas":[W,H], "baseline":BASELINE, "fps":6, "frames":frames, "method":"complete native pixel frames; endpoint references are retained, three intermediate frames are explicit cluster drawings", "forbiddenMethods":["mirroring", "horizontal stretch", "3D interpolation", "limb-only transforms", "generic motion tween"], "sourceReferences":{"front":"prototypes/visual-direction/pixel-native-master-v01/reference-1x.png", "side":"prototypes/visual-direction/pixel-native-master-v01/reference-side-1x.png"}, "gate":"Approve all three intermediate frames at native size and 3x before stage 3 loaded keyposes."}
-    (OUT / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2)+"\n", encoding="utf8")
+    from pixel_review import write_candidate_records
+    write_candidate_records(OUT, manifest)
     print(json.dumps({"status":"built", "frames":len(frames), "out":str(OUT)}, ensure_ascii=False))
 
 
