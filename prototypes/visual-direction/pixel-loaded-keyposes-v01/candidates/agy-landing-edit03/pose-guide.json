@@ -1,0 +1,35 @@
+{
+  "purpose": "Auxiliary pose-control diagram, not character art or an approved pose",
+  "canvas": [
+    768,
+    1024
+  ],
+  "originalIdentityInput": "../first-frame-step01/first-frame.png",
+  "screenCoordinates": {
+    "keepOwnRightBootSoleLine": [
+      [
+        284,
+        840
+      ],
+      [
+        363,
+        840
+      ]
+    ],
+    "ownLeftBootTargetSoleLine": [
+      [
+        380,
+        876
+      ],
+      [
+        438,
+        876
+      ]
+    ],
+    "approximateLeftFootShift": [
+      -24,
+      25
+    ]
+  },
+  "annotationsRemovedInOutputRequired": true
+}

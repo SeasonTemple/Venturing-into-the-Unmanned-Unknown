@@ -1,0 +1,25 @@
+{
+  "status": "rejected-by-producer",
+  "service": "MiniMax through mmx-cli",
+  "model": "image-01",
+  "seed": 301031,
+  "generationCalls": 1,
+  "sourceReference": null,
+  "raw": "candidate_001.jpg",
+  "rawSha256": "2aa1edbe3973f2aacf3feb81d24fcd59fdee9628a77d695dfc9109d9eab1f13d",
+  "prompt": "prompt.txt",
+  "promptSha256": "ca61143340bcf796519ab945055131d245811fe243bd56db6f2375afa23027ef",
+  "dimensions": [
+    768,
+    1024
+  ],
+  "inspection": [
+    "Same English prompt, seed and dimensions as 01; character reference omitted",
+    "Still painted realism rather than deliberate pixel clusters",
+    "Invented backpack straps and extra equipment",
+    "Recorder lifted to chest and equipment identity changed"
+  ],
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false
+}

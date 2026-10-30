@@ -1,0 +1,46 @@
+{
+  "status": "image-generation-capability-verified-pose-not-approved",
+  "date": "2026-10-30",
+  "transport": "agy MCP",
+  "agyVersion": "1.4.11",
+  "jobId": "job_1793339913_a1dd4e93f746",
+  "sessionId": "7831a4d0-3e30-4e03-b34e-aa857109cf35",
+  "route": [
+    "agy_start",
+    "invoke_subagent image-generator",
+    "generate_image"
+  ],
+  "imageToolParametersReported": [
+    "Prompt",
+    "ImageName",
+    "AspectRatio",
+    "ImagePaths"
+  ],
+  "imageModelSelectorExposed": false,
+  "imageBackendId": "not-exposed",
+  "nanoBanana2Verified": false,
+  "referenceInput": "prototypes/visual-direction/pixel-loaded-keyposes-v01/candidates/first-frame-step01/first-frame.png",
+  "referenceSha256": "4a0d3d8334f23d6696ae2b9b46e55d10504e4fa7037c4588afb29d88cf7a6755",
+  "generationCallsReported": 1,
+  "output": "candidate.jpg",
+  "outputFormat": "JPEG",
+  "outputSize": [
+    896,
+    1200
+  ],
+  "outputBytes": 258578,
+  "outputSha256": "687e44d05d73542cac0f5af45bd1b290f0fd180531d71d11fac6bfbbc31c17b8",
+  "outputCopiedFromNativeArtifact": true,
+  "actualFileVerified": true,
+  "request": "request.txt",
+  "proxyNeededForObservedSuccessfulConnection": "http://10.46.35.24:10080",
+  "review": {
+    "identityAndStyle": "Broadly retained; same costume and prop ownership visible. Not pixel-identical editing.",
+    "pose": "Anatomical left heel is raised, leg extends toward image right/back; requested completed small forward step with both soles planted is not established.",
+    "scope": "Capability probe only; not a validated animation endpoint."
+  },
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false,
+  "nextGenerationAutomaticallySubmitted": false
+}

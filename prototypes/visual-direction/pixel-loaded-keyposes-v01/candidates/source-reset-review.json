@@ -1,0 +1,37 @@
+{
+  "status": "no-accepted-pose",
+  "tool": "mmx-cli",
+  "model": "image-01",
+  "totalImageCalls": 4,
+  "callsThisUserTurn": 3,
+  "openaiApiCalls": 0,
+  "videoCalls": 0,
+  "dimensions": [
+    768,
+    1024
+  ],
+  "seed": 301031,
+  "comparisons": [
+    {
+      "pair": [
+        1,
+        2
+      ],
+      "changed": "character reference present vs absent; same prompt, seed and output size"
+    },
+    {
+      "pair": [
+        3,
+        4
+      ],
+      "changed": "character reference absent vs present; same style-first prompt, seed and output size"
+    }
+  ],
+  "conclusion": "Style-first prompting produced pixel-like marks in 03, but no candidate preserved identity, orientation, equipment contact and restrained loaded pose together. Current settings do not establish a production method.",
+  "decision": "End this four-image batch. Keep all outputs out of animation and formal homepage. Do not replace missing control with more frames.",
+  "overview": "source-reset-overview.jpg",
+  "overviewPurpose": "Whole-image comparison only, not native pixel inspection",
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false
+}

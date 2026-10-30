@@ -1,0 +1,16 @@
+{
+  "status": "extracted-candidate-not-approved",
+  "sourceVideo": "step01.mp4",
+  "sourceVideoFrameZeroBased": 48,
+  "sourceTimeSeconds": 2.0,
+  "image": "landing-candidate-frame048.png",
+  "originalResolution": [
+    1440,
+    1920
+  ],
+  "processing": "Lossless PNG extraction of decoded video frame; no retouching, warping, mirroring, background removal, upscaling or new generation. Comparison layout is separately resized for browsing.",
+  "purpose": "Review same-identity end-pose constraints before considering another action generation.",
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false
+}

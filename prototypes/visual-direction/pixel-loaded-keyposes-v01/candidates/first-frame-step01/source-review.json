@@ -1,0 +1,58 @@
+{
+  "status": "source-motion-rejected",
+  "taskId": "457867211362503",
+  "reviewMethod": "All 107 frames inspected in five chronological contact sheets; ten-keypose overview; ffprobe; audio volume detection; official check-only",
+  "reviewScope": "One first-frame H3 trial; no animation atlas",
+  "positiveEvidence": [
+    "source identity and wardrobe broadly retained",
+    "prop ownership broadly retained",
+    "camera and facing broadly retained"
+  ],
+  "findings": [
+    {
+      "kind": "motion",
+      "timeRangeSeconds": [
+        2.7,
+        3.2
+      ],
+      "observation": "Worker right foot, on screen left, also lifts: the source performs an additional step instead of keeping that sole planted."
+    },
+    {
+      "kind": "motion",
+      "timeRangeSeconds": [
+        3.0,
+        3.4
+      ],
+      "observation": "Requested final two-feet-planted hold does not start on schedule."
+    },
+    {
+      "kind": "specification",
+      "observation": "Requested 4 seconds; actual container duration 4.459 seconds."
+    },
+    {
+      "kind": "audio",
+      "observation": "Silence requested, but AAC track is not digital silence; no listening classification performed.",
+      "meanVolumeDb": -40.6,
+      "peakVolumeDb": -11.9
+    }
+  ],
+  "automatedQc": {
+    "tool": "official h3-sprite-sheet make_atlas.py --check-only",
+    "backgroundMode": "keep",
+    "result": "PASS",
+    "firstFrameDiff": 2.1,
+    "report": "source-qc/check.json",
+    "doesNotValidate": [
+      "step count",
+      "specific foot contact",
+      "body mechanics",
+      "hold timing",
+      "audio"
+    ]
+  },
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false,
+  "secondTaskCreated": false,
+  "atlasPacked": false
+}

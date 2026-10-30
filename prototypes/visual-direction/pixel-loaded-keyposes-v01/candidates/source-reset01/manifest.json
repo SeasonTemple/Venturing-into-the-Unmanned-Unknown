@@ -1,0 +1,27 @@
+{
+  "status": "rejected-by-producer",
+  "model": "image-01",
+  "service": "MiniMax through mmx-cli",
+  "seed": 301031,
+  "generationCalls": 1,
+  "raw": "candidate_001.jpg",
+  "rawSha256": "36970221128b6d02b3f3de1c3b34777cdcbd8402eb38c3da8fd3bd203ef8d0db",
+  "sourceReference": "../../../art-pack-media/actor-front.png",
+  "referenceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "prompt": "prompt.txt",
+  "promptSha256": "ca61143340bcf796519ab945055131d245811fe243bd56db6f2375afa23027ef",
+  "dimensions": [
+    768,
+    1024
+  ],
+  "inspection": [
+    "Photorealistic shading instead of painted pixel clusters",
+    "Invented hood and backpack straps",
+    "Camera turned toward full front",
+    "Equipment size and grip changed"
+  ],
+  "decision": "Do not crop, pixelate or animate this output as a proposed repair. No additional generation in this batch.",
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false
+}

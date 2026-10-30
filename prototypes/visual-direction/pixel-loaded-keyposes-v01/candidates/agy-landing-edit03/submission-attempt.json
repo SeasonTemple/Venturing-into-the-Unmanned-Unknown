@@ -1,0 +1,6 @@
+{
+  "startedUtc": "2026-10-30T07:08:36.9724438Z",
+  "maximumGenerationCalls": 1,
+  "route": "installed agy-bridge -> agy -> image-generator",
+  "controlChange": "Explicit sole target diagram added; no image transform used as final artwork"
+}

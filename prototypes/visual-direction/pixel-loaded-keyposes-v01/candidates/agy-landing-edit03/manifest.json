@@ -1,0 +1,16 @@
+{
+  "status": "rejected-for-specified-landing-endpoint",
+  "route": "installed agy-bridge -> agy -> image-generator",
+  "generationCallsReported": 1,
+  "inputRoles": [
+    "clean approved identity",
+    "explicit footprint target diagram"
+  ],
+  "output": "candidate.jpg",
+  "outputSha256": "aec58eadc8c1404369d67471c4ab959b645308878237eb60647b13bb726c5d8f",
+  "backend": "not-exposed",
+  "review": "Identity broadly retained, but anatomical left leg again trails toward image right/back rather than reaching the annotated forward footprint. Do not use as a specified end pose.",
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false
+}

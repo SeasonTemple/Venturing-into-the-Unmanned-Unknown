@@ -1,0 +1,99 @@
+{
+  "status": "source-motion-rejected",
+  "source": "prototypes/visual-direction/art-pack-media/actor-front.png",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "input": "first-frame.png",
+  "inputSha256": "4a0d3d8334f23d6696ae2b9b46e55d10504e4fa7037c4588afb29d88cf7a6755",
+  "processing": "Full original RGBA uniformly enlarged exactly 2x with nearest-neighbour, composited at [228,164] on flat #253b34; no limb edits, cropping or generated replacement.",
+  "originalSize": [
+    156,
+    348
+  ],
+  "inputSize": [
+    768,
+    1024
+  ],
+  "prompt": "prompt.txt",
+  "promptSha256": "47e8b4f545f2cb47c44023dec6c27188179b4f0391d466ab291e1aa755721d9d",
+  "plannedModel": "MiniMax-H3",
+  "plannedDurationSeconds": 4,
+  "plannedInputMode": "first-frame",
+  "plannedVideoCount": 1,
+  "videoTasksCreated": 1,
+  "stopConditions": [
+    "identity or pixel-style drift",
+    "hand-prop grip changes",
+    "joint deformation or implausible weight shift",
+    "camera movement or direction change"
+  ],
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false,
+  "dryRunValidated": true,
+  "dryRunTopLevelRequestKeys": [
+    "model",
+    "content",
+    "resolution",
+    "duration",
+    "ratio"
+  ],
+  "billingReference": "https://platform.minimax.cn/docs/token-plan/faq",
+  "priorCredentialBlocker": {
+    "activeAuth": "oauth",
+    "videoInCurrentPlan": false,
+    "savedApiKeyPresent": false,
+    "runtimeMinimaxApiKeyPresent": false,
+    "quotaCliLabel": "视频 不在当前套餐中",
+    "independentCreditBalance": "not-queried",
+    "oauthH3CreditBilling": "not-verified",
+    "interpretation": "Existing ordinary promotional Credits do not establish H3 access. No task submitted or account credential changed.",
+    "userReportedCreditType": "sign-in-or-promotional",
+    "ordinaryPromotionalCreditsEligibleForH3": false,
+    "billingPolicySource": "http://chat.minimax.io/",
+    "billingPolicyEvidence": "Official-site search announcement: before Sep 15 both sign-in and paid Credits supported H3; afterwards paid Credits only. Signed-out direct page fetch did not expose the banner."
+  },
+  "trialSpecification": {
+    "model": "MiniMax-H3",
+    "durationSeconds": 4,
+    "resolution": "2K",
+    "mode": "first-frame",
+    "aspectRatio": "inherited-from-image",
+    "background": "keep",
+    "playback": "oneshot-hold",
+    "mirror": false,
+    "paidCreationLimit": 1,
+    "credentialMethod": "api-key",
+    "credentialValueRecorded": false
+  },
+  "mediaPreflight": {
+    "format": "PNG",
+    "mode": "RGB",
+    "width": 768,
+    "height": 1024,
+    "bytes": 30286,
+    "orientation": 1,
+    "ratio": 0.75,
+    "valid": true
+  },
+  "officialSkills": [
+    "h3-sprite-sheet",
+    "write-h3-prompts",
+    "h3-prompt-writing"
+  ],
+  "submissionAttemptUtc": "2026-10-30T05:06:52.3309134Z",
+  "taskId": "457867211362503",
+  "video": "step01.mp4",
+  "actual": {
+    "width": 1440,
+    "height": 1920,
+    "fps": 24,
+    "frames": 107,
+    "videoDurationSeconds": 4.458333333333333,
+    "containerDurationSeconds": 4.459,
+    "bytes": 568307
+  },
+  "diagnosticContactSheets": 5,
+  "review": "source-review.json",
+  "automaticTechnicalQc": "PASS; does not grant art or motion approval",
+  "ratioRequestBehavior": "No CLI --ratio supplied; MMX 1.0.28 inserts adaptive automatically."
+}
