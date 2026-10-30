@@ -1,5 +1,5 @@
 {
-  "status": "candidate-body-coupled-v02-pending-visual-review",
+  "status": "rejected-visible-ankle-separation",
   "method": "whole-pose-native-pixel-authoring",
   "source": "prototypes/visual-direction/art-pack-media/actor-front.png",
   "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
@@ -62,5 +62,11 @@
       "changedRatio": 0.0,
       "meanAbs": 0.0
     }
-  ]
+  ],
+  "reviewCorrection": {
+    "date": "2026-10-31",
+    "reason": "Two passing-foot frames have detached trouser/boot surfaces. Upper-body metrics and small previews missed the defect.",
+    "artApproved": false,
+    "motionApproved": false
+  }
 }
