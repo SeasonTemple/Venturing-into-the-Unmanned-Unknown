@@ -1,0 +1,17 @@
+{
+  "status": "candidate-single-pose-structurally-connected-pending-visual-review",
+  "sourceCharacter": "prototypes/visual-direction/art-pack-media/actor-front.png",
+  "motionReference": "prototypes/visual-direction/pixel-loaded-keyposes-v01/candidates/agy-phase-study01/candidate.jpg",
+  "motionReferenceSha256": "538eadbb6e3fced5adf3040b50cea1cfcaeb151835c6e2232d777ea775d575ec",
+  "frame": "reference-passing.png",
+  "structuralChecks": {
+    "pelvis_trouser_R_overlap": true,
+    "pelvis_trouser_L_overlap": true,
+    "trouser_R_boot_R_overlap": true,
+    "trouser_L_boot_L_overlap": true
+  },
+  "intent": "supporting image-left/anatomical-right foot extended under and ahead of pelvis; image-right/anatomical-left foot passes nearby above ground",
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false
+}
