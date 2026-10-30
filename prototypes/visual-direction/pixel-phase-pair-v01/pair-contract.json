@@ -1,0 +1,38 @@
+{
+  "canvas": [
+    156,
+    348
+  ],
+  "frames": [
+    {
+      "file": "right-support.png",
+      "support": "R",
+      "passing": "L",
+      "supportFootBaseline": 338,
+      "passingFootBottom": 327,
+      "upperShift": [
+        -4,
+        -1
+      ]
+    },
+    {
+      "file": "left-support.png",
+      "support": "L",
+      "passing": "R",
+      "supportFootBaseline": 347,
+      "passingFootBottom": 327,
+      "upperShift": [
+        -1,
+        -1
+      ]
+    }
+  ],
+  "shared": [
+    "adult proportions",
+    "orange jacket",
+    "silver case in anatomical right hand",
+    "green recorder in anatomical left hand",
+    "single source pixel palette"
+  ],
+  "status": "static pair candidate; no interpolation or animation"
+}

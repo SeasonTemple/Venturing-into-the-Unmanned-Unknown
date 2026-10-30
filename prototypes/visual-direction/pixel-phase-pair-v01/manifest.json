@@ -1,0 +1,11 @@
+{
+  "status": "candidate-pair-pending-visual-review",
+  "method": "whole-pose-native-pixel-authoring",
+  "source": "prototypes/visual-direction/art-pack-media/actor-front.png",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "pairContract": "pair-contract.json",
+  "frames": ["right-support.png", "left-support.png"],
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false
+}
