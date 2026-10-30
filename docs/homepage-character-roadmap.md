@@ -171,3 +171,5 @@ ag​y 顶层报告通过内置 `image-generator` 调用 `generate_image`；该�
 在 v02 的右承重、左前摆、左承重之间加入手工整帧的 `left-contact`。它把右脚从全掌承重带到前掌支撑，同时让左脚进入低位接触，四帧并排可以读出“右承重 → 前摆 → 接触 → 左承重”的顺序。上身和两件装备仍保持同一身份组，脚底共用一条检查基线。
 
 候选在 `prototypes/visual-direction/pixel-phase-pair-v03/`。这只是过渡姿态审片，不是补间动画；`artApproved`、`motionApproved` 和 `homepageIntegrated` 均保持 false。下一步先检查四帧在场景尺寸下的骨盆负重和双脚先后，再决定是否制作少量离散过渡帧。
+
+本轮补做了约 104px 角色高度的场景尺寸检查，文件为 `scene-size-diagnostic.png` 和 `scene-size-review.json`。缩小后四个阶段仍能分辨脚底先后，低位接触没有被压成单一站姿；但上身动作仍保持安静，因此这里只能说明“腿部相位在目标尺寸可读”，不能替代完整动作审片。下一步可制作少量离散经过帧，再检查速度、重心和装备随身关系。
