@@ -1,0 +1,511 @@
+{
+  "source": "prototypes/visual-direction/art-pack-media/actor-front.png",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "layerSource": "prototypes/visual-direction/actor-keypose-art/source-layers",
+  "canvas": [
+    260,
+    400
+  ],
+  "sourceOffset": [
+    52,
+    26
+  ],
+  "poses": [
+    {
+      "name": "right-through",
+      "label": "02 右承重 · 左腿经过",
+      "support": "右脚全掌承重，左脚抬离",
+      "upperShift": [
+        -5,
+        -1
+      ],
+      "upperAngle": 0,
+      "shadows": [],
+      "R": {
+        "center": [
+          [
+            180,
+            56
+          ],
+          [
+            208,
+            57
+          ],
+          [
+            235,
+            56
+          ],
+          [
+            253,
+            55
+          ],
+          [
+            265,
+            56
+          ],
+          [
+            286,
+            58
+          ],
+          [
+            307,
+            58
+          ],
+          [
+            314,
+            58
+          ]
+        ],
+        "outline": [
+          [
+            38,
+            180
+          ],
+          [
+            40,
+            208
+          ],
+          [
+            42,
+            235
+          ],
+          [
+            44,
+            253
+          ],
+          [
+            46,
+            265
+          ],
+          [
+            50,
+            286
+          ],
+          [
+            48,
+            307
+          ],
+          [
+            48,
+            314
+          ],
+          [
+            68,
+            314
+          ],
+          [
+            68,
+            307
+          ],
+          [
+            66,
+            286
+          ],
+          [
+            66,
+            265
+          ],
+          [
+            66,
+            253
+          ],
+          [
+            70,
+            235
+          ],
+          [
+            74,
+            208
+          ],
+          [
+            74,
+            180
+          ]
+        ],
+        "kneeY": 253,
+        "ankle": [
+          58,
+          319
+        ],
+        "bootAngle": 0
+      },
+      "L": {
+        "center": [
+          [
+            180,
+            92
+          ],
+          [
+            205,
+            88
+          ],
+          [
+            228,
+            84
+          ],
+          [
+            247,
+            82
+          ],
+          [
+            259,
+            84
+          ],
+          [
+            280,
+            91
+          ],
+          [
+            299,
+            98
+          ]
+        ],
+        "outline": [
+          [
+            75,
+            180
+          ],
+          [
+            72,
+            205
+          ],
+          [
+            69,
+            228
+          ],
+          [
+            69,
+            247
+          ],
+          [
+            73,
+            259
+          ],
+          [
+            84,
+            280
+          ],
+          [
+            89,
+            299
+          ],
+          [
+            109,
+            299
+          ],
+          [
+            104,
+            280
+          ],
+          [
+            97,
+            259
+          ],
+          [
+            96,
+            247
+          ],
+          [
+            99,
+            228
+          ],
+          [
+            105,
+            205
+          ],
+          [
+            111,
+            180
+          ]
+        ],
+        "kneeY": 247,
+        "ankle": [
+          100,
+          311
+        ],
+        "bootAngle": -6,
+        "cuffFromBoot": true
+      },
+      "legOrder": [
+        "R",
+        "L"
+      ],
+      "contacts": {
+        "R": {
+          "patch": "full",
+          "sourcePoint": [
+            47,
+            337
+          ],
+          "targetPoint": [
+            47,
+            337
+          ]
+        }
+      },
+      "status": "internal-static-control; upper-body-articulation-not-tested",
+      "bodyPose": {
+        "spineLean": -1.3,
+        "chestCounterRoll": 0.4,
+        "headWorldAngle": 0.1,
+        "shoulderR": -0.3,
+        "elbowR": 0.8,
+        "shoulderL": 0.7,
+        "elbowL": -0.4,
+        "boxWorldAngle": -0.3
+      }
+    },
+    {
+      "name": "left-touchdown",
+      "label": "04 左脚跟下落",
+      "support": "右脚仍全掌支撑，左脚跟下落",
+      "upperShift": [
+        -6,
+        -1
+      ],
+      "upperAngle": 0,
+      "shadows": [],
+      "R": {
+        "center": [
+          [
+            179,
+            57
+          ],
+          [
+            208,
+            58
+          ],
+          [
+            235,
+            57
+          ],
+          [
+            253,
+            56
+          ],
+          [
+            265,
+            57
+          ],
+          [
+            286,
+            58
+          ],
+          [
+            307,
+            58
+          ],
+          [
+            314,
+            58
+          ]
+        ],
+        "outline": [
+          [
+            38,
+            179
+          ],
+          [
+            40,
+            208
+          ],
+          [
+            43,
+            235
+          ],
+          [
+            45,
+            253
+          ],
+          [
+            47,
+            265
+          ],
+          [
+            50,
+            286
+          ],
+          [
+            48,
+            307
+          ],
+          [
+            48,
+            314
+          ],
+          [
+            68,
+            314
+          ],
+          [
+            68,
+            307
+          ],
+          [
+            66,
+            286
+          ],
+          [
+            67,
+            265
+          ],
+          [
+            67,
+            253
+          ],
+          [
+            71,
+            235
+          ],
+          [
+            76,
+            208
+          ],
+          [
+            76,
+            179
+          ]
+        ],
+        "kneeY": 253,
+        "ankle": [
+          58,
+          319
+        ],
+        "bootAngle": 0
+      },
+      "L": {
+        "center": [
+          [
+            180,
+            92
+          ],
+          [
+            205,
+            90
+          ],
+          [
+            228,
+            88
+          ],
+          [
+            247,
+            87
+          ],
+          [
+            260,
+            89
+          ],
+          [
+            281,
+            96
+          ],
+          [
+            300,
+            101
+          ]
+        ],
+        "outline": [
+          [
+            74,
+            180
+          ],
+          [
+            72,
+            205
+          ],
+          [
+            70,
+            228
+          ],
+          [
+            70,
+            247
+          ],
+          [
+            73,
+            260
+          ],
+          [
+            84,
+            281
+          ],
+          [
+            89,
+            300
+          ],
+          [
+            109,
+            300
+          ],
+          [
+            104,
+            281
+          ],
+          [
+            97,
+            260
+          ],
+          [
+            96,
+            247
+          ],
+          [
+            99,
+            228
+          ],
+          [
+            105,
+            205
+          ],
+          [
+            111,
+            180
+          ]
+        ],
+        "kneeY": 247,
+        "ankle": [
+          100,
+          315
+        ],
+        "bootAngle": -3,
+        "cuffFromBoot": true
+      },
+      "legOrder": [
+        "R",
+        "L"
+      ],
+      "contacts": {
+        "R": {
+          "patch": "full",
+          "sourcePoint": [
+            47,
+            337
+          ],
+          "targetPoint": [
+            47,
+            337
+          ]
+        }
+      },
+      "status": "internal-static-control; upper-body-articulation-not-tested",
+      "bodyPose": {
+        "spineLean": -1.5,
+        "chestCounterRoll": 0.5,
+        "headWorldAngle": 0.2,
+        "shoulderR": -0.3,
+        "elbowR": 0.8,
+        "shoulderL": 0.7,
+        "elbowL": -0.4,
+        "boxWorldAngle": -0.4
+      }
+    }
+  ],
+  "version": "ankle-seam-control-study",
+  "method": "Seven complete authored phases with upper-body phase coupling held through foot-contact events; no interpolation.",
+  "reviewColumns": 3,
+  "limitations": [
+    "Static seven-pose whole-body coupling review",
+    "Upper phase changes only after support transitions",
+    "No video or homepage integration"
+  ]
+}
