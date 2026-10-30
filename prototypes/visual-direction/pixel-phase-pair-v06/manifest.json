@@ -60,5 +60,8 @@
     "support leg and upper body held through touchdown and endpoint transitions"
   ],
   "rhythmPreview": "rhythm-preview.html",
-  "previewBehavior": "manual play/step controls; stops at final frame; no loop or interpolation"
+  "previewBehavior": "manual play/step controls; stops at final frame; no loop or interpolation",
+  "rejectedTrials": [
+    "The held-frame MP4 trial was rejected: frozen upper body and contact jumps made the gait look mechanical. Keep static review only."
+  ]
 }
