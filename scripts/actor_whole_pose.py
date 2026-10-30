@@ -221,4 +221,6 @@ class WholePoseArt:
                  ('sleeve_R', arm_images['R']), ('sleeve_L', arm_images['L']),
                  ('continuous_body_head_neck', self.surface(self.body, body_point, [64, 66, 90, 104, 130, 178])),
                  ('toolbox_R', box), ('glove_R', glove), ('recorder_L', recorder)]
+        if controls.get('includePelvis'):
+            stack.insert(4, ('continuous_pelvis', self.surface(self.layers['pelvis'], body_point, [178, 180, 208])))
         return stack, actual
