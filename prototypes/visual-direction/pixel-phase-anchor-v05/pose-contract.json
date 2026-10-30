@@ -1,0 +1,47 @@
+{
+  "canvas": [
+    156,
+    348
+  ],
+  "travel": "image-left",
+  "pelvis": [
+    74,
+    176
+  ],
+  "chest": [
+    72,
+    102
+  ],
+  "support": "R",
+  "supportFoot": {
+    "ankle": [
+      54,
+      319
+    ],
+    "sole": "full",
+    "baseline": 338
+  },
+  "passingFoot": {
+    "ankle": [
+      93,
+      305
+    ],
+    "sole": "raised",
+    "bottom": 330
+  },
+  "leftKnee": [
+    83,
+    248
+  ],
+  "rightKnee": [
+    53,
+    253
+  ],
+  "upperShift": [
+    -4,
+    -1
+  ],
+  "upperLeanDegrees": -1,
+  "equipment": "both props remain attached to their source hands",
+  "status": "static full-pose candidate; not animation"
+}
