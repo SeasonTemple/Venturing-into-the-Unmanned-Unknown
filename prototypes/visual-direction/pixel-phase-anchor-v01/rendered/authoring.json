@@ -1,0 +1,129 @@
+{
+  "method": "Author discrete complete-pose studies from explicit trouser contours.\n\nThis is source-cloth sampling on authored silhouettes plus pose-local paint,\nnot a new generative character, not planar IK, and not a finished walk cycle.\nUpper-body/equipment artwork stays continuous under one rigid pose transform. Each\noutput has a full-canvas OpenRaster paint source for further editing.\n",
+  "recipeSha256": "ae8e83d11d1e35d6682fb0434af975417e1e1fea44905d00d4c05dc56c5fca4a",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "poses": [
+    {
+      "pose": "phase-anchor",
+      "label": "单腿支撑，另一腿近地经过（原生像素小样）",
+      "support": "右脚全掌承重；左脚近地经过，保持膝踝分离",
+      "legOrder": [
+        "R",
+        "L"
+      ],
+      "upperArt": "connected body surface and articulated occupied arms",
+      "upperPose": {
+        "pelvis": [
+          74.0,
+          177.0
+        ],
+        "chest": [
+          72.32113731561418,
+          103.01904691012032
+        ],
+        "neck": [
+          71.724259257765,
+          65.02373487581721
+        ],
+        "head": [
+          67.724259257765,
+          29.023734875817212
+        ],
+        "R": {
+          "shoulder": [
+            41.021967865298116,
+            85.47732302480148
+          ],
+          "elbow": [
+            25.959158890426462,
+            121.45108826819136
+          ],
+          "wrist": [
+            17.655915796131236,
+            150.36572390686123
+          ],
+          "grip": [
+            18.50925598786931,
+            164.37542806209467
+          ],
+          "upperAngle": 0.09999999999999998,
+          "forearmAngle": 0.6
+        },
+        "L": {
+          "shoulder": [
+            104.94029505452573,
+            81.59615550031478
+          ],
+          "elbow": [
+            137.87392231476008,
+            119.65369345909436
+          ],
+          "wrist": [
+            116.07691498788228,
+            148.80657447610596
+          ],
+          "grip": [
+            107.12600313361946,
+            155.86923523372536
+          ],
+          "upperAngle": 0.09999999999999998,
+          "forearmAngle": -0.4
+        }
+      },
+      "upperAngle": -0.6,
+      "upperShift": [
+        -4,
+        -1
+      ],
+      "png": "phase-anchor.png",
+      "editable": "phase-anchor.ora",
+      "baseRgbaSha256": "5de2e6e5c42f298caec79bcf4e202bdaa6ba218ade45a4685cc4f6f39aab82ff",
+      "layerNames": [
+        "ground_contact",
+        "trouser_R",
+        "boot_R",
+        "trouser_L",
+        "boot_L",
+        "hidden_jacket_coverage",
+        "sleeve_R",
+        "sleeve_L",
+        "continuous_body_head_neck",
+        "toolbox_R",
+        "glove_R",
+        "recorder_L",
+        "pose_paint"
+      ],
+      "artApproved": false
+    }
+  ],
+  "artApproved": false,
+  "layerSourceSha256": {
+    "arm_L.png": "662a988141dda5b4f6629d79fc0cea8b6ea2f07cb5276c4fed207558aaefb350",
+    "arm_R.png": "ec86a9afd734a3f0ad16142295ab7d83367df011de4f8dc723a06bc1cd40c97e",
+    "glove_R.png": "940bf0568f2bfc0a5aa14c6997ccf36222e277f51958840a4fccfb0ee0556a29",
+    "leg_L.png": "3e37edb883d77675e7208c9037facfc2f4e54f50b9572afbaa7c6e65e5d25ecb",
+    "leg_R.png": "519cf223098d7299d343c6567c840292ae8e406d697e9fad5145a9349b945781",
+    "pelvis.png": "0ca5ca0c3591ef21758c694011d427a362199615a995c242648550eac9768564",
+    "recorder_L.png": "9ea7ff84fb85c8ecb246ee0aef64547f12ee0b8d0af181d66252fd6b7fc6d567",
+    "toolbox_R.png": "bd582767d1dcb469983be182569f0ce30da3dc896b101da3507218a7a90df91a",
+    "upper_body.png": "ee28b46b38c96fe6ae1856dfb1bfa14bd61fa128b9aa2c6439bafeea107e86ae"
+  },
+  "editedClothMaster": null,
+  "editedClothMasterSha256": null,
+  "status": "static-pose-study; no animation produced",
+  "editablePoseContract": "full-canvas-normal-layers-v1",
+  "canvas": [
+    260,
+    400
+  ],
+  "reviewSheet": {
+    "file": "keyposes-review.png",
+    "poseIds": [
+      "source-reference",
+      "phase-anchor"
+    ],
+    "cardCount": 2,
+    "columns": 5,
+    "rows": 1
+  }
+}
