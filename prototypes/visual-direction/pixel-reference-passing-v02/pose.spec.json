@@ -1,0 +1,256 @@
+{
+  "source": "prototypes/visual-direction/art-pack-media/actor-front.png",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "layerSource": "prototypes/visual-direction/actor-keypose-art/source-layers",
+  "canvas": [
+    260,
+    400
+  ],
+  "sourceOffset": [
+    52,
+    26
+  ],
+  "poses": [
+    {
+      "name": "reference-passing",
+      "label": "动作参考 · 右脚承重 / 左脚经过",
+      "support": "画面左腿（解剖右腿）承重，画面右腿（解剖左腿）近地经过",
+      "upperShift": [
+        -5,
+        -1
+      ],
+      "upperAngle": 0,
+      "shadows": [],
+      "R": {
+        "center": [
+          [
+            180,
+            56
+          ],
+          [
+            205,
+            52
+          ],
+          [
+            229,
+            48
+          ],
+          [
+            248,
+            45
+          ],
+          [
+            262,
+            43
+          ],
+          [
+            284,
+            40
+          ],
+          [
+            306,
+            39
+          ]
+        ],
+        "outline": [
+          [
+            34,
+            180
+          ],
+          [
+            32,
+            205
+          ],
+          [
+            30,
+            229
+          ],
+          [
+            29,
+            248
+          ],
+          [
+            30,
+            262
+          ],
+          [
+            28,
+            284
+          ],
+          [
+            29,
+            306
+          ],
+          [
+            49,
+            306
+          ],
+          [
+            51,
+            284
+          ],
+          [
+            55,
+            262
+          ],
+          [
+            56,
+            248
+          ],
+          [
+            58,
+            229
+          ],
+          [
+            62,
+            205
+          ],
+          [
+            68,
+            180
+          ]
+        ],
+        "kneeY": 248,
+        "ankle": [
+          43,
+          319
+        ],
+        "bootAngle": -3
+      },
+      "L": {
+        "center": [
+          [
+            180,
+            92
+          ],
+          [
+            204,
+            89
+          ],
+          [
+            226,
+            85
+          ],
+          [
+            245,
+            82
+          ],
+          [
+            258,
+            84
+          ],
+          [
+            278,
+            91
+          ],
+          [
+            296,
+            98
+          ]
+        ],
+        "outline": [
+          [
+            74,
+            180
+          ],
+          [
+            72,
+            204
+          ],
+          [
+            69,
+            226
+          ],
+          [
+            69,
+            245
+          ],
+          [
+            73,
+            258
+          ],
+          [
+            84,
+            278
+          ],
+          [
+            89,
+            296
+          ],
+          [
+            109,
+            296
+          ],
+          [
+            103,
+            278
+          ],
+          [
+            96,
+            258
+          ],
+          [
+            95,
+            245
+          ],
+          [
+            98,
+            226
+          ],
+          [
+            105,
+            204
+          ],
+          [
+            111,
+            180
+          ]
+        ],
+        "kneeY": 245,
+        "ankle": [
+          103,
+          298
+        ],
+        "bootAngle": -10,
+        "cuffFromBoot": true
+      },
+      "legOrder": [
+        "R",
+        "L"
+      ],
+      "contacts": {
+        "R": {
+          "patch": "full",
+          "sourcePoint": [
+            47,
+            337
+          ],
+          "targetPoint": [
+            47,
+            337
+          ]
+        }
+      },
+      "status": "internal-static-control; upper-body-articulation-not-tested",
+      "bodyPose": {
+        "spineLean": -1.3,
+        "chestCounterRoll": 0.4,
+        "headWorldAngle": 0.1,
+        "shoulderR": -0.3,
+        "elbowR": 0.8,
+        "shoulderL": 0.7,
+        "elbowL": -0.4,
+        "boxWorldAngle": -0.3
+      },
+      "version": "reference-passing-single-v03"
+    }
+  ],
+  "version": "reference-passing-single-v01",
+  "method": "One complete native pixel pose rebuilt from the accepted motion-geometry reference; no interpolation.",
+  "reviewColumns": 1,
+  "limitations": [
+    "Single static target pose",
+    "Motion geometry reference only; final identity and props remain under review",
+    "No animation or homepage integration"
+  ]
+}
