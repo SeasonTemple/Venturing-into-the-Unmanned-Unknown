@@ -16,6 +16,13 @@
       ]
     },
     {
+      "file": "left-contact.png",
+      "support": "L",
+      "passing": "R",
+      "supportFootBaseline": 347,
+      "passingFoot": "low toe contact"
+    },
+    {
       "file": "left-support.png",
       "support": "L",
       "passing": "R",
@@ -34,5 +41,5 @@
     "green recorder in anatomical left hand",
     "single source pixel palette"
   ],
-  "status": "static pair candidate; no interpolation or animation"
+  "status": "static three-pose candidate; no interpolation or animation"
 }
