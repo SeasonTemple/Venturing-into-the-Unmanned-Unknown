@@ -20,6 +20,7 @@ const homeOnly = process.argv.includes('--home')||homeSurface||homeNotebook;
 const homeLifecycle = process.argv.includes('--home-lifecycle');
 const homeSoak = process.argv.includes('--home-soak');
 const readerAudit = process.argv.includes('--reader-audit');
+const readerLayout = process.argv.includes('--reader-layout');
 const folder = resolve(fieldOnly ? '.lab/field-study' : riftOnly ? '.lab/rift-design' : productionOnly ? '.lab/production-journal' : territoryOnly ? '.lab/territory-design' : outpostOnly ? '.lab/outpost-design' : materialsOnly ? '.lab/material-study' : terrainOnly ? '.lab/journal-terrain' : journalOnly ? '.lab/field-journal' : wideOnly ? '.lab/reading-wide' : readingOnly ? '.lab/reading-study' : '.lab/visual-direction'); await mkdir(folder, { recursive: true });
 const reportFolder=homeNotebook?resolve('.lab/home-notebook'):homeSurface?resolve('.lab/home-surface'):homeLifecycle?resolve('.lab/home-lifecycle'):homeSoak?resolve(process.argv.includes('--baseline')?'.lab/home-soak-before':'.lab/home-soak-after'):readerAudit?resolve('.lab/reader-revision'):homeOnly?resolve('.lab/meadow-production'):meadowOnly?resolve('.lab/meadow-motion'):benchOnly?resolve('.lab/bench-study'):folder;await mkdir(reportFolder,{recursive:true});
 const profile = await mkdtemp(resolve(reportFolder, 'browser-check-'));
@@ -53,7 +54,9 @@ try {
   const evaluate = async expression => { const result = await send('Runtime.evaluate', { expression, awaitPromise: true, returnByValue: true }); if (result.exceptionDetails) throw Error(JSON.stringify(result.exceptionDetails)); return result.result.value; };
   const until = async expression => { for (let i = 0; i < 150; i++) { if (await evaluate(expression)) return; await pause(70); } throw Error('Timed out: ' + expression); };
   await send('Page.enable'); await send('Runtime.enable');
-  if (homeLifecycle) {
+  if (readerLayout) {
+    await (await import('../../site/scripts/reader-layout-checks.mjs')).run({send,evaluate,until,pause,check,report});
+  } else if (homeLifecycle) {
     await (await import('../../site/scripts/home-lifecycle-checks.mjs')).run({send,evaluate,until,pause,check,report});
   } else if (homeSoak) {
     await (await import('../../site/scripts/home-soak-checks.mjs')).run({send,evaluate,until,pause,check,report});
@@ -99,6 +102,7 @@ try {
   check('normal camera travel completes in the original world', await evaluate('window.__visualStudy.state().view==="space" && !window.__visualStudy.state().busy && !window.__visualStudy.state().world.moving && window.__visualStudy.state().world.frames>10 && document.querySelector("canvas")===window.__originalCanvas'));
   check('entry reveals six station choices and mode controls', await evaluate('!document.getElementById("space-ui").hidden && document.querySelectorAll(".station-label:not([hidden])").length===6'));
   check('same landscape reveals six physical work sites',report.metrics.entered.world.visibleStations===6&&report.metrics.entered.world.actorsVisible&&report.metrics.entered.world.art===report.metrics.home.art);
+  check('formal homepage keeps the unapproved pixel actor behind the preview gate', report.metrics.entered.world.pixelActorVisible === false && await evaluate('document.getElementById("space-route").hidden === true'));
   await evaluate('document.querySelector("input[value=human]").click()');
   check('inside mode control updates the world', await evaluate('window.__visualStudy.state().mode==="human" && window.__visualStudy.state().world.mode==="human"'));
   await evaluate('document.getElementById("station-2").click(); document.getElementById("station-read").focus(); document.getElementById("station-read").click()');

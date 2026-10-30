@@ -91,5 +91,6 @@ export async function run({send,evaluate,until,pause,check,report}){
   await (await import('./reader-experience-checks.mjs')).run({send,evaluate,until,pause,check,report});
   await (await import('./reader-chrome-checks.mjs')).run({send,evaluate,until,pause,check,report});
   await (await import('./chapter-arrival-checks.mjs')).run({send,evaluate,until,pause,check,report});
+  await (await import('./reader-layout-checks.mjs')).run({send,evaluate,until,pause,check,report});
   check('no runtime or shader errors',report.consoleErrors.filter(e=>!e.includes('Error creating WebGL context')).length===0,report.consoleErrors);
 }
