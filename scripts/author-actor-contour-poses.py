@@ -133,6 +133,9 @@ def main_row_run(image, y):
 
 def draw_trouser(side, spec):
     src = cloth_by_side[side]
+    if spec.get('cuffFromBoot'):
+        from actor_cuff import attach_cuff_to_boot
+        spec = attach_cuff_to_boot(spec, side, src)
     result = new_layer()
     source_knee = 254 if side == 'R' else 260
     source_cuff = 314 if side == 'R' else 321
@@ -143,12 +146,12 @@ def draw_trouser(side, spec):
     if spec.get('outline'):
         outline_mask = Image.new('RGBA', original.size)
         ImageDraw.Draw(outline_mask).polygon([tuple(p) for p in spec['outline']], fill='white')
-    for y in range(math.ceil(hip_y), math.floor(cuff_y)+1):
+    for y in range(math.ceil(hip_y), math.floor(spec.get('hemLastRow', cuff_y))+1):
         if y <= knee_y:
             sy = 180 + (y-hip_y)/(knee_y-hip_y)*(source_knee-180)
         else:
             sy = source_knee + (y-knee_y)/(cuff_y-knee_y)*(source_cuff-source_knee)
-        sy = round(sy)
+        sy = min(source_cuff, round(sy))
         run = main_row_run(src, sy)
         if not run:
             continue
