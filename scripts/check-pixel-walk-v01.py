@@ -1,4 +1,4 @@
-"""Integrity checks for the eight-frame walk sample and its approved homepage gate."""
+"""Integrity checks for the rejected sample; success does not approve its art."""
 from __future__ import annotations
 import hashlib, json
 from pathlib import Path
@@ -9,9 +9,9 @@ STUDY = ROOT / "prototypes/visual-direction/pixel-walk-v01"
 manifest = json.loads((STUDY / "manifest.json").read_text(encoding="utf8"))
 review = json.loads((STUDY / "review-v01.json").read_text(encoding="utf8"))
 audit = json.loads((STUDY / "audit-v01.json").read_text(encoding="utf8"))
-if review["status"] != "pass-source-constrained-walk-art" or len(review["manualChecklist"]) != 5:
+if review["status"] != "rejected-by-user" or len(review["manualChecklist"]) != 5:
     raise SystemExit("WALK_REVIEW_RECORD_FAILED")
-if manifest["sourceArtApproved"] is not True or manifest["artApproved"] is not False or manifest["motionApproved"] is not False or manifest["homepageIntegrated"] is not False:
+if manifest["sourceArtApproved"] is not False or manifest["artApproved"] is not False or manifest["motionApproved"] is not False or manifest["homepageIntegrated"] is not False:
     raise SystemExit("WALK_APPROVAL_GATE_FAILED")
 if audit["status"] != "diagnostic" or audit["upperBodyResponds"] is not True:
     raise SystemExit("WALK_UPPER_BODY_DIAGNOSTIC_FAILED")
@@ -38,4 +38,6 @@ for i, entry in enumerate(manifest["frames"]):
         raise SystemExit(f"WALK_HASH_FAILED:{i}")
 if len(set(hashes)) != 8:
     raise SystemExit("WALK_FRAMES_NOT_UNIQUE")
-print(json.dumps({"status":"ok", "frames":8, "canvas":[128,196], "baseline":183, "fps":8, "uniqueFrames":8, "sourceArtApproved":True, "artApproved":False, "motionApproved":False, "homepageIntegrated":False}, ensure_ascii=False))
+from pixel_review import frame_set_digest
+assert review["userDecision"]["frameSetSha256"] == frame_set_digest(STUDY, manifest["frames"])
+print(json.dumps({"status":"integrity-ok", "frames":8, "canvas":[128,196], "baseline":183, "fps":8, "uniqueFrames":8, "sourceArtApproved":False, "artApproved":False, "motionApproved":False, "homepageIntegrated":False, "visualReview":"rejected-by-user"}, ensure_ascii=False))

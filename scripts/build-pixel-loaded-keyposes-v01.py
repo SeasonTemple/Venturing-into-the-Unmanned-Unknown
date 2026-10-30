@@ -1,4 +1,4 @@
-"""Author four complete loaded keyposes on the approved left-facing source."""
+"""Author four complete loaded keyposes as unapproved pixel candidates."""
 from __future__ import annotations
 import hashlib, json, zipfile
 from io import BytesIO
@@ -167,9 +167,9 @@ def main() -> None:
             buf=BytesIO(); Image.open(OUT/e["file"]).save(buf,format="PNG"); name=f"data/frame-{i:02d}.png"; z.writestr(name,buf.getvalue()); SubElement(stack,"layer",{"name":e["label"],"src":name,"opacity":"1.0","visibility":"visible","composite-op":"svg:src-over","x":"0","y":"0"})
         z.writestr("stack.xml",tostring(root,encoding="utf-8",xml_declaration=True)); buf=BytesIO(); Image.open(OUT/"loaded-keyposes-native.png").save(buf,format="PNG"); z.writestr("mergedimage.png",buf.getvalue()); z.writestr("Thumbnails/thumbnail.png",buf.getvalue())
     manifest={"revision":"pixel-loaded-keyposes-v01","status":"loaded-keypose-art-review","artApproved":False,"motionApproved":False,"homepageIntegrated":False,"canvas":[W,H],"baseline":BASELINE,"fps":6,"frames":frames,"method":"four complete pose-specific native pixel drawings; no leg-only runtime transform or generic tween","source":"prototypes/visual-direction/pixel-turn-keyframes-v01/frames/frame-03.png","poseContract":["right leg supports and left leg relaxes","left leg swings forward while right supports","left heel contacts while right supports","left leg supports and right leg trails"],"gate":"Approve pelvis, chest, shoulder, elbow, head, hands, equipment, knees and foot contact in all four poses before walking."}
-    (OUT/"manifest.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+"\n",encoding="utf8")
     review={"revision":"pixel-loaded-keyposes-v01-review-v01","status":"pending-manual-art-approval","reviewSurface":"pixel-loaded-keyposes-v01.html","manualChecklist":[{"id":"support","question":"support foot carries pelvis and knee points over it","status":"needs-review"},{"id":"pelvis-chest","question":"pelvis, chest and shoulders respond across the four poses","status":"needs-review"},{"id":"arms-equipment","question":"elbows, hands, toolbox and recorder remain connected","status":"needs-review"},{"id":"knees","question":"knees bend outward or forward without inward collapse","status":"needs-review"},{"id":"contact","question":"all feet share y=183 with no floating or buried sole","status":"needs-review"}],"decision":"Do not expand to walking until the four loaded poses pass manual review."}
-    (OUT/"review-v01.json").write_text(json.dumps(review,ensure_ascii=False,indent=2)+"\n",encoding="utf8")
+    from pixel_review import write_candidate_records
+    write_candidate_records(OUT, manifest, review)
     print(json.dumps({"status":"built","frames":len(frames),"out":str(OUT)},ensure_ascii=False))
 
 if __name__ == "__main__": main()

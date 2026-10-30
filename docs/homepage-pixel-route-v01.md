@@ -11,7 +11,7 @@
 - 正面状态不伪造右向行走；右向资产仍需另行手绘后才能加入；
 - 减少动态、失焦、离屏和暂停时停止渲染时钟。
 
-当前清单明确写入 `behaviorApproved: true`、`artApproved: true`、`motionApproved: false` 和 `homepageIntegrated: false`。浏览器验收记录在 `pixel-route-v01/behavior-checks.json`，预览入口记录在 `pixel-route-v01/home-checks.json`，十分钟压力记录在 `pixel-route-v01/soak-checks.json`。这套状态机只承诺已绘制的左向路线，不用镜像伪造右向。
+当前清单明确写入 `behaviorApproved: true`、`sourceArtApproved: false`、`artApproved: false`、`usesPendingWalkSource: true`、`motionApproved: false` 和 `homepageIntegrated: false`。行走帧已被用户否决，保留在独立诊断页。浏览器记录在 `pixel-route-v01/behavior-checks.json`，预览记录在 `pixel-route-v01/home-checks.json`，压力记录在 `pixel-route-v01/soak-checks.json`；这些不构成美术或动作认可。
 
 检查命令：
 

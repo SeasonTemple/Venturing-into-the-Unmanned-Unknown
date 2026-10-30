@@ -13,12 +13,23 @@
     h1,h2 { line-height:1.15; letter-spacing:.02em; } h1 { max-width:800px; font-size:clamp(2rem,5vw,4rem); margin:.2em 0 .35em; }
     .intro { max-width:800px; color:#b9c9bc; } .status { border-left:3px solid var(--accent); background:var(--panel); padding:12px 16px; max-width:800px; }
     .review-grid { display:grid; grid-template-columns:minmax(0,1fr) 310px; gap:24px; align-items:start; margin-top:32px; }
+    .review-grid > * { min-inline-size:0; }
+    header { flex-wrap:wrap; }
     .surface { background:#102522; border:1px solid var(--line); padding:18px; overflow:auto; } .surface img { display:block; width:min(100%,960px); height:auto; image-rendering:pixelated; margin:auto; }
     .native { margin-top:18px; } .controls { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    #frame { inline-size:384px; max-inline-size:100%; block-size:auto; }
+    .native img { inline-size:1024px; max-inline-size:none; }
+    .source-proof { margin-block:32px; }
+    .source-comparison { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); gap:20px; }
+    .source-comparison figure { min-inline-size:0; margin:0; padding:18px; background:var(--panel); }
+    .source-canvas { position:relative; inline-size:128px; block-size:196px; margin-inline:auto; }
+    .source-canvas img { display:block; position:absolute; inset:0; inline-size:128px; block-size:196px; image-rendering:pixelated; }
+    .source-canvas .source-reference { inset:10px auto auto 38px; inline-size:52px; block-size:174px; }
+    .source-comparison figcaption { margin-block-start:16px; color:var(--muted); font-size:.9rem; }
     button { color:var(--ink); background:#1d3a32; border:1px solid #5e816f; padding:9px 13px; border-radius:3px; font:inherit; cursor:pointer; }
     button:hover,button:focus-visible { background:#315b4b; } button:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
     dl { display:grid; grid-template-columns:auto 1fr; gap:5px 12px; margin:0; } dt { color:var(--muted); } dd { margin:0; } .note { color:var(--muted); font-size:.92rem; }
-    footer { border-top:1px solid var(--line); padding-block:18px 30px; color:var(--muted); } @media (max-width:800px) { header { display:block; } .review-grid { grid-template-columns:1fr; } }
+    footer { border-top:1px solid var(--line); padding-block:18px 30px; color:var(--muted); } @media (max-width:800px) { .review-grid { grid-template-columns:1fr; } }
     @media (prefers-reduced-motion:reduce) { * { scroll-behavior:auto !important; } }
   </style>
 </head>
@@ -28,10 +39,19 @@
     <p class="eyebrow">阶段四 / 短行走样片</p>
     <h1>接触、抬脚、前摆、跟脚。</h1>
     <p class="intro">八帧只验证一件事：四个负重姿态能否形成同一方向的连续行走。左向行走使用完整像素帧，移动距离、朝向和脚底接触分别记录。</p>
-    <p class="status"><strong>当前状态：源美术已通过，场景运动复核中。</strong> 这段尚未接入首页；路线行为壳已独立通过，继续确认场景尺度、起停节奏和性能。</p>
+    <p class="status"><strong>当前状态：视觉未通过，保留为失败对照。</strong> 行为和文件检查通过，不代表人物或动作合格。正式首页不使用这套角色。</p>
+    <section class="source-proof" aria-labelledby="source-title">
+      <h2 id="source-title">先对齐同一个人，再谈行走</h2>
+      <p class="note">三张按原生像素放入 128 × 196 对照区域，脚底对齐 y = 183。原画保留 52 × 174 尺寸，偏移 (38, 10)，不拉伸。此处展示差异，不是新的修正版。</p>
+      <div class="source-comparison">
+        <figure><div class="source-canvas"><img class="source-reference" src="pixel-native-master-v01/reference-side-1x.png" width="52" height="174" alt="保留的左侧原画参照。"></div><figcaption>原画参照：衣领、胸背、袖口和裤腿有体积，光色形成连续面。</figcaption></figure>
+        <figure><div class="source-canvas"><img src="pixel-turn-keyframes-v01/frames/frame-03.png" width="128" height="196" alt="尚未得到视觉确认的转身中间帧。"></div><figcaption>转身中间帧：脸型、肩背与衣料色簇已偏离原画；技术检查曾错误地被当成视觉通过。</figcaption></figure>
+        <figure><div class="source-canvas"><img src="pixel-walk-v01/frames/frame-00.png" width="128" height="196" alt="用户已否决的行走第一帧。"></div><figcaption>失败行走帧：沿用偏离后的造型，单纯增加腿部姿态无法恢复身份和承重。</figcaption></figure>
+      </div>
+    </section>
     <section class="review-grid" aria-labelledby="review-title">
       <div>
-        <h2 id="review-title">3× 逐帧预览</h2>
+        <h2 id="review-title">失败帧检查（最多 3×）</h2>
         <figure class="surface"><img id="frame" src="pixel-walk-v01/frames/frame-00.png" width="384" height="588" alt="右脚着地行走帧。"></figure>
         <div class="controls" aria-label="行走帧控制"><button id="prev" type="button">← 上一帧</button><button id="play" type="button" aria-pressed="false">播放</button><button id="next" type="button">下一帧 →</button><button id="reset" type="button">回到第一帧</button></div>
         <p class="note">默认不自动播放；播放只用于检查节奏。系统开启“减少动态”时保持静止。</p>
@@ -43,15 +63,16 @@
         <dl><dt>阶段</dt><dd id="phase">right-contact</dd><dt>脚底</dt><dd>y = 183</dd><dt>画布</dt><dd>128 × 196</dd><dt>速率</dt><dd>8 fps</dd></dl>
         <h2>复核清单</h2>
         <ul><li>接触与抬脚没有浮空或埋脚</li><li>前摆、脚跟和承重顺序可读</li><li>头、胸、骨盆随步态响应</li><li>工具箱和记录器保持连接</li><li>原生尺寸没有撕裂</li></ul>
-        <p class="note">源层人工复核已通过；自动检查负责尺寸、顺序、哈希和接触行，场景尺度下的自然度仍待验收。</p>
+        <p class="note">以上是尚未通过的项目。自动检查只负责文件与元数据；一行像素接触地面、质心统计发生变化，都不能证明承重或动作自然。</p>
       </aside>
     </section>
   </main>
   <footer>WALK 01 · <a href="pixel-walk-v01/manifest.json">manifest.json</a> · <a href="pixel-loaded-keyposes-v01.html">负重姿态源</a></footer>
   <script type="module">
-    const manifest=await fetch('pixel-walk-v01/manifest.json').then(r=>r.json()); const img=document.querySelector('#frame'),label=document.querySelector('#label'),phase=document.querySelector('#phase'),play=document.querySelector('#play'); let index=0,timer=0;
+    const manifest=await fetch('pixel-walk-v01/manifest.json').then(r=>r.json()); const img=document.querySelector('#frame'),label=document.querySelector('#label'),phase=document.querySelector('#phase'),play=document.querySelector('#play'),motion=matchMedia('(prefers-reduced-motion:reduce)'); let index=0,timer=0;
     const render=()=>{const f=manifest.frames[index];img.src=`pixel-walk-v01/${f.file}`;img.alt=`${f.label}行走帧。`;label.textContent=`${String(index+1).padStart(2,'0')} / ${f.label}`;phase.textContent=f.phase;}; const stop=()=>{clearInterval(timer);timer=0;play.textContent='播放';play.setAttribute('aria-pressed','false');}; const step=d=>{index=(index+d+manifest.frames.length)%manifest.frames.length;render();};
-    document.querySelector('#prev').addEventListener('click',()=>{stop();step(-1);}); document.querySelector('#next').addEventListener('click',()=>{stop();step(1);}); document.querySelector('#reset').addEventListener('click',()=>{stop();index=0;render();}); play.addEventListener('click',()=>{if(timer)stop();else{play.textContent='暂停';play.setAttribute('aria-pressed','true');timer=setInterval(()=>step(1),1000/manifest.fps);}}); document.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){stop();step(-1);}if(e.key==='ArrowRight'){stop();step(1);}if(e.key===' '){e.preventDefault();play.click();}}); render();
+    document.querySelector('#prev').addEventListener('click',()=>{stop();step(-1);}); document.querySelector('#next').addEventListener('click',()=>{stop();step(1);}); document.querySelector('#reset').addEventListener('click',()=>{stop();index=0;render();}); play.addEventListener('click',()=>{if(timer)stop();else if(!motion.matches&&!document.hidden){play.textContent='暂停';play.setAttribute('aria-pressed','true');timer=setInterval(()=>step(1),1000/manifest.fps);}}); document.addEventListener('keydown',e=>{if(e.target.closest('button,a,input,textarea,select')||e.target.isContentEditable||e.repeat)return;if(e.key==='ArrowLeft'){e.preventDefault();stop();step(-1);}if(e.key==='ArrowRight'){e.preventDefault();stop();step(1);}if(e.key===' '){e.preventDefault();play.click();}});
+    function syncMotion(){stop();play.disabled=motion.matches;}motion.addEventListener('change',syncMotion);document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});addEventListener('blur',stop);addEventListener('pagehide',stop);syncMotion();render();
   </script>
 </body>
 </html>

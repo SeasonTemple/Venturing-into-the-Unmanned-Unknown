@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 STUDY = ROOT / "prototypes/visual-direction/pixel-turn-keyframes-v01"
 manifest = json.loads((STUDY / "manifest.json").read_text(encoding="utf8"))
 review = json.loads((STUDY / "review-v01.json").read_text(encoding="utf8"))
-if review["status"] != "pass-source-constrained-turn" or len(review["manualChecklist"]) != 5:
+if review["status"] not in {"pending-visual-review", "rejected-by-user"} or len(review["manualChecklist"]) != 5:
     raise SystemExit("TURN_KEYFRAME_REVIEW_RECORD_FAILED")
 if manifest["canvas"] != [128, 196] or manifest["baseline"] != 183:
     raise SystemExit("TURN_KEYFRAME_CANVAS_FAILED")
@@ -43,4 +43,5 @@ if any(left < right for left, right in zip(row_widths, row_widths[1:])):
 for forbidden in ("mirroring", "horizontal stretch", "3D interpolation", "limb-only transforms", "generic motion tween"):
     if forbidden not in manifest["forbiddenMethods"]:
         raise SystemExit(f"TURN_KEYFRAME_METHOD_CONTRACT_FAILED:{forbidden}")
-print(json.dumps({"status":"ok", "frames":5, "intermediateFrames":3, "canvas":[128,196], "baseline":183, "silhouetteWidthsAtY80":row_widths, "artApproved":manifest["artApproved"], "motionApproved":manifest["motionApproved"], "manualReview":"pass-source-constrained-turn"}, ensure_ascii=False))
+assert not manifest["artApproved"] and not manifest["motionApproved"]
+print(json.dumps({"status":"integrity-ok", "frames":5, "intermediateFrames":3, "canvas":[128,196], "baseline":183, "silhouetteWidthsAtY80":row_widths, "artApproved":False, "motionApproved":False, "visualReview":review["status"]}, ensure_ascii=False))

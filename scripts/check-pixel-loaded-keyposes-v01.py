@@ -9,7 +9,7 @@ STUDY = ROOT / "prototypes/visual-direction/pixel-loaded-keyposes-v01"
 manifest = json.loads((STUDY / "manifest.json").read_text(encoding="utf8"))
 review = json.loads((STUDY / "review-v01.json").read_text(encoding="utf8"))
 audit = json.loads((STUDY / "audit-v01.json").read_text(encoding="utf8"))
-if review["status"] != "pass-source-constrained-keyposes" or len(review["manualChecklist"]) != 5:
+if review["status"] not in {"pending-visual-review", "rejected-by-user"} or len(review["manualChecklist"]) != 5:
     raise SystemExit("LOADED_KEYPOSE_REVIEW_RECORD_FAILED")
 if not audit["upperBodyResponds"] or len(audit["frames"]) != 4:
     raise SystemExit("LOADED_KEYPOSE_UPPER_BODY_AUDIT_FAILED")
@@ -37,4 +37,5 @@ for i, (entry, view) in enumerate(zip(manifest["frames"], expected)):
         raise SystemExit(f"LOADED_KEYPOSE_HASH_FAILED:{i}")
 if len(set(hashes)) != 4:
     raise SystemExit("LOADED_KEYPOSE_FRAMES_IDENTICAL")
-print(json.dumps({"status":"ok", "frames":4, "canvas":[128,196], "baseline":183, "uniqueFrames":4, "upperBodyResponds":audit["upperBodyResponds"], "manualReview":"pass-source-constrained-keyposes"}, ensure_ascii=False))
+assert not manifest["artApproved"] and not manifest["motionApproved"]
+print(json.dumps({"status":"integrity-ok", "frames":4, "canvas":[128,196], "baseline":183, "uniqueFrames":4, "upperBodyCentroidChanges":audit["upperBodyResponds"], "artApproved":False, "visualReview":review["status"]}, ensure_ascii=False))
