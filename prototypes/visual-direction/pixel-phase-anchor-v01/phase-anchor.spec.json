@@ -1,0 +1,136 @@
+{
+  "source": "prototypes/visual-direction/art-pack-media/actor-front.png",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "layerSource": "prototypes/visual-direction/actor-keypose-art/source-layers",
+  "canvas": [
+    260,
+    400
+  ],
+  "sourceOffset": [
+    52,
+    26
+  ],
+  "poses": [
+    {
+      "name": "phase-anchor",
+      "label": "单腿支撑，另一腿近地经过（原生像素小样）",
+      "support": "右脚全掌承重；左脚近地经过，保持膝踝分离",
+      "upperShift": [
+        -4,
+        -1
+      ],
+      "upperAngle": -0.6,
+      "shadows": [
+        [
+          58,
+          338,
+          28
+        ]
+      ],
+      "R": {
+        "center": [
+          [
+            180,
+            60
+          ],
+          [
+            208,
+            60
+          ],
+          [
+            234,
+            61
+          ],
+          [
+            255,
+            63
+          ],
+          [
+            282,
+            68
+          ],
+          [
+            310,
+            74
+          ]
+        ],
+        "kneeY": 254,
+        "ankle": [
+          58,
+          319
+        ],
+        "bootAngle": 0
+      },
+      "L": {
+        "center": [
+          [
+            180,
+            96
+          ],
+          [
+            207,
+            94
+          ],
+          [
+            232,
+            90
+          ],
+          [
+            252,
+            84
+          ],
+          [
+            274,
+            86
+          ],
+          [
+            292,
+            94
+          ]
+        ],
+        "kneeY": 251,
+        "ankle": [
+          83,
+          304
+        ],
+        "bootAngle": 4
+      },
+      "legOrder": [
+        "R",
+        "L"
+      ],
+      "contacts": {
+        "R": {
+          "patch": "full",
+          "sourcePoint": [
+            47,
+            337
+          ],
+          "targetPoint": [
+            47,
+            337
+          ]
+        }
+      },
+      "status": "internal-static-control; upper-body-articulation-not-tested",
+      "bodyPose": {
+        "spineLean": -1.3,
+        "chestCounterRoll": 0.4,
+        "headWorldAngle": 0,
+        "shoulderR": 1.0,
+        "elbowR": 0.5,
+        "shoulderL": 1.0,
+        "elbowL": -0.5,
+        "boxWorldAngle": 0.3
+      }
+    }
+  ],
+  "version": "native-phase-anchor-v01",
+  "method": "One authored source-cloth phase pose with connected upper-body surface and measured grip points; no generative image or runtime leg transform.",
+  "reviewColumns": 5,
+  "limitations": [
+    "Single static candidate; not an animation or approval",
+    "Walking proxy supplied phase intent only; no automatic retargeting",
+    "Must pass visual review at native and scene size before any H3 test"
+  ]
+}
