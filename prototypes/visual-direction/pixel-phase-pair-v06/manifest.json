@@ -1,0 +1,62 @@
+{
+  "status": "candidate-v06-controlled-cadence-pending-visual-review",
+  "method": "whole-pose-native-pixel-authoring",
+  "source": "prototypes/visual-direction/art-pack-media/actor-front.png",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "frames": [
+    "right-support.png",
+    "right-through.png",
+    "left-passing.png",
+    "left-touchdown.png",
+    "left-contact.png",
+    "left-through.png",
+    "left-support.png"
+  ],
+  "timingDiagnostic": "timing-diagnostic.png",
+  "timingMetrics": [
+    {
+      "from": "right-support",
+      "to": "right-through",
+      "changedRatio": 0.0388,
+      "meanAbs": 3.16
+    },
+    {
+      "from": "right-through",
+      "to": "left-passing",
+      "changedRatio": 0.0268,
+      "meanAbs": 1.97
+    },
+    {
+      "from": "left-passing",
+      "to": "left-touchdown",
+      "changedRatio": 0.0176,
+      "meanAbs": 1.64
+    },
+    {
+      "from": "left-touchdown",
+      "to": "left-contact",
+      "changedRatio": 0.0262,
+      "meanAbs": 2.52
+    },
+    {
+      "from": "left-contact",
+      "to": "left-through",
+      "changedRatio": 0.0343,
+      "meanAbs": 4.08
+    },
+    {
+      "from": "left-through",
+      "to": "left-support",
+      "changedRatio": 0.0144,
+      "meanAbs": 1.13
+    }
+  ],
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false,
+  "limitations": [
+    "static seven-pose review only",
+    "no interpolation or video",
+    "support leg and upper body held through touchdown and endpoint transitions"
+  ]
+}

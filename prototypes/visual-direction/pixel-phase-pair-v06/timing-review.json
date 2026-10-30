@@ -1,0 +1,54 @@
+{
+  "sequence": [
+    "right-support",
+    "right-through",
+    "left-passing",
+    "left-touchdown",
+    "left-contact",
+    "left-through",
+    "left-support"
+  ],
+  "sceneHeightPx": 104,
+  "metrics": [
+    {
+      "from": "right-support",
+      "to": "right-through",
+      "changedRatio": 0.0388,
+      "meanAbs": 3.16
+    },
+    {
+      "from": "right-through",
+      "to": "left-passing",
+      "changedRatio": 0.0268,
+      "meanAbs": 1.97
+    },
+    {
+      "from": "left-passing",
+      "to": "left-touchdown",
+      "changedRatio": 0.0176,
+      "meanAbs": 1.64
+    },
+    {
+      "from": "left-touchdown",
+      "to": "left-contact",
+      "changedRatio": 0.0262,
+      "meanAbs": 2.52
+    },
+    {
+      "from": "left-contact",
+      "to": "left-through",
+      "changedRatio": 0.0343,
+      "meanAbs": 4.08
+    },
+    {
+      "from": "left-through",
+      "to": "left-support",
+      "changedRatio": 0.0144,
+      "meanAbs": 1.13
+    }
+  ],
+  "status": "timing-review-pending",
+  "interpretation": "All contact-transition jumps are below the earlier uncontrolled cadence except the intentional step-to-contact events; metrics are inspection signals only.",
+  "motionApproved": false,
+  "homepageIntegrated": false
+}
