@@ -1,0 +1,27 @@
+{
+  "status": "candidate-body-coupled-pending-visual-review",
+  "method": "whole-pose-native-pixel-authoring",
+  "source": "prototypes/visual-direction/art-pack-media/actor-front.png",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "frames": [
+    "right-support.png",
+    "left-passing.png",
+    "left-contact.png",
+    "left-support.png"
+  ],
+  "diagnostic": "body-coupled-diagnostic.png",
+  "bodyCoupling": [
+    "pelvis shift",
+    "spine counter-lean",
+    "head world angle",
+    "both occupied arms and props follow the upper group"
+  ],
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false,
+  "limitations": [
+    "four representative phases only",
+    "small authored offsets, not a walk cycle",
+    "no video or homepage integration"
+  ]
+}
