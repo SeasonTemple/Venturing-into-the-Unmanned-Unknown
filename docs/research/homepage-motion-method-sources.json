@@ -1,0 +1,231 @@
+{
+  "date": "2026-10-28",
+  "purpose": "Research animation production routes for the existing pixel character; no media generation or implementation",
+  "sources": [
+    {
+      "id": "pixelover-home-correct",
+      "url": "https://pixelover.io/",
+      "resolvedUrl": "https://pixelover.io/",
+      "httpStatus": 200,
+      "bytes": 56316,
+      "sha256": "d29749b57dc987913726c9ed9d772d840bc73ebe48cab3dd14218a115b96d298",
+      "excerpt": "Pixel-perfect scaling algorithms when rescaling or rotating sprites.",
+      "scope": "Relevant official documentation sections read; software not installed or benchmarked"
+    },
+    {
+      "id": "pixelover-bones-correct",
+      "url": "https://docs.pixelover.io/tutorials/bones_animation/",
+      "resolvedUrl": "https://docs.pixelover.io/tutorials/bones_animation/",
+      "httpStatus": 200,
+      "bytes": 46857,
+      "sha256": "5dcc8dcb9417f760347387d0703433dd7f86d02e2f8cadb0de5c8cd66cd09648",
+      "excerpt": "After splitting, you must fill the hidden areas behind each part.",
+      "scope": "Relevant official documentation sections read; software not installed or benchmarked"
+    },
+    {
+      "id": "pixelover-ik",
+      "url": "https://docs.pixelover.io/tutorials/inverse_kinematics/",
+      "resolvedUrl": "https://docs.pixelover.io/tutorials/inverse_kinematics/",
+      "httpStatus": 200,
+      "bytes": 44497,
+      "sha256": "8b1c056eee46b0c23e3ebea1da48e61965b918b6de87aa2eeea3c5d1ec743e7b",
+      "excerpt": "The IK target is the object the chain tries to reach.",
+      "scope": "Relevant official documentation sections read; software not installed or benchmarked"
+    },
+    {
+      "id": "pixelover-license",
+      "url": "https://docs.pixelover.io/manual/licenses/",
+      "resolvedUrl": "https://docs.pixelover.io/manual/licenses/",
+      "httpStatus": 200,
+      "bytes": 34635,
+      "sha256": "f8842e22ab7b54eb60726c34deb379fedefea4eb93ec839b99552d126c212c76",
+      "excerpt": "The free demo gives you access to every feature of PixelOver, with a single restriction: exporting is disabled.",
+      "scope": "Relevant official documentation sections read; software not installed or benchmarked"
+    },
+    {
+      "id": "spine-pixel",
+      "url": "https://en.esotericsoftware.com/forum/d/17146-why-does-my-pixel-grid-character-look-weird-in-pixel-grid",
+      "resolvedUrl": "https://en.esotericsoftware.com/forum/d/17146-why-does-my-pixel-grid-character-look-weird-in-pixel-grid",
+      "httpStatus": 200,
+      "bytes": 39458,
+      "sha256": "43ec00fc7d5e4e8868b975e21eb2e04c48a58fc0b67fbe1eb07fc437cd89e4cb",
+      "excerpt": "Being off by half a pixel means you’ll likely lose one whole row or column of pixels.",
+      "scope": "Relevant official documentation sections read; software not installed or benchmarked"
+    },
+    {
+      "id": "spine-trial",
+      "url": "https://esotericsoftware.com/spine-download",
+      "resolvedUrl": "https://esotericsoftware.com/spine-download",
+      "httpStatus": 200,
+      "bytes": 8682,
+      "sha256": "3128c6d0f306c054a9d898e5d4b61e6420d87910430c0477ebcc51a5fdb2f92f",
+      "excerpt": "All Spine Professional features are available in the trial except saving projects, texture packing, and exporting animation data, images and video.",
+      "scope": "Relevant official documentation sections read; software not installed or benchmarked"
+    },
+    {
+      "id": "godot-license",
+      "url": "https://godotengine.org/license/",
+      "resolvedUrl": "https://godotengine.org/license/",
+      "httpStatus": 200,
+      "bytes": 19344,
+      "sha256": "bbcfce3ef6167c3eeabe90d8f26f5111f45fdd17f7ecfe13bdf08b1f2e0c2226",
+      "excerpt": "released under the permissive MIT license",
+      "scope": "Relevant official documentation sections read; software not installed or benchmarked"
+    },
+    {
+      "id": "godot-cutout",
+      "url": "https://docs.godotengine.org/en/stable/tutorials/animation/cutout_animation.html",
+      "resolvedUrl": "https://docs.godotengine.org/en/stable/tutorials/animation/cutout_animation.html",
+      "httpStatus": 200,
+      "bytes": 1374600,
+      "sha256": "095869d4b054cf0dd00f1a13dd0b382989b1b29a4fe582ba5426d5fefcaa5504",
+      "excerpt": "IK chains in Godot currently work in the editor only, not",
+      "scope": "Relevant sections only; tutorial marked work in progress or IK class marked experimental"
+    },
+    {
+      "id": "godot-runtime-ik",
+      "url": "https://docs.godotengine.org/en/stable/classes/class_skeletonmodification2dtwoboneik.html",
+      "resolvedUrl": "https://docs.godotengine.org/en/stable/classes/class_skeletonmodification2dtwoboneik.html",
+      "httpStatus": 200,
+      "bytes": 1306896,
+      "sha256": "e0de45ed6262ff530983e704ab3870e50aa602402e6094aff8eda9c4a7569ff4",
+      "excerpt": "Experimental: This class may be changed or removed in future versions.",
+      "scope": "Relevant sections only; tutorial marked work in progress or IK class marked experimental"
+    },
+    {
+      "id": "dead-cells-interview",
+      "url": "https://80.lv/articles/interview-with-the-developers-of-dead-cells",
+      "resolvedUrl": "https://80.lv/articles/interview-with-the-developers-of-dead-cells",
+      "httpStatus": 200,
+      "bytes": 71824,
+      "sha256": "e7aac1b2bcda0029de75f5a398400e7abd4442665eb97572a2dbff5c35ae896c",
+      "excerpt": "For the animation of the main character and the monsters we use 3D models that we render as 2D sprites with a little homebrew tool we whipped up.",
+      "scope": "First-person developer interview published by 80 Level"
+    },
+    {
+      "id": "blender-ik-source-correct",
+      "url": "https://projects.blender.org/blender/blender-manual/raw/branch/main/manual/animation/constraints/tracking/ik_solver.rst",
+      "resolvedUrl": "https://projects.blender.org/blender/blender-manual/raw/branch/main/manual/animation/constraints/tracking/ik_solver.rst",
+      "httpStatus": 200,
+      "bytes": 4993,
+      "sha256": "829314f8327d995c645751b3190739ffe44bcabb6d4b6cc19a169255dc9e8883",
+      "excerpt": "The *Inverse Kinematics* constraint makes not just one bone, but a whole chain",
+      "scope": "Relevant official documentation sections read; software not installed or benchmarked"
+    },
+    {
+      "id": "blender-cli-source-correct",
+      "url": "https://projects.blender.org/blender/blender-manual/raw/branch/main/manual/advanced/command_line/render.rst",
+      "resolvedUrl": "https://projects.blender.org/blender/blender-manual/raw/branch/main/manual/advanced/command_line/render.rst",
+      "httpStatus": 200,
+      "bytes": 2646,
+      "sha256": "65f58282359f101b6b163d4ae68587fd3cde686843db3f370e921a20d731873f",
+      "excerpt": "Render in the background (without UI).",
+      "scope": "Relevant official documentation sections read; software not installed or benchmarked"
+    },
+    {
+      "id": "wan-readme",
+      "url": "https://raw.githubusercontent.com/Wan-Video/Wan2.2/main/README.md",
+      "resolvedUrl": "https://raw.githubusercontent.com/Wan-Video/Wan2.2/main/README.md",
+      "httpStatus": 200,
+      "bytes": 35804,
+      "sha256": "40222cb3a66cc89aa1cd84589d1fa696806c93c09cf1c4383b3994139202dfa1",
+      "excerpt": "This command can run on a GPU with at least 24GB VRAM (e.g, RTX 4090 GPU).",
+      "scope": "Relevant official documentation sections read; software not installed or benchmarked"
+    },
+    {
+      "id": "torch-xpu-resolved",
+      "url": "https://docs.pytorch.org/docs/2.14/notes/get_start_xpu.html",
+      "resolvedUrl": "https://docs.pytorch.org/docs/2.14/notes/get_start_xpu.html",
+      "httpStatus": 200,
+      "bytes": 224812,
+      "sha256": "22fe65338b1ddc69c7a21111cf4c1d10faedc4183ca0f559941d07f3586e9d04",
+      "excerpt": "Intel® Core™ Ultra Processors (Series 2) with Intel® Arc™ Graphics (CodeName: Arrow Lake-H)",
+      "scope": "Relevant official documentation sections read; software not installed or benchmarked"
+    },
+    {
+      "id": "mediapipe-repo",
+      "url": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/master/docs/solutions/pose.md",
+      "resolvedUrl": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/master/docs/solutions/pose.md",
+      "httpStatus": 200,
+      "bytes": 23030,
+      "sha256": "afdba9b1952ae5950bd7201f784a2a6c7435cd8ebd7242f2529f19e2533e9e1e",
+      "excerpt": "33 3D landmarks and background segmentation mask on the whole body from RGB",
+      "scope": "Official legacy documentation; current API not verified"
+    }
+  ],
+  "failedOrRedirectedFetches": [
+    {
+      "id": "pixelover-home",
+      "url": "https://pixelover.io/en",
+      "finalUrl": "https://pixelover.io/en",
+      "status": 404,
+      "bytes": 19406
+    },
+    {
+      "id": "pixelover-bones",
+      "url": "https://docs.pixelover.io/en/tutorials/bones_animation/",
+      "finalUrl": "https://docs.pixelover.io/en/tutorials/bones_animation/",
+      "status": 404,
+      "bytes": 31528
+    },
+    {
+      "id": "blender-ik",
+      "url": "https://docs.blender.org/manual/en/latest/animation/constraints/tracking/ik_solver.html",
+      "finalUrl": "https://docs.blender.org/manual/en/latest/animation/constraints/tracking/ik_solver.html",
+      "status": 403,
+      "bytes": 61668
+    },
+    {
+      "id": "blender-cli",
+      "url": "https://docs.blender.org/manual/en/latest/advanced/command_line/render.html",
+      "finalUrl": "https://docs.blender.org/manual/en/latest/advanced/command_line/render.html",
+      "status": 403,
+      "bytes": 61611
+    },
+    {
+      "id": "torch-xpu",
+      "url": "https://docs.pytorch.org/docs/stable/notes/get_start_xpu.html",
+      "finalUrl": "https://docs.pytorch.org/docs/stable/notes/get_start_xpu.html",
+      "status": 200,
+      "bytes": 1365
+    },
+    {
+      "id": "mediapipe-pose",
+      "url": "https://ai.google.dev/edge/mediapipe/solutions/vision/pose_landmarker",
+      "error": "fetch failed"
+    },
+    {
+      "id": "mediapipe-task-sample",
+      "url": "https://raw.githubusercontent.com/google-ai-edge/mediapipe-samples/main/examples/pose_landmarker/python/README.md",
+      "finalUrl": "https://raw.githubusercontent.com/google-ai-edge/mediapipe-samples/main/examples/pose_landmarker/python/README.md",
+      "status": 404,
+      "bytes": 14
+    },
+    {
+      "id": "blender-ik-source",
+      "url": "https://raw.githubusercontent.com/blender/blender-manual/main/manual/animation/constraints/tracking/ik_solver.rst",
+      "finalUrl": "https://raw.githubusercontent.com/blender/blender-manual/main/manual/animation/constraints/tracking/ik_solver.rst",
+      "status": 404,
+      "bytes": 14
+    },
+    {
+      "id": "blender-cli-source",
+      "url": "https://raw.githubusercontent.com/blender/blender-manual/main/manual/advanced/command_line/render.rst",
+      "finalUrl": "https://raw.githubusercontent.com/blender/blender-manual/main/manual/advanced/command_line/render.rst",
+      "status": 404,
+      "bytes": 14
+    },
+    {
+      "id": "mediapipe-modern-source",
+      "url": "https://raw.githubusercontent.com/google-ai-edge/mediapipe-samples/main/examples/pose_landmarker/README.md",
+      "error": "fetch failed"
+    }
+  ],
+  "localHardware": {
+    "reportedGPUName": "Intel(R) Arc(TM) 140T GPU (16GB)",
+    "systemMemoryGiB": 31.5,
+    "dedicatedVideoMemoryVerified": false
+  },
+  "newMediaGenerationCalls": 0,
+  "newSoftwareInstalled": false
+}

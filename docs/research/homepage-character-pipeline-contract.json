@@ -1,0 +1,561 @@
+{
+  "source": "https://api.pixellab.ai/v2/openapi.json",
+  "checkedOn": "2026-10-28",
+  "sourceSha256": "ae1f76eb70320706c9c6f375e5378177d5ff94323436474245bd81146554b596",
+  "status": "Documented candidate contract; no authenticated request or server-side validation performed.",
+  "routes": {
+    "/animate-with-skeleton": {
+      "description": "Creates a pixel art animation based on the provided parameters. Called \"Animate with skeleton\" in the plugin.\n\nSupported image sizes: \n- 16x16\n- 32x32\n- 64x64\n- 128x128\n- 256x256  \n\nSupported features:\n- Inpainting\n- Init image\n- Forced palette\n\nUsing the Python client:\n```python\nimport pixellab\n\nclient = pixellab.Client(secret=\"YOUR_API_TOKEN\")\n\nresponse = client.animate_with_skeleton(\n    view=\"side\",\n    direction=\"south\",\n    image_size=dict(width=64, height=64),\n    reference_image=reference_image,\n    inpainting_images=existing_animation_frames,\n    mask_images=mask_images,\n    skeleton_keypoints=skeleton_keypoints,\n)\nimages = [image.pil_image() for image in response.images]\n```",
+      "requestSchemaName": "AnimateWithSkeletonRequest",
+      "requestSchema": {
+        "properties": {
+          "image_size": {
+            "$ref": "#/components/schemas/app__endpoints__external__v2__animate_with_skeleton__ImageSize"
+          },
+          "guidance_scale": {
+            "type": "number",
+            "maximum": 20.0,
+            "minimum": 1.0,
+            "title": "Guidance Scale",
+            "description": "How closely to follow the reference image and skeleton keypoints",
+            "default": 4.0
+          },
+          "view": {
+            "$ref": "#/components/schemas/CameraView",
+            "description": "Camera view angle",
+            "default": "side"
+          },
+          "direction": {
+            "$ref": "#/components/schemas/Direction",
+            "description": "Subject direction",
+            "default": "east"
+          },
+          "isometric": {
+            "type": "boolean",
+            "title": "Isometric",
+            "description": "Generate in isometric view",
+            "default": false
+          },
+          "oblique_projection": {
+            "type": "boolean",
+            "title": "Oblique Projection",
+            "description": "Generate in oblique projection",
+            "default": false
+          },
+          "init_images": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/Base64Image"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Init Images",
+            "description": "Initial images to start the generation from"
+          },
+          "init_image_strength": {
+            "type": "integer",
+            "maximum": 999.0,
+            "minimum": 1.0,
+            "title": "Init Image Strength",
+            "description": "Strength of the initial image influence",
+            "default": 300
+          },
+          "skeleton_keypoints": {
+            "items": {
+              "items": {
+                "$ref": "#/components/schemas/Point"
+              },
+              "type": "array"
+            },
+            "type": "array",
+            "title": "Skeleton Keypoints",
+            "description": "Skeleton pose keypoints. Requires EXACTLY 3 frames — the model is a 3-frame window; other counts are rejected with a 422."
+          },
+          "reference_image": {
+            "$ref": "#/components/schemas/Base64Image",
+            "description": "Reference image"
+          },
+          "inpainting_images": {
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Base64Image"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Inpainting Images",
+            "description": "Images used for showing the model with connected skeleton",
+            "default": [
+              null,
+              null,
+              null
+            ]
+          },
+          "mask_images": {
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Base64Image"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Mask Images",
+            "description": "Inpainting / mask image (black and white image, where the white is where the model should inpaint)"
+          },
+          "color_image": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Base64Image"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Forced color palette, image containing colors used for palette"
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed",
+            "description": "Seed decides the starting noise"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "image_size",
+          "reference_image"
+        ],
+        "title": "AnimateWithSkeletonRequest",
+        "description": "Request model for animation using skeleton endpoint",
+        "example": {
+          "image_size": {
+            "height": 64,
+            "width": 64
+          }
+        }
+      }
+    },
+    "/animate-with-skeleton-v3": {
+      "description": "Beta. Animate a sprite by posing it: one skeleton per frame, drawn from a single reference image.\n\nReturns immediately with a background job ID. Poll `GET /v2/background-jobs/{job_id}`\nto retrieve results when generation completes.\n\n**How it works:**\n1. Send the sprite, the skeleton of the pose it is already in (`first_frame_keypoints`), and one skeleton per frame you want (`keypoints`).\n2. Poll `GET /v2/background-jobs/{background_job_id}` every 5-10 seconds.\n3. When `status` is `completed`, `last_response.images` holds exactly `len(keypoints)` frames, each the size of `first_frame`. The reference frame is not returned.\n\n**Skeletons:** 18 humanoid joints, `x`/`y` as fractions 0-1 of the image. `depth` is\noptional -- leave it out and it is taken from the standing pose of `template_id` for\nyour direction, which is what an editor without 3D data should do. `POST /v2/estimate-skeleton`\nwill derive a skeleton from an image if you do not have one — it returns x/y on the same\n0-1 scale as this endpoint expects, so the result drops straight into `keypoints`.\n\n**Limits:** 3-15 frames, canvas up to 256x256.\n\n**Cost:** by generation time, which depends on frame count and not on canvas size:\n3 frames = 2 generations,\n8 frames = 3,\n15 frames = 4. A longer clip\nis nearly free, so prefer one long clip to several short ones.\n\nTypical generation time: 3-5 minutes.",
+      "requestSchemaName": "AnimateWithSkeletonV3Request",
+      "requestSchema": {
+        "properties": {
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Description",
+            "description": "What the character LOOKS like, as a noun phrase: 'blonde vampire with a red cape'. Colours, clothing, held items. Not the pose, motion, style or background -- those belong in `action` or in the skeletons.",
+            "examples": [
+              "blonde vampire with a red cape"
+            ]
+          },
+          "action": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Action",
+            "description": "The motion's short label: 'walk', 'run', 'attack'.",
+            "examples": [
+              "walk"
+            ]
+          },
+          "direction": {
+            "$ref": "#/components/schemas/Direction",
+            "description": "The direction the character faces."
+          },
+          "view": {
+            "$ref": "#/components/schemas/CameraView",
+            "description": "Camera angle.",
+            "default": "low top-down"
+          },
+          "first_frame": {
+            "$ref": "#/components/schemas/Base64Image",
+            "description": "The sprite to animate, PNG base64, up to 256x256. Frames come back at this size."
+          },
+          "first_frame_keypoints": {
+            "items": {
+              "$ref": "#/components/schemas/Keypoint-Input"
+            },
+            "type": "array",
+            "title": "First Frame Keypoints",
+            "description": "The skeleton of the pose `first_frame` is IN, all 18 joints. The model redraws this frame first and learns the background key and the colours from that redraw, so a skeleton that does not match the image quietly costs you transparency and colour accuracy. This frame is not returned."
+          },
+          "keypoints": {
+            "items": {
+              "items": {
+                "$ref": "#/components/schemas/Keypoint-Input"
+              },
+              "type": "array"
+            },
+            "type": "array",
+            "title": "Keypoints",
+            "description": "The motion: one skeleton per frame you get back, all 18 joints each. 3 to 15 frames."
+          },
+          "template_id": {
+            "type": "string",
+            "enum": [
+              "mannequin",
+              "bear",
+              "cat",
+              "dog",
+              "horse",
+              "lion"
+            ],
+            "title": "Template Id",
+            "description": "The body a joint's missing `depth` is taken from: mannequin, bear, cat, dog, horse or lion. A quadruped posed with mannequin depth comes out flat.",
+            "default": "mannequin"
+          },
+          "seed": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Seed",
+            "description": "0 for a random seed.",
+            "default": 0
+          },
+          "no_background": {
+            "type": "boolean",
+            "title": "No Background",
+            "description": "Return frames with a transparent background.",
+            "default": true
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "description",
+          "action",
+          "direction",
+          "first_frame",
+          "first_frame_keypoints",
+          "keypoints"
+        ],
+        "title": "AnimateWithSkeletonV3Request",
+        "example": {
+          "action": "walk",
+          "description": "blonde vampire with a red cape",
+          "direction": "east",
+          "first_frame": {
+            "base64": "iVBORw0KGgo..."
+          },
+          "first_frame_keypoints": [
+            {
+              "label": "NOSE",
+              "x": 0.5,
+              "y": 0.22,
+              "z_index": 17
+            }
+          ],
+          "keypoints": [
+            [
+              {
+                "label": "NOSE",
+                "x": 0.5,
+                "y": 0.22,
+                "z_index": 17
+              }
+            ]
+          ],
+          "view": "low top-down"
+        }
+      }
+    },
+    "/animate-with-text-v3": {
+      "description": "Generate an animation from a reference frame and a text action description.\n\nReturns immediately with a background job ID. Poll `GET /v2/background-jobs/{job_id}`\nto retrieve results when generation completes.\n\n**How it works:**\n1. Submit the first frame and action description; receive a `background_job_id` immediately.\n2. Poll `GET /v2/background-jobs/{background_job_id}` every 2-5 seconds.\n3. When `status` is `completed`, the generated frames are available at `last_response.images`.\n\n**Size Limits:**\n- Maximum image dimension: 256x256 pixels\n- Total pixel budget: width × height × frame_count ≤ 524,288\n\n**Frame Count Guidelines:**\n- 4 frames: Simple loops (idle, breathing)\n- 8 frames: Standard animations (walk, run)\n- 16 frames: Complex animations (attack combos)\n\nTypical generation time: 30-180 seconds.\n\nUsing the Python client:\n```python\nimport pixellab, time\n\nclient = pixellab.Client(secret=\"YOUR_API_TOKEN\")\n\njob = client.animate_with_text_v3(\n    first_frame=first_frame_image,\n    action=\"walking forward\",\n    frame_count=8,\n)\n\nwhile True:\n    result = client.get_background_job(job.background_job_id)\n    if result.status == \"completed\":\n        images = [img.pil_image() for img in result.last_response[\"images\"]]\n        break\n    if result.status == \"failed\":\n        raise RuntimeError(result.last_response[\"detail\"])\n    time.sleep(2)\n```",
+      "requestSchemaName": "AnimateWithTextV3Request",
+      "requestSchema": {
+        "properties": {
+          "first_frame": {
+            "$ref": "#/components/schemas/Base64Image",
+            "description": "First frame to animate (PNG/JPEG base64, max 256x256 pixels)"
+          },
+          "last_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Base64Image"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Optional last frame to guide the animation endpoint (PNG/JPEG base64, max 256x256 pixels)"
+          },
+          "action": {
+            "type": "string",
+            "maxLength": 1000,
+            "minLength": 1,
+            "title": "Action",
+            "description": "Action description (e.g., 'walking', 'jumping', 'attacking')"
+          },
+          "frame_count": {
+            "type": "integer",
+            "maximum": 16.0,
+            "minimum": 4.0,
+            "title": "Frame Count",
+            "description": "Number of animation frames (4-16, must be even)",
+            "default": 8
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed",
+            "description": "Seed for reproducible generation (0 for random)",
+            "default": 0
+          },
+          "no_background": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "No Background",
+            "description": "Remove background from generated frames"
+          },
+          "drift_threshold": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Drift Threshold",
+            "description": "Color de-flicker sensitivity. Frames whose foreground drifts from the first frame beyond this are corrected toward it; 0 corrects every frame, higher values correct fewer. Omit for the default."
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "description": "If true, automatically expand `action` into a richer motion description before generating — equivalent to calling /v2/enhance-animation-v3-prompt with these frames first. Uses `first_frame` (and `last_frame` for interpolation) to ground the description. Costs an additional 0.05 generations (or equivalent credits). The expanded text is returned in `enhanced_prompt`.",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "first_frame",
+          "action"
+        ],
+        "title": "AnimateWithTextV3Request",
+        "description": "Request model for animate with text v3 endpoint",
+        "example": {
+          "action": "walking forward",
+          "first_frame": {
+            "base64": "data:image/png;base64,..."
+          },
+          "frame_count": 8,
+          "no_background": true,
+          "seed": 42
+        }
+      }
+    },
+    "/inpaint-image-pro-flash": {
+      "description": "Replace only white mask pixels, preserving unmasked RGBA exactly.\n\nSource and mask must have identical supported native dimensions. Mask RGB\nmust be pure black/white; alpha does not change mask meaning. Empty masks\nare rejected. Changes-only outputs are transparent outside the mask;\nModify current layer returns the full composite. Optional native context\nrequires its source bounding_box. Poll the returned background job.",
+      "requestSchemaName": "InpaintImageProFlashRequest",
+      "requestSchema": {
+        "properties": {
+          "image": {
+            "$ref": "#/components/schemas/Base64Image"
+          },
+          "mask_image": {
+            "$ref": "#/components/schemas/Base64Image"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Description"
+          },
+          "context_image": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Base64Image"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "bounding_box": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ProFlashBoundingBox"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "no_background": {
+            "type": "boolean",
+            "title": "No Background",
+            "default": false
+          },
+          "background_removal_task": {
+            "type": "string",
+            "enum": [
+              "remove_simple_background",
+              "remove_complex_background"
+            ],
+            "title": "Background Removal Task",
+            "default": "remove_simple_background"
+          },
+          "output_method": {
+            "type": "string",
+            "enum": [
+              "New layer with changes",
+              "Modify current layer, only changes",
+              "Modify current layer"
+            ],
+            "title": "Output Method",
+            "default": "Modify current layer"
+          },
+          "crop_to_mask": {
+            "type": "boolean",
+            "const": true,
+            "title": "Crop To Mask",
+            "default": true
+          },
+          "seed": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Seed",
+            "default": 0
+          },
+          "project_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Project Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "image",
+          "mask_image",
+          "description"
+        ],
+        "title": "InpaintImageProFlashRequest",
+        "description": "White RGB generates; black RGB preserves every original RGBA byte."
+      }
+    }
+  },
+  "jointSchema": {
+    "properties": {
+      "x": {
+        "type": "number",
+        "maximum": 1.0,
+        "minimum": 0.0,
+        "title": "X",
+        "description": "Horizontal position, 0-1 across the image"
+      },
+      "y": {
+        "type": "number",
+        "maximum": 1.0,
+        "minimum": 0.0,
+        "title": "Y",
+        "description": "Vertical position, 0-1 down the image"
+      },
+      "label": {
+        "$ref": "#/components/schemas/SkeletonLabel"
+      },
+      "z_index": {
+        "type": "integer",
+        "title": "Z Index",
+        "description": "Draw order; higher draws on top",
+        "default": 0
+      },
+      "depth": {
+        "anyOf": [
+          {
+            "type": "number",
+            "maximum": 255.0,
+            "minimum": 0.0
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Depth",
+        "description": "How near the camera this joint is, 0-255 (about 128 at the body's centre, higher is nearer). Optional: leave it out and it is taken from the standing pose of `template_id` for this direction, which is usually what you want unless you have real 3D positions."
+      }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+      "x",
+      "y",
+      "label"
+    ],
+    "title": "Keypoint",
+    "description": "One joint of a skeleton."
+  },
+  "jointLabels": {
+    "type": "string",
+    "enum": [
+      "NOSE",
+      "NECK",
+      "RIGHT SHOULDER",
+      "RIGHT ELBOW",
+      "RIGHT ARM",
+      "LEFT SHOULDER",
+      "LEFT ELBOW",
+      "LEFT ARM",
+      "RIGHT HIP",
+      "RIGHT KNEE",
+      "RIGHT LEG",
+      "LEFT HIP",
+      "LEFT KNEE",
+      "LEFT LEG",
+      "RIGHT EYE",
+      "LEFT EYE",
+      "RIGHT EAR",
+      "LEFT EAR"
+    ],
+    "title": "SkeletonLabel"
+  },
+  "knownMissingControlsInV3": [
+    "mask_images",
+    "init_images",
+    "color_image",
+    "finger joints",
+    "toolbox attachment",
+    "recorder attachment"
+  ]
+}

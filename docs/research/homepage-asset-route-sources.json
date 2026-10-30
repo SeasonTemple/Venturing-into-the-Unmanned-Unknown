@@ -1,0 +1,350 @@
+{
+  "checkedOn": "2026-10-28",
+  "scope": "Repository/source/example review; 17 public video frame samples; installed CLI help, proxy balance query and local dry-run. No third-party code executed, no generation or uploads.",
+  "repositories": [
+    {
+      "url": "https://github.com/Zengkailin/parametric-topdown-pixel-architecture",
+      "commit": "b7809fa65a8c28c665a952b7fea8e66013eb186e"
+    },
+    {
+      "url": "https://github.com/zeroa234/game-asset-aesthetic-test",
+      "commit": "9c78c1e2a17537a20bf44c1fa96b2525670093f0"
+    }
+  ],
+  "snapshots": [
+    {
+      "path": ".lab/asset-route-research/architecture/js/geometry.js",
+      "bytes": 61246,
+      "sha256": "e8050f4be689a49191857c6a4405ad64b8b637eb2c0649a8c02dbf2c8c2c391a",
+      "url": "https://raw.githubusercontent.com/Zengkailin/parametric-topdown-pixel-architecture/b7809fa65a8c28c665a952b7fea8e66013eb186e/js/geometry.js"
+    },
+    {
+      "path": ".lab/asset-route-research/architecture/js/materials.js",
+      "bytes": 16280,
+      "sha256": "c1edb7c628fe3321e150c142ad0d954ad69abb31df7d4f850758306c703130dc",
+      "url": "https://raw.githubusercontent.com/Zengkailin/parametric-topdown-pixel-architecture/b7809fa65a8c28c665a952b7fea8e66013eb186e/js/materials.js"
+    },
+    {
+      "path": ".lab/asset-route-research/architecture/js/renderer.js",
+      "bytes": 26534,
+      "sha256": "770687339d01b57dfa2e2363d32cb2021fe388e8569397dccffa51a357a1e568",
+      "url": "https://raw.githubusercontent.com/Zengkailin/parametric-topdown-pixel-architecture/b7809fa65a8c28c665a952b7fea8e66013eb186e/js/renderer.js"
+    },
+    {
+      "path": ".lab/asset-route-research/architecture/js/view.js",
+      "bytes": 7219,
+      "sha256": "a6bb95aa0757a679308d346428894357a9d9f48d29a5cf3ae009dae6449e6593",
+      "url": "https://raw.githubusercontent.com/Zengkailin/parametric-topdown-pixel-architecture/b7809fa65a8c28c665a952b7fea8e66013eb186e/js/view.js"
+    },
+    {
+      "path": ".lab/asset-route-research/architecture/LICENSE",
+      "bytes": 1367,
+      "sha256": "50786e3e818c4f16baf286bb6caa0e0ab27cec0e08819063aef9bd81b87bf590",
+      "url": "https://raw.githubusercontent.com/Zengkailin/parametric-topdown-pixel-architecture/b7809fa65a8c28c665a952b7fea8e66013eb186e/LICENSE"
+    },
+    {
+      "path": ".lab/asset-route-research/architecture/README.md",
+      "bytes": 6418,
+      "sha256": "40ef92ac8bf00fee65c01d914f2967f542310064f777161ada1ca1967bd60d75",
+      "url": "https://raw.githubusercontent.com/Zengkailin/parametric-topdown-pixel-architecture/b7809fa65a8c28c665a952b7fea8e66013eb186e/README.md"
+    },
+    {
+      "path": ".lab/asset-route-research/architecture/samples/03_forest_inn_p45_768.png",
+      "bytes": 627576,
+      "sha256": "d261d46b9bc398f9b8a9bbdd94f12f818c8c0e710fb6348fe14635d9cc91a303",
+      "url": "https://raw.githubusercontent.com/Zengkailin/parametric-topdown-pixel-architecture/b7809fa65a8c28c665a952b7fea8e66013eb186e/samples/03_forest_inn_p45_768.png"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/docs/assets/gallery/blocky-lineup.jpg",
+      "bytes": 54655,
+      "sha256": "692e3cc2a2f3c9d7f64d9b5acc244976bf635897e4f1dfdb1712233ccbb38090",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/docs/assets/gallery/blocky-lineup.jpg"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/docs/assets/gallery/spine-multiview.gif",
+      "bytes": 1933819,
+      "sha256": "82df16fd95a7315ff27b0eaee3e8be95058cf5741a905376bd80f392b8fd222a",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/docs/assets/gallery/spine-multiview.gif"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-blocky-character/assets/workspace/scripts/blocky-build.py",
+      "bytes": 15020,
+      "sha256": "796a316333b337e2185c5d3ca6a22185866d692f1704d29ba6754578c10ccc25",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-blocky-character/assets/workspace/scripts/blocky-build.py"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-blocky-character/assets/workspace/scripts/blocky-template.py",
+      "bytes": 75321,
+      "sha256": "fc90f8b7a8ea63be63a35ebfcdd37d5a84c343d2b053af4c0e7d82039666e29d",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-blocky-character/assets/workspace/scripts/blocky-template.py"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-blocky-character/references/implementation.md",
+      "bytes": 2354,
+      "sha256": "c702d63ccb8cf2c415531fe3d8f84859beca83eec1db1176637a63134dd7727a",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-blocky-character/references/implementation.md"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-blocky-character/references/sources.md",
+      "bytes": 1091,
+      "sha256": "b553756666cf7b31404b7ef38dd072032738ae83f0188dce75b5ad604e415842",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-blocky-character/references/sources.md"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-blocky-character/SKILL.md",
+      "bytes": 3006,
+      "sha256": "08aa89ec7d878e665e6c99854f11440136b2168085b29bf576cbf765a4881558",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-blocky-character/SKILL.md"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-blocky-hair/assets/workspace/scripts/blocky-build.py",
+      "bytes": 15020,
+      "sha256": "796a316333b337e2185c5d3ca6a22185866d692f1704d29ba6754578c10ccc25",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-blocky-hair/assets/workspace/scripts/blocky-build.py"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-blocky-hair/assets/workspace/scripts/blocky-template.py",
+      "bytes": 75321,
+      "sha256": "fc90f8b7a8ea63be63a35ebfcdd37d5a84c343d2b053af4c0e7d82039666e29d",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-blocky-hair/assets/workspace/scripts/blocky-template.py"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-blocky-hair/references/implementation.md",
+      "bytes": 2354,
+      "sha256": "c702d63ccb8cf2c415531fe3d8f84859beca83eec1db1176637a63134dd7727a",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-blocky-hair/references/implementation.md"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-blocky-hair/references/sources.md",
+      "bytes": 1379,
+      "sha256": "771669e06fa3885e6aac2c6b215d50318f85eecd9a8ecf5cb4cde126ecbd2707",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-blocky-hair/references/sources.md"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-blocky-hair/SKILL.md",
+      "bytes": 2857,
+      "sha256": "b2629a1696064ef7195f9e8c20b830b8f0c5a45203ac7167cbed30ebecef1b5c",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-blocky-hair/SKILL.md"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-blocky-qa/assets/workspace/scripts/blocky-step-check.py",
+      "bytes": 6160,
+      "sha256": "b9199a24ebb1d34334d7c76d5ff546f81443bc0d23442e0524a9c32968231f4f",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-blocky-qa/assets/workspace/scripts/blocky-step-check.py"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-blocky-qa/references/implementation.md",
+      "bytes": 1960,
+      "sha256": "c4866d625aac10023cf331a0ae11ef938a42c3ae333d130bdf7b4c474b743d37",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-blocky-qa/references/implementation.md"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-blocky-qa/references/sources.md",
+      "bytes": 1057,
+      "sha256": "cdb5ae5adbe241b2f1c3554bf8d641fc13668845a11a0051d47105413e065ed0",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-blocky-qa/references/sources.md"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-spine-cutout/assets/workspace/scripts/pose-to-rig.py",
+      "bytes": 11294,
+      "sha256": "a5d76b1e3e0d2416aba2c1408601d3b4ef60aab8729fed13945140325fd17432",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-spine-cutout/assets/workspace/scripts/pose-to-rig.py"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-spine-cutout/assets/workspace/scripts/spine-cutout-rig.py",
+      "bytes": 38794,
+      "sha256": "99c6e0cab372cfbbb167a8caef1b135bb58040f698684cc957f0dd9c60356723",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-spine-cutout/assets/workspace/scripts/spine-cutout-rig.py"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-spine-cutout/references/implementation.md",
+      "bytes": 2717,
+      "sha256": "ba912464c2369e15f370cf16e2ed50a1ff697daf35438970f96f6cc41f3b590a",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-spine-cutout/references/implementation.md"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-spine-cutout/references/sources.md",
+      "bytes": 1498,
+      "sha256": "10a15dfd2df537d95731bad39e9c2d48f10530d373072cca0c192479cf5c60a8",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-spine-cutout/references/sources.md"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-spine-cutout/SKILL.md",
+      "bytes": 2903,
+      "sha256": "cfcd1799eba994517fc6ea52fc72a4c4b12358f5d8d48a0ecf467096683fa35e",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-spine-cutout/SKILL.md"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-spine-multiview/assets/workspace/scripts/dir-rig.py",
+      "bytes": 50132,
+      "sha256": "dd4c3ad8c31b2653ef5074c18208a3b735553bc937e818c2cb74089d2ae3928a",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-spine-multiview/assets/workspace/scripts/dir-rig.py"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-spine-multiview/assets/workspace/src/dst-demo/main.js",
+      "bytes": 23920,
+      "sha256": "dd58aa94be83598e3e74124205e54d31fadf40d29080d1fdfea442f450b3eac8",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-spine-multiview/assets/workspace/src/dst-demo/main.js"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-spine-multiview/references/implementation.md",
+      "bytes": 3667,
+      "sha256": "cb5303579d1ca8bf22142bc86b0ad4fb96c913fad40df53e3f49c1f7b61b518a",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-spine-multiview/references/implementation.md"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-spine-multiview/references/sources.md",
+      "bytes": 1984,
+      "sha256": "1139428db63009ec917947950e314dad351778faeedcd7067b3629e119b43471",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-spine-multiview/references/sources.md"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-spine-multiview/SKILL.md",
+      "bytes": 3015,
+      "sha256": "6ae52dff17b5668c8b05706c50b5f21f23aa42126a340215c1c78376c7721800",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-spine-multiview/SKILL.md"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-spine-portrait/references/implementation.md",
+      "bytes": 3698,
+      "sha256": "8ba958167f763c2aa034a471820cc9044c9ced9014fea9ea40655ae63f29af6a",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-spine-portrait/references/implementation.md"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-spine-portrait/references/sources.md",
+      "bytes": 2046,
+      "sha256": "6b67d6ffa0948767d2a7095860a80342fc94faf030b56ac9dd351465b130ecde",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-spine-portrait/references/sources.md"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-spine-portrait/SKILL.md",
+      "bytes": 3129,
+      "sha256": "7d935814ccd6c203e07ca5f28f7238afcf2a2c4efb3023df7feaa0106c050251",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-spine-portrait/SKILL.md"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-tts-narration/references/implementation.md",
+      "bytes": 2690,
+      "sha256": "7d71e8e7daa9e17cbb7eb07c8baa40a8c551316b6823e37f48c751a89f2c1bbf",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-tts-narration/references/implementation.md"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-tts-narration/references/sources.md",
+      "bytes": 1729,
+      "sha256": "1731d5717f404af737200a19d8f5e1732c642297f4918bc32015fd33aebc5f46",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-tts-narration/references/sources.md"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-video-sprites/assets/workspace/scripts/sprite-postprocess.py",
+      "bytes": 16419,
+      "sha256": "6a331ad432aa548b3357eb3cf645d5a03cc3f87e24397a3ac41999c4f127781d",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-video-sprites/assets/workspace/scripts/sprite-postprocess.py"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-video-sprites/references/sources.md",
+      "bytes": 758,
+      "sha256": "3c1e967bdccbaa9dd2e861ee39796498bc8ea4ff25bd3da67bda15a2a806a7ab",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-video-sprites/references/sources.md"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/extensions/skills/game-asset-video-sprites/SKILL.md",
+      "bytes": 3192,
+      "sha256": "b658681007785d87f1ddb20c1b3dae8c46b3403048b96de101077086422102b1",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/extensions/skills/game-asset-video-sprites/SKILL.md"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/README.md",
+      "bytes": 11378,
+      "sha256": "388f33b6cabd364c94a15e3a3e610d5fe26f08c29f7fd16c7bc8bedec5b179ff",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/README.md"
+    },
+    {
+      "path": ".lab/asset-route-research/aesthetic/reports/validation-2026-10-18.json",
+      "bytes": 3289,
+      "sha256": "70854518ef34aecbb3bf4c739a951f6a6982472756421cc77a675453a0299da9",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/9c78c1e2a17537a20bf44c1fa96b2525670093f0/reports/validation-2026-10-18.json"
+    }
+  ],
+  "video": {
+    "url": "https://www.bilibili.com/video/BV1TsJB6uEut/",
+    "title": "为什么我放弃了本地ai建模？你应该试试ai像素建模！",
+    "durationSeconds": 394,
+    "sampling": {
+      "bvid": "BV1TsJB6uEut",
+      "method": "public 360p stream, sampled visual frames; no full audio review",
+      "times": [
+        5,
+        25,
+        45,
+        65,
+        90,
+        115,
+        140,
+        165,
+        190,
+        215,
+        240,
+        265,
+        290,
+        315,
+        340,
+        365,
+        385
+      ]
+    },
+    "cachedPublicStreamSha256": "0921f314b639d8baf7b6a986232ea568ef41029bed92bd872bb65a34f003cafc",
+    "fullAudioReviewed": false
+  },
+  "tripo": {
+    "version": "0.7.3",
+    "entry": "E:/DevCache/npm-global/tripo.cmd",
+    "proxyQuerySucceeded": true,
+    "proxyScope": "child process only",
+    "balance": {
+      "balance": 0,
+      "frozen": 0
+    },
+    "dryRun": {
+      "valid": true,
+      "steps": [
+        "image-to-model",
+        "rig-check",
+        "rig",
+        "retarget:preset:walk"
+      ],
+      "inputUploaded": false,
+      "cloudTaskCreated": false,
+      "qualityValidated": false
+    },
+    "files": [
+      {
+        "path": "E:/DevCache/npm-global/node_modules/tripo-cli/README.md",
+        "bytes": 13274,
+        "sha256": "77d8edcce45326c214a6bc8eebf8979b3d0e697e2787fdb13afdbc2ec2aa65e1"
+      },
+      {
+        "path": "E:/DevCache/npm-global/node_modules/tripo-cli/skill/commands/process.md",
+        "bytes": 12113,
+        "sha256": "9bedfe7dd2499852b58192a666592d4478686827c5cb72d0a26bace50618875f"
+      },
+      {
+        "path": "E:/DevCache/npm-global/node_modules/tripo-cli/skill/examples/animation.md",
+        "bytes": 1293,
+        "sha256": "8b9644e48de9d525a98babefc470e33ab382691e62e0e32e7c0525c8c0de63ff"
+      },
+      {
+        "path": "E:/DevCache/npm-global/node_modules/tripo-cli/dist/core/proxy.js",
+        "bytes": 1371,
+        "sha256": "e6e9385387b89e03856ae2318fd338d62bffb41d86940fc4901518134da4fc4e"
+      },
+      {
+        "path": "E:/DevCache/npm-global/node_modules/tripo-cli/dist/core/requests.js",
+        "bytes": 8264,
+        "sha256": "a61d76e603e0ccdd0fe8f707f5205348cf0a4ef39ea4c79b1145b6d42bd74fa2"
+      }
+    ]
+  },
+  "newImageRequests": 0,
+  "newVideoRequests": 0,
+  "newTripoTasks": 0
+}

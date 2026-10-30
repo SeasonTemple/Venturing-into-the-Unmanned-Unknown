@@ -1,0 +1,379 @@
+{
+  "checkedOn": "2026-10-28",
+  "providedUrl": "https://space.bilibili.com/32403750/upload/video",
+  "account": {
+    "mid": 32403750,
+    "name": "麦糠包",
+    "reportedTotalUploads": 18
+  },
+  "series": {
+    "id": 5183408,
+    "title": "AI游戏开发实战",
+    "listedVideos": 17,
+    "plannedLessonsPerDescription": 27
+  },
+  "reviewScope": {
+    "seriesTitlesRead": 17,
+    "descriptionsRead": 5,
+    "sampledFrames": 15,
+    "blankTransitionSamples": 1,
+    "fullVideoPlaybackReviewed": false,
+    "audioReviewed": false,
+    "subtitlesAvailable": false
+  },
+  "lessons": [
+    {
+      "id": "lesson04b",
+      "bvid": "BV1ejnA6DEoN",
+      "title": "【AI游戏开发实战】第04课（下）横版立项：风格圣经 + 任务清单",
+      "url": "https://www.bilibili.com/video/BV1ejnA6DEoN/",
+      "durationSeconds": 794,
+      "descriptionRead": true,
+      "snapshotPath": ".lab/bili-32403750/lesson04b.json",
+      "snapshotSha256": "4bc9c3d9be140ae8ccd31c97faaf20dd7837c57d01754043e978869402bed149",
+      "description": "第 04 课（下）：横版立项——一页策划与风格圣经\n\n《AI 游戏开发实战》第一期：不是“学编程”，而是学会指挥 AI 团队做游戏。用 Godot 4 + VS Code + GitHub Copilot（Agent 模式）+ MCP，从零做出 3 款完整游戏：2D 像素横版《遗迹骑士》→ 俯视角塔防放置《放置要塞》→ 3D 小游戏《低模小岛》。面向零基础，不需要编程和美术基础。\n\n本集你将学会：\n· 写出可执行的风格圣经：尺寸、调色板、光源、描边、动画帧表、命名规范、素材提示词骨架\n· 让 AI 把 GDD 拆成带 P0/P1/P2 优先级和 M1–M6 里程碑的任务清单\n· 用一致性交叉检查，让宪法、GDD、风格圣经、任务清单互不矛盾\n\n时间轴：\n00:00 开场\n00:10 上集回顾\n00:35 5. 风格圣经：素材提示词的锚\n02:22 6. 任务清单：优先级与里程碑\n03:02 实操 5：编写风格圣经\n08:06 实操 6：拆任务清单（backlog）\n09:48 实操 7：一致性交叉检查\n10:33 实操 8：提交存档点\n10:55 AI 协作要点与常见坑\n11:45 本课验收清单与课后作业\n12:49 下节预告\n\n下节：第 05 课 灰盒原型——先不画一个像素，用色块让骑士第一次跑起来。\n全系列按顺序收录在系列「AI游戏开发实战」，持续更新（共 27 课）。\n\n说明：配音为 AI 语音合成（微软 Edge TTS）；像素小人为代码绘制示意，软件界面与 AI 回答均为示意，非实机录屏。工具价格、额度与授权以各官网为准。\n调色板：Endesga 32（Lospec）。",
+      "frameSamplingPerformed": false
+    },
+    {
+      "id": "lesson06b",
+      "bvid": "BV1PsHG6cEuy",
+      "title": "【AI游戏开发实战】第06课（下）手感调优：参数外置 + F1调参面板 + 相机 + 调参日志",
+      "url": "https://www.bilibili.com/video/BV1PsHG6cEuy/",
+      "durationSeconds": 944,
+      "descriptionRead": true,
+      "snapshotPath": ".lab/bili-32403750/lesson06b.json",
+      "snapshotSha256": "dd51356b2503af450f8f8691f9ecf735ca8bf69b11dbbe43fc30dba1d2899496",
+      "description": "第 06 课（下）：手感调优——让操作爽起来\n\n《AI 游戏开发实战》第一期：不是“学编程”，而是学会指挥 AI 团队做游戏。用 Godot 4 + VS Code + GitHub Copilot（Agent 模式）+ MCP，从零做出 3 款完整游戏：2D 像素横版《遗迹骑士》→ 俯视角塔防放置《放置要塞》→ 3D 小游戏《低模小岛》。面向零基础，不需要编程和美术基础。\n\n本集你将学会：\n· 让 AI 把手感参数外置到自定义资源 PlayerTuning，实现土狼时间、跳跃缓冲、可变跳跃\n· 搭手感测试场 + 跳跃测量叠加层，用数字验收（56±2 px），再用 F1 面板运行中实时调参、保存\n· 调好相机的平滑、前瞻与死区，按“一次只改一个变量”完成 3 轮调参并写进调参日志\n\n时间轴：\n00:00 开场\n00:09 上集回顾\n00:40 5. 参数外置：自定义资源 PlayerTuning\n03:22 6. 相机手感：平滑、前瞻、死区\n04:21 7. 调参方法论：像做实验一样调手感\n05:23 实操 2：参数外置到 PlayerTuning\n06:25 实操 3：实现三个宽容机制\n07:15 实操 4：手感测试场 + 跳跃测量叠加层\n08:55 实操 5：F1 运行时调参面板\n10:03 实操 6：相机手感\n11:39 实操 7：三轮调参 + 调参日志\n12:51 实操 8：Git 存档点\n13:16 AI 协作要点与常见坑\n14:14 本课验收清单与课后作业\n15:21 下节预告\n\n下节：第 07 课 AI 生成像素角色与动画——识别伪像素、后处理管线、7 种动画与灰盒换皮。\n全系列按顺序收录在系列「AI游戏开发实战」，持续更新（共 27 课）。\n\n说明：配音为 AI 语音合成；灰盒画面、动画演示与软件界面均为示意，非实机录屏。工具价格、额度与授权以各官网为准。",
+      "frameSamplingPerformed": false
+    },
+    {
+      "id": "lesson07a",
+      "bvid": "BV1jzHG6DEtF",
+      "title": "【AI游戏开发实战】第07课（上）AI生成像素角色：识别伪像素 + 后处理管线 + 32×32精灵",
+      "url": "https://www.bilibili.com/video/BV1jzHG6DEtF/",
+      "durationSeconds": 928,
+      "descriptionRead": true,
+      "snapshotPath": ".lab/bili-32403750/lesson07a.json",
+      "snapshotSha256": "7f9fb2a3fdf7cd18d232b48664113e0f3a520e9b9173a22fb8e08a3305131a38",
+      "description": "第 07 课（上）：AI 生成像素角色与动画\n\n《AI 游戏开发实战》第一期：不是“学编程”，而是学会指挥 AI 团队做游戏。用 Godot 4 + VS Code + GitHub Copilot（Agent 模式）+ MCP，从零做出 3 款完整游戏：2D 像素横版《遗迹骑士》→ 俯视角塔防放置《放置要塞》→ 3D 小游戏《低模小岛》。面向零基础，不需要编程和美术基础。\n\n本集你将学会：\n· 说出素材管线 7 个环节与像素素材 5 个硬指标，在通用生图模型和像素专用工具之间做选择\n· 用“提示词骨架 + 变量”写精灵提示词，30 秒识别伪像素（尺寸、块大小、边缘、颜色数、斜线）\n· 看懂 pixelize.py 的 7 步后处理与关键参数，把 AI 原图变成 32×32、调色板正确的真像素精灵\n\n时间轴：\n00:00 开场\n01:45 1. 素材管线全景\n03:05 2. 像素素材的 5 个硬指标\n04:07 3. 工具选择：通用生图 vs 像素专用\n05:13 4. 提示词骨架 + 变量\n06:10 5. 识别「伪像素」\n08:03 6. 后处理：pixelize.py 与 slice_sheet.py\n11:14 实操 1：素材目录与素材日志\n12:10 实操 2：角色概念图\n13:04 实操 3：32×32 侧视精灵定稿\n13:57 实操 4：让 AI 写 pixelize.py\n14:54 本集小结与下集预告\n\n下集：第 07 课（下）——动画帧规划、一致性翻车、slice_sheet 切图对齐、导入 Godot、灰盒换皮与敌人素材。\n全系列按顺序收录在系列「AI游戏开发实战」，持续更新（共 27 课）。\n\n说明：配音为 AI 语音合成；灰盒画面、动画演示与软件界面均为示意，非实机录屏。工具价格、额度与授权以各官网为准。\n素材：Gothicvania · ansimuz（CC0）。",
+      "frameSamplingPerformed": true
+    },
+    {
+      "id": "lesson07b",
+      "bvid": "BV1oBHG6nEr1",
+      "title": "【AI游戏开发实战】第07课（下）AI生成像素角色：动画帧 + 切图对齐 + Godot换皮 + 敌人",
+      "url": "https://www.bilibili.com/video/BV1oBHG6nEr1/",
+      "durationSeconds": 895,
+      "descriptionRead": true,
+      "snapshotPath": ".lab/bili-32403750/lesson07b.json",
+      "snapshotSha256": "7d6ea6bd41d8eef74d00e1694cd18813361a505a2d7fa041cf58662dad8ce35b",
+      "description": "第 07 课（下）：AI 生成像素角色与动画\n\n《AI 游戏开发实战》第一期：不是“学编程”，而是学会指挥 AI 团队做游戏。用 Godot 4 + VS Code + GitHub Copilot（Agent 模式）+ MCP，从零做出 3 款完整游戏：2D 像素横版《遗迹骑士》→ 俯视角塔防放置《放置要塞》→ 3D 小游戏《低模小岛》。面向零基础，不需要编程和美术基础。\n\n本集你将学会：\n· 规划 7 种动画的帧数、FPS 与循环，用参考图、固定骨架等技巧让每一帧都是“同一个人”\n· 用 slice_sheet.py 切图拼横条，分清 bottom-center 与 union 两种对齐，在洋葱皮下手工修图\n· 用 SpriteFrames + AnimatedSprite2D 导入动画，让 AI 按状态切换动画完成灰盒换皮，并产出三种敌人素材\n\n时间轴：\n00:00 开场\n00:10 上集回顾\n00:39 7. 动画帧规划\n02:11 8. 一致性技巧\n03:42 9. 版权与授权提醒\n04:37 实操 5：生成动画帧\n05:41 实操 6：slice_sheet.py 拼横条\n06:36 实操 7：手工修图\n07:35 实操 8：导入 Godot：SpriteFrames\n09:26 实操 9：按状态切换动画 + 灰盒换皮\n10:38 实操 10：三种敌人素材\n11:43 实操 11：游戏内验证与存档\n12:25 AI 协作要点与常见坑\n13:26 本课验收清单与课后作业\n14:32 下节预告\n\n下节：第 08 课 AI 生成场景素材与 TileMap 关卡——16×16 瓦片集、视差背景，用“文字画关卡”生成 1-1。\n全系列按顺序收录在系列「AI游戏开发实战」，持续更新（共 27 课）。\n\n说明：配音为 AI 语音合成；灰盒画面、动画演示与软件界面均为示意，非实机录屏。工具价格、额度与授权以各官网为准。\n素材：Gothicvania · ansimuz（CC0）。",
+      "frameSamplingPerformed": true
+    },
+    {
+      "id": "lesson08a",
+      "bvid": "BV1xmxM6YEAi",
+      "title": "【AI游戏开发实战】第08课（上）AI生成场景素材：16×16瓦片集 + 无缝修补 + TileSet三件套",
+      "url": "https://www.bilibili.com/video/BV1xmxM6YEAi/",
+      "durationSeconds": 841,
+      "descriptionRead": true,
+      "snapshotPath": ".lab/bili-32403750/lesson08a.json",
+      "snapshotSha256": "c7373750161909034cdef6e683b6143ad11b3fdb5a190a7fe40f73e04182bb13",
+      "description": "第 08 课（上）：AI 生成场景素材与 TileMap 关卡\n\n《AI 游戏开发实战》第一期：不是“学编程”，而是学会指挥 AI 团队做游戏。用 Godot 4 + VS Code + GitHub Copilot（Agent 模式）+ MCP，从零做出 3 款完整游戏：2D 像素横版《遗迹骑士》→ 俯视角塔防放置《放置要塞》→ 3D 小游戏《低模小岛》。面向零基础，不需要编程和美术基础。\n\n本集你将学会：\n· 设计 16×16 瓦片集布局，看懂地面 16 块与 Match Sides 地形自动铺砖（2⁴ = 16 种边的组合）\n· 检查并修补无缝拼接：边缘断开、单块渐变、重复感；走“AI 出纹理、人画边角”的实用路线\n· 在 Godot 中配置 TileSet 三件套：物理层碰撞、单向平台 One Way、Terrain 地形\n\n时间轴：\n00:00 开场\n01:13 1. 瓦片、TileSet 与 TileMapLayer\n02:15 2. 16×16 瓦片集布局\n05:23 3. 无缝拼接：难点与修补\n08:08 4. TileSet 配置三件套\n09:46 实操 1：生成地面瓦片\n10:55 实操 2：无缝检查与修补\n11:51 实操 3：在 Godot 中配置 TileSet\n13:34 本集小结与下集预告\n\n下集：第 08 课（下）——4 层视差背景，用 ASCII 文字地图让 Agent 一键生成 1-1 关卡，并逐项验收。\n全系列按顺序收录在系列「AI游戏开发实战」，持续更新（共 27 课）。\n\n说明：配音为 AI 语音合成，部分插画由 AI 生成；瓦片、关卡、动画演示与软件界面均为示意，非实机录屏。工具价格、额度与授权以各官网为准。",
+      "frameSamplingPerformed": false
+    }
+  ],
+  "seriesVideos": [
+    {
+      "bvid": "BV1t2n36AE5q",
+      "title": "【AI游戏开发实战】第01课 AI游戏开发全景与课程导学｜零基础指挥AI做游戏",
+      "durationSeconds": 1438
+    },
+    {
+      "bvid": "BV12mn36aEke",
+      "title": "【AI游戏开发实战】第02课（上）开发环境搭建：Godot 4 + VS Code + Copilot",
+      "durationSeconds": 877
+    },
+    {
+      "bvid": "BV1D6n36TEmA",
+      "title": "【AI游戏开发实战】第02课（下）开发环境搭建：Godot MCP + Hello Agent",
+      "durationSeconds": 968
+    },
+    {
+      "bvid": "BV1DsnA6LEmp",
+      "title": "【AI游戏开发实战】第03课（上）指挥AI的方法论：提示词六要素 + 项目宪法",
+      "durationSeconds": 839
+    },
+    {
+      "bvid": "BV1ejnA6DEr5",
+      "title": "【AI游戏开发实战】第03课（下）指挥AI的方法论：WHEN/THEN规格 + 先计划后执行",
+      "durationSeconds": 718
+    },
+    {
+      "bvid": "BV1ejnA6DE8x",
+      "title": "【AI游戏开发实战】第04课（上）横版立项：AI发散创意 + 一页GDD",
+      "durationSeconds": 749
+    },
+    {
+      "bvid": "BV1ejnA6DEoN",
+      "title": "【AI游戏开发实战】第04课（下）横版立项：风格圣经 + 任务清单",
+      "durationSeconds": 794
+    },
+    {
+      "bvid": "BV1LLnA6pEkJ",
+      "title": "【AI游戏开发实战】第05课（下）灰盒原型：灰盒关卡 + Agent自检 + Godot 3翻车",
+      "durationSeconds": 727
+    },
+    {
+      "bvid": "BV1RLnA6HEXt",
+      "title": "【AI游戏开发实战】第05课（上）灰盒原型：Godot核心概念 + 项目设置 + 玩家脚本",
+      "durationSeconds": 908
+    },
+    {
+      "bvid": "BV1KJHG6eEuv",
+      "title": "【AI游戏开发实战】第06课（上）手感调优：11个手感参数 + 跳跃数学 + 宽容机制",
+      "durationSeconds": 780
+    },
+    {
+      "bvid": "BV1PsHG6cEuy",
+      "title": "【AI游戏开发实战】第06课（下）手感调优：参数外置 + F1调参面板 + 相机 + 调参日志",
+      "durationSeconds": 944
+    },
+    {
+      "bvid": "BV1jzHG6DEtF",
+      "title": "【AI游戏开发实战】第07课（上）AI生成像素角色：识别伪像素 + 后处理管线 + 32×32精灵",
+      "durationSeconds": 928
+    },
+    {
+      "bvid": "BV1oBHG6nEr1",
+      "title": "【AI游戏开发实战】第07课（下）AI生成像素角色：动画帧 + 切图对齐 + Godot换皮 + 敌人",
+      "durationSeconds": 895
+    },
+    {
+      "bvid": "BV1xmxM6YEAi",
+      "title": "【AI游戏开发实战】第08课（上）AI生成场景素材：16×16瓦片集 + 无缝修补 + TileSet三件套",
+      "durationSeconds": 841
+    },
+    {
+      "bvid": "BV1cLxM6xErH",
+      "title": "【AI游戏开发实战】第08课（下）TileMap关卡：视差背景 + ASCII地图一键生成1-1",
+      "durationSeconds": 1024
+    },
+    {
+      "bvid": "BV1CgxM6ZEHP",
+      "title": "【AI游戏开发实战】第09课（上）战斗系统：碰撞层规划 + 生命组件 + 两段连击",
+      "durationSeconds": 692
+    },
+    {
+      "bvid": "BV1RtxM6jE4m",
+      "title": "【AI游戏开发实战】第09课（下）敌人AI：WHEN/THEN状态机 + 打击感五件套",
+      "durationSeconds": 862
+    }
+  ],
+  "frameSampling": [
+    {
+      "id": "lesson07a",
+      "bytes": 13760604,
+      "sha256": "3735dd99de8b0daab82ac5dafc5c906307a93452e33a9fe401380efcad65d127",
+      "sampledFrames": [
+        {
+          "timeSeconds": 105,
+          "file": "lesson07a-105.jpg"
+        },
+        {
+          "timeSeconds": 185,
+          "file": "lesson07a-185.jpg"
+        },
+        {
+          "timeSeconds": 247,
+          "file": "lesson07a-247.jpg"
+        },
+        {
+          "timeSeconds": 483,
+          "file": "lesson07a-483.jpg"
+        },
+        {
+          "timeSeconds": 620,
+          "file": "lesson07a-620.jpg"
+        },
+        {
+          "timeSeconds": 784,
+          "file": "lesson07a-784.jpg"
+        }
+      ],
+      "fullPlaybackReviewed": false,
+      "audioReviewed": false
+    },
+    {
+      "id": "lesson07b",
+      "bytes": 13552008,
+      "sha256": "c5ae1b4a2504e7c0941f223b7f8a6af754c26019f692fb005494126116674c58",
+      "sampledFrames": [
+        {
+          "timeSeconds": 130,
+          "file": "lesson07b-130.jpg"
+        },
+        {
+          "timeSeconds": 277,
+          "file": "lesson07b-277.jpg"
+        },
+        {
+          "timeSeconds": 341,
+          "file": "lesson07b-341.jpg"
+        },
+        {
+          "timeSeconds": 396,
+          "file": "lesson07b-396.jpg"
+        },
+        {
+          "timeSeconds": 500,
+          "file": "lesson07b-500.jpg"
+        },
+        {
+          "timeSeconds": 806,
+          "file": "lesson07b-806.jpg"
+        },
+        {
+          "timeSeconds": 185,
+          "file": "lesson07b-185.jpg"
+        },
+        {
+          "timeSeconds": 440,
+          "file": "lesson07b-440.jpg"
+        },
+        {
+          "timeSeconds": 835,
+          "file": "lesson07b-835.jpg"
+        }
+      ],
+      "fullPlaybackReviewed": false,
+      "audioReviewed": false
+    }
+  ],
+  "retrievals": [
+    {
+      "id": "space",
+      "url": "https://space.bilibili.com/32403750/upload/video",
+      "httpStatus": 200,
+      "bytes": 1374,
+      "sha256": "f425b55012ee0302ebe7f0871e329e5220941ce516dfc534bbedef2078fd8414"
+    },
+    {
+      "id": "card",
+      "url": "https://api.bilibili.com/x/web-interface/card?mid=32403750",
+      "httpStatus": 200,
+      "bytes": 2056,
+      "sha256": "4f9ea295a427bc989a25c890a399c5947ab7b804cc907b1fca4dc5a6ec9fe4e4",
+      "code": 0,
+      "message": "OK",
+      "dataKeys": [
+        "card",
+        "following",
+        "archive_count",
+        "article_count",
+        "follower",
+        "like_num"
+      ]
+    },
+    {
+      "id": "collections",
+      "url": "https://api.bilibili.com/x/polymer/web-space/seasons_series_list?mid=32403750&page_num=1&page_size=20",
+      "httpStatus": 200,
+      "bytes": 3736,
+      "sha256": "fafe0a8dcbd6f14e850a2f6521ed976b89cf44dcf802a0529e1b3f7047b43698",
+      "code": 0,
+      "message": "OK",
+      "dataKeys": [
+        "items_lists"
+      ]
+    },
+    {
+      "id": "uploads",
+      "url": "https://api.bilibili.com/x/space/wbi/arc/search?mid=32403750&ps=30&pn=1&order=pubdate",
+      "error": "HTTP Error 412: Precondition Failed"
+    },
+    {
+      "id": "series-archives",
+      "url": "https://api.bilibili.com/x/series/archives?mid=32403750&series_id=5183408&only_normal=true&sort=asc&pn=1&ps=30",
+      "httpStatus": 200,
+      "code": 0,
+      "bytes": 17724,
+      "sha256": "60ab45827d711ffa08fe986b674493aea03b1de7e5326a8f8f3a0556c21109ad"
+    },
+    {
+      "id": "lesson07a",
+      "url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1jzHG6DEtF",
+      "httpStatus": 200,
+      "code": 0,
+      "bytes": 5570,
+      "sha256": "976bd7471d9c030dd0dce21e9bb4df9553f3d702113f959f9993552cb2c8f039"
+    },
+    {
+      "id": "lesson07b",
+      "url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1oBHG6nEr1",
+      "httpStatus": 200,
+      "code": 0,
+      "bytes": 5629,
+      "sha256": "2419a2be99ed624de2fe73a5fe48c28be5fc02695fcf8aa7b7b0b7d2be9d1644"
+    },
+    {
+      "id": "lesson08a",
+      "url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1xmxM6YEAi",
+      "httpStatus": 200,
+      "code": 0,
+      "bytes": 5206,
+      "sha256": "db3d735854602312af5d77bb65fd8f29a269b3ddc2ab994e90fbeb5298ca4b19"
+    },
+    {
+      "id": "lesson07a-stream",
+      "url": "https://api.bilibili.com/x/player/playurl?bvid=BV1jzHG6DEtF&cid=43038016143&qn=16&fnval=0&fnver=0&fourk=0",
+      "httpStatus": 200,
+      "code": 0,
+      "bytes": 3367,
+      "sha256": "aaeb6ddf0b0f769179938535b3d9f77fb3e2d0c79d214eb30fc3a5e6ee4c05eb"
+    },
+    {
+      "id": "lesson07b-stream",
+      "url": "https://api.bilibili.com/x/player/playurl?bvid=BV1oBHG6nEr1&cid=43038082251&qn=16&fnval=0&fnver=0&fourk=0",
+      "httpStatus": 200,
+      "code": 0,
+      "bytes": 3400,
+      "sha256": "ecd15c7c9ca0d2056275076fa418bff1f37f6bca4462273248755c938c4e1801"
+    },
+    {
+      "id": "lesson07a-captions",
+      "url": "https://api.bilibili.com/x/player/v2?bvid=BV1jzHG6DEtF&cid=43038016143",
+      "httpStatus": 200,
+      "code": 0,
+      "bytes": 4067,
+      "sha256": "b2632b9eabdb3cfc93a00161565f6d889db85ca06a76d39749ea8fadd939837f"
+    },
+    {
+      "id": "lesson07b-comments",
+      "url": "https://api.bilibili.com/x/v2/reply/main?type=1&oid=117500255670387&mode=3&next=0&ps=20",
+      "httpStatus": 200,
+      "code": 0,
+      "bytes": 6836,
+      "sha256": "6040adf8fa7ad5f2f9f3d60e7ac5a4a5847e905efcad6042d1b33f051ecf346f"
+    },
+    {
+      "id": "lesson04b",
+      "url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1ejnA6DEoN",
+      "httpStatus": 200,
+      "code": 0,
+      "sha256": "1cc9618ea2867c2060d6b8bd8b19ee0382e7e1bd99d97a1b988d51acbff3e200"
+    },
+    {
+      "id": "lesson06b",
+      "url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1PsHG6cEuy",
+      "httpStatus": 200,
+      "code": 0,
+      "sha256": "768eaccb3ce67178bcf299428d935eaae5d935dd67af01c088bca8bdaae05337"
+    }
+  ],
+  "newMediaGenerationCalls": 0,
+  "thirdPartyScriptsExecuted": false,
+  "thirdPartyArtUsedAsSiteAssets": false,
+  "sourceProjectOrScriptDownloadVerified": false,
+  "interpretation": "Process guidance supported by descriptions and sampled slides. Author explicitly identifies UI and animation examples as illustrative, not actual software recordings; these do not establish an executed production pipeline."
+}

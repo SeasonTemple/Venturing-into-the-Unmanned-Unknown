@@ -1,0 +1,282 @@
+{
+  "date": "2026-10-29",
+  "question": "Which editable character representation can sustain target appearance, poses, directions and intentional revisions?",
+  "preferredExperiment": "Editable 3D character/native motion, controlled offline pixel rendering, evaluated inside the approved meadow scene before gait expansion.",
+  "alternativeExperiment": "Reference plus structural/selection controlled image editing, pending compatible backend and target-character test.",
+  "completed": [
+    "Public document and code review",
+    "Read upstream asset/character dependency boundaries",
+    "Read a pinned 1.79MB Blender node library in bpy 4.5.3 with embedded script auto-execution disabled"
+  ],
+  "notCompleted": [
+    "Target character rendering",
+    "Style approval",
+    "Character source pack download or animation verification",
+    "XPU backend installation or inference",
+    "New motion retargeting",
+    "Homepage integration"
+  ],
+  "newImageGenerationCalls": 0,
+  "newVideoGenerationCalls": 0,
+  "inferenceWeightsDownloaded": false,
+  "pluginsInstalled": false,
+  "paidAssetsPurchased": false,
+  "preflight": {
+    "bpyVersion": "4.5.3 LTS",
+    "embeddedScriptsExecuted": false,
+    "addonInstalled": false,
+    "rendered": false,
+    "targetCharacterTested": false,
+    "materials": [
+      "Smoke Material",
+      "Dots Stroke"
+    ],
+    "nodeGroups": [
+      "Shine Reflection",
+      "Pixelation"
+    ],
+    "objects": [
+      "Smoke Particle (Will render)",
+      "Light",
+      "Cube",
+      "Camera"
+    ],
+    "loadedMaterials": [
+      {
+        "name": "Smoke Material",
+        "nodes": 12
+      },
+      {
+        "name": "Dots Stroke.001",
+        "nodes": 5
+      }
+    ],
+    "canReadMaterialLibrary": true
+  },
+  "sourceAccess": [
+    {
+      "id": "dead-cells-author",
+      "url": "https://www.gamedeveloper.com/production/art-design-deep-dive-using-a-3d-pipeline-for-2d-animation-in-i-dead-cells-i-",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "pribambase-author",
+      "url": "https://lampy.casa/pribambase",
+      "error": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "id": "pribambase-readme",
+      "url": "https://raw.githubusercontent.com/lampysprites/pribambase/master/README.md",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "krita-install",
+      "url": "https://docs.interstice.cloud/installation/",
+      "status": 200,
+      "finalUrl": "https://docs.interstice.cloud/installation/",
+      "bytes": 54521,
+      "sha256": "322772c815986c86774930ce3b1bf7e6b96702d6ab86232a28c1f54436acd8b0"
+    },
+    {
+      "id": "krita-controls",
+      "url": "https://docs.interstice.cloud/control-layers/",
+      "status": 200,
+      "finalUrl": "https://docs.interstice.cloud/control-layers/",
+      "bytes": 94673,
+      "sha256": "1cee20a2b01308fc371dcde6b159fbbecfd568ec9b6eefea708af5e9b2674c6a"
+    },
+    {
+      "id": "krita-edit",
+      "url": "https://docs.interstice.cloud/edit-models/",
+      "status": 200,
+      "finalUrl": "https://docs.interstice.cloud/edit-models/",
+      "bytes": 50152,
+      "sha256": "5740d86eff307cdb1d3c850cf0f000248e2aa7e14eb569ca0f3b715971ff1188"
+    },
+    {
+      "id": "krita-animation",
+      "url": "https://docs.interstice.cloud/animation/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "quaternius-base",
+      "url": "https://quaternius.com/packs/universalbasecharacters.html",
+      "status": 200,
+      "finalUrl": "https://quaternius.com/packs/universalbasecharacters.html",
+      "bytes": 19966,
+      "sha256": "4d31a8888b388ef4d951678f997d3662ae993f1a01e0e1a41a916135240f332e"
+    },
+    {
+      "id": "quaternius-animation",
+      "url": "https://quaternius.com/packs/universalanimationlibrary.html",
+      "status": 200,
+      "finalUrl": "https://quaternius.com/packs/universalanimationlibrary.html",
+      "bytes": 19862,
+      "sha256": "9157d71e192638132706d6734bfb109b0647f150f305d4514b81a0cdfe9bf471"
+    },
+    {
+      "id": "user-aesthetic-readme",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/main/README.md",
+      "status": 200,
+      "finalUrl": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/main/README.md",
+      "bytes": 11378,
+      "sha256": "388f33b6cabd364c94a15e3a3e610d5fe26f08c29f7fd16c7bc8bedec5b179ff"
+    },
+    {
+      "id": "user-architecture-readme",
+      "url": "https://raw.githubusercontent.com/Zengkailin/parametric-topdown-pixel-architecture/main/README.md",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "lpc-readme",
+      "url": "https://raw.githubusercontent.com/LiberatedPixelCup/Universal-LPC-Spritesheet-Character-Generator/master/README.md",
+      "status": 200,
+      "finalUrl": "https://raw.githubusercontent.com/LiberatedPixelCup/Universal-LPC-Spritesheet-Character-Generator/master/README.md",
+      "bytes": 17705,
+      "sha256": "96ac75120796da4a31a3b4c9a842ac9c1d4bb16b385354a1b2884adc76ea1104"
+    },
+    {
+      "id": "dead-cells-public-report",
+      "url": "https://wnhub.io/news/hr/item-13775",
+      "status": 200,
+      "finalUrl": "https://wnhub.io/news/hr/item-13775",
+      "bytes": 328910,
+      "sha256": "baf005150558d89b356c9c02f5cd34330d89c9fe827796c35b014153c14070a2"
+    },
+    {
+      "id": "roedel-author",
+      "url": "https://lucasroedel.gumroad.com/l/imnhcr",
+      "error": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>"
+    },
+    {
+      "id": "pixel-render-readme",
+      "url": "https://raw.githubusercontent.com/Tramshy/pixel-art-addon-mod/main/README.md",
+      "status": 200,
+      "finalUrl": "https://raw.githubusercontent.com/Tramshy/pixel-art-addon-mod/main/README.md",
+      "bytes": 4646,
+      "sha256": "4a030b1b37fd35fc915563c93a8918b6d76878ddbffc6ad47baad71b009aa203"
+    },
+    {
+      "id": "pixel-render-code",
+      "url": "https://raw.githubusercontent.com/Tramshy/pixel-art-addon-mod/main/init.py",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "pixel-render-assets",
+      "url": "https://api.github.com/repos/Tramshy/pixel-art-addon-mod/git/trees/main?recursive=1",
+      "status": 200,
+      "finalUrl": "https://api.github.com/repos/Tramshy/pixel-art-addon-mod/git/trees/main?recursive=1",
+      "bytes": 2564,
+      "sha256": "57a943152ada2301d7a3f2e59b8c0110374f1e158c9339ea538b6f05d4235f2a"
+    },
+    {
+      "id": "pixel-render-license",
+      "url": "https://raw.githubusercontent.com/Tramshy/pixel-art-addon-mod/main/LICENSE",
+      "status": 200,
+      "finalUrl": "https://raw.githubusercontent.com/Tramshy/pixel-art-addon-mod/main/LICENSE",
+      "bytes": 35129,
+      "sha256": "605e9047a563c5c8396ffb18232aa4304ec56586aee537c45064c6fb425e44ad"
+    },
+    {
+      "id": "pribambase-fork-readme",
+      "url": "https://raw.githubusercontent.com/powertashton/pribambase/master/README.md",
+      "status": 200,
+      "finalUrl": "https://raw.githubusercontent.com/powertashton/pribambase/master/README.md",
+      "bytes": 2661,
+      "sha256": "e9b73dc51d14a3676cf2457e5df9cf52b66af5894b94366bbaefdebc51c6f86b"
+    },
+    {
+      "id": "pribambase-api",
+      "url": "https://api.github.com/repos/lampysprites/pribambase",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "krita-animation-code",
+      "url": "https://raw.githubusercontent.com/Acly/krita-ai-diffusion/main/ai_diffusion/animation.py",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "user-video-route",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/main/extensions/skills/game-asset-video-sprites/references/implementation.md",
+      "status": 200,
+      "finalUrl": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/main/extensions/skills/game-asset-video-sprites/references/implementation.md",
+      "bytes": 1845,
+      "sha256": "8162e13e3dd061d9c5cace0db995911fc545e8a668885c3a76ca09747260e45b"
+    },
+    {
+      "id": "user-spine-route",
+      "url": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/main/extensions/skills/game-asset-spine-cutout/references/implementation.md",
+      "status": 200,
+      "finalUrl": "https://raw.githubusercontent.com/zeroa234/game-asset-aesthetic-test/main/extensions/skills/game-asset-spine-cutout/references/implementation.md",
+      "bytes": 2717,
+      "sha256": "ba912464c2369e15f370cf16e2ed50a1ff697daf35438970f96f6cc41f3b590a"
+    },
+    {
+      "id": "user-architecture-default",
+      "url": "https://raw.githubusercontent.com/Zengkailin/parametric-topdown-pixel-architecture/master/README.md",
+      "status": 200,
+      "finalUrl": "https://raw.githubusercontent.com/Zengkailin/parametric-topdown-pixel-architecture/master/README.md",
+      "bytes": 6418,
+      "sha256": "40ef92ac8bf00fee65c01d914f2967f542310064f777161ada1ca1967bd60d75"
+    },
+    {
+      "id": "pixel-render-init",
+      "url": "https://raw.githubusercontent.com/Tramshy/pixel-art-addon-mod/f13502c1fa71fd92e3969f35e9edeab17f4da52d/__init__.py",
+      "commit": "f13502c1fa71fd92e3969f35e9edeab17f4da52d",
+      "bytes": 10550,
+      "sha256": "a72fb0e00de4232b8d363bca5cd5dc0d8dd0dd9a9238b27772950bec555108b9",
+      "status": 200,
+      "savedFile": ".lab\\character-route-research-20261029\\pixel-render-init.py"
+    },
+    {
+      "id": "pixel-render-append",
+      "url": "https://raw.githubusercontent.com/Tramshy/pixel-art-addon-mod/f13502c1fa71fd92e3969f35e9edeab17f4da52d/append_assets.py",
+      "commit": "f13502c1fa71fd92e3969f35e9edeab17f4da52d",
+      "bytes": 1152,
+      "sha256": "b1bc4d61275a54c61cb13e75354879af5f8d3e487c2150262dbb02d94ca0e835",
+      "status": 200,
+      "savedFile": ".lab\\character-route-research-20261029\\pixel-render-append.py"
+    },
+    {
+      "id": "pixel-render-library",
+      "url": "https://raw.githubusercontent.com/Tramshy/pixel-art-addon-mod/f13502c1fa71fd92e3969f35e9edeab17f4da52d/assets/pixel%20art%20addon_assets.blend",
+      "commit": "f13502c1fa71fd92e3969f35e9edeab17f4da52d",
+      "bytes": 1787409,
+      "sha256": "d28cd809995ff65f0ee79e46a4844580d1d4cfcf6c7a51ee4403a0c48c490d41",
+      "status": 200,
+      "savedFile": ".lab\\character-route-research-20261029\\pixel-render-library.blend"
+    },
+    {
+      "id": "kaykit-author",
+      "url": "https://kaylousberg.com/game-assets/characters-adventurers",
+      "status": 200,
+      "bytes": 7052,
+      "sha256": "2a809bd28b8555af31fde22ac25aa55b59b3fdae01da23c72cd5623eb8d16a08"
+    },
+    {
+      "id": "kaykit-readme",
+      "url": "https://raw.githubusercontent.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0/main/README.md",
+      "status": 200,
+      "bytes": 2535,
+      "sha256": "ad13df6a5b31102f870d3165db796a641b8c1d93599547a84bb4575c8536c7f8"
+    },
+    {
+      "id": "pixel-render-material-code",
+      "url": "https://raw.githubusercontent.com/Tramshy/pixel-art-addon-mod/f13502c1fa71fd92e3969f35e9edeab17f4da52d/pixel_art_addon.py",
+      "status": 200,
+      "bytes": 47370,
+      "sha256": "f2f52c52a1902eb5415bef59501c40aaa39590a74d5e50643afab0135decf555"
+    }
+  ],
+  "warnings": [
+    "Developer article direct fetch returned403; search-index excerpts and directly fetched WN Hub report are distinct evidence.",
+    "Pribambase author site502 and old upstream404; fork README read, no maintenance-state conclusion.",
+    "Shader library contains auxiliary materials/groups; successful read is not pixel shader or character render validation.",
+    "Krita control/edit features do not imply all models support every control simultaneously.",
+    "KayKit and Quaternius are technical references, not approved replacements for the project character.",
+    "Source blend availability differs between free and paid asset tiers."
+  ],
+  "artApproved": false,
+  "walkingApproved": false,
+  "homepageIntegrated": false
+}

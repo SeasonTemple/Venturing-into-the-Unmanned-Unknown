@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>动作基准重建 · 原野手记</title>
+  <link rel="stylesheet" href="actor-production.css">
+  <link rel="stylesheet" href="actor-fk-review.css">
+  <script type="module" src="actor-fk-review.mjs"></script>
+</head>
+<body>
+  <header>
+    <a href="actor-production.html?revision=balance01">← 已撤回的旧试验</a>
+    <p class="eyebrow">原野手记 / 动作制作</p>
+    <h1>先查清脚底接触，再决定是否继续这条管线。</h1>
+    <p class="intro">同一段未负重行走，原始骨架、目标骨架与实际模型同步对照。关节轴、身体转动与肢段比例分别校准；但脚部坐标与鞋底接触尚未通过，这份试验已撤回，不作为动作基线。</p>
+  </header>
+  <main>
+    <section id="workbench" class="workbench" aria-labelledby="review-title">
+      <div class="heading"><h2 id="review-title">原始记录 → 目标骨架 → 实际变形</h2><p id="status" role="status">正在读取动作…</p></div>
+      <div class="fk-stage"><canvas id="comparison" width="1080" height="560" role="img" aria-label="同步逐帧对照原始骨架、目标骨架和实际人物模型；左右膝角度及最低鞋底点显示在下方文字中，但最低点不代表鞋底整面接触。"></canvas></div>
+      <div id="controls" class="controls" inert>
+        <div class="buttons">
+          <button id="play" type="button" aria-pressed="false">播放整段</button><button id="previous" type="button">← 上一帧</button><button id="next" type="button">下一帧 →</button><button id="restart" type="button">从头看</button>
+          <label>视图 <select id="view"><option value="all">三栏对照</option><option value="source">原始骨架</option><option value="target">目标骨架</option><option value="mesh">实际模型</option></select></label>
+          <label>速度 <select id="speed"><option value="0.5">½ 倍</option><option value="1" selected>正常</option></select></label>
+        </div>
+        <label class="timeline" for="timeline"><span id="frame-label">第 1 帧</span><input id="timeline" type="range" min="0" max="47" value="0" step="1"></label>
+        <p id="angles" class="fk-readout"></p><p id="contact" class="fk-readout"></p><p class="warning">已撤回：最低鞋底点不能证明支撑脚贴地；请参阅脚部接触复核。</p>
+      </div>
+      <noscript><p>逐帧查看需要 JavaScript；可<a href="actor-fk-reference-v02/motion-reference.mp4">播放离线同步对照</a>。</p></noscript>
+    </section>
+    <section class="notes">
+      <h2>这一步已经核对的事情</h2>
+      <p>从保存重开的模型重新测量全部 48 帧，膝与肘的屈伸保持原始记录，近乎伸直时也沿原始关节轴检查方向。目标模型的分段骨骼共用完整肢段的变换，保留静止姿态中的连接与体积。</p>
+      <p>地面只做一次整段共用的旋转与平移。模型没有逐帧脚点 IK，也没有假设质量驱动的骨盆追踪。最低鞋底相对固定地面约 −8～+12 毫米的数值不能证明鞋底平面成立；第 48 帧左支撑鞋底明显侧倾，支撑脚的滚动、水平滑移和权重接触均未通过。详见<a href="../../docs/homepage-character-foot-contact-audit.md">脚部接触与重定向方法复核</a>。</p>
+      <p>手部采用单独校准的中立掌向与放松指姿，保留捕捉中的前臂旋转，并将旋转分布到前臂。掌指姿态属于制作改编；膝、肘屈伸继续保持源记录。持箱、记录器操作、起停、转身及像素美术尚未完成。</p>
+      <div class="links"><a href="actor-fk-reference-v02/keypose-review.png">四组完整姿态与侧面对照</a><a href="actor-fk-reference-v02/motion-reference.mp4">同步对照短片</a><a href="actor-fk-reference-v02/motion-reference.blend">可回改工程</a><a href="actor-fk-reference-v02/evaluation-checks.json">工程复核记录</a><a href="actor-fk-reference-v02/foot-contact-audit.json">鞋底平面审计</a></div>
+    </section>
+    <section class="notes fk-side"><h2>手掌、袖口与前臂一起检查</h2><p>第 48 帧的左右手近景。手指轻微蜷曲，掌轴顺着前臂；<a href="actor-fk-reference-v02/hand-review/hand-contact-sheet.png">查看第 1、7、48 帧全部双手</a>，或<a href="actor-fk-reference-v02/hand-before-after.png">对照修正前后</a>。</p><div><figure><img src="actor-fk-reference-v02/hand-review/hand-48-R.png" width="480" height="480" alt="第48帧右手近景，手腕与前臂相连，手指放松蜷曲。" loading="lazy" decoding="async"><figcaption>右手 · 第 48 帧</figcaption></figure><figure><img src="actor-fk-reference-v02/hand-review/hand-48-L.png" width="480" height="480" alt="第48帧左手近景，掌向随前臂，拇指与其余手指保持分离。" loading="lazy" decoding="async"><figcaption>左手 · 第 48 帧</figcaption></figure></div></section>
+    <section class="notes fk-side"><h2>伸直与经过：同一模型的真实侧面</h2><p>左侧是第 1 帧，右侧是第 7 帧。两个视角来自同一组骨架姿态。</p><div><figure><img src="actor-fk-reference-v02/side-000.png" width="360" height="480" alt="第1帧侧面，前腿弯曲、后腿伸直，膝盖未反折。" loading="lazy"><figcaption>第 1 帧 · 接触附近</figcaption></figure><figure><img src="actor-fk-reference-v02/side-006.png" width="360" height="480" alt="第7帧侧面，后脚抬起经过支撑腿。" loading="lazy"><figcaption>第 7 帧 · 经过附近</figcaption></figure></div></section>
+  </main>
+  <footer>独立动作基准 · 网页播放离线图集 · 自然负重步态与人物美术尚未验收</footer>
+</body>
+</html>

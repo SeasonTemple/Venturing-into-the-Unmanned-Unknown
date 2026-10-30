@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>转身关键帧 01 · 原生像素闸门</title>
+  <style>
+    :root { color-scheme: dark; --ink:#d9e4d4; --muted:#9bb9a2; --line:#35554a; --panel:#152b26; --accent:#f0c778; }
+    * { box-sizing: border-box; }
+    body { margin:0; min-width:320px; background:#0c1b19; color:var(--ink); font:15px/1.65 system-ui,"Microsoft YaHei",sans-serif; }
+    header, main, footer { max-width:1220px; margin:auto; padding-inline:clamp(18px,4vw,56px); }
+    header { padding-block:20px 12px; display:flex; justify-content:space-between; gap:18px; border-bottom:1px solid var(--line); }
+    header a { color:var(--accent); }
+    main { padding-block:44px 70px; }
+    .eyebrow { color:var(--accent); letter-spacing:.12em; text-transform:uppercase; }
+    h1,h2 { line-height:1.15; letter-spacing:.02em; }
+    h1 { max-width:720px; font-size:clamp(2rem,5vw,4rem); margin:.2em 0 .35em; }
+    .intro { max-width:760px; color:#b9c9bc; }
+    .status { border-left:3px solid var(--accent); background:var(--panel); padding:12px 16px; max-width:760px; }
+    .review-grid { display:grid; grid-template-columns:minmax(0,1fr) 310px; gap:24px; align-items:start; margin-top:32px; }
+    .surface { background:#102522; border:1px solid var(--line); padding:18px; overflow:auto; }
+    .surface img { display:block; width:min(100%,900px); height:auto; image-rendering:pixelated; margin:auto; }
+    .native { margin-top:18px; }
+    .controls { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    button { color:var(--ink); background:#1d3a32; border:1px solid #5e816f; padding:9px 13px; border-radius:3px; font:inherit; cursor:pointer; }
+    button:hover, button:focus-visible { background:#315b4b; }
+    button:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+    dl { display:grid; grid-template-columns:auto 1fr; gap:5px 12px; margin:0; }
+    dt { color:var(--muted); } dd { margin:0; }
+    .note { color:var(--muted); font-size:.92rem; }
+    footer { border-top:1px solid var(--line); padding-block:18px 30px; color:var(--muted); }
+    @media (max-width:800px) { header { display:block; } .review-grid { grid-template-columns:1fr; } }
+    @media (prefers-reduced-motion: reduce) { * { scroll-behavior:auto !important; } }
+  </style>
+</head>
+<body>
+  <header><a href="pixel-native-master-v01.html">← 像素原生母版</a><span>TURN GATE · V01 · 制作中</span></header>
+  <main>
+    <p class="eyebrow">阶段二 / 停步转身</p>
+    <h1>正面 → 侧面，五张完整人物帧。</h1>
+    <p class="intro">这页只审查三张手绘过渡帧是否保持同一个人：头颈、胸廓、骨盆、双脚、工具箱和记录器必须同时连续。它们还没有接入首页，也不代表动作已经通过。</p>
+    <p class="status"><strong>当前状态：技术与美术复核中。</strong> 原生尺寸和 3× 放大都要通过；若中间帧的笔触或结构不成立，就回到源层修正，不扩展到行走循环。</p>
+    <section class="review-grid" aria-labelledby="review-title">
+      <div>
+        <h2 id="review-title">3× 逐帧预览</h2>
+        <figure class="surface"><img id="frame" src="pixel-turn-keyframes-v01/frames/frame-00.png" width="384" height="588" alt="正面停步。"></figure>
+        <div class="controls" aria-label="关键帧控制">
+          <button id="prev" type="button">← 上一帧</button><button id="play" type="button" aria-pressed="false">播放</button><button id="next" type="button">下一帧 →</button><button id="reset" type="button">回到正面</button>
+        </div>
+        <p class="note">播放只用于观察连续性，默认不自动播放；系统开启“减少动态”时保持静止。</p>
+        <h2>原生尺寸接触表</h2>
+        <figure class="surface native"><img src="pixel-turn-keyframes-v01/turn-keyframes-native.png" width="640" height="228" loading="lazy" alt="五张原生尺寸关键帧并排对照。"></figure>
+      </div>
+      <aside>
+        <h2>当前帧</h2><p id="label" aria-live="polite">01 / 正面停步</p>
+        <dl><dt>方向</dt><dd id="view">front</dd><dt>脚底</dt><dd>y = 183</dd><dt>画布</dt><dd>128 × 196</dd><dt>制作</dt><dd id="authoring">端点参考</dd></dl>
+        <h2>复核清单</h2>
+        <ul><li>头颈没有放大或撕裂</li><li>肩、肘、手掌随朝向变化</li><li>膝盖与脚底保持可解释接地</li><li>工具箱、记录器没有换手</li></ul>
+        <p class="note">“通过”只由人工视觉检查决定；自动检查只负责尺寸、顺序、哈希和制作方式。</p>
+      </aside>
+    </section>
+  </main>
+  <footer>TURN KEYFRAMES 01 · <a href="pixel-turn-keyframes-v01/manifest.json">manifest.json</a> · <a href="pixel-native-master-v01.html">源身份母版</a></footer>
+  <script type="module">
+    const manifest = await fetch('pixel-turn-keyframes-v01/manifest.json').then(r => r.json());
+    const img = document.querySelector('#frame'), label = document.querySelector('#label'), view = document.querySelector('#view'), authoring = document.querySelector('#authoring'), play = document.querySelector('#play');
+    let index = 0, timer = 0;
+    const render = () => { const frame = manifest.frames[index]; img.src = `pixel-turn-keyframes-v01/${frame.file}`; img.alt = `${frame.label}关键帧。`; label.textContent = `${String(index + 1).padStart(2,'0')} / ${frame.label}`; view.textContent = frame.view; authoring.textContent = frame.authoring === 'endpoint-reference' ? '端点参考' : '手绘完整帧'; };
+    const stop = () => { clearInterval(timer); timer = 0; play.textContent = '播放'; play.setAttribute('aria-pressed','false'); };
+    const step = delta => { index = (index + delta + manifest.frames.length) % manifest.frames.length; render(); };
+    document.querySelector('#prev').addEventListener('click', () => { stop(); step(-1); }); document.querySelector('#next').addEventListener('click', () => { stop(); step(1); }); document.querySelector('#reset').addEventListener('click', () => { stop(); index = 0; render(); });
+    play.addEventListener('click', () => { if (timer) stop(); else { play.textContent = '暂停'; play.setAttribute('aria-pressed','true'); timer = setInterval(() => step(1), 1000 / manifest.fps); } });
+    document.addEventListener('keydown', event => { if (event.key === 'ArrowLeft') { stop(); step(-1); } if (event.key === 'ArrowRight') { stop(); step(1); } if (event.key === ' ') { event.preventDefault(); play.click(); } });
+    render();
+  </script>
+</body>
+</html>
