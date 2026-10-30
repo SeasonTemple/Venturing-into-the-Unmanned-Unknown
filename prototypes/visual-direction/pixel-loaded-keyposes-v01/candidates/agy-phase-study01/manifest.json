@@ -1,0 +1,23 @@
+{
+  "status": "rejected-for-leg-crossing-and-grip-drift",
+  "route": "installed agy-bridge -> agy -> image-generator",
+  "generationCallsReported": 1,
+  "inputRoles": [
+    "approved character identity and equipment source",
+    "gray motion proxy for restrained passing-phase anatomy only"
+  ],
+  "output": "candidate.jpg",
+  "outputSha256": "538eada4c8c1404369d67471c4ab959b64530878c6e2232d777ea775d575ec",
+  "backend": "not-exposed",
+  "review": {
+    "identity": "broadly retained, but output is a softened JPEG and not a pixel-native source",
+    "pose": "one foot appears planted and the other passes behind, but the knees overlap and the trailing foot is toe-down",
+    "balance": "support and pelvis relationship is ambiguous at the target display size",
+    "equipment": "silver case remains on the image-left hand; recorder orientation and hand contact drift into a horizontal bar",
+    "proportion": "stride and lower-leg extension exceed the stable source proportion",
+    "decision": "Do not use as keyframe, animation source, or homepage character"
+  },
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false
+}
