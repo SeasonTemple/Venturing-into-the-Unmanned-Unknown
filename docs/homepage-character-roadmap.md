@@ -165,3 +165,9 @@ ag​y 顶层报告通过内置 `image-generator` 调用 `generate_image`；该�
 候选与对照图在 `prototypes/visual-direction/pixel-phase-pair-v02/`。三帧的承重切换比 v01 更容易读出，但仍只通过了“动作意图可读”的制作检查；脚底接触、骨盆高度和目标场景尺寸下的自然度尚未得到人工确认。因此仍保持 `artApproved: false`、`motionApproved: false`、`homepageIntegrated: false`，不生成视频，不接入首页。
 
 下一步只有两个出口：三帧整体成立后制作一个中间过渡姿态；任一帧不成立就重排整帧。继续工作时不回到鞋尖、膝盖、头部等孤立局部的循环微调。
+
+## 四姿态过渡候选 v03（2026-10-30）
+
+在 v02 的右承重、左前摆、左承重之间加入手工整帧的 `left-contact`。它把右脚从全掌承重带到前掌支撑，同时让左脚进入低位接触，四帧并排可以读出“右承重 → 前摆 → 接触 → 左承重”的顺序。上身和两件装备仍保持同一身份组，脚底共用一条检查基线。
+
+候选在 `prototypes/visual-direction/pixel-phase-pair-v03/`。这只是过渡姿态审片，不是补间动画；`artApproved`、`motionApproved` 和 `homepageIntegrated` 均保持 false。下一步先检查四帧在场景尺寸下的骨盆负重和双脚先后，再决定是否制作少量离散过渡帧。

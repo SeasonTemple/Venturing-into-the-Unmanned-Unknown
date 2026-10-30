@@ -1,0 +1,26 @@
+{
+  "status": "candidate-v03-transition-pending-visual-review",
+  "method": "whole-pose-native-pixel-authoring",
+  "source": "prototypes/visual-direction/art-pack-media/actor-front.png",
+  "sourceSha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af",
+  "frames": [
+    "right-support.png",
+    "left-passing.png",
+    "left-contact.png",
+    "left-support.png"
+  ],
+  "canvas": [
+    260,
+    400
+  ],
+  "transition": "left-contact is manually authored as a complete low-contact pose between left-passing and left-support",
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false,
+  "limitations": [
+    "static four-pose review only",
+    "no interpolation or video",
+    "needs target scene-size review",
+    "upper body remains intentionally quiet for this phase check"
+  ]
+}
