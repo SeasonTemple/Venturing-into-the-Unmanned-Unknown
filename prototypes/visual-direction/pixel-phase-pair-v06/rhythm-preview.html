@@ -34,9 +34,6 @@
     .timeline small { display:block; color:var(--muted); }
     .notes { margin-top:18px; padding:14px 16px; border-left:3px solid var(--accent); background:rgba(247,247,239,.65); color:var(--muted); }
     .notes p { margin:.25rem 0; }
-    .film-review { margin:18px 0 0; padding:14px; background:rgba(247,247,239,.72); border:1px solid var(--line); }
-    .film-review figcaption { margin:0 0 10px; }
-    .film-review video { display:block; width:min(100%,390px); height:auto; background:#e4e9db; image-rendering:pixelated; }
     @media (max-width:760px) { main { width:min(100% - 20px,620px); padding-top:20px; } header { display:block; } .status { margin-top:14px; text-align:left; } .stage { grid-template-columns:1fr; } .actor-frame { min-height:390px; } #actor { width:220px; height:338px; } .timeline { grid-template-columns:repeat(4,minmax(72px,1fr)); } }
     @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto !important; transition-duration:0.01ms !important; animation-duration:0.01ms !important; } }
   </style>
@@ -83,12 +80,6 @@
           <p>播放到第 7 帧会停下，不循环，不倒播，不补绘中间帧。</p>
           <p>如果接触段读成“突然滑步”，应回到整帧重排，而不是用速度或插值掩盖。</p>
         </div>
-        <figure class="film-review">
-          <figcaption><strong>有限帧序列试片</strong><span>1.9 秒 · 19 帧 · 无音轨</span></figcaption>
-          <video controls preload="metadata" width="780" height="1200" poster="timing-diagnostic.png" aria-label="七张整帧组成的一次负重换步试片">
-            <source src="rhythm-preview.mp4" type="video/mp4">
-          </video>
-        </figure>
       </div>
     </section>
   </main>
