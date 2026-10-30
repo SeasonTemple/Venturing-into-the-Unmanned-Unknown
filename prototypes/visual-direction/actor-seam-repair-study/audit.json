@@ -1,0 +1,28 @@
+{
+  "status": "seam-repair-only-anatomy-and-motion-unapproved",
+  "measurements": [
+    {
+      "pose": "right-through",
+      "variant": "修复前",
+      "hemBootOverlapPixels": 0
+    },
+    {
+      "pose": "right-through",
+      "variant": "接缝修复后",
+      "hemBootOverlapPixels": 54
+    },
+    {
+      "pose": "left-touchdown",
+      "variant": "修复前",
+      "hemBootOverlapPixels": 0
+    },
+    {
+      "pose": "left-touchdown",
+      "variant": "接缝修复后",
+      "hemBootOverlapPixels": 56
+    }
+  ],
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false
+}
