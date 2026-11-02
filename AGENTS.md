@@ -17,6 +17,7 @@
 ## Mandatory repository hygiene
 
 - Experimental outputs, rejected candidates, intermediate models/renders, extracted frames, contact sheets, preview recordings, raw tool logs and local dependencies MUST stay ignored and MUST NOT enter Git history. Reproducibility is not a reason to commit them.
+- New experiment directories are ignored in full, including generated README files and recipe/spec JSON. Only exact, reviewed maintained source paths listed in `prototypeSources` in `config/repository-assets.json` may enter Git; source-like extensions are not a blanket exception.
 - Use `.scratch/` or `.lab/` for temporary work. Large research archives belong outside this repository; keep only a concise conclusion, provenance and archive index in Git.
 - Keep necessary source code, production assets and the explicitly retained current baseline/source. The baseline is retained evidence, not an art approval. Every retained binary must have an exact path and purpose in `config/repository-assets.json`.
 - Never use `git add .`, `git add -A` or `git add -f` to sweep experiments into a commit. Stage an explicit reviewed file list. Do not edit the asset register merely to make a rejected output pass checks.
