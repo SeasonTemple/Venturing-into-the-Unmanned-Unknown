@@ -1,0 +1,2 @@
+#!/bin/sh
+python scripts/check-commit-privacy.py --history && python scripts/check-commit-privacy.py
