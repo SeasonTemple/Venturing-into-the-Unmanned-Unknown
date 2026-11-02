@@ -20,7 +20,7 @@ def git(*args, input=None):
     return subprocess.check_output(['git', *args], input=input)
 
 
-def allowed(path, registered):
+def allowed(path, registered, prototype_sources=()):
     parts = PurePosixPath(path).parts
     if any(p in {'node_modules', '__pycache__'} for p in parts) or parts[0] in LOCAL_ROOTS:
         return False
@@ -33,8 +33,7 @@ def allowed(path, registered):
     if suffix in MEDIA or suffix in {'.log', '.pyc', '.pyo', '.blend1', '.blend2'}:
         return False
     if parts[0] == 'prototypes':
-        return ('candidates' not in parts and
-                (suffix in SOURCE or path.endswith(('.spec.json', '.recipe.json'))))
+        return path in prototype_sources
     return True
 
 
@@ -46,12 +45,17 @@ def main():
     policy = json.loads(git('show', ':config/repository-assets.json' if args.staged
                             else 'HEAD:config/repository-assets.json'))
     registered = set(policy['assets'])
+    prototype_sources = set(policy['prototypeSources'])
+    for path in prototype_sources:
+        if not path.startswith('prototypes/') or 'candidates' in PurePosixPath(path).parts or not (
+                PurePosixPath(path).suffix in SOURCE or path.endswith(('.spec.json', '.recipe.json'))):
+            raise SystemExit('Invalid maintained prototype source declaration: ' + path)
     if any(not entry.get('purpose') for entry in policy['assets'].values()):
         raise SystemExit('Every registered asset needs a concrete purpose')
     errors = []
     if args.history:
         for path in set(git('log', '--all', '--format=', '--name-only').decode().splitlines()):
-            if path and not allowed(path, registered):
+            if path and not allowed(path, registered, prototype_sources):
                 errors.append('Forbidden historical artifact path: ' + path)
         entries = git('rev-list', '--objects', '--all').splitlines()
         rows = []
@@ -88,7 +92,7 @@ def main():
             continue
         size = int(size)
         total += size
-        if not allowed(path, registered):
+        if not allowed(path, registered, prototype_sources):
             errors.append('Forbidden or unregistered artifact: ' + path)
         if size > policy['maxFileBytes']:
             errors.append('File exceeds size budget: ' + path)
