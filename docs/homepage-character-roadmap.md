@@ -1,3 +1,5 @@
+> 历史资源说明：本文提到的退役实验素材已移出 Git，路径仅作研究索引；恢复方法见仓库内 `docs/research/repository-hygiene-cleanup.md`。
+
 # 首页人物制作路线与闸门
 
 ## 唯一目标（持续推进到完成）
@@ -20,7 +22,7 @@
 
 **目的：** 让正面、侧面、背侧、背面四套原画成为同一个可追溯的像素源，并建立前视图的可编辑边界。
 
-**已交付：** `pixel-native-master-v01`，包含原画锁定层、前视图分层、四向参照、方向契约、像素一致性检查和[阶段报告](../prototypes/visual-direction/pixel-native-master-v01/stage-report.json)。
+**已交付：** `pixel-native-master-v01`，包含原画锁定层、前视图分层、四向参照、方向契约、像素一致性检查和阶段报告（历史资源已归档：`prototypes/visual-direction/pixel-native-master-v01/stage-report.json`）。
 
 **通过条件：**
 

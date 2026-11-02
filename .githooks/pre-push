@@ -1,2 +1,2 @@
 #!/bin/sh
-python scripts/check-commit-privacy.py --history && python scripts/check-commit-privacy.py
+python scripts/check-commit-privacy.py --history && python scripts/check-commit-privacy.py && python scripts/check-repository-hygiene.py && python scripts/check-repository-hygiene.py --history

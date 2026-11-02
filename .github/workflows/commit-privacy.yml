@@ -9,8 +9,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - run: python scripts/check-commit-privacy.py --history
       - run: python scripts/check-commit-privacy.py
+      - run: python scripts/check-repository-hygiene.py
+      - run: python scripts/check-repository-hygiene.py --history

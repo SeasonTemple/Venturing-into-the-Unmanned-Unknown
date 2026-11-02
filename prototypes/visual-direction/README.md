@@ -1,4 +1,6 @@
-**当前正式首页：原野观测站像素体验**：[正式构建本地预览](http://127.0.0.1:4395/Venturing-into-the-Unmanned-Unknown/) / [独立美术预览](http://127.0.0.1:4395/meadow-study.html?revision=first-walk)。用户授权替换正式首页、提交推送；已修正对侧手脚领先和躯干／头部连动。保留认可原画、环境动态与短路线，正式首页保留搜索、章节、下载和 Agent 入口。当前仍为固定取景二维分层体验。见 [发布与检查记录](../../docs/homepage-publication.md)、[制作过程](./meadow-study.md) 与 [通用叙事像素美术技能](../../.agents/skills/unmapped-pixel-art/SKILL.md)。下述三维样张均为历史迭代。
+> 历史资源说明：本文提到的退役实验素材已移出 Git，路径仅作研究索引；恢复方法见仓库内 `docs/research/repository-hygiene-cleanup.md`。
+
+**当前正式首页：原野观测站像素体验**：[正式构建本地预览](http://127.0.0.1:4395/Venturing-into-the-Unmanned-Unknown/) / [独立美术预览](http://127.0.0.1:4395/meadow-study.html?revision=first-walk)。用户授权替换正式首页、提交推送；已修正对侧手脚领先和躯干／头部连动。保留认可原画、环境动态与短路线，正式首页保留搜索、章节、下载和 Agent 入口。当前仍为固定取景二维分层体验。见 [发布与检查记录](../../docs/homepage-publication.md)、[制作过程](./meadow-study.md) 与 通用叙事像素美术技能（历史资源已归档：`.agents/skills/unmapped-pixel-art/SKILL.md`）。下述三维样张均为历史迭代。
 
 **历史首页交付：观测站美术与天气样张 01**：[首屏](http://127.0.0.1:4395/field-study.html) / [雨](http://127.0.0.1:4395/field-study.html?weather=rain) / [雪](http://127.0.0.1:4395/field-study.html?weather=snow) / [人物与设备](http://127.0.0.1:4395/field-study.html?view=cast)。同一实际三维场景提供首屏、工作近景、边界、同尺度角色三种姿态与巡检载体；天气切换保持机位。程序人物与近景未通过美术验收。默认静止，动态可选；当前仍超过历史生产性能预算，任务与职责逻辑尚未接入。见 [样张、检查与限制](./field-study.md)。正式站点未修改。
 

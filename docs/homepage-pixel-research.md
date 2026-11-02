@@ -1,3 +1,5 @@
+> 历史资源说明：本文提到的退役实验素材已移出 Git，路径仅作研究索引；恢复方法见仓库内 `docs/research/repository-hygiene-cleanup.md`。
+
 # 首页像素方向调研
 
 调研日期：2026-10-27。用户认为工作近景粗糙，提出人物建模困难时可换实现方法，询问像素是否更简单；本轮明确要求**先调研**。本记录与 [可视研究板](../prototypes/visual-direction/pixel-research.html) 仅比较已有作品和制作路线，没有制作新场景，没有采用新画风，也没有修改正式首页和阅读页。
@@ -20,7 +22,7 @@
 
 没有实机游玩，没有播放预告或逐帧核验运动。因此以下“画面观察”限于静帧；“官方说明”来自页面原文；“本站建议”是设计推论。没有根据画面推断原作引擎、Shader、精灵尺寸、帧数、性能或精确制作成本。
 
-官方参考图片原始 JPEG 保留于 `prototypes/visual-direction/pixel-reference-media/`，逐图来源、原始 URL、字节数与 SHA-256 见 [sources.json](../prototypes/visual-direction/pixel-reference-media/sources.json)。图片属于原权利人，仅在独立研究板展示，未转成本站人物、背景或可发布素材。官方宣传图中的人物不会直接作为本站角色使用。
+官方参考图片原始 JPEG 保留于 `prototypes/visual-direction/pixel-reference-media/`，逐图来源、原始 URL、字节数与 SHA-256 见 sources.json（历史资源已归档：`prototypes/visual-direction/pixel-reference-media/sources.json`）。图片属于原权利人，仅在独立研究板展示，未转成本站人物、背景或可发布素材。官方宣传图中的人物不会直接作为本站角色使用。
 
 ## 五款作品的比较
 

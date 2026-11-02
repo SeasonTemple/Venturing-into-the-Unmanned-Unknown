@@ -53,6 +53,7 @@ report['checks'] = {'sameFixedCamera': True, 'sameFrameDimensions': True,
                     'poseEditChangesActualFrame8': True,
                     'unchangedEndpointFrames': [0, 19], 'changedFrames': changes,
                     'frameCountPerVariant': len(base['renderFrames'])}
-destination = ROOT / 'docs/research/homepage-cutout-reproduction-validation.json'
+destination = ROOT / '.scratch/reports/homepage-cutout-reproduction-validation.json'
+destination.parent.mkdir(parents=True, exist_ok=True)
 destination.write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
 print(json.dumps(report, ensure_ascii=False))

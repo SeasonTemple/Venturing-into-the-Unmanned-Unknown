@@ -1,10 +1,12 @@
+> 历史资源说明：本文提到的退役实验素材已移出 Git，路径仅作研究索引；恢复方法见仓库内 `docs/research/repository-hygiene-cleanup.md`。
+
 # 原人物迁移：分层母版与三张关键姿态
 
 **后续更新：** 已制作 [v02 姿态修订并总结制作管线](homepage-character-editable-pipeline.md)，接通独立姿态修绘和底图失效保护。本文保留 v01 的输入、工程与画面判断供对照。
 
 2026-10-28：接续 [COA 完整工程复现](homepage-cutout-pipeline-reproduction.md)，已将本站认可的 `actor-front.png` 接入同类二维分层／网格／骨骼制作流程，产出站立、承重接触和提脚经过三张姿态。新骨架按本站人物设置，没有沿用示例兽人的造型或动作。
 
-![原图、母版与姿态候选](../prototypes/visual-direction/actor-rig-media/actor-v01-review.png)
+原图、母版与姿态候选（历史资源已归档：`prototypes/visual-direction/actor-rig-media/actor-v01-review.png`）
 
 ## 这次具体做了什么
 
@@ -25,10 +27,10 @@
 
 ## 可回改的文件与操作
 
-- [分层画稿 ORA](../prototypes/visual-direction/actor-rig-media/actor-v01-layers.ora)：可以在支持 OpenRaster 的绘画软件中编辑。保持九层名称、顺序、原画尺寸、普通混合及完整图层不透明度；局部像素透明度可以保留。
-- [骨架与姿态工程](../prototypes/visual-direction/actor-rig-media/actor-v01-editable.blend)：纹理已打包，骨架、蒙皮、关键姿态可继续修改；不依赖 COA 插件。
+- 分层画稿 ORA（历史资源已归档：`prototypes/visual-direction/actor-rig-media/actor-v01-layers.ora`）：可以在支持 OpenRaster 的绘画软件中编辑。保持九层名称、顺序、原画尺寸、普通混合及完整图层不透明度；局部像素透明度可以保留。
+- 骨架与姿态工程（历史资源已归档：`prototypes/visual-direction/actor-rig-media/actor-v01-editable.blend`）：纹理已打包，骨架、蒙皮、关键姿态可继续修改；不依赖 COA 插件。
 - [骨架、拆层与姿态规格](../prototypes/visual-direction/actor-rig-media/actor-rig-v01.spec.json)：坐标使用原图左上角为原点的像素坐标。
-- [两倍像素对照](../prototypes/visual-direction/actor-rig-media/actor-v01-detail.png)／[拆层概览](../prototypes/visual-direction/actor-rig-media/actor-v01-layers-review.png)／[三姿态切换](../prototypes/visual-direction/actor-rig-media/actor-v01-pose-switch.webp)。切换预览用于检查姿态差异，不表示走路。
+- 两倍像素对照（历史资源已归档：`prototypes/visual-direction/actor-rig-media/actor-v01-detail.png`）／拆层概览（历史资源已归档：`prototypes/visual-direction/actor-rig-media/actor-v01-layers-review.png`）／三姿态切换（历史资源已归档：`prototypes/visual-direction/actor-rig-media/actor-v01-pose-switch.webp`）。切换预览用于检查姿态差异，不表示走路。
 
 从原图重建并检查：
 
@@ -52,4 +54,4 @@ E:/DevCache/tools/unmapped-sprite-bpy/Scripts/python.exe scripts/check-actor-cut
 
 重新打开保存的 `.blend` 后，三个姿态重渲染都与首次输出的 RGBA 一致。将未改动的 ORA 回导，三个姿态输出也保持一致；另在隔离副本中改动一个衣料像素，实际导出验证该修改随蒙皮进入三个姿态。该测试修改留在 `.lab`，没有进入交付美术。
 
-详见[结果与来源](../prototypes/visual-direction/actor-rig-media/actor-v01.json)及[验证记录](../prototypes/visual-direction/actor-rig-media/actor-v01-validation.json)。这些检查支持可回改、可保存和可导出的结论，不替代上述美术问题的判断。本轮没有图片或视频生成调用，没有修改正式首页。
+详见结果与来源（历史资源已归档：`prototypes/visual-direction/actor-rig-media/actor-v01.json`）及验证记录（历史资源已归档：`prototypes/visual-direction/actor-rig-media/actor-v01-validation.json`）。这些检查支持可回改、可保存和可导出的结论，不替代上述美术问题的判断。本轮没有图片或视频生成调用，没有修改正式首页。

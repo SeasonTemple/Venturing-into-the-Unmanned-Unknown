@@ -1,8 +1,10 @@
+> 历史资源说明：本文提到的退役实验素材已移出 Git，路径仅作研究索引；恢复方法见仓库内 `docs/research/repository-hygiene-cleanup.md`。
+
 # 完整持物站姿重画试验
 
 2026-10-29。用户指出全身换重末帧不成立后，实际改画了一张双脚落地的结构草稿，没有继续扩帧或重新播放旧动作。
 
-成果：[完整对照图](../prototypes/visual-direction/actor-support-paint-study-v01/support-comparison.png)、[可编辑画稿](../prototypes/visual-direction/actor-support-paint-study-v01/support-repaint.ora)。图中左侧为身份原画，中间为已撤回的末帧，右侧为此次结构草稿；三者同时保留约104px场景尺寸。
+成果：完整对照图（历史资源已归档：`prototypes/visual-direction/actor-support-paint-study-v01/support-comparison.png`）、可编辑画稿（历史资源已归档：`prototypes/visual-direction/actor-support-paint-study-v01/support-repaint.ora`）。图中左侧为身份原画，中间为已撤回的末帧，右侧为此次结构草稿；三者同时保留约104px场景尺寸。
 
 ## 实际改动
 

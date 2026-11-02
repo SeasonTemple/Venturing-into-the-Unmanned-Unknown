@@ -1,10 +1,12 @@
+> 历史资源说明：本文提到的退役实验素材已移出 Git，路径仅作研究索引；恢复方法见仓库内 `docs/research/repository-hygiene-cleanup.md`。
+
 # 人物制作管线总结与 v02 姿态修订
 
 **后续动作小样：** 已补出 [v03 负重换步与停步短片](homepage-character-load-motion.md)，检查了支撑脚、手箱握点与停步像素稳定；完整动画美术仍待验收。本文保留 v02 的独立修绘闭环与制作经验。
 
 2026-10-28。当前已实测的制作链为：**原图分层画稿 → 可编辑骨架与关键姿态 → 基础 RGBA 帧 → 独立姿态修绘 → 最终 RGBA 帧。** 共用衣装可回到母版修改，单个弯膝的衣褶留在该姿态；重新导出时检查两者的对应关系。
 
-![v01、v02 蒙皮与姿态修绘](../prototypes/visual-direction/actor-rig-v02/actor-v02-comparison.png)
+v01、v02 蒙皮与姿态修绘（历史资源已归档：`prototypes/visual-direction/actor-rig-v02/actor-v02-comparison.png`）
 
 ## 本轮推进结果
 
@@ -34,11 +36,11 @@
 
 ## 当前使用的文件
 
-- [v02 骨架工程](../prototypes/visual-direction/actor-rig-v02/actor-v02-editable.blend)／[共享分层画稿](../prototypes/visual-direction/actor-rig-v02/actor-v02-layers.ora)／[骨架与姿态规格](../prototypes/visual-direction/actor-rig-v02/actor-rig-v02.spec.json)。
-- [当前选用的膝部修绘 ORA](../prototypes/visual-direction/actor-rig-v02/pose-corrections-v02b/passing.ora)：底层 `base_render` 保留不动，编辑 `knee_surface` 和 `compression_folds`。
-- [最终提脚姿态](../prototypes/visual-direction/actor-rig-v02/final-v02b/actor-v02-passing.png)／[最终导出记录](../prototypes/visual-direction/actor-rig-v02/final-v02b/actor-v02-finish.json)。站立与接触无需额外修绘，沿用 v02 蒙皮输出。
-- [工程重开验证](../prototypes/visual-direction/actor-rig-v02/actor-v02-validation.json)／[回导与失效保护验证](../prototypes/visual-direction/actor-rig-v02/actor-v02-pipeline-validation.json)。
-- [真实修绘与裁切图层回导验证](../prototypes/visual-direction/actor-rig-v02/actor-v02-finish-validation.json)：在隔离副本中实际编辑修绘层，确认只改变对应姿态；底图和归档底图被改动时均拒绝导出。
+- v02 骨架工程（历史资源已归档：`prototypes/visual-direction/actor-rig-v02/actor-v02-editable.blend`）／共享分层画稿（历史资源已归档：`prototypes/visual-direction/actor-rig-v02/actor-v02-layers.ora`）／[骨架与姿态规格](../prototypes/visual-direction/actor-rig-v02/actor-rig-v02.spec.json)。
+- 当前选用的膝部修绘 ORA（历史资源已归档：`prototypes/visual-direction/actor-rig-v02/pose-corrections-v02b/passing.ora`）：底层 `base_render` 保留不动，编辑 `knee_surface` 和 `compression_folds`。
+- 最终提脚姿态（历史资源已归档：`prototypes/visual-direction/actor-rig-v02/final-v02b/actor-v02-passing.png`）／最终导出记录（历史资源已归档：`prototypes/visual-direction/actor-rig-v02/final-v02b/actor-v02-finish.json`）。站立与接触无需额外修绘，沿用 v02 蒙皮输出。
+- 工程重开验证（历史资源已归档：`prototypes/visual-direction/actor-rig-v02/actor-v02-validation.json`）／回导与失效保护验证（历史资源已归档：`prototypes/visual-direction/actor-rig-v02/actor-v02-pipeline-validation.json`）。
+- 真实修绘与裁切图层回导验证（历史资源已归档：`prototypes/visual-direction/actor-rig-v02/actor-v02-finish-validation.json`）：在隔离副本中实际编辑修绘层，确认只改变对应姿态；底图和归档底图被改动时均拒绝导出。
 
 `pose-corrections-v02`／`final-v02` 是未选用的第一版局部修绘；当前配方与交付记录明确指向 `pose-corrections-v02b`／`final-v02b`。v01 文件保留供对照。
 
@@ -59,4 +61,4 @@ E:/DevCache/tools/unmapped-sprite-bpy/Scripts/python.exe scripts/check-actor-fin
 
 ## 已沉淀到技能的内容
 
-通用经验位于 [unmapped-pixel-art 的制作管线参考](../.agents/skills/unmapped-pixel-art/references/editable-character-pipeline.md)，并由技能入口按需链接。它保留制作片段复现、回改范围、实际回导验证、接缝／IK／蒙皮诊断及修绘失效规则；本站的角色、骨数、尺寸、文件位置和脚本命令只保留在项目文档中。
+通用经验位于 unmapped-pixel-art 的制作管线参考（历史资源已归档：`.agents/skills/unmapped-pixel-art/references/editable-character-pipeline.md`），并由技能入口按需链接。它保留制作片段复现、回改范围、实际回导验证、接缝／IK／蒙皮诊断及修绘失效规则；本站的角色、骨数、尺寸、文件位置和脚本命令只保留在项目文档中。

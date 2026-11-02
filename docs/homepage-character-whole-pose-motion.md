@@ -1,8 +1,10 @@
+> 历史资源说明：本文提到的退役实验素材已移出 Git，路径仅作研究索引；恢复方法见仓库内 `docs/research/repository-hygiene-cleanup.md`。
+
 # 全身换重片段：连续制作与回改
 
 **撤回推荐（2026-10-29）：** 用户指出第 13 帧完整姿态不成立。重新对照实际图像后，膝部轮廓过窄、踝鞋连接扭折，末尾姿态无法清楚表达承重转换；持设备的手臂仍沿用近似叉腰轮廓，握持关系也不清楚。该片段仅保留为失败的表面变形试验，不作为人物动作成果或后续扩帧基线。下文的技术检查及已修问题保留为工程记录，不表示全身美术通过。下一步必须先获得可信的完整关键姿态，不能继续用旧站姿取样和增加控制点替代姿态制作。单张二维投影不足以认定膝关节解剖上反向弯曲，也未提供实测质心。
 
-2026-10-29。实际交付 [v02 全身换重短片](../prototypes/visual-direction/actor-whole-pose-v02/whole-pose.mp4)，13 张姿态、10fps，含首尾保持共 2.5 秒。固定同一机位，展示右脚承重、左腿前摆、左跟落地、转到左腿承重。它是有限的二维表面动画候选，仍未通过完整行走美术验收。
+2026-10-29。实际交付 v02 全身换重短片（历史资源已归档：`prototypes/visual-direction/actor-whole-pose-v02/whole-pose.mp4`），13 张姿态、10fps，含首尾保持共 2.5 秒。固定同一机位，展示右脚承重、左腿前摆、左跟落地、转到左腿承重。它是有限的二维表面动画候选，仍未通过完整行走美术验收。
 
 ## 本轮实际推进的部分
 
@@ -40,7 +42,7 @@
 
 完整 ORA 重开回导得到相同姿态；修绘后重打包，视频使用实际修绘帧。H.264 视频 900×900、25 帧、2.5 秒，约 167KB；单张透明图集约 181KB。没有将这份候选接入正式首页，也没有做完整行走、转向、多机位鞋底或十分钟场景运行验收。
 
-详细记录：[检查摘要](research/actor-whole-pose-checks.json)、[完整逐帧检查](../prototypes/visual-direction/actor-whole-pose-v02/whole-pose-checks.json)、[当前限制](../prototypes/visual-direction/actor-whole-pose-v02/review-status.json)。
+详细记录：检查摘要（历史资源已归档：`docs/research/actor-whole-pose-checks.json`）、完整逐帧检查（历史资源已归档：`prototypes/visual-direction/actor-whole-pose-v02/whole-pose-checks.json`）、当前限制（历史资源已归档：`prototypes/visual-direction/actor-whole-pose-v02/review-status.json`）。
 
 ## 回改与复现
 

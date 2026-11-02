@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "maxFileBytes": 2097152,
+  "maxTreeBytes": 26214400,
+  "maxHistoryBlobBytes": 26214400,
+  "assets": {
+    "docs/images/homepage-art-pack-notebook.webp": {
+      "purpose": "Published documentation figure referenced by research/design conclusions",
+      "kind": "documentation"
+    },
+    "docs/images/homepage-controls-comparison.webp": {
+      "purpose": "Published documentation figure referenced by research/design conclusions",
+      "kind": "documentation"
+    },
+    "docs/images/homepage-knee-axis-rejection.png": {
+      "purpose": "Published documentation figure referenced by research/design conclusions",
+      "kind": "documentation"
+    },
+    "docs/images/homepage-lifecycle-comparison.webp": {
+      "purpose": "Published documentation figure referenced by research/design conclusions",
+      "kind": "documentation"
+    },
+    "docs/images/homepage-notebook-carriers.webp": {
+      "purpose": "Published documentation figure referenced by research/design conclusions",
+      "kind": "documentation"
+    },
+    "docs/images/homepage-notebook-content-review.webp": {
+      "purpose": "Published documentation figure referenced by research/design conclusions",
+      "kind": "documentation"
+    },
+    "docs/images/homepage-record-material-gap.webp": {
+      "purpose": "Published documentation figure referenced by research/design conclusions",
+      "kind": "documentation"
+    },
+    "docs/images/homepage-reference-comparison.webp": {
+      "purpose": "Published documentation figure referenced by research/design conclusions",
+      "kind": "documentation"
+    },
+    "docs/images/homepage-scene-comparison.webp": {
+      "purpose": "Published documentation figure referenced by research/design conclusions",
+      "kind": "documentation"
+    },
+    "docs/images/homepage-story-rehearsal.webp": {
+      "purpose": "Published documentation figure referenced by research/design conclusions",
+      "kind": "documentation"
+    },
+    "docs/images/homepage-water-phases.webp": {
+      "purpose": "Published documentation figure referenced by research/design conclusions",
+      "kind": "documentation"
+    },
+    "prototypes/visual-direction/art-pack-media/actor-back-side.png": {
+      "kind": "identity-reference",
+      "purpose": "Existing rear-side identity reference; not motion approval"
+    },
+    "prototypes/visual-direction/art-pack-media/actor-back.png": {
+      "kind": "identity-reference",
+      "purpose": "Existing rear identity reference; not motion approval"
+    },
+    "prototypes/visual-direction/art-pack-media/actor-front.png": {
+      "kind": "identity-reference",
+      "purpose": "Current character identity source"
+    },
+    "prototypes/visual-direction/art-pack-media/actor-side.png": {
+      "kind": "identity-reference",
+      "purpose": "Existing side-view identity reference; not motion approval"
+    },
+    "prototypes/visual-direction/art-pack-media/rover-approved.png": {
+      "kind": "identity-reference",
+      "purpose": "Retained approved rover identity reference"
+    },
+    "prototypes/visual-direction/pixel-loaded-keyposes-v01/candidates/agy-loaded-still-edit01/README.md": {
+      "kind": "retained-static-baseline",
+      "purpose": "User-confirmed complete anatomy baseline and its minimal provenance; full art/motion/homepage approval remains false"
+    },
+    "prototypes/visual-direction/pixel-loaded-keyposes-v01/candidates/agy-loaded-still-edit01/candidate.jpg": {
+      "kind": "retained-static-baseline",
+      "purpose": "User-confirmed complete anatomy baseline and its minimal provenance; full art/motion/homepage approval remains false"
+    },
+    "prototypes/visual-direction/pixel-loaded-keyposes-v01/candidates/agy-loaded-still-edit01/comparison.png": {
+      "kind": "retained-static-baseline",
+      "purpose": "User-confirmed complete anatomy baseline and its minimal provenance; full art/motion/homepage approval remains false"
+    },
+    "prototypes/visual-direction/pixel-loaded-keyposes-v01/candidates/agy-loaded-still-edit01/image-tool-call.json": {
+      "kind": "retained-static-baseline",
+      "purpose": "User-confirmed complete anatomy baseline and its minimal provenance; full art/motion/homepage approval remains false"
+    },
+    "prototypes/visual-direction/pixel-loaded-keyposes-v01/candidates/agy-loaded-still-edit01/manifest.json": {
+      "kind": "retained-static-baseline",
+      "purpose": "User-confirmed complete anatomy baseline and its minimal provenance; full art/motion/homepage approval remains false"
+    },
+    "prototypes/visual-direction/pixel-loaded-keyposes-v01/candidates/agy-phase-study01/candidate.jpg": {
+      "kind": "generation-input",
+      "purpose": "Actual pose-reference input used to generate the retained current static baseline"
+    },
+    "prototypes/visual-direction/pixel-native-master-v01/full-resolution-source/actor-source.ora": {
+      "kind": "editable-source",
+      "purpose": "Full-resolution editable source corresponding to retained identity raster"
+    },
+    "prototypes/visual-direction/pixel-native-master-v01/full-resolution-source/manifest.json": {
+      "kind": "provenance",
+      "purpose": "Source dimensions and provenance"
+    },
+    "prototypes/visual-direction/pixel-native-master-v01/full-resolution-source/original-raster.png": {
+      "kind": "editable-source",
+      "purpose": "Raster companion of the full-resolution editable source"
+    },
+    "site/public/apple-touch-icon.png": {
+      "purpose": "Existing production runtime asset; retained to preserve site behavior, not a new visual approval",
+      "kind": "production-runtime"
+    },
+    "site/public/hero/poster-1280.webp": {
+      "purpose": "Existing production runtime asset; retained to preserve site behavior, not a new visual approval",
+      "kind": "production-runtime"
+    },
+    "site/public/hero/poster.webp": {
+      "purpose": "Existing production runtime asset; retained to preserve site behavior, not a new visual approval",
+      "kind": "production-runtime"
+    },
+    "site/public/journal/paper-base-v01.webp": {
+      "purpose": "Existing production runtime asset; retained to preserve site behavior, not a new visual approval",
+      "kind": "production-runtime"
+    },
+    "site/public/journal/relief-base-v01.webp": {
+      "purpose": "Existing production runtime asset; retained to preserve site behavior, not a new visual approval",
+      "kind": "production-runtime"
+    },
+    "site/public/meadow/engineer-actions-v03.png": {
+      "purpose": "Existing production runtime asset; retained to preserve site behavior, not a new visual approval",
+      "kind": "production-runtime"
+    },
+    "site/public/meadow/engineer-idle-v01.png": {
+      "purpose": "Existing production runtime asset; retained to preserve site behavior, not a new visual approval",
+      "kind": "production-runtime"
+    },
+    "site/public/meadow/hero-v04.webp": {
+      "purpose": "Existing production runtime asset; retained to preserve site behavior, not a new visual approval",
+      "kind": "production-runtime"
+    },
+    "site/public/meadow/motion-mask-v01.png": {
+      "purpose": "Existing production runtime asset; retained to preserve site behavior, not a new visual approval",
+      "kind": "production-runtime"
+    },
+    "site/public/meadow/motion-mask-v02.png": {
+      "purpose": "Existing production runtime asset; retained to preserve site behavior, not a new visual approval",
+      "kind": "production-runtime"
+    },
+    "site/public/meadow/motion-mask-v03.png": {
+      "purpose": "Existing production runtime asset; retained to preserve site behavior, not a new visual approval",
+      "kind": "production-runtime"
+    },
+    "site/public/meadow/sky-loop-v01.webp": {
+      "purpose": "Existing production runtime asset; retained to preserve site behavior, not a new visual approval",
+      "kind": "production-runtime"
+    },
+    "site/public/meadow/walk-foreground-v01.png": {
+      "purpose": "Existing production runtime asset; retained to preserve site behavior, not a new visual approval",
+      "kind": "production-runtime"
+    },
+    "site/public/meadow/walk-plate-v01.webp": {
+      "purpose": "Existing production runtime asset; retained to preserve site behavior, not a new visual approval",
+      "kind": "production-runtime"
+    },
+    "site/src/assets/fonts/instrument-serif-latin-400.woff2": {
+      "purpose": "Existing production runtime asset; retained to preserve site behavior, not a new visual approval",
+      "kind": "production-runtime"
+    },
+    "site/src/assets/fonts/inter-latin-wght.woff2": {
+      "purpose": "Existing production runtime asset; retained to preserve site behavior, not a new visual approval",
+      "kind": "production-runtime"
+    },
+    "site/src/assets/fonts/jetbrains-mono-latin-wght.woff2": {
+      "purpose": "Existing production runtime asset; retained to preserve site behavior, not a new visual approval",
+      "kind": "production-runtime"
+    }
+  }
+}

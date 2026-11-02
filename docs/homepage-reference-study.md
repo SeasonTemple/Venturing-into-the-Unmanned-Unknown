@@ -1,3 +1,5 @@
+> 历史资源说明：本文提到的退役实验素材已移出 Git，路径仅作研究索引；恢复方法见仓库内 `docs/research/repository-hygiene-cleanup.md`。
+
 # 首页参考研究与方向提案
 
 2026-10-27。用户认可 Jusant、INSIDE、Death Stranding 三个例子恰当；随后要求只吸收外部技术说明中有价值的技术事项。本轮据实际画面拆解设计方法，制作独立研究板，不修改正式首页或阅读页。
@@ -6,7 +8,7 @@
 
 ## 资料与证据范围
 
-取得并人工查看官方静帧：Jusant Gameplay 1 / 7 / 10；INSIDE 官方截图 01 / 06；Death Stranding 官方环境背景、Director’s Cut 货物设备与 Chiral Bridge 画面。三部作品官方网站可访问。研究用图按比例缩放、转 WebP，未裁剪、改色或移除水印，共 8 张、616,920 bytes；原始 URL、处理方式、来源页与 SHA-256 见 [来源清单](../prototypes/visual-direction/reference-media/sources.json)。本地副本用于稳定显示参考，不作为本站原创资产或生产首页素材。
+取得并人工查看官方静帧：Jusant Gameplay 1 / 7 / 10；INSIDE 官方截图 01 / 06；Death Stranding 官方环境背景、Director’s Cut 货物设备与 Chiral Bridge 画面。三部作品官方网站可访问。研究用图按比例缩放、转 WebP，未裁剪、改色或移除水印，共 8 张、616,920 bytes；原始 URL、处理方式、来源页与 SHA-256 见 来源清单（历史资源已归档：`prototypes/visual-direction/reference-media/sources.json`）。本地副本用于稳定显示参考，不作为本站原创资产或生产首页素材。
 
 没有进行实机游玩或连续镜头操作。因此可以分析画面中的轮廓、材质分区、空间层次、姿态和操作关系，不能据此断言原作内部渲染管线、完整任务机制或行进节奏已经核验。部分画面来自 Director’s Cut，研究板单独标出；环境背景图也不冒称无后期的实机截图。
 

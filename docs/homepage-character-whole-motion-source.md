@@ -1,3 +1,5 @@
+> 历史资源说明：本文提到的退役实验素材已移出 Git，路径仅作研究索引；恢复方法见仓库内 `docs/research/repository-hygiene-cleanup.md`。
+
 # 完整动作参照与本轮制作结果
 
 > 当前 `actor-balance-reference-v01` 也已撤回为失败样本：用户指出左膝反折，复核确认 11 处腿／帧出现反向屈膝。页面 `actor-production.html?revision=balance01` 保留用于复现，不再推荐为动作依据。v02 与 balance01 均未通过；新的无负重转移基准见 [FK 01 制作记录](homepage-character-fk-baseline.md)，自然负重动作与最终人物美术仍未通过。
@@ -91,7 +93,7 @@ E:/DevCache/tools/unmapped-sprite-bpy/Scripts/python.exe scripts/review-actor-ba
 诊断试验在采样阶段保留 ASF 膝轴，并与原始 AMC 屈膝通道逐帧核对；每次骨盆或脚点调整后，以该轴重新确定合法弯曲方向。试验消除了反折，但第 1 帧左膝由来源接近 0° 变为约 20°，整段仍有明显的屈膝曲线偏差。这证明接地与假设质心补偿还在改写原始姿态，不能把“反折消除”宣布为动作自然。
 
 - 可复现检查：`scripts/check-actor-knee-axis.py`。
-- 实测报告：[膝关节轴向审计](research/actor-knee-axis-audit.json)。
+- 实测报告：膝关节轴向审计（历史资源已归档：`docs/research/actor-knee-axis-audit.json`）。
 - 画面对照：[旧版与轴向修正试验](images/homepage-knee-axis-rejection.png)。
 - 试验工程：`.lab/whole-walk/knee-axis01/`，不替换公开预览或正式首页。
 

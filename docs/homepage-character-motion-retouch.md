@@ -1,10 +1,12 @@
+> 历史资源说明：本文提到的退役实验素材已移出 Git，路径仅作研究索引；恢复方法见仓库内 `docs/research/repository-hygiene-cleanup.md`。
+
 # 负重动作局部修绘与逐帧预览 v04
 
 后续进展：[v05 整身步序、持续行进与停步对照](homepage-character-gait-study.md)。v04 修绘和原帧保留，未套到新姿态。
 
 2026-10-28。接着 v03 的同朝向负重短步，检查左右弯膝的衣料。保留 v03 原帧和工程，在独立目录试作有限的衣褶候选；正式首页未修改，没有新增媒体生成调用。
 
-预览：启动现有 `prototypes/visual-direction/serve.mjs` 后，访问 [逐帧对照](http://127.0.0.1:4395/actor-motion-review.html?revision=cloth04)。[静帧对照](../prototypes/visual-direction/actor-rig-v04/actor-v04-knee-comparison.png) 可直接查看。
+预览：启动现有 `prototypes/visual-direction/serve.mjs` 后，访问 [逐帧对照](http://127.0.0.1:4395/actor-motion-review.html?revision=cloth04)。静帧对照（历史资源已归档：`prototypes/visual-direction/actor-rig-v04/actor-v04-knee-comparison.png`） 可直接查看。
 
 ## 实际新增
 
@@ -16,7 +18,7 @@
 
 ## 已验证与尚未通过
 
-[像素范围检查](../prototypes/visual-direction/actor-rig-v04/actor-v04-validation.json) 确认全部帧保持轮廓 alpha，改动不涉及头、握点、鞋底。[真实回改检查](../prototypes/visual-direction/actor-rig-v04/actor-v04-edit-validation.json) 在隔离副本中修改第 23 帧一个画层像素，实际导出后只影响该帧；故意修改最后一帧的底图时，整批导出被拒绝，已有结果不被部分覆盖。旧 v02 的回导检查也重新通过。
+像素范围检查（历史资源已归档：`prototypes/visual-direction/actor-rig-v04/actor-v04-validation.json`） 确认全部帧保持轮廓 alpha，改动不涉及头、握点、鞋底。真实回改检查（历史资源已归档：`prototypes/visual-direction/actor-rig-v04/actor-v04-edit-validation.json`） 在隔离副本中修改第 23 帧一个画层像素，实际导出后只影响该帧；故意修改最后一帧的底图时，整批导出被拒绝，已有结果不被部分覆盖。旧 v02 的回导检查也重新通过。
 
 浏览器实测原生进度条方向键与 Home / End、两版切换、拖动暂停、12fps 与半速、单次结束、按需循环、真实滚动离屏暂停、减少动态下刷新保持静止，以及 320px/390px 宽度无横向溢出。文档隐藏事件通过模拟检查；没有宣称完成各操作系统后台行为测试。截图和实测记录位于 `.lab/actor-motion-browser/`。
 
@@ -33,6 +35,6 @@ E:/DevCache/tools/unmapped-sprite-bpy/Scripts/python.exe scripts/prepare-actor-m
 
 不要重新执行初次 author 操作覆盖现有画稿。若骨架底帧改变，另建修绘版本，逐帧检查后转移仍适用的画层。需验证实际回改时运行 `scripts/check-actor-motion-retouch.py`；浏览器检查运行 `node scripts/check-actor-motion-review.mjs`。
 
-这次沉淀的管线经验：**姿态修绘也有时间关系**。关节点帮助定位，包络帮助安排出现，但都不能保证衣料表面正确；必须检查进出阶段的相邻帧并同步对照，避免“关键帧成立、播放时补丁闪现”。这条经验已提炼到技能的[制作管线参考](../.agents/skills/unmapped-pixel-art/references/editable-character-pipeline.md)，具体帧号、文件和命令只保留在项目中。
+这次沉淀的管线经验：**姿态修绘也有时间关系**。关节点帮助定位，包络帮助安排出现，但都不能保证衣料表面正确；必须检查进出阶段的相邻帧并同步对照，避免“关键帧成立、播放时补丁闪现”。这条经验已提炼到技能的制作管线参考（历史资源已归档：`.agents/skills/unmapped-pixel-art/references/editable-character-pipeline.md`），具体帧号、文件和命令只保留在项目中。
 
 下一道关口仍是同一朝向完整动作的自然度。先判断整身重心和步态，再决定需不需要改关键姿态，不能继续只补膝部像素来宣称走路完成。

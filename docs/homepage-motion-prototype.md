@@ -1,3 +1,5 @@
+> 历史资源说明：本文提到的退役实验素材已移出 Git，路径仅作研究索引；恢复方法见仓库内 `docs/research/repository-hygiene-cleanup.md`。
+
 # 人物动作小样 · 2026-10-28
 
 **当前结论：walk01–04 的美术评审未通过。** 用户指出的头颈肩拼接、裤腿画风、身份与光色差异仍存在。旧几何／程序测试只证明相应约束成立，不能支持人物美术已修好的结论。后续暂回到[完整站姿精修](homepage-standing-study.md)，旧动作留作对照，不继续微调头部缩放比例。
@@ -83,7 +85,7 @@ node --check prototypes/visual-direction/motion-proof-geometry.mjs
 - **布局**：1440px 桌面与 390px 手机检查，无横向溢出；手机放大视图可独立检查人物。
 - **截图**：统一入口共 6 张成功截图。第一次浏览器未能在启动期限内就绪，清理其自有进程后，以软件渲染完成检查；所有截图浏览器最终 `remaining: []`。未终止用户浏览器。
 
-可追溯报告见 [homepage-motion-proof-validation.json](research/homepage-motion-proof-validation.json)。浏览器绘制耗时只是在这次短检查、软件渲染环境中的观察，不能外推为所有设备上的 FPS 或十分钟性能保证。
+可追溯报告见 homepage-motion-proof-validation.json（历史资源已归档：`docs/research/homepage-motion-proof-validation.json`）。浏览器绘制耗时只是在这次短检查、软件渲染环境中的观察，不能外推为所有设备上的 FPS 或十分钟性能保证。
 
 播放器仅在播放、页面可见且检查区在渲染／邻近范围内请求 RAF，画面绘制上限 30fps；UI 文本降低更新频率，逐帧控制按动作帧推进。计时样本使用固定长度缓冲区。暂停、后台与离屏冻结时间，恢复时不补跑隐藏期间的时间。没有临时逐帧图片或持续扩大的帧缓存。
 
