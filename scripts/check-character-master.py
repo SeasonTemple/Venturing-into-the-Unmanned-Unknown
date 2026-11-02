@@ -53,6 +53,7 @@ report={
  'artApproved':False,'walkingTested':False,
  'visualLimits':['Face and costume are approximate; not an identity match.','Cloth pixel clusters and footwear remain below the approved illustration.','Grip, deformation and gait require separate pose review.'],
 }
-destination=ROOT/('docs/research/homepage-character-master-v02-validation.json' if rev=='v02' else 'docs/research/homepage-character-master-validation.json')
+destination=ROOT/('.scratch/reports/homepage-character-master-v02-validation.json' if rev=='v02' else '.scratch/reports/homepage-character-master-validation.json')
+destination.parent.mkdir(parents=True, exist_ok=True)
 destination.write_text(json.dumps(report,indent=2),encoding='utf8')
 print(json.dumps(report,indent=2),flush=True)

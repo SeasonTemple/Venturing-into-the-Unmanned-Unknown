@@ -1,3 +1,5 @@
+> 历史资源说明：本文提到的退役实验素材已移出 Git，路径仅作研究索引；恢复方法见仓库内 `docs/research/repository-hygiene-cleanup.md`。
+
 # 首页人物现状与交接（2026-11-02）
 
 ## 当前结论
@@ -29,7 +31,7 @@
 
 ## 清理与提交边界
 
-清理清单见 [character-cleanup-2026-11-02.json](research/character-cleanup-2026-11-02.json)。本轮从活动目录移除 657 个文件，净释放 41,855,273 字节（约 39.9 MiB）：
+清理清单见 character-cleanup-2026-11-02.json（历史资源已归档：`docs/research/character-cleanup-2026-11-02.json`）。本轮从活动目录移除 657 个文件，净释放 41,855,273 字节（约 39.9 MiB）：
 
 - 废弃的 `pixel-reference-loaded-still-v01` 至 `v04` 和四个 build 脚本先逐文件校验归档，再移出活动目录。本地 ZIP 位于 `.scratch/character-retired-stills-2026-11-02.zip`，不提交；清单保留文件哈希和恢复路径。
 - 删除 `.scratch` 中明确可再生成的重复抽帧、临时 phase/passing 导出、图层预览和接缝诊断；原视频、认可源、当前静帧和依赖工具保留。

@@ -1,3 +1,5 @@
+> 历史资源说明：本文提到的退役实验素材已移出 Git，路径仅作研究索引；恢复方法见仓库内 `docs/research/repository-hygiene-cleanup.md`。
+
 # 首页人物制作路线与闸门
 
 > **当前状态（2026-11-02）**：以 [现状与交接](homepage-character-status.md) 为继续工作的入口。用户确认 AGY `agy-loaded-still-edit01` 的腿部、手臂和整体人体正常完整，本图保留为当前静帧基线；此前整帧否决撤回。原生像素、身份／画风和真实 104px 场景尺寸尚待复核，动作与首页均未放行。`load-sequence-v01` 已撤回，静帧未通过前不制作动作或视频、不接入首页。以下阶段和“已交付”文字包含历史试验，不能据此推断当前已放行；v01–v04 手工静帧及脚本已转入本地归档，路径见交接页。
@@ -39,7 +41,7 @@
 
 **目的：** 让正面、侧面、背侧、背面四套原画成为同一个可追溯的像素源，并建立前视图的可编辑边界。
 
-**已交付：** `pixel-native-master-v01`，包含原画锁定层、前视图分层、四向参照、方向契约、像素一致性检查和[阶段报告](../prototypes/visual-direction/pixel-native-master-v01/stage-report.json)。
+**已交付：** `pixel-native-master-v01`，包含原画锁定层、前视图分层、四向参照、方向契约、像素一致性检查和阶段报告（历史资源已归档：`prototypes/visual-direction/pixel-native-master-v01/stage-report.json`）。
 
 **通过条件：**
 

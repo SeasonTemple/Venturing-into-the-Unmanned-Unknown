@@ -1,8 +1,10 @@
+> 历史资源说明：本文提到的退役实验素材已移出 Git，路径仅作研究索引；恢复方法见仓库内 `docs/research/repository-hygiene-cleanup.md`。
+
 # 二维分层动画：完整工程复现
 
 2026-10-28：已在本机跑通 **原始分层素材 → 已有蒙皮与骨架 → 原动作 → 修改关键姿态 → 保存工程 → 导出帧 → 重开复验**。这证明了一段可编辑、可重复导出的二维制作流程，本站人物的美术与步态尚未通过。
 
-![原动作与修改后动作](../prototypes/visual-direction/cutout-pipeline-media/cutout-reproduction.gif)
+原动作与修改后动作（历史资源已归档：`prototypes/visual-direction/cutout-pipeline-media/cutout-reproduction.gif`）
 
 左侧是示例原动作；右侧复制该动作，在第 8 帧将 `Forearm_L` 沿画面内的关节轴增加 18°。两版使用同一固定镜头。修改影响相邻插值帧，首尾姿态保持一致。
 
@@ -21,7 +23,7 @@
 - 重开后仍保留 23 根骨骼及 22 张已打包的使用中纹理。
 - 修改轴按骨骼静止空间转换，形成画面内的前臂弯曲，避免绕错误轴造成侧翻。
 
-完整记录见[验证 JSON](research/homepage-cutout-reproduction-validation.json)。保存与修改通过 Blender 数据 API 完成，尚未验证 GUI 编辑操作，也没有逐项核对旧 COA 运行时的动态槽位、层序等插件行为。此次不据此宣称本站人物的像素风格、负重、脚底接触或转身已成立。
+完整记录见验证 JSON（历史资源已归档：`docs/research/homepage-cutout-reproduction-validation.json`）。保存与修改通过 Blender 数据 API 完成，尚未验证 GUI 编辑操作，也没有逐项核对旧 COA 运行时的动态槽位、层序等插件行为。此次不据此宣称本站人物的像素风格、负重、脚底接触或转身已成立。
 
 ## 复现与交付文件
 
@@ -33,10 +35,10 @@ E:/DevCache/tools/unmapped-sprite-bpy/Scripts/python.exe scripts/run-cutout-repr
 
 [协调脚本](../scripts/run-cutout-reproduction.py)按[源文件清单](research/homepage-cutout-reproduction-sources.json)校验／下载固定版本的素材，依次调用[工程转换与动作导出](../scripts/reproduce-cutout-pipeline.py)、[重开复验](../scripts/check-cutout-reproduction.py)，最后生成对照、图集与打包工程。不要求新服务账户，本次没有付费媒体生成调用。
 
-- [原动作可编辑工程](../prototypes/visual-direction/cutout-pipeline-media/base-editable.blend)／[修改后可编辑工程](../prototypes/visual-direction/cutout-pipeline-media/edited-editable.blend)
-- [第 8 帧静态对照](../prototypes/visual-direction/cutout-pipeline-media/pose-edit-comparison.png)
-- [原动作 RGBA 图集](../prototypes/visual-direction/cutout-pipeline-media/base-rgba-spritesheet.png)／[修改后 RGBA 图集](../prototypes/visual-direction/cutout-pipeline-media/edited-rgba-spritesheet.png)
-- [动画 WebP](../prototypes/visual-direction/cutout-pipeline-media/cutout-reproduction.webp)／[结果索引](../prototypes/visual-direction/cutout-pipeline-media/result.json)
+- 原动作可编辑工程（历史资源已归档：`prototypes/visual-direction/cutout-pipeline-media/base-editable.blend`）／修改后可编辑工程（历史资源已归档：`prototypes/visual-direction/cutout-pipeline-media/edited-editable.blend`）
+- 第 8 帧静态对照（历史资源已归档：`prototypes/visual-direction/cutout-pipeline-media/pose-edit-comparison.png`）
+- 原动作 RGBA 图集（历史资源已归档：`prototypes/visual-direction/cutout-pipeline-media/base-rgba-spritesheet.png`）／修改后 RGBA 图集（历史资源已归档：`prototypes/visual-direction/cutout-pipeline-media/edited-rgba-spritesheet.png`）
+- 动画 WebP（历史资源已归档：`prototypes/visual-direction/cutout-pipeline-media/cutout-reproduction.webp`）／结果索引（历史资源已归档：`prototypes/visual-direction/cutout-pipeline-media/result.json`）
 
 GIF 使用共享色板供预览；导出帧与 RGBA 图集保留完整颜色及透明度。
 

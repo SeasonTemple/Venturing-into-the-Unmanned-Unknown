@@ -1,8 +1,10 @@
+> 历史资源说明：本文提到的退役实验素材已移出 Git，路径仅作研究索引；恢复方法见仓库内 `docs/research/repository-hygiene-cleanup.md`。
+
 # 交替承重与停步候选 v05
 
 2026-10-28。按 v04 后确定的顺序，回到完整身体检查步序、身体行进和停步。原画身份、装备归属、画布、相机与共享蒙皮沿用原工程；正式首页未改变，无新增媒体生成调用。
 
-[同步逐帧预览](http://127.0.0.1:4395/actor-motion-review.html?study=gait05&revision=gait05) 使用已有播放器，仍可切回 04。另有 [完整身体并排短片](../prototypes/visual-direction/actor-rig-v05/actor-v05-comparison.mp4) 与 [关键姿态](../prototypes/visual-direction/actor-rig-v05/actor-v05-keyposes.png)。
+[同步逐帧预览](http://127.0.0.1:4395/actor-motion-review.html?study=gait05&revision=gait05) 使用已有播放器，仍可切回 04。另有 完整身体并排短片（历史资源已归档：`prototypes/visual-direction/actor-rig-v05/actor-v05-comparison.mp4`） 与 关键姿态（历史资源已归档：`prototypes/visual-direction/actor-rig-v05/actor-v05-keyposes.png`）。
 
 ## 从完整动作找到的问题
 
@@ -20,7 +22,7 @@
 
 ## 验证范围
 
-[保存工程验证](../prototypes/visual-direction/actor-rig-v05/actor-v05-validation.json) 检查所有帧的手箱握点、支撑脚点与脚骨世界矩阵；七个时刻重开渲染与原输出一致。头部未缩放，31–49 帧停稳区间头部像素一致，所有帧保留画布边距。原图参考帧 alpha 一致，最大颜色取样误差为 4/255。
+保存工程验证（历史资源已归档：`prototypes/visual-direction/actor-rig-v05/actor-v05-validation.json`） 检查所有帧的手箱握点、支撑脚点与脚骨世界矩阵；七个时刻重开渲染与原输出一致。头部未缩放，31–49 帧停稳区间头部像素一致，所有帧保留画布边距。原图参考帧 alpha 一致，最大颜色取样误差为 4/255。
 
 播放器的两个入口均实测了原生方向键、Home / End、逐帧、暂停、半速、单次结束、按需循环、真实滚动离屏暂停，以及 320px/390px 无横向溢出。后台事件通过模拟检查，未宣称覆盖所有浏览器后台策略。记录位于 `.lab/actor-gait-browser/` 与 `.lab/actor-motion-browser/`。
 
@@ -40,4 +42,4 @@ E:/DevCache/tools/unmapped-sprite-bpy/Scripts/python.exe scripts/check-actor-gai
 node scripts/check-actor-motion-review.mjs --gait
 ```
 
-初次规格由 `scripts/author-actor-gait-study.py` 生成，该命令拒绝覆盖已有规格。后续直接编辑版本规格，或在 Blender 中修改工程并另行导出；不要用生成脚本覆盖已修改的工程。通用步序与位移经验已补入技能[制作管线参考](../.agents/skills/unmapped-pixel-art/references/editable-character-pipeline.md)。
+初次规格由 `scripts/author-actor-gait-study.py` 生成，该命令拒绝覆盖已有规格。后续直接编辑版本规格，或在 Blender 中修改工程并另行导出；不要用生成脚本覆盖已修改的工程。通用步序与位移经验已补入技能制作管线参考（历史资源已归档：`.agents/skills/unmapped-pixel-art/references/editable-character-pipeline.md`）。

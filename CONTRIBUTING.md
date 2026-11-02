@@ -80,3 +80,27 @@
 ## 行为准则
 
 尊重贡献者；讨论聚焦工程方法与文档质量；争议以可执行、可检查、成本可控为优先。
+# 提交纪律：匿名身份与素材边界
+
+提交作者和提交者必须均为 `SeasonTemple <46681958+SeasonTemple@users.noreply.github.com>`。
+克隆后设置仓库本地身份和钩子：
+
+```sh
+git config --local user.name SeasonTemple
+git config --local user.email 46681958+SeasonTemple@users.noreply.github.com
+git config --local user.useConfigOnly true
+git config --local core.hooksPath .githooks
+```
+
+临时输出只写入 `.scratch/`、`.lab/` 等忽略目录。失败候选、抽帧、预览录屏、原始工具日志、重复渲染和中间模型不得入库；需要留档时归档到仓库外，仅提交精简结论与来源。正式资源和必要制作源须在 `config/repository-assets.json` 登记精确路径及用途；不要为绕过检查登记实验产物或放宽预算。
+
+禁止使用 `git add .`、`git add -A` 或 `git add -f` 批量收集实验文件。只暂存明确审阅的路径，不得绕过钩子。提交前检查暂存区，推送前检查当前树和全部历史：
+
+```sh
+python scripts/check-commit-privacy.py --staged
+python scripts/check-repository-hygiene.py --staged
+python scripts/check-repository-hygiene.py
+python scripts/check-repository-hygiene.py --history
+```
+
+具体规则见 [AGENTS.md](AGENTS.md)。历史实验素材的处理见 [仓库素材清理说明](docs/research/repository-hygiene-cleanup.md)。

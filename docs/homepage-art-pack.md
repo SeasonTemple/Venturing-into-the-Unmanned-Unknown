@@ -1,3 +1,5 @@
+> 历史资源说明：本文提到的退役实验素材已移出 Git，路径仅作研究索引；恢复方法见仓库内 `docs/research/repository-hygiene-cleanup.md`。
+
 # 第一阶段美术预览 · 2026-10-28
 
 用户批准按“关键美术 → 三段完整脚本 → 第一段可玩样片”推进。本轮落实第一阶段的独立预览，**尚未通过美术定稿标准**。没有接入正式首页，也没有将旧站姿平移重新当作行走。
@@ -6,7 +8,7 @@
 
 **视频能力复查：** 当前 OAuth 登录的 MMX 文本配额面板显示视频“不在当前套餐中”，并非已有可用额度。继续制作这一轮未再创建请求，等待可用的视频凭据或用户选定逐帧绘制路线；不静默切换付费凭据，也不将显示的“100%”解释成可以提交。
 
-实际预览：[同一路上 · 美术包 01](http://127.0.0.1:4395/art-pack.html)。[页面源码](../prototypes/visual-direction/art-pack.html)、[离线制作脚本](../prototypes/visual-direction/build-art-pack.mjs)与[完整来源清单](../prototypes/visual-direction/art-pack-media/sources.json)均已保存。
+实际预览：[同一路上 · 美术包 01](http://127.0.0.1:4395/art-pack.html)。[页面源码](../prototypes/visual-direction/art-pack.html)、[离线制作脚本](../prototypes/visual-direction/build-art-pack.mjs)与完整来源清单（历史资源已归档：`prototypes/visual-direction/art-pack-media/sources.json`）均已保存。
 
 ## 当前能检查的结果
 
@@ -18,7 +20,7 @@
 | 水道与坡肩 | 既有远景候选的草地色温修订 | 来路、遮挡、视野展开的连续新机位缺失；失败的前景拼接已撤下 |
 | 同地点光色 | 雨后原画、低云／雨丝、傍晚、夜间四张同坐标对照；夜稿分别处理檐灯、工位灯和近地照明 | 仅光色研究；低云云形、低角度投影、夜间光斑和接触阴影未完成 |
 
-![同构图对照：左上雨后，右上低云／雨丝，左下傍晚，右下夜间光色研究](../prototypes/visual-direction/art-pack-media/environment-comparison.webp)
+同构图对照：左上雨后，右上低云／雨丝，左下傍晚，右下夜间光色研究（历史资源已归档：`prototypes/visual-direction/art-pack-media/environment-comparison.webp`）
 
 四张图保持站房、道路、溪流与设备的原画坐标。离线按连通的天空像素分区，避免用一条水平线切开天空和地表；屋顶与局部照明另行处理。夜稿增加实体工位灯，原檐灯在墙面、近地和人物附近有对应受光研究。原画日照投影尚未重新绘制，所以不能将它称为完成的全天气／昼夜美术。
 

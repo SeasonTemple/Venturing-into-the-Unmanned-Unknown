@@ -118,6 +118,6 @@ summary = {'sourceCommit': manifest['commit'], 'sourceFilesVerified': len(verifi
            'renderedFramesPerVariant': 20, 'fps': 30, 'spriteSize': [384, 512],
            'spriteSheetSize': [7680, 512], 'technicalReproduction': True,
            'homepageArtApproved': False, 'homepageIntegrated': False,
-           'validation': '../../../docs/research/homepage-cutout-reproduction-validation.json'}
+           'validation': '../../../.scratch/reports/homepage-cutout-reproduction-validation.json'}
 (OUT / 'result.json').write_text(json.dumps(summary, indent=2) + '\n', encoding='utf-8')
 print(json.dumps(summary), flush=True)

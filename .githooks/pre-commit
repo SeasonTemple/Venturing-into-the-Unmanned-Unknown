@@ -1,2 +1,2 @@
 #!/bin/sh
-exec python scripts/check-commit-privacy.py --staged
+python scripts/check-commit-privacy.py --staged && python scripts/check-repository-hygiene.py --staged
