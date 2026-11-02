@@ -1,0 +1,40 @@
+{
+  "status": "retained-static-baseline-anatomy-confirmed",
+  "date": "2026-11-02",
+  "generationCallsVerifiedInTranscript": 1,
+  "sessionId": "1313d74a-083a-4db5-b3aa-5e3195e10b8d",
+  "backendImageModel": "not-exposed",
+  "inputs": [
+    {
+      "path": "prototypes/visual-direction/art-pack-media/actor-front.png",
+      "sha256": "50dca05a7f13dd95e42ba2993094752215ee94b868924be79c148b66374c93af"
+    },
+    {
+      "path": "prototypes/visual-direction/pixel-loaded-keyposes-v01/candidates/agy-phase-study01/candidate.jpg",
+      "sha256": "538eadbb6e3fced5adf3040b50cea1cfcaeb151835c6e2232d777ea775d575ec"
+    }
+  ],
+  "output": "candidate.jpg",
+  "outputSha256": "1c05327d73f622d1a499d4b718d624154d0b7a53d5452f57990af6ec164d55cf",
+  "outputSize": [
+    896,
+    1200
+  ],
+  "artApproved": false,
+  "motionApproved": false,
+  "homepageIntegrated": false,
+  "motionFramesGenerated": false,
+  "videoGenerated": false,
+  "review": [
+    "User confirms the legs, arms and whole-body appearance are normal and complete.",
+    "Previous rejection based on leg overlap, elbow angle and similarity to the reference is withdrawn.",
+    "Retained as current static baseline; full art approval and motion approval are separate and remain false.",
+    "Native pixel treatment, identity/style comparison and 104px scene readability remain unverified."
+  ],
+  "userReview": {
+    "anatomyAppearance": "normal-and-complete",
+    "baselineRetained": true,
+    "evidence": "User: 我的意思就是至少观感上：腿部姿态、手臂等部位都是正常且完整的",
+    "scope": "Overall appearance of legs, arms and body; does not grant motion or homepage approval."
+  }
+}

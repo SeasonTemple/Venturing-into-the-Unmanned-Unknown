@@ -1,0 +1,11 @@
+[
+  {
+    "name": "generate_image",
+    "args": {
+      "AspectRatio": "\"3:4\"",
+      "ImageName": "\"loaded_walking_pose_still\"",
+      "ImagePaths": "[\"E:/theorylab/Venturing-into-the-Unmanned-Unknown/prototypes/visual-direction/art-pack-media/actor-front.png\",\"E:/theorylab/Venturing-into-the-Unmanned-Unknown/prototypes/visual-direction/pixel-loaded-keyposes-v01/candidates/agy-phase-study01/candidate.jpg\"]",
+      "Prompt": "\"Generate one complete full-body loaded walking-pose STILL of the SAME worker in the first reference image (actor-front.png). Preserve face, short dark hair, orange ochre jacket, dark green trousers, boots, same three-quarter camera and upper-left light. Copy only the restrained support/passing-leg relationship from the second reference image (candidate.jpg): image-left/front foot fully planted, image-right/rear foot passing close above the ground, separated knees, balanced pelvis and subtle torso counterbalance. No wide stride or leg crossing. The anatomical right hand/image-left carries the silver toolbox down at the side with fingers actually wrapped around its handle, arm pulled naturally by its weight. The anatomical left hand/image-right grips the green recorder at waist level, thumb and fingers around the device sides, forearm supporting it, elbow relaxed near the torso. Both shoulders, axillae, elbows, wrists and hands must be continuous and anatomically coherent, sleeves matching the jacket volume. Do not place a hand resting on the hip or leave the recorder hanging unattached. No extra equipment, backpack, straps, extra arms or fingers. Retain painterly pixel-art clustered shading and stepped edges matching the first reference image; do not restyle as photorealism or outlined vector art. Plain uniform muted light sage background #e1e5d7. Whole head, both shoes and equipment completely inside the frame, aspect ratio 3:4. Single still image, no animation or sprite sheet.\""
+    }
+  }
+]
