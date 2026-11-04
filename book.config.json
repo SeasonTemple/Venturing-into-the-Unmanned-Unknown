@@ -2,7 +2,7 @@
   "title": "Venturing into the Unmanned Unknown: An AI-Native Software Engineering Guidebook",
   "title_zh": "迈向无人区：AI 原生软件工程指南",
   "slug": "Venturing-into-the-Unmanned-Unknown",
-  "version": "v0.0.3",
+  "version": "v0.0.4-draft",
   "chapters": [
     {
       "order": "0",
@@ -25,14 +25,14 @@
     {
       "order": "3",
       "label": "第 3 章",
-      "title": "验证",
-      "skill": "ai-native-sdlc-verification"
+      "title": "实现",
+      "skill": "ai-native-sdlc-implementation"
     },
     {
       "order": "4",
       "label": "第 4 章",
-      "title": "实现",
-      "skill": "ai-native-sdlc-implementation"
+      "title": "验证",
+      "skill": "ai-native-sdlc-verification"
     },
     {
       "order": "5",
@@ -61,7 +61,7 @@
     {
       "order": "A",
       "label": "附录",
-      "title": "清单 / 术语 / 反模式",
+      "title": "清单 / 术语 / 反模式 / 局限",
       "skill": "ai-native-sdlc-appendix"
     }
   ]

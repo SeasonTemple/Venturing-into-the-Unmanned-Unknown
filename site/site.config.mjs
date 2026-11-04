@@ -7,7 +7,8 @@ export const repoRoot = fileURLToPath(new URL('../', import.meta.url));
 export const cfg = JSON.parse(readFileSync(new URL('../book.config.json', import.meta.url), 'utf8').replace(/^\uFEFF/, ''));
 
 export const GITHUB_URL = 'https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown';
-export const TAGLINE = 'Agent 为生产主体；人提供意图输入并参与 HITL 裁决；可执行规格与门禁提供系统保证。';
+export const TAGLINE =
+  'Agent 为生产主体。瓶颈在正确性证据：可执行规格、验证与测试、性质级门禁；人提供意图并参与 HITL。';
 
 const strip = (s) => s.replace(/\/+$/, '');
 
