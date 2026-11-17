@@ -15,6 +15,14 @@ export function installArrivalRecorder(){
  },true);
 }
 
+export function getReadingStart(){
+ if(document.body.classList.contains('focused'))return 0;
+ const spread=document.querySelector('.reading-spread'),chrome=document.querySelector('.reader-chrome'),travel=document.querySelector('.chapter-travel');
+ if(!spread||!chrome)return 0;
+ const bars=chrome.offsetHeight+(travel&&getComputedStyle(travel).display!=='none'?travel.offsetHeight:0);
+ return Math.max(0,Math.ceil(spread.getBoundingClientRect().top+scrollY-bars));
+}
+
 export function setupChapterArrival(host,{signal,reduced,state}){
  installArrivalRecorder();
  const status=state.arrival={phase:'idle'};
@@ -39,7 +47,7 @@ export function setupChapterArrival(host,{signal,reduced,state}){
   if(document.querySelector('dialog[open]')){cancel('dialog');return;}
   status.phase='scrolling';
   document.addEventListener('scrollend',finish,{once:true,signal:controls.signal});
-  body.scrollIntoView({behavior:reduced()?'instant':'smooth',block:'start'});
+  scrollTo({top:getReadingStart(),behavior:reduced()?'instant':'smooth'});
   finishTimer=setTimeout(finish,reduced()?0:1000);
  }
  function preview(){

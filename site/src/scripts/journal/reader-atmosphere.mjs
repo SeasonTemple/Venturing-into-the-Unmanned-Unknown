@@ -1,3 +1,5 @@
+import { getReadingStart } from './chapter-arrival.mjs';
+
 export function createReaderAtmosphere(sections) {
   const $ = id => document.getElementById(id);
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -14,7 +16,7 @@ export function createReaderAtmosphere(sections) {
   let bodyVisible=false,headerVisible=true,disposed=false,chromeFrame=0;
   const allowed = () => !disposed && !preference && !motion.matches && !document.body.classList.contains('focused') && !document.hidden && !document.body.hasAttribute('data-search-modal-open');
   const enabled = () => bodyVisible && allowed();
-  function resize() { document.documentElement.style.setProperty('--reader-chrome-height',document.querySelector('.reader-chrome').offsetHeight+'px');syncChrome(); }
+  function resize() { document.documentElement.style.setProperty('--reader-chrome-height',document.querySelector('.reader-chrome').offsetHeight+'px'); if (!outlineAvailable() && !panel.hidden) close(false); syncChrome(); }
   function sync() {
     stats.enabled = !preference && !motion.matches;
     if(document.body.classList.contains('motion-paused')===stats.enabled)document.body.classList.toggle('motion-paused', !stats.enabled);
@@ -61,7 +63,9 @@ export function createReaderAtmosphere(sections) {
   }
   tools.append(toTop, trigger, toBottom); edge.append(tools, panel); document.body.append(edge);
   let pinned = false, timer = 0, restoring = false;
+  const outlineAvailable = () => getComputedStyle(trigger).display !== 'none';
   function open() {
+    if (!outlineAvailable()) return;
     clearTimeout(timer); panel.hidden = false; trigger.setAttribute('aria-expanded', 'true'); stats.outlineOpen = true;
   }
   function close(restore = false) {
@@ -69,17 +73,16 @@ export function createReaderAtmosphere(sections) {
     trigger.setAttribute('aria-expanded', 'false'); stats.outlineOpen = false;
     if (restore) { restoring = true; trigger.focus({ preventScroll: true }); restoring = false; }
   }
-  function toggleOutline() { if (pinned) close(false); else { pinned = true; open(); } }
-  function enter() { if (fine.matches) open(); }
+  function toggleOutline() { if (!outlineAvailable()) return; if (pinned) close(false); else { pinned = true; open(); } }
+  function enter() { if (fine.matches && outlineAvailable()) open(); }
   function leave() { timer = setTimeout(() => { if (!pinned && !edge.contains(document.activeElement)) close(); }, 180); }
-  function focusIn(event) { if (!restoring && (event.target === trigger || panel.contains(event.target))) open(); }
+  function focusIn(event) { if (!restoring && outlineAvailable() && (event.target === trigger || panel.contains(event.target))) open(); }
   function focusOut(event) { if (!edge.contains(event.relatedTarget) && !pinned) close(); }
   function escape(event) { if (event.key === 'Escape' && !panel.hidden) close(edge.contains(document.activeElement)); }
   function outside(event) { if (!edge.contains(event.target)) close(); }
   function closeButton() { close(true); }
   function bodyStart() {
-    const marker = $('body')?.querySelector('.chapter-lead') || sections[0].querySelector('.section-marker') || sections[0];
-    return Math.max(0, marker.getBoundingClientRect().top + scrollY - document.querySelector('.reader-chrome').offsetHeight - document.querySelector('.chapter-travel').offsetHeight - 24);
+    return getReadingStart();
   }
   function jump(bottom) {
     close();
@@ -95,9 +98,10 @@ export function createReaderAtmosphere(sections) {
 
   function syncChrome() {
     chromeFrame = 0;
-    const opening = $('opening'), chrome = document.querySelector('.reader-chrome');
+    const opening = $('opening'), chrome = document.querySelector('.reader-chrome'), travel = document.querySelector('.chapter-travel');
+    const barBottom = (travel && getComputedStyle(travel).display !== 'none' ? travel : chrome).getBoundingClientRect().bottom;
     const dark = opening.classList.contains('survey-opening') && !document.body.classList.contains('focused')
-      && opening.getBoundingClientRect().bottom > chrome.getBoundingClientRect().bottom + 16;
+      && opening.getBoundingClientRect().bottom > barBottom + 6;
     // Read layout before changing the chrome class; don't invalidate and then
     // immediately reflow the entire article to find its top and bottom.
     const atStart=Math.abs(scrollY-bodyStart())<4;
@@ -107,7 +111,7 @@ export function createReaderAtmosphere(sections) {
     toBottom.disabled = atEnd;
   }
   function scroll() { if (!chromeFrame) chromeFrame = requestAnimationFrame(syncChrome); }
-  const bodyObserver = new MutationObserver(() => { sync();syncChrome(); });
+  const bodyObserver = new MutationObserver(() => { if (!outlineAvailable() && !panel.hidden) close(false); sync(); syncChrome(); });
   bodyObserver.observe(document.body, { attributes: true, attributeFilter: ['class','data-search-modal-open'] });
   const openingObserver = new MutationObserver(syncChrome);
   openingObserver.observe($('opening'), { attributes: true, attributeFilter: ['class'] });

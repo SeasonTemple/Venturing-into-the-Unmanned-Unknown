@@ -1,6 +1,6 @@
 import { createReaderAtmosphere } from './reader-atmosphere.mjs';
 import { createLayerPlate } from './layer-plate.mjs';
-import { setupChapterArrival } from './chapter-arrival.mjs';
+import { getReadingStart, setupChapterArrival } from './chapter-arrival.mjs';
 
 const host=document.getElementById('production-journal');
 if(host) init();
@@ -72,6 +72,7 @@ function init(){
   host.querySelector('[data-mt-copy]').hidden=false;
   function goHeading(event){const anchor=event.target.closest('a[href^="#"]');if(!anchor)return;const hash=anchor.getAttribute('href'),target=document.getElementById(decodeURIComponent(hash.slice(1)));if(!target)return;event.preventDefault();if($('navigation').open)$('navigation').close();target.scrollIntoView({behavior:reduced()?'instant':'smooth',block:'start'});target.tabIndex=-1;target.focus({preventScroll:true});history.replaceState(null,'',hash);}
   $('outline-panel').addEventListener('click',goHeading,{signal});$('route-links').addEventListener('click',goHeading,{signal});
+  host.querySelector('.begin')?.addEventListener('click',event=>{event.preventDefault();scrollTo({top:getReadingStart(),behavior:reduced()?'instant':'smooth'});article.focus({preventScroll:true});},{signal});
   $('focus').addEventListener('click',()=>{const anchor=sections[current]||article;const onBody=scrollY>=$('opening').offsetHeight;const focused=document.body.classList.toggle('focused');$('focus').setAttribute('aria-pressed',String(focused));$('focus').textContent=focused?'完整阅读':'专注阅读';if(onBody||focused)anchor.scrollIntoView({behavior:'instant',block:'start'});schedule();},{signal});
   $('production-journal').querySelector('[data-mt-copy]').addEventListener('click',async event=>{
     const button=event.currentTarget,label=button.querySelector('.mt-action-label');

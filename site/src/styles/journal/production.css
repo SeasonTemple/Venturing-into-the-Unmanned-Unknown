@@ -181,7 +181,10 @@ html[data-theme=dark] body.field-journal{--mt-code-bg:#112128}
 .chapter-travel a:last-child{justify-content:flex-end;flex-direction:row-reverse}.chapter-travel strong{font-weight:400;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.chapter-travel a>span{flex-shrink:0;color:var(--rd-copper)}.travel-position{font:10px var(--rd-mono);color:var(--rd-muted)}
 body.field-journal.over-survey .chapter-travel{background:#101d21;color:#e5e8dc;border-color:#ffffff20}.over-survey .chapter-travel a>span{color:#f0bc7b}.over-survey .travel-position{color:#c0cbc1}
 html[data-reader=journal]{scroll-padding-top:calc(var(--reader-chrome-height,76px) + 69px)}
+#production-journal .reading-position:empty,#production-journal .reading-position:not(:has(:not([hidden]))){display:none}
 #production-journal .section-content :is(h2,h3,h4),#production-journal .article-section{scroll-margin-top:16px}
+#production-journal .section-content h2{scroll-margin-top:28px}
+body.field-journal:not(.focused) #production-journal #body{scroll-margin-top:44px}
 /* Own the layout mode as well as its tracks: preview breakpoints switch this
    element to block, which otherwise leaves sticky rails over the article. */
 #production-journal .reading-spread{display:grid;max-width:1580px;grid-template-columns:minmax(176px,220px) minmax(0,min(800px,72ch)) minmax(200px,260px);gap:clamp(28px,3.5vw,72px);justify-content:center}
@@ -199,7 +202,11 @@ html[data-reader=journal]{scroll-padding-top:calc(var(--reader-chrome-height,76p
 #production-journal #route-links a{display:grid;grid-template-columns:20px 1fr;gap:8px;padding:8px 0 8px 12px;min-height:40px;border-left:2px solid transparent;margin-left:-1px}
 #production-journal #route-links strong{font-size:12px;font-weight:400;line-height:1.8}#production-journal #route-links a[aria-current]{border-color:var(--rd-copper)}
 .margin-note{margin-top:24px;padding-top:18px;border-top:1px solid var(--rd-line);font-size:13px;line-height:1.9;color:var(--rd-muted)}.margin-note:empty{display:none}.margin-note .note-label{font:10px var(--rd-mono);color:var(--rd-copper);display:block;margin-bottom:12px}.margin-note strong{font-size:16px;line-height:1.8;font-weight:500;display:block;color:var(--rd-ink);margin-bottom:10px}.margin-note a{display:block;min-height:36px;padding-block:6px;font-size:12px;text-decoration:none}
-@media(min-width:1200px){#production-journal .section-note{display:none}}
+@media(min-width:1200px){
+ #production-journal .section-note{display:none}
+ body.field-journal:not(.focused) .edge-contents :is(#open-outline,#edge-panel){display:none!important}
+ body.field-journal:not(.focused) .edge-tools #edge-top{border-bottom:1px solid #b9c0b970}
+}
 @media(max-width:1199px){#production-journal .reading-spread{grid-template-columns:180px minmax(0,800px);gap:36px}#production-journal .chapter-margin{display:none}#production-journal .section-note{display:block;width:100%;margin:28px 0 0;padding-left:18px;border-left:1px solid var(--rd-copper)}}
 @media(max-width:980px){#production-journal .reading-spread{display:block;max-width:800px}#production-journal .field-route{display:none}}
 body.field-journal.focused #production-journal :is(.field-route,.chapter-margin,.section-note){display:none}
@@ -213,7 +220,7 @@ body.field-journal.focused #production-journal .reading-spread{display:block;max
 #production-journal .survey-flat{display:none}
 @media(max-width:760px){
  #production-journal .chapter-travel{top:var(--reader-chrome-height,105px);padding-inline:24px;gap:10px}.chapter-travel strong{display:none}.chapter-travel a{font-size:11px}
- html[data-reader=journal]{scroll-padding-top:calc(var(--reader-chrome-height,105px) + 69px)}#production-journal .section-content :is(h2,h3,h4),#production-journal .article-section{scroll-margin-top:16px}
+ html[data-reader=journal]{scroll-padding-top:calc(var(--reader-chrome-height,105px) + 69px)}#production-journal .section-content :is(h2,h3,h4),#production-journal .article-section{scroll-margin-top:16px}#production-journal .section-content h2{scroll-margin-top:28px}body.field-journal:not(.focused) #production-journal #body{scroll-margin-top:44px}
  #production-journal .chapter-opening.survey-opening{height:auto;min-height:0;padding:28px 24px 24px}
  #production-journal .survey-opening .opening-copy{display:block}
  #production-journal .survey-opening .opening-copy::before{display:none}

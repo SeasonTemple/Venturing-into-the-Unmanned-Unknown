@@ -14,12 +14,12 @@ export async function run({send,evaluate,until,pause,check,report}){
   await evaluate(`document.querySelector(${JSON.stringify(selector)}).click()`);
   await until(`window.__readingStudy?.ready&&location.pathname.endsWith('/${slug}/')`);
  }
- const position=()=>evaluate('({phase:window.__readingStudy.arrival.phase,scroll:scrollY,body:document.getElementById("body").getBoundingClientRect().top,chrome:document.querySelector(".chapter-travel").getBoundingClientRect().bottom})');
+ const position=()=>evaluate('({phase:window.__readingStudy.arrival.phase,scroll:scrollY,spread:document.querySelector(".reading-spread").getBoundingClientRect().top,tools:document.querySelector(".journal-reading-tools").getBoundingClientRect().top,body:document.getElementById("body").getBoundingClientRect().top,chrome:document.querySelector(".chapter-travel").getBoundingClientRect().bottom,overSurvey:document.body.classList.contains("over-survey")})');
  await change('.chapter-travel [rel=next]','ch4');await pause(350);
  check('next chapter pauses at its own masthead before entering the text',await evaluate('window.__readingStudy.arrival.phase==="preview"&&scrollY<8'));
  await until('window.__readingStudy.arrival.phase==="reading"');
  const next=await position();
- check('next chapter then scrolls to the text and focuses the article',next.scroll>400&&Math.abs(next.body-next.chrome)<80&&await evaluate('document.activeElement.id==="body"'),next);
+ check('next chapter then scrolls to the reading spread without clipping tools and focuses the article',next.scroll>400&&Math.abs(next.spread-next.chrome)<=2&&next.tools>=next.chrome-1&&!next.overSurvey&&Math.abs(next.body-next.chrome)<80&&await evaluate('document.activeElement.id==="body"'),next);
  await send('Page.reload');await until('window.__readingStudy?.ready&&window.__readingStudy.arrival.phase==="idle"');await pause(300);
  check('reload does not replay the chapter arrival',await evaluate('window.__readingStudy.arrival.phase==="idle"&&scrollY>400'));
  await change('.journal-pagination [rel=prev]','ch3');await pause(200);
@@ -38,6 +38,9 @@ export async function run({send,evaluate,until,pause,check,report}){
  check('reduced motion still previews the chapter without an immediate jump',await evaluate('window.__readingStudy.arrival.phase==="preview"&&scrollY<8'));
  await until('window.__readingStudy.arrival.phase==="reading"');
  check('reduced motion enters the text with a static transition',await evaluate('scrollY>400&&getComputedStyle(document.documentElement).scrollBehavior==="auto"'));
+ await evaluate('scrollTo({top:0,behavior:"instant"});document.querySelector(".begin").click()');await pause(80);
+ const begin=await position();
+ check('begin link aligns the reading spread cleanly without clipping tools',begin.scroll>400&&Math.abs(begin.spread-begin.chrome)<=2&&begin.tools>=begin.chrome-1&&!begin.overSurvey&&await evaluate('document.activeElement.id==="body"'),begin);
  await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'}]});
  await change('.book-rail a[href$="/ch2/"]','ch2');await pause(350);
  check('sidebar chapter entry pauses at the masthead',await evaluate('window.__readingStudy.arrival.phase==="preview"&&scrollY<8'));
