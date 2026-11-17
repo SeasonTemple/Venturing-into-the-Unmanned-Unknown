@@ -1,0 +1,174 @@
+/* Hand-drawn articulated drafting arm overlay for desktop component first-scroll placement.
+   Strictly scoped to non-mobile fine-pointer desktop viewports with motion enabled. */
+
+.drafting-arm-layer {
+  --arm-ink: #24383b;
+  --arm-muted: rgba(36, 56, 59, 0.44);
+  --arm-accent: var(--rd-copper, #914d26);
+  --arm-paper: var(--rd-paper, #f7f9f6);
+  --arm-body: #eef2ed;
+  position: fixed;
+  inset: 0;
+  z-index: 25;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+body:has(.meadow-home) .drafting-arm-layer {
+  --arm-ink: #23372e;
+  --arm-muted: rgba(35, 55, 46, 0.42);
+  --arm-accent: #8c5828;
+  --arm-paper: #eaece2;
+  --arm-body: #eceee4;
+}
+
+html[data-theme='dark'] body.field-journal .drafting-arm-layer {
+  --arm-ink: #c8d6d1;
+  --arm-muted: rgba(200, 214, 209, 0.4);
+  --arm-accent: #f0bc7b;
+  --arm-paper: #17262c;
+  --arm-body: #223840;
+}
+
+.drafting-arm-layer .arm-task.is-on-dark {
+  --arm-ink: #e8ecdf;
+  --arm-muted: rgba(232, 236, 223, 0.42);
+  --arm-accent: #e4c98b;
+  --arm-paper: #23372e;
+  --arm-body: #31473b;
+}
+
+.drafting-arm-layer .arm-halo {
+  fill: none;
+  stroke: var(--arm-paper);
+  stroke-width: 6.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.78;
+}
+
+.drafting-arm-layer .arm-body {
+  fill: var(--arm-body);
+  stroke: none;
+}
+
+.drafting-arm-layer .arm-cyl {
+  fill: var(--arm-body);
+  stroke: var(--arm-ink);
+  stroke-width: 1.4;
+  stroke-linejoin: round;
+}
+
+.drafting-arm-layer .arm-rail {
+  fill: none;
+  stroke: var(--arm-ink);
+  stroke-width: 2.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.drafting-arm-layer .arm-rail-sketch {
+  fill: none;
+  stroke: var(--arm-ink);
+  stroke-width: 0.95;
+  opacity: 0.56;
+  stroke-linecap: round;
+}
+
+.drafting-arm-layer .arm-strut {
+  fill: none;
+  stroke: var(--arm-muted);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+}
+
+.drafting-arm-layer .arm-cable {
+  fill: none;
+  stroke: var(--arm-accent);
+  stroke-width: 1.5;
+  opacity: 0.85;
+  stroke-linecap: round;
+}
+
+.drafting-arm-layer .arm-joint {
+  fill: var(--arm-body);
+  stroke: var(--arm-ink);
+  stroke-width: 1.8;
+}
+
+.drafting-arm-layer .arm-pin {
+  fill: var(--arm-accent);
+  stroke: var(--arm-ink);
+  stroke-width: 1.1;
+}
+
+.drafting-arm-layer .arm-bolt {
+  fill: var(--arm-ink);
+  stroke: none;
+}
+
+.drafting-arm-layer .arm-arc {
+  fill: none;
+  stroke: var(--arm-accent);
+  stroke-width: 1.1;
+  stroke-dasharray: 3 3;
+  opacity: 0.82;
+}
+
+.drafting-arm-layer .arm-jaw {
+  fill: var(--arm-body);
+  stroke: var(--arm-ink);
+  stroke-width: 1.65;
+  stroke-linejoin: round;
+}
+
+.drafting-arm-layer .arm-pad {
+  fill: var(--arm-accent);
+  stroke: var(--arm-ink);
+  stroke-width: 0.95;
+}
+
+.drafting-arm-layer .arm-slot-corner {
+  fill: none;
+  stroke: var(--arm-accent);
+  stroke-width: 1.5;
+  stroke-linecap: square;
+}
+
+.drafting-arm-layer .arm-slot-box {
+  fill: none;
+  stroke: var(--arm-muted);
+  stroke-width: 0.95;
+  stroke-dasharray: 4 5;
+}
+
+.drafting-arm-layer .arm-label {
+  fill: var(--arm-accent);
+  font: 600 10.5px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 0.09em;
+}
+
+@media screen and (min-width: 981px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  body:not(.motion-paused):not(.focused):not([data-search-modal-open]) [data-arm-pending='true'] {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  [data-arm-carrying='true'] {
+    transition: none !important;
+    filter: drop-shadow(0 12px 20px rgba(16, 29, 33, 0.14));
+  }
+
+  [data-arm-managed='true'] {
+    animation: none !important;
+  }
+}
+
+@media print {
+  .drafting-arm-layer {
+    display: none !important;
+  }
+}

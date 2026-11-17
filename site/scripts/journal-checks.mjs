@@ -83,7 +83,7 @@ export async function run({send,evaluate,until,pause,check,report}){
   await evaluate('document.getElementById("motion-toggle").click()');await pause(100);const stopped=await evaluate('window.__readingStudy.effects.frames');await pause(200);
   check('shared motion control stops the background',await evaluate(`window.__readingStudy.effects.frames===${stopped}`));
   await evaluate('window.dispatchEvent(new PageTransitionEvent("pagehide",{persisted:false}))');
-  check('page exit disposes the visual lifecycle without a renderer',await evaluate('window.__readingStudy.disposed&&window.__readingStudy.effects.disposed&&window.__readingStudy.artwork.disposed&&!document.querySelector(".ink-atmosphere")&&!document.querySelector("canvas")'));
+  check('page exit disposes the visual lifecycle without a renderer',await evaluate('window.__readingStudy.disposed&&window.__readingStudy.effects.disposed&&window.__readingStudy.artwork.disposed&&!document.querySelector(".ink-atmosphere")&&!document.querySelector(".drafting-arm-layer")&&!document.querySelector("canvas")'));
   const home=await evaluate(`(async()=>{const text=await(await fetch(${JSON.stringify(base+'/')})).text();return !text.includes('id="production-journal"')&&!text.includes('/journal/production.css')&&text.includes('id="meadow-home-layout"')&&text.includes('hero-v04.webp')})()`);
   check('production homepage uses the accepted meadow independently of reading layout',home);
   await send('Emulation.setScriptExecutionDisabled',{value:true});await send('Page.navigate',{url:`${base}/ch4/`});await pause(400);
@@ -93,9 +93,28 @@ export async function run({send,evaluate,until,pause,check,report}){
   await send('Page.navigate',{url:`${base}/ch1/`});await until('window.__readingStudy?.ready');await until('window.__readingStudy.artwork.status!=="loading"');
   check('reader is fully independent of WebGL support',await evaluate('window.__readingStudy.artwork.mode==="shared-poster"&&document.getElementById("body").textContent.length>1000&&getComputedStyle(document.querySelector("#chapter-art svg")).visibility!=="hidden"&&!document.querySelector("canvas")'));
   for(const slug of ['ch2','ch6']){
+    if(slug==='ch6')await evaluate('sessionStorage.removeItem("field-reader-paused")');
     await send('Page.navigate',{url:`${base}/${slug}/`});await until('window.__readingStudy?.ready');
     check(`${slug} mounts interactive vector plate without WebGL`,await evaluate('(()=>{const buttons=document.querySelectorAll(".field-plate button");if(buttons.length<3)return false;buttons[1].click();return !document.querySelector("canvas")&&buttons[1].getAttribute("aria-pressed")==="true";})()'));
   }
+  await evaluate('document.querySelector(".field-plate").scrollIntoView({behavior:"instant",block:"center"})');await pause(180);
+  const armDuring=await evaluate('({stats:window.__draftingArm.stats(),jointGap:(()=>{const tasks=[...document.querySelectorAll(".arm-task")];return tasks.length?Math.max(...tasks.map(t=>{const b=t.querySelector(".arm-boom-2"),w=t.querySelector(".arm-wrist"),tipX=Number(b.dataset.armTipX),m1=b.getCTM(),m2=w.getCTM();return Math.hypot(m1.a*tipX+m1.e-m2.e,m1.b*tipX+m1.f-m2.f);})):null;})()})');
+  check('ch6 drafting arm forearm stays coupled to wrist joint on ultrawide scroll',armDuring.jointGap!==null&&armDuring.jointGap<1,armDuring);
+  await until('!window.__draftingArm.stats().running');
+  const armAfter=await evaluate('({stats:window.__draftingArm.stats(),placed:document.querySelector(".field-plate").dataset.armPlaced,opacity:getComputedStyle(document.querySelector(".field-plate")).opacity})');
+  check('ch6 drafting arm places component on desktop scroll then returns to 0 rAF',armDuring.stats.frames>0&&armAfter.stats.placed>=1&&!armAfter.stats.running&&armAfter.placed==='true'&&armAfter.opacity==='1',{armDuring,armAfter});
+  await send('Emulation.setDeviceMetricsOverride',{width:1440,height:960,deviceScaleFactor:1,mobile:false});
+  await evaluate('sessionStorage.removeItem("field-reader-paused")');
+  await send('Page.navigate',{url:`${base}/ch0/`});await until('location.pathname.endsWith("/ch0/")&&window.__readingStudy?.ready&&!!window.__draftingArm');
+  await evaluate('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
+  await evaluate('(() => { const h = [...document.querySelectorAll("#body h2")].find(x => x.textContent.includes("核心术语")); h?.scrollIntoView({ behavior: "instant", block: "start" }); })()');
+  await pause(100);
+  await evaluate('(() => { const h = [...document.querySelectorAll("#body h2")].find(x => x.textContent.includes("核心术语")); if (h) window.scrollBy(0, h.getBoundingClientRect().top - 150); })()');
+  await until('(() => { const tbl = document.querySelectorAll("#body .table-scroll")[2]; return tbl && (tbl.dataset.armCarrying === "true" || tbl.dataset.armPlaced === "true"); })()');
+  const ch0During=await evaluate('({stats:window.__draftingArm.stats(),jointGap:(()=>{const tasks=[...document.querySelectorAll(".arm-task")];return tasks.length?Math.max(...tasks.map(t=>{const b=t.querySelector(".arm-boom-2"),w=t.querySelector(".arm-wrist"),tipX=Number(b.dataset.armTipX),m1=b.getCTM(),m2=w.getCTM();return Math.hypot(m1.a*tipX+m1.e-m2.e,m1.b*tipX+m1.f-m2.f);})):null;})()})');
+  await until('!window.__draftingArm.stats().running');
+  const ch0After=await evaluate('(()=>{const tbl=document.querySelectorAll("#body .table-scroll")[2];return{stats:window.__draftingArm.stats(),placed:tbl?.dataset.armPlaced,opacity:tbl?getComputedStyle(tbl).opacity:null};})()');
+  check('ch0 deep-scrolled table survives content-visibility scroll anchoring with coupled wrist',ch0After.placed==='true'&&ch0After.opacity==='1'&&(ch0During.jointGap===null||ch0During.jointGap<1),{ch0During,ch0After});
   await (await import('./reader-experience-checks.mjs')).run({send,evaluate,until,pause,check,report});
   await (await import('./reader-chrome-checks.mjs')).run({send,evaluate,until,pause,check,report});
   await (await import('./chapter-arrival-checks.mjs')).run({send,evaluate,until,pause,check,report});

@@ -1,5 +1,7 @@
 // 全站动效运行时（无依赖）：顶栏滚动态、阅读进度、回到顶部浮层按钮、右栏共享指示条、首屏以下区块入场、代码块复制反馈。
 // 与 Astro ClientRouter 配合：每次 astro:page-load（含首次加载）重新绑定；所有监听挂在同一个 AbortController 上，换页时整体撤销。
+import { initDraftingArms } from './drafting-arm.mjs';
+
 const reduceMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // 回到顶部按钮的显示阈值（px）：scrollY 严格大于该值才显示
@@ -84,10 +86,17 @@ function init() {
     place();
   }
 
+  const meadow = document.querySelector<HTMLElement>('.meadow-home');
+  const arms = meadow ? initDraftingArms({ mode: 'home', root: meadow, signal }) : undefined;
+  signal.addEventListener('abort', () => arms?.dispose(), { once: true });
+
   // 3) 首屏以下区块入场：进入视口时补 .mt-in（节奏同首屏：500ms、相邻 60ms）。减少动效时完全跳过，内容始终可见。
   if (!reduceMotion()) {
     const pending = [...document.querySelectorAll<HTMLElement>('[data-mt-reveal]')].filter(
-      (el) => el.getBoundingClientRect().top > window.innerHeight * 0.92,
+      (el) =>
+        !el.hasAttribute('data-arm-managed') &&
+        !el.closest('[data-arm-managed]') &&
+        el.getBoundingClientRect().top > window.innerHeight * 0.92,
     );
     pending.forEach((el) => el.classList.add('mt-pre'));
     const observer = new IntersectionObserver(

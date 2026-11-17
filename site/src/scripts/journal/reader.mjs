@@ -2,6 +2,7 @@ import { createReaderAtmosphere } from './reader-atmosphere.mjs';
 import { createLayerPlate } from './layer-plate.mjs';
 import { createBoundaryPlate, createGatePlate } from './chapter-plates.mjs';
 import { getReadingStart, setupChapterArrival } from './chapter-arrival.mjs';
+import { initDraftingArms } from '../drafting-arm.mjs';
 
 const host=document.getElementById('production-journal');
 if(host) init();
@@ -117,12 +118,14 @@ function init(){
   function schedule(){if(!frame)frame=requestAnimationFrame(update);}
   addEventListener('scroll',schedule,{passive:true,signal});addEventListener('resize',schedule,{signal});
   try{atmosphere=createReaderAtmosphere(sections);}catch(error){state.errors.push(String(error));}
+  let draftingArms;
+  try{draftingArms=initDraftingArms({mode:'journal',root:host,signal});}catch(error){state.errors.push(String(error));}
   function routeSize(){syncRails(false);}
   const railSize=new ResizeObserver(routeSize);rails.forEach(rail=>railSize.observe(rail));
   addEventListener('resize',routeSize,{signal});update();
   // Shared baked relief and CSS underlay: reading does not allocate WebGL contexts.
   $('chapter-art').addEventListener('click',goHeading,{signal});
-  function dispose(event){if(event.persisted)return;state.disposed=true;state.artwork.disposed=true;cancelAnimationFrame(frame);railSize.disconnect();abort.abort();atmosphere?.dispose();}
+  function dispose(event){if(event.persisted)return;state.disposed=true;state.artwork.disposed=true;cancelAnimationFrame(frame);railSize.disconnect();abort.abort();atmosphere?.dispose();draftingArms?.dispose();}
   addEventListener('pagehide',dispose,{signal});state.ready=true;
   // Existing deep links retain their heading IDs and land after enhancement.
   if(location.hash){try{document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView({behavior:'instant'});}catch{}}

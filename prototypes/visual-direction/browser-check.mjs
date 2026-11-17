@@ -27,6 +27,7 @@ const profile = await mkdtemp(resolve(reportFolder, 'browser-check-'));
 const pause = ms => new Promise(resolve => setTimeout(resolve, ms));
 const chrome = spawn('C:/Program Files/Google/Chrome/Application/chrome.exe', ['--headless=new', '--no-first-run', '--no-default-browser-check', '--disable-extensions', '--remote-debugging-port=0', '--user-data-dir=' + profile, '--window-size=1440,960', 'about:blank'], { windowsHide: true, stdio: 'ignore' });
 let socket, ownedPids = [chrome.pid];
+const startedAt = Date.now();
 const report = { pass: false, checks: [], metrics: {}, consoleErrors: [] };
 const check = (name, pass, detail) => report.checks.push({ name, pass: !!pass, ...(detail === undefined ? {} : { detail }) });
 const luminance = hex => { const rgb = hex.match(/[a-f0-9]{2}/gi).map(c=>parseInt(c,16)/255).map(c=>c<=.04045?c/12.92:((c+.055)/1.055)**2.4); return rgb[0]*.2126+rgb[1]*.7152+rgb[2]*.0722; };
@@ -163,8 +164,24 @@ finally {
   check('owned browser process tree has zero remaining processes', remaining.length===0, remaining);
   if (!profile.startsWith(reportFolder + sep) || !basename(profile).startsWith('browser-check-')) throw Error('Unsafe profile cleanup path');
   for (let i=0;i<15;i++) { try { await rm(profile, { recursive:true, force:true }); break; } catch { await pause(150); } }
+  report.metrics.durationMs = Date.now() - startedAt;
   report.pass = !report.fatal && report.checks.every(check=>check.pass);
   await writeFile(resolve(reportFolder,'browser-report.json'),JSON.stringify(report,null,2));
-  process.stdout.write(JSON.stringify(report,null,2)+'\n');
+  if (process.argv.includes('--json')) {
+    process.stdout.write(JSON.stringify(report,null,2)+'\n');
+  } else {
+    const passed = report.checks.filter(c=>c.pass).length;
+    const total = report.checks.length;
+    const secs = (report.metrics.durationMs / 1000).toFixed(1);
+    const lines = [`[${report.pass ? 'PASS' : 'FAIL'}] ${passed}/${total} checks in ${secs}s | consoleErrors=${report.consoleErrors.length} | report=${reportFolder}`];
+    if (!report.pass) {
+      for (const c of report.checks) {
+        if (!c.pass) lines.push(`  FAIL: ${c.name}${c.detail === undefined ? '' : ' -> ' + JSON.stringify(c.detail)}`);
+      }
+      if (report.consoleErrors.length) lines.push(`  CONSOLE: ${JSON.stringify(report.consoleErrors)}`);
+      if (report.fatal) lines.push(`  FATAL: ${report.fatal}`);
+    }
+    process.stdout.write(lines.join('\n') + '\n');
+  }
   if (!report.pass) process.exitCode=1;
 }

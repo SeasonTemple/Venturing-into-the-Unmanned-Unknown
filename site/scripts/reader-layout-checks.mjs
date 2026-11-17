@@ -10,25 +10,31 @@ export async function run({send,evaluate,until,pause,check,report}) {
     await evaluate('document.fonts.ready');
     for (const width of [390,768,980,981,1024,1144,1199,1200,1440,2048]) {
       await send('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:width<760});
-      await pause(100);
+      await evaluate('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
       await until('Math.abs(parseFloat(getComputedStyle(document.querySelector(".chapter-travel")).top)-document.querySelector(".reader-chrome").getBoundingClientRect().height)<1');
-      for (const theme of ['light','dark']) {
-        await evaluate(`document.documentElement.dataset.theme=${JSON.stringify(theme)}`);
-        await evaluate('scrollTo({top:0,behavior:"instant"})');
-        await pause(60);
-        const opening=await evaluate(`(()=>{const r=document.querySelector('#opening').getBoundingClientRect(),title=document.querySelector('#_top').getBoundingClientRect(),spread=document.querySelector('.reading-spread').getBoundingClientRect();return {separate:spread.top>=r.bottom-1,titleInside:title.left>=0&&title.right<=innerWidth&&title.top>=r.top&&title.bottom<=r.bottom}})()`);
-        const positions=[];
-        // Include the introduction's tables shown in the reported screenshot.
-        for (const index of [0,2,5]) {
-          await evaluate(`document.querySelectorAll('#body h2')[${index}].scrollIntoView({behavior:'instant',block:'start'})`);
-          await pause(100);
-          positions.push(await evaluate(`(()=>{
-            const box=s=>{const e=document.querySelector(s);return getComputedStyle(e).display==='none'?null:e.getBoundingClientRect().toJSON()};
+      const themeResults = await evaluate(`(async()=>{
+        const raf2=()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+        const box=s=>{const e=document.querySelector(s);return getComputedStyle(e).display==='none'?null:e.getBoundingClientRect().toJSON()};
+        const out=[];
+        for(const theme of ['light','dark']){
+          document.documentElement.dataset.theme=theme;
+          scrollTo({top:0,behavior:'instant'});
+          await raf2();
+          const r=document.querySelector('#opening').getBoundingClientRect(),title=document.querySelector('#_top').getBoundingClientRect(),spread=document.querySelector('.reading-spread').getBoundingClientRect();
+          const opening={separate:spread.top>=r.bottom-1,titleInside:title.left>=0&&title.right<=innerWidth&&title.top>=r.top&&title.bottom<=r.bottom};
+          const positions=[];
+          for(const index of [0,2,5]){
+            document.querySelectorAll('#body h2')[index].scrollIntoView({behavior:'instant',block:'start'});
+            await raf2();
             const left=box('.field-route'),right=box('.chapter-margin'),content=box('.reading-column'),travel=box('.chapter-travel'),chrome=box('.reader-chrome');
-            const heading=document.querySelectorAll('#body h2')[${index}].getBoundingClientRect();
-            return {left,right,content,travel,chrome,heading:heading.toJSON(),scrollWidth:document.documentElement.scrollWidth,viewport:innerWidth,grid:getComputedStyle(document.querySelector('.reading-spread')).display};
-          })()`));
+            const heading=document.querySelectorAll('#body h2')[index].getBoundingClientRect();
+            positions.push({left,right,content,travel,chrome,heading:heading.toJSON(),scrollWidth:document.documentElement.scrollWidth,viewport:innerWidth,grid:getComputedStyle(document.querySelector('.reading-spread')).display});
+          }
+          out.push({theme,opening,positions});
         }
+        return out;
+      })()`);
+      for (const {theme,opening,positions} of themeResults) {
         const detail={chapter,width,theme,opening,positions};
         check(`${chapter} ${width}px ${theme}: rails stay outside the article while scrolling`,positions.every(p=>(!p.left||p.left.right<=p.content.left-1)&&(!p.right||p.right.left>=p.content.right+1)&&(width<=980?!p.left:p.grid==='grid'&&!!p.left)&&(width<1200?!p.right:!!p.right)),detail);
         check(`${chapter} ${width}px ${theme}: heading, chrome and page stay within their bounds`,opening.separate&&opening.titleInside&&positions.every(p=>p.scrollWidth<=width&&p.heading.left>=p.content.left-1&&p.heading.right<=p.content.right+1&&p.heading.top>=p.travel.bottom-1&&Math.abs(p.travel.top-p.chrome.bottom)<1),detail);

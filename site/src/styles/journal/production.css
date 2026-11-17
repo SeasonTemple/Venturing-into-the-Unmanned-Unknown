@@ -1,5 +1,6 @@
 /* Integration rules; the accepted preview typography remains in the adjacent sheets. */
 html[data-reader=journal]{scroll-padding-top:100px}
+#production-journal{overflow-x:clip}
 body.field-journal{--sl-color-white:var(--rd-ink);--sl-color-text:var(--rd-ink);--sl-color-gray-2:var(--rd-ink);--sl-color-gray-3:var(--rd-muted);--sl-color-accent-high:var(--rd-copper);--sl-color-bg:var(--rd-paper);--mt-line:var(--rd-line);--mt-line-strong:var(--rd-line);--mt-code-bg:#14252b;--mt-surface:var(--rd-panel);background:var(--rd-paper);color:var(--rd-ink)}
 #production-journal main{padding:0!important;min-width:0}
 #production-journal .content-panel{padding:0;border:0}

@@ -8,6 +8,7 @@ export async function run({send,evaluate,until,pause,check,report}){
  check('reading, ten chapters, install, releases and text indexes remain available',await evaluate('document.querySelectorAll("#chapters .mt-cell").length===10&&!!document.querySelector("[data-mt-cmd-copy]")&&[...document.querySelectorAll(".mt-rows a")].some(a=>a.href.endsWith("llms.txt"))&&!!document.querySelector(".read-link[href*=ch0]")'));
  check('unreviewed directional animation and old three.js hero are not loaded',await evaluate('!window.__meadowWalk&&!document.querySelector(".field-actor")&&!performance.getEntriesByType("resource").some(e=>/three\.|HeroScene|hero-gate|engineer-actions|meadow-walk/.test(e.name))'));
  check('assembly workbench stays asleep at initial scroll position',await evaluate('!!document.getElementById("workbench-stage")&&!!window.__assemblyWorkbench&&!window.__assemblyWorkbench.stats().running&&window.__assemblyWorkbench.stats().frames===0'));
+ check('drafting arm excludes hero painting and sleeps at initial scroll',await evaluate('!!window.__draftingArm&&!document.querySelector(".landscape [data-arm-target]")&&!window.__draftingArm.stats().running&&window.__draftingArm.stats().frames===0'));
  await pause(500);const before=await evaluate('window.__meadowMotion.stats()');await pause(2000);const after=await evaluate('window.__meadowMotion.stats()');
  report.metrics.framePacing={framesInTwoSeconds:after.frames-before.frames,...after};
  check('desktop environment retains one draw and bounded texture sizes at a 30fps budget',after.frames>before.frames&&after.frames-before.frames<=Math.ceil((after.elapsed-before.elapsed)*30)+2&&after.targetFps<=30&&after.textureCount===3&&after.drawsPerFrame===1&&after.buffer[0]<=1152,report.metrics.framePacing);
@@ -59,9 +60,9 @@ export async function run({send,evaluate,until,pause,check,report}){
  if(process.argv.includes('--layout-only'))return;
  await send('Emulation.setDeviceMetricsOverride',{width:1440,height:960,deviceScaleFactor:1,mobile:false});await pause(120);
  await evaluate('window.__meadowStation.open();window.__meadowStation.action()');
- await pause(1200);
+ await until('window.__meadowStation.stats().camera.view==="archive"&&!window.__meadowStation.stats().camera.transitioning');
  check('station camera advances to the worksite without moving a character sprite',await evaluate('window.__meadowStation.stats().camera.view==="archive"&&!window.__meadowStation.stats().camera.transitioning&&!document.querySelector(".field-actor")'));
- await evaluate('document.getElementById("field-pin").focus()');await pause(1200);
+ await evaluate('document.getElementById("field-pin").focus()');await until('!window.__meadowStation.stats().camera.transitioning');await pause(60);
  check('focusing a landmark brings it into view without scrolling hidden scene containers',await evaluate('(()=>{const r=document.getElementById("field-pin").getBoundingClientRect(),stage=document.querySelector(".landscape"),art=document.querySelector(".art-surface");return r.left>=0&&r.right<=innerWidth&&r.top>=0&&r.bottom<=innerHeight&&stage.scrollLeft===0&&stage.scrollTop===0&&art.scrollLeft===0&&art.scrollTop===0&&scrollY===0})()'));
  check('station record opens without translating or animating the painted character',await evaluate('window.__meadowStation.stats().observed&&!document.getElementById("field-note").hidden&&document.querySelector(".landscape-art").src.includes("hero-v04")&&!document.querySelector(".field-actor")'));
  check('measurement points are accessible ground rings without white text badges',await evaluate('["field-pin","field-reference"].every(id=>{const p=document.getElementById(id);return !p.hidden&&p.tagName==="BUTTON"&&p.getAttribute("aria-label")&&getComputedStyle(p).backgroundColor==="rgba(0, 0, 0, 0)"})'));
@@ -98,22 +99,27 @@ export async function run({send,evaluate,until,pause,check,report}){
  check('native keyboard activation inspects a point and retains action focus',await evaluate('window.__meadowStation.stats().findings.join()==="stake"&&document.activeElement.id==="field-action"'),await evaluate('({state:window.__meadowStation.stats(),focus:document.activeElement.id})'));
  await evaluate('document.getElementById("field-action").click();document.getElementById("field-action").click()');
  check('control-strip alternative completes comparison without pointer hotspots',await evaluate('window.__meadowStation.stats().clue&&window.__meadowStation.stats().findings.length===2'));
- await evaluate('window.__meadowStation.close();document.getElementById("chapters").scrollIntoView({behavior:"instant"})');await pause(180);const offscreen=await evaluate('window.__meadowMotion.stats().frames');await pause(180);
+ await evaluate('window.__meadowStation.close();document.getElementById("chapters").scrollIntoView({behavior:"instant"})');await pause(180);const offscreen=await evaluate('window.__meadowMotion.stats().frames');
+ check('active homepage drafting arm maintains zero forearm-wrist joint gap',await evaluate('(()=>{const tasks=[...document.querySelectorAll(".arm-task")];return tasks.length>=1&&tasks.every(t=>{const b=t.querySelector(".arm-boom-2"),w=t.querySelector(".arm-wrist"),tipX=Number(b.dataset.armTipX),m1=b.getCTM(),m2=w.getCTM();return Math.hypot(m1.a*tipX+m1.e-m2.e,m1.b*tipX+m1.f-m2.f)<1;});})()'));
+ await pause(180);
  check('scrolling past the scene suspends environment draws',await evaluate(`window.__meadowMotion.stats().frames===${offscreen}&&!window.__meadowMotion.stats().running`));
  await evaluate('document.getElementById("workbench-stage").scrollIntoView({behavior:"instant",block:"center"})');await pause(450);
  check('assembly workbench starts building once scrolled into view',await evaluate('window.__assemblyWorkbench.stats().mounted&&window.__assemblyWorkbench.stats().frames>0'),await evaluate('window.__assemblyWorkbench.stats()'));
  await evaluate('document.querySelector("[data-assembly-toggle]").click()');await pause(120);const wbPaused=await evaluate('window.__assemblyWorkbench.stats().frames');await pause(160);
  check('assembly pause button freezes assembly clock frames',await evaluate(`!window.__assemblyWorkbench.stats().running&&window.__assemblyWorkbench.stats().frames===${wbPaused}`));
+ await until('!window.__draftingArm.stats().running');
+ check('drafting arm places desktop homepage modules on first scroll and settles',await evaluate('window.__draftingArm.stats().placed>=1&&window.__draftingArm.stats().frames>0&&!window.__draftingArm.stats().running'),await evaluate('window.__draftingArm.stats()'));
  await evaluate('window.scrollTo({top:0,behavior:"instant"})');await pause(100);
  // Sustained work in this owned test page exercises automatic load shedding.
  // This never runs in the production module or the user's browser tab.
- await evaluate('(async()=>{const end=performance.now()+9000;while(performance.now()<end){await new Promise(requestAnimationFrame);const busy=performance.now()+80;while(performance.now()<busy){}}})()');await pause(1200);
+ await evaluate('(async()=>{const end=performance.now()+9000;while(performance.now()<end&&window.__meadowMotion.stats().quality==="balanced"){await new Promise(requestAnimationFrame);const busy=performance.now()+60;while(performance.now()<busy){}}})()');await until('window.__meadowMotion.stats().quality!=="balanced"&&window.__meadowMotion.stats().buffer[0]<=896');
  check('sustained frame pressure reduces the render budget automatically',await evaluate('window.__meadowMotion.stats().quality!=="balanced"&&window.__meadowMotion.stats().buffer[0]<=896'),await evaluate('window.__meadowMotion.stats()'));
  await evaluate('document.getElementById("motion-toggle").click()');await pause(100);const stopped=await evaluate('window.__meadowMotion.stats().frames');await pause(200);
  check('explicit pause stops desktop environment draws',await evaluate(`window.__meadowMotion.stats().frames===${stopped}`));
  for(const width of [320,390]){
   await send('Emulation.setDeviceMetricsOverride',{width,height:844,deviceScaleFactor:2,mobile:true});await send('Page.navigate',{url});await until('document.querySelector(".landscape")?.dataset.motion==="static-mobile"');
   check(`${width}px fresh mobile page loads only the static scene and reading`,await evaluate('!window.__meadowMotion&&!window.__meadowStation&&!document.querySelector(".field-actor")&&!performance.getEntriesByType("resource").some(e=>/meadow-motion.*\.js|meadow-station|engineer-actions|motion-mask|sky-loop/.test(e.name))&&getComputedStyle(document.querySelector("#enter-field")).display==="none"'));
+  check(`${width}px mobile excludes drafting arm overlay`,await evaluate('!document.querySelector(".drafting-arm-layer")&&!document.querySelector("[data-arm-pending]")'));
  }
  await send('Emulation.setDeviceMetricsOverride',{width:1440,height:960,deviceScaleFactor:1,mobile:false});
  await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});await send('Page.navigate',{url});await until('!!window.__meadowMotion');

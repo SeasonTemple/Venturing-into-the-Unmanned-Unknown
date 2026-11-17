@@ -47,11 +47,10 @@ const isJournal = /^ch[0-8A]$/.test(Astro.locals.starlightRoute.entry.id);
     border-top: 1px solid var(--obs-line);
     color: var(--obs-ink);
   }
-  :global(html[data-theme='dark']) .observatory-colophon {
+  :global(html[data-theme='dark']:not(:has(.meadow-home))) .observatory-colophon {
     --obs-line: rgba(188, 212, 224, 0.22);
     --obs-ink: #9eb9c4;
     --obs-accent: #f0bc7b;
-    background: linear-gradient(180deg, rgba(16, 33, 43, 0.45), transparent);
   }
   .observatory-svg {
     display: block;
