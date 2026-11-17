@@ -38,5 +38,20 @@ export async function run({send,evaluate,until,pause,check,report}){
  check('reduced motion still previews the chapter without an immediate jump',await evaluate('window.__readingStudy.arrival.phase==="preview"&&scrollY<8'));
  await until('window.__readingStudy.arrival.phase==="reading"');
  check('reduced motion enters the text with a static transition',await evaluate('scrollY>400&&getComputedStyle(document.documentElement).scrollBehavior==="auto"'));
+ await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'}]});
+ await change('.book-rail a[href$="/ch2/"]','ch2');await pause(350);
+ check('sidebar chapter entry pauses at the masthead',await evaluate('window.__readingStudy.arrival.phase==="preview"&&scrollY<8'));
+ await until('window.__readingStudy.arrival.phase==="reading"');
+ await evaluate('document.getElementById("open-navigation").click()');
+ await change('#book-panel a[href$="/ch6/"]','ch6');await pause(350);
+ check('directory chapter entry uses the same masthead preview',await evaluate('window.__readingStudy.arrival.phase==="preview"&&scrollY<8'));
+ await until('window.__readingStudy.arrival.phase==="reading"');
+ await send('Page.navigate',{url:base+'/'});
+ await until('document.querySelector("a.read-link")');
+ await evaluate('document.querySelector("a.read-link").click()');
+ await until(`window.__readingStudy?.ready&&location.pathname.endsWith('/ch0/')`);
+ await pause(350);
+ check('home reading entry uses the same masthead preview',await evaluate('window.__readingStudy.arrival.phase==="preview"&&scrollY<8'));
+ await until('window.__readingStudy.arrival.phase==="reading"');
  report.metrics.chapterArrival={next,manual};
 }

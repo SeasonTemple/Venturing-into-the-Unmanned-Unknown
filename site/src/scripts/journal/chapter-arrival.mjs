@@ -1,13 +1,23 @@
 // One-shot arrival intent, without changing canonical chapter links or history.
 const key='field-journal-arrival';
+const chapterPath=/\/ch(?:[0-8]|A)\/?$/;
+
+export function installArrivalRecorder(){
+ if(installArrivalRecorder.installed)return;
+ installArrivalRecorder.installed=true;
+ document.addEventListener('click',event=>{
+  const link=event.target.closest?.('a[href]');
+  if(!link||event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||link.target==='_blank')return;
+  let url;
+  try{url=new URL(link.href,location.href);}catch{return;}
+  if(url.origin!==location.origin||url.pathname===location.pathname||!chapterPath.test(url.pathname))return;
+  try{sessionStorage.setItem(key,JSON.stringify({path:url.pathname,time:Date.now()}));}catch{}
+ },true);
+}
+
 export function setupChapterArrival(host,{signal,reduced,state}){
+ installArrivalRecorder();
  const status=state.arrival={phase:'idle'};
- const chapters=new Set([...host.querySelectorAll('.book-rail a')].map(a=>a.href));
- host.addEventListener('click',event=>{
-  const link=event.target.closest('a[rel=prev],a[rel=next]');
-  if(!link||event.defaultPrevented||event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey||link.target==='_blank'||!chapters.has(link.href))return;
-  try{sessionStorage.setItem(key,JSON.stringify({path:new URL(link.href).pathname,time:Date.now()}));}catch{}
- },{signal});
  let intent;
  try{intent=JSON.parse(sessionStorage.getItem(key));sessionStorage.removeItem(key);}catch{}
  if(!intent||intent.path!==location.pathname||Date.now()-intent.time<0||Date.now()-intent.time>30000||location.hash||scrollY>8||performance.getEntriesByType('navigation')[0]?.type!=='navigate')return;
@@ -47,3 +57,5 @@ export function setupChapterArrival(host,{signal,reduced,state}){
  // Start the dwell after the destination has had a chance to paint its masthead.
  paint=requestAnimationFrame(()=>{paint=requestAnimationFrame(preview);});
 }
+
+if(typeof document!=='undefined')installArrivalRecorder();

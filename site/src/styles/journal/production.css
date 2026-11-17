@@ -187,6 +187,8 @@ html[data-reader=journal]{scroll-padding-top:calc(var(--reader-chrome-height,76p
    element to block, which otherwise leaves sticky rails over the article. */
 #production-journal .reading-spread{display:grid;max-width:1580px;grid-template-columns:minmax(176px,220px) minmax(0,min(800px,72ch)) minmax(200px,260px);gap:clamp(28px,3.5vw,72px);justify-content:center}
 #production-journal .reading-column{width:100%;margin:0;min-width:0}
+#production-journal .chapter-lead{width:100%;margin:0;padding:34px 0 4px;font-size:1.2rem;line-height:1.75}
+#production-journal .chapter-lead p{margin:0}
 #production-journal .article-section{display:block;min-width:0}
 #production-journal .section-marker{padding:0 0 16px;border:0;margin:0}
 #production-journal .section-content{min-width:0;width:100%}

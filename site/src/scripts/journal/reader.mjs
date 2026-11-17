@@ -13,16 +13,21 @@ function init(){
   let atmosphere,frame=0,sections=[],current=-1;
   // Move the existing nodes; Expressive Code and the canonical heading IDs survive.
   const originals=Array.from(article.childNodes);let content,section;
+  const lead=document.createElement('div');lead.className='chapter-lead';
   for(const node of originals){
     const h=node.nodeType===1&&(node.matches('h2')?node:node.querySelector('h2'));
+    if(!section&&!h){
+      if(node.nodeType===3&&!node.textContent.trim())continue;
+      lead.append(node);continue;
+    }
     if(h||!section){
-      if(!h&&node.nodeType===3&&!node.textContent.trim())continue;
       section=document.createElement('section');section.className='article-section';
       const marker=document.createElement('span');marker.className='section-marker';marker.setAttribute('aria-hidden','true');marker.textContent=`原文 / ${chapter.order.padStart(2,'0')}.${String(sections.length+1).padStart(2,'0')}`;
       content=document.createElement('div');content.className='section-content';content.append(marker);section.append(content);article.append(section);sections.push(section);
     }
     content.append(node);
   }
+  if(lead.childNodes.length)article.prepend(lead);
   sections=sections.filter(s=>s.querySelector('h2'));
   state.sections=sections.length;
   for(const table of article.querySelectorAll('table')){const wrap=document.createElement('div');wrap.className='table-scroll';wrap.tabIndex=0;wrap.setAttribute('role','region');wrap.setAttribute('aria-label','可横向滚动的章节表格');table.before(wrap);wrap.append(table);}
