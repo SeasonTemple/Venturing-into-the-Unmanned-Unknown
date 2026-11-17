@@ -15,12 +15,25 @@ export async function run({send,evaluate,until,pause,check,report}){
  await evaluate('document.documentElement.dataset.theme="dark"');await pause(360);const dark=await palette();
  check('night reading keeps both bars and the page scrollbar dark',dark.tools.background==='rgb(23, 38, 44)'&&dark.travel.background===dark.tools.background&&dark.track==='#17262c',dark);
  await send('Emulation.setDeviceMetricsOverride',{width:1440,height:600,deviceScaleFactor:1,mobile:false});
+ await send('Page.navigate',{url:'http://127.0.0.1:4395/Venturing-into-the-Unmanned-Unknown/ch4/'});await until('window.__readingStudy?.ready');
  await evaluate('document.getElementById("body").scrollIntoView({behavior:"instant"})');await pause(160);
  const rails=await evaluate('[...document.querySelectorAll(".field-route,.chapter-margin")].map(e=>({name:e.className,position:getComputedStyle(e).position,overflow:getComputedStyle(e).overflowY,height:e.clientHeight,scrollHeight:e.scrollHeight,top:e.scrollTop}))');
- check('long chapter rails participate in document flow with no inner scrollport',rails.every(r=>r.overflow==='visible'&&r.scrollHeight<=r.height+1)&&rails.some(r=>r.name.includes('route-flow')&&r.position==='static'),rails);
+ check('long chapter rails remain sticky without an inner scrollport',rails.every(r=>r.overflow==='visible'&&r.scrollHeight<=r.height+1&&r.position==='sticky')&&rails.some(r=>r.name.includes('route-flow')),rails);
  const position=await evaluate('({scroll:scrollY,x:document.querySelector(".chapter-margin").getBoundingClientRect().left+35,y:250})');
  await send('Page.bringToFront');await send('Input.dispatchMouseEvent',{type:'mouseWheel',x:position.x,y:position.y,deltaX:0,deltaY:400});await pause(250);
  check('wheel over the long outline scrolls the document rather than a nested panel',await evaluate(`scrollY>${position.scroll+50}&&document.querySelector('.chapter-margin').scrollTop===0`));
+ for(const vh of [600,800]){
+  await send('Emulation.setDeviceMetricsOverride',{width:1440,height:vh,deviceScaleFactor:1,mobile:false});
+  await evaluate('scrollTo({top:0,behavior:"instant"})');await pause(100);
+  const maxScroll=await evaluate('document.documentElement.scrollHeight-innerHeight');
+  const depths=[];
+  for(const pct of [0.25,0.5,0.65,0.8,0.95]){
+   await evaluate(`scrollTo({top:${Math.round(maxScroll*pct)},behavior:"instant"})`);await pause(100);
+   depths.push(await evaluate(`(()=>{const m=document.querySelector(".chapter-margin"),r=m.getBoundingClientRect(),a=m.querySelector("#route-links a[aria-current=location]")?.getBoundingClientRect();return{pct:${pct},pos:getComputedStyle(m).position,top:Math.round(r.top),bottom:Math.round(r.bottom),activeTop:a?Math.round(a.top):null,activeBottom:a?Math.round(a.bottom):null,inView:r.bottom>140&&r.top<innerHeight&&!!a&&a.bottom>120&&a.top<innerHeight}})()`));
+  }
+  check(`1440×${vh} right rail and active section link remain visible through 95% scroll`,depths.every(d=>d.pos==='sticky'&&d.inView),depths);
+ }
+ await send('Emulation.setDeviceMetricsOverride',{width:1440,height:960,deviceScaleFactor:1,mobile:false});
  // A real chapter link retains a full load and opts into native document fading.
  const hook=await send('Page.addScriptToEvaluateOnNewDocument',{source:'addEventListener("pageswap",e=>sessionStorage.setItem("reader-native-transition",String(!!e.viewTransition)));'});
  await send('Page.navigate',{url});await until('window.__readingStudy?.ready');

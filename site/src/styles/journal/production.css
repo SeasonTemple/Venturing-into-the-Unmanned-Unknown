@@ -39,7 +39,6 @@ body.field-journal{--sl-color-white:var(--rd-ink);--sl-color-text:var(--rd-ink);
 #route-links a span{color:var(--rd-copper);font:11px/2 var(--rd-mono)}
 #route-links a strong{font-weight:500;font-size:14px}
 #route-links a[aria-current]{color:var(--rd-copper)}
-#production-journal .field-route.route-flow{position:static}
 #production-journal .sl-container>footer{padding-top:40px;color:var(--rd-muted)}
 .journal-book{max-width:var(--jn-spread);width:calc(100% - 2 * var(--jn-page-pad));margin:30px auto 80px;border-top:1px solid var(--rd-line);padding-top:25px}
 .journal-book nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 30px;margin-top:20px}
@@ -193,8 +192,8 @@ html[data-reader=journal]{scroll-padding-top:calc(var(--reader-chrome-height,76p
 #production-journal .section-marker{padding:0 0 16px;border:0;margin:0}
 #production-journal .section-content{min-width:0;width:100%}
 #production-journal .section-content> :is(p,ul,ol,blockquote){max-width:none}
-#production-journal .field-route,#production-journal .chapter-margin{display:block;position:sticky;top:calc(var(--reader-chrome-height,76px) + 72px);align-self:start;max-height:none;overflow:visible;padding:28px 4px 16px 0;min-width:0}
-#production-journal .field-route.route-flow{position:sticky}
+#production-journal .field-route,#production-journal .chapter-margin{display:block;position:sticky;top:var(--rail-top,calc(var(--reader-chrome-height,76px) + 72px));align-self:start;max-height:none;overflow:visible;padding:28px 4px 16px 0;min-width:0}
+#production-journal :is(.field-route,.chapter-margin).route-flow{position:sticky}
 .book-rail{margin-top:22px;display:grid;gap:2px}.book-rail a{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:baseline;padding:10px 0 10px 12px;border-left:1px solid var(--rd-line);min-height:44px;text-decoration:none;font-size:13px;line-height:1.7;color:var(--rd-muted)}.book-rail strong{font-weight:400}.book-rail span{font:10px var(--rd-mono)}.book-rail [aria-current=page]{border-left:2px solid var(--rd-copper);color:var(--rd-copper);background:var(--rd-panel)}
 #production-journal #route-links{display:grid;gap:3px;margin-top:22px;border-left:1px solid var(--rd-line)}
 #production-journal #route-links a{display:grid;grid-template-columns:20px 1fr;gap:8px;padding:8px 0 8px 12px;min-height:40px;border-left:2px solid transparent;margin-left:-1px}
@@ -240,8 +239,8 @@ body.field-journal.over-survey #production-journal :is(.reader-chrome,.chapter-t
 #production-journal .chapter-travel a>span,#production-journal .reader-chrome :is(button[aria-pressed=true],.running-title>span:first-child){color:var(--chrome-accent);transition:color .32s ease}
 #production-journal .travel-position,#production-journal .reader-chrome .brand span{color:var(--chrome-muted);transition:color .32s ease}
 #production-journal .chapter-travel a:last-child{justify-content:flex-start}
-/* Long rails belong to the document, rather than a second scrolling pane. */
-#production-journal :is(.field-route,.chapter-margin).route-flow{position:static}
+/* Long rails remain sticky using bidirectional top offsets, without a nested scrollport. */
+#production-journal :is(.field-route,.chapter-margin).route-flow{position:sticky}
 /* Native document transitions retain full navigations and search initialization. */
 @view-transition{navigation:auto}
 ::view-transition-old(root){animation:reader-leave .16s ease-out both}

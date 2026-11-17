@@ -3,11 +3,11 @@
 **迈向无人区：AI 原生软件工程指南**（短名：AI-Native SDLC Guidebook）
 
 [![License](https://img.shields.io/badge/license-BSL%201.1-555?style=flat-square&labelColor=2b2f36)](./LICENSE)
-[![Version](https://img.shields.io/badge/version-v0.0.4-555?style=flat-square&labelColor=2b2f36)](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/tree/main)
+[![Version](https://img.shields.io/badge/version-v0.0.5-555?style=flat-square&labelColor=2b2f36)](https://github.com/SeasonTemple/Venturing-into-the-Unmanned-Unknown/tree/main)
 
 **Agent 为生产与执行主体。** 生成成本下降后，瓶颈在**正确性证据**：可执行规格、验证与测试、**性质级门禁**；人提供意图输入并作为 HITL 裁决源之一。
 
-版本：**v0.0.4**。方法论维护于 `main`；正式 Release 以 tag 为准。章节顺序为实现 → 验证 → 测试。
+版本：**v0.0.5**。方法论维护于 `main`；正式 Release 以 tag 为准。章节顺序为实现 → 验证 → 测试。
 
 ## 章节顺序（阅读 / Skill）
 

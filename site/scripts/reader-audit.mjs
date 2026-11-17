@@ -9,7 +9,7 @@ export async function run({send,evaluate,until,pause,check,report}) {
     const profile=width===1440&&process.argv.includes('--profile-reader');
     if(profile){await send('Profiler.enable');await send('Profiler.start');}
     await send('Emulation.setDeviceMetricsOverride',{width,height:width<700?844:960,deviceScaleFactor:1,mobile:width<700});
-    await send('Page.navigate',{url:base+'/ch3/'});await until('window.__readingStudy?.ready');
+    await send('Page.navigate',{url:base+'/ch4/'});await until('window.__readingStudy?.ready');
     await until('window.__readingStudy.artwork.status!=="loading"');await pause(150);
     await evaluate('document.getElementById("body").scrollIntoView({behavior:"instant"})');
     await until('window.__readingStudy.effects.surface');await pause(500);
@@ -19,7 +19,7 @@ export async function run({send,evaluate,until,pause,check,report}) {
     data.jsBytes=data.resources.reduce((sum,r)=>sum+r.bytes,0);
     report.metrics.reader.push(data);
     if(profile){const {profile:p}=await send('Profiler.stop');const weights=new Map();p.samples.forEach((id,i)=>weights.set(id,(weights.get(id)||0)+(p.timeDeltas[i]||0)));report.metrics.cpuProfile=p.nodes.map(n=>({function:n.callFrame.functionName,url:n.callFrame.url.split('/').pop(),line:n.callFrame.lineNumber,ms:Math.round((weights.get(n.id)||0)/1000)})).sort((a,b)=>b.ms-a.ms).slice(0,12);}
-    check(`${width}px reader remains functional during performance audit`,await evaluate('document.querySelectorAll("#body h2").length===10&&window.__readingStudy.errors.length===0'));
+    check(`${width}px reader remains functional during performance audit`,await evaluate('document.querySelectorAll("#body h2").length>=7&&window.__readingStudy.errors.length===0'));
   }
   await send('Emulation.setCPUThrottlingRate',{rate:1});
 }

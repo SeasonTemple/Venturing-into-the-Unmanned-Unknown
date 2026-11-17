@@ -12,7 +12,7 @@ export async function run({send,evaluate,until,pause,check,report}){
     report.metrics.chapters.push(result);
   }
   check('ten chapters share one terrain asset while retaining ten distinct routes',new Set(report.metrics.chapters.map(c=>c.survey.image)).size===1&&new Set(report.metrics.chapters.map(c=>c.survey.route)).size===10);
-  await send('Page.navigate',{url:`${base}/ch3/`});await until('window.__readingStudy?.ready');await until('window.__readingStudy.artwork.status!=="loading"');
+  await send('Page.navigate',{url:`${base}/ch4/`});await until('window.__readingStudy?.ready');await until('window.__readingStudy.artwork.status!=="loading"');
   check('shared relief is server-rendered without WebGL or Three.js',await evaluate('window.__readingStudy.artwork.mode==="shared-poster"&&!!document.querySelector("#chapter-art svg img")&&!document.querySelector("canvas")&&!performance.getEntriesByType("resource").some(e=>/three\.|relief-material|membrane-material/.test(e.name))'),await evaluate('window.__readingStudy.artwork'));
   check('chapter nodes lead to three actual section headings',await evaluate('[...document.querySelectorAll(".survey-node")].length===3&&[...document.querySelectorAll(".survey-node")].every(a=>document.getElementById(a.getAttribute("href").slice(1))?.tagName==="H2")'));
   await evaluate('document.querySelectorAll(".survey-node")[1].dispatchEvent(new MouseEvent("click",{bubbles:true,cancelable:true}))');await pause(80);
@@ -26,7 +26,7 @@ export async function run({send,evaluate,until,pause,check,report}){
   await send('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});await pause(80);
   check('Enter on the projected pin opens its actual section',await evaluate('document.activeElement.id===document.querySelector(".survey-node").getAttribute("href").slice(1)'));
   check('only the journal footer remains and Markdown copy is above the article',await evaluate('document.querySelectorAll(".chapter-end").length===1&&!document.querySelector(".mt-llms")&&!document.getElementById("top")&&document.querySelectorAll(".journal-pagination a").length===2&&!!(document.querySelector(".journal-reading-tools [data-mt-copy]").compareDocumentPosition(document.getElementById("body"))&Node.DOCUMENT_POSITION_FOLLOWING)'));
-  check('verification plate follows its subject after the chapter expansion',await evaluate('document.querySelector(".field-plate").closest(".article-section").querySelector("h2").textContent.includes("分层验证模型")'));
+  check('verification plate follows its subject after the chapter expansion',await evaluate('/分层/.test(document.querySelector(".field-plate").closest(".article-section").querySelector("h2").textContent)'));
   const texts=await evaluate('Array.from(document.querySelectorAll(".field-plate button"),b=>b.textContent)');
   await evaluate('document.querySelectorAll(".field-plate button")[4].click()');
   check('layer plate changes the selected evidence layer',await evaluate('document.querySelectorAll(".field-plate button")[4].getAttribute("aria-selected")==="true"||document.querySelectorAll(".field-plate button")[4].getAttribute("aria-pressed")==="true"'),texts);
@@ -38,7 +38,7 @@ export async function run({send,evaluate,until,pause,check,report}){
   check('reading background shares the baked transmission beneath a stationary veil',await evaluate('window.__readingStudy.effects.surface==="shared-transmission"&&getComputedStyle(document.querySelector(".survey-underlay"),"::before").backgroundImage.includes("paper-base-v01.webp")'),await evaluate('window.__readingStudy.effects'));
   const count=await evaluate('window.__readingStudy.effects.frames');await pause(350);
   check('reduced motion leaves background still',await evaluate(`window.__readingStudy.effects.frames===${count}`));
-  await evaluate('window.scrollTo({top:document.documentElement.scrollHeight,behavior:"instant"});document.getElementById("edge-top").click()');await pause(100);
+  await evaluate('window.scrollTo({top:document.documentElement.scrollHeight,behavior:"instant"})');await pause(60);await evaluate('document.getElementById("edge-top").click()');await pause(100);
   check('up button returns to body rather than chapter masthead',await evaluate('scrollY>100&&Math.abs(document.getElementById("body").getBoundingClientRect().top-document.querySelector(".chapter-travel").getBoundingClientRect().bottom)<100'));
   await evaluate('document.getElementById("focus").click()');
   check('focused reading hides the masthead and reading aids',await evaluate('document.body.classList.contains("focused")&&getComputedStyle(document.getElementById("opening")).display==="none"'));
@@ -82,8 +82,8 @@ export async function run({send,evaluate,until,pause,check,report}){
   check('page exit disposes the visual lifecycle without a renderer',await evaluate('window.__readingStudy.disposed&&window.__readingStudy.effects.disposed&&window.__readingStudy.artwork.disposed&&!document.querySelector(".ink-atmosphere")&&!document.querySelector("canvas")'));
   const home=await evaluate(`(async()=>{const text=await(await fetch(${JSON.stringify(base+'/')})).text();return !text.includes('id="production-journal"')&&!text.includes('/journal/production.css')&&text.includes('id="meadow-home-layout"')&&text.includes('hero-v04.webp')})()`);
   check('production homepage uses the accepted meadow independently of reading layout',home);
-  await send('Emulation.setScriptExecutionDisabled',{value:true});await send('Page.navigate',{url:`${base}/ch3/`});await pause(400);
-  check('without JavaScript the full chapter and book navigation remain',await evaluate('document.querySelectorAll("#body h2").length===10&&document.getElementById("body").textContent.length>4000&&!!document.querySelector("#journal-book a")'));
+  await send('Emulation.setScriptExecutionDisabled',{value:true});await send('Page.navigate',{url:`${base}/ch4/`});await pause(400);
+  check('without JavaScript the full chapter and book navigation remain',await evaluate('document.querySelectorAll("#body h2").length>=7&&document.getElementById("body").textContent.length>3500&&!!document.querySelector("#journal-book a")'));
   await send('Emulation.setScriptExecutionDisabled',{value:false});
   await send('Page.addScriptToEvaluateOnNewDocument',{source:'const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(t,...args){return /webgl/i.test(t)?null:original.call(this,t,...args)};'});
   await send('Page.navigate',{url:`${base}/ch1/`});await until('window.__readingStudy?.ready');await until('window.__readingStudy.artwork.status!=="loading"');

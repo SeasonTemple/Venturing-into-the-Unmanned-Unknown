@@ -78,12 +78,12 @@ export function createReaderAtmosphere(sections) {
   function outside(event) { if (!edge.contains(event.target)) close(); }
   function closeButton() { close(true); }
   function bodyStart() {
-    const marker = sections[0].querySelector('.section-marker') || sections[0];
+    const marker = $('body')?.querySelector('.chapter-lead') || sections[0].querySelector('.section-marker') || sections[0];
     return Math.max(0, marker.getBoundingClientRect().top + scrollY - document.querySelector('.reader-chrome').offsetHeight - document.querySelector('.chapter-travel').offsetHeight - 24);
   }
   function jump(bottom) {
     close();
-    const destination = bottom ? document.querySelector('.chapter-end') : sections[0].querySelector('h2');
+    const destination = bottom ? document.querySelector('.chapter-end') : ($('body')?.querySelector('.chapter-lead') ? $('body') : sections[0].querySelector('h2'));
     destination.tabIndex = -1; destination.focus({ preventScroll: true });
     scrollTo({ top: bottom ? document.documentElement.scrollHeight : bodyStart(), behavior: motion.matches ? 'instant' : 'smooth' });
   }

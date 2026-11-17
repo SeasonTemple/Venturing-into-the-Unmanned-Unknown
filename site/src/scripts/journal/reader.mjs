@@ -33,17 +33,17 @@ function init(){
   for(const table of article.querySelectorAll('table')){const wrap=document.createElement('div');wrap.className='table-scroll';wrap.tabIndex=0;wrap.setAttribute('role','region');wrap.setAttribute('aria-label','可横向滚动的章节表格');table.before(wrap);wrap.append(table);}
   // Editorial aids attach by subject, since upstream chapters may gain sections.
   const aids=[
-    [/分层模型/,'观察 / 阅读辅助','一道光，照不见全部层次。','每种证据回答不同的问题。一层通过，不能代替其余层的检查。'],
+    [/分层验证模型|分层模型/,'观察 / 阅读辅助','一道光，照不见全部层次。','每种证据回答不同的问题。一层通过，不能代替其余层的检查。'],
     [/规格歧义/,'边界 / 阅读辅助','通过检查的，也可能是错误的解释。','把尚未表达的条件带回规格。检查结果的适用范围，取决于已写下的问题。'],
-    [/模型检查/,'尺度 / 阅读辅助','模型是一张有取舍的地图。','留意状态空间省略了什么，以及这些省略会影响哪些性质。'],
-    [/简洁实例/,'实例 / 阅读辅助','沿着一把锁，追到证据的来处。','把性质、模型、实现与回归联系起来；这张阅读页没有实际运行任何验证。'],
+    [/形式化验证|模型检查/,'尺度 / 阅读辅助','模型是一张有取舍的地图。','留意状态空间省略了什么，以及这些省略会影响哪些性质。'],
+    [/工程实例|简洁实例/,'实例 / 阅读辅助','沿着一把锁，追到证据的来处。','把性质、模型、实现与回归联系起来；这张阅读页没有实际运行任何验证。'],
   ];
   if(chapter.title==='验证')for(const s of sections){
     const title=s.querySelector('h2').textContent;
     const aid=aids.find(([pattern])=>pattern.test(title));if(!aid)continue;
     const note=document.createElement('aside');note.className='section-note field-note';note.setAttribute('aria-label','阅读辅助批注');
     const label=document.createElement('span');label.className='note-label';label.textContent=aid[1];const strong=document.createElement('strong');strong.textContent=aid[2];const p=document.createElement('p');p.textContent=aid[3];note.append(label,strong,p);s.append(note);
-    if(/分层模型/.test(title)){const heading=s.querySelector('h2');(heading.parentElement===s.querySelector('.section-content')?heading:heading.parentElement).after(createLayerPlate());}
+    if(/分层验证模型|分层模型/.test(title)){const heading=s.querySelector('h2');(heading.parentElement===s.querySelector('.section-content')?heading:heading.parentElement).after(createLayerPlate());}
   }
   function marginNote(index){
     const destination=$('margin-note');destination.replaceChildren();
@@ -78,14 +78,39 @@ function init(){
     try{const text=JSON.parse($('mt-raw-md').textContent);if(navigator.clipboard?.writeText)await navigator.clipboard.writeText(text);else{const input=document.createElement('textarea');input.value=text;input.style.cssText='position:fixed;top:-1000px';document.body.append(input);input.select();const ok=document.execCommand('copy');input.remove();if(!ok)throw Error('copy failed');}label.textContent='已复制';$('status').textContent='Markdown 已复制';}
     catch{label.textContent='复制失败';$('status').textContent='未能复制，请选择正文或使用浏览器复制功能。';}
   },{signal});
-  function update(){frame=0;const h=document.documentElement.scrollHeight-innerHeight;$('progress').style.transform=`scaleX(${h?Math.min(1,Math.max(0,scrollY/h)):0})`;const index=Math.max(0,sections.findLastIndex(s=>s.getBoundingClientRect().top<document.querySelector('.chapter-travel').getBoundingClientRect().bottom+65));if(index!==current){current=index;marginNote(index);atmosphere?.update(index);for(const[s,i]of sections.map((s,i)=>[s,i]))s.dataset.current=String(i===index);const heading=sections[index]?.querySelector('h2');$('route-links').querySelectorAll('a').forEach(a=>{if(decodeURIComponent(a.hash.slice(1))===heading?.id)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}}
+  const rails=[...host.querySelectorAll('.field-route,.chapter-margin')];
+  const spread=host.querySelector('.reading-spread'),railTops=new Map();
+  let lastScrollY=scrollY;
+  function syncRails(sectionChanged=false){
+    const currentY=scrollY,deltaY=currentY-lastScrollY;lastScrollY=currentY;
+    const chromeHeight=document.querySelector('.reader-chrome').offsetHeight,travelHeight=document.querySelector('.chapter-travel').offsetHeight;
+    const maxTop=chromeHeight+travelHeight+27,bottomGap=24,spreadTop=spread?spread.getBoundingClientRect().top:0;
+    for(const rail of rails){
+      if(getComputedStyle(rail).display==='none'){railTops.delete(rail);continue;}
+      const height=Math.max(rail.offsetHeight,rail.scrollHeight);
+      const minTop=Math.min(maxTop,innerHeight-height-bottomGap);
+      rail.classList.toggle('route-flow',height>innerHeight-chromeHeight-travelHeight-48);
+      let top=spreadTop>=maxTop?maxTop:Math.min(maxTop,Math.max(minTop,(railTops.get(rail)??maxTop)-deltaY));
+      if(sectionChanged&&rail.classList.contains('chapter-margin')&&spreadTop<maxTop){
+        const active=rail.querySelector('#route-links a[aria-current="location"]');
+        if(active){
+          const railRect=rail.getBoundingClientRect(),activeRect=active.getBoundingClientRect();
+          const activeTop=activeRect.top-railRect.top,activeBottom=activeRect.bottom-railRect.top;
+          if(top+activeTop<maxTop+4)top=Math.max(minTop,Math.min(maxTop,maxTop+4-activeTop));
+          else if(top+activeBottom>innerHeight-bottomGap)top=Math.max(minTop,Math.min(maxTop,innerHeight-bottomGap-activeBottom));
+        }
+      }
+      railTops.set(rail,top);
+      rail.style.setProperty('--rail-top',`${Math.round(top)}px`);
+    }
+  }
+  function update(){frame=0;const h=document.documentElement.scrollHeight-innerHeight;$('progress').style.transform=`scaleX(${h?Math.min(1,Math.max(0,scrollY/h)):0})`;const index=Math.max(0,sections.findLastIndex(s=>s.getBoundingClientRect().top<document.querySelector('.chapter-travel').getBoundingClientRect().bottom+65));const changed=index!==current;if(changed){current=index;marginNote(index);atmosphere?.update(index);for(const[s,i]of sections.map((s,i)=>[s,i]))s.dataset.current=String(i===index);const heading=sections[index]?.querySelector('h2');$('route-links').querySelectorAll('a').forEach(a=>{if(decodeURIComponent(a.hash.slice(1))===heading?.id)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}syncRails(changed);}
   function schedule(){if(!frame)frame=requestAnimationFrame(update);}
   addEventListener('scroll',schedule,{passive:true,signal});addEventListener('resize',schedule,{signal});
   try{atmosphere=createReaderAtmosphere(sections);}catch(error){state.errors.push(String(error));}
-  const rails=[...host.querySelectorAll('.field-route,.chapter-margin')];
-  function routeSize(){const available=innerHeight-document.querySelector('.reader-chrome').offsetHeight-document.querySelector('.chapter-travel').offsetHeight-48;for(const rail of rails)rail.classList.toggle('route-flow',rail.scrollHeight>available);}
+  function routeSize(){syncRails(false);}
   const railSize=new ResizeObserver(routeSize);rails.forEach(rail=>railSize.observe(rail));
-  addEventListener('resize',routeSize,{signal});routeSize();update();
+  addEventListener('resize',routeSize,{signal});update();
   // Shared baked relief and CSS underlay: reading does not allocate WebGL contexts.
   $('chapter-art').addEventListener('click',goHeading,{signal});
   function dispose(event){if(event.persisted)return;state.disposed=true;state.artwork.disposed=true;cancelAnimationFrame(frame);railSize.disconnect();abort.abort();atmosphere?.dispose();}
