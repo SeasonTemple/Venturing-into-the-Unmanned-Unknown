@@ -96,6 +96,10 @@ export async function run({send,evaluate,until,pause,check,report}){
     if(slug==='ch6')await evaluate('sessionStorage.removeItem("field-reader-paused")');
     await send('Page.navigate',{url:`${base}/${slug}/`});await until('window.__readingStudy?.ready');
     check(`${slug} mounts interactive vector plate without WebGL`,await evaluate('(()=>{const buttons=document.querySelectorAll(".field-plate button");if(buttons.length<3)return false;buttons[1].click();return !document.querySelector("canvas")&&buttons[1].getAttribute("aria-pressed")==="true";})()'));
+    if(slug==='ch2'){
+      const tblCheck=await evaluate(`(()=>{const wrap=document.querySelector('#body .table-scroll'),tbl=wrap.querySelector('table'),th=tbl.querySelector('th'),tr=tbl.querySelector('tbody tr'),td=tr.querySelector('td');const ws=wrap.getBoundingClientRect(),ts=tbl.getBoundingClientRect(),trs=tr.getBoundingClientRect(),st=getComputedStyle(tbl),sth=getComputedStyle(th),std=getComputedStyle(td);return{wrapW:Math.round(ws.width),tblW:Math.round(ts.width),display:st.display,thFont:parseFloat(sth.fontSize),tdFont:parseFloat(std.fontSize),trH:Math.round(trs.height),tblMarginTop:parseFloat(st.marginTop)};})()`);
+      check('ch2 short table spans full reading column with legible 2K type and compact rows',tblCheck.display==='table'&&Math.abs(tblCheck.tblW-tblCheck.wrapW)<=1&&tblCheck.thFont>=14&&tblCheck.tdFont>=16&&tblCheck.trH<=54&&tblCheck.tblMarginTop===0,tblCheck);
+    }
   }
   await evaluate('document.querySelector(".field-plate").scrollIntoView({behavior:"instant",block:"center"})');await pause(180);
   const armDuring=await evaluate('({stats:window.__draftingArm.stats(),jointGap:(()=>{const tasks=[...document.querySelectorAll(".arm-task")];return tasks.length?Math.max(...tasks.map(t=>{const b=t.querySelector(".arm-boom-2"),w=t.querySelector(".arm-wrist"),tipX=Number(b.dataset.armTipX),m1=b.getCTM(),m2=w.getCTM();return Math.hypot(m1.a*tipX+m1.e-m2.e,m1.b*tipX+m1.f-m2.f);})):null;})()})');

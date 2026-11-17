@@ -331,7 +331,7 @@ h4 {
 
 /* --- a. 表格：表头 = 等宽 11px / 0.08em / 大写（与 CONTENTS、ON THIS PAGE 同一套），1px 发丝线分隔，行悬停淡底，数字 tabular-nums。
    表格本身是横向滚动容器：宽表在窄屏里整张表滚动，列不被挤压（首列与表头不折行，文字列最小 10em、数值列最小 5.5em）。 */
-.sl-markdown-content table:not(:where(.not-content *)) {
+.sl-markdown-content table:not(:where(.not-content *, .table-scroll > *)) {
   display: block;
   width: max-content;
   max-width: 100%;

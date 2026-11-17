@@ -289,3 +289,16 @@ body.field-journal.over-survey #production-journal :is(.reader-chrome,.chapter-t
 body.field-journal.over-survey #production-journal starlight-theme-select{color-scheme:dark}
 @media(prefers-reduced-motion:reduce){#production-journal .reader-chrome starlight-theme-select label::after{transition:none}}
 @media(forced-colors:active){#production-journal .reader-chrome starlight-theme-select select:focus-visible{outline:1px solid Highlight;outline-offset:2px}}
+
+/* Full-width semantic tables inside .table-scroll with proportional 2K typography and compact row rhythm. */
+#production-journal .table-scroll{display:block;width:100%;max-inline-size:100%;overflow-x:auto;margin-block:20px 26px}
+#production-journal .table-scroll>table{display:table;width:100%;min-width:100%;max-width:none;margin:0;overflow:visible;border-collapse:collapse;font-size:clamp(14.5px,calc(var(--rd-body,17px) * .88),16.5px);line-height:1.62}
+@media(min-width:761px){#production-journal .section-content table{display:table;width:100%;max-width:none}}
+#production-journal .section-content :is(thead,tbody,tr,th,td){margin-top:0}
+#production-journal .section-content th{padding:10px 14px;font-family:var(--rd-font);font-size:clamp(13px,calc(var(--rd-body,17px) * .78),15px);font-weight:600;line-height:1.45;letter-spacing:.04em;text-transform:none;color:color-mix(in srgb,var(--rd-ink) 84%,var(--rd-muted));background:color-mix(in srgb,var(--rd-panel) 58%,transparent);border-top:1px solid var(--rd-line);border-bottom:1px solid var(--rd-line)}
+#production-journal .section-content td{padding:11px 14px;line-height:1.62;vertical-align:top}
+#production-journal .section-content td:first-child{font-weight:500}
+#production-journal .section-content :is(th,td):first-child{padding-inline-start:12px}
+#production-journal .section-content :is(th,td):last-child{padding-inline-end:12px}
+@media(max-width:760px){#production-journal .table-scroll>table{min-width:620px;font-size:14px}#production-journal .section-content th{font-size:12.5px;padding:9px 12px}#production-journal .section-content td{padding:9px 12px}}
+@media print{#production-journal .table-scroll{overflow:visible}#production-journal .section-content th{background:none;color:black}}
