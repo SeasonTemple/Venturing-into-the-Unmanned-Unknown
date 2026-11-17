@@ -48,7 +48,7 @@ E:/DevCache/tools/unmapped-sprite-bpy/Scripts/python.exe scripts/sample-cmu-walk
 E:/DevCache/tools/unmapped-sprite-bpy/Scripts/python.exe scripts/build-actor-mocap-reference.py --out-dir .lab/whole-walk/rebuild
 ```
 
-运动源：[CMU subject 7](https://mocap.cs.cmu.edu/search.php?subjectnumber=7)，原站点标注第 1 段为 walk、120fps。[使用说明](https://mocap.cs.cmu.edu/faqs.php)允许复制、修改、再分发。CMU 同时声明不保证数据质量，故实际动作仍自行检查。
+运动源：[CMU subject 7](http://mocap.cs.cmu.edu/search.php?subjectnumber=7)，原站点标注第 1 段为 walk、120fps。[使用说明](http://mocap.cs.cmu.edu/faqs.php)允许复制、修改、再分发。CMU 同时声明不保证数据质量，故实际动作仍自行检查。
 
 ## 管线经验
 

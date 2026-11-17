@@ -50,7 +50,7 @@
 | [PixelOver](https://pixelover.io/) | 像素导向的变换、网格变形、骨骼、IK；官方教程支持 PNG 序列、GIF、精灵图集 | 最值得用同素材检验像素绑定效果；官方示例是另一种角色，只证明工具流程，不证明本站人物通过 |
 | [Godot](https://godotengine.org/license/) | 免费 MIT 工具；有二维切片、骨骼和关键帧文档，也有独立的运行时 TwoBoneIK 类 | 不购买软件时可作为制作工具候选，不意味着把网页迁入 Godot；相关教程标记 WIP，TwoBoneIK 类标记 Experimental，实施需固定版本再验证 |
 | [Spine](https://esotericsoftware.com/spine-download) | 具备相应动画能力；试用版不能保存项目、打包纹理或导出动画数据、图片、视频 | 不能当作免费完整交付链，暂不将其设为项目必需工具 |
-| [Blender](https://projects.blender.org/blender/blender-manual/src/branch/main/manual/advanced/command_line/render.rst) | 官方文档支持 IK、后台渲染指定帧或动画，适合可重复的离线导出 | 三维预渲染或动作代理候选；仍缺人物资产，未安装或实测 |
+| [Blender](https://projects.blender.org/blender/blender-manual/raw/branch/main/manual/advanced/command_line/render.rst) | 官方文档支持 IK、后台渲染指定帧或动画，适合可重复的离线导出 | 三维预渲染或动作代理候选；仍缺人物资产，未安装或实测 |
 
 **PixelOver 的免费演示版可以保存项目，但不能导出。** [官方许可文档](https://docs.pixelover.io/manual/licenses/)原文为：
 
