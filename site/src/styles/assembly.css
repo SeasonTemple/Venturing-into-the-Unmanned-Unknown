@@ -1,0 +1,401 @@
+/* Assembly workbench stage + pointers/marks (adapted from delineate/assembly). */
+
+@media screen {
+  .assembly-workbench {
+    content-visibility: auto;
+    contain-intrinsic-size: auto none auto 520px;
+  }
+}
+
+.assembly-workbench {
+  max-width: 1440px;
+  margin: var(--mt-section-gap, 3.5rem) auto;
+  padding-inline: clamp(24px, 4.8vw, 96px);
+}
+
+.assembly-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 28px;
+  margin-bottom: 20px;
+}
+
+.assembly-head h2 {
+  margin: 0;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', serif;
+  font-weight: 500;
+  font-size: var(--mt-fs-h2, 1.65rem);
+  color: var(--sl-color-white);
+}
+
+.assembly-head p.assembly-lede {
+  margin: 6px 0 0;
+  max-width: 56ch;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--sl-color-gray-2);
+}
+
+.assembly-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.assembly-status {
+  margin-right: 6px;
+  font: 12px/1.4 var(--sl-font-mono);
+  color: var(--sl-color-gray-3);
+}
+
+.assembly-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 6px 14px;
+  border: 1px solid var(--mt-line-strong);
+  border-radius: 3px;
+  background: var(--mt-surface);
+  color: var(--sl-color-white);
+  font: 12px/1 var(--sl-font);
+  cursor: pointer;
+  transition: border-color 150ms ease, background-color 150ms ease;
+}
+
+.assembly-btn:hover:enabled {
+  border-color: var(--mt-accent);
+  background: var(--mt-surface-hover);
+}
+
+.assembly-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.assembly-stage {
+  --paper: #f3f4ec;
+  --ink: #23372e;
+  position: relative;
+  display: block;
+  min-height: 330px;
+  overflow: clip;
+  border: 1px solid var(--mt-line-strong);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--ink);
+  container-type: inline-size;
+}
+
+.show-sheet {
+  position: relative;
+}
+
+.sheet-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: clamp(20px, 3cqi, 34px) clamp(20px, 4cqi, 44px);
+}
+
+.sheet-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 16%, transparent);
+}
+
+.sheet-id {
+  font: 600 12px/1.3 var(--sl-font-mono);
+  letter-spacing: 0.1em;
+  color: #78502d;
+}
+
+.sheet-tag {
+  padding: 4px 10px;
+  border: 1px solid color-mix(in srgb, var(--ink) 22%, transparent);
+  border-radius: 99px;
+  font: 11px/1.2 var(--sl-font-mono);
+  color: var(--ink);
+}
+
+.sheet-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(220px, 0.85fr);
+  gap: 24px 32px;
+  align-items: center;
+}
+
+.sheet-kicker {
+  margin: 0;
+  font: 11px/1.4 var(--sl-font-mono);
+  letter-spacing: 0.12em;
+  color: #526052;
+}
+
+.sheet-title {
+  margin: 8px 0 10px;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', serif;
+  font-weight: 500;
+  font-size: clamp(1.3rem, 2.3vw, 1.95rem);
+  line-height: 1.35;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.sheet-desc {
+  margin: 0 0 16px;
+  max-width: 44ch;
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: #435749;
+}
+
+.sheet-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sheet-slot {
+  display: inline-block;
+  padding: 7px 12px;
+  border: 1px solid color-mix(in srgb, var(--ink) 24%, transparent);
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--ink) 4%, #fff);
+  font: 12px/1.3 var(--sl-font-mono);
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.sheet-blueprint {
+  padding: 14px 16px;
+  border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+  border-radius: 4px;
+  background: #14252b;
+  color: #e5e8dc;
+}
+
+.sheet-blueprint svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.sheet-blueprint path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sheet-blueprint text {
+  font-family: var(--sl-font-mono);
+  font-size: 10px;
+  fill: #c0cbc1;
+}
+
+.sheet-bp-caption {
+  margin: 8px 0 0;
+  font: 11px/1.5 var(--sl-font-mono);
+  color: #c0cbc1;
+}
+
+/* Overlays */
+.assembly-stage .marks,
+.assembly-stage .hands {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.assembly-stage .marks { z-index: 4; }
+.assembly-stage .hands { z-index: 5; }
+
+.assembly-stage .pointer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  scale: 0.85;
+  will-change: transform;
+}
+
+.assembly-stage .pointer-glyph {
+  position: absolute;
+  transform-origin: 0 0;
+  filter: drop-shadow(0 1.2px 1px rgb(20 37 43 / 0.25));
+}
+
+.assembly-stage .pointer svg {
+  position: absolute;
+  left: -24px;
+  top: -24px;
+  overflow: visible;
+}
+
+.assembly-stage .pointer-tag {
+  position: absolute;
+  left: 14px;
+  top: 20px;
+  padding: 2px 7px 3px 6px;
+  border-left: 3px solid var(--ink);
+  border-radius: 2px;
+  background: #fffdf8;
+  color: #202e33;
+  box-shadow: 0 1px 2px rgb(20 37 43 / 0.2);
+  font: 400 10px/1.2 var(--sl-font-mono);
+  white-space: nowrap;
+  opacity: 0;
+  rotate: var(--tilt);
+  translate: -3px -4px;
+  scale: 0.92;
+  transform-origin: 0 0;
+  transition: opacity 140ms ease, translate 180ms ease, scale 180ms ease;
+}
+
+.assembly-stage .pointer.is-tagged .pointer-tag {
+  opacity: 1;
+  translate: 0 0;
+  scale: 1;
+}
+
+.assembly-stage .frame {
+  --select: #2b7999;
+  position: absolute;
+  box-shadow: inset 0 0 0 1px var(--select);
+}
+
+.assembly-stage .frame i {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  margin: -3px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px var(--select);
+}
+
+.assembly-stage .frame .tl { left: 0; top: 0; }
+.assembly-stage .frame .tr { right: 0; top: 0; }
+.assembly-stage .frame .bl { left: 0; bottom: 0; }
+.assembly-stage .frame .br { right: 0; bottom: 0; }
+
+.assembly-stage .frame-badge {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  translate: -50% 6px;
+  padding: 1px 6px 2px;
+  border-radius: 3px;
+  background: var(--select);
+  color: #fff;
+  font: 400 10px/1.3 var(--sl-font-mono);
+  white-space: nowrap;
+}
+
+.assembly-stage .frame.is-fill {
+  background: rgb(35 55 46 / 0.06);
+}
+
+.assembly-stage .frame.is-conflict {
+  --select: #c93c20;
+  background: rgb(201 60 32 / 0.08);
+}
+
+.assembly-stage .frame.is-bare i,
+.assembly-stage .frame.is-bare .frame-badge {
+  display: none;
+}
+
+.assembly-stage .frame.is-leaving,
+.assembly-stage .guide.is-leaving {
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+
+.assembly-stage .guide {
+  position: absolute;
+  width: 1px;
+  margin-left: -0.5px;
+  background: rgb(185 75 40 / 0.45);
+}
+
+.assembly-stage .guide.is-across {
+  width: auto;
+  height: 1px;
+  margin: -0.5px 0 0;
+}
+
+.assembly-stage .extension {
+  position: absolute;
+  background: repeating-linear-gradient(to bottom, #2b7999 0 3px, transparent 3px 6px);
+}
+
+.assembly-stage .extension.is-across {
+  background: repeating-linear-gradient(to right, #2b7999 0 3px, transparent 3px 6px);
+}
+
+.assembly-stage .align {
+  position: absolute;
+  background: #2b7999;
+  animation: assembly-flash 850ms ease forwards;
+}
+
+@keyframes assembly-flash {
+  0% { opacity: 0; }
+  15% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.assembly-stage .is-unbuilt {
+  visibility: hidden;
+}
+
+.assembly-stage .is-arriving {
+  animation: assembly-arrive 240ms ease-out;
+}
+
+@keyframes assembly-arrive {
+  from { opacity: 0; }
+}
+
+.assembly-stage .type-rest {
+  color: transparent;
+}
+
+.assembly-stage .type-caret {
+  display: none;
+  width: 2px;
+  height: 1.05em;
+  margin: 0 -1px;
+  vertical-align: -0.14em;
+  border-radius: 1px;
+}
+
+.assembly-stage .is-typing > .type-caret {
+  display: inline-block;
+}
+
+.assembly-stage .is-selected {
+  background: rgb(43 121 153 / 0.2);
+}
+
+@media (max-width: 780px) {
+  .sheet-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .assembly-stage .marks,
+  .assembly-stage .hands {
+    display: none;
+  }
+}

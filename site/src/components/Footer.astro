@@ -5,7 +5,31 @@ const BASE = import.meta.env.BASE_URL.replace(/\/+$/, '');
 const isJournal = /^ch[0-8A]$/.test(Astro.locals.starlightRoute.entry.id);
 ---
 
-{!isJournal && <><Default><slot /></Default>
+{!isJournal && <>
+<div class="observatory-colophon" aria-hidden="true">
+  <svg viewBox="0 0 1200 84" class="observatory-svg">
+    <g class="obs-grid">
+      <line x1="0" y1="68" x2="1200" y2="68" />
+      <line x1="0" y1="36" x2="1200" y2="36" stroke-dasharray="2 6" />
+      <path d="M120 60V76M360 64V72M600 56V78M840 64V72M1080 60V76" />
+    </g>
+    <g class="obs-section">
+      <path d="M480 68V42A120 40 0 0 1 720 42V68" />
+      <path d="M510 68V46A90 30 0 0 1 690 46V68" stroke-dasharray="3 4" />
+      <path d="M600 8V68" />
+      <path d="M600 32L648 12" />
+      <circle cx="600" cy="32" r="3" />
+      <circle cx="240" cy="36" r="14" />
+      <path d="M226 36H254M240 22V50" />
+      <circle cx="960" cy="36" r="10" />
+      <path d="M945 36H975" />
+    </g>
+    <text x="128" y="61">SECT. A-A / OBSERVATORY</text>
+    <text x="614" y="27">AZIMUTH 28°40′</text>
+    <text x="1072" y="61" text-anchor="end">DATUM BM +0.05 · FIELD STATION</text>
+  </svg>
+</div>
+<Default><slot /></Default>
 <p class="mt-llms">
   面向 AI / 爬虫：
   <a href={BASE + '/llms.txt'}>llms.txt</a>（章节索引）·
@@ -14,6 +38,46 @@ const isJournal = /^ch[0-8A]$/.test(Astro.locals.starlightRoute.entry.id);
 </>}
 
 <style>
+  .observatory-colophon {
+    --obs-line: var(--mt-line, rgba(35, 55, 46, 0.24));
+    --obs-ink: var(--sl-color-gray-3, #526052);
+    --obs-accent: var(--mt-accent, #78502d);
+    margin: 1.5rem 0 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--obs-line);
+    color: var(--obs-ink);
+  }
+  :global(html[data-theme='dark']) .observatory-colophon {
+    --obs-line: rgba(188, 212, 224, 0.22);
+    --obs-ink: #9eb9c4;
+    --obs-accent: #f0bc7b;
+    background: linear-gradient(180deg, rgba(16, 33, 43, 0.45), transparent);
+  }
+  .observatory-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 76px;
+  }
+  .obs-grid {
+    stroke: var(--obs-line);
+    stroke-width: 1;
+    fill: none;
+  }
+  .obs-section {
+    stroke: var(--obs-ink);
+    stroke-width: 1.15;
+    fill: none;
+  }
+  .obs-section circle {
+    stroke: var(--obs-accent);
+  }
+  .observatory-svg text {
+    font-family: var(--sl-font-mono, ui-monospace, monospace);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    fill: var(--obs-ink);
+  }
   .mt-llms {
     margin: 0.5rem 0 0;
     text-align: center;

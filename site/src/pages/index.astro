@@ -5,6 +5,7 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import home from '../generated/home.json';
 import CopyCommand from '../components/CopyCommand.astro';
 import MeadowHero from '../components/MeadowHero.astro';
+import AssemblyStage from '../components/AssemblyStage.astro';
 import { stages } from '../lib/stages';
 import { getLatestRelease, formatSize } from '../lib/release';
 import llmsTxt from '../generated/llms.txt?raw';
@@ -90,6 +91,19 @@ const agentFiles = [
           </div>
           <p class="mt-band-note">测试与质量保障（第 5 章）与验证同属一环</p>
         </header>
+        <svg class="mt-order-trace" viewBox="0 0 1200 28" aria-hidden="true">
+          <line class="trace-base" x1="40" y1="14" x2="1160" y2="14" />
+          <path class="trace-route" d="M40 14H226L250 8H418L442 20H620L644 14H826L850 9H1024L1048 14H1160" pathLength="1" />
+          <g class="trace-nodes">
+            <circle cx="40" cy="14" r="3" />
+            <circle cx="238" cy="11" r="2.5" />
+            <circle cx="430" cy="14" r="2.5" />
+            <circle cx="632" cy="17" r="2.5" />
+            <circle cx="838" cy="11.5" r="2.5" />
+            <circle cx="1036" cy="11.5" r="2.5" />
+            <circle cx="1160" cy="14" r="3" />
+          </g>
+        </svg>
         <nav class="mt-path" aria-label="推荐阅读顺序">
           <ol class="mt-path-list">
             {stages.map((s, i) => (
@@ -108,6 +122,8 @@ const agentFiles = [
         </nav>
       </div>
     </section>
+
+    <AssemblyStage />
 
     <div class="mt-split">
       <section aria-labelledby="mt-h-art">

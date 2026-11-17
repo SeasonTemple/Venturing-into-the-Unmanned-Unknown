@@ -7,6 +7,7 @@ export async function run({send,evaluate,until,pause,check,report}){
  check('production home has one approved painting, title and navigation',await evaluate('document.querySelectorAll(".landscape").length===1&&document.querySelectorAll("h1").length===1&&!document.querySelector(".page>.header")&&document.querySelector(".landscape-art").naturalWidth===1920&&document.querySelectorAll("site-search").length===1'));
  check('reading, ten chapters, install, releases and text indexes remain available',await evaluate('document.querySelectorAll("#chapters .mt-cell").length===10&&!!document.querySelector("[data-mt-cmd-copy]")&&[...document.querySelectorAll(".mt-rows a")].some(a=>a.href.endsWith("llms.txt"))&&!!document.querySelector(".read-link[href*=ch0]")'));
  check('unreviewed directional animation and old three.js hero are not loaded',await evaluate('!window.__meadowWalk&&!document.querySelector(".field-actor")&&!performance.getEntriesByType("resource").some(e=>/three\.|HeroScene|hero-gate|engineer-actions|meadow-walk/.test(e.name))'));
+ check('assembly workbench stays asleep at initial scroll position',await evaluate('!!document.getElementById("workbench-stage")&&!!window.__assemblyWorkbench&&!window.__assemblyWorkbench.stats().running&&window.__assemblyWorkbench.stats().frames===0'));
  await pause(500);const before=await evaluate('window.__meadowMotion.stats()');await pause(2000);const after=await evaluate('window.__meadowMotion.stats()');
  report.metrics.framePacing={framesInTwoSeconds:after.frames-before.frames,...after};
  check('desktop environment retains one draw and bounded texture sizes at a 30fps budget',after.frames>before.frames&&after.frames-before.frames<=Math.ceil((after.elapsed-before.elapsed)*30)+2&&after.targetFps<=30&&after.textureCount===3&&after.drawsPerFrame===1&&after.buffer[0]<=1152,report.metrics.framePacing);
@@ -99,6 +100,10 @@ export async function run({send,evaluate,until,pause,check,report}){
  check('control-strip alternative completes comparison without pointer hotspots',await evaluate('window.__meadowStation.stats().clue&&window.__meadowStation.stats().findings.length===2'));
  await evaluate('window.__meadowStation.close();document.getElementById("chapters").scrollIntoView({behavior:"instant"})');await pause(180);const offscreen=await evaluate('window.__meadowMotion.stats().frames');await pause(180);
  check('scrolling past the scene suspends environment draws',await evaluate(`window.__meadowMotion.stats().frames===${offscreen}&&!window.__meadowMotion.stats().running`));
+ await evaluate('document.getElementById("workbench-stage").scrollIntoView({behavior:"instant",block:"center"})');await pause(450);
+ check('assembly workbench starts building once scrolled into view',await evaluate('window.__assemblyWorkbench.stats().mounted&&window.__assemblyWorkbench.stats().frames>0'),await evaluate('window.__assemblyWorkbench.stats()'));
+ await evaluate('document.querySelector("[data-assembly-toggle]").click()');await pause(120);const wbPaused=await evaluate('window.__assemblyWorkbench.stats().frames');await pause(160);
+ check('assembly pause button freezes assembly clock frames',await evaluate(`!window.__assemblyWorkbench.stats().running&&window.__assemblyWorkbench.stats().frames===${wbPaused}`));
  await evaluate('window.scrollTo({top:0,behavior:"instant"})');await pause(100);
  // Sustained work in this owned test page exercises automatic load shedding.
  // This never runs in the production module or the user's browser tab.
@@ -114,6 +119,7 @@ export async function run({send,evaluate,until,pause,check,report}){
  await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});await send('Page.navigate',{url});await until('!!window.__meadowMotion');
  const reduced=await evaluate('window.__meadowMotion.stats().frames');await pause(200);
  check('reduced motion leaves a complete still scene',await evaluate(`!window.__meadowMotion.stats().running&&window.__meadowMotion.stats().frames===${reduced}`));
+ check('reduced motion leaves assembly workbench static with finished copy',await evaluate('window.__assemblyWorkbench.stats().frames===0&&document.querySelector("#workbench-stage .sheet-title").textContent.includes("先锁可证伪性质")'));
  await send('Emulation.setScriptExecutionDisabled',{value:true});await send('Page.navigate',{url});await pause(250);
  check('without JavaScript the full painting, reading and chapters remain',await evaluate('document.querySelector(".landscape-art").naturalWidth===1920&&document.querySelectorAll("#chapters .mt-cell").length===10&&document.querySelector("#enter-field").hidden&&!!document.querySelector(".read-link[href*=ch0]")'));
  await send('Emulation.setScriptExecutionDisabled',{value:false});await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'}]});
@@ -122,6 +128,9 @@ export async function run({send,evaluate,until,pause,check,report}){
  check('without WebGL station records and the original painting remain usable',await evaluate('document.querySelector(".landscape").dataset.motion==="fallback"&&window.__meadowStation.stats().observed&&document.querySelector(".landscape-art").src.includes("hero-v04")'));
  await send('Page.removeScriptToEvaluateOnNewDocument',{identifier:injected.identifier});
  check('no production homepage runtime errors',report.consoleErrors.length===0,report.consoleErrors);
+ const basePath=new URL(base).pathname;
+ const notFound=await evaluate(`(async()=>{const res=await fetch(${JSON.stringify(base+'/404.html')});const html=await res.text();return {status:res.status,hasWrap:html.includes('unmapped-wrap'),hasTitle:html.includes('未测绘扇区'),hasHome:html.includes(${JSON.stringify('href="'+basePath+'/"')}),hasCh0:html.includes(${JSON.stringify('href="'+basePath+'/ch0/"')})};})()`);
+ check('custom 404 survey page builds cleanly with navigation links',notFound.status===200&&notFound.hasWrap&&notFound.hasTitle&&notFound.hasHome&&notFound.hasCh0,notFound);
  if(process.argv.includes('--with-lifecycle'))await (await import('./home-lifecycle-checks.mjs')).run({send,evaluate,until,pause,check,report});
  if(process.argv.includes('--with-surface'))await (await import('./home-surface-checks.mjs')).run({send,evaluate,until,pause,check,report});
  if(process.argv.includes('--with-notebook'))await (await import('./home-notebook-checks.mjs')).run({send,evaluate,until,pause,check,report});

@@ -1,0 +1,62 @@
+---
+import '../styles/assembly.css';
+---
+<section id="workbench-section" class="assembly-workbench" aria-labelledby="workbench-heading">
+  <header class="assembly-head" data-mt-reveal>
+    <div>
+      <p class="mt-kicker"><span>02B</span> / Agent Workbench</p>
+      <h2 id="workbench-heading">多 Agent 契约组装与门禁拦截</h2>
+      <p class="assembly-lede">从明确意图与边界开始：多位分工 Agent 并行起草契约与校验性质；出现重复断言冲突时由门禁高亮拦截并当场消解。</p>
+    </div>
+    <div class="assembly-actions">
+      <span class="assembly-status" data-assembly-status role="status" aria-live="polite">就绪 · 进入视野后开始组装</span>
+      <button type="button" class="assembly-btn" data-assembly-toggle hidden>暂停演示</button>
+      <button type="button" class="assembly-btn" data-assembly-replay hidden>重新组装 ↻</button>
+    </div>
+  </header>
+
+  <div id="workbench-stage" class="assembly-stage" aria-label="多 Agent 证据工位组装演示">
+    <div class="show-sheet">
+      <div class="sheet-wrap" data-section>
+        <div class="sheet-bar" data-build="block">
+          <span class="sheet-id">SPEC-LOCK-01 / FENCING GATE</span>
+          <span class="sheet-tag">PASS · BOUNDED PROOF</span>
+        </div>
+        <div class="sheet-grid">
+          <div class="sheet-copy">
+            <p class="sheet-kicker" data-build="type">INTENT → CONTRACT → GATE EVIDENCE</p>
+            <h3 class="sheet-title" data-build="headline">先锁可证伪性质，再放行变更合入。</h3>
+            <p class="sheet-desc" data-build="type">写锁租约模型在 3 客户端与 2 轮时钟漂移边界内消除了旧主双写反例，并回补存储网关令牌契约与端到端回归。</p>
+            <div class="sheet-slots" data-build="slots">
+              <span class="sheet-slot">L1 真实路径</span>
+              <span class="sheet-slot">L2 租约模型</span>
+              <span class="sheet-slot">L3 令牌契约</span>
+              <span class="sheet-slot">L5 证据账本</span>
+            </div>
+          </div>
+          <div class="sheet-blueprint" data-build="block">
+            <svg viewBox="0 0 360 210" data-build="draw" aria-hidden="true">
+              <g data-hand="1">
+                <path d="M24 38H336M24 105H336M24 172H336" stroke="#47666d" stroke-width="0.9" pathLength="1" />
+                <path d="M90 22V188M270 22V188" stroke="#47666d" stroke-width="0.9" stroke-dasharray="3 5" pathLength="1" />
+              </g>
+              <g data-hand="2">
+                <path d="M48 74H178L192 105H286" stroke="#60bfc4" stroke-width="1.8" pathLength="1" />
+                <path d="M48 136H178L192 105" stroke="#c0cbc1" stroke-width="1.4" stroke-dasharray="4 4" pathLength="1" />
+              </g>
+              <g data-hand="3">
+                <path d="M256 76H316V134H256Z" stroke="#f0bc7b" stroke-width="1.8" pathLength="1" />
+                <path d="M270 105H302M286 89V121" stroke="#f0bc7b" stroke-width="1.6" pathLength="1" />
+              </g>
+              <text x="48" y="64">LEASE T1 · HOLDER A</text>
+              <text x="48" y="156">STALE EPOCH BLOCKED</text>
+              <text x="256" y="64">TOKEN GATE</text>
+            </svg>
+            <p class="sheet-bp-caption" data-build="skip">图谱 · 租约代次与单调令牌拦截路径</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>import '../scripts/assembly/stage-mount.mjs';</script>

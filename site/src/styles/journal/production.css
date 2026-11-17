@@ -189,8 +189,25 @@ body.field-journal:not(.focused) #production-journal #body{scroll-margin-top:44p
    element to block, which otherwise leaves sticky rails over the article. */
 #production-journal .reading-spread{display:grid;max-width:1580px;grid-template-columns:minmax(176px,220px) minmax(0,min(800px,72ch)) minmax(200px,260px);gap:clamp(28px,3.5vw,72px);justify-content:center}
 #production-journal .reading-column{width:100%;margin:0;min-width:0}
-#production-journal .chapter-lead{width:100%;margin:0;padding:34px 0 4px;font-size:1.2rem;line-height:1.75}
-#production-journal .chapter-lead p{margin:0}
+#production-journal #body{padding-top:20px}
+#production-journal .chapter-lead{position:relative;width:100%;margin:0;padding:18px 22px 20px;background:color-mix(in srgb,var(--rd-panel) 62%,transparent);border:1px solid var(--rd-line);border-left:2px solid var(--rd-copper);border-radius:0 4px 4px 0}
+#production-journal .chapter-lead::before{content:'CHAPTER BRIEF / 章首导言';display:block;margin-bottom:8px;font:10px/1.5 var(--rd-mono);letter-spacing:.14em;color:var(--rd-copper)}
+#production-journal .chapter-lead p{margin:0;font-family:'Noto Serif SC','Source Han Serif SC','Songti SC','SimSun',serif;font-size:clamp(1.05rem,1.15vw,1.18rem);line-height:1.88;letter-spacing:.015em;color:var(--rd-ink);text-wrap:pretty}
+html[data-theme=dark] #production-journal .chapter-lead{background:color-mix(in srgb,var(--rd-panel) 78%,transparent)}
+#production-journal .chapter-lead+.article-section{padding-top:36px}
+#production-journal #body>.article-section:first-child{padding-top:32px}
+#production-journal .field-plate .plate-select-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+#production-journal .field-plate .plate-select-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+#production-journal .layer-controls{display:flex;align-items:center;justify-content:flex-end;gap:14px;padding:12px 0 6px;border-bottom:1px solid #354c52}
+#production-journal .layer-spread-control{display:flex;align-items:center;gap:12px;font:11px/1.6 var(--rd-mono);color:#c0cbc1}
+#production-journal .layer-spread-range{width:132px;min-height:28px;accent-color:#f5cc86;cursor:pointer}
+#production-journal .layer-spread-value{min-width:34px;text-align:right;color:#f5cc86;font-variant-numeric:tabular-nums}
+#production-journal .layer-drawing .slice-mark{fill:none;stroke:#607c82;stroke-width:1;opacity:.72}
+#production-journal .layer-drawing .active-mark{fill:none;stroke:#f5cc86;stroke-width:1.5}
+#production-journal .plate-svg{display:block;width:100%;max-width:560px;margin:auto}
+#production-journal .plate-svg .plate-node{stroke:#6d898e;fill:#c0cbc1;font:11px var(--rd-mono);opacity:.72;transition:opacity .16s ease,stroke .16s ease,fill .16s ease}
+#production-journal .plate-svg .plate-node.is-active{stroke:#f5cc86;fill:#f5cc86;opacity:1}
+#production-journal .plate-svg .plate-node text{stroke:none}
 #production-journal .article-section{display:block;min-width:0}
 #production-journal .section-marker{padding:0 0 16px;border:0;margin:0}
 #production-journal .section-content{min-width:0;width:100%}
@@ -219,6 +236,10 @@ body.field-journal.focused #production-journal .reading-spread{display:block;max
 @keyframes frontier-dashes{to{stroke-dashoffset:-36}}
 #production-journal .survey-flat{display:none}
 @media(max-width:760px){
+ #production-journal #body{padding-top:16px}
+ #production-journal .chapter-lead{padding:15px 16px 17px}
+ #production-journal .chapter-lead+.article-section{padding-top:28px}
+ #production-journal .layer-spread-range{width:104px}
  #production-journal .chapter-travel{top:var(--reader-chrome-height,105px);padding-inline:24px;gap:10px}.chapter-travel strong{display:none}.chapter-travel a{font-size:11px}
  html[data-reader=journal]{scroll-padding-top:calc(var(--reader-chrome-height,105px) + 69px)}#production-journal .section-content :is(h2,h3,h4),#production-journal .article-section{scroll-margin-top:16px}#production-journal .section-content h2{scroll-margin-top:28px}body.field-journal:not(.focused) #production-journal #body{scroll-margin-top:44px}
  #production-journal .chapter-opening.survey-opening{height:auto;min-height:0;padding:28px 24px 24px}
@@ -234,7 +255,7 @@ body.field-journal.focused #production-journal .reading-spread{display:block;max
  #production-journal .section-content .expressive-code pre{font-size:.875rem}
 }
 @media(prefers-reduced-motion:reduce){.frontier-drift path,.survey-map .chapter-unresolved{animation:none}}
-@media print{#production-journal :is(.chapter-travel,.chapter-margin){display:none!important}#production-journal .reading-spread{display:block}}
+@media print{#production-journal :is(.chapter-travel,.chapter-margin){display:none!important}#production-journal .reading-spread{display:block}#production-journal .chapter-lead{background:none;border:0;border-left:2px solid black;border-radius:0;padding:8px 0 8px 16px}#production-journal .layer-controls{display:none}}
 
 .survey-flat .flat-boundary{animation:frontier-dashes 5s linear infinite;animation-play-state:var(--survey-header-play,paused)}
 @media(prefers-reduced-motion:reduce){.survey-flat .flat-boundary{animation:none}}
@@ -255,7 +276,7 @@ body.field-journal.over-survey #production-journal :is(.reader-chrome,.chapter-t
 @keyframes reader-leave{to{opacity:0}}
 @keyframes reader-arrive{from{opacity:0}to{opacity:1}}
 @media(prefers-reduced-motion:reduce){
- #production-journal :is(.reader-chrome,.chapter-travel),#production-journal .chapter-travel a>span,#production-journal .reader-chrome :is(button[aria-pressed=true],.running-title>span:first-child),#production-journal .travel-position,#production-journal .reader-chrome .brand span{transition:none}
+ #production-journal :is(.reader-chrome,.chapter-travel),#production-journal .chapter-travel a>span,#production-journal .reader-chrome :is(button[aria-pressed=true],.running-title>span:first-child),#production-journal .travel-position,#production-journal .reader-chrome .brand span,#production-journal .plate-svg .plate-node{transition:none}
  @view-transition{navigation:none}
  ::view-transition-old(root),::view-transition-new(root){animation:none}
 }

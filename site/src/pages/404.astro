@@ -1,0 +1,75 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import '../styles/unmapped-404.css';
+
+const BASE = import.meta.env.BASE_URL.replace(/\/+$/, '');
+---
+
+<StarlightPage
+  frontmatter={{
+    title: '404 · 未测绘扇区',
+    description: '当前访问的坐标不在已测绘章节范围内。',
+    template: 'splash',
+    editUrl: false,
+    lastUpdated: false,
+  }}
+>
+  <section class="unmapped-wrap not-content" aria-labelledby="unmapped-title">
+    <div class="unmapped-grid">
+      <div>
+        <p class="unmapped-kicker">UNMAPPED SECTOR / 404</p>
+        <h1 id="unmapped-title">坐标超出已测绘边界。</h1>
+        <p class="unmapped-desc">这里还没有铺设经纬标桩或验证记录。你可以返回原野观测站首页，或直接从导论章节重新进入已知路线。</p>
+        <nav class="unmapped-links" aria-label="站点返回导航">
+          <a class="unmapped-btn is-primary" href={BASE + '/'}>返回原野观测站 ↗</a>
+          <a class="unmapped-btn" href={BASE + '/ch0/'}>阅读 00 · 导论 →</a>
+        </nav>
+      </div>
+      <div class="unmapped-chart" aria-hidden="true">
+        <svg viewBox="0 0 300 230">
+          <g fill="none" stroke="#47666d" stroke-width="0.9">
+            <circle cx="150" cy="115" r="34" />
+            <circle cx="150" cy="115" r="64" stroke-dasharray="4 5" />
+            <circle cx="150" cy="115" r="92" />
+            <path d="M24 115H276M150 18V212" opacity="0.6" />
+          </g>
+          <g class="unmapped-bearing" id="unmapped-needle">
+            <path d="M150 115L204 68" stroke="#f0bc7b" stroke-width="1.8" stroke-linecap="round" />
+            <circle cx="150" cy="115" r="4" fill="#f0bc7b" />
+            <circle cx="204" cy="68" r="3" fill="#10212b" stroke="#f0bc7b" stroke-width="1.4" />
+          </g>
+          <text x="16" y="22">SURVEY DATUM · MISSING STATION</text>
+          <text x="16" y="218">404 / OUTSIDE KNOWN ROUTE</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+  <script>
+    (() => {
+      const needle = document.getElementById('unmapped-needle');
+      const wrap = document.querySelector('.unmapped-wrap');
+      if (!needle || !wrap) return;
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches || !matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+      let cur = 0, target = 0, raf = 0;
+      const tick = () => {
+        cur += (target - cur) * 0.14;
+        needle.setAttribute('transform', `rotate(${cur.toFixed(2)} 150 115)`);
+        if (Math.abs(target - cur) > 0.08) raf = requestAnimationFrame(tick);
+        else { cur = target; raf = 0; }
+      };
+      wrap.addEventListener('pointermove', (e) => {
+        const svg = needle.ownerSVGElement;
+        if (!svg) return;
+        const r = svg.getBoundingClientRect();
+        const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+        const deg = (Math.atan2(e.clientY - cy, e.clientX - cx) * 180) / Math.PI + 41;
+        target = Math.max(-50, Math.min(50, ((deg + 540) % 360) - 180));
+        if (!raf) raf = requestAnimationFrame(tick);
+      });
+      wrap.addEventListener('pointerleave', () => {
+        target = 0;
+        if (!raf) raf = requestAnimationFrame(tick);
+      });
+    })();
+  </script>
+</StarlightPage>

@@ -1,5 +1,6 @@
 import { createReaderAtmosphere } from './reader-atmosphere.mjs';
 import { createLayerPlate } from './layer-plate.mjs';
+import { createBoundaryPlate, createGatePlate } from './chapter-plates.mjs';
 import { getReadingStart, setupChapterArrival } from './chapter-arrival.mjs';
 
 const host=document.getElementById('production-journal');
@@ -38,12 +39,19 @@ function init(){
     [/形式化验证|模型检查/,'尺度 / 阅读辅助','模型是一张有取舍的地图。','留意状态空间省略了什么，以及这些省略会影响哪些性质。'],
     [/工程实例|简洁实例/,'实例 / 阅读辅助','沿着一把锁，追到证据的来处。','把性质、模型、实现与回归联系起来；这张阅读页没有实际运行任何验证。'],
   ];
+  function attachPlate(section,plate){const heading=section.querySelector('h2');(heading.parentElement===section.querySelector('.section-content')?heading:heading.parentElement).after(plate);}
   if(chapter.title==='验证')for(const s of sections){
     const title=s.querySelector('h2').textContent;
     const aid=aids.find(([pattern])=>pattern.test(title));if(!aid)continue;
     const note=document.createElement('aside');note.className='section-note field-note';note.setAttribute('aria-label','阅读辅助批注');
     const label=document.createElement('span');label.className='note-label';label.textContent=aid[1];const strong=document.createElement('strong');strong.textContent=aid[2];const p=document.createElement('p');p.textContent=aid[3];note.append(label,strong,p);s.append(note);
-    if(/分层验证模型|分层模型/.test(title)){const heading=s.querySelector('h2');(heading.parentElement===s.querySelector('.section-content')?heading:heading.parentElement).after(createLayerPlate());}
+    if(/分层验证模型|分层模型/.test(title))attachPlate(s,createLayerPlate());
+  } else if(chapter.title==='设计与架构'){
+    const target=sections.find(s=>/结构防错/.test(s.querySelector('h2').textContent));
+    if(target)attachPlate(target,createBoundaryPlate());
+  } else if(chapter.title==='集成与交付'){
+    const target=sections.find(s=>/四级门禁/.test(s.querySelector('h2').textContent));
+    if(target)attachPlate(target,createGatePlate());
   }
   function marginNote(index){
     const destination=$('margin-note');destination.replaceChildren();

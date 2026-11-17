@@ -30,6 +30,8 @@ export async function run({send,evaluate,until,pause,check,report}){
   const texts=await evaluate('Array.from(document.querySelectorAll(".field-plate button"),b=>b.textContent)');
   await evaluate('document.querySelectorAll(".field-plate button")[4].click()');
   check('layer plate changes the selected evidence layer',await evaluate('document.querySelectorAll(".field-plate button")[4].getAttribute("aria-selected")==="true"||document.querySelectorAll(".field-plate button")[4].getAttribute("aria-pressed")==="true"'),texts);
+  check('chapter lead brief keeps compact vertical spacing and eyebrow',await evaluate('(()=>{const lead=document.querySelector(".chapter-lead"),first=document.querySelector("#body .article-section");return !!lead&&!!first&&first.getBoundingClientRect().top-lead.getBoundingClientRect().bottom<60&&getComputedStyle(lead,"::before").content.includes("章首导言");})()'));
+  check('layered-svg spread slider adjusts slice separation without canvas',await evaluate('(()=>{const range=document.querySelector(".layer-spread-range"),slice=document.querySelector("[data-slice=\\"5\\"]");if(!range||!slice)return false;const before=slice.getAttribute("transform");range.value="95";range.dispatchEvent(new Event("input",{bubbles:true}));return !document.querySelector("canvas")&&slice.getAttribute("transform")!==before;})()'));
   await evaluate('document.getElementById("open-navigation").click()');
   check('chapter dialog opens with ten working canonical chapter links',await evaluate('document.getElementById("navigation").open&&document.querySelectorAll("#book-panel a").length===10'));
   await evaluate('document.getElementById("outline-tab").click()');
@@ -90,6 +92,10 @@ export async function run({send,evaluate,until,pause,check,report}){
   await send('Page.addScriptToEvaluateOnNewDocument',{source:'const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(t,...args){return /webgl/i.test(t)?null:original.call(this,t,...args)};'});
   await send('Page.navigate',{url:`${base}/ch1/`});await until('window.__readingStudy?.ready');await until('window.__readingStudy.artwork.status!=="loading"');
   check('reader is fully independent of WebGL support',await evaluate('window.__readingStudy.artwork.mode==="shared-poster"&&document.getElementById("body").textContent.length>1000&&getComputedStyle(document.querySelector("#chapter-art svg")).visibility!=="hidden"&&!document.querySelector("canvas")'));
+  for(const slug of ['ch2','ch6']){
+    await send('Page.navigate',{url:`${base}/${slug}/`});await until('window.__readingStudy?.ready');
+    check(`${slug} mounts interactive vector plate without WebGL`,await evaluate('(()=>{const buttons=document.querySelectorAll(".field-plate button");if(buttons.length<3)return false;buttons[1].click();return !document.querySelector("canvas")&&buttons[1].getAttribute("aria-pressed")==="true";})()'));
+  }
   await (await import('./reader-experience-checks.mjs')).run({send,evaluate,until,pause,check,report});
   await (await import('./reader-chrome-checks.mjs')).run({send,evaluate,until,pause,check,report});
   await (await import('./chapter-arrival-checks.mjs')).run({send,evaluate,until,pause,check,report});

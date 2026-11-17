@@ -15,6 +15,7 @@ export default defineConfig({
       title: cfg.title_zh,
       favicon: '/favicon-survey.svg',
       description: cfg.title,
+      disable404Route: true,
       defaultLocale: 'root',
       locales: { root: { label: '简体中文', lang: 'zh-CN' } },
       social: [{ icon: 'github', label: 'GitHub', href: GITHUB_URL }],
