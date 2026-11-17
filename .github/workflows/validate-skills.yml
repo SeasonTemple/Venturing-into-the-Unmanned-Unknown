@@ -183,7 +183,7 @@ jobs:
 
           readme = open("README.md", encoding="utf-8").read()
           found = re.findall(r"版本[：:]\s*\*\*(v?[0-9][^*\s]*)\*\*", readme)
-          badge = re.findall(r"badge/version-(v?[0-9][0-9.]*)-", readme)
+          badge = [v.replace("--", "-") for v in re.findall(r"badge/version-(v?[0-9][0-9.]*(?:--[0-9A-Za-z.]+)*)-", readme)]
           if not found:
               print("::error file=README.md::no version marker like '版本：**v0.0.1**' found")
               sys.exit(1)

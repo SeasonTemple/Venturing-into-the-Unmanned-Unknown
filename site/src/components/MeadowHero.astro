@@ -1,8 +1,12 @@
 ---
 import Search from '@astrojs/starlight/components/Search.astro';
+import cfg from '../../../book.config.json';
 const {firstHref}=Astro.props;
 const base=import.meta.env.BASE_URL.replace(/\/+$/,'');
 const media=base+'/meadow/';
+const verification=cfg.chapters.find(c=>c.skill==='ai-native-sdlc-verification');
+if(!verification)throw new Error('Missing verification chapter');
+const verificationHref=base+'/ch'+verification.order+'/';
 ---
 <section class="landscape" aria-labelledby="book-title" data-media-base={media}>
   <div class="art-surface">
@@ -47,7 +51,7 @@ const media=base+'/meadow/';
     <div class="field-status-wrap"><p id="field-status" role="status" aria-live="polite"></p><p id="field-progress" hidden></p></div>
     <div class="field-buttons"><button id="field-action" type="button" aria-controls="field-note">查阅旧记录</button><button id="field-reread" type="button" hidden>重读旧记录</button><button id="field-reading" type="button" aria-haspopup="dialog" aria-controls="field-notebook">翻开手记</button><button id="field-exit" type="button">回到首屏</button></div>
   </div>
-  <dialog id="field-notebook" class="field-notebook" aria-labelledby="notebook-title" data-chapter-url={base+'/ch3/'}>
+  <dialog id="field-notebook" class="field-notebook" aria-labelledby="notebook-title" data-chapter-url={verificationHref}>
     <header class="notebook-heading"><div><p class="eyebrow">原野观测站 · 随行记录</p><h2 id="notebook-title">随身手记</h2></div><form method="dialog"><button type="submit" autofocus>合上，回到现场 ×</button></form></header>
     <nav class="notebook-carriers" aria-label="记录载体"><button type="button" id="notebook-human" aria-pressed="true">随身手记</button><button type="button" id="notebook-agent" aria-pressed="false">设备资料档案</button></nav>
     <div class="notebook-spread">

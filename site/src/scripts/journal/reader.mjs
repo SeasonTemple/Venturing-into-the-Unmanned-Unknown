@@ -28,17 +28,17 @@ function init(){
   for(const table of article.querySelectorAll('table')){const wrap=document.createElement('div');wrap.className='table-scroll';wrap.tabIndex=0;wrap.setAttribute('role','region');wrap.setAttribute('aria-label','可横向滚动的章节表格');table.before(wrap);wrap.append(table);}
   // Editorial aids attach by subject, since upstream chapters may gain sections.
   const aids=[
-    [/分层验证模型/,'观察 / 阅读辅助','一道光，照不见全部层次。','每种证据回答不同的问题。一层通过，不能代替其余层的检查。'],
+    [/分层模型/,'观察 / 阅读辅助','一道光，照不见全部层次。','每种证据回答不同的问题。一层通过，不能代替其余层的检查。'],
     [/规格歧义/,'边界 / 阅读辅助','通过检查的，也可能是错误的解释。','把尚未表达的条件带回规格。检查结果的适用范围，取决于已写下的问题。'],
     [/模型检查/,'尺度 / 阅读辅助','模型是一张有取舍的地图。','留意状态空间省略了什么，以及这些省略会影响哪些性质。'],
     [/简洁实例/,'实例 / 阅读辅助','沿着一把锁，追到证据的来处。','把性质、模型、实现与回归联系起来；这张阅读页没有实际运行任何验证。'],
   ];
-  if(chapter.slug==='ch3')for(const s of sections){
+  if(chapter.title==='验证')for(const s of sections){
     const title=s.querySelector('h2').textContent;
     const aid=aids.find(([pattern])=>pattern.test(title));if(!aid)continue;
     const note=document.createElement('aside');note.className='section-note field-note';note.setAttribute('aria-label','阅读辅助批注');
     const label=document.createElement('span');label.className='note-label';label.textContent=aid[1];const strong=document.createElement('strong');strong.textContent=aid[2];const p=document.createElement('p');p.textContent=aid[3];note.append(label,strong,p);s.append(note);
-    if(/分层验证模型/.test(title)){const heading=s.querySelector('h2');(heading.parentElement===s.querySelector('.section-content')?heading:heading.parentElement).after(createLayerPlate());}
+    if(/分层模型/.test(title)){const heading=s.querySelector('h2');(heading.parentElement===s.querySelector('.section-content')?heading:heading.parentElement).after(createLayerPlate());}
   }
   function marginNote(index){
     const destination=$('margin-note');destination.replaceChildren();
